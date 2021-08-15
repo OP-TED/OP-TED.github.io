@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../..">
+                <img src="../../_/img/EU_Publications_Office_TED_logo.svg" class="logo" />
+                TED Developer Documentation
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="../..">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="#">TED API</a>
+    <a class="navbar-item" href="#">eProcurement Ontology</a>
+    <a class="navbar-item" href="#">European Single Procurement Document</a>
+  </div>
+</div>
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+<div class="navbar-item">
+  <span class="control">
+    <a class="button is-primary" href="https://github.com/OP-TED/eForms-SDK/releases">Download</a>
+  </span>
+</div>            </div>
+        </div>
+    </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="2.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <div class="context">
+    <span class="title">ESPD EDM</span>
+    <span class="version">2.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../dev-docs/index.html">Developer Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dev-docs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eforms-docs/0.2.1/index.html">eForms SDK Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../eforms-docs/0.2.1/index.html">0.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../EPO/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../3.0.0/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../3.0.0/index.html">3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.2/index.html">1.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.1/index.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../dev-docs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.1.0</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../3.0.0/index.html">3.0.0</a>
+    <a class="version is-missing" href="../2.1.1/index.html">2.1.1</a>
+    <a class="version is-current" href="VIII.6.2_SELFCONTAINED_Economic_Operator_Party.html">2.1.0</a>
+    <a class="version is-missing" href="../2.0.2/index.html">2.0.2</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.2/index.html">1.0.2</a>
+    <a class="version is-missing" href="../1.0.1/index.html">1.0.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect2">
+<h3 id="_vii_6_2_self_contained_economic_operator_party"><a class="anchor" href="#_vii_6_2_self_contained_economic_operator_party"></a>VII.6.2 Self-contained economic operator party</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The value expected for the EO identifier is of type <code>Identifier</code>. For the identifier of the EO it is also required to specify the type of identifier, and a closed list of possible types is proposed. EOs must use one of the available values, but the preferred one is the VAT number. Beware that the data structure does not keep the type of the identifier. This is because the this type code is placed in the attribute <code>@schemeID</code> of the <code>cac:ResponseValue/cbc:ResponseID</code> element (and the <code>@schemeAgencyID</code> attribute must be set to the default <code>EU-COM-GROW</code>). See the information requirement about the identifiers of the economic operators at the beginning of the section. See also next sections about the responses, XSD schemas and XML example.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_mock_up_selfcontained_economic_operator"><a class="anchor" href="#_mock_up_selfcontained_economic_operator"></a>Mock-up (SELFCONTAINED economic operator)</h4>
+<div class="paragraph">
+<p>The figure below shows a possible mock-up with the information required related to the economic operator in the case of the <strong>SELF-CONTAINED</strong> ESPD Response.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Self-contained_Economic_Operator_Mock-up.png" alt="Economic operator - mock-up">
+</div>
+<div class="title">Figure 1. Economic operator - mock-up (SELF-CONTAINED)</div>
+</div>
+<div class="paragraph">
+<p>As you will see next, the information required about the economic operators varies depending on several factors:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Is the economic operator a sole trader or does it belong to a group?</p>
+</li>
+<li>
+<p>If it belongs to a group, is the economic operator the leader of the group, a member or another entity (see the different types of 'roles' below);</p>
+</li>
+<li>
+<p>Does the economic operator rely on other entities to fulfill the selection criteria?</p>
+</li>
+<li>
+<p>Is the procurement procedure divided into lots?</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>One relevant aspect is the <strong>Role</strong> of the economic operator. The ESPD-EDM V2.1.0 defines four different roles for the EO. The information to be provided by each role varies depending on whether the EO is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Sole contractor / Lead entity</strong>: Sole entity or, in case of Consortium, Joint Venture or other types of groups, the leader of the group. In this case:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The sole contractor or leader will have to produce a complete ESDP;</p>
+</li>
+<li>
+<p>The sole contractor or leader will also have to identify the rest of the procurers (in the case of a group);</p>
+</li>
+<li>
+<p>The sole contractor or leader will have to identify the entities upon which it relies (and about those on which the entities it relies on rely).</p>
+</li>
+<li>
+<p>The sole contractor or leader will have to identify the entities upon which it does not relies.</p>
+</li>
+<li>
+<p>The sole contractor or leader will have to specify the subcontracted proportion of the group (in the selection criteria "Subcontracted Proportion" of the ESPD).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Group member</strong>:	 Member (not leader) of the Consortium, Joint Venture or other type of group. In this case:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The member of the group will have to produce a complete ESPD;</p>
+</li>
+<li>
+<p>The member of the group does not have to identify the rest of the procurers or entities.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other entity (relied upon)</strong>:	Entity on which the main contractor, the group or another subcontractor relies in order to meet the selection criteria. In this case:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The entity will have to produce an ESPD;</p>
+</li>
+<li>
+<p>The entity will not have have to identify the rest of the procurers or entities. Beware that an entity could have again another entity which it relies on or a a sub-contractor: in this case those entities and sub-contractors will have also to produce their own ESPD Response.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other entity (not relied upon)</strong>:	Entity on which the main contractor, the group or another subcontractor does not rely in order to meet the selection criteria. In this case:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The entity will have to produce an ESPD, too;</p>
+</li>
+<li>
+<p>The entity does not have to provide information about the selection criteria;</p>
+</li>
+<li>
+<p>The entity does not have to provide information about the reduction of the number of qualified candidates <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="_the_simplest_case"><a class="anchor" href="#_the_simplest_case"></a>The simplest case</h5>
+<div class="paragraph">
+<p>The simplest case is when:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The economic operator (EO) is a sole contractor</p>
+</li>
+<li>
+<p>The EO does not rely on other entities</p>
+</li>
+<li>
+<p>The procurement procedure is not divided into lots</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Notice the following</strong>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Sole contractor</strong>. We know that the EO is a sole contractor when:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The role specified is 'Sole contractor / Lead entity' (first field of the mock-up); and (circle #1)</p>
+</li>
+<li>
+<p>The EO states that it does not participate together with others; and (circle #24)</p>
+</li>
+<li>
+<p>The EO states that it does not participate in a group (last field of the mock-up); (circle #25)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Not an SME</strong>. The EO is a large company (circles #13-#15). The definition of what is an SME is provided in the <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32003H0361">EU recommendation 2003/361</a><sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>. Notice that, differently to the <strong>REGULATED</strong> version, the <strong>SELF-CONTAINED</strong> version asks for the number of employees and turnover. This can be used by the software applications to validate the consistency of the data provided by the EO with the definition. By the way, these data are all placed in the <code>cac:QualifyingParty</code> element. See the XSD diagrams above the and the XML example below for details on the use of the <code>cac:QualifyingParty</code> and sub-components.</p>
+</li>
+<li>
+<p><strong>No lots</strong>. The software application GUI should not show any information about Lots if the procurement procedure is not divided into Lots. This information is available in the ESPD Request.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_sheltered_workshop"><a class="anchor" href="#_sheltered_workshop"></a>Sheltered workshop</h5>
+<div class="paragraph">
+<p>For this case the <strong>SELF-CONTAINED</strong> version works identically as the <strong>REGULATED</strong> version. If the economic operator answers <strong>Yes</strong> the fields about the 'percentage of disabled/disadvantaged workers and the category of handicap to which they belong to should shown, validated or processed (see mock-up for the <strong>REGULATED</strong> version in section <a href="#vii-5-1-regulated-economic-operator-party">VIII.5.1 Regulated economic operator party</a>. For this purpose the <strong>REGULATED</strong> and the <strong>SELF-CONTAINED</strong> data structures are identical:</p>
+</div>
+<div class="paragraph">
+<p><strong>Data structure for a sheltered workshop or social business in case of reserved procurement</strong>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-SHELTERED_DS.png" alt="Sheltered workshop - data structure">
+</div>
+<div class="title">Figure 2. Sheltered workshop or social business - data structure</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_eo_registered_in_a_prequalification_system_pqs"><a class="anchor" href="#_eo_registered_in_a_prequalification_system_pqs"></a>EO registered in a (Pre)Qualification System (PQS)</h5>
+<div class="paragraph">
+<p>One of the questions asked is whether the economic operator is registered on an official list (e.g. on a national Pre-Qualification System). In the case the EO answers <strong>Yes</strong>, the software application should ask the EO for this other data about which the evaluators may be interested in (see mock-up, circles #17-#21).</p>
+</div>
+<div class="paragraph">
+<p>Beware that the (pre)qualification system the EO is registered on must be know by the software application. One proposal is that each (pre)qualification systems is perfectly identified and registered in e-Certis so the applications can use it and trust it (and even download certificates from it) <sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>. However if this were not possible (because e-Certis does not implement this timely, for example), the data structure for the PQS provides an alternative field to keep the name of the (pre)qualification system; see data structure below.</p>
+</div>
+<div class="paragraph">
+<p>In case the EO is registered on several pre-qualification systems, the EO will need to choose the one that applies to this particular procurement procedure. The EO will also be required to provide the identification of the EO in the selected pre-qualification system.</p>
+</div>
+<div class="paragraph">
+<p><strong>Data structure for the (pre)qualification of the economic operator by an official list or similar</strong>:</p>
+</div>
+<div class="paragraph">
+<p>The elements in the data structure for this <strong>SELF-CONTAINED</strong> version are different to the <strong>REGULATED</strong> one. Notice that int the <strong>SELF-CONTAINED</strong> version:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The identifier assigned by the (pre)qualification system to the economic operator is required. This value however is placed in the element <code>cac:QualifyingParty/cac:Party/cac:PartyIdentification/cbc:ID</code> and therefore is not required in the data structure.</p>
+</li>
+<li>
+<p>The name of an alternative or additional (pre)qualification system (PQS) can also be provided by the EO. In principle this is not necessary as the PQS identifier is the value of the attribute <code>@schemeAgencyID</code> of the element <code>cbc:ID</code>.</p>
+</li>
+<li>
+<p>The rest of the data are the same as for the <strong>REGULATED</strong> version: references, classifications and the scope of the registration in respect of the selection criteria of the procurement procedure.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-PQS_DS.png" alt="(Pre)qualification-related data structure">
+</div>
+<div class="title">Figure 3. Pre-qualification-related data structure</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_lots_contracting_authority_perspective"><a class="anchor" href="#_lots_contracting_authority_perspective"></a>Lots (contracting authority perspective)</h5>
+<div class="paragraph">
+<p>The economic operator should be able to specify to which Lots it tenders. Thus, if the procurement procedure is divided into Lots, the software application should show the list with all the Lots the contracted authority (CA) specified for the economic operator select one or more Lots. See the section <a href="#iii-10-lots-selfcontained-espd">III.10 Lots - Self-contained ESPD</a> for details on how the CA specifies Lots.  The mock-up below shows the requirements established by the contracting authorities about the Lots of the procurement procedure.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Lots-Selfcontained.png" alt="Lots-Selfcontained ESPD">
+</div>
+<div class="title">Figure 4. Selection of Lots by the CA, mock-up</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_lots_economic_operator_perspective"><a class="anchor" href="#_lots_economic_operator_perspective"></a>Lots (economic operator perspective)</h5>
+<div class="paragraph">
+<p>The economic operator should then be able to select the Lots it will tender to. However the software application should control that the requirements established by the contracting authority (CA) are respected. Thus, for example, if the CA established that the economic operator can only tender to one lot the application should block the economic operator from selecting more than one lot.</p>
+</div>
+<div class="paragraph">
+<p><strong>Data structure for the Lots to which the economic operator tenders to</strong>:</p>
+</div>
+<div class="paragraph">
+<p>Observe that the difference with the <strong>REGULATED</strong> version is that in the <strong>SELF-CONTAINED</strong> the Lots are a list of multiple identifiers (cardinality 1..n) instead of a free-text field.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-Lots_DS.png" alt="Lots tendered">
+</div>
+<div class="title">Figure 5. Lots tendered, data structure</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_roles_of_the_economic_operator"><a class="anchor" href="#_roles_of_the_economic_operator"></a>Roles of the economic operator</h5>
+<div class="paragraph">
+<p>Depending on its role the data that the economic operator (EO) will have to provide is different. In this example (see mock-up):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The EO is the Leader of a Consortium it also had to select <strong>Yes</strong> to the question on whether it participates in a group. To this the software application reacts displaying a new field for the EO to provide the name of the Consortium (the rest of the members and entities related to this Consortium will have also to provide <strong>exactly</strong> the same name in their ESPDs).</p>
+</li>
+<li>
+<p>As it is the Leader this EO will have to identify the rest of procurers and entities. The rest of members and entities participating in the tender shall not be requested to provide this information.</p>
+</li>
+<li>
+<p>The Leader will also have to identify the entities it relies on and on those it does not rely on (this would also the case for the Sole Contractor). See the two next mock-ups below for the data to be provided on these two entities.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Data structure to identify the rest of the EOs that are members of the group</strong>:</p>
+</div>
+<div class="paragraph">
+<p>In the <strong>SELF-CONTAINED</strong> version the Lead entity of a group must identify the rest of economic operators that participate in the group. See the rest of the mock-ups and data structure below to see how, additionally, it also identifies other entities (e.g. sub-contractors).</p>
+</div>
+<div class="paragraph">
+<p>Notice that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The data required here is different from the data required in the <strong>REGULATED</strong> version: name, identifier and activity of the EO.</p>
+</li>
+<li>
+<p>The values expected for the name and activity are texts.</p>
+</li>
+<li>
+<p>The value expected for the EO identifier is of type <code>Identifier</code>. For the identifier of the EO it is also required to specify the type of identifier, and a closed list of possible types is proposed (see Code List <a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/cl/ods/ESPD-CodeLists-V2.1.0.ods">EOIDType</a>. EOs must use one of the available codes, but the preferred one is the VAT number. Beware that the data structure does not keep the type of the identifier. This is because this type code is placed in the attribute <code>@schemeName</code> of the <code>cac:ResponseValue/cbc:ResponseID</code> element (and the <code>@schemeAgencyID</code> attribute must be set to the default <code>EU-COM-GROW</code>). See information requirements at the beginning of the section. See also next sections about the responses, XSD schemas and XML example.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-GROUPS_DS.png" alt="Lots tendered">
+</div>
+<div class="title">Figure 6. Lots tendered, data structure</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_certificates_about_contributions_to_the_tax_agency_andor_social_security"><a class="anchor" href="#_certificates_about_contributions_to_the_tax_agency_andor_social_security"></a>Certificates about contributions to the Tax Agency and/or Social Security</h5>
+<div class="paragraph">
+<p><strong>Data structure for the certificates about contributions to the Tax Agency and/or Social Security</strong>:</p>
+</div>
+<div class="paragraph">
+<p>This data structure is identical to the <strong>REGULATED</strong> version, see circles #22 and #23 in the mock-up above).</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-Contributions_DS.png" alt="Contributions certificates - data structure">
+</div>
+<div class="title">Figure 7. Contributions certificates</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_mock_up_information_about_reliance_on_the_capacities_of_the_other_entities"><a class="anchor" href="#_mock_up_information_about_reliance_on_the_capacities_of_the_other_entities"></a>Mock-up: Information about reliance on the capacities of the other entities</h5>
+<div class="paragraph">
+<p>As explained above, the Sole contractor or the Leader of a group will have to provide information about the entities it relies on in order to meet the selection criteria. The mock-up below shows the set of data the ESPD-EDM V2.1.0 expects from this role. Remember that this information does not need to be supplied by the members of a group or other entities.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Subcontractor_relied_on_mockup.png" alt="EO Roles-entities relied on" width="600">
+</div>
+<div class="title">Figure 8. EO Roles-entities relied on, mock-up</div>
+</div>
+<div class="paragraph">
+<p><strong>Data structure for the entities upon which the EO relies on</strong>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-RELIED_ON-ENTITIES_DS.png" alt="Relied on entities - data structure">
+</div>
+<div class="title">Figure 9. Relied on entities - data structure</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_mock_up_information_about_third_parties_on_which_the_eo_does_not_rely_on"><a class="anchor" href="#_mock_up_information_about_third_parties_on_which_the_eo_does_not_rely_on"></a>Mock-up: Information about third parties on which the EO does not rely on</h5>
+<div class="paragraph">
+<p>The Sole contractor or the Leader of a group will have also to provide information about subcontractors on whose capacity the economic operator does not rely. Remember that this information does not need to be supplied by the members of a group or other entities.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Subcontractor_not_relied_on_mockup.png" alt="EO Roles-entities not relied on" width="600">
+</div>
+<div class="title">Figure 10. EO Roles-entities not relied on, mock-up</div>
+</div>
+<div class="paragraph">
+<p><strong>Data structure for the entities upon which the EO does not relies on</strong>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_OTHER-EO-NOT_RELIED_ON-ENTITIES_DS.png" alt="Not relied on entities - data structure">
+</div>
+<div class="title">Figure 11. Not relied on entities - data structure</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. The Annex 2 of the <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:JOL_2016_003_R_0004">Commission Implementing Regulation (EU) No 2016/7</a> refers to these two as Part IV and Part V
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. The Commission is preparing for an <a href="http://ec.europa.eu/growth/smes/business-friendly-environment/sme-definition_en">evaluation and possible revision</a> of some aspects of the SME Definition. A public consultation on the topic will be launched soon.
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. This is part of the schema envisioned in the Once Only Principle
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The <b>eForms SDK</b> is created by the Publications Office of the European Union and is licensed under the terms of <a href="https://github.com/OP-TED/eForms-SDK/blob/main/LICENSE">EUPL-1.2 license</a>.
+  <br/>This page was built using the Antora default UI. The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/EU_Publications_Office_logo_with name.png" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>

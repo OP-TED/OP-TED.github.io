@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../..">
+                <img src="../../_/img/EU_Publications_Office_TED_logo.svg" class="logo" />
+                TED Developer Documentation
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="../..">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="#">TED API</a>
+    <a class="navbar-item" href="#">eProcurement Ontology</a>
+    <a class="navbar-item" href="#">European Single Procurement Document</a>
+  </div>
+</div>
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+<div class="navbar-item">
+  <span class="control">
+    <a class="button is-primary" href="https://github.com/OP-TED/eForms-SDK/releases">Download</a>
+  </span>
+</div>            </div>
+        </div>
+    </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="2.1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <div class="context">
+    <span class="title">ESPD EDM</span>
+    <span class="version">2.1.1</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../dev-docs/index.html">Developer Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dev-docs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eforms-docs/0.2.1/index.html">eForms SDK Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../eforms-docs/0.2.1/index.html">0.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../EPO/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../3.0.0/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../3.0.0/index.html">3.0.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">2.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.1.0/index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.2/index.html">1.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.1/index.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../dev-docs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.1.1</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../3.0.0/index.html">3.0.0</a>
+    <a class="version is-current" href="VIII.8.2_Evidences_XML.html">2.1.1</a>
+    <a class="version" href="../2.1.0/VIII.8.2_Evidences_XML.html">2.1.0</a>
+    <a class="version is-missing" href="../2.0.2/index.html">2.0.2</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.2/index.html">1.0.2</a>
+    <a class="version is-missing" href="../1.0.1/index.html">1.0.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect3">
+<h4 id="_xml_examples"><a class="anchor" href="#_xml_examples"></a>XML Examples</h4>
+<div class="paragraph">
+<p><strong>Example 1: One evidence shared by two criteria</strong></p>
+</div>
+<div class="sect4">
+<h5 id="_xml_snippet_1_a_the_criteria_defined_in_the_espd_request_and_copied_in_the_espd_response"><a class="anchor" href="#_xml_snippet_1_a_the_criteria_defined_in_the_espd_request_and_copied_in_the_espd_response"></a>XML snippet 1.a) the criteria defined in the ESPD Request, and 'copied' in the ESPD Response</h5>
+<div class="listingblock">
+<div class="title">XML snippet 1.a) the criteria defined in the ESPD Request, and 'copied' in the ESPD Response (Extended)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">	&lt;!-- Criterion #1:Participation in a criminal organisation --&gt;
+
+	&lt;cac:TenderingCriterion&gt;
+		&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;005eb9ed-1347-4ca3-bb29-9bc0db64e1ab&lt;/cbc:ID&gt;
+		&lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;CRITERION.EXCLUSION.CONVICTIONS.PARTICIPATION_IN_CRIMINAL_ORGANISATION&lt;/cbc:CriterionTypeCode&gt;
+		&lt;cbc:Name&gt;Participation in a criminal organisation&lt;/cbc:Name&gt;
+
+	&lt;!-- ... --&gt;
+	&lt;!-- Elements removed for brevity --&gt;
+	&lt;!-- ... --&gt;
+
+			&lt;cac:TenderingCriterionProperty&gt;
+				&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;3f61215a-cd38-438b-a355-e4d06c57384c&lt;/cbc:ID&gt;
+				&lt;cbc:Description&gt;Is this information available electronically?&lt;/cbc:Description&gt;
+				&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+				&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+			&lt;/cac:TenderingCriterionProperty&gt;
+			&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+				&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;41dd2e9b-1bfd-44c7-93ee-56bd74a4334b&lt;/cbc:ID&gt;
+				&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+				&lt;cac:TenderingCriterionProperty&gt;
+					&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;d8d5478e-cc65-48c9-a189-19bbe87a9bfd&lt;/cbc:ID&gt;<i class="conum" data-value="2"></i><b>(2)</b>
+					&lt;cbc:Description&gt;Evidence Supplied&lt;/cbc:Description&gt;
+					&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+					&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+				&lt;/cac:TenderingCriterionProperty&gt;
+			&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+		&lt;/cac:TenderingCriterionPropertyGroup&gt;
+	&lt;/cac:TenderingCriterion&gt;
+
+	&lt;!-- Criterion #2:Contributions certificates --&gt;
+
+	&lt;cac:TenderingCriterion&gt;
+		&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;5a8dea31-5db9-4e03-862b-07810aa6a7fd&lt;/cbc:ID&gt;
+		&lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;CRITERION.OTHER.EO_DATA.CONTRIBUTIONS_CERTIFICATES&lt;/cbc:CriterionTypeCode&gt;
+		&lt;cbc:Name&gt;Contributions certificates&lt;/cbc:Name&gt;
+		&lt;cbc:Description&gt;Will the economic operator be able to provide a certificate with regard to the payment of social security contributions and taxes or provide information enabling the contracting authority or contracting entity to obtaining it directly by accessing a national database in any Member State that is available free of charge?&lt;/cbc:Description&gt;
+
+	&lt;!-- ... --&gt;
+	&lt;!-- Elements removed for brevity --&gt;
+	&lt;!-- ... --&gt;
+
+						&lt;cbc:Description&gt;Is this information available electronically?&lt;/cbc:Description&gt;
+					&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+					&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+				&lt;/cac:TenderingCriterionProperty&gt;
+				&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+					&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;41dd2e9b-1bfd-44c7-93ee-56bd74a4334b&lt;/cbc:ID&gt;
+					&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt;
+					&lt;cac:TenderingCriterionProperty&gt;
+						&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;191b34a8-5af0-4d53-b431-4ecd624218ea&lt;/cbc:ID&gt;<i class="conum" data-value="2"></i><b>(2)</b>
+						&lt;cbc:Description&gt;Evidence Supplied&lt;/cbc:Description&gt;
+						&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+						&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;<i class="conum" data-value="3"></i><b>(3)</b>
+					&lt;/cac:TenderingCriterionProperty&gt;
+				&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+			&lt;!-- elements removed for brevity --&gt;
+	&lt;/cac:TenderingCriterion&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The group of fields requesting the URL, Reference/Code and Issuer of the evidence will only be shown, validated or otherwise processed if the answer to the QUESTION is <strong>Yes</strong> (<strong>true</strong>).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The ID of the criterion property that the response will use in the <code>cac:ValidatedCriterionPropertyID</code>. See the response in the XML snippet 1.b) below.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The type of the data expected in the response value (when a code EVIDENCE_IDENTIFIER is encountered &#8594; an object <code>cac:Evidence</code> must be present in the ESPD Response XML instance.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_xml_snippet_1_b_one_evidentiary_document_supporting_the_three_responses"><a class="anchor" href="#_xml_snippet_1_b_one_evidentiary_document_supporting_the_three_responses"></a>XML snippet 1.b) One evidentiary document supporting the three responses</h5>
+<div class="listingblock">
+<div class="title">XML snippet 1.b) One evidentiary document supporting the three responses</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- ... elements removed for brevity .. --&gt;
+
+&lt;!-- Answer to Criterion:Participation in a criminal organisation --&gt;
+&lt;!-- Property:Evidence Supplied (PropertyID:d8d5478e-cc65-48c9-a189-19bbe87a9bfd) --&gt;
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;219949a1-b7bb-4d7e-8c3b-cc8ca695e15b&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;d8d5478e-cc65-48c9-a189-19bbe87a9bfd&lt;/cbc:ValidatedCriterionPropertyID&gt;<i class="conum" data-value="1"></i><b>(1)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;CONFIDENTIAL&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="2"></i><b>(2)</b>
+	&lt;cac:EvidenceSupplied&gt;
+		&lt;cbc:ID&gt;7dea9283-f8a2-481f-9ea6-41438e25fdd4&lt;/cbc:ID&gt;<i class="conum" data-value="3"></i><b>(3)</b>
+	&lt;/cac:EvidenceSupplied&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+
+
+&lt;!-- Answer to Criterion:Contributions certificates --&gt;
+&lt;!-- Property:URL (PropertyID:191b34a8-5af0-4d53-b431-4ecd624218ea) --&gt;
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;7c7fb445-c5f9-4f92-8b58-7f06a541951f&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;191b34a8-5af0-4d53-b431-4ecd624218ea&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;PUBLIC&lt;/cbc:ConfidentialityLevelCode&gt;
+	&lt;cac:EvidenceSupplied&gt;
+		&lt;cbc:ID&gt;7dea9283-f8a2-481f-9ea6-41438e25fdd4&lt;/cbc:ID&gt;<i class="conum" data-value="3"></i><b>(3)</b>
+	&lt;/cac:EvidenceSupplied&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+
+&lt;cac:Evidence&gt;
+	&lt;cbc:UUID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;7dea9283-f8a2-481f-9ea6-41438e25fdd4&lt;/cbc:UUID&gt;<i class="conum" data-value="4"></i><b>(4)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;CONFIDENTIAL&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="5"></i><b>(5)</b>
+	&lt;cac:DocumentReference&gt;
+		&lt;!-- Verification code (an EAN-13 barcode number) used in Spain to check the authenticity of the document. --&gt;
+		&lt;cbc:ID schemeID="EAN-13" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;5901234123457&lt;/cbc:ID&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+		&lt;cac:Attachment&gt;
+			&lt;cac:ExternalReference&gt;
+				&lt;cbc:URI&gt;http://minafhp.gob.es/pub/cert?id=5901234123457&lt;/cbc:URI&gt;<i class="conum" data-value="7"></i><b>(7)</b>
+			&lt;/cac:ExternalReference&gt;
+		&lt;/cac:Attachment&gt;
+		&lt;cac:IssuerParty&gt;
+			&lt;cac:PartyName&gt; <i class="conum" data-value="8"></i><b>(8)</b>
+				&lt;cbc:Name languageID="es"&gt;Ministerio de Hacienda y Administracions Públicas&lt;/cbc:Name&gt;
+			&lt;/cac:PartyName&gt;
+		&lt;/cac:IssuerParty&gt;
+	&lt;/cac:DocumentReference&gt;
+&lt;/cac:Evidence&gt;
+
+&lt;/QualificationApplicationResponse&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>ID  value of the criterion property (QUESTION) for which this response value is the answer.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The criteron MUST be treated as confidential: only the members of the evaluation team should have access to it. This makes the evidence confidential too.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Identifier of the only evidence object that is used for both criteria: it must match the value provided for the <code>cac:Evidence/cbc:ID</code> element of the evidence.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Identifer of the evidence. It matches the values in the <code>cac:EvidenceSupplied/cbc:ID</code> of the two criteria.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Confidentiality level is set to 'CONFIDENTIAL' because the first criterion requires to be treated as confidential. Thus even if the second criterion sets 'PUBLIC' as for its level of confidentiality the evidence will be kept confidential.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The Reference/Verification code (5901234123457) is in this case a 13 digit EAN-13 barcode number.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>URL to access the evidentiary document (in this case it&#8217;s and end-point using the verification code as an end-point parameter).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>The name of the issuer party.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Example 2: Two different evidences for two criteria</strong></p>
+</div>
+<div class="paragraph">
+<p>The following snippet uses the same two criteria shown in the XML example snippet 1.a): hence the values of the <code>cac:ValidatedCriterionPropertyID</code> are 'd8d5478e-cc65-48c9-a189-19bbe87a9bfd' (criterion property 'participation in a criminal organisation') and '7c7fb445-c5f9-4f92-8b58-7f06a541951f' (criterion property 'contributions certificates').</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_xml_snippet_2_different_evidentiary_documents_per_response"><a class="anchor" href="#_xml_snippet_2_different_evidentiary_documents_per_response"></a>XML snippet 2 different evidentiary documents per response</h5>
+<div class="listingblock">
+<div class="title">XML snippet 1.b) different evidentiary documents per response</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- ANSWERS TO QUESTION(s) --&gt;
+
+&lt;!-- ... elements removed for brevity .. --&gt;
+
+&lt;!-- Answer to Criterion:Participation in a criminal organisation --&gt;
+&lt;!-- Property:Evidence Supplied (PropertyID:d8d5478e-cc65-48c9-a189-19bbe87a9bfd) --&gt;
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;219949a1-b7bb-4d7e-8c3b-cc8ca695e15b&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;d8d5478e-cc65-48c9-a189-19bbe87a9bfd&lt;/cbc:ValidatedCriterionPropertyID&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;PUBLIC&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="2"></i><b>(2)</b>
+	&lt;cac:EvidenceSupplied&gt;
+		&lt;cbc:ID&gt;7dea9283-f8a2-481f-9ea6-41438e25fdd4&lt;/cbc:ID&gt;<i class="conum" data-value="3"></i><b>(3)</b>
+	&lt;/cac:EvidenceSupplied&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+
+
+&lt;!-- Answer to Criterion:Contributions certificates --&gt;
+&lt;!-- Property:URL (PropertyID:191b34a8-5af0-4d53-b431-4ecd624218ea) --&gt;
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;7c7fb445-c5f9-4f92-8b58-7f06a541951f&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.1"&gt;191b34a8-5af0-4d53-b431-4ecd624218ea&lt;/cbc:ValidatedCriterionPropertyID&gt;<i class="conum" data-value="4"></i><b>(4)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;CONFIDENTIAL&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="5"></i><b>(5)</b>
+	&lt;cac:EvidenceSupplied&gt;
+		&lt;cbc:ID&gt;3b3be32e-3b7f-4a17-a0bb-a84210f61bb8&lt;/cbc:ID&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+	&lt;/cac:EvidenceSupplied&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+
+&lt;!-- EVIDENCES --&gt;
+
+&lt;cac:Evidence&gt;
+	&lt;cbc:UUID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;7dea9283-f8a2-481f-9ea6-41438e25fdd4&lt;/cbc:UUID&gt;<i class="conum" data-value="7"></i><b>(7)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;PUBLIC&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="8"></i><b>(8)</b>
+	&lt;cac:DocumentReference&gt;
+		&lt;!-- Verification code to access an authentic 'manifestation' of the document from the original issuer end-point --&gt;
+		&lt;cbc:ID schemeID="EAN-13" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;5901234123457&lt;/cbc:ID&gt;<i class="conum" data-value="9"></i><b>(9)</b>
+		&lt;cac:Attachment&gt;
+			&lt;cac:ExternalReference&gt;
+				&lt;cbc:URI&gt;http://interior.gob.es/pub/cert?id=5901234123457&lt;/cbc:URI&gt;<i class="conum" data-value="10"></i><b>(10)</b>
+			&lt;/cac:ExternalReference&gt;
+		&lt;/cac:Attachment&gt;
+		&lt;cac:IssuerParty&gt;
+			&lt;cac:PartyName&gt;
+				&lt;cbc:Name languageID="es"&gt;Ministerio del Interior&lt;/cbc:Name&gt;<i class="conum" data-value="11"></i><b>(11)</b>
+			&lt;/cac:PartyName&gt;
+		&lt;/cac:IssuerParty&gt;
+	&lt;/cac:DocumentReference&gt;
+&lt;/cac:Evidence&gt;
+
+&lt;cac:Evidence&gt;
+	&lt;cbc:UUID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;3b3be32e-3b7f-4a17-a0bb-a84210f61bb8&lt;/cbc:UUID&gt;<i class="conum" data-value="12"></i><b>(12)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.1.1"&gt;CONFIDENTIAL&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="13"></i><b>(13)</b>
+	&lt;cac:DocumentReference&gt;
+		&lt;!-- Verification code to access an authentic 'manifestation' of the document from the original issuer end-point --&gt;
+		&lt;cbc:ID schemeID="EAN-13" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;6002345234568&lt;/cbc:ID&gt;<i class="conum" data-value="14"></i><b>(14)</b>
+		&lt;cac:Attachment&gt;
+			&lt;cac:ExternalReference&gt;
+				&lt;cbc:URI&gt;http://aeat.gob.es/pub/cert?id=6002345234568&lt;/cbc:URI&gt;<i class="conum" data-value="15"></i><b>(15)</b>
+			&lt;/cac:ExternalReference&gt;
+		&lt;/cac:Attachment&gt;
+		&lt;cac:IssuerParty&gt;
+			&lt;cac:PartyName&gt;
+				&lt;cbc:Name languageID="es"&gt;Agencia Tributaria&lt;/cbc:Name&gt;<i class="conum" data-value="16"></i><b>(16)</b>
+			&lt;/cac:PartyName&gt;
+		&lt;/cac:IssuerParty&gt;
+	&lt;/cac:DocumentReference&gt;
+&lt;/cac:Evidence&gt;
+
+&lt;/QualificationApplicationResponse&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>ID  value of the first criterion property (QUESTION) for which this response value is the answer.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The criteron is to be treated as 'PUBLIC': it could be published.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Identifier of the first evidence object that is used for this criterion: it must match the value provided for the <code>cac:Evidence/cbc:ID</code> element of the evidence.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>ID  value of the second criterion property (QUESTION) for which this response value is the answer.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Confidentiality level is set to 'CONFIDENTIAL'. Therefore the evidence linked to this response will also be treated as 'CONFIDENTIAL'.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Identifier of the second evidence object that is used for this second criterion: it must match the value provided for the <code>cac:Evidence/cbc:ID</code> element of the evidence.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>The identifier of the first evidence. It matches the <code>cac:EvidenceSupplied/cbc:ID</code> element value of the first response.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Confidentiality code for the first evidence: 'PUBLIC', notice that it is consistent with the fact that  the response is also set as 'PUBLIC'.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Verification code ID for the first evidence (a 13 digit EAN-13 barcode number in this case).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>URL from where to get the document. The fact that the evidence MUST BE treated as CONFIDENTIAL is not inconsistent with the fact that the evidence is available online from a free-of-charge national data base.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>The name of the issuer of the first evidenciary document.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>ID  of the second criterion property (QUESTION) for which this response value is the answer.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>The criteron is to be treated as 'CONFIDENTIAL': addressed only to the evaluators.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>Verification code ID of the second evidence.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="15"></i><b>15</b></td>
+<td>URL from where to get the document.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="16"></i><b>16</b></td>
+<td>The name of the issuer of the second evidenciary document.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The <b>eForms SDK</b> is created by the Publications Office of the European Union and is licensed under the terms of <a href="https://github.com/OP-TED/eForms-SDK/blob/main/LICENSE">EUPL-1.2 license</a>.
+  <br/>This page was built using the Antora default UI. The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/EU_Publications_Office_logo_with name.png" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>

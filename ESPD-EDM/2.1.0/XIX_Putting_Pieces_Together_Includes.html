@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../..">
+                <img src="../../_/img/EU_Publications_Office_TED_logo.svg" class="logo" />
+                TED Developer Documentation
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="../..">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="#">TED API</a>
+    <a class="navbar-item" href="#">eProcurement Ontology</a>
+    <a class="navbar-item" href="#">European Single Procurement Document</a>
+  </div>
+</div>
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+<div class="navbar-item">
+  <span class="control">
+    <a class="button is-primary" href="https://github.com/OP-TED/eForms-SDK/releases">Download</a>
+  </span>
+</div>            </div>
+        </div>
+    </nav>
+</header><div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="2.1.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <div class="context">
+    <span class="title">ESPD EDM</span>
+    <span class="version">2.1.0</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../dev-docs/index.html">Developer Docs</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../dev-docs/index.html">master</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eforms-docs/0.2.1/index.html">eForms SDK Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../eforms-docs/0.2.1/index.html">0.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../EPO/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../3.0.0/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../3.0.0/index.html">3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.2/index.html">1.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.1/index.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../dev-docs/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.1.0</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../3.0.0/index.html">3.0.0</a>
+    <a class="version" href="../2.1.1/XIX_Putting_Pieces_Together_Includes.html">2.1.1</a>
+    <a class="version is-current" href="XIX_Putting_Pieces_Together_Includes.html">2.1.0</a>
+    <a class="version is-missing" href="../2.0.2/index.html">2.0.2</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.2/index.html">1.0.2</a>
+    <a class="version is-missing" href="../1.0.1/index.html">1.0.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_ix_putting_pieces_together"><a class="anchor" href="#_ix_putting_pieces_together"></a>IX Putting pieces together</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The ESPD-EDM specification, notably regarding the SELF-CONTAINED ESPD, defines different complex sets of data that are
+scattered in distant locations of the corresponding XML instance.</p>
+</div>
+<div class="paragraph">
+<p>Consequently, implementors of software dealing with the ESPD XML instances may have a hard time to identify what needs
+to go in the XML instance and where. This is the case of, specifically, the data related to three topics:
+1) economic operators, 2) lots, and 3) weights.</p>
+</div>
+<div class="paragraph">
+<p>To help implementors understand these topics and how to deal with them, the sub-sections of this chapter
+illustrate how to put together the different sets of data related to each topic with abundant figures and comments.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ix_1_all_about_lots"><a class="anchor" href="#_ix_1_all_about_lots"></a>IX.1 All about lots</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When a procurement procedure is divided in Lots not all the selection criteria apply to all Lots, i.e. some
+Lots need to be linked to specific criteria.</p>
+</div>
+<div class="paragraph">
+<p>In the SELF-CONTAINED ESPD-EDM specification, instead of defining criteria per each Lot, it is for the criterion to
+specify to which Lots it applies.</p>
+</div>
+<div class="paragraph">
+<p>To link a criterion with one or more Lots, the ESPD-EDM uses a GROUP (or SUBGROUP) of REQUIREMENT(s), where each REQUIREMENT
+specifies the identifier of each Lot that is affected by the criterion. The figures below show how this is represented
+in the four different criteria data structures listed above (''Suitability'', ''Professional risk indemnity'',
+''Other economic or financial requirements'' and ''References'').</p>
+</div>
+<div class="paragraph">
+<p>For more complete examples on how the SELF-CONTAINED ESPD-Request specifies these criteria see the
+sub-sections
+<a href="#vi-2-2-self-contained-suitability-enrolments">VI.2.2 Self-contained suitability (enrolments)</a>,
+<a href="#vi-6-2-self-contained-risk-indemnity-insurance">Self-contained risk indemnity insurance</a>,
+<a href="#vi-7-2-self-contained-other-economic-or-financial-requirements">VI.7.2 Self-contained other economic or financial requirements</a>, and
+<a href="#vi-8-2-self-contained-references">VI.8.2 Self-contained references</a>.</p>
+</div>
+<div class="paragraph">
+<p>The folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/2.1.0/docs/src/main/asciidoc/dist/xml">dist/xml</a> also contains
+complete XML instances of both REGULATED and SELF-CONTAINED ESPD-Request and ESPD-Response documents.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>REGULATED</strong> ESPD documents can only define the Lots into which the procedure is divided into and the Lots to which the
+economic operator tenders to. The maximum expressivity of information requirements related to Lots is only possible in
+the <strong>SELF-CONTAINED</strong> ESPD documents.</p>
+</div>
+<div class="paragraph">
+<p>Therefore this section focuses only the SELF-CONTAINED ESPD-Response document.</p>
+</div>
+<div class="sect2">
+<h3 id="_lots_general_information_requirement_check_list"><a class="anchor" href="#_lots_general_information_requirement_check_list"></a>Lots: general information requirement check-list</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Criteria with references to Lots</strong>: The current design of the UBL-2.2 <code>cac:TenderingCriterion</code> allows
+ referencing Lots for any type of Criteria. However
+the current version of the ESPD-EDM only identifies this need in a reduced set of Selection Criteria (see the
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/cl/xlsx/ESPD-CriteriaTaxonomy-SELFCONTAINED-V2.1.0.xlsx">Criteria Taxonomy spread-sheets</a>
+for more details, like the Criterion description, UUID, Code, etc.):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Suitability I</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #25 - Enrolment in a relevant professional register</p>
+</li>
+<li>
+<p>Criterion #26 - Enrolment in a trade register</p>
+</li>
+<li>
+<p>Criterion #27 - For service contracts: authorisation of particular organisation needed</p>
+</li>
+<li>
+<p>Criterion #28 - For service contracts: membership of particular organisation needed</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Risk insurance</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #35 - Professional risk indemnity insurance</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Other economic or financial requirements</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #36 -Other economic or financial requirements</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>References</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #37 - For works contracts: performance of works of the specified type</p>
+</li>
+<li>
+<p>Criterion #38 - For supply contracts: performance of deliveries of the specified type</p>
+</li>
+<li>
+<p>Criterion #39 - For service contracts: performance of services of the specified type</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Order of occurrence</strong>: The table below presents the different ''blocks'' of data related to Lots in the sequence
+they must occur in the ESPD-Response. The aim of this table is help implementors identify the type of data structure,
+what it is used for, where to locate its definition (in the UBL-2.2 XSD Schema and the Criteria Taxonomy spread-sheet),
+and which comes first and which goes after (i.e. how they are sequenced).</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>A complete ESPD-Response document with the examples provided in this section can be found in the file
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/xml/Lots-SelfContained-Response_V2.1.0.xml">Lots-SelfContained-Response_V2.1.0.xml</a></em></strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Order of occurrence of the different blocks of data related to Lots</caption>
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Nº</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data Element</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Location</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rules</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Procurement Procedure Lots</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Lots into which the procurement procedure has been divided into.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">At the root of the QualificationApplicationResponse document, in the element <code>/cac:ProcurementProjectLot</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Only the <code>cbc:ID</code> (the identifier of the lot) is required. This set of data is common to all the ESPD-Request and
+ESPD-Response documents about procedures divided into lots;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Criterion ''CA Lots''</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requirements by the CA about the submission of tenders when the procedure is divided into Lots.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inside a ''false'' criterion data structure C#64 ''<strong>CA Lots</strong>'' (CRITERION.OTHER.CA_DATA.LOTS_SUBMISSION)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The data provided herein by the CA must be coherent amongst themselves and with the Lots into which the procedure
+is divided into. This set of data is common to all the ESPD-Request and ESPD-Response documents about procedures
+divided into lots;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Criterion ''Lots the EO tenders to''</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Lots to which the economic operator tenders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inside a UBL-2.2 element <code>cac:TenderingCriterion</code>. This criterion has been defined by the ESPD-EDM (see
+criterion #62 ''<strong>Lots the EO tenders to</strong>''. This criterion must occur just after <code>cac:ProcurementProjectLot</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Lots specified by the EO in its response must be coherent with the list of Lots specified by the CA (e.g. if the
+CA has specified 5 Lots, the EO cannot tender to a ''Lot6'' (see row 1 of this table). This set of data is common to
+all the ESPD-Request and ESPD-Response documents about procedures divided into lots;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CA&#8217;s REQUIREMENT(s) and QUESTION(s) linked to specific Lots</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One or more REQUERIMENT(s) and QUESTION(s) linking one criterion to the lots to which it applies (see XML examples)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inside a specific criterion, e.g. REQUIREMENTs defined in the ''Suitability'', ''Professional risk insurance'', ''Other economic
+or financial requirements'' and ''References criteria''</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Lots specified by the CA inside one REQUIREMENT must be coherent with the list of Lots into which the
+procurement procedure is divided into (see row 1 or this table)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EO&#8217;s response on its Lots</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List of the Lot Identifiers to which the EO tenders to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inside <code>/cac:TenderingCriterionResponse/cac:ResponseValue</code> (as <code>cbc:ResponseID</code>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Lot identifiers provided by the EO must be coherent with the ones it (the EO) tenders to (see row 2 of this table)
+and with 1) the ones into which the procedure is divided into, and 2) the ones the CA has specified in the REQUIREMENT(s)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_1_suitability"><a class="anchor" href="#_example_1_suitability"></a>Example 1: Suitability</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_mock_up_contracting_authority_perspective"><a class="anchor" href="#_mock_up_contracting_authority_perspective"></a>Mock-up - contracting authority perspective</h3>
+<div class="paragraph">
+<p>For each criteria regarding suitability, the CA should be able to provide: the register name, its URL and the Lots to which each requirement apply.</p>
+</div>
+<div class="paragraph">
+<p>This mock-up represents the situation when the procurement procedure is <strong>divided into lots</strong>. The contracting authority (CA) may request that
+the economic operator is registered in one or multiple registers (the REQUIREMENT). Per each register the CA specifies to
+which Lots this make sense.</p>
+</div>
+<div class="paragraph">
+<p>This behaviour of “one set of lots per <strong>group of properties</strong> is regular for all those selection criteria where
+the allocation of lots to a set of 'criterion properties' make sense.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Self-contained_Suitability_LOTS_CA_mockup_NO_BULLETS.png" alt="Self-contained 'Suitability' criterion (CA perspective)">
+</div>
+<div class="title">Figure 1. Self-contained 'Suitability' criterion with Lots (CA perspective)'</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mock_up_economic_operator_perspective"><a class="anchor" href="#_mock_up_economic_operator_perspective"></a>Mock-up - economic operator perspective</h3>
+<div class="paragraph">
+<p>Notice that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Lots and registers specified by the contracting authority are presented to the economic operator (on the left side of the mock-up, circles 1 to 6);</p>
+</li>
+<li>
+<p>The expected answer is "Yes", meaning that the economic operator fulfills the criterion;</p>
+</li>
+<li>
+<p>In case of answering "No" the economic operator will have to provide the reasons why it is not registered.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Self-contained_Suitability_LOTS_EO_mockup_NO_BULLETS.png" alt="Self-contained 'Suitability' criterion (EO perspective)" width="800">
+</div>
+<div class="title">Figure 2. Self-contained 'Suitability' criterion (EO perspective)'</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_criterion_data_structure"><a class="anchor" href="#_criterion_data_structure"></a>Criterion data structure</h3>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_Suitability_Enrolment_Data_Structure.png" alt="'Enrolment in a relevant professional register' suitability criterion" width="suitability criterion">
+</div>
+<div class="title">Figure 3. 'Enrolment in a relevant professional register' suitability criterion data structure (SELF-CONTAINED)</div>
+</div>
+<div class="paragraph">
+<p>In this case, ''Enrolment in a relevant professional register'', the ESPD-Request
+document will contain one or more GROUP(s) of one (only one) REQUIREMENT of multiple cardinality: it can be applied
+to refer to a subset of Lots. The REQUIREMENT_SUBGROUP, following this list of Lots, contains the specific CA&#8217;s
+constraint that affect the Lots, in this case the CA&#8217;s request that the EO needs to be
+registered in one concrete Register.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xml_example"><a class="anchor" href="#_xml_example"></a>XML example</h3>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Many compulsory elements and attributes of the XML example below that are not related to the subject covered in
+this section have been removed to gain clarity and brevity. For complete XML samples download the files under folder
+<a href="https://github.com/OP-TED/ESPD-EDM/tree/2.1.0/docs/src/main/asciidoc/dist/xml">dist/xml</a>.</em></strong></p>
+</div>
+<div class="paragraph">
+<p><strong><em>The example presented next was extracted from the file
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/xml/Lots-SelfContained-Response_V2.1.0.xml">Lots-SelfContained-Response_V2.1.0.xml</a></em></strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">'Suitability' XML example (data related to Lots in the ESPD-Response)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;cac:QualificationApplicationResponse xmlns="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" ... etc. --&gt;
+    &lt;!-- Root elements start here--&gt;
+    &lt;cbc:UBLVersionID schemeAgencyID="OASIS-UBL-TC"&gt;2.2&lt;/cbc:UBLVersionID&gt;
+    &lt;!-- ... etc. (beware that some root elements are compulsory, e.g. cbc:ID --&gt;
+    &lt;!-- Main aggregate components --&gt;
+    &lt;cac:ContractingParty&gt; ... &lt;/cac:ContractingParty&gt;
+    &lt;cac:EconomicOperatorParty&gt; ... &lt;/cac:EconomicOperatorParty&gt;
+    &lt;cac:ProcurementProject&gt;...&lt;/cac:ProcurementProject&gt;
+    &lt;!-- Root elements end here --&gt;
+
+    &lt;!-- *FIRST SET OF DATA RELATED TO LOTS!* --&gt;
+    &lt;!-- In this example the CA informs that the Procurement Procedure is divided into three Lots --&gt;
+    &lt;!-- Only the IDs are truly necessary, but the CA is free to provide any other additional data --&gt;
+
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot1&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot2&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot3&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot4&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot5&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot6&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+    &lt;cac:ProcurementProjectLot&gt;
+         &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot7&lt;/cbc:ID&gt;
+    &lt;/cac:ProcurementProjectLot&gt;
+
+
+    &lt;!-- *2nd. SET OF DATA RELATED TO LOTS: conditions concerning the submission of tenders when a procedure is divided into Lots.
+         This is currently modelled as a kind of 'participation' criterion, however UBL-2.2 has a specific different treatment of these information requirements (see the `cac:LotDistribution` element)
+         This issue will be reviewed in future versions of the ESPD-EDM. For version 2.1 it is necessary to use this Criterion data structure.
+        *Please do not use the UBL-2.2 `cac:LotDistribution` for the time being, as it does not catter for the specification of the type of submission as a code, which is required in the ESPD-EDM. *
+        *Beware* that the data provided by the CA needs to be coherent, e.g. the Maximun number of lots that may be awarded to one tenderer
+        (2 in this example) cannot be greater than the number of Lots into which this procedure is divided, nor than the value of the Maximum number of
+        lots or with the code assigned to the field "Tenders may be submitted for" (LOT_ALL) in this case).
+    --&gt;
+
+    &lt;cac:TenderingCriterion&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;6a21c421-5c1e-46f4-9762-116fbcd33097&lt;/cbc:ID&gt;
+        &lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CRITERION.OTHER.CA_DATA.LOTS_SUBMISSION&lt;/cbc:CriterionTypeCode&gt;
+        &lt;cbc:Name&gt;CA Lots&lt;/cbc:Name&gt;
+        &lt;cbc:Description&gt;Please take into account the following requirements regarding the lots of this procurement procedure:&lt;/cbc:Description&gt;
+        &lt;cac:TenderingCriterionPropertyGroup&gt;
+            &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;03cff8d1-4d22-4435-82fa-d6361af84be6&lt;/cbc:ID&gt;
+            &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;f8804fa9-81b7-4f3a-a500-d9e49a4f1efe&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;Tenders may be submitted for&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CODE&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedCode listID="BidType" listAgencyID="EU-COM-GROW" listVersionID="1.0"&gt;LOT_ALL&lt;/cbc:ExpectedCode&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;3191b16a-37d5-48c5-88b1-8012639d24a4&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;Maximum number of lots&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUANTITY_INTEGER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedValueNumeric&gt;7&lt;/cbc:ExpectedValueNumeric&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;2a11f2ef-3fa8-460f-9cb9-869af94926be&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;Maximum number of lots that may be awarded to one tenderer&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUANTITY_INTEGER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedValueNumeric&gt;2&lt;/cbc:ExpectedValueNumeric&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+        &lt;/cac:TenderingCriterionPropertyGroup&gt;
+    &lt;/cac:TenderingCriterion&gt;
+
+       &lt;!-- *3rd. SET OF DATA RELATED TO LOTS: Lots to which the EO tenders to.*
+           The next criterion data structure is not a 'true' Criterion. It is used by the Economic Operator to specify to which Lots it tenders to.
+           In this example, the EO tenders to two lots, Lot1 and Lot3 (see the EO responses to complete the understanding of this. Thus, the first QUESTION
+           (identified as a71cad4a-3b01-4dcb-9589-fc581cd25b13) will be used by a cac:TenderingCriterionResponse containing a "collection" of two cac:ResponseValues
+           connected to the QUESTION via its identifier (i.e., the cac:TenderingCriterionResponse/cbc:ValidatedCriterionPropertyID value will be 'a71cad4a-3b01-4dcb-9589-fc581cd25b13').
+       --&gt;
+
+       &lt;cac:TenderingCriterion&gt;
+           &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;8b9700b7-b13c-41e6-a220-6bbf8d5fab31&lt;/cbc:ID&gt;
+           &lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CRITERION.OTHER.EO_DATA.LOTS_TENDERED&lt;/cbc:CriterionTypeCode&gt;
+           &lt;cbc:Name&gt;Lots the EO tenders to&lt;/cbc:Name&gt;
+           &lt;cbc:Description&gt;Where applicable, indication of the lot(s) for which the economic operator wishes to tender&lt;/cbc:Description&gt;
+           &lt;cac:TenderingCriterionPropertyGroup&gt;
+               &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;289f39b3-2a15-421a-8050-a29858031f35&lt;/cbc:ID&gt;
+               &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                   &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;a71cad4a-3b01-4dcb-9589-fc581cd25b13&lt;/cbc:ID&gt;
+                   &lt;cbc:Description&gt;Lot Ids&lt;/cbc:Description&gt;
+                   &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                   &lt;!--
+                       The semantisation of the identifier as "LOT_IDENTIFIER" can be used by software applications to expect a collection of identifiers of Lots,
+                       i.e. several `cac:ResponseValue` linked to this QUESTION identifier (in this case to the UUID a71cad4a-3b01-4dcb-9589-fc581cd25b13).
+                   --&gt;
+                   &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+               &lt;/cac:TenderingCriterionProperty&gt;
+           &lt;/cac:TenderingCriterionPropertyGroup&gt;
+           &lt;cac:TenderingCriterionPropertyGroup&gt;
+               &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;7458d42a-e581-4640-9283-34ceb3ad4345&lt;/cbc:ID&gt;
+               &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+               &lt;cac:TenderingCriterionProperty&gt;
+                   &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;954b1d3a-46c1-4d5f-8047-fd285443c6c0&lt;/cbc:ID&gt;
+                   &lt;cbc:Description&gt;Is this information available electronically?&lt;/cbc:Description&gt;
+                   &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                   &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+               &lt;/cac:TenderingCriterionProperty&gt;
+
+               &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                   &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;41dd2e9b-1bfd-44c7-93ee-56bd74a4334b&lt;/cbc:ID&gt;
+                   &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt;
+                   &lt;cac:TenderingCriterionProperty&gt;
+                       &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;3b1af1a3-14e8-4b26-8d2e-355a8189fcf2&lt;/cbc:ID&gt;
+                       &lt;cbc:Description&gt;Evidence supplied&lt;/cbc:Description&gt;
+                       &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                       &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                   &lt;/cac:TenderingCriterionProperty&gt;
+               &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+           &lt;/cac:TenderingCriterionPropertyGroup&gt;
+       &lt;/cac:TenderingCriterion&gt;
+
+    &lt;!-- *4th. SET OF DATA RELATED TO LOTS: The ''true'' Selection Criterion. * --&gt;
+    &lt;!-- List of Lots affected by one criterion GROUP of REQUIREMENT(s), i.e. the REQUIREMENT(s) related to one Register plus these particular REQUIREMENTs and QUESTIONs --&gt;
+    &lt;!-- In this example only two Registers (REQUIREMENTs) are mentioned, the first one affects Lots 1, 2, 4 and 5. The second one affects Lots 3,6 and 7 --&gt;
+    &lt;!-- The responses of the EO will be coherent with these REQUIREMENTs. --&gt;
+
+    &lt;cac:TenderingCriterion&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;6ee55a59-6adb-4c3a-b89f-e62a7ad7be7f&lt;/cbc:ID&gt;
+        &lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;CRITERION.SELECTION.SUITABILITY.PROFESSIONAL_REGISTER_ENROLMENT&lt;/cbc:CriterionTypeCode&gt;
+        &lt;cbc:Name&gt;Enrolment in a relevant professional register&lt;/cbc:Name&gt;
+        &lt;cbc:Description&gt;It is enrolled in relevant professional registers ...&lt;/cbc:Description&gt;
+        &lt;cac:Legislation&gt; ... &lt;/cac:Legislation&gt;
+        &lt;cac:TenderingCriterionPropertyGroup&gt;
+            &lt;cac:TenderingCriterionProperty&gt; &lt;Description&gt;Lots the requirement apply to&lt;/Description&gt;&lt;!-- ... etc. --&gt; &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- Lot1 is affected by the REQUIREMENT(s)  --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;47d211d9-e933-4d93-b4d7-f45d46a6e83e&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;Lot ID&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot1&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- Lot2 is affected by the REQUIREMENT(s)  --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;47d211d9-e933-4d93-b4d7-f45d46a6e83e&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot2&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- Lot4 is affected by the REQUIREMENT(s)  --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;6f7c51c2-c2ac-47f2-9c7d-af9be815404a&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot4&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- Lot5 is affected by the REQUIREMENT(s)  --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;69433c3f-0277-4a8d-a41e-3aeb8ac6257a&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot5&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- Beginning of data about REQUIREMENT 1 (specification of the name and URL of the Register by the CA) --&gt;
+            &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3aacb82e-afba-440c-b64e-1834007965a2&lt;/cbc:ID&gt;
+                &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;624bb66e-ba57-423f-bd08-557342ed8a07&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Register name&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                        &lt;cbc:ExpectedDescription&gt;THE OFFICIAL LIST OF GAS ENGINEERS&lt;/cbc:ExpectedDescription&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;bd265803-ebb0-46c0-8acd-8d99c245df34&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;URL&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;URL&lt;/cbc:ValueDataTypeCode&gt;
+                    &lt;cbc:ExpectedID schemeID="URI" schemeAgencyID="EU-COM-GROW"&gt;https://www.gassaferister.co.uk&lt;/cbc:ExpectedID&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+
+            &lt;!-- QUESTIONS for REQUIREMENT 1 affecting Lots 1, 2, 4, 5 would follow --&gt;
+            &lt;!-- ...etc. --&gt;
+
+        &lt;/cac:TenderingCriterionPropertyGroup&gt;
+
+        &lt;cac:TenderingCriterionPropertyGroup&gt;
+            &lt;cac:TenderingCriterionProperty&gt; &lt;Description&gt;Lots the requirement apply to&lt;/Description&gt;&lt;!-- ... etc. --&gt; &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- This will be used for Lot3 --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;d01bc240-0fd2-426c-986c-123cbb7164d8&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;Lot ID&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot1&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- This will be used for Lot6 --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;47d211d9-e933-4d93-b4d7-f45d46a6e83e&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot3&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;!-- This will be used for Lot7 --&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;47d211d9-e933-4d93-b4d7-f45d46a6e83e&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot3&lt;/cbc:ExpectedID&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3aacb82e-afba-440c-b64e-1834007965a2&lt;/cbc:ID&gt;
+                &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;60c1a374-f383-450d-a4f6-484ca8a1ca58&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Register name&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                        &lt;cbc:ExpectedDescription&gt;AUTOMOTIVE PROFESSIONALS&lt;/cbc:ExpectedDescription&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;bd265803-ebb0-46c0-8acd-8d99c245df34&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;URL&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;URL&lt;/cbc:ValueDataTypeCode&gt;
+                    &lt;cbc:ExpectedID schemeID="URI" schemeAgencyID="EU-COM-GROW"&gt;https://www.imiregister.co.uk&lt;/cbc:ExpectedID&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+
+             &lt;!-- QUESTIONs linked to REQUIREMENT 2 and Lots 3, 6 and 7 would follow --&gt;
+             &lt;!-- ... etc. --&gt;
+        &lt;/cac:TenderingCriterionPropertyGroup&gt;
+
+    &lt;/cac:TenderingCriterion&gt;
+
+    &lt;!-- OTHER SELECTION CRITERIA CONTAINING CA'S REQUIREMENTS AFFECTING CONCRETE LOTS WOULD FOLLOW, e.g. Risk
+    indemnity insurance, Other economic or financial requirements and References. --&gt;
+
+    &lt;!-- EO's responses follow --&gt;
+
+    &lt;!-- *5th. SET OF DATA RELATED TO LOTS:
+        Actual responses provided by the economic operator (EO) to specify that it tenders to Lot1 and Lot3.*
+
+        The following Response below contains a ''collection'' of two values, each one identifying the Lots to which
+        the Economic Operator tenders to. Notice that the `` cbc:ValidatedCriterionPropertyID` is the reference to
+        the QUESTION Identifier value (UUID a71cad4a-3b01-4dcb-9589-fc581cd25b13) where the CA asks for this list of
+        Lots in the ESPD-Request document (remember that the ESPD-EDM specification strongly emphasises that the
+        whole criterion data structure is to be replicated also in the ESPD-Response document).
+    --&gt;
+
+    &lt;cac:TenderingCriterionResponse&gt;
+        &lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;f51c892a-9ee3-4109-a9d2-bf8a8a7458cd&lt;/cbc:ID&gt;
+        &lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;a71cad4a-3b01-4dcb-9589-fc581cd25b13&lt;/cbc:ValidatedCriterionPropertyID&gt;
+        &lt;cac:ResponseValue&gt;
+            &lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;ffa35284-8812-408b-a8fb-a74024d973fd&lt;/cbc:ID&gt;
+            &lt;cbc:ResponseID schemeAgencyID="EU-COM-GROW"&gt;Lot1&lt;/cbc:ResponseID&gt;
+        &lt;/cac:ResponseValue&gt;
+        &lt;cac:ResponseValue&gt;
+            &lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;817cfcff-8610-4a4b-8b71-97705e124ffd&lt;/cbc:ID&gt;
+            &lt;cbc:ResponseID schemeAgencyID="EU-COM-GROW"&gt;Lot3&lt;/cbc:ResponseID&gt;
+        &lt;/cac:ResponseValue&gt;
+    &lt;/cac:TenderingCriterionResponse&gt;
+
+    &lt;!-- The rest of responses would 1) state whether this EO fulfills the REQUIREMENT or not (registering in the Register provided by the CA) and 2) if not, the reasons --&gt;
+    &lt;!-- Other responses to QUESTIONs contained in other Criteria would follow below. --&gt;
+
+&lt;/cac:QualificationApplicationResponse&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note_for_the_future"><a class="anchor" href="#_note_for_the_future"></a>Note for the future</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Due to one strict Naming and Design Rule (NDR) in UBL, Common Basic Components (those basic data elements for which
+the <code>cbc:</code> prefix is used in UBL), cannot have multiple cardinality (of type 0..n or 1..n).</p>
+</div>
+<div class="paragraph">
+<p>For this reason sometimes we find one REQUIREMENT that refer multiple basic elements of the same type but that, in
+the XML implementation needs to be broken down into multiple REQUIREMENT(s). Take for example the property labelled
+as "LotID" in the data structure (see figure below). This is 'one' REQUIREMENT with
+cardinality <code>1..n</code>.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/AllAboutLots_REQUIREMENT_for_ListOf_LotIDs.png" alt="REQUIREMENT containing a list of elements">
+</div>
+<div class="title">Figure 4. REQUIREMENT containing a list of elements</div>
+</div>
+<div class="paragraph">
+<p>The fragment of XML code shows how this list of lot identifiers ends up implemented as multiple REQUIREMENTs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;!-- Lot1 is affected by the REQUIREMENT(s)  --&gt;
+    &lt;cac:TenderingCriterionProperty&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;47d211d9-e933-4d93-b4d7-f45d46a6e83e&lt;/cbc:ID&gt;
+        &lt;cbc:Description&gt;Lot ID&lt;/cbc:Description&gt;
+        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+        &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot1&lt;/cbc:ExpectedID&gt;
+    &lt;/cac:TenderingCriterionProperty&gt;
+    &lt;!-- Lot2 is affected by the REQUIREMENT(s)  --&gt;
+    &lt;cac:TenderingCriterionProperty&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;47d211d9-e933-4d93-b4d7-f45d46a6e83e&lt;/cbc:ID&gt;
+        &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+        &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot2&lt;/cbc:ExpectedID&gt;
+    &lt;/cac:TenderingCriterionProperty&gt;
+    &lt;!-- Lot4 is affected by the REQUIREMENT(s)  --&gt;
+    &lt;cac:TenderingCriterionProperty&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;6f7c51c2-c2ac-47f2-9c7d-af9be815404a&lt;/cbc:ID&gt;
+        &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+        &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot4&lt;/cbc:ExpectedID&gt;
+    &lt;/cac:TenderingCriterionProperty&gt;
+    &lt;!-- Lot5 is affected by the REQUIREMENT(s)  --&gt;
+    &lt;cac:TenderingCriterionProperty&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;69433c3f-0277-4a8d-a41e-3aeb8ac6257a&lt;/cbc:ID&gt;
+        &lt;cbc:Description&gt;LotIDs&lt;/cbc:Description&gt;
+        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;LOT_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+        &lt;cbc:ExpectedID schemeAgencyID="EU-COM-GROW"&gt;Lot5&lt;/cbc:ExpectedID&gt;
+    &lt;/cac:TenderingCriterionProperty&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong><em>This issue is currently being discussed in the UBL-2.3 TC and a solution will be soon provided.</em></strong> Once solved, the
+sequence of 5 properties below would be reduced to only one (of type REQUIREMENT):</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ix_2_all_about_weights"><a class="anchor" href="#_ix_2_all_about_weights"></a>IX.2 All about weights</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <strong>SELF-CONTAINED ESPD</strong>  caters for two methods of evaluating criteria (the REGULATED ESP does not covers this aspect).
+These two methods are identified in the code list
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.0.2/docs/src/main/asciidoc/dist/cl/xlsx/ESPD-CodeLists-V2.0.2.xlsx">EvaluationMethodType</a> as
+1) PASSFAIL (Pass or fail), and 2) WEIGHTED (the criterion is assigned a weight).</p>
+</div>
+<div class="paragraph">
+<p>The ''pass or fail'' method is used in open procedures and in the first stage of multi-staged procedures. In multi-staged
+procedures, once the list of candidates meeting the criteria have been selected, it makes sense to evaluate their tenders
+based on weighted selection criteria.</p>
+</div>
+<div class="paragraph">
+<p>Hence the following general rule should be applied by software applications dealing with the ESPD-EDM:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the procedure is open 1) no reduction of candidates is possible, and 2) criteria will not be weighted
+(the value of the element cbc:EvaluationMethodTypeCode is to be set to <code>PASSFAIL</code>);</p>
+</li>
+<li>
+<p>Otherwise 1) the contracting authority should have the possibility of specifying the criteria and rules to be applied
+in order to limit the number of candidates, and 2) it should have the possibility of assigning a weight to any selection
+criterion (the value of the element cbc:EvaluationMethodTypeCode is to be set to <code>WEIGHTED</code>);</p>
+</li>
+</ol>
+</div>
+<div class="sect2">
+<h3 id="_information_requirement_check_list"><a class="anchor" href="#_information_requirement_check_list"></a>Information requirement check-list</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Only in <strong>SELF-CONTAINED</strong> ESPD-Request and ESDP-Response documents</p>
+</li>
+<li>
+<p>Only in multi-staged procedures</p>
+</li>
+<li>
+<p>The need for weighting was identified only for these Selection criteria (although the data model caters for
+weighing any criterion):</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Abilities I (Persons)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #40 - Technicians or technical bodies for quality control</p>
+</li>
+<li>
+<p>Criterion #41 - For works contracts: technicians or technical bodies to carry out the work</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Abilities II (Facilities, etc.)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #42 - Technical facilities and measures for ensuring quality</p>
+</li>
+<li>
+<p>Criterion #43 - Study and research facilities</p>
+</li>
+<li>
+<p>Criterion #44 - Supply chain management</p>
+</li>
+<li>
+<p>Criterion #45 - Environmental management measures</p>
+</li>
+<li>
+<p>Criterion #46 - Tools, plant or technical equipment</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Abilities III (Education)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Criterion #47 - Educational and professional qualifications</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>A complete ESPD-Response document with the examples provided in this section can be found in the file
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/xml/Weights-SelfContained-Request_V2.1.0.xml">Weights-SelfContained-Request_V2.1.0.xml</a></em></strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Order of occurrence of the different blocks of data related to weights</caption>
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Nº</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data Element</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Location</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rules</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>The weighting methodology</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Method that will be used to select those selection criteria that will be weighted (used for transparency purposes)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element <code>cbc:WeightScoringMethodologyNote</code>, at the root of the Qualification Application Request document (see section
+<a href="#iii-4-root-elements">III.4 Root elements</a>, see also the UBL-2.2 Schema for the Qualification Application Request
+(the <a href="#iii-the-espd-request-document">ESPD-Request document</a>)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operators should be informed in detail about how the selection will be performed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>The numeric weighting type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The expression method for the weighting of the selection criteria (numeric, percentage).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element <code>cbc:WeightingTypeCode</code>, at the root of the Qualification Application Request document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The numeric can also be used to express percentages (in the form of ''0.x''). See also the code list
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/cl/xlsx/ESPD-CodeLists-V2.1.0.xlsx">EvaluationMethodType</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>The criterion weight value</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The concrete value assigned by the CA to the criterion for its weighting at evaluation time (e.g. 10%)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element <code>cbc:WeightNumeric</code>, inside the <code>cac:TenderingCriterion</code> class
+(see section <a href="#iv-1-general-behavior">IV. Criteria, common aspects /IV.1 General behavior</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>The criterion evaluation method type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To inform that the criterion will be weighted (WEIGHTED vs PASSFAIL). See code list
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/cl/xlsx/ESPD-CodeLists-V2.1.0.xlsx">EvaluationMethodType</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element <code>cbc:EvaluationMethodTypeCode</code>, inside the <code>cac:TenderingCriterion</code> class (see section
+<a href="#iv-1-general-behavior">IV. Criteria, common aspects /IV.1 General behavior</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The weight is used in second (or subsequent) stages of the evaluation. The first stage is always a PASSFAIL selection,
+even if the code WEIGHTED is assigned to this element</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Criterion-specific evaluation approach</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Explanation about how this specific criterion is weighted and will be evaluated (for transparency purposes)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Element <code>cbc:WeightingConsiderationDescription</code>, inside the <code>cac:TenderingCriterion</code> class (see section
+<a href="#iv-1-general-behavior">IV. Criteria, common aspects /IV.1 General behavior</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>REQUIREMENT(s) in the criterion</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Criteria that are weighted carry a specific REQUIREMENT stating that ''This criterion will be weighted''</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elements <code>cac:TenderingCriterion</code> (see the figure on the data structure and the XML example,below)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>BEWARE</strong> that the REQUIREMENT ''This criterion will be weighted'' is redundant with the element
+<code>cbc:EvaluationMethodTypeCode</code>, which may cause inconsistency. Therefore try and do not use this
+REQUIREMENT ''This criterion will be weighted'' and use instead the <code>cbc:EvaluationMethodTypeCode</code>. If you do not
+use this REQUIREMENT then you have to replace it with a CAPTION, because the cardinality constraint imposed
+by the UBL-2.2 requires that the first element inside a group or subgroup is a <code>cac:TenderingCriterionProperty</code> it in the XSD schema.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The figure below shows elements 1 and 2 in the UBL-2.2 XSD Schema:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/ESPD-Response-WeightingRootElements.png" alt="Root elements related to criterion weighting">
+</div>
+<div class="title">Figure 5. Elements related to the weight at the root level of the document</div>
+</div>
+<div class="paragraph">
+<p>This other figure shows the elements inside the class Criterion:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Criterion-weight-related-data_elements.png" alt="Weight-related data elements">
+</div>
+<div class="title">Figure 6. Elements related to the weight inside the 'cac:TenderingCriterion' class</div>
+</div>
+<div class="sect3">
+<h4 id="_mock_up_contracting_authority_perspective_2"><a class="anchor" href="#_mock_up_contracting_authority_perspective_2"></a>Mock-up - contracting authority perspective</h4>
+<div class="paragraph">
+<p>The mock-up below illustrates how the contracting authority may specify weighted criteria.</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_Abilities_WEIGHTED_CA_REQ_mockup.png" alt="Self-contained 'Abilities (I)' WEIGHTED CA REQUIREMENT edition mock-up">
+</div>
+<div class="title">Figure 7. Self-contained 'Abilities (I)' WEIGHTED CA REQUIREMENT edition mock-up</div>
+</div>
+<div class="paragraph">
+<p>Notice that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The field ''One or more criteria will be weighted'' is not stored in the data model;</p>
+</li>
+<li>
+<p>The field ''Criterion weighting type'' is generic to all the criteria and is placed in the element <code>cbc:WeightingTypeCode</code> (element #2 in the table above);</p>
+</li>
+<li>
+<p>The field ''Provide the general method used to score and evaluate the weighted criteria" is hold in the element <code>cbc:WeightScoringMethodologyNote</code>;
+and is also generic for all the weighted criteria (element #1 in the table above);</p>
+</li>
+<li>
+<p>The CA has chosen ''WEIGHTED'' as the value for the combo box labeled 'Criterion evaluation method'  and for the specific
+criterion ''For contracts: technicians or technical bodies to carry out the work'' (element #4 in the table above);</p>
+</li>
+<li>
+<p>The weight assigned by the contracting authority (CA) to this criterion is <code>0.1</code>. This value will be placed in the the
+element <code>cbc:WeightNumeric</code> (element #3 in the table above);</p>
+</li>
+<li>
+<p>The additional information about how this specific criterion will be evaluated will be place in the element
+<code>cbc:WeightingConsiderationDescription</code> (element #5 in the table above).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_mock_up_economic_operator_perspective_2"><a class="anchor" href="#_mock_up_economic_operator_perspective_2"></a>Mock-up - economic operator perspective</h4>
+<div class="paragraph">
+<p>This mock-up illustrates how all the information specified by the contracting authority (CA), concerning
+1) the generic information about weights, and 2) the information specific of the criterion may be
+presented to the economic operator (EO):</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_Abilities_WEIGHTED_EO_mockup2.png" alt="Self-contained 'Abilities (I)' WEIGHTED EO mock-up">
+</div>
+<div class="title">Figure 8. Self-contained 'Abilities (I)' WEIGHTED EO mock-up</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_criterion_data_structure_2"><a class="anchor" href="#_criterion_data_structure_2"></a>Criterion data structure</h4>
+<div class="paragraph">
+<p>The following data structure represents the structure of one of the selection criteria that may be weighted in multi-stage
+procedures (''Technicians or technical bodies for quality control'').</p>
+</div>
+<div class="paragraph">
+<p><strong>Beware</strong> that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The fact that the criterion will be weighted is indicated by the REQUIREMENT ''This criterion will be weighted'';</p>
+</li>
+<li>
+<p>This REQUIREMENT can be replaced by a CAPTION</p>
+</li>
+<li>
+<p>The purpose of this REQUIREMENT can be fulfilled using the element <code>cbc:EvaluationMethodTypeCode</code></p>
+</li>
+</ul>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Self-contained_Weighted_Criterion.png" alt="Weighted self-contained 'Abilities (I) criterion">
+</div>
+<div class="title">Figure 9. Weighted self-contained 'Abilities (I) - Criterion 'Technicians or technical bodies for quality control'</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_xml_example_2"><a class="anchor" href="#_xml_example_2"></a>XML example</h4>
+<div class="paragraph">
+<p>The fragment of XML code below illustrates how the elements related to the weighting are specified in an SELF-CONTAINED
+ESPD Request document.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><strong><em>Many compulsory elements and attributes of the XML example below that are not related to the subject covered in
+this section have been removed to gain clarity and brevity. For complete XML samples download the files under folder
+<a href="https://github.com/OP-TED/ESPD-EDM/tree/2.1.0/docs/src/main/asciidoc/dist/xml">dist/xml</a>.</em></strong></p>
+</div>
+<div class="paragraph">
+<p><strong><em>The example presented next was extracted from the file
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/xml/Weights-SelfContained-Request_V2.1.0.xml">Weights-SelfContained-Request_V2.1.0.xml</a></em></strong></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Criterion "Technicians or technical bodies for quality control" (SELF-CONTAINED and WEIHGTED)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;
+&lt;QualificationApplicationRequest xmlns="urn:oasis:names:specification:ubl:schema:xsd:QualificationApplicationRequest-2"
+xmlns:ext="urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2"
+xmlns:cac="urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2"
+xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" &gt;
+&lt;!-- Some root elements remove for brevity --&gt;
+&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeAgencyName="DG GROW (European Commission)" schemeVersionID="1.1"&gt;576ae724-f8e8-4b51-ae9c-2c2f4c90f433&lt;/cbc:ID&gt;
+&lt;cbc:ContractFolderID schemeAgencyID="TeD"&gt;__ProcurementProcedureFileRefNumber&lt;/cbc:ContractFolderID&gt;
+&lt;cbc:IssueDate&gt;2019-01-23&lt;/cbc:IssueDate&gt;
+&lt;cbc:ProcedureCode listID="ProcedureType" listAgencyID="EU-COM-OP" listVersionID="1.0"&gt;OPEN&lt;/cbc:ProcedureCode&gt;
+&lt;cbc:QualificationApplicationTypeCode listID="QualificationApplicationType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;SELFCONTAINED&lt;/cbc:QualificationApplicationTypeCode&gt;
+
+&lt;!--
+    *DATA ELEMENTS #1 and #2!* General information about all the weighted selection criteria.
+--&gt;
+&lt;cbc:WeightScoringMethodologyNote&gt;For weighted criteria, evaluators will allocate a score between 0 and 100 to each question reponse in accordance with the scoring guidance below:&lt;/cbc:WeightScoringMethodologyNote&gt;<i class="conum" data-value="3"></i><b>(3)</b>
+&lt;cbc:WeightScoringMethodologyNote&gt;0 Unnaceptable&lt;/cbc:WeightScoringMethodologyNote&gt;
+&lt;cbc:WeightScoringMethodologyNote&gt;25 Poor&lt;/cbc:WeightScoringMethodologyNote&gt;
+&lt;cbc:WeightScoringMethodologyNote&gt;50 Acceptable&lt;/cbc:WeightScoringMethodologyNote&gt;
+&lt;cbc:WeightScoringMethodologyNote&gt;75 Good&lt;/cbc:WeightScoringMethodologyNote&gt;
+&lt;cbc:WeightScoringMethodologyNote&gt;100 Excellent&lt;/cbc:WeightScoringMethodologyNote&gt;
+&lt;cbc:WeightScoringMethodologyNote&gt;Suppliers must pass all of the pass/fail (Yes/No) questions and score a minimum of 75 overall in this section to proceed to the next stage. This will allows us to get a short list of suppliers to take through to the next stage. The final score for a criterion (or "Weighted Question Score") results from the product of the Score obtained and the weight allocated by the Contracting Authority to the criterion.&lt;/cbc:WeightScoringMethodologyNote&gt;
+&lt;cbc:WeightingTypeCode listID="WeightingType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;PERCENTAGE&lt;/cbc:WeightingTypeCode&gt;<i class="conum" data-value="2"></i><b>(2)</b>
+
+&lt;!-- Data About the CA --&gt;
+&lt;cac:ContractingParty&gt;
+    &lt;cac:Party&gt;&lt;!-- elements removed for brevity --&gt;&lt;/cac:Party&gt;
+&lt;/cac:ContractingParty&gt;
+&lt;!-- Data About the Procedure --&gt;
+&lt;cac:ProcurementProject&gt;&lt;!-- elements removed for brevity --&gt;&lt;/cac:ProcurementProject&gt;
+&lt;!-- Procedure divided into three Lots. Not relevant for this example about weighting. --&gt;
+&lt;cac:ProcurementProjectLot&gt;
+    &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot1&lt;/cbc:ID&gt;
+&lt;/cac:ProcurementProjectLot&gt;
+&lt;cac:ProcurementProjectLot&gt;
+    &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot2&lt;/cbc:ID&gt;
+&lt;/cac:ProcurementProjectLot&gt;
+&lt;cac:ProcurementProjectLot&gt;
+    &lt;cbc:ID schemeAgencyID="EU-COM-GROW"&gt;Lot3&lt;/cbc:ID&gt;
+&lt;/cac:ProcurementProjectLot&gt;
+&lt;!-- Requirements about Lots addressed to EOs. Not relevant for this example about weighting. See other examples with lots. --&gt;
+&lt;cac:TenderingCriterion&gt;&lt;!-- elements removed for brevity --&gt;&lt;/cac:TenderingCriterion&gt;
+
+&lt;!--
+        *THE REST OF THE DATA ELEMENTS RELATED TO WEIGHTING (elements #3 to #5 in the table above)
+        GO INSIDE THE CRITERIA THAT ARE WEIGHTED. E.g. Selection Criteria about ''Abilities I (Persons),
+        II (Facilities, etc.) and 'III (Education)': Technicians or technical bodies for quality control,
+        For works contracts: technicians or technical bodies to carry out the work, Technical facilities and
+        measures for ensuring quality, Study and research facilities, Supply chain management, Environmental
+        management measures, Tools, plant or technical equipment, and Educational and professional qualifications.
+ --&gt;
+&lt;cac:TenderingCriterion&gt;
+&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;3aaca389-4a7b-406b-a4b9-080845d127e7&lt;/cbc:ID&gt;
+&lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CRITERION.SELECTION.TECHNICAL_PROFESSIONAL_ABILITY.TECHNICAL.TECHNICIANS_FOR_QUALITY_CONTROL&lt;/cbc:CriterionTypeCode&gt;
+&lt;cbc:Name&gt;Technicians or technical bodies for quality control&lt;/cbc:Name&gt;
+&lt;cbc:Description&gt;It can call upon the following technicians or technical bodies, especially those responsible for quality control. For technicians or technical bodies not belonging directly to the economic operator's undertaking but on whose capacities the economic operator relies as set out under Part II, Section C, separate ESPD forms must be filled in.&lt;/cbc:Description&gt;
+&lt;cbc:WeightNumeric&gt;0.1&lt;/cbc:WeightNumeric&gt;<i class="conum" data-value="5"></i><b>(5)</b>
+&lt;cbc:EvaluationMethodTypeCode listID="EvaluationMethodType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;WEIGHTED&lt;/cbc:EvaluationMethodTypeCode&gt;<i class="conum" data-value="4"></i><b>(4)</b>
+&lt;cbc:WeightingConsiderationDescription&gt;0 technicians -&gt;   0 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+&lt;cbc:WeightingConsiderationDescription&gt;1 technician -&gt;   30 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+&lt;cbc:WeightingConsiderationDescription&gt;2 technicians -&gt;  60 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+&lt;cbc:WeightingConsiderationDescription&gt;3 technicians -&gt;  75 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+&lt;cbc:WeightingConsiderationDescription&gt;4 technicians -&gt; 100 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+&lt;cbc:WeightingConsiderationDescription&gt;Minimum acceptable: 2 technicians&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+&lt;cac:Legislation&gt;
+    &lt;cbc:Title&gt;Public Procurement Directive 2014/24/EU&lt;/cbc:Title&gt;
+    &lt;cbc:Description&gt;Directive 2014/24/EU of the European Parliament and of the Council of 26 February 2014 on public procurement and repealing Directive 2004/18/EC&lt;/cbc:Description&gt;
+    &lt;cbc:JurisdictionLevel&gt;eu&lt;/cbc:JurisdictionLevel&gt;
+    &lt;cbc:Article&gt;Article 58(4)&lt;/cbc:Article&gt;
+    &lt;cbc:URI&gt;http://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2014.094.01.0065.01.ENG&lt;/cbc:URI&gt;
+&lt;/cac:Legislation&gt;
+&lt;cac:TenderingCriterionPropertyGroup&gt;
+    &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;1e73d705-9dc1-43f1-9b5c-2d0deac7bc5f&lt;/cbc:ID&gt;
+    &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+    &lt;cac:TenderingCriterionProperty&gt;
+        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;2a7dcb2a-dc10-4c30-bece-66dfd0a8bc6b&lt;/cbc:ID&gt;
+        &lt;!--
+            NOTICE that this is a CAPTION, not a REQUIREMENT (as suggested in the Criteria Taxonomy). The fact that the criterion is weighted is
+            already stated in the data element `cbc:EvaluationMethodTypeCode`, above. The text ''This criterion will be weighted'' could thus
+            be ''calculated'' (i.e. automatically provided in the ESPD-Request, by the software application based on the value placed in the
+            element `cbc:EvaluationMethodTypeCode`.
+        --&gt;
+        &lt;cbc:Description&gt;This criterion will be weighted&lt;/cbc:Description&gt;<i class="conum" data-value="1"></i><b>(1)</b>
+        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+        &lt;!-- The type of value provided by the CA is `NONE`, as this is a CAPTION, not a REQUIREMENT. --&gt;
+        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;NONE&lt;/cbc:ValueDataTypeCode&gt;
+    &lt;/cac:TenderingCriterionProperty&gt;
+
+    &lt;!-- THE REST OF THE CRITERION DOES NOT REFER ANYMORE TO ANY DATA ELEMENT RELATED TO ITS WEIGHTING. --&gt;
+
+    &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+        &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;f156d97a-9700-4ad9-8d21-e3ac57102278&lt;/cbc:ID&gt;
+        &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+        &lt;cac:TenderingCriterionProperty&gt;
+            &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;d1936fa0-4a8a-4016-8349-9e389c80fff4&lt;/cbc:ID&gt;
+            &lt;cbc:Description&gt;Requirement&lt;/cbc:Description&gt;
+            &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+            &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+            &lt;cbc:ExpectedDescription&gt;__TechniciansRequirement&lt;/cbc:ExpectedDescription&gt;
+        &lt;/cac:TenderingCriterionProperty&gt;
+        &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+            &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;609cc954-64be-4b4f-800a-f17589deb936&lt;/cbc:ID&gt;
+            &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;5b878bbe-b575-43e4-a40c-6bf3ede91641&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt; &lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;NONE&lt;/cbc:ValueDataTypeCode&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;52ffcf91-3598-438f-8c3d-faf97da02602&lt;/cbc:ID&gt;
+                &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;acf762a6-0087-4ad3-9f95-a8b624be81b0&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;First name&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;3b4b838b-1c41-42a3-a21b-a1cac72d2971&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Last name&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;95912db9-df33-44b1-97fd-63f5e0202d84&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Profession&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;9ddd05be-6194-4ad8-9f68-7ac549dff64e&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Experience&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;f4351f24-d1f7-4039-893c-e2947ba3afac&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Other information&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;7a348140-4d0c-421b-8142-2053835272a3&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;How long with  EO&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUANTITY_INTEGER&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                    &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;9026e403-3eb6-4705-a9e9-e21a1efc867d&lt;/cbc:ID&gt;
+                    &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                    &lt;cac:TenderingCriterionProperty&gt;
+                        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;0de6079a-3f13-4391-a8a6-1b4b350f8b2f&lt;/cbc:ID&gt;
+                        &lt;cbc:Description&gt;Is this information available online?&lt;/cbc:Description&gt;
+                        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+                    &lt;/cac:TenderingCriterionProperty&gt;
+                    &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                        &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;0a166f0a-0c5f-42b0-81e9-0fc9fa598a48&lt;/cbc:ID&gt;
+                        &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt;
+                        &lt;cac:TenderingCriterionProperty&gt;
+                            &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;c4d4dec1-ea76-4d1c-bcf2-2d4f265982fb&lt;/cbc:ID&gt;
+                            &lt;cbc:Description&gt;Evidence supplied&lt;/cbc:Description&gt;
+                            &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                            &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                        &lt;/cac:TenderingCriterionProperty&gt;
+                    &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+            &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+        &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+        &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+            &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;45a67f48-d146-4faf-8239-dd6977dffe29&lt;/cbc:ID&gt;
+            &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+            &lt;cac:TenderingCriterionProperty&gt;
+                &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;c1806c05-3589-4af4-9bea-7061b30e3f4f&lt;/cbc:ID&gt;
+                &lt;cbc:Description&gt; &lt;/cbc:Description&gt;
+                &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+                &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;NONE&lt;/cbc:ValueDataTypeCode&gt;
+            &lt;/cac:TenderingCriterionProperty&gt;
+            &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;52ffcf91-3598-438f-8c3d-faf97da02602&lt;/cbc:ID&gt;
+                &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;1d07b02b-cfce-4143-8743-79943b6265a0&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Name&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;ef2281fc-3505-4d3b-9fbc-e7655e534b28&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Experience area&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:TenderingCriterionProperty&gt;
+                    &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;9e8f3516-50fa-45d3-83cd-fa005705d4fa&lt;/cbc:ID&gt;
+                    &lt;cbc:Description&gt;Other information&lt;/cbc:Description&gt;
+                    &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                    &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+                &lt;/cac:TenderingCriterionProperty&gt;
+                &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                    &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;9026e403-3eb6-4705-a9e9-e21a1efc867d&lt;/cbc:ID&gt;
+                    &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+                    &lt;cac:TenderingCriterionProperty&gt;
+                        &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;89ae7f89-e17c-492c-a529-d137d7a5e22d&lt;/cbc:ID&gt;
+                        &lt;cbc:Description&gt;Is this information available online?&lt;/cbc:Description&gt;
+                        &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                        &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+                    &lt;/cac:TenderingCriterionProperty&gt;
+                    &lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                        &lt;cbc:ID schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;0a166f0a-0c5f-42b0-81e9-0fc9fa598a48&lt;/cbc:ID&gt;
+                        &lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt;
+                        &lt;cac:TenderingCriterionProperty&gt;
+                            &lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.1.0"&gt;f977a875-2889-4415-920f-256c1c1a06ed&lt;/cbc:ID&gt;
+                            &lt;cbc:Description&gt;Evidence supplied&lt;/cbc:Description&gt;
+                            &lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+                            &lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.1.0"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+                        &lt;/cac:TenderingCriterionProperty&gt;
+                    &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+                &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+            &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+        &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+    &lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+&lt;/cac:TenderingCriterionPropertyGroup&gt;
+&lt;/cac:TenderingCriterion&gt;
+&lt;/QualificationApplicationRequest&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The contracting authority has selected that this criterion will be weighted.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Method that will be used to select those selection criteria that will be weighted (used for transparency purposes).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The expression method for the weighting of the selection criteria (numeric, percentage).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>To inform that the criterion will be weighted (WEIGHTED vs PASSFAIL). See code list.
+<a href="https://github.com/OP-TED/ESPD-EDM/blob/2.1.0/docs/src/main/asciidoc/dist/cl/xlsx/ESPD-CodeLists-V2.1.0.xlsx">EvaluationMethodType</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The concrete value assigned by the CA to the criterion for its weighting at second-stage evaluation time.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Explanation about how this specific criterion is weighted and will be evaluated (for transparency purposes).</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ix_3_all_about_uuids"><a class="anchor" href="#_ix_3_all_about_uuids"></a>IX.3 All about UUIDs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the Regulated and Self-contained
+<a href="https://github.com/OP-TED/ESPD-EDM/tree/2.1.0/docs/src/main/asciidoc/dist/cl/xlsx">ESPD-EDM Criteria Taxonomies</a>
+every element of the criterion data structures has an UUID assigned, except for the CAPTIONs, REQUIREMENT(s) and
+QUESTION(s).</p>
+</div>
+<div class="paragraph">
+<p>This UUID is necessary to identify unambiguously a particular "data structure" (or "data shape"). One data
+structure identified with a unique identifier has always the same elements and in the same order.
+This allows <strong><em>the reuse</em></strong> of the same structure multiple times in the same criterion or in different criteria.
+These UUIDs map the ones maintained in <a href="https://ec.europa.eu/isa2/solutions/e-certis_en">e-Certis</a> for each criterion.</p>
+</div>
+<div class="sect2">
+<h3 id="_examples_of_data_structure_reuse"><a class="anchor" href="#_examples_of_data_structure_reuse"></a>Examples of data structure reuse</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Example 1</strong>: There is a data structure that is reused by practically  all the criteria, the one asking whether the information
+is available electronically. You will notice that all criteria where it is used the UUIDs of the groups and
+subgroups are identical, but also the cardinalities, the PropertyDataType and the Element Code.</p>
+</li>
+<li>
+<p><strong>Example 2</strong>: If you look into the "Convictions" data structures you will notice a data structure
+(a QUESTION_SUBGROUP) identified with the UUID "f4978772-3126-4ded-bc30-f50da8c3a038".
+This subgroup contains one QUESTION ("Have you taken measures to demonstrate your reliability (Self-Cleaning)?"
+and a sub-group with another QUESTION ("Please describe them").
+If you search into the spread-sheet book you will observe that this very structure is also reused by other criteria
+(e.g. CRITERION.EXCLUSION.SOCIAL.*, CRITERION.EXCLUSION.MISCONDUCT.\*, etc.), but the UUID of the main subgroup is
+different in all those cases from the one used for Convictions. This is because the Element Code in the case of
+Convictions (and for this subgroup) is "ONTRUE" whilst in the rest of criteria it is "ON*".</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As mentioned above, CAPTIONs, REQUIREMENT(s) and QUESTION(s) cannot have a <strong><em>reusable</em></strong> UUID pre-allocated.
+The reason for this is that each response by the economic operator (in the ESPD Response document) MUST refer to one,
+and only one, QUESTION of the ESPD Request. See other details on criterion properties in sections
+<a href="#iv-4-properties">IV.4 Properties</a> and <a href="#viii-7-answering-questions">VIII.7 Answering QUESTION(s)</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_challenge"><a class="anchor" href="#_implementation_challenge"></a>Implementation challenge</h3>
+<div class="paragraph">
+<p>The fact that Criterion Properties are to be generated dynamically may pose a challenge to developers in certain
+situations. One of these situations could be when the QUESTIONs are repositoried and answered in a
+Pre-Qualification System (PQS) that is used to pre-fill ESPD-Responses to ESPD-Request instances that are
+kept in another system unknown to the PQS (e.g. a Service Provider acting on behalf of one or more Contracting
+Authorities).</p>
+</div>
+<div class="paragraph">
+<p>One possible solution may be based on the fact that <strong><em>each REQUIREMENT and QUESTION occurs always in the same
+position inside a group or a sub-group</em></strong>. If the order of the REQUIREMENTs and QUESTIONs is altered the
+Schematron-based validation would trigger a fatal exception.</p>
+</div>
+<div class="paragraph">
+<p>The proposal consists in identifying each REQUIREMENT and QUESTION by concatenating the UUIDs of the CRITERION and the
+"parent" groups and sub-groups, <strong><em>as described in the Criteria Taxonomy spread-sheets</em></strong>, produce a short hash of the
+concatenated string and add to it the position of the element in the group or subgroup.
+This casts a <strong>constant</strong> UUID for each REQUIREMENT and QUESTION that would be known by <strong><em>any</em></strong> stakeholder, thus
+enabling the decoupling of systems producing ESPD-Requests and systems keeping particular QUESTIONS and RESPONSES.</p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s take one <strong><em>REGULATED</em></strong> criterion as an example to illustrate this proposal (this works also for <strong><em>SELF-CONTAINED
+ESPD</em></strong> criteria):</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_example_convictions_criterion"><a class="anchor" href="#_example_convictions_criterion"></a>Example: Convictions Criterion</h3>
+<div class="sect3">
+<h4 id="_user_story"><a class="anchor" href="#_user_story"></a>User Story</h4>
+<div class="paragraph">
+<p><em>I, as a PQS, need to provide the information about an EO&#8217;s convictions, so the  EO can produce a pre-filled ESPD-Response</em>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_algorithm"><a class="anchor" href="#_algorithm"></a>Algorithm</h4>
+<div class="paragraph">
+<p>The algorithm to generate the first subgroup of QUESTIONs (in convictions) would be:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Question_UUID = "" ;</p>
+</li>
+<li>
+<p>Question_UUID += Criterion_UUID + "." ;</p>
+</li>
+<li>
+<p>Question_UUID += Group_UUID + "." ;</p>
+</li>
+<li>
+<p>Question_UUID += Subgroup_UUID + "." ;</p>
+</li>
+<li>
+<p>Question_UUID  = hash_md5(Question_UUID) ;</p>
+</li>
+<li>
+<p>Question_UUID += Question_UUID + "." + Group_Position() + "." + Subgroup_Position() + "." + Question_Position() ;</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Apply repeatedly this algorithm to the subsequent sub-subgroups.</p>
+</div>
+<div class="paragraph">
+<p>The objective of hashing the concatenation of UUIDs is to produce a non-too-verbose UUID for the QUESTION.</p>
+</div>
+<div class="paragraph">
+<p>This algorithm produces a unique digital print per each data element of the <em>data shape</em>. If this hash were added to
+an IRI, the data element could be described in a very specific namespace and its de-referencing could provide
+back a machine-readable description of the element (name, description, examples, etc.).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_data_structure"><a class="anchor" href="#_data_structure"></a>Data Structure</h4>
+<div class="paragraph">
+<p>The figure below would represent how the criterion "Participation in a criminal organisation would look like in the
+Criteria Taxonomy if you applied the algorithm above:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/TheUUID_MaltaAlgorithm.png" alt="Self-contained 'Contributions' criterion data structure">
+</div>
+<div class="title">Figure 10. A way of generating UUIDs that is agnostic of the ESPD-Request XML instance.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The <b>eForms SDK</b> is created by the Publications Office of the European Union and is licensed under the terms of <a href="https://github.com/OP-TED/eForms-SDK/blob/main/LICENSE">EUPL-1.2 license</a>.
+  <br/>This page was built using the Antora default UI. The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/EU_Publications_Office_logo_with name.png" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
