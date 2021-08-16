@@ -387,7 +387,7 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">The type of the procurement administrative procedure according to the EU Directives.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information Requirement</strong>:
 <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.0#BIS41-ESPDV2.0-tbr070-007"><em>tbr070-007</em></a>.</p>
-<p class="tableblock"><strong>Rule</strong>: <strong>Rule</strong>: Compulsory use of attributes listID, listAgencyName and listVersionID. Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPD-CodeLists-V2.0.1.ods">ProcedureType</a> (values: <code>Open</code>, <code>Restricted</code>, <code>Accelerated</code>, <code>Competitive dialogue</code>, etc.). Do not confound with the object of the procurement project (code list <code>ProjectType</code>: Works, Supplies, Services).</p></td>
+<p class="tableblock"><strong>Rule</strong>: <strong>Rule</strong>: Compulsory use of attributes listID, listAgencyName and listVersionID. Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPD-CodeLists-V02.00.01.ods">ProcedureType</a> (values: <code>Open</code>, <code>Restricted</code>, <code>Accelerated</code>, <code>Competitive dialogue</code>, etc.). Do not confound with the object of the procurement project (code list <code>ProjectType</code>: Works, Supplies, Services).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:QualificationApplicationTypeCode</strong></p></td>
@@ -794,7 +794,7 @@ The REGULATED version should not contain a <code>cac:ProcurementProject</code> i
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>In this case the code <code>NOJCN</code> means 'Contract Notice (CN) published on a National Government Official Journal' (see file <a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/CodeLists-V2.0.1">CodeLists-V2.0.1</a>) in the distribution package.</td>
+<td>In this case the code <code>NOJCN</code> means 'Contract Notice (CN) published on a National Government Official Journal' (see file <a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPD-CodeLists-V02.00.01.ods">CodeLists-V2.0.1</a>) in the distribution package.</td>
 </tr>
 </table>
 </div>
@@ -1670,7 +1670,7 @@ The REGULATED version should not contain a <code>cac:ProcurementProject</code> i
 <div class="sect3">
 <h4 id="_xsd_schema_5"><a class="anchor" href="#_xsd_schema_5"></a>XSD Schema</h4>
 <div class="paragraph">
-<p>For the Self-contained ESPD Request, the 'Object of the contract' needs to be expressed as a code. This code is located in the <code>cac:ProcurementProject</code> class. As a matter of fact, the class provides two codes that allow to further refine the object of the contract: the <code>cbc:ProcurementTypeCode</code> and the <code>cbc:ProcurementSubTypeCode</code>. Thus you can specify things like 'Services' and 'Maintenance and repair services, or Land transport services, including armoured car services, and courier services, except transport of mail, or other', for example (see Code List <code>ServicesProjectSubType</code> in the <a href="dist/cl/ods/ESPD-CodeLists-V2.0.1.ods">Code Lists</a> file).</p>
+<p>For the Self-contained ESPD Request, the 'Object of the contract' needs to be expressed as a code. This code is located in the <code>cac:ProcurementProject</code> class. As a matter of fact, the class provides two codes that allow to further refine the object of the contract: the <code>cbc:ProcurementTypeCode</code> and the <code>cbc:ProcurementSubTypeCode</code>. Thus you can specify things like 'Services' and 'Maintenance and repair services, or Land transport services, including armoured car services, and courier services, except transport of mail, or other', for example (see Code List <code>ServicesProjectSubType</code> in the <a href="dist/cl/ods/ESPD-CodeLists-V02.00.01.ods">Code Lists</a> file).</p>
 </div>
 <div class="paragraph">
 <p>The figure below shows the elements that can be used in a Self-contained ESPD. In blue those elements that are expected. See the UBL-2.2 XSD Schema for more elements in the <code>cac:ProcurementProject</code> class (e.g. the <code>cac:AdditionalCommodityClassification</code> class for other classifications beyond the CPV).</p>
@@ -2050,7 +2050,7 @@ The REGULATED version should not contain a <code>cac:ProcurementProject</code> i
 <p>The rest of information about the lots (“tenders must be submitted for…”, “maximum number of lots”, “maximum number of lots that may be awarded”) is treated as the elements (or properties) of a “Criterion” (component <code>cac:TenderingCriterion</code>) named “Additional information about the Lots”.</p>
 </div>
 <div class="paragraph">
-<p>As you will see in section <a href="#iv-4-mock-ups-data-structures-xml-examples-and-tools">IV.4 Mock-ups, data structures, XML examples and tools</a> and further on, this guide uses a spread-sheet-based method to represent the structures of the criteria (and to generate XML template instances of the criteria). The figure below shows the structure that "generates" the XML instance. One important thing to observe in this structure and in the XML example is the use of the Publications Office Code List "<a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPD-CodeLists-V2.0.1.ods">BidType</a>" to specify to which Lots the economic operator may bid.</p>
+<p>As you will see in section <a href="#iv-4-mock-ups-data-structures-xml-examples-and-tools">IV.4 Mock-ups, data structures, XML examples and tools</a> and further on, this guide uses a spread-sheet-based method to represent the structures of the criteria (and to generate XML template instances of the criteria). The figure below shows the structure that "generates" the XML instance. One important thing to observe in this structure and in the XML example is the use of the Publications Office Code List "<a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPD-CodeLists-V02.00.01.ods">BidType</a>" to specify to which Lots the economic operator may bid.</p>
 </div>
 <div class="imageblock text-center">
 <div class="content">
