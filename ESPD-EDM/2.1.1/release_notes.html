@@ -81,6 +81,14 @@
       </ul>
     </li>
     <li class="component">
+      <a class="title" href="../../eforms-docs/0.2.1/index.html">eForms SDK Documentation</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../eforms-docs/0.2.1/index.html">0.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
       <a class="title" href="../../EPO/2.0.0/index.html">eProcurement Ontology</a>
       <ul class="versions">
         <li class="version is-latest">
@@ -138,7 +146,7 @@
     <a class="version" href="../2.0.1/release_notes.html">2.0.1</a>
     <a class="version" href="../2.0.0/release_notes.html">2.0.0</a>
     <a class="version" href="../1.0.2/release_notes.html">1.0.2</a>
-    <a class="version is-missing" href="../1.0.1/index.html">1.0.1</a>
+    <a class="version" href="../1.0.1/release_notes.html">1.0.1</a>
   </div>
 </div>
 </div>
@@ -151,6 +159,144 @@
 <h2 id="_release_notes"><a class="anchor" href="#_release_notes"></a>Release Notes</h2>
 <div class="sectionbody">
 <div class="sect2">
+<h3 id="_v3_0_0_january_2021"><a class="anchor" href="#_v3_0_0_january_2021"></a>v3.0.0 (January 2021)</h3>
+<div class="paragraph">
+<p>The ESPD-EDM version 3.0.0 focuses on its evolution for the alignment with eForms to ensure the maximum interoperability between models. It also includes fixed errors and changes suggested by the Member States and other Stakeholders within the Github repositories (issues workspace).
+The list below details the different changes included in the current release 3.0.0 of the ESPD-EDM:</p>
+</div>
+<div class="sect3">
+<h4 id="_online_documentation"><a class="anchor" href="#_online_documentation"></a>Online documentation</h4>
+<div class="paragraph">
+<p>The following changes have been introduced:
+* Online documentation has been split between business and technical documentation in order to ensure a better understanding of the ESPD by targeting each area. <strong><em>‘Business Handbook’</em></strong> and <strong><em>‘Technical Handbook’</em></strong> are now available.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><em>‘Business Handbook’</em></strong> is focused on providing business domain information for the ESPD-EDM, helping non-technical profiles to better understand the rationale to use the ESPD and its context.</p>
+</li>
+<li>
+<p><strong><em>‘Technical Handbook’</em></strong> includes information related to the implementation of the ESPD and how it works technically. The technical part of the previous “ESPD Implementation Guide” has been updated with the required changes due to the evolution of the model.
+It also must be taken into account that the current version of the ESPD-EDM is using a single model, the former EXTENDED model. Therefore, all information related to the BASIC model has been removed, and information related to the EXTENDED model has been updated according to the improvements included in the last version of the ESPD-EDM.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_toop_requirements_in_espd_edm_ubl2_2_schema"><a class="anchor" href="#_toop_requirements_in_espd_edm_ubl2_2_schema"></a>TOOP Requirements in ESPD-EDM (UBL2.2) Schema</h4>
+<div class="paragraph">
+<p>A mapping for TOOP requirements to UBL2.3 Schema (which is the one used by ESPD-EDM v3.0.0) has been made, and it has been proved that they are fully mappable. For more information, please refer to the dedicated section of the online documentation.
+You can also access issue <a href="https://github.com/ESPD/ESPD-EDM/issues/277">#277</a>, where the topic was discussed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_code_lists"><a class="anchor" href="#_code_lists"></a>Code Lists</h4>
+<div class="paragraph">
+<p>Taking into account the need for alignment with eForms, the different code lists used by the ESPD-EDM have been updated and adapted accordingly. The maintenance of these code lists will fall under the Publications Office in most of the cases.
+EU Vocabularies used also by eForms have been adopted when needed, for example in the cases of country, economic-operator-size, currency, language, etc.
+Other code lists have been removed since the information will be provided by eForms and, therefore, users will not need to provide this information into ESPD. Instead, the information shall be gathered from eForms’ notices and placed, when needed, into the proper placeholder. This is the case of the following code lists, which have been removed from ESPD:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>BidType</p>
+</li>
+<li>
+<p>ProcedureType</p>
+</li>
+<li>
+<p>ProjectType</p>
+</li>
+<li>
+<p>ServicesProjectSubType</p>
+</li>
+<li>
+<p>LegislationType</p>
+</li>
+<li>
+<p>EvaluationMethodType (version 3.0.0 of the ESPD does not include weights, in order to keep the model as simple as possible)</p>
+</li>
+<li>
+<p>CPVCodes</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A new code list has been added related to the requirement of being enrolled in a professional register (criterion #25 Suitability I ‘Abilities’ – “prof-regist”):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Occupation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is worth to note that this code list is based on <a href="https://ec.europa.eu/esco/portal/occupation">ESCO</a>. In the future, the ESCO API will be used to retrieve ESCO codes.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_espd_criteria_data_structures_former_espd_criteria_taxonomy"><a class="anchor" href="#_espd_criteria_data_structures_former_espd_criteria_taxonomy"></a>ESPD Criteria Data Structures (Former ESPD Criteria Taxonomy)</h4>
+<div class="paragraph">
+<p>The first change applied to the former Criteria Taxonomy is that from version 3.0.0 and on it will be named ESPD Criterion.
+As already explained, version 3.0.0 of the ESPD-EDM does not distinguish between EXTENDED or BASIC. Therefore, there is only a single document for the definition of criteria data structures.</p>
+</div>
+<div class="paragraph">
+<p>Codes have been modified in order to make them business agnostic and allow their reuse across sectors (see ‘criterion’ tab within ESPD-CodeLists-V.3.0.0). Also, codes per all criteria have been adapted accordingly (see column ‘ElementType’).</p>
+</div>
+<div class="paragraph">
+<p>The following criteria have been removed from the file <strong><em>ESPD-Criterion-V.3.0.0</em></strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>CRITERION.OTHER.CA_DATA.LOTS_SUBMISSION</p>
+</li>
+<li>
+<p>Criteria DEFENCE-SELECTION-OTHER and UTILITIES-SELECTION-OTHER</p>
+</li>
+<li>
+<p>CRITERION.OTHER.EO_DATA.LOTS_TENDERED</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A QUESTION_SUBGROUP has been added to selection criteria to know if the tendering EO is going to fill in the criteria by itself or will rely on other entities to do so (additional information than the <em>eo-group</em> criterion).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_uuids"><a class="anchor" href="#_uuids"></a>UUIDs</h4>
+<div class="paragraph">
+<p>New UUIDs have been added for the newly created Criteria, groups and sub-groups where needed. For a comprehensive list of the new UUIDs and their creation reason, please refer to the following <a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/assets">document</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_business_rules"><a class="anchor" href="#_business_rules"></a>Business Rules</h4>
+<div class="paragraph">
+<p>The ESPD 3.0.0 includes changes in the business rules used to validate the ESPD requests and responses:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>‘Context’ element has been removed since it was referring to EXTENDED or BASIC, and ESPD-EDM 3.0.0 includes only on single type;</p>
+</li>
+<li>
+<p>Weightings’ validations have been removed because the ESPD-EDM 3.0.0 does not include weights to simplify the model;</p>
+</li>
+<li>
+<p>BR related to the CRITERIA removed have been removed accordingly;</p>
+</li>
+<li>
+<p>BR related to Code list not used in ESPD-EDM have been removed accordingly;</p>
+</li>
+<li>
+<p>A rule has been added to ensure the proper development of the new Lot Management approach <strong><em>(1 Lot/Group of Lots per ESPD Response)</em></strong>. ESPD Request includes exclusion and selection criteria for ALL lots while EOs will need to produce an ESPD per Lot tendered.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v2_1_1_december_2019"><a class="anchor" href="#_v2_1_1_december_2019"></a>v2.1.1 (December 2019)</h3>
 <div class="paragraph">
 <p>The ESPD EDM version 2.1.1 focuses on correcting minor errors and implementing the backwards-compatible-changes suggested by Member
@@ -158,7 +304,7 @@ States and other Stakeholders in the ESPD-EDM in the GitHub <a href="https://git
 The list below details exhaustively every change introduced since the publication of the previous release (2.1.0) of the ESPD-EDM:</p>
 </div>
 <div class="sect3">
-<h4 id="_online_documentation"><a class="anchor" href="#_online_documentation"></a>Online documentation</h4>
+<h4 id="_online_documentation_2"><a class="anchor" href="#_online_documentation_2"></a>Online documentation</h4>
 <div class="paragraph">
 <p>As a part of the improvements introduced by this v2.1.1, the <a href="https://github.com/ESPD/ESPD-EDM/wiki">ESPD-EDM Wiki</a> has been refactored in order to offer
 users a <strong>Single Information Point</strong>, where it is possible to easly acess to all its resources: documentation, tools, assets, etc.</p>
@@ -169,17 +315,17 @@ on will be refered as <strong>Basic</strong> and <strong>Extended</strong>, resp
 </div>
 </div>
 <div class="sect3">
-<h4 id="_toop_requirements_in_espd_edm_ubl2_2_schema"><a class="anchor" href="#_toop_requirements_in_espd_edm_ubl2_2_schema"></a>TOOP Requirements in ESPD-EDM (UBL2.2) Schema</h4>
+<h4 id="_toop_requirements_in_espd_edm_ubl2_2_schema_2"><a class="anchor" href="#_toop_requirements_in_espd_edm_ubl2_2_schema_2"></a>TOOP Requirements in ESPD-EDM (UBL2.2) Schema</h4>
 <div class="paragraph">
 <p>A mapping for TOOP requirements to UBL2.2 Schema (which is the one used by ESPD-EDM) has been made, and it has been proved that they are
-fully mappable. For more information, please refer to the <a href="xml_guide.html#II.3.1_UBL-2.2-TOOP-Requirements" class="page">dedicated section</a> of the online documentation.</p>
+fully mappable. For more information, please refer to the <a href="#xml_guide.adoc#II.3.1_UBL-2.2-TOOP-Requirements" class="page unresolved">dedicated section</a> of the online documentation.</p>
 </div>
 <div class="paragraph">
 <p>You can also access to <a href="https://github.com/ESPD/ESPD-EDM/issues/254">issue #254</a>, where the topic was discussed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_code_lists"><a class="anchor" href="#_code_lists"></a>Code Lists</h4>
+<h4 id="_code_lists_2"><a class="anchor" href="#_code_lists_2"></a>Code Lists</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -210,11 +356,11 @@ of criteria has been produced based on the CriteriaTaxonomy spread-sheets (both 
 <div class="paragraph">
 <p>The complete set of code lists has been generated as Genericode 1.0 XML files, which can be
 accessed and downloaded from the GitHub repository
-<a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.1.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/gc">GC folder</a>.</p>
+<a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/cl/gc">GC folder</a>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_business_rules"><a class="anchor" href="#_business_rules"></a>Business Rules</h4>
+<h4 id="_business_rules_2"><a class="anchor" href="#_business_rules_2"></a>Business Rules</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -258,7 +404,7 @@ changed to 0..1 </strong>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uuids"><a class="anchor" href="#_uuids"></a>UUIDs</h4>
+<h4 id="_uuids_2"><a class="anchor" href="#_uuids_2"></a>UUIDs</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -278,33 +424,33 @@ namespace of the XSD Schema is now the final one (as published by the OASIS link
 The list below details exhaustively every change introduced since the publication of the previous release (2.1.0) of the ESPD-EDM:</p>
 </div>
 <div class="sect3">
-<h4 id="_online_documentation_2"><a class="anchor" href="#_online_documentation_2"></a>Online documentation</h4>
+<h4 id="_online_documentation_3"><a class="anchor" href="#_online_documentation_3"></a>Online documentation</h4>
 <div class="paragraph">
-<p>The following sections are new, in the <a href="xml_guide.html" class="page">XML Implementation Guide v2.1.0</a>.</p>
+<p>The following sections are new, in the <a href="#xml_guide.adoc" class="page unresolved">XML Implementation Guide v2.1.0</a>.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="xml_guide.html#iv-8-gui-control-elements" class="page">IV.8 GUI control elements</a>: About the sets of data elements (codes
+<p><a href="#xml_guide.adoc#iv-8-gui-control-elements" class="page unresolved">IV.8 GUI control elements</a>: About the sets of data elements (codes
 acting as ''processing instructions'') that help software applications control how to show the Graphic User Interfaces
 (GUI). The section covers three subjects:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The use of the <a href="xml_guide.html#ontrue-onfalse-codes-for-group-and-subgroup-control" class="page">ONTRUE/ONFALSE</a> codes for GROUP and SUBGROUP control;</p>
+<p>The use of the <a href="#xml_guide.adoc#ontrue-onfalse-codes-for-group-and-subgroup-control" class="page unresolved">ONTRUE/ONFALSE</a> codes for GROUP and SUBGROUP control;</p>
 </li>
 <li>
-<p>The use of <a href="xml_guide.html#use-of-caption" class="page">CAPTION</a>;</p>
+<p>The use of <a href="#xml_guide.adoc#use-of-caption" class="page unresolved">CAPTION</a>;</p>
 </li>
 <li>
-<p>Ideas for <a href="xml_guide.html#business-data-and-gui-decoupling" class="page">decoupling the data from the GUI</a> in future versions of the ESPD-EDM.
+<p>Ideas for <a href="#xml_guide.adoc#business-data-and-gui-decoupling" class="page unresolved">decoupling the data from the GUI</a> in future versions of the ESPD-EDM.
 See also the <a href="">examples</a> provided to illustrate this idea.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><a href="xml_guide.html#vi-1-alpha-criterion" class="page">VI.1 Alpha criterion</a>: This section describes how the economic operator (EO) has the possibility,
+<p><a href="#xml_guide.adoc#vi-1-alpha-criterion" class="page unresolved">VI.1 Alpha criterion</a>: This section describes how the economic operator (EO) has the possibility,
 in the <strong>REGULATED ESPD-Response</strong> document, of specifying that it meets <strong><em>all</em></strong> the selection criteria (thus avoiding
 the specification of each one of the selection criteria specified in the ESPD-Request. This is a special feature
 only possible in the <strong>REGULATED ESPD</strong>;</p>
@@ -313,14 +459,14 @@ only possible in the <strong>REGULATED ESPD</strong>;</p>
 <p>Some selection criteria have been split in multiples sub-sections, e.g. "Abilities"; this is also explained with more detail below;</p>
 </li>
 <li>
-<p><a href="xml_guide.html#vii-other-aspects-of-participation-and-selection" class="page">VII. Other aspects of participation and selection</a>:
+<p><a href="#xml_guide.adoc#vii-other-aspects-of-participation-and-selection" class="page unresolved">VII. Other aspects of participation and selection</a>:
 In restricted procedures, competitive procedures with negotiation, competitive dialogue procedures and innovation partnerships, contracting authorities may limit
 the number of candidates meeting the selection criteria that they will invite to tender or to conduct a dialogue. To cover this possibility,
 the ESPD Regulation introduces a section named "Reduction of the number of qualified candidates" that is not a true selection criterion.
 Hence this denomination of "participation criterion".</p>
 </li>
 <li>
-<p><a href="xml_guide.html#ix-putting-pieces-together" class="page">IX Putting pieces together</a>:
+<p><a href="#xml_guide.adoc#ix-putting-pieces-together" class="page unresolved">IX Putting pieces together</a>:
 The ESPD-EDM specification, notably regarding the SELF-CONTAINED ESPD, defines different complex sets of data that are
 scattered in distant locations of the corresponding XML instance. Consequently, implementors of software dealing with
 the ESPD XML instances may have a hard time to identify what needs to go in the XML instance and where.
@@ -338,16 +484,16 @@ instances at testing and integration time.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.1.1/docs/src/main/asciidoc/modules/ROOT/dist/doc/evolution/Annotations_Proposal">Examples</a>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/doc/evolution/Annotations_Proposal">Examples</a>
 related to the proposal on <em>how to decouple the GUI from the data structures</em> in future versions of the ESPD-EDM;</p>
 </li>
 <li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.1.1/docs/src/main/asciidoc/modules/ROOT/dist/doc/evolution/StaticPropertyUUIDGeneration_Proposal">Examples</a>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/doc/evolution/StaticPropertyUUIDGeneration_Proposal">Examples</a>
 on how to assign <em>constant</em> UUIDs to the Properties of a Criterion, instead of using dynamically generated UUIDs (a method that
 is currently under discussion: see the <a href="https://github.com/ESPD/ESPD-EDM/issues/226">Issue #226</a>);</p>
 </li>
 <li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.1.1/docs/src/main/asciidoc/modules/ROOT/dist/xml">Examples</a>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/xml">Examples</a>
 provided by the ESPDint solution and other manually adapted for the illustration of Lots, Weights and References.</p>
 </li>
 </ul>
@@ -375,7 +521,7 @@ provided by the ESPDint solution and other manually adapted for the illustration
 </li>
 <li>
 <p>See also how the section
-<a href="xml_guide.html#ii-3-ubl-2-2-documents-and-libraries" class="page">II.3 UBL-2.2 Documents and libraries</a>
+<a href="#xml_guide.adoc#ii-3-ubl-2-2-documents-and-libraries" class="page unresolved">II.3 UBL-2.2 Documents and libraries</a>
 in the online documentation has been adapted</p>
 </li>
 </ul>
@@ -385,7 +531,7 @@ in the online documentation has been adapted</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_code_lists_2"><a class="anchor" href="#_code_lists_2"></a>Code Lists</h4>
+<h4 id="_code_lists_3"><a class="anchor" href="#_code_lists_3"></a>Code Lists</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -429,13 +575,13 @@ has been marked as deprecated. See the code list
 <li>
 <p>The complete set of code lists has been re-generated as Genericode 1.0 XML files, which can be
 accessed and downloaded from the GitHub repository
-<a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.1.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/gc">GC folder</a>.</p>
+<a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/cl/gc">GC folder</a>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_business_rules_2"><a class="anchor" href="#_business_rules_2"></a>Business Rules</h4>
+<h4 id="_business_rules_3"><a class="anchor" href="#_business_rules_3"></a>Business Rules</h4>
 <div class="paragraph">
 <p>The <a href="https://joinup.ec.europa.eu/solution/interoperability-test-bed">Interoperability Testbed</a>
 has been set up to cope with the <a href="https://www.itb.ec.europa.eu/espd/upload">validation</a> of
@@ -455,10 +601,10 @@ criteria indicated in the relevant notice or in the procurement documents referr
 the ESPD Working Group decided to retrieve back. Thus a new data structure for the Alpha Criterion has been added to
 the REGULATED Criteria Taxonomy spread-sheet.
 A new Section has also been added to the online documentation (see section
-<a href="xml_guide.html#vi-1-alpha-criterion" class="page">VI.1 Alpha Criterion</a>).</p>
+<a href="#xml_guide.adoc#vi-1-alpha-criterion" class="page unresolved">VI.1 Alpha Criterion</a>).</p>
 </li>
 <li>
-<p>Exclusion Criteria #7 and #8 (section <a href="xml_guide.html#v-2-contributions" class="page">V.2 Contributions</a>)</p>
+<p>Exclusion Criteria #7 and #8 (section <a href="#xml_guide.adoc#v-2-contributions" class="page unresolved">V.2 Contributions</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -484,8 +630,8 @@ See tabs ''Suitability-I'' and ''Suitability-II'' of the
 </li>
 <li>
 <p>Selection Criterion #62 (CRITERION.OTHER.EO_DATA.LOTS_TENDERED, See sections
-<a href="xml_guide.html#vii-6-1-regulated-economic-operator-party" class="page">VIII.6.1 Regulated economic operator party</a>
-and <a href="xml_guide.html#vii-6-2-self-contained-economic-operator-party" class="page">VIII.6.2 Self-contained economic operator party</a>.
+<a href="#xml_guide.adoc#vii-6-1-regulated-economic-operator-party" class="page unresolved">VIII.6.1 Regulated economic operator party</a>
+and <a href="#xml_guide.adoc#vii-6-2-self-contained-economic-operator-party" class="page unresolved">VIII.6.2 Self-contained economic operator party</a>.
 See also <a href="https://github.com/ESPD/ESPD-EDM/issues/212">Issue #212</a>)</p>
 <div class="ulist">
 <ul>
@@ -521,7 +667,7 @@ See also <a href="https://github.com/ESPD/ESPD-EDM/issues/212">Issue #212</a>)</
 <div class="ulist">
 <ul>
 <li>
-<p>Exclusion Criteria #1 to #6 (section <a href="xml_guide.html#v-1-convictions" class="page">V.1 Convictions</a>)</p>
+<p>Exclusion Criteria #1 to #6 (section <a href="#xml_guide.adoc#v-1-convictions" class="page unresolved">V.1 Convictions</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -535,7 +681,7 @@ been corrected and is now the same as in the REGULATED version</p>
 </div>
 </li>
 <li>
-<p>Exclusion Criteria #7 and #8 (section <a href="xml_guide.html#v-2-contributions" class="page">V.2 Contributions</a>)</p>
+<p>Exclusion Criteria #7 and #8 (section <a href="#xml_guide.adoc#v-2-contributions" class="page unresolved">V.2 Contributions</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -554,7 +700,7 @@ been corrected and is now the same as in the REGULATED version</p>
 </div>
 </li>
 <li>
-<p>Selection Criteria #5 to #28 (section <a href="xml_guide.html#vi-2-suitability" class="page">VI.2 Suitability</a>):</p>
+<p>Selection Criteria #5 to #28 (section <a href="#xml_guide.adoc#vi-2-suitability" class="page unresolved">VI.2 Suitability</a>):</p>
 <div class="ulist">
 <ul>
 <li>
@@ -580,7 +726,7 @@ be a <code>cac:TenderingCriterionProperty</code></p>
 <li>
 <p>Selection Criteria #31 and #32 (CRITERION.SELECTION.ECONOMIC_FINANCIAL_STANDING.TURNOVER.SPECIFIC_AVERAGE and
 CRITERION.SELECTION.ECONOMIC_FINANCIAL_STANDING.TURNOVER.SPECIFIC_YEARLY, see section
-<a href="xml_guide.html#vi-3-turnovers" class="page">VI.3 Turnovers</a>)</p>
+<a href="#xml_guide.adoc#vi-3-turnovers" class="page unresolved">VI.3 Turnovers</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -601,7 +747,7 @@ CRITERION.SELECTION.ECONOMIC_FINANCIAL_STANDING.TURNOVER.SPECIFIC_YEARLY, see se
 </li>
 <li>
 <p>Selection Criterion #35 (CRITERION.SELECTION.ECONOMIC_FINANCIAL_STANDING.RISK_INDEMNITY_INSURANCE, see section
-<a href="xml_guide.html#vi-6-2-self-contained-risk-indemnity-insurance" class="page">VI.6.2 Self-contained risk indemnity insurance</a>)</p>
+<a href="#xml_guide.adoc#vi-6-2-self-contained-risk-indemnity-insurance" class="page unresolved">VI.6.2 Self-contained risk indemnity insurance</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -618,7 +764,7 @@ CRITERION.SELECTION.ECONOMIC_FINANCIAL_STANDING.TURNOVER.SPECIFIC_YEARLY, see se
 </li>
 <li>
 <p>Selection Criterion #36 (CRITERION.SELECTION.ECONOMIC_FINANCIAL_STANDING.OTHER_REQUIREMENT(s), see section
-<a href="xml_guide.html#vi-7-2-self-contained-other-economic-or-financial-requirements" class="page">VI.7.2 Self-contained other economic or financial requirements</a>)</p>
+<a href="#xml_guide.adoc#vi-7-2-self-contained-other-economic-or-financial-requirements" class="page unresolved">VI.7.2 Self-contained other economic or financial requirements</a>)</p>
 <div class="ulist">
 <ul>
 <li>
@@ -818,7 +964,7 @@ maintained in SIMAP for CodeLists (<a href="https://simap.ted.europa.eu/cpv" cla
 </div>
 </div>
 <div class="sect3">
-<h4 id="_uuids_2"><a class="anchor" href="#_uuids_2"></a>UUIDs</h4>
+<h4 id="_uuids_3"><a class="anchor" href="#_uuids_3"></a>UUIDs</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -897,7 +1043,7 @@ This has been corrected and now all criteria have one block "Is this information
 <p>The changes specified herein have been applied in both (1) the <a href="https://github.com/ESPD/ESPD-EDM">ESPD-EDM specification</a>, version 2.1.1 published in this Github repository; and (2) the <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.1">ESPDInt BIS document</a>.</p>
 </div>
 <div class="paragraph">
-<p>See also details in: <a href="{url-blob}/dist/rn/Release Notes-2.1.1.ods">Release Notes Details</a> and in this Github "Issues" section.</p>
+<p>See also details in: <a href="{url-blob}dist/rn/Release Notes-2.1.1.ods">Release Notes Details</a> and in this Github "Issues" section.</p>
 </div>
 <div class="ulist">
 <ul>
