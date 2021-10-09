@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/2.0.2/VII.7.3_Weighting_Answers_XML.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+     <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/search.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="2.0.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-explore is-active" data-panel="explore">
+  <div class="context">
+    <span class="title">ESPD EDM</span>
+    <span class="version">2.0.2</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../home/index.html">Developer Docs</a>
+      <ul class="versions">
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../eforms/0.3.1/index.html">eForms SDK</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../eforms/0.3.1/index.html">0.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../eforms/0.2.1/index.html">0.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../EPO/2.0.0/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="../3.0.0/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../3.0.0/index.html">3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.1.0/index.html">2.1.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.2/index.html">1.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.1/index.html">1.0.1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">2.0.2</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../3.0.0/index.html">3.0.0</a>
+    <a class="version is-missing" href="../2.1.1/index.html">2.1.1</a>
+    <a class="version is-missing" href="../2.1.0/index.html">2.1.0</a>
+    <a class="version is-current" href="VII.7.3_Weighting_Answers_XML.html">2.0.2</a>
+    <a class="version" href="../2.0.1/VII.7.3_Weighting_Answers_XML.html">2.0.1</a>
+    <a class="version" href="../2.0.0/VII.7.3_Weighting_Answers_XML.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.2/index.html">1.0.2</a>
+    <a class="version is-missing" href="../1.0.1/index.html">1.0.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect2">
+<h3 id="_vii_7_3_xml_example_3_weighting"><a class="anchor" href="#_vii_7_3_xml_example_3_weighting"></a>VII.7.3 XML Example 3: Weighting</h3>
+<div class="paragraph">
+<p>This section presents an XML Example of a WEIGHTED SELF-CONTAINED criterion (used in a two-stages procedure). The criterion properties corresponding to REQUIREMENTs and QUESTIONs are the ones that were <strong>copied</strong> from the ESPD Request into the ESPD Request.</p>
+</div>
+<div class="paragraph">
+<p>The XML example contains circled numbers aimed to map the fields in the CA and EO mock-ups:</p>
+</div>
+<div class="paragraph">
+<p>The example illustrates:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>the REQUIREMENTs issued by the CA;</p>
+</li>
+<li>
+<p>the QUESTIONs addressed to the EO;</p>
+</li>
+<li>
+<p>the answwers provided by the EO.</p>
+</li>
+</ol>
+</div>
+<div class="sect3">
+<h4 id="_mock_ups"><a class="anchor" href="#_mock_ups"></a>Mock-ups</h4>
+<div class="paragraph">
+<p><strong>Contracting authority perspective</strong>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_Abilities_WEIGHTED_CA_REQ_mockup.png" alt="Self-contained 'Abilities (I)' WEIGHTED CA REQUIREMENT edition mock-up">
+</div>
+<div class="title">Figure 1. Self-contained 'Abilities (I)' WEIGHTED CA REQUIREMENT edition mock-up</div>
+</div>
+<div class="paragraph">
+<p><strong>Economic operator perspective</strong>:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/Selfcontained_Abilities_WEIGHTED_EO_mockup.png" alt="Self-contained 'Abilities (I)' WEIGHTED EO mock-up">
+</div>
+<div class="title">Figure 2. Self-contained 'Abilities (I)' WEIGHTED EO mock-up</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_xml_snippet_1_a_criterion_requirements_and_questions_self_contained_and_weihgted"><a class="anchor" href="#_xml_snippet_1_a_criterion_requirements_and_questions_self_contained_and_weihgted"></a>XML snippet 1.a) criterion REQUIREMENTs and QUESTIONs (SELF-CONTAINED and WEIHGTED)</h4>
+<div class="paragraph">
+<p>Notice that the data is distributed in three places:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Some root elements (directly under the root element of the <code>/QualificationApplicationResponse</code>. Observe that in the case of elements <code>cbc:Description</code> UBL-2.2 does always specify a multiple cardinality. This allows for separating the lines of the text thus facilitating its presentation for layout purposes.</p>
+</li>
+<li>
+<p>The criterion itself; see circled numbers and comments beneath the XML code;</p>
+</li>
+<li>
+<p>The data structure (see the SELF-CONTAINED spread-sheet tab <a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.2/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPDRequest-CriteriaTaxonomy-SELFCONTAINED-V2.0.2.ods">SC-Abilities_1</a>).</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="title">Criterion "Technicians or technical bodies for quality control" (SELF-CONTAINED and WEIHGTED)</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- root elements that are global for all weighted criteria --&gt;
+&lt;cbc:WeightScoringMethodologyDescription&gt;For weighted criteria, evaluators will allocate a score between 0 and 100 to each question reponse in accordance with the scoring guidance below:&lt;/cbc:WeightScoringMethodologyDescription&gt;<i class="conum" data-value="3"></i><b>(3)</b>
+&lt;cbc:WeightScoringMethodologyDescription&gt;0 Unnaceptable&lt;/cbc:WeightScoringMethodologyDescription&gt;
+&lt;cbc:WeightScoringMethodologyDescription&gt;25 Poor&lt;/cbc:WeightScoringMethodologyDescription&gt;
+&lt;cbc:WeightScoringMethodologyDescription&gt;50 Acceptable&lt;/cbc:WeightScoringMethodologyDescription&gt;
+&lt;cbc:WeightScoringMethodologyDescription&gt;50 Acceptable&lt;/cbc:WeightScoringMethodologyDescription&gt;
+&lt;cbc:WeightScoringMethodologyDescription&gt;100 Excellent&lt;/cbc:WeightScoringMethodologyDescription&gt;
+&lt;cbc:WeightScoringMethodologyDescription&gt;Suppliers must pass all of the pass/fail (Yes/No) questions and score a minimum of 75 overall in this section to proceed to the next stage. This will allows us to get a short list of suppliers to take through to the next stage. The final score for a criterion (or "Weighted Question Score") results from the product of the Score obtained and the weight allocated by the Contracting Authority to the criterion.&lt;/cbc:WeightScoringMethodologyDescription&gt;
+&lt;cbc:WeightingType listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;PERCENTAGE&lt;/cbc:WeightingType&gt;<i class="conum" data-value="2"></i><b>(2)</b>
+
+&lt;!-- Criterion:Technicians or technical bodies for quality control --&gt;
+&lt;cac:TenderingCriterion&gt;
+	&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3aaca389-4a7b-406b-a4b9-080845d127e7&lt;/cbc:ID&gt;
+	&lt;cbc:CriterionTypeCode listID="CriteriaTypeCode" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;CRITERION.SELECTION.TECHNICAL_PROFESSIONAL_ABILITY.TECHNICAL.TECHNICIANS_FOR_QUALITY_CONTROL&lt;/cbc:CriterionTypeCode&gt;
+	&lt;cbc:Name&gt;Technicians or technical bodies for quality control&lt;/cbc:Name&gt;
+	&lt;cbc:Description&gt;It can call upon the following technicians or technical bodies, especially those responsible for quality control. For technicians or technical bodies not belonging directly to the economic operator's undertaking but on whose capacities the economic operator relies as set out under Part II, Section C, separate ESPD forms must be filled in.&lt;/cbc:Description&gt;
+	&lt;cbc:WeightNumeric&gt;0.1&lt;/cbc:WeightNumeric&gt;<i class="conum" data-value="5"></i><b>(5)</b>
+	&lt;cbc:EvaluationMethodTypeCode listID="EvaluationMethodType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;WEIGHTED&lt;/cbc:EvaluationMethodTypeCode&gt;<i class="conum" data-value="4"></i><b>(4)</b>
+		&lt;cbc:WeightingConsiderationDescription&gt;0 technicians -&gt; 0 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+		&lt;cbc:WeightingConsiderationDescription&gt;1 technician -&gt; 30 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+		&lt;cbc:WeightingConsiderationDescription&gt;2 technicians -&gt; 60 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+		&lt;cbc:WeightingConsiderationDescription&gt;3 technicians -&gt; 75 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+		&lt;cbc:WeightingConsiderationDescription&gt;4 technicians -&gt; 100 points&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+		&lt;cbc:WeightingConsiderationDescription&gt;Minimum acceptable: 2 technicians&lt;/cbc:WeightingConsiderationDescription&gt;<i class="conum" data-value="6"></i><b>(6)</b>
+	&lt;cac:SubTenderingCriterion&gt;
+		&lt;!-- ... elements removed for brevity ... --&gt;
+	&lt;/cac:SubTenderingCriterion&gt;
+	&lt;cac:Legislation&gt;&lt;!-- ... elements removed for brevity ... --&gt;&lt;/cac:Legislation&gt;
+			&lt;cac:TenderingCriterionPropertyGroup&gt;
+			&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;1e73d705-9dc1-43f1-9b5c-2d0deac7bc5f&lt;/cbc:ID&gt;
+			&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+			&lt;cac:TenderingCriterionProperty&gt;
+				&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;9cf2aa13-19ac-4767-a06b-da3b6c8c9c27&lt;/cbc:ID&gt;
+				&lt;cbc:Description&gt;Is this criterion weighted?&lt;/cbc:Description&gt;<i class="conum" data-value="1"></i><b>(1)</b>
+				&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+				&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+				&lt;!-- No answer is expected here from the economic operator, as this is a REQUIREMENT issued by the contracting authority. Hence the element 'cbc:ValueDataTypeCode' contains the type of value of the requirement issued by the contracting authority --&gt;
+			&lt;/cac:TenderingCriterionProperty&gt;
+			&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+				&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;f156d97a-9700-4ad9-8d21-e3ac57102278&lt;/cbc:ID&gt;
+				&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+				&lt;cac:TenderingCriterionProperty&gt;
+					&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;bbe06b1d-bb21-4588-a489-4bce6a51364f&lt;/cbc:ID&gt;
+					&lt;cbc:Description&gt;Requirement&lt;/cbc:Description&gt;
+					&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+					&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+					&lt;!-- No answer is expected here from the economic operator, as this is a REQUIREMENT issued by the contracting authority. Hence the element 'cbc:ValueDataTypeCode' contains the type of value of the requirement issued by the contracting authority --&gt;
+					&lt;cbc:ExpectedDescription&gt;Technical User Support Group&lt;/cbc:ExpectedDescription&gt;
+				&lt;/cac:TenderingCriterionProperty&gt;
+				&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+					&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;609cc954-64be-4b4f-800a-f17589deb936&lt;/cbc:ID&gt;
+					&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+					&lt;cac:TenderingCriterionProperty&gt;
+						&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;96cc5c65-2395-4750-b9c7-b60dc58fcf24&lt;/cbc:ID&gt;
+						&lt;cbc:Description/&gt;
+						&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+						&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;NONE&lt;/cbc:ValueDataTypeCode&gt;
+					&lt;/cac:TenderingCriterionProperty&gt;
+					&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+						&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;52ffcf91-3598-438f-8c3d-faf97da02602&lt;/cbc:ID&gt;
+						&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b986d088-ec14-4eca-ac99-a7119aae4f43&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Technician&lt;/cbc:Description&gt;
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"/&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;a2662683-efc5-4e81-be28-57dfa78b4834&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;First name&lt;/cbc:Description&gt;<i class="conum" data-value="7"></i><b>(7)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;bc0d0694-d47f-4b1c-9770-843fe177360c&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Last name&lt;/cbc:Description&gt;<i class="conum" data-value="8"></i><b>(8)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;9a7344fa-fc73-4e73-a440-531e90b61231&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Profession&lt;/cbc:Description&gt;<i class="conum" data-value="9"></i><b>(9)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;845f376f-fedb-4710-a1b8-5514c5439c1b&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Experience&lt;/cbc:Description&gt;<i class="conum" data-value="10"></i><b>(10)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;7e9f0030-3fe9-4407-888f-f7cfe39f9df2&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Other information&lt;/cbc:Description&gt;<i class="conum" data-value="11"></i><b>(11)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b848f9ea-281b-4895-96c1-705d678bf125&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;How long with EO&lt;/cbc:Description&gt;<i class="conum" data-value="12"></i><b>(12)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUANTITY_INTEGER&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;7458d42a-e581-4640-9283-34ceb3ad4345&lt;/cbc:ID&gt;
+							&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+							&lt;cac:TenderingCriterionProperty&gt;
+								&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;94b53be3-b838-4538-8b43-b6b1f05fc158&lt;/cbc:ID&gt;
+								&lt;cbc:Description&gt;Is this information available online?&lt;/cbc:Description&gt;<i class="conum" data-value="13"></i><b>(13)</b>
+								&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+								&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+							&lt;/cac:TenderingCriterionProperty&gt;
+							&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+								&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;41dd2e9b-1bfd-44c7-93ee-56bd74a4334b&lt;/cbc:ID&gt;
+								&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt;
+								&lt;cac:TenderingCriterionProperty&gt;
+									&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;91ee7ffe-07b5-4e87-87e5-9b1063e9d487&lt;/cbc:ID&gt;
+									&lt;cbc:Description&gt;Evidence supplied&lt;/cbc:Description&gt;
+									&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+									&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+								&lt;/cac:TenderingCriterionProperty&gt;
+							&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+						&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+					&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+				&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+				&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+					&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;45a67f48-d146-4faf-8239-dd6977dffe29&lt;/cbc:ID&gt;
+					&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+					&lt;cac:TenderingCriterionProperty&gt;
+						&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;99fe0af5-0a47-4930-b1e8-8acbc614964b&lt;/cbc:ID&gt;
+						&lt;cbc:Description/&gt;
+						&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+						&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;NONE&lt;/cbc:ValueDataTypeCode&gt;
+					&lt;/cac:TenderingCriterionProperty&gt;
+					&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+						&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;52ffcf91-3598-438f-8c3d-faf97da02602&lt;/cbc:ID&gt;
+						&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;aab9aa41-87a0-4f71-89d4-3dfdb94fc025&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Technical body&lt;/cbc:Description&gt;
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"/&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b8b76588-cc5c-4d6f-acf9-0447ab1047f4&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Name&lt;/cbc:Description&gt;<i class="conum" data-value="14"></i><b>(14)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3044bc5a-eb95-4639-a0b5-4c1d79da9873&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Experience area&lt;/cbc:Description&gt;<i class="conum" data-value="15"></i><b>(15)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:TenderingCriterionProperty&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;165d6fad-8915-4b20-8c75-1a661a27e2f4&lt;/cbc:ID&gt;
+							&lt;cbc:Description&gt;Other information&lt;/cbc:Description&gt;<i class="conum" data-value="16"></i><b>(16)</b>
+							&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+							&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;DESCRIPTION&lt;/cbc:ValueDataTypeCode&gt;
+						&lt;/cac:TenderingCriterionProperty&gt;
+						&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+							&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;7458d42a-e581-4640-9283-34ceb3ad4345&lt;/cbc:ID&gt;
+							&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+							&lt;cac:TenderingCriterionProperty&gt;
+								&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b9b7e484-829f-47b9-8d83-545ed3ff43cf&lt;/cbc:ID&gt;
+								&lt;cbc:Description&gt;Is this information available online?&lt;/cbc:Description&gt;<i class="conum" data-value="17"></i><b>(17)</b>
+								&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+								&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+							&lt;/cac:TenderingCriterionProperty&gt;
+							&lt;cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+								&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;41dd2e9b-1bfd-44c7-93ee-56bd74a4334b&lt;/cbc:ID&gt;
+								&lt;cbc:PropertyGroupTypeCode listID="PropertyGroupType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;ONTRUE&lt;/cbc:PropertyGroupTypeCode&gt;
+								&lt;cac:TenderingCriterionProperty&gt;
+									&lt;cbc:ID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;5549921f-8000-45e9-8fbc-3c7bab4ba6d4&lt;/cbc:ID&gt;
+									&lt;cbc:Description&gt;Evidence supplied&lt;/cbc:Description&gt;
+									&lt;cbc:TypeCode listID="CriterionElementType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+									&lt;cbc:ValueDataTypeCode listID="ResponseDataType" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;EVIDENCE_IDENTIFIER&lt;/cbc:ValueDataTypeCode&gt;
+								&lt;/cac:TenderingCriterionProperty&gt;
+							&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+						&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+					&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+				&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+			&lt;/cac:SubsidiaryTenderingCriterionPropertyGroup&gt;
+		&lt;/cac:TenderingCriterionPropertyGroup&gt;
+&lt;/cac:TenderingCriterion&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The contracting authority (CA) selects that some criteria shall will be weighted.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The CA decides that the weights will be expressed as percentages.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The CA describes the general method used to score and evaluated the weighted criteria. As this, and the previous (#2 and #3) are global these data go in two XML document root elements.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>This criterion is weighted (default is set to PASS/FAIL).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>The weight assigned to this criterion by the CA is 10%.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>The CA provides additional information related to the evaluation of this specific criterion. The expected data value is 'DESCRIPTION' &#8594; <code>cbc:Description</code>. As in UBL-2.2 descriptions are always multiple cardinality elements this is used to distribute the information in multiple description lines.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>First Name of the technician (data about one technician starts here (circled numbers #7 to #13). Multiple technicians can be added/removed by the economic operator).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Family name of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Profession of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>Experience of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>Additional information about the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>Months the technician has worked for the economic operator.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>Available online evidence related to this technician, his experience, etc.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>Name of a technical body (data about technical bodies starts here, circled numbers #14 to #17). Multiple bodies can be added/removed by the economic operator.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="15"></i><b>15</b></td>
+<td>Area of experience of the technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="16"></i><b>16</b></td>
+<td>Additional information related to the technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="17"></i><b>17</b></td>
+<td>Available online evidence related to this technical body.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_xml_snippet_1_b_responses_to"><a class="anchor" href="#_xml_snippet_1_b_responses_to"></a>XML snippet 1.b) Responses to</h4>
+<div class="paragraph">
+<p>Beware that one subset of the data is answered in the Criterion sub-elements. The XML snippet below does only shows the responses to the QUESTIONs in data structure (compare the responses and the data structure represented in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v2.0.2/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/ESPDRequest-CriteriaTaxonomy-SELFCONTAINED-V2.0.2.ods">data structure, tab "SC-Abilities_1"</a>).</p>
+</div>
+<div class="listingblock">
+<div class="title">Responses to the Criterion data structure</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!-- Some data are placed in the root of the document and inside the Criterion --&gt;<i class="conum" data-value="2"></i><b>(2)</b><i class="conum" data-value="3"></i><b>(3)</b><i class="conum" data-value="4"></i><b>(4)</b><i class="conum" data-value="5"></i><b>(5)</b><i class="conum" data-value="6"></i><b>(6)</b>
+
+&lt;!-- Answer to Criterion:Technicians or technical bodies for quality control --&gt;
+&lt;!-- Property:Your Answer (PropertyID:79f9b1c5-7c78-4530-a09b-f04109118e40)--&gt;
+&lt;cac:TenderingCriterionResponse&gt;<i class="conum" data-value="1"></i><b>(1)</b>
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;164182ce-d536-436d-9564-2a548df929fc&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;79f9b1c5-7c78-4530-a09b-f04109118e40&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b207993f-6622-4e52-b368-9de3552320c7&lt;/cbc:ID&gt;
+		&lt;cbc:ResponseIndicator&gt;true&lt;/cbc:ResponseIndicator&gt;<i class="conum" data-value="1"></i><b>(1)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:First name (PropertyID:a2662683-efc5-4e81-be28-57dfa78b4834)--&gt;<i class="conum" data-value="7"></i><b>(7)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;bde5a610-3849-4cd5-8861-86f93665ac89&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;a2662683-efc5-4e81-be28-57dfa78b4834&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;07eb8c66-da1f-49cd-97e4-76f75f37b7f8&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;James&lt;/cbc:Description&gt;
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Last name (PropertyID:bc0d0694-d47f-4b1c-9770-843fe177360c)--&gt;<i class="conum" data-value="8"></i><b>(8)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;8441d730-5ad3-4b82-9b79-5c0e3ea2a25a&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;bc0d0694-d47f-4b1c-9770-843fe177360c&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;7934bd5a-fdc4-4978-a95a-1c3b0c621070&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;Mortimer&lt;/cbc:Description&gt;
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Profession (PropertyID:9a7344fa-fc73-4e73-a440-531e90b61231)--&gt;<i class="conum" data-value="9"></i><b>(9)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3f765dde-e0fd-46f1-80c7-bd7e7b3c0972&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;9a7344fa-fc73-4e73-a440-531e90b61231&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;0f239018-ca77-4a5f-a01b-e8175fbbdc62&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;ICT Consultant&lt;/cbc:Description&gt;
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Experience (PropertyID:845f376f-fedb-4710-a1b8-5514c5439c1b)--&gt;<i class="conum" data-value="10"></i><b>(10)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;e9f6b328-d716-48a7-a2c6-cc4756233336&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;845f376f-fedb-4710-a1b8-5514c5439c1b&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3c401702-c43a-4ffb-8c2b-adb7f0ad4e53&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;10 year as Enterprise IT Architect in the private sector. 12 years of experience as ICT consultant for the  Public Sector, namely the European Institutions.&lt;/cbc:Description&gt;
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Other information (PropertyID:7e9f0030-3fe9-4407-888f-f7cfe39f9df2)--&gt;<i class="conum" data-value="11"></i><b>(11)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;a0943065-7ffd-4563-8ae1-e90718527fa2&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;7e9f0030-3fe9-4407-888f-f7cfe39f9df2&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;f4943913-68b3-4419-bbc4-0d3eec37855b&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;Wide experience in Artificial Intelligence.&lt;/cbc:Description&gt;
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:How long with EO (PropertyID:b848f9ea-281b-4895-96c1-705d678bf125) --&gt;<i class="conum" data-value="12"></i><b>(12)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;9a78cb8c-5de0-42dc-ab52-cec879d9e441&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b848f9ea-281b-4895-96c1-705d678bf125&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;74ec1d61-ced7-4f1f-af10-8b24e725c7e2&lt;/cbc:ID&gt;
+		&lt;cbc:ResponseQuantity&gt;36&lt;/cbc:ResponseQuantity&gt;<i class="conum" data-value="12"></i><b>(12)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Is this information available online? (PropertyID:94b53be3-b838-4538-8b43-b6b1f05fc158) --&gt; <i class="conum" data-value="13"></i><b>(13)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;6b4cffa7-27c5-4f9b-9b39-273610f3374a&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;94b53be3-b838-4538-8b43-b6b1f05fc158&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b2784c55-3a9f-4bca-b4ff-e12e3e4050c9&lt;/cbc:ID&gt;
+		&lt;cbc:ResponseIndicator&gt;false&lt;/cbc:ResponseIndicator&gt;<i class="conum" data-value="13"></i><b>(13)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- No evidence supplied element instantiated! as the answer to the previous question was *No* --&gt;
+&lt;!-- Property:Name (PropertyID:b8b76588-cc5c-4d6f-acf9-0447ab1047f4) --&gt; <i class="conum" data-value="14"></i><b>(14)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;f4818756-7015-4223-94b2-990f0aa39064&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b8b76588-cc5c-4d6f-acf9-0447ab1047f4&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;0f68b4cb-801c-4438-b935-dc701bf6c888&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;EPD (Everis Phonetics Department)&lt;/cbc:Description&gt;<i class="conum" data-value="14"></i><b>(14)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Experience area (PropertyID:3044bc5a-eb95-4639-a0b5-4c1d79da9873) --&gt;<i class="conum" data-value="15"></i><b>(15)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;69d9b7fe-6874-4962-9b3d-a871731f5193&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;3044bc5a-eb95-4639-a0b5-4c1d79da9873&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;5276d2af-3031-4c20-a203-7f89e7e46dbc&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;Data-mining from audiovisual streaming&lt;/cbc:Description&gt;<i class="conum" data-value="15"></i><b>(15)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Other information (PropertyID:165d6fad-8915-4b20-8c75-1a661a27e2f4)--&gt;<i class="conum" data-value="16"></i><b>(16)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;ddf269f3-fdf4-40d7-83af-f4180961d2c4&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;165d6fad-8915-4b20-8c75-1a661a27e2f4&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;2c7cc8f7-9f4e-4521-a2f7-274bc92c4cc1&lt;/cbc:ID&gt;
+		&lt;cbc:Description&gt;First Prize of the 2016 Technology Language Contest&lt;/cbc:Description&gt;<i class="conum" data-value="16"></i><b>(16)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Is this information available online?(PropertyID:b9b7e484-829f-47b9-8d83-545ed3ff43cf) --&gt;<i class="conum" data-value="17"></i><b>(17)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;dfd2438e-c239-48df-b36f-f73679f96317&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;b9b7e484-829f-47b9-8d83-545ed3ff43cf&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:ResponseValue&gt;
+		&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;34022f7d-ed8a-488b-91c9-fd02f2c59b56&lt;/cbc:ID&gt;
+		&lt;cbc:ResponseIndicator&gt;true&lt;/cbc:ResponseIndicator&gt;<i class="conum" data-value="17"></i><b>(17)</b>
+	&lt;/cac:ResponseValue&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+&lt;!-- Property:Evidence supplied (PropertyID:5549921f-8000-45e9-8fbc-3c7bab4ba6d4)--&gt;<i class="conum" data-value="17"></i><b>(17)</b>
+&lt;cac:TenderingCriterionResponse&gt;
+	&lt;cbc:ID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;9577e16f-9bd0-4e64-9a3e-21a9b42b7673&lt;/cbc:ID&gt;
+	&lt;cbc:ValidatedCriterionPropertyID schemeID="CriteriaTaxonomy" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0.2"&gt;5549921f-8000-45e9-8fbc-3c7bab4ba6d4&lt;/cbc:ValidatedCriterionPropertyID&gt;
+	&lt;cac:EvidenceSupplied&gt;
+		&lt;cbc:ID&gt;293b6386-9091-4081-8824-c58436e9f9a5&lt;/cbc:ID&gt;
+	&lt;/cac:EvidenceSupplied&gt;
+&lt;/cac:TenderingCriterionResponse&gt;
+
+&lt;cac:Evidence&gt;
+	&lt;cbc:UUID schemeID="ISO/IEC 9834-8:2008 - 4UUID" schemeAgencyID="EU-COM-GROW" schemeVersionID="2.0"&gt;293b6386-9091-4081-8824-c58436e9f9a5&lt;/cbc:UUID&gt;<i class="conum" data-value="18"></i><b>(18)</b>
+	&lt;cbc:ConfidentialityLevelCode listID="ConfidentialityLevel" listAgencyID="EU-COM-GROW" listVersionID="2.0.2"&gt;PUBLIC&lt;/cbc:ConfidentialityLevelCode&gt;<i class="conum" data-value="19"></i><b>(19)</b>
+	&lt;cac:DocumentReference&gt;
+		&lt;cac:Attachment&gt;
+			&lt;cac:ExternalReference&gt;
+				&lt;cbc:URI&gt;http://lt.org/contests/prizes/2016/index.html&lt;/cbc:URI&gt;<i class="conum" data-value="20"></i><b>(20)</b>
+			&lt;/cac:ExternalReference&gt;
+		&lt;/cac:Attachment&gt;
+		&lt;cac:IssuerParty&gt;
+			&lt;cac:PartyName&gt;
+				&lt;cbc:Name&gt;lt.org (Linguistic Technologies)&lt;/cbc:Name&gt;<i class="conum" data-value="21"></i><b>(21)</b>
+			&lt;/cac:PartyName&gt;
+		&lt;/cac:IssuerParty&gt;
+	&lt;/cac:DocumentReference&gt;
+&lt;/cac:Evidence&gt;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The contracting authority has selected that this criterion will be weigthed.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Datum in the root element <code>cbc:WeightScoringMethodologyDescription</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Datum in the root element <code>cbc:WeightingType</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Datum in the criterion element <code>cbc:EvaluationMethodTypeCode</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Datum in the criterion element <code>cbc:WeightNumeric</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Datum in the criterion element <code>cbc:WeightingConsiderationDescription</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>First Name of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Family name of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Profession of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="10"></i><b>10</b></td>
+<td>Experience of the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>Additional information about the technician.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>Months the technician has worked for the economic operator.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>Not available online evidence related to this technician, his experience, etc.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td>Name of a technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="15"></i><b>15</b></td>
+<td>Area of experience of the technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="16"></i><b>16</b></td>
+<td>Additional information related to the technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="17"></i><b>17</b></td>
+<td>Reference to a an available online evidence related to this technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="18"></i><b>18</b></td>
+<td>Evidence about the prize won by this technical body.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="19"></i><b>19</b></td>
+<td>The evidence is publicly accessible.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="20"></i><b>20</b></td>
+<td>The URL where to get the evidence of the prize from.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="21"></i><b>21</b></td>
+<td>The name of the issuer of the the evidenciary document.</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/lunr.js"></script>
+<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/ESPD-EDM/2.0.2/VII.7.3_Weighting_Answers_XML.html"></script>
+<script async src="../../_/../search-index.js"></script>
+
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The <b>eForms SDK</b> is created by the Publications Office of the European Union and is licensed under the terms of <a href="https://github.com/OP-TED/eForms-SDK/blob/main/LICENSE">EUPL-1.2 license</a>.
+  <br/>This page was built using the Antora default UI. The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
