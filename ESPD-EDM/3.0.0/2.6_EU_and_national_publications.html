@@ -182,10 +182,10 @@
 <div class="sect3">
 <h4 id="_xsd_schema"><a class="anchor" href="#_xsd_schema"></a>XSD Schema</h4>
 <div class="paragraph">
-<p>The ESPD EDM uses the UBL component cac:AdditionalReferenceDocument to allow the inclusion of references to documents that they might consider relevant, and amongst them the reference to the Contract Notice on the TED (for above-the-threshold contracts) and to possible Notices on national journals and boards.</p>
+<p>The ESPD EDM uses the UBL component cac:AdditionalReferenceDocument to allow the inclusion of references to documents that they might consider relevant, and amongst them the reference to the Contract Notice on the TED (for above-the-threshold contracts) and to possible Notices on national journals and boards.</p>
 </div>
 <div class="paragraph">
-<p>The class used for this, cac:AdditionalDocumentReference ''is a'' cac:DocumentReference class defined in the UBL-2.3 Common Aggregate Components library).</p>
+<p>The class used for this, cac:AdditionalDocumentReference ''is a'' cac:DocumentReference class defined in the UBL-2.3 Common Aggregate Components library).</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/cacDocumentReference_XSD%20diagram.jpg" alt="cac:DocumentReference" width="424" height="458"></span></p>
@@ -194,7 +194,7 @@
 <p><em>Figure 15. cac:DocumentReference, XSD diagram</em></p>
 </div>
 <div class="paragraph">
-<p>The class cac:AdditionalDocumentReference aggregates a subclass cac:Attachment that is used by ESPD to place the URI, name of the document and descriptions.</p>
+<p>The class cac:AdditionalDocumentReference aggregates a subclass cac:Attachment that is used by ESPD to place the URI, name of the document and descriptions.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/Associated_class%20cacExternalReference_XSD%20diagram.jpg" alt="Associated class cac:ExternalReference XSD diagram" width="531" height="308"></span></p>
@@ -206,7 +206,7 @@
 <div class="sect3">
 <h4 id="_expected_elements"><a class="anchor" href="#_expected_elements"></a>Expected elements</h4>
 <div class="paragraph">
-<p>As you can see from the XSD Schema the cac:DocumentReference class has a rich data structure. However, to refer to publications such as the TED and national publications, the ESPD most expects at most the following data:</p>
+<p>As you can see from the XSD Schema the cac:DocumentReference class has a rich data structure. However, to refer to publications such as the TED and national publications, the ESPD most expects at most the following data:</p>
 </div>
 <div class="paragraph">
 <p><em>Table 6. Reference to additional documents, expected elements</em></p>
@@ -297,7 +297,7 @@
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-tbr070-007"><em>tbr070-007</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: For the ESDP-EDM it is compulsory use of the Code List “docref-content-type”. See example below on how to specify the OJS Contract Notice. If, for other documents, the type of document is not available in this list, provide the code “Other” and describe the content in the element DocumentType.</p>
+<p><strong>Rule</strong>: For the ESDP-EDM it is compulsory use of the Code List "docref-content-type". See example below on how to specify the OJS Contract Notice. If, for other documents, the type of document is not available in this list, provide the code "Other" and describe the content in the element DocumentType.</p>
 </div>
 <div class="paragraph">
 <p><strong>Rule scope</strong>: Common (BR-OTH-01, BR-OTH-01#3, BR-OTH-03)</p>
@@ -312,7 +312,7 @@
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-tbr070-007"><em>tbr070-007</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: Optionally use the attribute languageID to indicate the language of the text. Use the Code List “Language” for the value of the languageID attribute.</p>
+<p><strong>Rule</strong>: Optionally use the attribute languageID to indicate the language of the text. Use the Code List "Language" for the value of the languageID attribute.</p>
 </div>
 <div class="paragraph">
 <p><strong>Rule scope</strong>: Common (BR-OTH-01, BR-OTH-01#4, BR-OTH-03)</p>
@@ -345,7 +345,7 @@
 </tbody>
 </table>
 <div class="paragraph">
-<p>Beware that the ESPD document do not embed the content of referenced documents but instead make a reference to its source. Thus the class ‘DocumentReference’ aggregates a ‘cac:Attachment’ class that allows for embedding the content or making reference to an external source of the content, which is the preferred way in ESPD (see XSD schema above):</p>
+<p>Beware that the ESPD document do not embed the content of referenced documents but instead make a reference to its source. Thus the class 'DocumentReference' aggregates a 'cac:Attachment' class that allows for embedding the content or making reference to an external source of the content, which is the preferred way in ESPD (see XSD schema above):</p>
 </div>
 <div class="paragraph">
 <p><em>Table 7. External Reference</em></p>
@@ -413,7 +413,7 @@
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-tbr070-007"><em>tbr070-007</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: Originally this field is the placeholder for the name of the file (e.g. PLACE-ContractNotice-2017-12452.xml. However, as the UBL component does not have a placeholder for a name or title, the ESPD documents use it for a short descriptive title of the document being referenced.</p>
+<p><strong>Rule</strong>: Originally this field is the placeholder for the name of the file (e.g. PLACE-ContractNotice-2017-12452.xml. However, as the UBL component does not have a placeholder for a name or title, the ESPD documents use it for a short descriptive title of the document being referenced.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -437,7 +437,7 @@
 <div class="sect3">
 <h4 id="_xml_example"><a class="anchor" href="#_xml_example"></a>XML Example</h4>
 <div class="paragraph">
-<p>The XML snippet below illustrates how to use the cac:AdditionalDocumentReference in the ESPDRequest XML document to refer to a Contract Notice published in TED and on a national procurement board:</p>
+<p>The XML snippet below illustrates how to use the cac:AdditionalDocumentReference in the ESPDRequest XML document to refer to a Contract Notice published in TED and on a national procurement board:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -507,10 +507,10 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>For TED Notices you must use the Publications Office Official Journal Supplement number in its original format [][][][]/S [][][]-[][][][][][], e.g. 2017/S 142-293520. Notice that the schemeAgencyID is EU-COM-OP (OP standing for 'Publications Office').</p>
+<p>For TED Notices you must use the Publications Office Official Journal Supplement number in its original format [][][][]/S [][][]-[][][][][][], e.g. 2017/S 142-293520. Notice that the schemeAgencyID is EU-COM-OP (OP standing for 'Publications Office').</p>
 </li>
 <li>
-<p>The jurisdiction scope of this document is typified in the Code List docref-content-type (see file dist/cl/ESPD-CodeLists-V3.0.0 in the distribution package). <strong>Beware that the name and content of this Code List has changed from the previous ESPD-EDM version 2.1.1</strong>.</p>
+<p>The jurisdiction scope of this document is typified in the Code List docref-content-type (see file dist/cl/ESPD-CodeLists-V3.0.0 in the distribution package). <strong>Beware that the name and content of this Code List has changed from the previous ESPD-EDM version 2.1.1</strong>.</p>
 </li>
 <li>
 <p>The ESPD documents never embed the actual content. Rather the content is always referenced from its original source (alignment to the Once-Only-Principle).</p>
@@ -519,13 +519,13 @@
 <p>The title of the CN has to be placed in the FileName field of the attachment. UBL does not provide a placeholder fo the title of the document.</p>
 </li>
 <li>
-<p>In the case of publication on the TED, at ESPD Request preparation time, the procurer does not have yet the OJS number, but can receive a temporary CN identifier (Received Notice Number). To save this number in the DocumentReference component create two cbc:Description elements and use the second one to place this Received Notice Number. If you do not have a description for the CN then use a 'dummy' content for the first description, e.g. &lt;cbc:Description&gt;_&lt;/cbc:/Description&gt;.</p>
+<p>In the case of publication on the TED, at ESPD Request preparation time, the procurer does not have yet the OJS number, but can receive a temporary CN identifier (Received Notice Number). To save this number in the DocumentReference component create two cbc:Description elements and use the second one to place this Received Notice Number. If you do not have a description for the CN then use a 'dummy' content for the first description, e.g. &lt;cbc:Description&gt;_&lt;/cbc:/Description&gt;.</p>
 </li>
 <li>
 <p>Notice how the schemeAgencyID is used in this example to specify that the national Agency that created this reference to the national publication (e.g. "PLACE" to refer to the ID of the national electronic board where the CN was published). The pattern of the ID is the one created by the Spanish buyer.</p>
 </li>
 <li>
-<p>In this case the code NOJCN means 'Contract Notice (CN) published on a National Government Official Journal' (see file ESPD-CodeLists-V3.0.0) in the distribution package.</p>
+<p>In this case the code NOJCN means 'Contract Notice (CN) published on a National Government Official Journal' (see file ESPD-CodeLists-V3.0.0) in the distribution package.</p>
 </li>
 </ol>
 </div>

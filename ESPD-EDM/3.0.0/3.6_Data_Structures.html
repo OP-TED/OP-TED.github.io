@@ -156,10 +156,10 @@
 <p>The ESPD-EDM 'criterion' entity is a very flexible and business-agnostic structure. This flexibility provides a convenient way to represent any type of criteria. The counterpart is that the semantics of the criteria needs to be delimited based on codes, identifiers and design rules.</p>
 </div>
 <div class="paragraph">
-<p>Hence this document proposes a way of representing the criteria following a regular method and providing concrete codes to specify types of criterion properties, and identifiers to distinguish the different criteria and <strong>reusable</strong> groups of properties (when studying these data groups you will observe that sub-groups of properties are reused in different criteria have identical identifiers and structures).</p>
+<p>Hence this document proposes a way of representing the criteria following a regular method and providing concrete codes to specify types of criterion properties, and identifiers to distinguish the different criteria and <strong>reusable</strong> groups of properties (when studying these data groups you will observe that sub-groups of properties are reused in different criteria have identical identifiers and structures).</p>
 </div>
 <div class="paragraph">
-<p>The following figures below illustrates the data structure sheets for one simple exclusion criterion (EG-Contributions). Compare them with the UBL-2.3 cac:TenderingCriterion XSD element.</p>
+<p>The following figures below illustrates the data structure sheets for one simple exclusion criterion (EG-Contributions). Compare them with the UBL-2.3 cac:TenderingCriterion XSD element.</p>
 </div>
 <div class="paragraph">
 <p>The columns of the tables are to be interpreted as follows:</p>
@@ -173,28 +173,28 @@
 <p>Column 2: contains always the opening and closing tag for Criterion</p>
 </li>
 <li>
-<p>Columns 3 to 17: reserved for the opening and closing tags defining the data structure (see the tag codes in code list CriterionElementType).</p>
+<p>Columns 3 to 17: reserved for the opening and closing tags defining the data structure (see the tag codes in code list CriterionElementType).</p>
 </li>
 <li>
-<p>Column 18: <strong>Name</strong>, a short descriptive text to identify the criterion withouth having to read the description</p>
+<p>Column 18: <strong>Name</strong>, a short descriptive text to identify the criterion withouth having to read the description</p>
 </li>
 <li>
-<p>Column 19: <strong>Description</strong>, the text describing the criterion as kept in e-Certis</p>
+<p>Column 19: <strong>Description</strong>, the text describing the criterion as kept in e-Certis</p>
 </li>
 <li>
-<p>Column 20: <strong>Value</strong> a possible value or description of the value used by the transformation artefacts to produce example XML instances</p>
+<p>Column 20: <strong>Value</strong> a possible value or description of the value used by the transformation artefacts to produce example XML instances</p>
 </li>
 <li>
-<p>Column 21: <strong>Cardinality</strong>, indicates whether the element is mandatory or optional and its multiplicity</p>
+<p>Column 21: <strong>Cardinality</strong>, indicates whether the element is mandatory or optional and its multiplicity</p>
 </li>
 <li>
-<p>Column 22: <strong>PropertyDataType</strong>, the type of data expected according to the types defined in the code list ResponseDataType</p>
+<p>Column 22: <strong>PropertyDataType</strong>, the type of data expected according to the types defined in the code list ResponseDataType</p>
 </li>
 <li>
-<p>Column 23: <strong>ElementUUID</strong>, The Universal Unique Identifier assigned to identify unambiguously a criterion, group or subgroup. These UUID are kept in e-Certis, except for those that have to be generated dynamically (e.g. UUIDs for Questions, Captions and Requirements). See also the special note "Criteria Taxonomy/Data Structures and the use of UUIDS" below</p>
+<p>Column 23: <strong>ElementUUID</strong>, The Universal Unique Identifier assigned to identify unambiguously a criterion, group or subgroup. These UUID are kept in e-Certis, except for those that have to be generated dynamically (e.g. UUIDs for Questions, Captions and Requirements). See also the special note "Criteria Taxonomy/Data Structures and the use of UUIDS" below</p>
 </li>
 <li>
-<p>Column 24: <strong>Element Code</strong>; in the case of Criterion it contains the code that categorises the criterion in the taxonomy of exclusion and selection criteria (it maps to the taxonomy drawn in the online documentation and in the spread-sheet files "ESPD-CriteriaTaxonomy*" in folder dist/cl). For the rest of elements there are three types of codes (see also section:</p>
+<p>Column 24: <strong>Element Code</strong>; in the case of Criterion it contains the code that categorises the criterion in the taxonomy of exclusion and selection criteria (it maps to the taxonomy drawn in the online documentation and in the spread-sheet files "ESPD-CriteriaTaxonomy*" in folder dist/cl). For the rest of elements there are three types of codes (see also section:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -354,13 +354,13 @@
 <p>When the member state (MS) or the buyer needs to specify REQUIREMENT(s), the outer group of the data structure is always a REQUIREMENT_GROUP (e.g. 'EG-Contributions', 'SC-Suitability', or practically all selection criteria). Otherwise the outer group is always a QUESTION_GROUP (e.g. 'EG-Convictions', 'EG-Environ-Social-Labour_Law', 'EG-Business', etc.);</p>
 </li>
 <li>
-<p>A REQUIREMENT_GROUP always contain a first element CAPTION or REQUIREMENT. This is because in the UBL-2.3 XSD schema the first <strong>mandatory</strong> element is always a cac:TenderingCriterionProperty element;</p>
+<p>A REQUIREMENT_GROUP always contain a first element CAPTION or REQUIREMENT. This is because in the UBL-2.3 XSD schema the first <strong>mandatory</strong> element is always a cac:TenderingCriterionProperty element;</p>
 </li>
 <li>
 <p>A REQUIREMENT_GROUP or REQUIREMENT-SUBGROUP may contain either REQUIREMENT_SUBGROUPS and/or QUESTION_SUBGROUPS;</p>
 </li>
 <li>
-<p>The only possibility in the UBL-2.3 model to distinguish whether a group or a subgroup of criterion properties contains REQUIREMENT(s) or QUESTION(s) is to look into the value of the cac:TenderingCriterionProperty/cbc:TypeCode. The list of possible codes are the ones of the above mentioned Code List "<a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/">CriterionElementType</a>".</p>
+<p>The only possibility in the UBL-2.3 model to distinguish whether a group or a subgroup of criterion properties contains REQUIREMENT(s) or QUESTION(s) is to look into the value of the cac:TenderingCriterionProperty/cbc:TypeCode. The list of possible codes are the ones of the above mentioned Code List "<a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/">CriterionElementType</a>".</p>
 </li>
 </ul>
 </div>
