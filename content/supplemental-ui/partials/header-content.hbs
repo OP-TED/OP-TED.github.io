@@ -1,11 +1,17 @@
-{{!-- <div class="navbar-item has-dropdown is-hoverable">
+{{!-- This generates a menu with all available versioned products (antora components) --}}
+<div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link" href="#">Products</a>
   <div class="navbar-dropdown">
-    <a class="navbar-item" href="#">TED API</a>
-    <a class="navbar-item" href="#">eProcurement Ontology</a>
-    <a class="navbar-item" href="#">European Single Procurement Document</a>
+  {{#each site.components}}
+    {{!-- If the component's version is set to "master", then it is not a versioned component so we don't display it.  --}}
+    {{!-- This is to avoid adding a link to components that do not contain product specific documentation (i.e. the "home" component). --}}
+    {{#if (not (eq this.versions.[0].version "master"))}}
+    <a class="navbar-item" href="{{{relativize ./url}}}">{{{./title}}}</a>
+    {{/if}}
+  {{/each}}
   </div>
-</div> --}}
+</div>
+
 
 <div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link" href="#">Resources</a>
