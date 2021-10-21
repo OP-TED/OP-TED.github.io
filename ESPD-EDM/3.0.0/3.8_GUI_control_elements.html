@@ -113,22 +113,10 @@
           <a href="../2.1.1/index.html">2.1.1</a>
         </li>
         <li class="version">
-          <a href="../2.1.0/index.html">2.1.0</a>
-        </li>
-        <li class="version">
           <a href="../2.0.2/index.html">2.0.2</a>
         </li>
         <li class="version">
-          <a href="../2.0.1/index.html">2.0.1</a>
-        </li>
-        <li class="version">
-          <a href="../2.0.0/index.html">2.0.0</a>
-        </li>
-        <li class="version">
           <a href="../1.0.2/index.html">1.0.2</a>
-        </li>
-        <li class="version">
-          <a href="../1.0.1/index.html">1.0.1</a>
         </li>
       </ul>
     </li>
@@ -148,12 +136,8 @@
   <div class="version-menu">
     <a class="version is-current" href="3.8_GUI_control_elements.html">3.0.0</a>
     <a class="version is-missing" href="../2.1.1/index.html">2.1.1</a>
-    <a class="version is-missing" href="../2.1.0/index.html">2.1.0</a>
     <a class="version is-missing" href="../2.0.2/index.html">2.0.2</a>
-    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
-    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
     <a class="version is-missing" href="../1.0.2/index.html">1.0.2</a>
-    <a class="version is-missing" href="../1.0.1/index.html">1.0.1</a>
   </div>
 </div>
 </div>
@@ -541,7 +525,7 @@ _&lt;!--...--&gt;_
 <p>One reason that led to include these kind of "processing instructions" in the ESPD-Exchange Data Model is the high level of abstraction of the ISA2 Core Criterion and Evidence Vocabulary (CCEV) (the UBL-2.3 cac:TenderingCriterion is a specialisation of this vocabulary). As GROUPs and SUBGROUPS of REQUIREMENT(s) and of QUESTION(s) may be freely and unlimitedly nested, the software applications may have a hard time to detect whether a GROUP or SUBGROUP contains REQUIREMENT(s) and QUESTION(s) or just QUESTION(s) (which is usual in the ESP-EDM specification). Or vice-versa, if a GROUP or SUBGROUP comes first with QUESTION(s) followed by REQUIREMENT(s) (something that never happens in the ESPD-EDM specification).</p>
 </div>
 <div class="paragraph">
-<p>One way for the ESPD-EDM to help software applications understand that a nested data structure is a GROUP of REQUIREMENT(s) or just of QUESTION(s) would have been codifying it as "REQUIREMENT_GROUP" or "QUESTION_GROUP", using for that purpose the element cbc:PropertyGroupTypeCode element (similarly to what is done with the cbc:TypeCode element inside the cac:TenderingCriterionProperty). However for backwards compatibility reasons with the MS software applications the decision was made to reserve the cbc:PropertyGroupTypeCode to control the GUI behaviour by means of the values defined in the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/master/docs/src/main/asciidoc/modules/ROOT/dist/cl/xlsx/ESPD-criterion-V3.0.0.xlsx">PropertyGroupType</a> (codes ON*, ONTRUE and ONFALSE).</p>
+<p>One way for the ESPD-EDM to help software applications understand that a nested data structure is a GROUP of REQUIREMENT(s) or just of QUESTION(s) would have been codifying it as "REQUIREMENT_GROUP" or "QUESTION_GROUP", using for that purpose the element cbc:PropertyGroupTypeCode element (similarly to what is done with the cbc:TypeCode element inside the cac:TenderingCriterionProperty). However for backwards compatibility reasons with the MS software applications the decision was made to reserve the cbc:PropertyGroupTypeCode to control the GUI behaviour by means of the values defined in the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v3.0.0/docs/src/main/asciidoc/modules/ROOT/dist/cl/xlsx/ESPD-criterion-V3.0.0.xlsx">PropertyGroupType</a> (codes ON*, ONTRUE and ONFALSE).</p>
 </div>
 <div class="paragraph">
 <p>The way currently used by software applications to detect whether a GROUP (or SUBGROUP) carries REQUIREMENT(s) or not is to look at the type of the first criterion property: if the first cac:TenderingCriterionProperty is of cbc:TypeCode value REQUIREMENT then it is a REQUIREMENT_GROUP, if it is of value QUESTION then the GROUP (or SUBGROUP) contains only QUESTION(s).</p>
