@@ -576,31 +576,13 @@
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:ProcurementProject</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An overall definition of the procurement procedure.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-020"><em>tbr92-013</em></a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Rule</strong>: Use this component to identify and describe the procurement administrative procedure. If the procurement procedure is divided into lots use the ProcurementProjectLot component to provide details specific to the lot and reserve the ProcurementProject component to describe the global characteristics of the procedure.</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:ProcurementProjectLot</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">One of the procurement project lots into which this contract can be divided.</p></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-020"><em>tbr92-014</em></a>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Rule</strong>: The economic operator has to specify the Procurement Project Lot the ESPD refers to.</p>
-</div>
-<div class="paragraph">
-<p><strong>Rule scope</strong>: (BR-LOT-30)</p>
-</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:ProcurementProject/cbc:Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text describing this procurement project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.
+<strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-020"><em>tbr92-013</em></a>.</p>
+<p class="tableblock"><strong>Rule</strong>: Use this component to identify and describe the procurement administrative procedure.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:TenderingCriterion</strong></p></td>
@@ -933,6 +915,14 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Time when the document was issued by the buyer.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr070-002"><em>tbr92-013</em></a>. <strong>Rule</strong>: If available in the referenced document place here the time of publication by the buyer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:DocumentDescription</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text describing the referenced document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr070-002"><em>tbr92-013</em></a>. <strong>Rule</strong>: Use the attribute languageID to indicate the language of the text. Use the Code List LanguageCodeEU for the value of the languageID attribute.</p>
+<p class="tableblock"><strong>Rule scope</strong>: Common (BR-OTH-01, BR-OTH-01#4, BR-OTH-03)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1642,7 +1632,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-001"><em>tbr92-001</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier maybe used. For a very complete way of identification of the Party it is highly recommended to, additionally to the cac:Party/cac:Identification/cbc:ID, use the UBL-2.3 component cac:PartyLegalEntity: this element is the perfect placeholder for the data officially registered in a Business Register (see UBL-2.3 model, and XSD diagram above).</p>
+<p><strong>Rule</strong>: When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used. For a very complete way of identification of the Party it is highly recommended to, additionally to the cac:Party/cac:Identification/cbc:ID, use the UBL-2.3 component cac:PartyLegalEntity: this element is the perfect placeholder for the data officially registered in a Business Register (see UBL-2.3 model, and XSD diagram above).</p>
 </div>
 <div class="paragraph">
 <p><strong>Rule scope</strong>: Common (BR-OTH-02)</p>
@@ -4045,7 +4035,7 @@ all the information about its classification and documentation about its financi
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr092-017"><em>tbr092-017, tbr092-007, tbr092-006</em></a></p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: None. Not currently used in ESPD.</p>
+<p><strong>Rule</strong>: None. No rule is applied.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -4184,7 +4174,7 @@ all the information about its classification and documentation about its financi
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr092-017"><em>tbr092-017, tbr092-007, tbr092-006</em></a></p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: None. Not currently used in ESPD-EDM</p>
+<p><strong>Rule</strong>: None. No rule is applied.</p>
 </div></div></td>
 </tr>
 </tbody>

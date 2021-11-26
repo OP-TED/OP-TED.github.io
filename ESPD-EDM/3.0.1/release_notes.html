@@ -288,7 +288,7 @@ Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:PartyIdentification/cbc:Identifier</em>. <em>Requirement</em> text changed to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier maybe used.'</em> because previous text was ambiguous.</p>
+<p><em>cac:PartyIdentification/cbc:Identifier</em>. <em>Requirement</em> text changed to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
 </li>
 </ul>
 </div>
@@ -318,20 +318,18 @@ Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 26.</strong> Class QualificationApplicationResponse, components required by the ESPD-EDM V3.0.0.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cbc:ProcedureCode</em> Cardinality changed to from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
-Type changed from Identifier to Code.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
 <p><strong>Figure 193.</strong> ESPD-EDM 'QualificationApplicationResponse', UML diagram.</p>
 <div class="ulist">
 <ul>
+<li>
+<p><em>cac:ProcurementProject</em>. Element replaced by <em>cac:ProcurementProject/cbc:Description</em> because this is the information that is provided from eForms.</p>
+</li>
+<li>
+<p><em>cac:ProcurementProjectLot</em>. Element removed because in its place <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> is used.</p>
+</li>
+<li>
+<p><em>cbc:ProfileExecutionID</em>. Cardinality changed from <em>0..1</em> to <em>1</em>.</p>
+</li>
 <li>
 <p><em>cbc:QualificationApplicationTypeCode</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
 </li>
@@ -348,15 +346,102 @@ Type changed from Identifier to Code.</p>
 </div>
 </li>
 <li>
+<p><strong>Section 6.4 Root elements.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Table 26.</strong> Class QualificationApplicationResponse, components required by the ESPD-EDM V3.0.0.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:ContractingParty</em>. Text added in <em>Desciption</em> directing to <strong>Section 2.7. Contracting Body</strong> where this element is described.</p>
+</li>
+<li>
+<p><em>cac:EconomicOperator</em>. Name changed to <em>cac:EconomicOperatorParty</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
+Cardinality changed from <em>0..1</em> to <em>1</em>.</p>
+</li>
+<li>
+<p><em>cac:ProcurementProject</em>. Element change for <em>cac:ProcurementProject/cbc:Description</em> because this is the information that is provided from eForms.
+<em>Type</em> changed from <em>Associated class</em> to <em>Text</em> in accordance to the type in eForms.
+Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
+<em>Requirement</em> text changed to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
+</li>
+<li>
+<p><em>cac:ProcurementProjectLot</em>. Element removed because in its place <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> is used.</p>
+</li>
+<li>
+<p><em>cbc:ProcedureCode</em> Cardinality changed to from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
+Type changed from Identifier to Code.</p>
+</li>
+<li>
+<p><em>cbc:ProfileExecutionID</em>. Added missing attribute with cardinality <em>1</em>.</p>
+</li>
+<li>
+<p><em>cbc:UUID</em>. Changed cardinality from <em>0..1</em> to <em>1</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Section 6.5 Reference to publications and to the ESPD Request.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Table 27.</strong> Reference to the ESPD Request, expected elements.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cbc:DocumentDescription</em>. Element added with cardinality <em>0..1</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Section 6.6 Economic Operator.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Table 35.</strong> (Qualifying) economic operator party, expected elements.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:PartyIdentification/cbc:Identifier</em>. <em>Requirement</em> text changed to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><strong>Section 6.8 Evidences.</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 44.</strong> Elements expected in an Evidence.</p>
+<p><strong>Table 44</strong>. Elements expected in an Evidence.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cbc:CandidateStatement</em>. <em>Requirement</em> text changed to <em>'<strong>Rule</strong>: None. No rule is applied.'</em> because previous text was misleading.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Table 45.</strong> Elements expected from the 'cac:Evidence/cac:DocumentReference' element.</p>
 <div class="ulist">
 <ul>
 <li>
 <p><em>cac:Attachment/cac:ExternalReference/cbc:URI</em>. <em>Requirement</em> text changed to <em>'<strong>Rule</strong>: None. No rule is applied.'</em> because previous text was misleading.</p>
+</li>
+<li>
+<p><em>cac:IssuerParty/cbc:WebsiteURI</em>. <em>Requirement</em> text changed to <em>'<strong>Rule</strong>: None. No rule is applied.'</em> because previous text was misleading.</p>
 </li>
 </ul>
 </div>
