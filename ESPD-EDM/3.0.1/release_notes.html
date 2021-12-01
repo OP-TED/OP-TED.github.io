@@ -225,6 +225,73 @@
 <li>
 <p>Removed sentence <em>'Notice that ESPD-EDM does not change anything else from the UBL-2.3 Schema.'</em> because it did not help understanding what is kept from <strong>UBL-2.3</strong> and what is changed.</p>
 </li>
+<li>
+<p><strong>Figure 12.</strong> ESPD-EDM 'QualificationApplicationRequest', UML diagram</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:EconomicOperatorParty</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in the <strong>ESPD Request</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cac:ProcurementProject</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cac:ProcurementProjectLot</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cbc:QualificationApplicationTypeCode</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cbc:WeightScoringMethodNote</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cbc:WightingTypeCode</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </li>
@@ -233,45 +300,88 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 5.</strong> Class QualificationApplicationRequest, components required by the ESPD-EDM V3.0.0.</p>
+<p><strong>Table 5.</strong> Class QualificationApplicationRequest, components required by the ESPD-EDM V3.0.0</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:ProcurementProject</em>. Element change for <em>cac:ProcurementProject/cbc:Description</em> because this is the information that is provided from eForms.
-<em>Type</em> changed from <em>Associated class</em> to <em>Text</em> in accordance to the type in eForms.
-Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 12. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em>.
-<em>Requirement</em> text changed to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
+<p><em>cac:ProcurementProject</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
 </li>
 <li>
-<p><em>cac:ProcurementProjectLot</em>. Element removed because in its place <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> is used.</p>
+<p><em>Type</em>: updated from <em>Associated class</em> to <em>Text</em> in alignment with <strong>eForms</strong>.</p>
 </li>
 <li>
-<p><em>cbc:ProcedureCode</em>. Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 12. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em>.</p>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> according to <em>Figure 12. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em>.</p>
+</li>
+<li>
+<p><em>Requirement</em>: updated from <em>'This information is not required for the ESPD 3.0.0 since the information related to the procedure will come from eForms.'</em> to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Figure 12.</strong> ESPD-EDM 'QualificationApplicationRequest', UML diagram.</p>
+<p><em>cac:ProcurementProjectLot</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:EconomicOperatorParty</em>. Element removed because it is not used in the <strong>ESPD Request</strong>.</p>
+<p><em>Component</em>: replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cac:ProcurementProject</em>. Element replaced by <em>cac:ProcurementProject/cbc:Description</em> because this is the information that is provided from eForms.</p>
+<p><em>cbc:ProcedureCode</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 12. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cac:ProcurementProjectLot</em>. Element removed because in its place <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> is used.</p>
+<p><strong>Section 2.6 EU and national publications.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>XSD Schema</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:AdditionalReferenceDocument</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:AdditionalDocumentReference</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cbc:QualificationApplicationTypeCode</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
+<p><strong>Table 6.</strong> Reference to additional documents, expected elements</p>
+<div class="ulist">
+<ul>
 <li>
-<p><em>cbc:WeightScoringMethodNote</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
+<p><em>cac:AdditionalDocumentReference</em></p>
+<div class="ulist">
+<ul>
 <li>
-<p><em>cbc:WightingTypeCode</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+<p><em>Path</em>: replaced <em>/QualificationApplicationRequest/cac:AdditionalReferenceDocument</em> by <em>/QualificationApplicationRequest/cac:AdditionalDocumentReference</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -284,11 +394,35 @@ Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 9.</strong> Contracting body party, expected elements.</p>
+<p><strong>Table 8.</strong> Contracting body, expected elements</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:PartyIdentification/cbc:Identifier</em>. <em>Requirement</em> text changed to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
+<p><em>cac:ContractParty</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:ContractingParty</em> according to <em>Figure 11: QualificationApplicationRequest-2.3 main elements.</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Table 9.</strong> Contracting body party, expected elements</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:PartyIdentification/cbc:Identifier</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Requirement</em>: updated from <em>'More than one identifier can be specified. When possible use the VAT identification of the contracting body (see the VIES platform for a EU cross-border national VAT number verification system). '</em> to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -301,11 +435,28 @@ Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Figure 33.</strong> Criterion - UML diagram.</p>
+<p><strong>Figure 33.</strong> Criterion - UML diagram</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Changed all cardinalities present as <em>1..*..*</em> to <em>1..*</em> because previous notation was wrong.</p>
+<p>Updated all cardinalities from <em>1..*..*</em> to <em>1..*</em> because previous notation was wrong.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Section 6.2 ESPD Response XSD Schema.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:ContractingAuthorityParty</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:ContractingParty</em> according to <em>Figure 191. QualificationApplicationResponse XSD Schema, global view</em>.</p>
 </li>
 </ul>
 </div>
@@ -318,26 +469,68 @@ Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Figure 193.</strong> ESPD-EDM 'QualificationApplicationResponse', UML diagram.</p>
+<p><strong>Figure 193.</strong> ESPD-EDM 'QualificationApplicationResponse', UML diagram</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:ProcurementProject</em>. Element replaced by <em>cac:ProcurementProject/cbc:Description</em> because this is the information that is provided from eForms.</p>
+<p><em>cac:ProcurementProject</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cac:ProcurementProjectLot</em>. Element removed because in its place <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> is used.</p>
+<p><em>cac:ProcurementProjectLot</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cbc:ProfileExecutionID</em>. Cardinality changed from <em>0..1</em> to <em>1</em>.</p>
+<p><em>cbc:ProfileExecutionID</em>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cbc:QualificationApplicationTypeCode</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+<p><em>cbc:QualificationApplicationTypeCode</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cbc:WeightScoringMethodNote</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+<p><em>cbc:WeightScoringMethodNote</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cbc:WightingTypeCode</em>. Element removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+<p><em>cbc:WightingTypeCode</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -350,34 +543,96 @@ Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 26.</strong> Class QualificationApplicationResponse, components required by the ESPD-EDM V3.0.0.</p>
+<p><strong>Table 26.</strong> Class QualificationApplicationResponse, components required by the ESPD-EDM V3.0.0</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:ContractingParty</em>. Text added in <em>Desciption</em> directing to <strong>Section 2.7. Contracting Body</strong> where this element is described.</p>
+<p><em>cac:ContractingParty</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Desciption</em>: updated with text <em>'See section <a href="#2.7_Contracting_Body">[2.7_Contracting_Body]</a> for more specification details.'</em> where this element is described.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cac:EconomicOperator</em>. Name changed to <em>cac:EconomicOperatorParty</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
-Cardinality changed from <em>0..1</em> to <em>1</em>.</p>
+<p><em>cac:EconomicOperator</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:EconomicOperatorParty</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
 </li>
 <li>
-<p><em>cac:ProcurementProject</em>. Element change for <em>cac:ProcurementProject/cbc:Description</em> because this is the information that is provided from eForms.
-<em>Type</em> changed from <em>Associated class</em> to <em>Text</em> in accordance to the type in eForms.
-Cardinality changed from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
-<em>Requirement</em> text changed to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cac:ProcurementProjectLot</em>. Element removed because in its place <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> is used.</p>
+<p><em>cac:ProcurementProject</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
 </li>
 <li>
-<p><em>cbc:ProcedureCode</em> Cardinality changed to from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.
-Type changed from Identifier to Code.</p>
+<p><em>Type</em>: updated from <em>Associated class</em> to <em>Text</em> in alignment with <strong>eForms</strong>.</p>
 </li>
 <li>
-<p><em>cbc:ProfileExecutionID</em>. Added missing attribute with cardinality <em>1</em>.</p>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
 </li>
 <li>
-<p><em>cbc:UUID</em>. Changed cardinality from <em>0..1</em> to <em>1</em>.</p>
+<p><em>Requirement</em>: updated from <em>'Use this component to identify and describe the procurement administrative procedure. If the procurement procedure is divided into lots use the ProcurementProjectLot component to provide details specific to the lot and reserve the ProcurementProject component to describe the global characteristics of the procedure.'</em> to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cac:ProcurementProjectLot</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: removed because it is replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cbc:ProcedureCode</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> in accordance to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
+</li>
+<li>
+<p><em>Type</em>: updated from <em>Identifier</em> to <em>Code</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cbc:ProfileExecutionID</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: added.</p>
+</li>
+<li>
+<p><em>Cardinality</em>: added <em>1</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>cbc:UUID</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -390,11 +645,21 @@ Type changed from Identifier to Code.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 27.</strong> Reference to the ESPD Request, expected elements.</p>
+<p><strong>Table 27.</strong> Reference to the ESPD Request, expected elements</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cbc:DocumentDescription</em>. Element added with cardinality <em>0..1</em>.</p>
+<p><em>cbc:DocumentDescription</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Component</em>: added.</p>
+</li>
+<li>
+<p><em>Cardinality</em>: added <em>0..1</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -407,11 +672,45 @@ Type changed from Identifier to Code.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 35.</strong> (Qualifying) economic operator party, expected elements.</p>
+<p><em>cac:EconomicOperator</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:PartyIdentification/cbc:Identifier</em>. <em>Requirement</em> text changed to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
+<p><em>Component</em>: replaced by <em>cac:EconomicOperatorParty</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram</em>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Table 35.</strong> (Qualifying) economic operator party, expected elements</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:PartyIdentification/cbc:Identifier</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Requirement</em>: updated from <em>'More than one identifier can be specified. Compulsory use of the attribute schemeAgencyID and highly recommended the use of the attribute schemeAgencyID. The preferred identifier is the national VAT number. Additional identifiers may be used'</em> to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Table 36.</strong> Economic operator postal address, expected elements</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>cac:EconomicOperator</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Path</em>: updated from <em>/QualificationApplicationResponse/​cac:EconomicOperator/​cac:Party/​cac:PostalAddress</em> to <em>/QualificationApplicationResponse/​cac:EconomicOperatorParty/​cac:Party/​cac:PostalAddress</em> according to <em>Figure 198. cac:QualifyingParty element, XSD</em>.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -424,24 +723,45 @@ Type changed from Identifier to Code.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Table 44</strong>. Elements expected in an Evidence.</p>
+<p><strong>Table 44</strong>. Elements expected in an Evidence</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cbc:CandidateStatement</em>. <em>Requirement</em> text changed to <em>'<strong>Rule</strong>: None. No rule is applied.'</em> because previous text was misleading.</p>
+<p><em>cbc:CandidateStatement</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Requirement</em>: updated from <em>'None. Not currently used in ESPD.'</em> to <em>'None. No rule is applied.'</em> because previous text was misleading.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Table 45.</strong> Elements expected from the 'cac:Evidence/cac:DocumentReference' element.</p>
+<p><strong>Table 45.</strong> Elements expected from the 'cac:Evidence/cac:DocumentReference' element</p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:Attachment/cac:ExternalReference/cbc:URI</em>. <em>Requirement</em> text changed to <em>'<strong>Rule</strong>: None. No rule is applied.'</em> because previous text was misleading.</p>
+<p><em>cac:Attachment/cac:ExternalReference/cbc:URI</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Requirement</em>: updated from <em>'None. Not currently used in ESPD.'</em> to <em>'None. No rule is applied.'</em> because previous text was misleading.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><em>cac:IssuerParty/cbc:WebsiteURI</em>. <em>Requirement</em> text changed to <em>'<strong>Rule</strong>: None. No rule is applied.'</em> because previous text was misleading.</p>
+<p><em>cac:IssuerParty/cbc:WebsiteURI</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Requirement</em>: updated from <em>'None. Not currently used in ESPD.'</em> to <em>'None. No rule is applied.'</em> because previous text was misleading.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
