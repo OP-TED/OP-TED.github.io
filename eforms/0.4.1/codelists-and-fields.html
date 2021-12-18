@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Contract Modification Notice :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.4.0/contract-modification-notice.html">
+    <title>Codelists and Fields :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.4.1/codelists-and-fields.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
      <link rel="stylesheet" href="../../_/css/custom.css">
@@ -67,7 +67,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="0.4.0">
+<div class="nav-container" data-component="eforms" data-version="0.4.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -258,7 +258,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">eForms SDK</span>
-    <span class="version">0.4.0</span>
+    <span class="version">0.4.1</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -270,7 +270,7 @@
       <a class="title" href="index.html">eForms SDK</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.4.0</a>
+          <a href="index.html">0.4.1</a>
         </li>
         <li class="version">
           <a href="../0.3.1/index.html">0.3.1</a>
@@ -323,15 +323,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">eForms SDK</a></li>
-    <li><a href="contract-modification-notice.html">Contract Modification Notice</a></li>
+    <li><a href="codelists-and-fields.html">Codelists and Fields</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.4.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.4.1</button>
   <div class="version-menu">
-    <a class="version is-current" href="contract-modification-notice.html">0.4.0</a>
-    <a class="version" href="../0.3.1/contract-modification-notice.html">0.3.1</a>
-    <a class="version" href="../0.2.1/contract-modification-notice.html">0.2.1</a>
+    <a class="version is-current" href="codelists-and-fields.html">0.4.1</a>
+    <a class="version" href="../0.3.1/codelists-and-fields.html">0.3.1</a>
+    <a class="version" href="../0.2.1/codelists-and-fields.html">0.2.1</a>
   </div>
 </div>
 </div>
@@ -340,77 +340,149 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Contract Modification Notice</h1>
+<h1 class="page">Codelists and Fields</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>A contract modification follows the same structure as a change, it
-however appears during contract execution and applies to a CAN only.</p>
+<p>This section provides further details on some fields and codelists only. It is not foreseen to
+be exhaustive and gives information necessary for clarification.</p>
 </div>
-<table id="modificationComponentsTable" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Modification components</caption>
+</div>
+</div>
+<div class="sect1">
+<h2 id="technicalCodelistsSection"><a class="anchor" href="#technicalCodelistsSection"></a>Technical codelists</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section refers to codelists not published on EU vocabularies. Most of them are for
+validation purposes and required by the implemented technical solution.</p>
+</div>
+<div class="sect2">
+<h3 id="exclusionGroundsCodelistSection"><a class="anchor" href="#exclusionGroundsCodelistSection"></a>Exclusion grounds codelist</h3>
+<div class="paragraph">
+<p>This codelist covers all possible codes for exclusion grounds.</p>
+</div>
+<div class="paragraph">
+<p>The list is the one defined for the ESPD.</p>
+</div>
+<div class="paragraph">
+<p>The codes are reported in the table below; the ones in bold are highly recommended.
+From the EU legislation perspective, these are mandatory, however derogations are
+possible (cf. <a href="#dir24">[dir24]</a> – art. 57). To identify precisely which value to use,
+the contracting authority shall also consider local legislation.</p>
+</div>
+<table id="exclusionGroundCodesTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Exclusion ground codes</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 40%;">
+<col style="width: 60%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-middle"><strong>eForms BT</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>Description</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>Cardin.</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>XSD element</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Code</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Value</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Previous Section Identifier (BT-1501)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of
-the modified sections</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>+</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangedSectionIdentifier</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONVICTIONS.PARTICIPATION_IN_CRIMINAL_ORGANISATION</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Participation in a criminal organisation</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Description (BT-202)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the modification</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangeDescription</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONVICTIONS.CORRUPTION</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Corruption</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Reason Code (BT-200)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Code to express the modification
-background reasons</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ChangeReason/cbc:ReasonCode</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONVICTIONS.FRAUD</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Fraud</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Reason Description (BT-201)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Modification background
-reasons expressed as text</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ChangeReason/efbc:ReasonDescription</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONVICTIONS.TERRORIST_OFFENCES</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Terrorist offences or offences linked to terrorist activities</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONVICTIONS.MONEY_LAUNDERING</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Money laundering or terrorist financing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONVICTIONS.CHILD_LABOUR-HUMAN_TRAFFICKING</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Child labour and other forms of trafficking in human beings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONTRIBUTIONS.PAYMENT_OF_TAXES</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Payment of taxes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.CONTRIBUTIONS.PAYMENT_OF_SOCIAL_SECURITY</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Payment of social security contributions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.SOCIAL.ENVIRONMENTAL_LAW</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Breaching of obligations in the fields of environmental law</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.SOCIAL.SOCIAL_LAW</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Breaching of obligations in the fields of social law</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CRITERION.EXCLUSION.SOCIAL.LABOUR_LAW</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Breaching of obligations in the fields of labour law</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.BUSINESS.BANKRUPTCY</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bankruptcy</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.BUSINESS.INSOLVENCY</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Insolvency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.BUSINESS.CREDITORS_ARRANGEMENT</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Arrangement with creditors</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.BUSINESS.BANKRUPTCY_ANALOGOUS</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Analogous situation like bankruptcy under national law</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.BUSINESS.LIQUIDATOR_ADMINISTERED</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Assets being administered by liquidator</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.BUSINESS.ACTIVITIES_SUSPENDED</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Business activities are suspended</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.MISCONDUCT.MC_PROFESSIONAL</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Guilty of grave professional misconduct</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.MISCONDUCT.MARKET_DISTORTION</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Agreements with other economic operators aimed at distorting competition</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.CONFLICT_OF_INTEREST.PROCEDURE_PARTICIPATION</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Conflict of interest due to its participation in the procurement procedure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.CONFLICT_OF_INTEREST.PROCEDURE_PREPARATION</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Direct or indirect involvement in the preparation of this procurement procedure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.CONFLICT_OF_INTEREST.EARLY_TERMINATION</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Early termination, damages or other comparable sanctions</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.CONFLICT_OF_INTEREST.MISINTERPRETATION</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Guilty of misinterpretation, withheld information, unable to provide required documents and obtained confidential information of this procedure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CRITERION.EXCLUSION.NATIONAL.OTHER</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Purely national exclusion grounds</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>The possible Modification reason code values are referenced in the
-<a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/modification-justification">modification-justification</a>
-codelist.</p>
+</div>
+</div>
 </div>
 </article>
   </div>
@@ -419,7 +491,7 @@ codelist.</p>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script src="../../_/js/vendor/lunr.js"></script>
-<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/eforms/0.4.0/contract-modification-notice.html"></script>
+<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/eforms/0.4.1/codelists-and-fields.html"></script>
 <script async src="../../_/../search-index.js"></script>
 
 <footer class="footer">

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Disclaimer :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.4.0/disclaimer.html">
+    <title>Introduction :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.4.1/introduction.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
      <link rel="stylesheet" href="../../_/css/custom.css">
@@ -67,7 +67,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="0.4.0">
+<div class="nav-container" data-component="eforms" data-version="0.4.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -258,7 +258,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">eForms SDK</span>
-    <span class="version">0.4.0</span>
+    <span class="version">0.4.1</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -270,7 +270,7 @@
       <a class="title" href="index.html">eForms SDK</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.4.0</a>
+          <a href="index.html">0.4.1</a>
         </li>
         <li class="version">
           <a href="../0.3.1/index.html">0.3.1</a>
@@ -323,15 +323,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">eForms SDK</a></li>
-    <li><a href="disclaimer.html">Disclaimer</a></li>
+    <li><a href="introduction.html">Introduction</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.4.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.4.1</button>
   <div class="version-menu">
-    <a class="version is-current" href="disclaimer.html">0.4.0</a>
-    <a class="version" href="../0.3.1/disclaimer.html">0.3.1</a>
-    <a class="version" href="../0.2.1/disclaimer.html">0.2.1</a>
+    <a class="version is-current" href="introduction.html">0.4.1</a>
+    <a class="version" href="../0.3.1/introduction.html">0.3.1</a>
+    <a class="version" href="../0.2.1/introduction.html">0.2.1</a>
   </div>
 </div>
 </div>
@@ -340,20 +340,207 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Disclaimer</h1>
+<h1 class="page">Introduction</h1>
+<div class="sect1">
+<h2 id="objectiveAndScopeSection"><a class="anchor" href="#objectiveAndScopeSection"></a>Objective and scope</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>This document refers to the provisional version of the eForms schemas
-published as part of the SDK 0.4.0.</p>
+<p>The objective of this document is to provide the person in charge of the
+XML generation with the information necessary for integration of the
+schemas</p>
 </div>
 <div class="paragraph">
-<p>The schemas and the documentation can still be subject to changes. They
-should therefore be considered as provisional.</p>
+<p>There are three schemas foreseen to cover the 40 situations listed in
+the eForms Regulation
+(<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv:OJ.L_.2019.272.01.0007.01.ENG&amp;toc=OJ:L:2019:272:TOC">Regulation
+(EU) 2019/1780</a>):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Prior Information Notice (PIN),</p>
+</li>
+<li>
+<p>Contract Notice (CN), and</p>
+</li>
+<li>
+<p>Contract Award Notice (CAN).</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Further information, including Business Rules, will be provided in the
-near future. You may send questions and observations to the helpdesk via
-<a href="https://simap.ted.europa.eu/contact">https://simap.ted.europa.eu/contact</a>
-with the word "<em>eForms</em>" in the subject.</p>
+<p>The schemas are based on OASIS UBL v2.3 with some extensions for eForms
+specific elements.</p>
+</div>
+<div class="paragraph">
+<p>Codelists, validation rules and technical integration are outside the
+scope of the present document; although, if there are references to some
+Business Rules or codelists in this document, these will not be
+discussed in detail.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="theRegulationSection"><a class="anchor" href="#theRegulationSection"></a>The Regulation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A regulation on Public Procurement (eForms) has been drafted, proposed,
+adopted and published in October 2019 <a href="#eFormsReg">[eFormsReg]</a>. It will replace the
+Implementing Regulation from November 2015 <a href="#oldForms">[oldForms]</a>.</p>
+</div>
+<div class="paragraph">
+<p>eForms is part of the Single Market Strategy of the European Commission
+<a href="#comComm">[comComm]</a> and will help collect, manage and analyze procurement related data;
+this will populate a meaningful source of information for Member States
+to support their initiatives on <em>Public Procurement Governance</em>
+improvement with amplified efficiency, transparency and integrity.</p>
+</div>
+<div class="paragraph">
+<p>Some aspects that the regulation is intended to address, are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>increased information accuracy;</p>
+</li>
+<li>
+<p>forms simplification;</p>
+</li>
+<li>
+<p>extended flexibility (e.g. ability to nationally: adapt labels
+to regional preferences, enforce the use of some optional fields);</p>
+</li>
+<li>
+<p>closer consistency (amongst forms and with other documents
+based on the same standards),</p>
+</li>
+<li>
+<p>intensified flexibility with specifications at Lots level;</p>
+</li>
+<li>
+<p>improved governance with identified sellers and buyers, as
+well as a limited number of policy related information;</p>
+</li>
+<li>
+<p>balanced transparency-competition aspects with justified
+private information;</p>
+</li>
+<li>
+<p>simplified process for Corrigenda publications;</p>
+</li>
+<li>
+<p>use of a procedure identifier for a better Business
+Opportunities identification.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="backgroundInformationSection"><a class="anchor" href="#backgroundInformationSection"></a>Background information</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to the regulation, the following have been considered for
+the schemas development:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The published UBL 2.3 schemas<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>;</p>
+</li>
+<li>
+<p>The detailed spreadsheet corresponding to Annex II of the
+eForms regulation<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>;</p>
+</li>
+<li>
+<p>The numerous discussions undertaken during the different
+consultations<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup> with the collected information regularly integrated by DG GROW in the
+Annex II;</p>
+</li>
+<li>
+<p>The outcome of the eProcurement Ontology workgroup activity<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>;</p>
+</li>
+<li>
+<p>The approaches adopted for other UBL based data (ESPD,
+eInvoicing &#8230;&#8203;).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="aboutThisDocumentSection"><a class="anchor" href="#aboutThisDocumentSection"></a>About this document</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document is divided in different sections:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sections 1 to 3 with introduction of general concepts, and</p>
+</li>
+<li>
+<p>Sections 4 to 7 more technical.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The choice has been made to be as concise as possible using tables and
+cross references. Navigation between text and tables, or tables and
+sections is possible with a <em>"Ctrl" + click</em> and back navigation with
+<em>"Alt" + "←"</em>.</p>
+</div>
+<div class="paragraph">
+<p>Synthetic approach and readability concerns lead to the expression of
+some elements usage in a table format. In these tables, the expressed
+cardinality does not substitute the one of the Regulation, it is only a
+mean to highlight the different occurrences that may be needed for some
+elements at specific places for a given document type. As a kind of
+synthesis of the requirements for all situations covered by a document
+type (i.e. all columns of the Regulation annex that a given schema
+intents to cover), the cardinality is more generic and may lack the
+precision required by the Regulation and that the validation rules will
+verify.</p>
+</div>
+<div class="paragraph">
+<p>Codelists and validation rules are out of the scope of this document
+even if they are referenced sometimes.</p>
+</div>
+<div class="paragraph">
+<p>Some codelists justified by the technical design of the schemas<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>
+won&#8217;t appear on EU Vocabularies, they will however be documented and
+provided with the necessary artefacts required for data validation.</p>
+</div>
+<div class="paragraph">
+<p>To clarify the usage of some elements, some validation rules had to be
+stated; these do not however cover the whole set of validation rules
+applicable which will be provided at a later stage.</p>
+</div>
+<div class="paragraph">
+<p>Regarding illustration, samples have been provided using 2 linguistic
+versions; this has been done for clarification purpose regarding
+encoding of multilingual notices. There is no requirement to have
+exactly two such linguistic versions.</p>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. Available at <a href="https://docs.oasis-open.org/ubl/cs01-UBL-2.3/UBL-2.3.html" class="bare">https://docs.oasis-open.org/ubl/cs01-UBL-2.3/UBL-2.3.html</a>
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. Accessible from <a href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en" class="bare">https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en</a>
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. Accessible at <a href="https://github.com/eForms/eForms/issues" class="bare">https://github.com/eForms/eForms/issues</a>
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. More information available at <a href="https://github.com/eprocurementontology/eprocurementontology" class="bare">https://github.com/eprocurementontology/eprocurementontology</a>
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. Also referred to as "technical codelists".
+</div>
 </div>
 </article>
   </div>
@@ -362,7 +549,7 @@ with the word "<em>eForms</em>" in the subject.</p>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script src="../../_/js/vendor/lunr.js"></script>
-<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/eforms/0.4.0/disclaimer.html"></script>
+<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/eforms/0.4.1/introduction.html"></script>
 <script async src="../../_/../search-index.js"></script>
 
 <footer class="footer">

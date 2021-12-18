@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Change Notice :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.4.0/change-notice.html">
+    <title>Schemas :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.4.1/schemas.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
      <link rel="stylesheet" href="../../_/css/custom.css">
@@ -67,7 +67,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="0.4.0">
+<div class="nav-container" data-component="eforms" data-version="0.4.1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -258,7 +258,7 @@
 <div class="nav-panel-explore" data-panel="explore">
   <div class="context">
     <span class="title">eForms SDK</span>
-    <span class="version">0.4.0</span>
+    <span class="version">0.4.1</span>
   </div>
   <ul class="components">
     <li class="component">
@@ -270,7 +270,7 @@
       <a class="title" href="index.html">eForms SDK</a>
       <ul class="versions">
         <li class="version is-current is-latest">
-          <a href="index.html">0.4.0</a>
+          <a href="index.html">0.4.1</a>
         </li>
         <li class="version">
           <a href="../0.3.1/index.html">0.3.1</a>
@@ -323,15 +323,15 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">eForms SDK</a></li>
-    <li><a href="change-notice.html">Change Notice</a></li>
+    <li><a href="schemas.html">Schemas</a></li>
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">0.4.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">0.4.1</button>
   <div class="version-menu">
-    <a class="version is-current" href="change-notice.html">0.4.0</a>
-    <a class="version" href="../0.3.1/change-notice.html">0.3.1</a>
-    <a class="version" href="../0.2.1/change-notice.html">0.2.1</a>
+    <a class="version is-current" href="schemas.html">0.4.1</a>
+    <a class="version" href="../0.3.1/schemas.html">0.3.1</a>
+    <a class="version" href="../0.2.1/schemas.html">0.2.1</a>
   </div>
 </div>
 </div>
@@ -340,286 +340,264 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Change Notice</h1>
+<h1 class="page">Schemas</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>As indicated previously, the purpose of change notices is multifold:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Correct a value reported in a previous version of the same
-notice (also often referred to as Corrigenda),</p>
-</li>
-<li>
-<p>Inform about changes to information not inside the notice
-(e.g. changed procurement documents),</p>
-</li>
-</ul>
+<p>Three schemas will cater for the different categories of notices. <a href="#noticeTypesAndTheirAssociatedSchemasTable">Table 1</a> provides the correspondence between notice categories and the schemas.</p>
 </div>
 <div class="paragraph">
-<p>Changes may apply to notices of any form type. A change notice may only
-concern a single notice and  contains all the information from that
-initial notice with applied changes in addition to the information on
-those changes.</p>
+<p>For Change notices, the required schema is the one of the notice subject
+to changes (e.g. a <em>Change Notice</em> for a change applied to an existing
+<em>Contract Notice</em> shall comply with the <em>ContractNotice</em> schema).</p>
 </div>
-<div class="paragraph">
-<p>When a change is applied to a previous change notice, the consolidated
-text must integrate all changes from previous versions, and only the
-latest changes are described in the changes section. This section will
-allow to report:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The identifier of the changed notice,</p>
-</li>
-<li>
-<p>The changes that may individually apply to one or more sections,
-concern procurement documents and other information,</p>
-</li>
-<li>
-<p>The main reason that led to the Change Notice creation.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A change notice will have its own identifier and version; its identifier
-will differ from the one of the changed notice.</p>
-</div>
-<div class="paragraph">
-<p>When applying changes, it is essential to ensure that the variations do
-not need the start of a new procedure instead.</p>
-</div>
-<div class="paragraph">
-<p>The changes are indicated using the dedicated extension elements at the
-root of the notice.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="changedNoticeSection"><a class="anchor" href="#changedNoticeSection"></a>Changed Notice</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To identify the changed notice, the following business term is used:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Change Notice Version Identifier (BT-758)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="changeSection"><a class="anchor" href="#changeSection"></a>Change</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>A change may contain all the following elements:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Change Previous Section Identifier (BT-13716)</p>
-</li>
-<li>
-<p>Procurement Documents Change Date (BT-719)</p>
-</li>
-<li>
-<p>Procurement Documents Change Indicator (BT-718)</p>
-</li>
-<li>
-<p>Change Description (BT-141)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There must exist at least one “efac:Change” element in the Change Notice.</p>
-</div>
-<div class="paragraph">
-<p>A change may cover one or more sections of a notice and the element used to
-reference sections (i.e. BT-13716) is repeatable.</p>
-</div>
-<div class="paragraph">
-<p>The procurement documents-related elements indicate whether these
-documents have changed and when. For the indicator, both values “true”
-and “false” are allowed; when the value is set to “true”, the date the
-procurement documents have been changed must be specified, else the
-specification of this date is not allowed.</p>
-</div>
-<div class="paragraph">
-<p>The decription is there for further information in a textual form.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="changeReasonSection"><a class="anchor" href="#changeReasonSection"></a>Change Reason</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Reason for a change shall be expressed using a code from the
-<a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/change-corrig-justification">change-corrig-justification</a>
-codelist and additional information in the description:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Change Reason Code (BT-140)</p>
-</li>
-<li>
-<p>Change Reason Description (BT-762)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The use of the code is mandatory while the provision of the description
-is optional.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="changesElementsSection"><a class="anchor" href="#changesElementsSection"></a>Changes elements</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In <a href="#changesAssociatedElementsTable">Table 1</a> are referenced the different business terms relative to
-changes and their corresponding elements.</p>
-</div>
-<table id="changesAssociatedElementsTable" class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Changes associated elements</caption>
+<table id="noticeTypesAndTheirAssociatedSchemasTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Notice Types and their associated schemas</caption>
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 10%;">
-<col style="width: 30%;">
+<col style="width: 34%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-middle"><strong>eForms BT</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>Description</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>Cardin.</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>XSD element</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Notice category</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Notice Type</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Schema</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Notice Version Identifier (BT-758)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference to the Changed
-Notice Version</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efbc:ChangedNoticeIdentifier</code></pre>
-</div>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Prior Information / Periodic Indicative Notice</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>PIN profile</p>
+</li>
+<li>
+<p>PIN only</p>
+</li>
+<li>
+<p>PIN time limit</p>
+</li>
+<li>
+<p>PIN CFC general</p>
+</li>
+<li>
+<p>PIN CFC social</p>
+</li>
+<li>
+<p>QS</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">PriorInformationNotice</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Contract Notice</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>CN general</p>
+</li>
+<li>
+<p>CN social</p>
+</li>
+<li>
+<p>CN subco</p>
+</li>
+<li>
+<p>CN design</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ContractNotice</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Direct Award Pre-notification Notice</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>CAN VEAT</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-middle" rowspan="3"><div class="content"><div class="paragraph">
+<p>ContractAwardNotice</p>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Procurement Documents Change Date (BT-719)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Date of procurement
-documents changes</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ProcurementDocumentsChangeDate</code></pre>
-</div>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Contract Award Notice</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>CAN general</p>
+</li>
+<li>
+<p>CAN social</p>
+</li>
+<li>
+<p>CAN design</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Procurement Documents Change Indicator (BT-718)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Indication that
-procurement documents have changed</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ProcurementDocumentsChangeIndicator</code></pre>
-</div>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Contract Modification Notice</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Contract modification</p>
+</li>
+</ul>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Previous Section Identifier (BT-13716)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of the
-changed sections</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangedSectionIdentifier</code></pre>
-</div>
+<th class="tableblock halign-left valign-middle"><p class="tableblock">Change Notice</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Change notice</p>
+</li>
+</ul>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><em>Any of the 3</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The schemas are built using elements from different namespaces (some
+defined by UBL, others created for the purpose of eForms) and a version
+number will be used to distinguish different releases. Information on
+namespaces and schema versioning is provided below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_namespaces"><a class="anchor" href="#_namespaces"></a>Namespaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The namespaces used in the eForms schemas are described below in Table
+3.</p>
+</div>
+<table id="namespacePrefixesNamesTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Namespace prefixes &amp; names</caption>
+<colgroup>
+<col style="width: 5%;">
+<col style="width: 25%;">
+<col style="width: 70%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Prefix</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Name</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>Description</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Description (BT-141)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the changes</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangeDescription</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">urn:oasis:names:specification:ubl:schema:xsd:PriorInformationNotice-2</p>
+<p class="tableblock">urn:oasis:names:specification:ubl:schema:xsd:ContractNotice-2</p>
+<p class="tableblock">urn:oasis:names:specification:ubl:schema:xsd:ContractAwardNotice-2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No namespace prefix for the root element</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Reason Code (BT-140)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Code to express the background
-reasons for the change</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ChangeReason/cbc:ReasonCode</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>cac</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Covers all UBL common aggregated components</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Reason Description (BT-762)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The background reasons
-for the change expressed as text</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ChangeReason/efbc:ReasonDescription</code></pre>
-</div>
-</div></div></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>cbc</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Covers all UBL common basic components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>ext</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">urn:oasis:names:specification:ubl:schema:xsd:CommonExtensionComponents-2</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Covers all UBL common extension components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>efext</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://eforms/v1.0/Extensions" class="bare">http://eforms/v1.0/Extensions</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Covers all eForms specific
+extension components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>efac</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://eforms/v1.0/ExtensionAggregateComponents" class="bare">http://eforms/v1.0/ExtensionAggregateComponents</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Covers all
+eForms specific extension aggregate components</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>efbc</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="http://eforms/v1.0/ExtensionBasicComponents" class="bare">http://eforms/v1.0/ExtensionBasicComponents</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Covers all eForms
+specific extension basic components</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="sampleChangesSection"><a class="anchor" href="#sampleChangesSection"></a>Sample changes</h2>
+<h2 id="versioningSection"><a class="anchor" href="#versioningSection"></a>Versioning</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A sample change mark-up is proposed below. It covers a text update as
-well as information about changes to procurement documents:</p>
+<p>The versioning is based on the following scheme:</p>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ContractNotice&gt;
-    &lt;ext:UBLExtensions&gt;
-        &lt;ext:UBLExtension&gt;
-            &lt;ext:ExtensionContent&gt;
-                &lt;efext:EformsExtension&gt;
-                    &lt;efac:Changes&gt;
-                        &lt;efbc:ChangedNoticeIdentifier schemeName="notice-id-ref"&gt;755db7f6-6aa1-453b-9087-1df5f7725112-02&lt;/efbc:ChangedNoticeIdentifier&gt;
-                        &lt;efac:Change&gt;
-                            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0001&lt;/efbc:ChangedSectionIdentifier&gt;
-                            &lt;efbc:ChangeDescription languageID="EN"&gt;The changes have been applied to ...&lt;/efbc:ChangeDescription&gt;
-                        &lt;/efac:Change&gt;
-                        &lt;efac:Change&gt;
-                            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0002&lt;/efbc:ChangedSectionIdentifier&gt;
-                            &lt;efbc:ProcurementDocumentsChangeDate&gt;2019-10-24+01:00&lt;/efbc:ProcurementDocumentsChangeDate&gt;
-                            &lt;efbc:ProcurementDocumentsChangeIndicator&gt;true&lt;/efbc:ProcurementDocumentsChangeIndicator&gt;
-                            &lt;efbc:ChangeDescription languageID="EN"&gt;Updated procurement documents&lt;/efbc:ChangeDescription&gt;
-                        &lt;/efac:Change&gt;
-                        &lt;efac:ChangeReason&gt;
-                            &lt;efbc:ReasonCode listName="change-corrig-justification"&gt;update-add &lt;/efbc:ReasonCode&gt;
-                            &lt;efbc:ReasonDescription languageID="EN"&gt;Clerical corrections of ...&lt;/efbc:ReasonDescription&gt;
-                        &lt;/efac:ChangeReason&gt;
-                    &lt;/efac:Changes&gt;
-                &lt;/efext:EformsExtension&gt;
-            &lt;/ext:ExtensionContent&gt;
-        &lt;/ext:UBLExtension&gt;
-    &lt;/ext:UBLExtensions&gt;
-    &lt;!-- interrupted mark-up --&gt;
-&lt;/ContractNotice&gt;</code></pre>
+<div class="paragraph text-center">
+<p><strong>eforms-sdk-x.y.z</strong></p>
 </div>
+<div class="paragraph">
+<p>where:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"<strong>eforms-sdk-</strong>": fixed prefix,</p>
+</li>
+<li>
+<p>"<strong>x</strong>": major version number (increased every time backward
+compatibility is affected),</p>
+</li>
+<li>
+<p>"<strong>y</strong>": minor version number,</p>
+</li>
+<li>
+<p>"<strong>z</strong>": rules tuning related number.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Any new release with affected backward compatibility leads to:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>an increment of the major version number, and</p>
+</li>
+<li>
+<p>a restart of the minor version numbering.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Major version numbering starts from one, while minor version numbering
+starts from zero.</p>
+</div>
+<div class="paragraph">
+<p>The whole set (i.e. schema and associated rules) will be available for
+download and uniquely identified with the above proposed scheme; for
+given "<strong>x</strong>" and "<strong>y</strong>", the set with the highest "<strong>z</strong>" value (i.e.
+the latest available set) should be used.</p>
+</div>
+<div class="paragraph">
+<p>Rules tuning will not affect backward compatibility, hence in the XML
+instance only the major and minor version numbers will be reported.</p>
+</div>
+<div class="paragraph">
+<p>Reference to the version inside the XML instance should be limited to
+the following expression:</p>
+</div>
+<div class="paragraph text-center">
+<p><strong>eforms-sdk-x.y</strong></p>
 </div>
 </div>
 </div>
@@ -630,7 +608,7 @@ well as information about changes to procurement documents:</p>
 <script src="../../_/js/site.js"></script>
 <script async src="../../_/js/vendor/highlight.js"></script>
 <script src="../../_/js/vendor/lunr.js"></script>
-<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/eforms/0.4.0/change-notice.html"></script>
+<script src="../../_/js/vendor/search.js" id="search-script" data-base-path="../.." data-page-path="/eforms/0.4.1/schemas.html"></script>
 <script async src="../../_/../search-index.js"></script>
 
 <footer class="footer">
