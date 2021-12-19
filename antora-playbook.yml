@@ -2,29 +2,59 @@ site:
   title: TED Developer Documentation
   url: https://docs.ted.europa.eu
   start_page: home::index.adoc
+
+asciidoc:
+  attributes:
+    ### Component's Latest Version
+    #
+    # We want to know the latest version of each component so we can create a redirect for the latest version.
+    # Such a redirect would be useful for users that want to bookmark a link to the latest documentation for a component.
+    # For example, we would be able to provide a link of the form: https://docs.ted.europa.eu/eforms/latest.  
+    # It is also nice to be able to indicate a component's version in the main navigation panel (modules/ROOT/nav.adoc).
+    #
+    # However, we do not currently have any other way to determine the latest version of a component outside a page in the component itself.
+    # So, as a workaround, we store the latest version of each component in these site-wide asciidoc attributes.
+    # The downside is that we have to update these attributes whenever we release a new version of a component.
+    #
+    eforms_latest_version: '0.4.1'
+    epo_latest_version: '2.0.0'
+    espd_latest_version: '3.0.0'
+
 content:
   edit_url: false
   sources:
+
+  ### Local content
   - url: https://github.com/OP-TED/OP-TED.github.io.git
     start_path: content
     branches: master
+  
+  ### eForms SDK
   - url: https://github.com/OP-TED/eforms-docs.git
     start_path: /
-    branches: 0.2.x, 0.3.x, 0.4.x
+    branches: 0.4.x, 0.3.x, 0.2.x
+  
+  ### ePO Documentation
   - url: https://github.com/OP-TED/epo-docs.git
     start_path: /
     branches: main
+  
+  ### ePO WG Meetings
   - url: https://github.com/OP-TED/epo-docs.git
     start_path: /
     branches: wg-meetings
+  
+  ###  ESPD
   - url: https://github.com/OP-TED/espd-docs.git
     start_path: /
     branches: v1.0.x, v2.0.x, v2.1.x, v3.0.x, v3.0.x-TEDSPD-138
     tags:
     - 2.1.0
-asciidoc:
-  attributes:
-    eforms_latest_version: '0.4.1'  # this is used by eforms:ROOT:index.adoc to create a redirection for "/eforms/latest/"
+
+urls:
+  redirect_facility: static
+  # html_extension_style: drop
+
 ui:
   bundle:
     url: https://github.com/OP-TED/antora-eui/releases/download/ui-bundle/eForms-SDK-customisations/ui-bundle.zip
