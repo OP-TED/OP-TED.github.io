@@ -247,7 +247,7 @@
 </td>
 <td class="content">
 <div class="paragraph">
-<p>This section about the ESPD Response does not cover those information elements that were already described in the ESPD Request, unless a characteristic related to the ESPD Response needs to be clarified. Thus for details about elements like cac:ContractingParty, ProcurementProject, ProcurementProjectLot and AdditionalDocumentReference refer to the section <strong>2. The ESPD Request</strong>.</p>
+<p>This section about the ESPD Response does not cover those information elements that were already described in the ESPD Request, unless a characteristic related to the ESPD Response needs to be clarified. Thus for details about elements like cac:ContractingParty, cac:ProcurementProject and cac:AdditionalDocumentReference refer to the section <strong>2. The ESPD Request</strong>.</p>
 </div>
 </td>
 </tr>
@@ -493,7 +493,7 @@
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:EconomicOperatorGroupName</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The name of the group that presents a tender to which this economic operator belongs (e.g. the name of a consortium, a joint venture, etc.).</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -577,6 +577,21 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.
 <strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-020"><em>tbr92-013</em></a>.</p>
 <p class="tableblock"><strong>Rule</strong>: Use this component to identify and describe the procurement administrative procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:ProcurementProjectLot</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1..n</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One of the procurement project lots into which this contract can be divided.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-014"><em>tbr92-014</em></a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: The economic operator has to specify the Procurement Project Lot the ESPD refers to.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: (BR-LOT-30)</p>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:TenderingCriterion</strong></p></td>
@@ -755,7 +770,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 <p>If the buyer publishes the ESPD Request on a public journal, the economic operator must specify the URI from where the ESPD Response was downloaded to draft its ESPD Response (see for instance how this is done for the publications on the TED or national journals; and see also the XML example below).</p>
 </div>
 <div class="paragraph">
-<p>This URI should be specified in the field cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalRefernce/cbc:URI:</p>
+<p>This URI should be specified in the field cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference/cbc:URI:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/URI_Reference_ESPD_Request.jpg" alt="URI_Reference to ESPD Request" width="510" height="288"></span></p>
@@ -805,7 +820,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationResponse/cac:AdditionalReferenceDocument</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationResponse/cac:AdditionalDocumentReference</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Context of Use</strong>:</p></td>
@@ -949,7 +964,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationResponse/cac:AdditionalReferenceDocument/cac:Attachment/cac:ExternalReference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationResponse/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Context of use</strong>:</p></td>
@@ -1260,7 +1275,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 <div class="sect4">
 <h5 id="_expected_elements_2"><a class="anchor" href="#_expected_elements_2"></a>Expected elements</h5>
 <div class="paragraph">
-<p>Please, remember that the elements cac:ContractingAuthority, cac:ProcurementProject, cac:ProcurementProjectLot, and cac:AdditionalDocumentReference are expected in the ESPD Request, too. However, for the sake of brevity, and as they are taken from the ESPD Request and 'copied' in the ESPD Response, they have not been re-explained in this section about the ESPD Response. Therefore for details on those elements please refer to the section <strong>2. The ESPD Request document</strong>.</p>
+<p>Please, remember that the elements cac:ContractingAuthority, cac:ProcurementProject, cac:ProcurementProjectLot and cac:AdditionalDocumentReference are expected in the ESPD Request, too. However, for the sake of brevity, and as they are taken from the ESPD Request and 'copied' in the ESPD Response, they have not been re-explained in this section about the ESPD Response. Therefore for details on those elements please refer to the section <strong>2. The ESPD Request document</strong>.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -1478,7 +1493,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:Party/cac:PartyIdentifier/cbc:ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:Party/cac:PartyIdentification/cbc:ID</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The identifier of the economic operator in an official list, register or (pre)qualification system.</p></td>
@@ -1486,7 +1501,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-001"><em>tbr92-001</em></a></p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: The attribute schemeAgencyID must hold the value retrieved from eCertis that identifies unequivocally the (pre)qualification system. If, for any reason, that value is not available use the default schemeAgencyID "EU-COM-GROW" and the cac:EconomicOperatorParty/&#8203;cac:QualifyingParty/&#8203;cac:Party/&#8203;cac:PartyIdentificaton/&#8203;cbc:ID for the value of the identifier. Additionally you can use the data structure "registered" to specify an alternative or additional name, identifier and description. The code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v3.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/">EOIDType</a> should be used to indicate the type of identifier used as a value of the schemeID attribute, e.g. schemeID="VAT").</p>
+<p><strong>Rule</strong>: The attribute schemeAgencyID must hold the value retrieved from eCertis that identifies unequivocally the (pre)qualification system. If, for any reason, that value is not available use the default schemeAgencyID "EU-COM-GROW" and the cac:EconomicOperatorParty/&#8203;cac:QualifyingParty/&#8203;cac:Party/&#8203;cac:PartyIdentification/&#8203;cbc:ID for the value of the identifier. Additionally you can use the data structure "registered" to specify an alternative or additional name, identifier and description. The code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v3.0.1/docs/src/main/asciidoc/modules/ROOT/dist/cl/ods/">EOIDType</a> should be used to indicate the type of identifier used as a value of the schemeID attribute, e.g. schemeID="VAT").</p>
 </div>
 <div class="paragraph">
 <p><strong>Rule scope</strong>: (BR-RESP-80-S10, BR-RESP-80-S20), Common (BR-RESP-50, BR-OTH-02)</p>
@@ -1558,7 +1573,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:RoleDescription</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">0..n</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The text describing the role of the economic operator in the bid.</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1-tbr92-008"><em>tbr92-008</em></a></p>
@@ -3901,7 +3916,7 @@ all the information about its classification and documentation about its financi
 <p><strong>Beware that</strong> the current modeel of UBL-2.3 provides two elements for the Issuer, one for the issuer of the evidence and another for the issuer of the document reference.</p>
 </div>
 <div class="paragraph">
-<p>The ESPD-EDM V3.0.0 uses always the one inside the document reference to refer to the issuer of the evidence (and of the document that 'is' the evidence). Thus the element used in the ESPD is cac:Evidence/cac:DocumentReference/cac:IssuerParty.</p>
+<p>The ESPD-EDM V3.0.0 uses always the one inside the document reference to refer to the issuer of the evidence (and of the document that 'is' the evidence). Thus the element used in the ESPD is cac:Evidence/cac:DocumentReference/cac:IssuerParty/cac:Party/cac:PartyIdentification/cbc:ID.</p>
 </div>
 </td>
 </tr>
@@ -4148,7 +4163,7 @@ all the information about its classification and documentation about its financi
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:IssuerParty/cbc:Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:IssuerParty/cac:PartyName/cbc:Name</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The name of the party issuer of the documentary evidence.</p></td>
@@ -4160,7 +4175,7 @@ all the information about its classification and documentation about its financi
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:IssuerParty/cbc:WebsiteURI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:IssuerParty/cac:Party/cac:PartyName/cbc:Name</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The website of the party issuer of the documentary evidence.</p></td>
