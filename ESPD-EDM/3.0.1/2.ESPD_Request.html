@@ -211,7 +211,7 @@
 <h2 id="_espd_request_business_requirements"><a class="anchor" href="#_espd_request_business_requirements"></a>ESPD Request Business Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The ESPD-EDM V3.0.0 models the business and information requirements in alignment with the works developed by e-Sens, which uses the identifier <strong>Trdm070</strong> to refer to the business requirements regarding the ESPD Request transaction. See formal information requirements related to the ESPD Request transaction in the document <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-BusinessRequirements:ESPDrequesttransaction(Trdm070)"><em>Business Requirements: ESPD request transaction (Trdm070)</em></a>, by e-Sens.</p>
+<p>The ESPD-EDM models the business and information requirements in alignment with the works developed by e-Sens, which uses the identifier <strong>Trdm070</strong> to refer to the business requirements regarding the ESPD Request transaction. See formal information requirements related to the ESPD Request transaction in the document <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-BusinessRequirements:ESPDrequesttransaction(Trdm070)"><em>Business Requirements: ESPD request transaction (Trdm070)</em></a>, by e-Sens.</p>
 </div>
 </div>
 </div>
@@ -219,7 +219,7 @@
 <h2 id="_espd_request_xsd_schema"><a class="anchor" href="#_espd_request_xsd_schema"></a>ESPD Request XSD Schema</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The ESPD-EDM V3.0.0 uses the UBL-2.3 document named QualificationApplicationRequest.xsd XSD Schema. This schema can be found under the folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/ubl-2.3/xsdrt/maindoc">ubl-2.3/xsdrt/maindoc</a> (or the equivalent documented xsd folder).</p>
+<p>The ESPD-EDM uses the UBL-2.3 document named QualificationApplicationRequest.xsd XSD Schema. This schema can be found under the folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/ubl-2.3/xsdrt/maindoc">ubl-2.3/xsdrt/maindoc</a> (or the equivalent documented xsd folder).</p>
 </div>
 <div class="paragraph">
 <p>The figure below shows the XSD Schema defined by UBL-2.3 for the document "Qualification Application Request". This schema replaces the previous scheme form UBL 2.2.</p>
@@ -242,7 +242,7 @@
 <p>As you can see the UBL-2.3 Schema is quite flexible as, except for a few cases practically all the elements are optional.</p>
 </div>
 <div class="paragraph">
-<p>The ESPD-EDM model, however, adds a few more restrictions regarding the cardinalities of some elements. These can be seen in the diagram below, which presents the ESPD-EDM V3.0.0 structure for the ESPD Request with its own cardinality restrictions.</p>
+<p>The ESPD-EDM model, however, adds a few more restrictions regarding the cardinalities of some elements. These can be seen in the diagram below, which presents the ESPD-EDM structure for the ESPD Request with its own cardinality restrictions.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/Qualification_ApplicationRequest_UML_diagram.jpg" alt="QualificationApplicationRequest'" width="394" height="430"></span></p>
@@ -264,7 +264,7 @@
 </ol>
 </div>
 <div class="paragraph">
-<p>The cardinality constraints added by the ESPD are not defined in the XSD Schema. In order to control these constraints the ESPD-EDM uses <a href="https://schematron.com/">ISO Schematron</a> assertions. The ESPD-EDM V3.0.0 distribution package provides Schematron schemata and CVA files for the validation of the XML instances (folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/validation"><em>/validation</em></a>).</p>
+<p>The cardinality constraints added by the ESPD are not defined in the XSD Schema. In order to control these constraints the ESPD-EDM uses <a href="https://schematron.com/">ISO Schematron</a> assertions. The ESPD-EDM distribution package provides Schematron schemata and CVA files for the validation of the XML instances (folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/validation"><em>/validation</em></a>).</p>
 </div>
 </div>
 </div>
@@ -272,7 +272,7 @@
 <h2 id="_root_elements"><a class="anchor" href="#_root_elements"></a>Root elements</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The table below lists the elements that are expected in the ESPD Request V3.0.0 and provides details on the cardinalities and usage of those elements.</p>
+<p>The table below lists the elements that are expected in the ESPD Request and provides details on the cardinalities and usage of those elements.</p>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -298,7 +298,7 @@
 </table>
 </div>
 <div class="paragraph">
-<p><em>Table 5. Class QualificationApplicationRequest, components required by the ESPD-EDM V3.0.0</em></p>
+<p><em>Table 5. Class QualificationApplicationRequest, components required by the ESPD-EDM</em></p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -524,7 +524,7 @@
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-tbr070-007"><em>tbr070-007</em></a>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Rule</strong>: For the ESPD V3.0.0, this information will be linked to eForms. And ESPD should include the same procedure code as the one stated in eForms notices.</p>
+<p><strong>Rule</strong>: For the ESPD, this information will be linked to eForms. And ESPD should include the same procedure code as the one stated in eForms notices.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -539,7 +539,7 @@
 <p><strong>Rule</strong>: UBL-2.3 defines multiple cardinality ContractingParties presumably to allow <strong>joint procurements</strong>. However the ESPD only expects data about one buyer. The decision was made that in case of joint procurement the data collected in the ESPD would be about <strong>the leader</strong> of the joint procurement procedure.</p>
 </div>
 <div class="paragraph">
-<p>In ESPD v3.0.0 the contracting party information will come from eForms. Which also uses cac:ContractingParty to specify the information about buyer.</p>
+<p>In ESPD the contracting party information will come from eForms. Which also uses cac:ContractingParty to specify the information about buyer.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -593,7 +593,7 @@
 <h2 id="lot_management"><a class="anchor" href="#lot_management"></a>Lot Management</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The ESPD v3.0.0 includes a change regarding how lots are managed. This is the outcome of the alignment with eForms.</p>
+<p>The ESPD includes a change regarding how lots are managed. This is the outcome of the alignment with eForms.</p>
 </div>
 <div class="paragraph">
 <p>In this new version the ESPD will have the following logic:</p>
@@ -681,7 +681,7 @@
 <div class="sect2">
 <h3 id="_lots_identifiers"><a class="anchor" href="#_lots_identifiers"></a>Lots identifiers:</h3>
 <div class="paragraph">
-<p>The ESPD 3.0.0 changes the form to identify the Lots and Group of Lots taking the eForms format. This changes is done towards the interoperability of both models.</p>
+<p>This version of the ESPD changes the form to identify the Lots and Group of Lots taking the eForms format. This changes is done towards the interoperability of both models.</p>
 </div>
 <div class="paragraph">
 <p>Until version 2.1.1, the lots have been identified with the following structure "Lot1, Lot2, Lot3". With the new approach (eForms) the Lots identifiers will be as follows: (eForms) the Lots identifiers will be as follows:</p>
