@@ -6,7 +6,7 @@
     visibility: collapse;
 }
 
-.tile-container .content {
+.tile-container>.content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     margin: 1%;
     background-color: transparent !important;
     border: 1px solid #ccc;
-    border-radius: 0.2rem !important;
+    border-radius: 12px !important;
     padding: 1rem !important;
     box-shadow: 2px 2px 2px #e1e1e1;
 }
@@ -32,10 +32,18 @@
     padding: 0.6rem 1rem 0.4rem 1rem;
     flex: auto;
     border-bottom: 1px solid #ccc;
+    border-radius: 12px 12px 0 0 !important;
 }
 
 .tile .content {
     font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.tile .content .title + .paragraph {
+    flex-grow: 100;
 }
 
 div.qanda > ol > li > p:first-child {
