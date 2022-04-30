@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ePO - eProcurement Ontology Development Documentation [Report] :: TED Developer Documentation</title>
+    <title>eProcurement Ontology Development Documentation :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/EPO/dev/epo-dev-work.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -210,9 +210,2423 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">ePO - eProcurement Ontology Development Documentation [Report]</h1>
+<h1 class="page">eProcurement Ontology Development Documentation</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>The development section of the eProcurement ontology documentation provides access to versions of the conceptual model that are either in development or have been worked on currently or previously.</p>
+<p>This page provides documentation useful for the ontology developers and the domain experts from the working group. This development section of the eProcurement ontology documentation provides access to versions of the conceptual model that are either in development or have been worked on currently or previously.</p>
+</div>
+<div class="paragraph">
+<p>The ontology is hosted in GitHub repository <strong><a href="https://github.com/OP-TED/ePO" target="_blank" rel="noopener">OP-TED/ePO</a></strong>. The latest development is available in the <em>master</em> branch.
+The ontology documentation is published on the unified <strong><a href="https://docs.ted.europa.eu/" target="_blank" rel="noopener">TED Developers Docs</a></strong> website. The source of that ontology documentation is hosted in GitHub repository <strong><a href="https://github.com/OP-TED/epo-docs" target="_blank" rel="noopener">OP-TED/epo-docs</a></strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_important_artefacts"><a class="anchor" href="#_important_artefacts"></a>Important artefacts</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Enterprise Architect model (EA model)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Source: <a href="https://github.com/OP-TED/ePO/blob/master/analysis_and_design/conceptual_model/ePO_CM.eap">EAP model</a></p>
+</li>
+<li>
+<p>Documentation <a href="_attachments/html_reports/master/ePO/index.html" target="_blank" rel="noopener">HTML representation</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>RDF representation of the eProcurement ontology</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://raw.githubusercontent.com/OP-TED/ePO/master/analysis_and_design/transformation_output/owl_ontology/ePO_owl_core.rdf" target="_blank" rel="noopener">OWL-core</a></p>
+</li>
+<li>
+<p><a href="https://raw.githubusercontent.com/OP-TED/ePO/master/analysis_and_design/transformation_output/owl_ontology/ePO_restrictions.rdf" target="_blank" rel="noopener">OWL-restrictions</a></p>
+</li>
+<li>
+<p><a href="https://raw.githubusercontent.com/OP-TED/ePO/master/analysis_and_design/transformation_output/owl_ontology/ePO_shacl_shapes.rdf" target="_blank" rel="noopener">SHACL-shapes</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_notes_epo_3_0_0_alpha"><a class="anchor" href="#_change_notes_epo_3_0_0_alpha"></a>Change notes <em>EPO 3.0.0.alpha</em></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We are working towards a new release publication of the ontology. Judging by the nature of changes we suggest that it is marked as a major release: <em>3.0.0</em>. Below is provided detailed account of changes between the <em>2.0.1</em> (<a href="https://github.com/OP-TED/ePO/releases/tag/v2.0.1">tag</a>) and <em>3.0.0.alpha</em> (<a href="https://github.com/OP-TED/ePO/releases/tag/3.0.0.alpha">tag</a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_notes"><a class="anchor" href="#_change_notes"></a>Change notes</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Metadata</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reference EPO version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.0.1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target EPO version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.0.0.alpha</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Andreea Pasare, Eugeniu Costetchi</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2022-04-30</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_general_changes"><a class="anchor" href="#_general_changes"></a>General changes</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Attributes were consistently added with the “has”/“is” prefix in order to conform to the convention that attribute and relation names must start with a lowercase letter. Previously all attributes started with the capital letter.</p>
+</li>
+<li>
+<p>Attribute types were migrated from <em>UML</em> and <em>epo</em> datatypes into XSD/RDFS datatypes. The inventory of used data types is provided in the <em>datatype</em> package of the model.</p>
+</li>
+<li>
+<p>Packages have been reorganised as presented below.</p>
+</li>
+<li>
+<p>New modules (as EA <em>root nodes</em>) have been created. Some classes from the <em>epo</em> module were moved into other modules for future modelling, as will be mentioned in this document as deleted.
+=== New package organisation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The conceptual model of the ontology has been sectioned into packages for better content management. Within each package are found classes and one or several diagrams that best depicts the specific aspects of the ontology. <br>
+The list of content packages is as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><em>procurement object</em></p>
+</li>
+<li>
+<p>_term _</p>
+</li>
+<li>
+<p>_agent _</p>
+</li>
+<li>
+<p><em>role</em></p>
+</li>
+<li>
+<p>_location _</p>
+</li>
+<li>
+<p>_contract _</p>
+</li>
+<li>
+<p>_document _</p>
+</li>
+<li>
+<p><em>strategic procurement</em></p>
+</li>
+<li>
+<p><em>technique</em></p>
+</li>
+<li>
+<p><em>criteria</em></p>
+</li>
+<li>
+<p><em>contextual description</em></p>
+</li>
+<li>
+<p><em>notice description</em></p>
+</li>
+<li>
+<p><em>dimension</em></p>
+</li>
+<li>
+<p><em>controlled vocabularies</em>
+In addition we provide a package, called <em>epo diagrams</em>, with diagrams that provide selected views of the ontology.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_new_classes"><a class="anchor" href="#_new_classes"></a>New classes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>epo:ProcurementObject</p>
+</li>
+<li>
+<p>epo:ProcurementPart</p>
+</li>
+<li>
+<p>epo:TenderGroup</p>
+</li>
+<li>
+<p>epo:AcquiringCentralPurchasingBody</p>
+</li>
+<li>
+<p>epo:AgentInRole</p>
+</li>
+<li>
+<p>epo:Awarder</p>
+</li>
+<li>
+<p>epo:AwardingCentralPurchasingBody</p>
+</li>
+<li>
+<p>epo:BudgetProvider</p>
+</li>
+<li>
+<p>epo:BuyerSideSignatory</p>
+</li>
+<li>
+<p>epo:CatalogueProvider</p>
+</li>
+<li>
+<p>epo:CatalogueReceiver</p>
+</li>
+<li>
+<p>epo:ContractSignatory</p>
+</li>
+<li>
+<p>epo:ContractorSideSignatory</p>
+</li>
+<li>
+<p>epo:EmploymentInformationProvider</p>
+</li>
+<li>
+<p>epo:EnviromentalProtectionInformationProvider</p>
+</li>
+<li>
+<p>epo:GroupLeader</p>
+</li>
+<li>
+<p>epo:InformationProvider</p>
+</li>
+<li>
+<p>epo:OfflineAccessProvider</p>
+</li>
+<li>
+<p>epo:ParticipationRequestProcessor</p>
+</li>
+<li>
+<p>epo:ParticipationRequestReceiver</p>
+</li>
+<li>
+<p>epo:PaymentExecutor</p>
+</li>
+<li>
+<p>epo:ProcurementProcedureInformationProvider</p>
+</li>
+<li>
+<p>epo:ReviewProcedureInformationProvider</p>
+</li>
+<li>
+<p>epo:ReviewRequester</p>
+</li>
+<li>
+<p>epo:SecondaryRole</p>
+</li>
+<li>
+<p>epo:TaxInformationProvider</p>
+</li>
+<li>
+<p>epo:TenderProcessor</p>
+</li>
+<li>
+<p>epo:TenderReceiver</p>
+</li>
+<li>
+<p>epo:TertiaryRole</p>
+</li>
+<li>
+<p>locn:Address</p>
+</li>
+<li>
+<p>locn:Geometry</p>
+</li>
+<li>
+<p>epo:AwardEvaluationTerm</p>
+</li>
+<li>
+<p>epo:SelectionEvaluationTerm</p>
+</li>
+<li>
+<p>epo:ParticipationRequestTerm</p>
+</li>
+<li>
+<p>epo:LotSpecificTerm</p>
+</li>
+<li>
+<p>epo:ProcedureSpecificTerm</p>
+</li>
+<li>
+<p>epo:Term
+=== Deleted classes</p>
+</li>
+<li>
+<p>epo:BuyerProfileNotice</p>
+</li>
+<li>
+<p>epo:BuyerProfile</p>
+</li>
+<li>
+<p>epo:CallForCompetition</p>
+</li>
+<li>
+<p>epo:CallForExpressionOfInterest</p>
+</li>
+<li>
+<p>epo:ContractAwardNotice</p>
+</li>
+<li>
+<p>epo:ContractModificationNotice</p>
+</li>
+<li>
+<p>epo:ContractNotice</p>
+</li>
+<li>
+<p>epo:Item</p>
+</li>
+<li>
+<p>epo:Location</p>
+</li>
+<li>
+<p>epo:PriorInformationNotice</p>
+</li>
+<li>
+<p>epo:ProjectProcurement</p>
+</li>
+<li>
+<p>epo:ResourceElement</p>
+</li>
+<li>
+<p>epo:Subcontract</p>
+</li>
+<li>
+<p>epo:TenderDocument</p>
+</li>
+<li>
+<p>epo:TenderLot</p>
+</li>
+<li>
+<p>epo:VoluntaryEx-anteTransparencyNotice</p>
+</li>
+<li>
+<p>epo:epo:LocationCoordinate
+=== Deleted enumerations</p>
+</li>
+<li>
+<p>epo:cpb-type
+== Changed classes</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_agent_package_modifications"><a class="anchor" href="#_agent_package_modifications"></a>Agent package modifications</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added attributes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted attributes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Agent</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLegalName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOrganisationUnit</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Agent</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasID &#8594; epo:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasRegisteredAddress &#8594; locn:Address</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAddress &#8594; locn:Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLocation &#8594; epo:Location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDeliveryGateway &#8594; epo:Channel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasPrimaryContactPoint &#8594; epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDefaultContactPoint &#8594; epo:ContactPoint</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLegalLocation &#8594; epo:Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasRegisteredAddress &#8594; locn:Address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasCountryOfBirth &#8594; at-voc:country</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_procurement_objects_package_modifications"><a class="anchor" href="#_procurement_objects_package_modifications"></a>Procurement objects package modifications</h3>
+<div class="paragraph">
+<p>epo:Lot class was duplicated in ePO 2.0.1.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added attributes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted attributes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PerformingStafQualificationInformation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReservedProcurement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SMESuitable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:VariantsPermission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AdditionalInformation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedContractNoticePublicationDate</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AdditionalInformation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LegalBasisID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SMESuitable</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ChoiceJustification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LegalBasisID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LegalBasis</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LegalRegime</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Title</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDescription</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTitle</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAdditionalInformation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSMESuitable</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isUsingEUFunds</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasRecurrenceDescription</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasRecurrence</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOptions</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AdditionalClassification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AdditionalContractNature</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractNatureType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:MainClassification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:OptionsPermission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTotalMagnitudeQuantity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasCalculationMethod</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasVariant</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasID &#8594; epo:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:setsGroupingContextFor &#8594; epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:specifiesProcurementCriteria &#8594; epo:ProcurementCriterion</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isAwardedTo &#8594; epo:Tender</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAwardedValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedValue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isGroupedIn epo:LotGroup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAwardedEstimatedValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesAdditionalInformation &#8594; epo:StatisticalInformation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:requires &#8594; epo:SecurityClearanceTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedValue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:contributesToImplement &#8594; epo:ProjectProcurement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasPurpose &#8594; epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:Purpose</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isAwardedToTenderLot &#8594; epo:TenderLot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:OpeningTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesOverallStrategicProcurement &#8594; epo:strategicProcurement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasPerformingStaffQualificationInformation &#8594; at-voc:requirement-stage</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isProvidedWithin &#8594; at-voc:requirement-stage</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedUserConcessionRevenue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:applies &#8594; epo:MultipleStageProcedureTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:applies &#8594; epo:ContractTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTenderEvaluationTerm &#8594; epo:EvaluationTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasContractDuration &#8594; epo:Period</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedBuyerConcessionRevenue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersToPlannedPart &#8594; epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersTo &#8594; epo:PlannedProcurementPart</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isReferredToIn &#8594; epo:ProcurementDocument</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAwardedValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersTo &#8594; epo:Item</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isFundedBy &#8594; epo:Fund</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubjectToLotTerm &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:usesTechnique &#8594; epo:Technique</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:uses &#8594; epo:Technique</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:specifiesProcurementCriteria &#8594; epo:ProcurementCriterion</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLegalBasis &#8594; at-voc:legal-basis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLegalBasisID &#8594; at-voc:legal-basis</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:usesChannel &#8594; epo:Channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:uses &#8594; epo:Channel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasPlannedDuration &#8594; epo:Duration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:AccessTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:ContractTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesOverallStrategicProcurement &#8594; epo:StrategicProcurement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersTo &#8594; epo:Document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isFundedWith &#8594; epo:Fund</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubjectToProcedureSpecificTerm &#8594; epo:ProcedureSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:ProcedureTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersToPlannedPart &#8594; epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedValue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasProcurementScopeDividedIntoLot &#8594; epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:specifies &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:specifiesExclusionGround &#8594; epo:ExclusionGround</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:uses &#8594; epo:ExclusionGround</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesOverallStrategicProcurement &#8594; epo:StrategicProcurement</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:leadsTo &#8594; epo:Contract</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isResponsabilityOf &#8594; epo:Buyer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isConcludedBy &#8594; epo:Contract</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:uses &#8594; epo:AccessTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:DirectAwardTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Procedure</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTotalValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubjectToTerm &#8594; epo:Term</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:fulfillStrategicProcurement &#8594; epo:StrategicProcurement</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasID &#8594; epo:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isFundedBy &#8594; epo:Fund</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Purpose</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTotalQuantity &#8594; epo:Quantity</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:comprisesTender &#8594; epo:Tender</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTotalValue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubmittedForLotGroup &#8594; epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSupportedBy &#8594; epo:TechnicalOffer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubmittedForLot &#8594; epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasItemCountryOfOrigin &#8594; at-voc:country</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:subjectToGrouping &#8594; epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:forseesSubcontractingEstimate &#8594; epo:SubcontractingEstimate</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedUserConcessionRevenue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedBuyerConcessionRevenue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasFinancialOfferValuer &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSupportedBy &#8594; epo:ESPDResponse</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSupportedBy &#8594; epo:FinancialOffer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:attaches &#8594; epo:TenderDocument</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:includes &#8594; epo:TenderLot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender (merged with epo:TenderLot)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSubmissionTerm &#8594; epo:SubmissionTerm</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_roles_package_modifications"><a class="anchor" href="#_roles_package_modifications"></a>Roles package modifications</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added attributes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted attributes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDescription</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasTitle</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasBuyerTypeDescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BuyerLegalTypeDescription</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasBuyerProfile</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasBuyerLegalType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:MainActivityType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CentralPurchasingBody</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CPBType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:EconomicOperator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:EORoleType</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AcquiringCentralPurchasingBody</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:CentralPurchasingBody</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:playedBy &#8594; epo:Agent</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnRole &#8594; epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasContactPointInRole &#8594; epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Awarder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Awarder</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:PrimaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardingCentralPurchasingBody</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:CentralPurchasingBody</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BudgetProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BudgetProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BudgetProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BuyerSideSignatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BuyerSideSignatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ContractSignatory</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasBuyerType &#8594; at-voc:buyer-legal-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasBuyerLegalType &#8594; at-voc:buyer-legal-type</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:delegatesAncillaryActivitiesTo &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:executesPayment &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:processesTenders &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:BuyerProfile</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:processesRequestsToParticipate &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:Role</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesMoreInformationOnTimeLimitsForReviewProcedures &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:receivesRequestsToParticipate &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isGroupLeader &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:appoints &#8594; epo:EvaluationBoard</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:makesDecision &#8594; epo:AwardDecision</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesAdditionalInformationAboutProcurementProcedure &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:usesBudgetToPayContract &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:receivesTenders &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesOfflineAccessToProcurementDocuments &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:plans &#8594; epo:PlannedProcurementPart</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:signsContract &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CatalogueProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:EconomicOperator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CatalogueReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:PrimaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CentralPurchasingBody</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasCentralPurchasingBody &#8594; epo:cpb-type</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractSignatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractorSideSignatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ContractSignatory</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractorSideSignatory</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnWinner &#8594; epo:Winner</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contractor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:EconomicOperator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:Winner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contractor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnContractorSideSignatory &#8594; epo:ContractorSideSignatory</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:EconomicOperator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:playedByBusiness epo:Business</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:EmploymentInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:TertiaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:EnviromentalProtectionInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:TertiaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:GroupLeader</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:OfflineAccessProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestProcessor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestProcessor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestProcessor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PaymentExecutor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PaymentExecutor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PaymentExecutor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementProcedureInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:actsOnBehalfOf &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:receivesRequestsToParticipate &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesAdditionalInformationAboutProcurementProcedure &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isGroupLeader &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:executesPayment &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:manages &#8594; epo:BuyerProfile</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:processesTenders &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:processesRequestsToParticipate &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesMoreInformationOnTimeLimitsForReviewProcedures &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:usesBudgetToPayContract &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:receivesTenders &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesOfflineAccessToProcurementDocuments &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:signsContract &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReviewProcedureInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnReviewer &#8594; epo:Reviewer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReviewProcedureInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReviewRequester</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:PrimaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Reviewer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesMoreInformationOnTimeLimitsForReviewProcedures &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PrimaryRole (renamed from epo:Role)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:playedByOrganisation &#8594; epo:Organisation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PrimaryRole (renamed from epo:Role)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PrimaryRole (renamed from epo:Role)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:ContactPoint</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:AgentInRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TaxInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:TertiaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderProcessor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderProcessor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderProcessor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderReceiver</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:SecondaryRole</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tenderer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:substantiatesExclusionGround &#8594; epo:ExclusionGround</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:substantiates &#8594; epo:ExclusionGround</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tenderer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:withdraws &#8594; epo:Tender</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tenderer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:submits &#8594; epo:Tender</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TertiaryRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:InformationProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TertiaryRole</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:providesRegulatoryInformation &#8594; epo:RegulatoryFrameworkInformation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Winner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:dependsOnTenderer &#8594; epo:Tenderer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Winner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:EconomicOperator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:Tenderer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_location_package_modifications"><a class="anchor" href="#_location_package_modifications"></a>Location package modifications</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added attributes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted attributes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:postName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CityName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:postCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PostalZone</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:thoroughfare</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:StreetName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:adressArea</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:FullAddress</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:locatorDesignator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:locatorName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AdditionalStreetName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BlockName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BuildingName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BuildingNumber</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CitySubdivisionName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CountryCode</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CountrySubentityCode</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:CountrySubentity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:District</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Floor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:InhouseMail</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:MarkAttention</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PlotIdentification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PostBox</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Region</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Room</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TimezoneOffset</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasContactName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:geographicName</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Geometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:latitude</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Geometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:longitude</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Geometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:coordinates</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:adminUnitL2 &#8594; at-voc:nuts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasCountrySubentityCode &#8594; at-voc:nuts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:addressID &#8594; epo:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:adminUnitL1 &#8594; at-voc:country</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasCountryCode &#8594; at-voc:country</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:Address (renamed from epo:Address)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:LocationCoordinate</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAddress &#8594; locn:Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLocation &#8594; epo:Location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:CommunicationMeans</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:has &#8594; epo:Channel</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasContactPersonRole &#8594; epo:Role</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location (renamed from epo:Location)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasCountryCode &#8594; at-voc:country</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location (renamed from epo:Location)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasNutsCode &#8594; at-voc:nuts</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location (renamed from epo:Location)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:geographicIdentifier &#8594; epo:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location (renamed from epo:Location)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:geometry &#8594; locn:Geometry</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location (renamed from epo:Location)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">locn:address &#8594; locn:Address</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:Location (renamed from epo:Location)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasPostalAddress &#8594; epo:Address</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_contract_package_modifications"><a class="anchor" href="#_contract_package_modifications"></a>Contract package modifications</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added attributes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted attributes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAccessAddress</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasWinnerDecisionDate</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Title</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Fund</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PurchaseContract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isWithinFrameworkAgreement</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:includesLot &#8594; epo:Lot</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:signedBySignatory &#8594; epo:ContractSignatory</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:includesLotAwardOutcome &#8594; epo:LotAwardOutcome</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedDuration &#8594; epo:Duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasEstimatedDuration &#8594; epo:Period</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:includesTender &#8594; epo:Tender</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcurementObject</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersTo &#8594; epo:Lot (epo:isReferredByA &#8594; epo:Contract)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:attaches &#8594; epo:Document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSignedBy &#8594; epo:Agent (epo:isSignatoryPartyOf &#8594; epo:Contract)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersToSignatory &#8594; epo:Winner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDuration &#8594; epo:Period</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:mentions &#8594; epo:LotGroup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersTo &#8594; epo:Tender</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:Document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasProcurementValue &#8594; epo:Value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDurationEvaluationPeriod &#8594; epo:Period</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Contract</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasContractPurpose &#8594; epo:Purpose</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Fund</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasID &#8594; epo:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PurchaseContract</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:followsRulesSetBy &#8594; epo:FrameworkAgreement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasRulesSetBy &#8594; epo:FrameworkAgreement (epo:setsRulesOf &#8594; epo:PurchaseContract)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_term_package_modifications"><a class="anchor" href="#_term_package_modifications"></a>Term package modifications</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added attributes</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted attributes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isProcurementDocumentRestricted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SomeProcurementDocumentRestricted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasRestrictedAccessURL</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcurementDocumentLandingPage</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SomeProcurementDocumentRestrictedJustification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isAtypical</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:BroadPlaceOfPerformance</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReservedExecution</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:FrameworkAgreementTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:FrameworkAgreementType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:MultipleStageProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:MaximumCandidates</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Prize</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:PrizeValue</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubcontractTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSubcontractingObligation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAwardEvaluationFormula (from epo:EvaluationTerm)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOverallCostAwardCriteriaPonderation (from epo:EvaluationTerm)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOverallPriceAwardCriteriaPonderation (from epo:EvaluationTerm)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOverallQualityAwardCriteriaPonderation (from epo:EvaluationTerm)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasAwardCriteriaOrderJustification</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:DirectAwardTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:JustificationType</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AdditionalInformationDeadline</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ECataloguePersmission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ESubmissionPermission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Language</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LateSubmissionPermission</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:NonElectronicSubmissionJustification</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:TenderSubcontractingInformation</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesInformationProvider &#8594; epo:ProcurementProcedureInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasProcurementDocumentLandingPage &#8594; epo:Channel</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesProcurementDocument &#8594; epo:ProcurementDocument</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesInformationProvider &#8594; epo:OfflineAccessProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:refersToPlannedPart &#8594; epo:PlannedProcurementPart</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AccessTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDocumentRestrictionJustification &#8594; at-voc:communication-justification</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:CommunicationMeans</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:OpeningTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SecurityClearanceTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SecurityClearanceTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:appliesTo &#8594; org:Site</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SecurityClearanceTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:appliesTo &#8594; epo:Winner</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SecurityClearanceTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:appliesTo &#8594; epo:Document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesPaymentExecutor &#8594; epo:PaymentExecutor</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesBudgetProvider &#8594; epo:BudgetProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSpecificPlaceOfPerformance &#8594; dct:Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSpecificPlaceOfPerformance &#8594; epo:Address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ContractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSubcontractingTerm &#8594; epo:SubcontractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:includes &#8594; epo:SubcontractTerm</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:DesignContestRegimeTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:DesignContestRegimeTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:appliesTo &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:FrameworkAgreementTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcedureSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:FrameworkAgreementTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:FrameworkAgreementTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:appliesTo &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:FrameworkAgreementTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isUsedBy &#8594; epo:LotGroup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:MultipleStageProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Prize</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasPrizeValue &#8594; epo:MonetaryValue</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubcontractTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AwardEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:EvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SelectionEvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:EvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:EvaluationTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesParticipationRequestReceiver &#8594; epo:ParticipationRequestReceiver</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ParticipationRequestTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesParticipationRequestProcessor &#8594; epo:ParticipationRequestProcessor</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:DirectAwardTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcedureSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesReviewer &#8594; epo:Reviewer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesMediator &#8594; epo:Mediator</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesPRocurementServiceProvider &#8594; epo:ProcurementServiceProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:definesLotGroup &#8594; epo:LotGroup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:combinesLotsInto &#8594; epo:LotGroup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:ProcedureSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesBuyer &#8594; epo:Buyer</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReviewTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesReviewProcedureInformationProvider &#8594; epo:ReviewProcedureInformationProvider</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReviewTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ReviewTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isAppliedBy &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesTenderReceiver &#8594; epo:TenderReceiver</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:involvesTenderProcessor &#8594; epo:TenderProcessor</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubmissionTerm</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isAppliedBy &#8594; epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:LotSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:Term</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:ProcedureSpecificTerm</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalization &#8594; epo:Term</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_document_package_modifications"><a class="anchor" href="#_document_package_modifications"></a>Document package modifications</h3>
+
+</div>
+</div>
 </div>
 </article>
   </div>
