@@ -41,7 +41,7 @@
                 <div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link" href="#">Products</a>
   <div class="navbar-dropdown">
-    <a class="navbar-item" href="../../../eforms/0.5.0/index.html">eForms SDK</a>
+    <a class="navbar-item" href="../../../eforms/0.6.0/index.html">eForms SDK</a>
     <a class="navbar-item" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
     <a class="navbar-item" href="../../../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
   </div>
@@ -93,13 +93,16 @@
     <span class="nav-text"><span class="separated"><strong>eForms</strong></span></span>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../../eforms/0.5.0/index.html">eForms SDK Docs <code>0.5.0</code></a>
+    <a class="nav-link" href="../../../eforms/0.6.0/index.html">eForms SDK Docs <code>0.6.0</code></a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../roadmap/index.html">SDK Roadmap</a>
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="index.html">eForms FAQ</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../preview/index.html">eForms Preview environment</a>
   </li>
   <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>eProcurement Ontology</strong></span></span>
@@ -134,9 +137,12 @@
     </div>
   <ul class="components">
     <li class="component">
-      <a class="title" href="../../../eforms/0.5.0/index.html">eForms SDK</a>
+      <a class="title" href="../../../eforms/0.6.0/index.html">eForms SDK</a>
       <ul class="versions">
         <li class="version is-latest">
+          <a href="../../../eforms/0.6.0/index.html">0.6.0</a>
+        </li>
+        <li class="version">
           <a href="../../../eforms/0.5.0/index.html">0.5.0</a>
         </li>
         <li class="version">
@@ -344,8 +350,7 @@ in different contexts, and that the rules may differ between these contexts.</p>
 <div class="qlist qanda">
 <ol>
 <li>
-<p><em>Will eSenders have to send eForms for procedures that were started with the current standard forms?</em></p>
-<p><em>If so, how will the previous publication field be filled in, given that Procedure Identifier is not used in the current forms?</em></p>
+<p><em>Will eSenders have to send eForms for procedures that were started with the current standard forms? If so, how will the previous publication field be filled in, given that Procedure Identifier is not used in the current forms?</em></p>
 <p>Once the use of eForms becomes mandatory, eSenders will be required to
 send eForms notices for any procedures that were started with the
 current standard forms. As there is no Procedure Identifier in the
@@ -357,7 +362,7 @@ schema links to previous notices and will harmonise them to use
 element in the different contexts (root, lot, contract).</p>
 </li>
 <li>
-<p><em>How can a contract notice (current scheme) be linked to a contract award notice (eForms)?</em></p>
+<p><em>How can a contract notice (current schema) be linked to a contract award notice (eForms)?</em></p>
 <p>eForms include some BTs with the identifier of the previous notice, regardless of
 whether the notice uses the current TED schema or is an eForms notice.
 If the previous notice does not use eForms, the identifier will be the OJ S Notice ID (XXXXXXX-YYYY).
@@ -428,9 +433,9 @@ procurement and procurement documents and for correction of clerical errors. A C
 has been published to avoid the possibility that different users may act on the same notice at the same time.
 If the parent notice has not yet been published, users can stop publication and re-submit.</p>
 <div class="paragraph">
-<p>In case of many clerical errors, In case of many clerical errors, it will be possible to cancel a notice,
-which will cancel the notice itself and make it null and void, but this will not cancel the procedure.
-The user can - in this case - republish the same notice. To cancel the procedure, we would expect a Contract Award Notice with no winner.</p>
+<p>In case of many clerical errors, it will be possible to cancel a notice, which will cancel the notice itself and make it null and void,
+but this will not cancel the procedure. The user can - in this case - republish the same notice.
+To cancel the procedure, we would expect a Contract Award Notice with no winner.</p>
 </div>
 </li>
 <li>
@@ -512,9 +517,10 @@ to publish a Contract Award Notice will be sent through an email notification, t
 </li>
 <li>
 <p><em>Will eNotices2 send email notification for notices submitted by Web Services about publications or non-publication?</em></p>
-<p>This is currently under discussion. There is going to be an extensive notification system within eNotices2 and once this is in place,
-we may consider continuing with email notifications. For notices sent through Web Services and which have failed validation,
-an email notification will be sent to the Notice Author detailing all the rules that failed.</p>
+<p>This is currently under discussion. There is going to be an extensive notification
+system within eNotices2 and once this is in place, we may consider continuing with email notifications.
+For notices sent through Web Services and which have failed validation, an email notification will be sent
+to the Notice Author detailing all the rules that failed.</p>
 </li>
 </ol>
 </div>
@@ -558,7 +564,7 @@ using the service provided by TED Viewer 2022, which is going to be available th
 <li>
 <p><em>Will the Publications Office be providing XML notice samples for every PDF notice sample?</em></p>
 <p>The PDFs are only examples of how notices could be displayed. There are also examples of XML notices in the SDK
-at https://github.com/OP-TED/eForms-SDK/tree/main/examples/notices.
+at https://github.com/OP-TED/eForms-SDK/tree/main/examples/notices
 They are not the same notices as the ones used in the PDF views but they are aligned with the other SDK elements (like the schemas and rules).</p>
 </li>
 <li>
@@ -614,33 +620,44 @@ should require minimal effort if the applications are built to integrate the SDK
 </li>
 <li>
 <p><em>Is there a roadmap (release plan) for future eForms SDK releases or a set release date for version 1.0.0 of the SDK?</em></p>
+<p>The eForms SDK is a complicated development and information is made available as fast as possible.
+An initial version of the SDK roadmap is available at <a href="https://docs.ted.europa.eu/home/eforms/roadmap/index.html">eForms SDK roadmap</a>
+and will be updated progressively. The page was created with a view to outlining the changes and additions to the eForms SDK
+planned in the upcoming releases.</p>
+<div class="paragraph">
 <p>The idea of the SDK is not to be bound by specific release dates. There is currently no precise release date for version 1.0.0 of the SDK.
 For this, all components of the SDK would need to be in place and complete, along with stable file formats and all metadata
 in the way we need them to be available for November 2022. Version 1.0.0 of the SDK is the OP’s top priority,
 but having all features in place is not foreseen before July of 2022.</p>
+</div>
 </li>
 <li>
 <p><em>Since the codelists are bound to SDK version, is there a risk that an SDK version/ lifetime can be short-lived?</em></p>
 <p>Versions of the SDK might be short-lived due to various reasons; however, multiple versions of the SDK can be used at the same time
 provided they are still acceptable. The OP will aim to avoid breaking changes, but stopping support for an SDK
-will often come for legal reasons and will be given enough transition time. Having a metadata-driven approach to this should enable users
-to make the technical transition with little to no effort. In theory, a metadata-driven approach could render any changes
-directly consumable by an application without human intervention and the goal of the SDK is to minimise the effort.
-For more information on SDK versioning and backwards compatibility: <a href="https://docs.ted.europa.eu/eforms/latest/versioning" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning</a></p>
+will often come for legal reasons and will be given enough transition time.</p>
+<div class="paragraph">
+<p>Having a metadata-driven approach to this should enable users to make the technical transition with little to no effort.
+In theory, a metadata-driven approach could render any changes directly consumable by an application without human intervention
+and the goal of the SDK is to minimise the effort.
+For more information on SDK versioning and backwards compatibility:
+<a href="https://docs.ted.europa.eu/eforms/latest/versioning" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning</a></p>
+</div>
 </li>
 <li>
 <p><em>Other standardisation efforts provide information on how the business terms are mapped to the syntax. Currently OP provides a fields.json which is a highly       specialised tool used by OP. The fields.json contain max length constraints on fields, albeit no such limitation is found in the documentation.</em></p>
 <p>Fields.json does not attempt to follow or set a standard. It is a custom representation of field metadata
 that was chosen as the most suitable way for eForms systems to consume the information.
-OP is using it for its own applications (like eNotices2) and we aim to have a stable structure that can also be useful to external parties.
-The eForms implementing regulation does not define many maximum length constraints but we consider they are needed and have encoded them for each relevant field.
-Procurement notices are not intended to replace all the documents of a procurement procedure so there should be no need to publish very long texts.</p>
+OP is using it for its own applications (like eNotices2) and we aim to have a stable structure
+that can also be useful to external parties. The eForms implementing regulation does not define many maximum length constraints
+but we consider they are needed and have encoded them for each relevant field. Procurement notices are not intended
+to replace all the documents of a procurement procedure so there should be no need to publish very long texts.</p>
 </li>
 <li>
 <p><em>The XML schemas, its documentation and especially the mapping from business terms to fields in the schemas is essential to implementers in regards to technical and legal correctness. This includes the mapping of business terms to the XML schemas (XPATHs).</em></p>
 <p>The XML schemas and all relevant documentation are available on the eForms SDK; the IDs for Fields are always based on the "parent" BT.
-We have a specific definition for Fields. They most often map to single XML elements, but not always.
-The mapping of Fields to XML elements is contained in the fields.json file.</p>
+We have a specific definition for <a href="https://docs.ted.europa.eu/eforms/0.5.0/fields/index.html#_what_is_a_field">Fields</a>.
+They most often map to single XML elements, but not always. The mapping of Fields to XML elements is contained in the fields.json file.</p>
 </li>
 <li>
 <p><em>If we were to use the SDK, would there be the need to customise for the national adoptions?</em></p>
@@ -690,9 +707,9 @@ notices. The current qualification procedure will be phased out.</p>
 </li>
 <li>
 <p><em>Will a Sandbox be provided for testing the Web Services?</em></p>
-<p>A “Preview” environment will be made available during Q2 2022, which will be announced through the usual channels.
-We plan to offer the possibility for users to go through all the steps from submission to publication,
-but this will be done incrementally, gradually adding steps to the environment.</p>
+<p>A “Preview” environment will be made available during Q2 2022, which will be
+announced through the usual channels. We plan to offer the possibility for users to go through
+all the steps from submission to publication, but this will be done incrementally, gradually adding steps to the environment.</p>
 </li>
 <li>
 <p><em>Will there be any limitations for using TED API Validation Service?</em></p>
@@ -824,10 +841,16 @@ as with some uses of BT-500, the text may be the name of an entity that may exis
 <p>BT-500 (Organisation Name) is used in four contexts:</p>
 </div>
 <div class="paragraph">
-<p>BT-500-Organisation-Company - A company may have different names in different languages
-BT-500-Organisation-TouchPoint - A contact unit within a company may have different names in different languages.
-BT-500-UBO - This is the personal Name of the Ultimate Business Owner, and so cannot be expressed in multiple languages.
-BT-500-Business - Only allowed for X01 and X02 notice type forms. As these are Business Registration Information Notice forms, only one Business Name is allowed.</p>
+<p>BT-500-Organisation-Company - A company may have different names in different languages.</p>
+</div>
+<div class="paragraph">
+<p>BT-500-Organisation-TouchPoint - A contact unit within a company may have different names in different languages.</p>
+</div>
+<div class="paragraph">
+<p>BT-500-UBO - This is the personal Name of the Ultimate Business Owner, and so cannot be expressed in multiple languages.</p>
+</div>
+<div class="paragraph">
+<p>BT-500-Business - Only allowed for X01 and X02 notice type forms. As these are Business Registration Information Notice forms, only one Business Name is allowed.</p>
 </div>
 </li>
 <li>
@@ -847,7 +870,7 @@ which maps codes to the associated BTs. This codelist is included in the SDK ide
 <p><em>How does BG-8 Not Immediately Published work in practice?</em></p>
 <p>The unpublished fields are the eForms equivalent to the confidential fields of today. There are several fields involved,
 which can be "unpublished", some related to all Directives and others only for Directive 25.
-The fields themselves are handled by the use of a codelist and for each of them the fields of BG-8 are requested in the xml.</p>
+The fields themselves are handled by the use of a codelist and for each of them the fields of BG-8 are requested in the XML.</p>
 <div class="paragraph">
 <p>For example, BT-118 Notice Framework Value, can be unpublished. If that is the case, the user will be able to identify it as such
 and then will have to insert BT-197 (why it is unpublished), and BT-198 (when this field will be made public).
@@ -899,7 +922,7 @@ in most cases this is a way to associate a Business Group (and its content) to o
 In the XML, this information is pointless by design as the information of the Business Group may be found inside the element representing the lot.</p>
 <div class="paragraph">
 <p>Some of the BTs for identifiers are not needed due to the way that the schema has been developed. There is a list of these in the documentation,
-under the section "Pointless due to design".</p>
+under the section <a href="https://docs.ted.europa.eu/eforms/0.5.0/schema/identifiers.html#pointlessDueToDesignSection">"Pointless due to design"</a>.</p>
 </div>
 </li>
 <li>
@@ -952,6 +975,10 @@ valid and invalid XML files are published on GitHub as part of the <a href="http
 requires the aggregation of multiple conditions, and sometimes the introduction of interdependencies,
 not all of which are directly shown/visible in the Regulation Annex. Not all of the required business rules
 have been implemented in the SDK, and so the fields.json is not yet complete.</p>
+<div class="paragraph">
+<p>BT-52 belongs to a Business Group (BG-709 Second Stage) which is CM (Conditional Mandatory) and may not always exist;
+in fact, BG-709 may only exist when the procedure is a "competitive dialogue", "innovation partnership" or "negotiation with a prior CFC".</p>
+</div>
 </li>
 <li>
 <p><em>What are Schematron files for eForms? Can you provide samples of them?</em></p>
@@ -962,10 +989,6 @@ and correct field values are used. Schematron files are available as part of the
 <p>As the creation of Schematron files is a work in progress and they will not be ready for official publication for some time,
 the versions in the SDK only contain a preview. They are provided as-is, without any commitments from the Publications Office
 for their completeness or stability and without any documentation or support at this stage. The SDK in the repository will be updated periodically.</p>
-</div>
-<div class="paragraph">
-<p>BT-52 belongs to a Business Group (BG-709 Second Stage) which is CM (Conditional Mandatory) and may not always exist; in fact,
-BG-709 may only exist when the procedure is a "competitive dialogue", "innovation partnership" or "negotiation with a prior CFC".</p>
 </div>
 </li>
 <li>
@@ -1059,7 +1082,8 @@ no plans to validate these using regular expressions.</p>
 <li>
 <p><em>Are all eForms codelists published on the EU Vocabularies site?</em></p>
 <p>There are codelists that have no relevance or use outside the context of eForms; these are not published on the EU Vocabularies website,
-but are published as part of the eForms SDK. For more information, see Tailored Codelists in the documentation.</p>
+but are published as part of the eForms SDK. For more information, see <a href="https://docs.ted.europa.eu/eforms/0.5.0/codelists/index.html">Tailored Codelists</a>
+in the documentation.</p>
 </li>
 <li>
 <p><em>Are the filenames and format of the codelists as intended? We are wondering about the suffix ‘.gc’ and whether them containing all languages renders the translations unnecessary.</em></p>
