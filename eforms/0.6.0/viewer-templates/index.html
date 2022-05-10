@@ -202,7 +202,19 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../efx/index.html">eForms Expression Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -340,31 +352,41 @@ For this version of the eForms SDK there is only one template available for ever
 <h2 id="_template_language_syntax"><a class="anchor" href="#_template_language_syntax"></a>Template language syntax</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>As the file extension implies, the language used inside the template is EFX.</p>
+<p>As the <code>.efx</code> file extension implies, the language used to write the template is EFX.</p>
 </div>
 <div class="paragraph">
-<p>EFX, short for "eForms expression language", is a domain specific language that we have developed to allow us to easily and unambiguously express the eForms business rules, as well as to enable us to define these view templates. EFX templates provide the structural information necessary to visualise the notice and use EFX expressions to convey content information.</p>
+<p>EFX, short for "eForms expression language", is a domain specific language that we have developed to allow us to easily and unambiguously express the eForms business rules, as well as to enable us to define these view templates. EFX templates provide the structural information necessary to visualise the notice. The template uses EFX expressions to convey content information.</p>
 </div>
 <div class="paragraph">
-<p>Every template file is organized in <code>template lines</code>. Every <code>template line</code>, contains two main pieces of information:</p>
+<p>For details on the EFX template language syntax <a href="../efx/template-syntax.html" class="page">follow this link</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_reuse_the_templates"><a class="anchor" href="#_how_to_reuse_the_templates"></a>How to reuse the templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you could take advantage of these view templates to automatically visualise any notice, you would avoid having to recode your hardcoded visualisations every time a new version of eForms is released. Moreover, you could even aim at reusing the same template system for the visualisation of notices tailored for you Member State. So how can that be achieved?</p>
+</div>
+<div class="paragraph">
+<p>The general idea is that you would need to automatically translate the eForms view templates to the templating system of your choice. Then use the automatically generated templates to visualise any notice.</p>
+</div>
+<div class="paragraph">
+<p>For details on how to translate the provided EFX templates to the template language of your choice, see <a href="../efx/transpiling-efx.html" class="page">Transpiling EFX</a>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>See also:</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>the <code>context</code> of the line.</p>
+<p><a href="../efx-toolkit/index.html" class="page">EFX Toolkit for Java</a></p>
 </li>
 <li>
-<p>the <code>content</code> that will be displayed in the output generated for the specific line.</p>
+<p><a href="../notice-viewer/index.html" class="page">Notice Viewer sample application</a></p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>Below is en excerpt from the EFX grammar that expresses this:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>templateLine: (OutlineNumber | Tabs | Spaces | MixedIndent)? contextDeclarationBlock template CRLF;</code></pre>
-</div>
 </div>
 </div>
 </div>
