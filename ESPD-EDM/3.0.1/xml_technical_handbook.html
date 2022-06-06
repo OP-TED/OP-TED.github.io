@@ -510,11 +510,11 @@ The <strong><em>Annex I</em></strong> of this document lists all the code lists 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>listAgencyID</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An agency that maintains one or more lists of codes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An agency that maintains one or more lists of codes (<strong>MANDATORY in this version of ESPD</strong>).</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>listAgencyName</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the agency that maintains the list of codes (<strong>MANDATORY in this version of ESPD</strong>).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the agency that maintains the list of codes.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>listName</strong></p></td>
@@ -1114,7 +1114,7 @@ The <strong><em>Annex I</em></strong> of this document lists all the code lists 
 <p><em>Figure 13. Overview of new lot management approach.</em></p>
 </div>
 <div class="paragraph">
-<p>The ESPD request include selection criteria that are general for all the Lots in which the procedure is divided in. However, for Selection Criteria is different since in the procedure is possible to have Lots with different selection criteria. Therefore, in the ESPD request the different Selection Criteria will have to include the reference to the lots which applies. It will be done using the UBL 2.3 cac:ProcurementProjectLotReference that includes cbc:TenderingCriterion.</p>
+<p>The ESPD request include Exclusion Grounds criteria that are general for all the Lots in which the procedure is divided in. However, for Selection Criteria is different since in the procedure is possible to have Lots with different selection criteria. Therefore, in the ESPD request the different Selection Criteria will have to include the reference to the lots which applies. It will be done using the UBL 2.3 cac:ProcurementProjectLotReference that includes cbc:TenderingCriterion.</p>
 </div>
 <div class="paragraph">
 <p>The following XML example shows how it is done:</p>
@@ -2483,7 +2483,7 @@ _&lt;!--- Root elements eliminated for the sake of brevity --&gt;_
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Legislation</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:Legislation</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Class</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0..n</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A reference to the legislation related to the Criterion.</p></td>
@@ -3023,7 +3023,7 @@ _&lt;!-- ... elements omitted for brevity --&gt;_
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ValueDataTypeCode</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The type of answer expected by the buyer in the case of a poperty of type QUESTION.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of answer expected by the buyer in the case of a property of type QUESTION.</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Information Requirement</strong>: <a href="http://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.1.0#BIS41-ESPDV2.1.0-tbr070-013"><em>tbr070-013</em></a>.</p>
 </div>
@@ -5644,7 +5644,7 @@ _&lt;!-- ... the rest of elements in the QualificationApplicationRequest documen
 <p>As already explained in previous sections (see ESPD Request chapter) the Lot Management logic has been adapted to be ensure the alignment with eForms.</p>
 </div>
 <div class="paragraph">
-<p>The buyer may specify the criteria that each selection criteria apply by using the element cac:TenderingCriterion that includes cac:ProcurementProjectLotReference. The image below shows the UBL-2.3 schema for TenderingCriterion:</p>
+<p>The buyer may specify the Lots that each selection criteria apply by using the element cac:TenderingCriterion that includes cac:ProcurementProjectLotReference. The image below shows the UBL-2.3 schema for TenderingCriterion:</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="_images/TenderingCriterion_cacProcurementProjectLotReference.jpg" alt="cac:TenderingCriterion/cac:ProcurementProjectLotReference" width="448" height="490"></span></p>
@@ -11378,7 +11378,7 @@ _&lt;!-- ... rest of document removed for brevity --&gt;_</code></pre>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:EconomnicOperatorRole</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:EconomicOperatorRole</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The function of the economic operator when bidding from a consortium (Sole tenderer, member of a group, etc.).</p></td>
