@@ -227,6 +227,12 @@
 <p>OP will progressively make available the relevant applications through a “Preview” environment that will help eSenders to develop and test their own applications.</p>
 </div>
 <div class="paragraph">
+<p>The applications, URLs and user data are subject to unannounced changes until the applications go live in production in November 2022.</p>
+</div>
+<div class="paragraph">
+<p>For the applications with a web user interface (eNotices2 and TED API), users can sign in with an EU Login account from the acceptance environment at <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a></p>
+</div>
+<div class="paragraph">
 <p>The OP applications are:</p>
 </div>
 <div class="ulist">
@@ -235,13 +241,13 @@
 <p>eNotices2 is the reception system for eForms. Notices can be submitted and managed through the web front-end or via API (by eSenders), replacing the current eNotices and eSentool applications. It uses CVS to validate notices before sending them to TED Monitor 2022 for publication.</p>
 </li>
 <li>
-<p>CVS is the Central Validation Service for eForms. This API runs all the technical and business validation rules to check that an eForms notice is valid. It is called by eNotices2 when a notice is submitted but it can also be called at any point in a notice’s lifecycle, e.g. to check before submission.</p>
+<p>CVS is the Central Validation Service for eForms. This API runs all the technical and business validation rules to check that an eForms notice is valid. It is called by eNotices2 when a notice is submitted but it can also be called at any point in a notice’s lifecycle, e.g. by an eSender to check before submission.</p>
 </li>
 <li>
 <p>TED Viewer 2022 provides an API that returns an HTML or PDF rendition of an eForms XML notice at any stage of its lifecycle, e.g. before validation or after publication.</p>
 </li>
 <li>
-<p>TED API allows external parties to get a key to call OP APIs and it ensures the authentication of API calls by external parties.</p>
+<p>TED API 2022 allows external parties to get a key to call OP APIs and it ensures the authentication of API calls by external parties.</p>
 </li>
 <li>
 <p>TED Monitor 2022 is the internal application used by OP to process and prepare the daily export of notices of the Supplement of the Official Journal (OJ S) that is published on TED. It also allows OP to check the lawfulness of certain notices and to mask unpublished fields. This application is not exposed in the Preview environment.</p>
@@ -250,6 +256,11 @@
 <p>TED is the public dissemination website for European procurement notices in the OJ S. It is being adapted to handle eForms notices and will be replaced by a new TED 2.0 website in spring 2023. There is no Preview environment for TED.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/systems-diagram.png" alt="systems diagram">
+</div>
 </div>
 </div>
 </div>
@@ -260,10 +271,13 @@
 <p>Website: <a href="https://enotices2.preview.ted.europa.eu" class="bare">https://enotices2.preview.ted.europa.eu</a></p>
 </div>
 <div class="paragraph">
-<p>API: to come</p>
+<p>API endpoint: <a href="https://enotices2.preview.ted.europa.eu/esenders/api/notice/notices/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/api/notice/notices/</a></p>
 </div>
 <div class="paragraph">
-<p>Documentation: <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/</a></p>
+<p>(The URLs and parameters will change in later releases)</p>
+</div>
+<div class="paragraph">
+<p>API documentation: <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/</a></p>
 </div>
 <div class="sect2">
 <h3 id="_current_status"><a class="anchor" href="#_current_status"></a>Current status</h3>
@@ -274,13 +288,10 @@
 <p>SDK: 0.4.2</p>
 </div>
 <div class="paragraph">
-<p>The application requires a user account in the EU Login acceptance environment <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a></p>
-</div>
-<div class="paragraph">
 <p>Please be aware that the interface and the notices content are very much a work in progress in this release.</p>
 </div>
 <div class="paragraph">
-<p>At this point, the application is incomplete, many use cases are not implemented totally and others have dependencies in other applications which are only mocked-up. Similarly, the notices content is not complete as it is missing conditional rules, and significant tweaking or corrections of the sections is still to be expected. For example, it is impossible to set the main nature in the lot for any notice type.</p>
+<p>At this point, the application is incomplete, many use cases are not implemented totally and others have dependencies in other applications which are only mocked-up. Similarly, the notices content is not complete as it is missing conditional rules, and significant tweaking or corrections of the sections is still to be expected.</p>
 </div>
 <div class="paragraph">
 <p>All the labels in the user interface (UI), notices and fields are subject to change – what you see are only placeholders and the UI is only fully available in English. The translated labels will not be available for several more months.</p>
@@ -304,30 +315,30 @@
 <p>Some of the rules for mandatory fields and patterns aren’t fully correct in this version.</p>
 </li>
 <li>
-<p>The validation button calls a mock-up of CVS.</p>
+<p>Clicking on the validation button produces an error.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Submitted notices aren’t published. They will have to go through another workflow in TED Monitor before they can be published, which means neither the change notice nor the possibility of continuing a procedure can be activated at this point.</p>
+<p>Submitted notices aren’t published. They will have to go through another workflow in TED Monitor before they can be published, which takes place every working day around 15:00 CET, before you can create a Change notice or continue a procedure.</p>
 </li>
 <li>
-<p>The notices cannot be previewed in either HTML or PDF, however, a mock-up of the service is available.</p>
+<p>The notices can partially be previewed in either HTML or PDF.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In this version the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behavior, are consistent with SDK 0.4. In the codelist fields, prefilling of values is supported.</p>
+<p>In this version the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK 0.4. In the codelist fields, prefilling of values is supported.</p>
 </div>
 <div class="paragraph">
-<p>The application also allows users to act upon notices and procedures, archiving, renaming and transferring them to other users or other procedures. There is also a search feature which allows users to sort through long lists of procedures.</p>
+<p>The application also allows users to act upon notices and procedures, archiving, renaming and transferring them to other users or other procedures as well as import/ export notices in XML. There is also a search feature which allows users to sort through long lists of procedures. The main nature of the LOT can now be correctly defined.</p>
 </div>
 <div class="paragraph">
 <p>Users can create workgroups between themselves and test the definitions of roles and permissions within these workgroups. They can also work and submit notices worked upon collectively.</p>
 </div>
 <div class="paragraph">
-<p>Users can also define personalised settings for the legal basis and notice types that they want to use, as well as default languages in the notice, and tailoring of some fields is available:</p>
+<p>Users can also define personalised settings for the legal basis and notice types that they want to use, as well as default languages in the notice, and tailoring of some fields is available (please note that adding a "default" currency will not allow you to create a Change notice):</p>
 </div>
 <div class="ulist">
 <ul>
@@ -346,7 +357,7 @@
 <p>eNotices2 uses the codelists from the SDK, which have not been tailored. This means that certain codelists have too many entries, such as countries or languages that no longer exist.</p>
 </div>
 <div class="paragraph">
-<p>The eNotices2 API for this release is not yet available for external access. The Swagger UI provides basic documentation of the four functions. The URLs and parameters of the API are likely to change in future releases.</p>
+<p>The eNotices2 API URLs and parameters will change in later releases. The Swagger UI provides basic documentation of the four functions.</p>
 </div>
 </div>
 <div class="sect2">
@@ -364,16 +375,13 @@
 <p>This version of the application is focused on improvements to the UI experience and the correction of bugs.</p>
 </div>
 <div class="paragraph">
-<p>The main nature of the lot can now be correctly defined.</p>
-</div>
-<div class="paragraph">
 <p>There are many improvements in the form filling tool including the possibility to filter optional fields and a notable improvement to the usability of CPV and NUTS codelists.</p>
 </div>
 <div class="paragraph">
 <p>The address book usage has been improved and the notion of main buyer allows users to set up their own “contracting body” to be always present, except within the workgroups.</p>
 </div>
 <div class="paragraph">
-<p>Users can see an improved mockup of the CVS.</p>
+<p>Users can see an improved mock-up of the CVS.</p>
 </div>
 <div class="paragraph">
 <p>In the notice sections a search feature has been added and pagination for up to 2000 lots is supported.</p>
@@ -388,30 +396,31 @@
 <p>API endpoint: <a href="https://cvs.preview.ted.europa.eu/v1/notices/validation" class="bare">https://cvs.preview.ted.europa.eu/v1/notices/validation</a></p>
 </div>
 <div class="paragraph">
-<p>Documentation: <a href="https://cvs.preview.ted.europa.eu/swagger-ui/" class="bare">https://cvs.preview.ted.europa.eu/swagger-ui/</a></p>
+<p>API documentation: <a href="https://cvs.preview.ted.europa.eu/swagger-ui/" class="bare">https://cvs.preview.ted.europa.eu/swagger-ui/</a></p>
 </div>
 <div class="sect2">
 <h3 id="_current_status_2"><a class="anchor" href="#_current_status_2"></a>Current status</h3>
 <div class="paragraph">
-<p>Release: Phase 2</p>
+<p>Release: 1.1.0 (Phase 3)</p>
 </div>
 <div class="paragraph">
-<p>The API is functional, but no validation of the notice is made, the validation report that is returned is always the same fake report with no failure.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_planned_2"><a class="anchor" href="#_planned_2"></a>Planned</h3>
-<div class="paragraph">
-<p>Release: Phase 3</p>
-</div>
-<div class="paragraph">
-<p>Indicative planning: July 2022</p>
-</div>
-<div class="paragraph">
-<p>SDK: 0.6.2</p>
+<p>SDK: 0.4.2 and 0.6.2</p>
 </div>
 <div class="paragraph">
 <p>Complete implementation, including the execution of the validation rules (Schematron).</p>
+</div>
+<div class="paragraph">
+<p>We are working on resolving the following limitations and known issues:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>As indicated above, notices can currently only be validated with the rules from SDK 0.4 and 0.6.</p>
+</li>
+<li>
+<p>Large notices (750 KB or above) cannot be sent, due to a technical restriction.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -420,42 +429,42 @@
 <h2 id="_ted_viewer_2022"><a class="anchor" href="#_ted_viewer_2022"></a>TED Viewer 2022</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>API: to come</p>
+<p>API endpoint: to come</p>
 </div>
 <div class="paragraph">
-<p>Documentation: Swagger UI to come</p>
+<p>API documentation: Swagger UI to come</p>
 </div>
 <div class="sect2">
 <h3 id="_current_status_3"><a class="anchor" href="#_current_status_3"></a>Current status</h3>
 <div class="paragraph">
-<p>Release: Phase 1</p>
-</div>
-<div class="paragraph">
-<p>SDK: 0.4.1</p>
-</div>
-<div class="paragraph">
-<p>Basic technical implementation, no HTML or PDF rendering.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_planned_3"><a class="anchor" href="#_planned_3"></a>Planned</h3>
-<div class="paragraph">
 <p>Release: Phase 2</p>
-</div>
-<div class="paragraph">
-<p>Indicative planning: June 2022</p>
 </div>
 <div class="paragraph">
 <p>SDK: 0.4.1 and 0.5.0</p>
 </div>
 <div class="paragraph">
-<p>Partial rending of HTML and PDF.</p>
+<p>Partial rendering of HTML and PDF.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_planned_2"><a class="anchor" href="#_planned_2"></a>Planned</h3>
+<div class="paragraph">
+<p>Release: Phase 3</p>
+</div>
+<div class="paragraph">
+<p>Indicative planning: August 2022</p>
+</div>
+<div class="paragraph">
+<p>SDK: 0.4.1, 0.5.0 and 0.6.0</p>
+</div>
+<div class="paragraph">
+<p>Final version of the applications with full rendering of HTML and PDF and using the view-templates defined in the SDK.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_ted_api"><a class="anchor" href="#_ted_api"></a>TED API</h2>
+<h2 id="_ted_api_developer_portal"><a class="anchor" href="#_ted_api_developer_portal"></a>TED API (Developer Portal)</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Website: <a href="https://developer.preview.ted.europa.eu/home" class="bare">https://developer.preview.ted.europa.eu/home</a></p>
@@ -467,9 +476,6 @@
 <h3 id="_current_status_4"><a class="anchor" href="#_current_status_4"></a>Current status</h3>
 <div class="paragraph">
 <p>Final release. Users can generate and revoke an API key. Used by the other systems in Preview environment to authenticate API calls.</p>
-</div>
-<div class="paragraph">
-<p>Connect with EU Login acceptance environment <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a></p>
 </div>
 </div>
 </div>
@@ -489,11 +495,11 @@
 <p>SDK: 0.4.1</p>
 </div>
 <div class="paragraph">
-<p>This release implements the core functions for checking notices that require lawfulness authorisation, masking unpublished fields and generating the daily export files for TED.</p>
+<p>This release implements the core functions for checking notices that require lawfulness authorisation, masking unpublished fields and generating the daily export files for TED. The checks on lawfulness validation are not yet fully implemented. They will be finalised with Phase 4.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_planned_4"><a class="anchor" href="#_planned_4"></a>Planned</h3>
+<h3 id="_planned_3"><a class="anchor" href="#_planned_3"></a>Planned</h3>
 <div class="paragraph">
 <p>Release: Phase 3</p>
 </div>
@@ -525,12 +531,15 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_planned_5"><a class="anchor" href="#_planned_5"></a>Planned</h3>
+<h3 id="_planned_4"><a class="anchor" href="#_planned_4"></a>Planned</h3>
 <div class="paragraph">
 <p>Release: Phase 3</p>
 </div>
 <div class="paragraph">
 <p>Indicative planning: August 2022</p>
+</div>
+<div class="paragraph">
+<p>Final release.</p>
 </div>
 </div>
 </div>
