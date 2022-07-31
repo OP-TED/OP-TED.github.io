@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>EFX template syntax :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/0.7.0/efx/template-syntax.html">
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+     <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/search.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="../../0.7.0/index.html">eForms SDK</a>
+    <a class="navbar-item" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
+    <a class="navbar-item" href="../../../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="eforms" data-version="0.6.2">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../schema/index.html">eForms Schema</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../schema/elements.html">Elements</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../codelists/index.html">Codelists in eForms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../translations/index.html">Translations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-types/index.html">Notice Types</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../viewer-templates/index.html">Notice View Templates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">eForms Expression Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../efx-toolkit/index.html">EFX Toolkit for Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-viewer/index.html">Notice Viewer Sample App</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+    <div class="context">
+        <span class="title">eForms SDK</span>
+        <span class="version">0.6.2</span>
+    </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../0.7.0/index.html">eForms SDK</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../0.7.0/index.html">0.7.0</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">0.6.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.5.0/index.html">0.5.0</a>
+        </li>
+        <li class="version">
+          <a href="../../0.4.2/index.html">0.4.2</a>
+        </li>
+        <li class="version">
+          <a href="../../0.3.1/index.html">0.3.1</a>
+        </li>
+        <li class="version">
+          <a href="../../0.2.1/index.html">0.2.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../EPO/dev/index.html">dev</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/3.0.0/index.html">3.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li><a href="index.html">eForms Expression Language</a></li>
+    <li><a href="template-syntax.html">EFX templates</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">0.6.2</button>
+  <div class="version-menu">
+    <a class="version" href="../../0.7.0/efx/template-syntax.html">0.7.0</a>
+    <a class="version is-current" href="template-syntax.html">0.6.2</a>
+    <a class="version is-missing" href="../../0.5.0/index.html">0.5.0</a>
+    <a class="version is-missing" href="../../0.4.2/index.html">0.4.2</a>
+    <a class="version is-missing" href="../../0.3.1/index.html">0.3.1</a>
+    <a class="version is-missing" href="../../0.2.1/index.html">0.2.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">EFX template syntax</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>An EFX view template is stored in a text file with a .efx extension.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_expected_output"><a class="anchor" href="#_expected_output"></a>Expected output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The goal of the template file is to provide instructions for the visualisation of a notice in a web or document page. The output is therefore expected to be a series of lines of text containing information from the notice being visualised.
+Moreover, the output is expected to have some visual structure that represents the logical grouping of information contained in the notice.
+The visual structure of the output is expected to be hierarchical, with some lines acting as group or sub-group headings for a set of lines that follow it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_template_content"><a class="anchor" href="#_template_content"></a>Template content</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each line in the template file is called a "template line" and it represents a line of text in the output file. All template lines have the same syntax regardless of whether they represent group headings or not. Grouped lines appear nested under their heading line in the template using standard Python style indentation (tabs or spaces). This way all the content and structure of the output file is represented in the template file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_syntax"><a class="anchor" href="#_syntax"></a>Syntax</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each template line contains the following three parts.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Indentation</dt>
+<dd>
+<p>Indentation can be done using either tabs or spaces. However, you cannot mix tab-based with space-based indentation in the same template file. The indentation style that is used in the first indented line in the file, is expected to be used throughout the file. Indentation is optional as root-level lines do not need it.</p>
+</dd>
+<dt class="hdlist1">Context Declaration</dt>
+<dd>
+<p>The context declaration should effectively point to the notice XML element that is needed as a context for the EFX expressions that follow. Typically either a node or field identifier are used to declare the context. The context declaration may also include a predicate if needed. The context declaration is enclosed in curly brackets without any prefix <code>{&#8230;&#8203;}</code>.</p>
+</dd>
+<dt class="hdlist1">Content Template</dt>
+<dd>
+<p>The content template is composed by a combination of what we call "template fragments". Template fragments can be i18n labels, free text, or EFX expressions indicating information extracted from the notice. The template fragments are combined as needed to compose the text that will be presented in the output line.</p>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Free text fragments</dt>
+<dd>
+<p>Any text you include in the  content template will be copied verbatim to the output. Whitespace is significant.</p>
+</dd>
+<dt class="hdlist1">Label fragments</dt>
+<dd>
+<p>A label reference inserts a i18n label in the output. A label is referenced using its identifier enclosed in curly braces prefixed by a sharp symbol <code>#{&#8230;&#8203;}</code>.</p>
+</dd>
+<dt class="hdlist1">Expression fragments</dt>
+<dd>
+<p>Content from the notice is included in the output via the use of EFX expressions. EFX expressions are included in curly braces prefixed by a dollar symbol <code>${&#8230;&#8203;}</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>See also:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="expression-syntax.html" class="page">EFX expression syntax</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/lunr.js"></script>
+<script src="../../../_/js/vendor/search.js" id="search-script" data-base-path="../../.." data-page-path="/eforms/0.6.2/efx/template-syntax.html"></script>
+<script async src="../../../_/../search-index.js"></script>
+
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The <b>eForms SDK</b> is created by the Publications Office of the European Union and is licensed under the terms of <a href="https://github.com/OP-TED/eForms-SDK/blob/main/LICENSE">EUPL-1.2 license</a>.
+  <br/>This page was built using the Antora default UI. The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
