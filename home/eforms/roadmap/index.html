@@ -220,39 +220,84 @@
 </aside>
 <article class="doc">
 <h1 class="page">eForms SDK Roadmap</h1>
-<div id="preamble">
+<div class="sect1">
+<h2 id="_eforms_sdk_1_0_0"><a class="anchor" href="#_eforms_sdk_1_0_0"></a>eForms SDK 1.0.0</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This page tries to outline the changes and additions to the eForms SDK planned for the upcoming releases. Despite its name, it is not actually organised as a release roadmap. Our goal with this page is to give you a heads-up of the most important things that we plan to change or add in the SDK so that you know what to expect.</p>
+<p>On August 5 2022, we plan to release eForms SDK 1.0.0. This is a major milestone for the eForms SDK that is meant to stabilise its structure and allow implementers to continue receiving and using future versions of the SDK without having to modify their applications.</p>
+</div>
+<div class="dlist quanda">
+<dl>
+<dt>What the SDK 1.0.0 is</dt>
+<dd>
+<p>SDK 1.0.0 is the result of our final attempt to clean-up, rationalise and stabilise the kinds of information that are included in future SDK releases, as well as the format that this information is encoded in. This does not mean that what we came up with is perfect, but it means that it is reasonable and usable enough for us to refrain from making any further corrections or improvements to it for the foreseeable future.</p>
+</dd>
+<dt>What SDK 1.0.0 is not</dt>
+<dd>
+<div class="ulist">
+<ul>
+<li>
+<p>SDK 1.0.0 is <strong>not the final version</strong> of the eForms SDK. There will be several releases that update it. However, they will all be under the same  major version (1.x.x) which means that all future releases will be backwards compatible for all the eSender applications that read and use the eForms SDK 1.0.0.</p>
+</li>
+<li>
+<p>SDK 1.0.0 is <strong>not the version that will be</strong> active when eForms goes <strong>live on November 14</strong>, 2022. There will be several updates released during the Fall of 2022 that will incrementally correct and improve the eForms metadata (rules, translations, etc.) included in the SDK. However, as pointed out in the previous paragraph, all these updates will be under the major version 1.x.x and therefore they will be backwards compatible for your applications.</p>
+</li>
+<li>
+<p>SDK 1.0.0 is <strong>not free of errors</strong> in the eForms metadata. To the contrary, there are several mistakes, omissions and possibly even inconsistencies in the metadata contained in this version of the SDK. As stated in the previous paragraphs these issues will be corrected in several subsequent releases of the SDK that will always be backwards compatible.</p>
+</li>
+</ul>
+</div>
+</dd>
+<dt>Why release SDK 1.0.0 before its eForms metadata content is final?</dt>
+<dd>
+<p>It is reasonable for someone to expect that a version labelled 1.0.0 is "perfect in every way". However, waiting for the eForms metadata to be production-ready before releasing SDK 1.0.0 was not an option, as it would not leave enough time for applications to adapt to it before the November 14 go-live deadline. Our goal was therefore to provide every developer with a version of the SDK that is structurally stable as soon as possible. From a developers perspective the correctness or completeness of the eForms metadata is irrelevant as their metadata driven applications are (or at least should be) designed to be agnostic of the actual eForms metadata content of each SDK release.</p>
+</dd>
+<dt>How is SDK 1.0.0 different than 0.7.0?</dt>
+<dd>
+<p>The release notes of SDK 1.0.0 will give you complete list of the changes that we have made since 0.7.0. However, I can already give you a general idea on what has changed:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>We added some new information in existing files. For example information on what fields can be changed by a change notice is now provided in <code>fields.json</code>.</p>
+</li>
+<li>
+<p>We added a few "index" files in SDK folders that provide more metadata on the content of each folder. For example the <code>view-templates</code> folder now contains a <code>view-templates.json</code> file that better describes each view template.
+-We changed the names of a few concepts to improve consistency and clarity. For example the <code>decoration|name</code> labels are now identified as <code>auxiliary|text</code>.</p>
+</li>
+<li>
+<p>Most importantly though, we added several features in the eForms Expression Language (EFX) that allow us to improve the view templates as well as the business rules that we provide. This is probably the most impactful change for developers that have already implemented their own EFX transpilers or interpreters.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_eforms_sdk_0_6_0"><a class="anchor" href="#_eforms_sdk_0_6_0"></a>eForms SDK 0.6.0</h2>
+<h2 id="_what_is_next"><a class="anchor" href="#_what_is_next"></a>What is next</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The main theme of SDK 0.6.0 will be to add templates that you can use to visualize an existing notice. We have already identified and detailed internally the necessary views that will be used by our own TED Viewer. This version of the SDK will formalise these views and provide them in the form of templates. A specialised grammar will be introduced for drafting these templates.</p>
+<p>Our next goals are:</p>
 </div>
-<div class="paragraph">
-<p>To allow you to work with this new grammar (we call it EFXT) and to transform these templates to the actual views that you need for your applications, the SDK will not only include the grammar definition and documentation, but it will also be accompanied by a sample application which can read a "notice view template" and generate an HTML page for any given notice XML.</p>
-</div>
-<div class="paragraph">
-<p>Another goal of this release of the eForms SDK is to improve our ability to express the conditions associated with business rules. You already have seen these conditions in fields.json expressed in SpEL. The trouble with SpEL is that it is not expressive enough for our needs. As a result conditions expressed in SpEL quickly become too complicated as well as ambiguous. To address this, we have been looking for something simpler but more expressive at the same time. What we came up with is a domain specific language that we defined to serve our purposes. We call it "eForms Expression Language" or EFX in short.</p>
-</div>
-<div class="sect2">
-<h3 id="_eforms_expressions_language_efx"><a class="anchor" href="#_eforms_expressions_language_efx"></a>eForms Expressions Language (EFX)</h3>
-<div class="paragraph">
-<p>Our goal in creating the EFX grammar was to come up with a syntax that is as expressive and unambiguous as xPath, but simpler to read and write. To define the language we are using <a href="https://www.antlr.org/">ANTRL4</a> which is a stable tool with a very long history in the field.</p>
-</div>
-<div class="paragraph">
-<p>To allow you to work with EFX, we will publish in GitHub not only the grammar specification and documentation, but also the source code of our own parser and the translator which we use to convert EFX expressions to xPath for Schematron validation. Our own tools are written in Java, but ANTRL4 can automatically generate for you an EFX parser for C#, Python, JavaScript, Go, C++, Swift, PHP or DART.</p>
-</div>
-<div class="paragraph">
-<p>EFX is also the basis of EFXT which as I mentioned earlier is used to define the notice view templates. EFXT expressions are the same as EFX expressions; however, EFXT also provides additional syntax to convey information about layout structure as well as static resources like translations.</p>
-</div>
-<div class="paragraph">
-<p>We are working hard to finish the work for eForms SDK 0.6.0 during March 2022 so that we can release it sometime in April.</p>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>to continuously expand and improve the <strong>SDK documentation</strong> as the documentation of SDK 1.0.0 that will be available on the day of its release will not be at the level we want it to be.</p>
+</li>
+<li>
+<p>to continuously correct and improve the <strong>eForms metadata</strong> provided with the SDK and release them for use by your applications as often as possible.</p>
+</li>
+<li>
+<p>to expand and improve the sample applications that we provide in Github. Apart from the "Notice Viewer" sample application which is already available, we have a "Notice Editor" as well as a "Notice Validator" sample which we want to make publicly available.</p>
+</li>
+<li>
+<p>to streamline and improve the process of releasing <strong>future versions</strong> of the SDK so that we can get future updates of metadata to your applications as quickly as possible.</p>
+</li>
+<li>
+<p>to listen to you, our <strong>developer community</strong>, and to help you to the best of our ability to get your metadata driven applications up and running.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
