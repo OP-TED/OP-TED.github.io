@@ -224,41 +224,85 @@
 <h2 id="_scope_and_purpose"><a class="anchor" href="#_scope_and_purpose"></a>Scope and purpose</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Publications Office (OP) is developing a range of applications to manage the collection, validation, processing, visualisation and dissemination of eForms notices.</p>
+<p>The Publications Office (OP) is developing a range of applications for the collection, validation, processing, visualisation and dissemination of eForms notices. These applications are collectively known as "TED Apps for eForms" and are scheduled to go into production use on November 14, 2022.</p>
 </div>
 <div class="paragraph">
-<p>OP will progressively make available the relevant applications through a “Preview” environment that will help eSenders to develop and test their own applications.</p>
+<p>To allow early access to these applications before they are deployed in production, we have prepared an additional "preview" environment for eSenders and stakeholders, where we progressively deploy early versions of the TED Apps for eForms as they become available.</p>
 </div>
 <div class="paragraph">
-<p>The applications, URLs and user data are subject to unannounced changes until the applications go live in production in November 2022.</p>
+<p>The application features, URLs as well as the data present in the "preview" environment, are subject to unannounced changes until the go-live deadline is reached in November 2022.</p>
 </div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+For accessing the web applications in the "preview" environment (eNotices2 and the TED Developer Portal), you need an EU-Login acceptance environment account which you can get at <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ted_apps_for_eforms"><a class="anchor" href="#_ted_apps_for_eforms"></a>TED Apps for eForms</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>For the applications with a web user interface (eNotices2 and TED API), users can sign in with an EU Login account from the acceptance environment at <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a></p>
+<p>The TED applications for eForms are:</p>
 </div>
-<div class="paragraph">
-<p>The OP applications are:</p>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">eNotices2</dt>
+<dd>
+<p>eNotices2 is the reception system for eForms. Notices can be submitted and managed through the web front-end or via the TED API. eNotices2 replaces the current eNotices and eSentool applications. eNotices2 calls the Central Validation Service to validate submitted notices before sending them to TED Monitor for processing and eventual publication.</p>
+</dd>
+<dt class="hdlist1">TED Central Validation Service</dt>
+<dd>
+<p>The Central Validation Service (a.k.a. TED CVS) provides an API for validating eForms notices. It is called by eNotices2 to check the validity of a submitted notice, but it can also be called by eSender applications to validate a notice at any time.</p>
+</dd>
+<dt class="hdlist1">TED Viewer</dt>
+<dd>
+<p>Also known as "TED Viewer 2022" this notice visualisation service provides an API that allows applications to render an eForms notice in the HTML or PDF format.</p>
+</dd>
+<dt class="hdlist1">TED Developer Portal</dt>
+<dd>
+<p>The TED Developer Portal is envisioned to be a central hub for TED developer services. At this point in time the portal allows eSenders, to sign-up and obtain/manage their API key which is required for calling TED APIs.</p>
+</dd>
+<dt class="hdlist1">TED Monitor</dt>
+<dd>
+<p>Also known as "TED Monitor 2022", this application is the internal production system used by OP to prepare the publication in the Supplement of the Official Journal (hosted in the TED website), of the public procurement notices submitted every day. It also allows OP to check the lawfulness of certain notices and to mask unpublished fields.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TED Monitor is not accessible by eSenders in the preview environment.
+</td>
+</tr>
+</table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>eNotices2 is the reception system for eForms. Notices can be submitted and managed through the web front-end or via API (by eSenders), replacing the current eNotices and eSentool applications. It uses CVS to validate notices before sending them to TED Monitor 2022 for publication.</p>
-</li>
-<li>
-<p>CVS is the Central Validation Service for eForms. This API runs all the technical and business validation rules to check that an eForms notice is valid. It is called by eNotices2 when a notice is submitted but it can also be called at any point in a notice’s lifecycle, e.g. by an eSender to check before submission.</p>
-</li>
-<li>
-<p>TED Viewer 2022 provides an API that returns an HTML or PDF rendition of an eForms XML notice at any stage of its lifecycle, e.g. before validation or after publication.</p>
-</li>
-<li>
-<p>TED API 2022 allows external parties to get a key to call OP APIs and it ensures the authentication of API calls by external parties.</p>
-</li>
-<li>
-<p>TED Monitor 2022 is the internal application used by OP to process and prepare the daily export of notices of the Supplement of the Official Journal (OJ S) that is published on TED. It also allows OP to check the lawfulness of certain notices and to mask unpublished fields. This application is not exposed in the Preview environment.</p>
-</li>
-<li>
-<p>TED is the public dissemination website for European procurement notices in the OJ S. It is being adapted to handle eForms notices and will be replaced by a new TED 2.0 website in spring 2023. There is no Preview environment for TED.</p>
-</li>
-</ul>
+</dd>
+<dt class="hdlist1">TED Website</dt>
+<dd>
+<p>TED is the public dissemination website for European procurement notices. It is the digital (and only) form of the Supplement to the Official Journal of the EU (OJ S). The current TED website, which is being adapted to handle eForms notices, is scheduled to be replaced by a totally new, built-from-scratch version (a.k.a. TED 2.0), in Spring of 2023.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The TED website is not available in the preview environment
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -268,33 +312,77 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="_enotices2"><a class="anchor" href="#_enotices2"></a>eNotices2</h2>
+<h2 id="_accessing_ted_apps_in_preview"><a class="anchor" href="#_accessing_ted_apps_in_preview"></a>Accessing TED Apps in PREVIEW</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Website: <a href="https://enotices2.preview.ted.europa.eu" class="bare">https://enotices2.preview.ted.europa.eu</a></p>
-</div>
-<div class="paragraph">
-<p>API endpoint: <a href="https://enotices2.preview.ted.europa.eu/esenders/api/notice/notices/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/api/notice/notices/</a></p>
-</div>
-<div class="paragraph">
-<p>(The URLs and parameters will change in later releases)</p>
-</div>
-<div class="paragraph">
-<p>API documentation: <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/</a></p>
-</div>
 <div class="sect2">
-<h3 id="_current_status"><a class="anchor" href="#_current_status"></a>Current status</h3>
-<div class="paragraph">
-<p>Release: NRP-A2</p>
+<h3 id="_enotices2"><a class="anchor" href="#_enotices2"></a>eNotices2</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Website</dt>
+<dd>
+<p><a href="https://enotices2.preview.ted.europa.eu" class="bare">https://enotices2.preview.ted.europa.eu</a></p>
+</dd>
+<dt class="hdlist1">API endpoint</dt>
+<dd>
+<p><a href="https://enotices2.preview.ted.europa.eu/esenders/api/notice/notices/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/api/notice/notices/</a></p>
+</dd>
+<dt class="hdlist1">API documentation</dt>
+<dd>
+<p><a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/</a></p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p>SDK: 0.4.2</p>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+(The URLs and parameters may change in subsequent releases)
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>Please be aware that the interface and the notices content are very much a work in progress in this release.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Please be aware that the interface and the notice forms are very much a work in progress in this release.
+</td>
+</tr>
+</table>
 </div>
+<div class="sect3">
+<h4 id="_currently_available"><a class="anchor" href="#_currently_available"></a>Currently available</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>NRP-A2</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK version
+</td>
+<td class="hdlist2">
+<p>0.4.2</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_known_issues"><a class="anchor" href="#_known_issues"></a>Known issues</h4>
 <div class="paragraph">
-<p>At this point, the application is incomplete, many use cases are not implemented totally and others have dependencies in other applications which are only mocked-up. Similarly, the notices content is not complete as it is missing conditional rules, and significant tweaking or corrections of the sections is still to be expected.</p>
+<p>At this point, the application is incomplete, many use cases are not fully implemented and others have dependencies in other applications which are only mocked-up. Similarly, the notice forms are not final as they are missing conditional rules, and significant tweaking or corrections of the sections is still to be expected.</p>
 </div>
 <div class="paragraph">
 <p>All the labels in the user interface (UI), notices and fields are subject to change – what you see are only placeholders and the UI is only fully available in English. The translated labels will not be available for several more months.</p>
@@ -363,16 +451,35 @@
 <p>The eNotices2 API URLs and parameters will change in later releases. The Swagger UI provides basic documentation of the four functions.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_planned"><a class="anchor" href="#_planned"></a>Planned</h3>
-<div class="paragraph">
-<p>Release: NRP+1</p>
-</div>
-<div class="paragraph">
-<p>Indicative planning: August 2022</p>
-</div>
-<div class="paragraph">
-<p>SDK: 0.6.2</p>
+<div class="sect3">
+<h4 id="_planned_updates"><a class="anchor" href="#_planned_updates"></a>Planned updates</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Indicative planning
+</td>
+<td class="hdlist2">
+<p>August 2022</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Applcation version
+</td>
+<td class="hdlist2">
+<p>NRP+1</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK version used
+</td>
+<td class="hdlist2">
+<p>0.6.2</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>This version of the application is focused on improvements to the UI experience and the correction of bugs.</p>
@@ -391,26 +498,49 @@
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_cvs"><a class="anchor" href="#_cvs"></a>CVS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>API endpoint: <a href="https://cvs.preview.ted.europa.eu/v1/notices/validation" class="bare">https://cvs.preview.ted.europa.eu/v1/notices/validation</a></p>
-</div>
-<div class="paragraph">
-<p>API documentation: <a href="https://cvs.preview.ted.europa.eu/swagger-ui/" class="bare">https://cvs.preview.ted.europa.eu/swagger-ui/</a></p>
-</div>
 <div class="sect2">
-<h3 id="_current_status_2"><a class="anchor" href="#_current_status_2"></a>Current status</h3>
-<div class="paragraph">
-<p>Release: 1.1.0 (Phase 3)</p>
+<h3 id="_ted_central_validation_service"><a class="anchor" href="#_ted_central_validation_service"></a>TED Central Validation Service</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">API endpoint</dt>
+<dd>
+<p><a href="https://cvs.preview.ted.europa.eu/v1/notices/validation" class="bare">https://cvs.preview.ted.europa.eu/v1/notices/validation</a></p>
+</dd>
+<dt class="hdlist1">API documentation</dt>
+<dd>
+<p><a href="https://cvs.preview.ted.europa.eu/swagger-ui/" class="bare">https://cvs.preview.ted.europa.eu/swagger-ui/</a></p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p>SDK: 0.4.2 and 0.6.2</p>
-</div>
-<div class="paragraph">
+<div class="sect3">
+<h4 id="_currently_available_2"><a class="anchor" href="#_currently_available_2"></a>Currently available</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>1.1.0 (Phase 3)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK versions
+</td>
+<td class="hdlist2">
+<p>0.4.2 and 0.6.2</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Scope
+</td>
+<td class="hdlist2">
 <p>Complete implementation, including the execution of the validation rules (Schematron).</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>We are working on resolving the following limitations and known issues:</p>
@@ -427,122 +557,254 @@
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_ted_viewer_2022"><a class="anchor" href="#_ted_viewer_2022"></a>TED Viewer 2022</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>API endpoint: to come</p>
-</div>
-<div class="paragraph">
-<p>API documentation: Swagger UI to come</p>
-</div>
 <div class="sect2">
-<h3 id="_current_status_3"><a class="anchor" href="#_current_status_3"></a>Current status</h3>
-<div class="paragraph">
-<p>Release: Phase 2</p>
+<h3 id="_ted_viewer"><a class="anchor" href="#_ted_viewer"></a>TED Viewer</h3>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+API endpoint
+</td>
+<td class="hdlist2">
+<p>TBA</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+API documentation
+</td>
+<td class="hdlist2">
+<p>Swagger UI TBA</p>
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>SDK: 0.4.1 and 0.5.0</p>
-</div>
-<div class="paragraph">
+<div class="sect3">
+<h4 id="_currently_available_3"><a class="anchor" href="#_currently_available_3"></a>Currently available</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>Phase 2</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK versions
+</td>
+<td class="hdlist2">
+<p>0.4.1 and 0.5.0</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Scope
+</td>
+<td class="hdlist2">
 <p>Partial rendering of HTML and PDF.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_planned_2"><a class="anchor" href="#_planned_2"></a>Planned</h3>
-<div class="paragraph">
-<p>Release: Phase 3</p>
-</div>
-<div class="paragraph">
-<p>Indicative planning: August 2022</p>
-</div>
-<div class="paragraph">
-<p>SDK: 0.4.1, 0.5.0 and 0.6.0</p>
-</div>
-<div class="paragraph">
+<div class="sect3">
+<h4 id="_planned_updates_2"><a class="anchor" href="#_planned_updates_2"></a>Planned updates</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Indicative planning
+</td>
+<td class="hdlist2">
+<p>August 2022</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>Phase 3</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK versions
+</td>
+<td class="hdlist2">
+<p>0.4.1, 0.5.0 and 0.6.0</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Scope
+</td>
+<td class="hdlist2">
 <p>Final version of the applications with full rendering of HTML and PDF and using the view-templates defined in the SDK.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ted_api_developer_portal"><a class="anchor" href="#_ted_api_developer_portal"></a>TED API (Developer Portal)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Website: <a href="https://developer.preview.ted.europa.eu/home" class="bare">https://developer.preview.ted.europa.eu/home</a></p>
-</div>
-<div class="paragraph">
-<p>Documentation: a dedicated section of docs.ted.europa.eu will document all APIs.</p>
 </div>
 <div class="sect2">
-<h3 id="_current_status_4"><a class="anchor" href="#_current_status_4"></a>Current status</h3>
-<div class="paragraph">
+<h3 id="_ted_developer_portal"><a class="anchor" href="#_ted_developer_portal"></a>TED Developer Portal</h3>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Website URL
+</td>
+<td class="hdlist2">
+<p><a href="https://developer.preview.ted.europa.eu/home" class="bare">https://developer.preview.ted.europa.eu/home</a></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Documentation
+</td>
+<td class="hdlist2">
+<p>a dedicated section of docs.ted.europa.eu will document all APIs.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Scope
+</td>
+<td class="hdlist2">
 <p>Final release. Users can generate and revoke an API key. Used by the other systems in Preview environment to authenticate API calls.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_ted_monitor_2022"><a class="anchor" href="#_ted_monitor_2022"></a>TED Monitor 2022</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_ted_monitor"><a class="anchor" href="#_ted_monitor"></a>TED Monitor</h3>
 <div class="paragraph">
 <p>This application is not public but this information provides some background about progress and how the applications are integrated.</p>
 </div>
-<div class="sect2">
-<h3 id="_current_status_5"><a class="anchor" href="#_current_status_5"></a>Current status</h3>
-<div class="paragraph">
-<p>Release: Phase 2</p>
-</div>
-<div class="paragraph">
-<p>SDK: 0.4.1</p>
+<div class="sect3">
+<h4 id="_currently_available_4"><a class="anchor" href="#_currently_available_4"></a>Currently available</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>Phase 2</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK version
+</td>
+<td class="hdlist2">
+<p>0.4.1</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>This release implements the core functions for checking notices that require lawfulness authorisation, masking unpublished fields and generating the daily export files for TED. The checks on lawfulness validation are not yet fully implemented. They will be finalised with Phase 4.</p>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_planned_3"><a class="anchor" href="#_planned_3"></a>Planned</h3>
-<div class="paragraph">
-<p>Release: Phase 3</p>
-</div>
-<div class="paragraph">
-<p>SDK: 0.4.1 and 0.5.0</p>
-</div>
-<div class="paragraph">
-<p>Indicative planning: July 2022</p>
+<div class="sect3">
+<h4 id="_planned_updates_3"><a class="anchor" href="#_planned_updates_3"></a>Planned updates</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Indicative planning
+</td>
+<td class="hdlist2">
+<p>July 2022</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>Phase 3</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+SDK versions
+</td>
+<td class="hdlist2">
+<p>0.4.1 and 0.5.0</p>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The release will include display results page, homepage overview (Follow-up notices), advanced search, notice information.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="sect1">
-<h2 id="_ted_website"><a class="anchor" href="#_ted_website"></a>TED website</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The test environment of the TED application is not public but this information can provide some background about progress and how the applications are integrated.</p>
-</div>
 <div class="sect2">
-<h3 id="_current_status_6"><a class="anchor" href="#_current_status_6"></a>Current status</h3>
+<h3 id="_ted_website"><a class="anchor" href="#_ted_website"></a>TED website</h3>
 <div class="paragraph">
-<p>Release: Phase 2</p>
+<p>The TED website is not available in the "preview" environment, but the following information could provide some background on progress and application integration.</p>
 </div>
-<div class="paragraph">
+<div class="sect3">
+<h4 id="_current_status"><a class="anchor" href="#_current_status"></a>Current status</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>Phase 2</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Scope
+</td>
+<td class="hdlist2">
 <p>Store and index eForms notices.</p>
+</td>
+</tr>
+</table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_planned_4"><a class="anchor" href="#_planned_4"></a>Planned</h3>
-<div class="paragraph">
-<p>Release: Phase 3</p>
-</div>
-<div class="paragraph">
-<p>Indicative planning: August 2022</p>
-</div>
-<div class="paragraph">
+<div class="sect3">
+<h4 id="_planned_updates_4"><a class="anchor" href="#_planned_updates_4"></a>Planned updates</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Indicative planning
+</td>
+<td class="hdlist2">
+<p>August 2022</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Application version
+</td>
+<td class="hdlist2">
+<p>Phase 3</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Scope
+</td>
+<td class="hdlist2">
 <p>Final release.</p>
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 </div>
