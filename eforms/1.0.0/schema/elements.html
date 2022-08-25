@@ -42,7 +42,7 @@
   <a class="navbar-link" href="#">Products</a>
   <div class="navbar-dropdown">
     <a class="navbar-item" href="../index.html">eForms SDK</a>
-    <a class="navbar-item" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
+    <a class="navbar-item" href="../../../EPO/main/index.html">eProcurement Ontology</a>
     <a class="navbar-item" href="../../../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
   </div>
 </div>
@@ -287,10 +287,10 @@
       </ul>
     </li>
     <li class="component">
-      <a class="title" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
+      <a class="title" href="../../../EPO/main/index.html">eProcurement Ontology</a>
       <ul class="versions">
         <li class="version is-latest">
-          <a href="../../../EPO/dev/index.html">dev</a>
+          <a href="../../../EPO/main/index.html">main</a>
         </li>
         <li class="version">
           <a href="../../../EPO/3.0.0/index.html">3.0.0</a>
@@ -773,6 +773,18 @@ Regulation annex</a>.</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">efac:NoticeSubType/cbc:SubTypeCode</p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock"><em>Notice Dispatch Date eSender (BT-803)</em> - date</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#dispatchDateEsender">Notice Dispatch Date eSender (BT-803)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">efbc:TransmissionDate</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-middle"><p class="tableblock"><em>Notice Dispatch Date eSender (BT-803)</em> - time</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#dispatchDateEsender">Notice Dispatch Date eSender (BT-803)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">efbc:TransmissionTime</p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-middle"><p class="tableblock"><em>Notice Publication ID (OPP-010)</em></p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#pubInfoSection">Notice Publication information</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -881,6 +893,20 @@ Regulation annex</a>.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="dispatchDateEsender"><a class="anchor" href="#dispatchDateEsender"></a>Notice Dispatch Date eSender (BT-803)</h3>
+<div class="paragraph">
+<p>The Notice Dispatch Date eSender (BT-803) represents the date and time the notice was transmitted
+electronically by the eSender to the Publications Office of the European Union. It shall be indicated
+in the extensions at Root by specifying its two components (date &amp; time):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;efbc:TransmissionDate&gt;2022-11-17+01:00&lt;/efbc:TransmissionDate&gt;
+    &lt;efbc:TransmissionTime&gt;08:30:03+01:00&lt;/efbc:TransmissionTime&gt;</code></pre>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="pubInfoSection"><a class="anchor" href="#pubInfoSection"></a>Notice Publication information</h3>
 <div class="paragraph">
@@ -1691,6 +1717,60 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">Lot</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>EU Funds Information (*)</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds Financing Identifier (BT-5010)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">EU Funds (BG-61)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:Funding&#8203;/efbc:FinancingIdentifier</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds Programme (BT-7220)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">EU Funds (BG-61)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:Funding&#8203;/cbc:FundingProgramCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds Details (BT-6140)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">EU Funds (BG-61)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:Funding&#8203;/cbc:Description</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>Selection Criteria (*)</strong></p></td>
 </tr>
 <tr>
@@ -2400,6 +2480,40 @@ more)</em></p></td>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Non Disclosure Agreement (BT-801)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#nonDisclosureAgreementSection">Non Disclosure Agreement Indicator and Description (BT-801, BT-802)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:ContractExecutionRequirement&#8203;/cbc:ExecutionRequirementCode&#8203;[@listName='nda']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Non Disclosure Agreement Description (BT-802)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#nonDisclosureAgreementSection">Non Disclosure Agreement Indicator and Description (BT-801, BT-802)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:ContractExecutionRequirement&#8203;[cbc:ExecutionRequirementCode&#8203;/@listName='nda']/cbc:Description</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Terms Performance (BT-70)</strong></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#termsPerformanceSection">Terms Performance (BT-70)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -2688,10 +2802,10 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">Prize information (BT-44, BT-45, BT-644)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">1</p></th>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
@@ -2705,10 +2819,10 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">Prize information (BT-44, BT-45, BT-644)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">1</p></th>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
@@ -2722,7 +2836,7 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">Prize information (BT-44, BT-45, BT-644)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3159,6 +3273,68 @@ more)</em></p></td>
 </tbody>
 </table>
 <div class="sect3">
+<h4 id="EUFundsSection"><a class="anchor" href="#EUFundsSection"></a>EU Funds (BG-61)</h4>
+<div class="paragraph">
+<p>In all notices, the element "<em>cbc:FundingProgramCode</em>" is used per Lot
+to specify whether it is foreseen
+or not to have the procurement project partly financed with EU Funds
+(BT-60). The value "eu-funds" is used to specify the intention to get
+the project partly funded with EU funds (i.e. "true" value for the
+indicator), and the value "no-eu-funds" is used to indicate that no
+EU funds is foreseen for financing the procurement project (i.e.
+"false" value for the indicator).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:FundingProgramCode listName="eu-funded"&gt;eu-funds&lt;/cbc:FundingProgramCode&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In "PIN time limit" and Competition notices, when EU Funds (BT-60) indicates
+that EU Funds are involved in the procurement, EU Funds Information
+(BG-614) may be given; this covers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>EU Funds Programme (BT-7220),</p>
+</li>
+<li>
+<p>EU Funds Financing Identifier (BT-5010), and</p>
+</li>
+<li>
+<p>EU Funds Details (BT-6140).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>EU Funds Information (BG-614) may be repeated for each source
+of funding. Within each BG-614, at least one of BT-7220 or BT-5010 shall be
+specified. The content of EU Funds Programme (BT-7220) must match one of the
+codes of the
+<a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/eu-programme">eu-programme</a>
+codelist. The content of the EU Funds Financing Identifier shall be the most
+concrete possible (e.g. grant agreement number, national identifier or
+project acronym). EU Funds Details (BT-6160) may only be provided once for
+each BG-611.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;efac:Funding&gt;
+        &lt;efbc:FinancingIdentifier&gt;CON_PRO-123/ABC&lt;/efbc:FinancingIdentifier&gt;
+        &lt;cbc:Description languageID="ENG"&gt;This project will be financed ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Ce projet sera financé ...&lt;/cbc:Description&gt;
+    &lt;/efac:Funding&gt;
+    &lt;efac:Funding&gt;
+        &lt;efbc:FinancingIdentifier&gt;CAS-LEO/2022/PDM&lt;/efbc:FinancingIdentifier&gt;
+        &lt;cbc:FundingProgramCode listName="eu-proramme"&gt;ERDF_2021&lt;/cbc:FundingProgramCode&gt;
+        &lt;cbc:Description languageID="ENG"&gt;This local project ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Ce projet local ...&lt;/cbc:Description&gt;
+    &lt;/efac:Funding&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="selectionCriteriaSection"><a class="anchor" href="#selectionCriteriaSection"></a>Selection criteria</h4>
 <div class="paragraph">
 <p>Selection criteria may apply at "<em>Group of Lots</em>" and/or "<em>Lot</em>" level.
@@ -3303,24 +3479,6 @@ codelist and the BT is expressed as follows:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:VariantConstraintCode listName="permission"&gt;allowed&lt;/cbc:VariantConstraintCode&gt;</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="EUFundsSection"><a class="anchor" href="#EUFundsSection"></a>EU Funds (BG-61)</h4>
-<div class="paragraph">
-<p>In all notices, the element "<em>cbc:FundingProgramCode</em>" is used at Lot
-(outside the Awarded tender context) to specify whether it is foreseen
-or not to have the procurement project partly financed with EU Funds
-(BT-60). The value "eu-funds" is used to specify the intention to get
-the project partly funded with EU funds (i.e. "true" value for the
-indicator), and "no-eu-funds" to indicate that no EU funds is foreseen
-for financing the procurement project (i.e. "false" value for the
-indicator).</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:FundingProgramCode listName="eu-funded"&gt;eu-funds&lt;/cbc:FundingProgramCode&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -3729,6 +3887,23 @@ codelist:</p>
 </div>
 </div>
 <div class="sect3">
+<h4 id="nonDisclosureAgreementSection"><a class="anchor" href="#nonDisclosureAgreementSection"></a>Non Disclosure Agreement Indicator and Description (BT-801, BT-802)</h4>
+<div class="paragraph">
+<p>Use of a Non Disclosure Agreement for the contract execution may be encoded with the
+"<em>cbc:ExecutionRequirementCode</em>" element, having its "<em>listName</em>" attribute set to "nda",
+and either the 'true' or 'false' value. When the value is set to 'true', further details may be
+ provided as text in the cbc:Description element.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:ContractExecutionRequirement&gt;
+    &lt;cbc:ExecutionRequirementCode listName="nda"&gt;true&lt;/cbc:ExecutionRequirementCode&gt;
+    &lt;cbc:Description languageID="ENG"&gt;A Non Disclosure Agreement will need to ...&lt;/cbc:Description&gt;
+&lt;/cac:ContractExecutionRequirement&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
 <h4 id="termsPerformanceSection"><a class="anchor" href="#termsPerformanceSection"></a>Terms Performance (BT-70)</h4>
 <div class="paragraph">
 <p>The main information about the performance of the contract (e.g.
@@ -4089,8 +4264,11 @@ name of each member:</p>
 <div class="sect3">
 <h4 id="prizeSection"><a class="anchor" href="#prizeSection"></a>Prize information (BT-44, BT-45, BT-644)</h4>
 <div class="paragraph">
-<p>Prize information is only for notices of type "CN design", and covers
-<em>Prize Rank</em> (BT-44), <em>Value Prize</em> (BT-644) and <em>Rewards Other</em>
+<p>Prize information may be used for various Planning and Competition notices.
+While it is necessary for Design Contest competition notices, it may also
+be useful for other notices when Procedure Features (BT-88) is set to
+"innovation" (Innovation Partnership) or "comp-dial" (Competitive Dialogue).
+Prize Information covers <em>Prize Rank</em> (BT-44), <em>Value Prize</em> (BT-644) and <em>Rewards Other</em>
 (BT-45); the last one being for prizes not having equivalent monetary
 value.</p>
 </div>
@@ -4680,6 +4858,23 @@ element</strong></p></td>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Previous Notice (OPP-090)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#previousNoticeSection">Previous Notice (OPP-090)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">*</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:NoticeDocumentReference&#8203;/cbc:ID</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Previous Planning Identifier (BT-125)</strong></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#previousPlanningSection">Previous Planning &amp; Planning Part Identifiers (BT-125, BT-1251)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -5171,10 +5366,10 @@ the process will be restarted.</p>
 </div>
 <div class="paragraph">
 <p>The "<em>efbc:ProcedureRelaunchIndicator</em>" element shall only be used when
-"true"; When it applies to the whole procurement, it shall appear in the
+"true"; when it applies to the whole procurement, it shall appear in the
 "<em>cac:TenderingProcess</em>" of the notice (i.e. at notice level) only.
 When applied to a Lot, all the individual Lots included in a Group of
-Lots with that same lot shall be marked as such, and Group of Lots
+Lots with that same Lot shall be marked as such, and Group of Lots
 containing the Lot, shall not exist anymore.</p>
 </div>
 <div class="listingblock">
@@ -5496,6 +5691,57 @@ additional information is encoded as follows:</p>
     &lt;cbc:EndDate&gt;2019-11-08+01:00&lt;/cbc:EndDate&gt;
     &lt;cbc:EndTime&gt;18:00:00+01:00&lt;/cbc:EndTime&gt;
 &lt;/cac:AdditionalInformationRequestPeriod&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="previousNoticeSection"><a class="anchor" href="#previousNoticeSection"></a>Previous Notice (OPP-090)</h4>
+<div class="paragraph">
+<p>Previous Notice (OPP-090) may be used to associate a notice to one or
+more that just preceded. It is not intended to replace:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Change Notice Version Identifier (BT-758),</p>
+</li>
+<li>
+<p>Modification Previous Notice Section Identifier (BT-1501),</p>
+</li>
+<li>
+<p>Previous Planning Identifier (BT-125), or</p>
+</li>
+<li>
+<p>Framework Notice Identifier (OPT-100).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is only foreseen for cases where no other option to refer to a previous notice exist. It may be useful when a Procedure already started in TEDXML and goes on in eForms, this Business Term allows then to associate the notices despite the absence of Procedure ID in TEDXML.
+A notice is referred to using either of the two identifiers:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>its notice identifier (UUID) concatenated with its version identifier (e.g. &lt;UUUID&gt;-&lt;vv&gt;), or</p>
+</li>
+<li>
+<p>its Notice Publication ID (XXXXXX-YYYY).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Previous Notice (OPP-090) applies to the whole notice, and not just a single lot.
+It may also be repeated to point to multiple previous notices when needed.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:NoticeDocumentReference&gt;
+    &lt;cbc:ID schemeName="notice-id-ref"&gt;123e4567-e89b-12d3-a456-426614174000-06&lt;/cbc:ID&gt;
+&lt;/cac:NoticeDocumentReference&gt;
+&lt;cac:NoticeDocumentReference&gt;
+    &lt;cbc:ID schemeName="notice-id-ref"&gt;33b03807-58ce-4eb2-aac2-25702d0ad624-06&lt;/cbc:ID&gt;
+&lt;/cac:NoticeDocumentReference&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -6378,7 +6624,7 @@ information is expected at the level of the Lot definition:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>For a CAN, when, for a given Group of Lots, a Framework Agreement is involved, only the following
+<p>For a CAN, when for a given Group of Lots a Framework Agreement is involved, only the following
 information is expected at the level of the Group of Lots
 definition:</p>
 </div>
@@ -9180,7 +9426,7 @@ just operational programs.)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Funding&#8203;/cbc:FundingProgramCode</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Funding&#8203;/efbc:FinancingIdentifier</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -9191,7 +9437,22 @@ used to at least partially finance the contract. The most concrete
 information must be given (e.g. about concrete projects, not just
 operational programs.)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">efac:Funding&#8203;/cbc:FundingProgram</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Funding&#8203;/cbc:FundingProgramCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Contract EU Funds Details (BT-6110)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Further information about the Union
+programme or project used at least partially finance the procurement.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Funding&#8203;/cbc:Description</code></pre>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle" colspan="4"><div class="content"><div class="paragraph">
