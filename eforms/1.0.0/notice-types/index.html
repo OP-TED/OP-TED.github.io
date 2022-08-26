@@ -359,30 +359,6 @@
 </aside>
 <article class="doc">
 <h1 class="page">Notice Types</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>eForms SDK 0.7.0 introduces a <strong>new file format</strong> for notice type definitions.</p>
-</div>
-<div class="paragraph">
-<p>The notice type definition files included in earlier versions of the eForms SDK were originally created to cover the needs of our form filling application (eNotices2) and have now been moved temporarily to the <code>/notice-types/legacy</code> sub-folder.</p>
-</div>
-<div class="paragraph">
-<p>The notice type definitions in the <code>/notice-types/legacy</code> sub-folder <strong>should not be used by eSenders</strong> as they will be removed when eForms SDK 1.0.0 is released.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-</div>
 <div class="sect1">
 <h2 id="_notice_subtypes"><a class="anchor" href="#_notice_subtypes"></a>Notice subtypes</h2>
 <div class="sectionbody">
@@ -424,15 +400,17 @@ In order to avoid confusion with the more general notion of "notice type" (contr
       "formType" : "planning", <i class="conum" data-value="6"></i><b>(6)</b>
       "type" : "pin-buyer", <i class="conum" data-value="7"></i><b>(7)</b>
       "description" : "Notice of the publication of a prior (...)", <i class="conum" data-value="8"></i><b>(8)</b>
-      "subTypeId" : "1" <i class="conum" data-value="9"></i><b>(9)</b>
+      "subTypeId" : "1", <i class="conum" data-value="9"></i><b>(9)</b>
+      "_label" : "notice|name|1", <i class="conum" data-value="10"></i><b>(10)</b>
+      "viewTemplateIds" : [ "1", "summary" ] <i class="conum" data-value="11"></i><b>(11)</b>
     },
     ...
   ],
   "documentTypes" : [
     {
-      "id" : "PIN", <i class="conum" data-value="10"></i><b>(10)</b>
-      "namespace" : "urn:oasis:names:specification:ubl:schema:xsd:PriorInformationNotice-2", <i class="conum" data-value="11"></i><b>(11)</b>
-      "rootElement" : "PriorInformationNotice" <i class="conum" data-value="12"></i><b>(12)</b>
+      "id" : "PIN", <i class="conum" data-value="12"></i><b>(12)</b>
+      "namespace" : "urn:oasis:names:specification:ubl:schema:xsd:PriorInformationNotice-2", <i class="conum" data-value="13"></i><b>(13)</b>
+      "rootElement" : "PriorInformationNotice" <i class="conum" data-value="14"></i><b>(14)</b>
     },
     ...
   ]
@@ -479,14 +457,22 @@ In order to avoid confusion with the more general notion of "notice type" (contr
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>Identifier of the document type</td>
+<td>Identifier of the label for the name of the notice subtype. The label is available in the <a href="../translations/index.html" class="page">translations</a> folder.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
-<td>XML namespace for the document type</td>
+<td>List of identifiers of the view templates that can be used to visualise a notice of this subtype.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="12"></i><b>12</b></td>
+<td>Identifier of the document type.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td>XML namespace for the document type.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
 <td>Root XML element for the document type.</td>
 </tr>
 </table>

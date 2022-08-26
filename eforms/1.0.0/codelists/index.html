@@ -411,15 +411,77 @@ codelists.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_identifier_of_a_codelist"><a class="anchor" href="#_identifier_of_a_codelist"></a>Identifier of a codelist</h3>
+<h3 id="_information_on_codelists"><a class="anchor" href="#_information_on_codelists"></a>Information on codelists</h3>
+<div class="paragraph">
+<p>The file named <code>codelists.json</code> provides information on each codelist.</p>
+</div>
+<div class="listingblock">
+<div class="title">Structure of codelists.json</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">{
+  "ublVersion" : "2.3", <i class="conum" data-value="1"></i><b>(1)</b>
+  "sdkVersion" : "1.0.0", <i class="conum" data-value="2"></i><b>(2)</b>
+  "metadataDatabase" : { <i class="conum" data-value="3"></i><b>(3)</b>
+    "version" : "1.0.0",
+    "createdOn" : "2022-08-05T10:24:40"
+  },
+  "codelists" : [
+    {
+      "id" : "accelerated-procedure", <i class="conum" data-value="4"></i><b>(4)</b>
+      "parentId" : "indicator", <i class="conum" data-value="5"></i><b>(5)</b>
+      "filename" : "indicator_accelerated-procedure.gc", <i class="conum" data-value="6"></i><b>(6)</b>
+      "description" : "List of codes to specify whether a procedure is accelerated or not.", <i class="conum" data-value="7"></i><b>(7)</b>
+      "_label" : "codelist|name|accelerated-procedure" <i class="conum" data-value="8"></i><b>(8)</b>
+    },
+    ...
+  ]
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Version of the UBL standard used.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Version of the eForms SDK the file belongs to.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Version number and date of the data used to create this file.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Identifier of the codelist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Identifier of the parent codelist, if the codelist is a <a href="#_tailored_codelists">tailored codelist</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Name of the file containing the codelist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Description of the codelist.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Identifier of the label for the name of the codelist. The label is available in the <a href="../translations/index.html" class="page">translations</a> folder.</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>In eForms, codelists are referenced using their identifier. The identifier is
-held in the codelist Genericode files in the "LongName" element which has no
-attributes:</p>
+also indicated in the codelist Genericode files, in the "LongName" element
+which has no attributes:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;LongName&gt;no-esubmission-justification&lt;/LongName&gt;</code></pre>
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;LongName&gt;accelerated-procedure&lt;/LongName&gt;</code></pre>
 </div>
 </div>
 </div>
