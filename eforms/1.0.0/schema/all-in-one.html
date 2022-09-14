@@ -1810,6 +1810,54 @@ Technical, these are required for some technical constraints and chosen
 design options.</p>
 </div>
 </div>
+<div class="sect3">
+<h4 id="_dates_and_times"><a class="anchor" href="#_dates_and_times"></a>4.2.4. Dates and Times</h4>
+<div class="paragraph">
+<p>All dates and times in eForms XML shall be expressed in ISO-8601 format, with
+local time marked as an offset from Coordinated Universal Time. When a date
+is associated with a time, both must share the same shift to Coordinated
+Universal Time.</p>
+</div>
+<div class="paragraph">
+<p>Time values shall vary from 00:00:00.0000 to 24:00:00 excluded<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup>,
+with as many decimals for the seconds as required.</p>
+</div>
+<div class="paragraph">
+<p>A notice sent on November 26<sup>th</sup>, 2019 at 1:38:54 PM CET (i.e. UTC +1)
+to OP shall be marked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2019-11-26+01:00&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;13:38:54+01:00&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When referring to midnight (end of the day for a given date), use 00:00:00
+(start of the following day) instead and adjust the referenced day
+(month and year) accordingly.</p>
+</div>
+<div class="paragraph">
+<p>For December 5<sup>th</sup>, 2020 at midnight CET, the markup shall be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-12-06+01:00&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;00:00:00+01:00&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When dates and times in UTC are used, the offset of zero can be stated
+numerically as "+00:00", or the zero UTC offset zone designator "Z" may be
+used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-03-21Z&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;18:00:00Z&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="noticeInformationSection"><a class="anchor" href="#noticeInformationSection"></a>4.3. Notice information</h3>
@@ -1972,7 +2020,7 @@ Regulation annex</a>.</p>
 <h4 id="dispatchDateEsender"><a class="anchor" href="#dispatchDateEsender"></a>4.3.1. Notice Dispatch Date eSender (BT-803)</h4>
 <div class="paragraph">
 <p>The Notice Dispatch Date eSender (BT-803) represents the date and time the notice was transmitted
-electronically by the eSender to the Publications Office of the European Union. It shall be indicated
+electronically by the eSender to the Publications Office of the European Union. It may be indicated
 in the extensions at Root by specifying its two components (date &amp; time):</p>
 </div>
 <div class="listingblock">
@@ -2076,7 +2124,7 @@ procurement procedure the notice belongs to.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Performed controls ensure its uniqueness<sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup> and
+<p>Performed controls ensure its uniqueness<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup> and
 help check consistency amongst received notices (For a given procedure,
 sequence and content of notices will be carefully checked).</p>
 </div>
@@ -2089,15 +2137,7 @@ sequence and content of notices will be carefully checked).</p>
 <div class="paragraph">
 <p>The <strong>date and time</strong> of the notice receipt by OP. This date will be
 added before its submission to OP and its trustworthiness evaluated
-based on the actual receipt time and a range of acceptable variations<sup class="footnote">[<a id="_footnoteref_8" class="footnote" href="#_footnotedef_8" title="View footnote.">8</a>]</sup>.</p>
-</div>
-<div class="paragraph">
-<p>Date and time shall be expressed locally with shift to Coordinated
-Universal Time.</p>
-</div>
-<div class="paragraph">
-<p>Values shall vary from 00:00:00.0000 to 24:00:00 excluded<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup>,
-with as many decimals for the seconds as required.</p>
+based on the actual receipt time and a range of acceptable variations<sup class="footnote">[<a id="_footnoteref_9" class="footnote" href="#_footnotedef_9" title="View footnote.">9</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>A notice sent on November 26<sup>th</sup>, 2019 at 1:38:54 PM CET (i.e. UTC +1)
@@ -2108,24 +2148,6 @@ to OP shall be marked:</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2019-11-26+01:00&lt;/cbc:IssueDate&gt;
 &lt;cbc:IssueTime&gt;13:38:54+01:00&lt;/cbc:IssueTime&gt;</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>When referring to midnight (end of day for a given date), use 00:00:00
-(start of the following day) instead and adjust the referenced day
-(month, and year) accordingly.</p>
-</div>
-<div class="paragraph">
-<p>For December 5<sup>th</sup>, 2020 at midnight CET, the markup shall look like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-12-06+01:00&lt;/cbc:IssueDate&gt;
-&lt;cbc:IssueTime&gt;00:00:00+01:00&lt;/cbc:IssueTime&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Any date shall be specified with time zone. When a date is associated
-with a time, both must share the same shift to Coordinated Universal Time.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2171,7 +2193,7 @@ Directive 2014/24). Only some values of the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/legal-basis">dedicated
 codelist</a> may be used in the context of the eProcurement. The "other"
 value shall exclusively be used for below threshold notices. Further
-needed Legal Basis may be specified as specified in <a href="#crossBorderLawSection">§ 4.4.3.11</a>.</p>
+needed Legal Basis may be specified as specified in <a href="#crossBorderLawSection">§ 4.4.3.12</a>.</p>
 </div>
 <div class="paragraph">
 <p>A notice for a procedure under Directive 2014/24 shall have its legal
@@ -2184,7 +2206,7 @@ basis information identified using:</p>
 </div>
 <div class="paragraph">
 <p>National and other local Legal Bases should be expressed as specified in
-<a href="#otherLegalBasisSection">§ 4.4.3.12</a>.</p>
+<a href="#otherLegalBasisSection">§ 4.4.3.13</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2405,7 +2427,7 @@ Procurement Procedure;</p>
 <li>
 <p>The group composition (i.e. the exhaustive list of Lots a
 group contains) is specified in the Tendering Terms at root level using
-child elements of "<em>cac:LotDistribution</em>" as described in <a href="#maxLotsSection">§ 4.4.3.22</a>;</p>
+child elements of "<em>cac:LotDistribution</em>" as described in <a href="#maxLotsSection">§ 4.4.3.23</a>;</p>
 </li>
 <li>
 <p>Other information about a Group of Lots is located separately
@@ -2790,11 +2812,48 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">Lot</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>Clean Vehicle Directive (*)</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Clean Vehicle Directive (BT-717)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#CVDDirectiveLotSection">§ 4.4.3.1</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:STrategicProcurement&#8203;/efbc:ApplicableLegalBasis</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CVD Contract Type (BT-735)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#CVDDirectiveLotSection">§ 4.4.3.1</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efbc:ProcurementCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>EU Funds Information (*)</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds Financing Identifier (BT-5010)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.1</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.2</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2811,7 +2870,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds Programme (BT-7220)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.1</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.2</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2828,7 +2887,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds Details (BT-6140)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.1</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.2</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2848,7 +2907,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Type (BT-747)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2865,7 +2924,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Name (BT-749)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2882,7 +2941,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Description (BT-750)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2899,7 +2958,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Used (BT-748)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2919,7 +2978,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Second Stage Invite (BT-40)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
@@ -2936,7 +2995,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Second Stage Invite Number Weight (BT-7531)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
@@ -2953,7 +3012,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Second Stage Invite Number Threshold (BT-7532)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
@@ -2970,7 +3029,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Selection Criteria Second Stage Invite Number (BT-752)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.2</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#selectionCriteriaSection">§ 4.4.3.3</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
@@ -2990,7 +3049,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Variants (BT-63)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#variantsSection">§ 4.4.3.3</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#variantsSection">§ 4.4.3.4</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3007,7 +3066,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>EU Funds (BT-60)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.1</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#EUFundsSection">§ 4.4.3.2</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3024,7 +3083,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Performing Staff Qualification (BT-79)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#staffQualificationSection">§ 4.4.3.4</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#staffQualificationSection">§ 4.4.3.5</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3041,7 +3100,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Recurrence (BT-94)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#recurrenceSection">§ 4.4.3.5</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#recurrenceSection">§ 4.4.3.6</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3058,7 +3117,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Recurrence Description (BT-95)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#recurrenceSection">§ 4.4.3.5</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#recurrenceSection">§ 4.4.3.6</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3075,7 +3134,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Security Clearance Deadline (BT-78)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#clearanceDeadlineSection">§ 4.4.3.6</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#clearanceDeadlineSection">§ 4.4.3.7</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3092,7 +3151,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Multiple Tenders (BT-769)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#multipleTendersSection">§ 4.4.3.7</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#multipleTendersSection">§ 4.4.3.8</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3112,7 +3171,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Guarantee Required (BT-751)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#financialGuaranteeSection">§ 4.4.3.8</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#financialGuaranteeSection">§ 4.4.3.9</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3129,7 +3188,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Guarantee Required Description (BT-75)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#financialGuaranteeSection">§ 4.4.3.8</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#financialGuaranteeSection">§ 4.4.3.9</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3149,7 +3208,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Restricted Justification (BT-707)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.9</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.10</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3166,7 +3225,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Official Language (BT-708)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.9</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.10</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3183,7 +3242,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Unofficial Language (BT-737)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.9</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.10</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3208,7 +3267,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Restricted (BT-14)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.9</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.10</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3225,7 +3284,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents URL (BT-15)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.9</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.10</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3242,7 +3301,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Restricted URL (BT-615)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.9</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">§ 4.4.3.10</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3262,7 +3321,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Terms Financial (BT-77)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#termsFinancialSection">§ 4.4.3.10</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#termsFinancialSection">§ 4.4.3.11</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3282,7 +3341,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Cross Border Law (BT-09)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#crossBorderLawSection">§ 4.4.3.11</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#crossBorderLawSection">§ 4.4.3.12</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3299,7 +3358,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Legal Basis (BT-01)&#8201;&#8212;&#8201;Local - Code</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#otherLegalBasisSection">§ 4.4.3.12</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#otherLegalBasisSection">§ 4.4.3.13</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3316,7 +3375,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Legal Basis (BT-01)&#8201;&#8212;&#8201;Local - Text</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#otherLegalBasisSection">§ 4.4.3.12</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#otherLegalBasisSection">§ 4.4.3.13</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3333,7 +3392,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Exclusion Grounds (BT-67)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">§ 4.4.3.13</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">§ 4.4.3.14</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3358,7 +3417,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Reserved Participation (BT-71)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">§ 4.4.3.13</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">§ 4.4.3.14</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">+</p></th>
@@ -3378,7 +3437,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Tenderer Legal Form (BT-761)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.14</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.15</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3395,7 +3454,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Tenderer Legal Form Description (BT-76)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.14</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.15</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3412,7 +3471,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Late Tenderer Information (BT-771)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.14</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.15</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3429,7 +3488,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Late Tenderer Information Description (BT-772)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.14</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tendererReqsSection">§ 4.4.3.15</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3449,7 +3508,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Subcontracting Tender Indication (BT-651)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.15</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.16</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
@@ -3466,7 +3525,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Subcontracting Obligation (BT-65)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.15</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.16</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3483,7 +3542,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Subcontracting Obligation Maximum (BT-729)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.15</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.16</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3500,7 +3559,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Subcontracting Obligation Minimum (BT-64)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.15</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">§ 4.4.3.16</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3520,7 +3579,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Reserved Execution (BT-736)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedExecutionSection">§ 4.4.3.16</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedExecutionSection">§ 4.4.3.17</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3537,7 +3596,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Electronic Invoicing (BT-743)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#eInvoicingSection">§ 4.4.3.17</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#eInvoicingSection">§ 4.4.3.18</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3554,7 +3613,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Non Disclosure Agreement (BT-801)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#nonDisclosureAgreementSection">§ 4.4.3.18</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#nonDisclosureAgreementSection">§ 4.4.3.19</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3571,7 +3630,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Non Disclosure Agreement Description (BT-802)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#nonDisclosureAgreementSection">§ 4.4.3.18</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#nonDisclosureAgreementSection">§ 4.4.3.19</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3588,7 +3647,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Terms Performance (BT-70)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#termsPerformanceSection">§ 4.4.3.19</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#termsPerformanceSection">§ 4.4.3.20</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3605,7 +3664,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Submission Electronic Catalog (BT-764)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#eCatalogueSubmissionSection">§ 4.4.3.20</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#eCatalogueSubmissionSection">§ 4.4.3.21</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3622,7 +3681,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Submission Electronic Signature (BT-744)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#eSignatureSubmissionSection">§ 4.4.3.21</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#eSignatureSubmissionSection">§ 4.4.3.22</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3642,7 +3701,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Following Contract (BT-41)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardConsequencesSection">§ 4.4.3.23</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardConsequencesSection">§ 4.4.3.24</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3659,7 +3718,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Jury Decision Binding (BT-42)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardConsequencesSection">§ 4.4.3.23</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardConsequencesSection">§ 4.4.3.24</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3676,7 +3735,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>No Negotiation Necessary (BT-120)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardConsequencesSection">§ 4.4.3.23</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardConsequencesSection">§ 4.4.3.24</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3696,7 +3755,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criteria Order Justification (BT-733)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3713,7 +3772,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criteria Complicated (BT-543)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3730,7 +3789,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Number Weight (BT-5421)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3747,7 +3806,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Number Fixed (BT-5422)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3764,7 +3823,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Number Threshold (BT-5423)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3781,7 +3840,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Number (BT-541)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3798,7 +3857,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Type (BT-539)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3815,7 +3874,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Name (BT-734)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3832,7 +3891,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Award Criterion Description (BT-540)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.24</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#awardCriteriaSection">§ 4.4.3.25</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3852,7 +3911,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Jury Member Name (BT-46)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#jurySection">§ 4.4.3.25</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#jurySection">§ 4.4.3.26</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -3872,7 +3931,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Prize Rank (BT-44)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">§ 4.4.3.26</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">§ 4.4.3.27</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3889,7 +3948,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Value Prize (BT-644)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">§ 4.4.3.26</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">§ 4.4.3.27</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3906,7 +3965,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Rewards Other (BT-45)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">§ 4.4.3.26</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#prizeSection">§ 4.4.3.27</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3931,7 +3990,7 @@ more)</em></p></td>
 <div class="paragraph">
 <p><em>(Organization subrole)</em></p>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.27</a></em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.28</a></em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3948,7 +4007,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong><em>Organization providing offline access to the procurement documents</em></strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.27</a></em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.28</a></em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3970,7 +4029,7 @@ more)</em></p></td>
 <div class="paragraph">
 <p><em>(Organization subrole)</em></p>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.27</a></em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.28</a></em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -3987,7 +4046,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Submission URL (BT-18)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#processingPartiesSection">§ 4.4.3.27</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#processingPartiesSection">§ 4.4.3.28</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4009,7 +4068,7 @@ more)</em></p></td>
 <div class="paragraph">
 <p><em>(Organization subrole)</em></p>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.27</a></em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><em><a href="#processingPartiesSection">§ 4.4.3.28</a></em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4029,7 +4088,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Tender Validity Deadline (BT-98)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tenderValiditySection">§ 4.4.3.28</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tenderValiditySection">§ 4.4.3.29</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4049,7 +4108,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Review Deadline Description (BT-99)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.29</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.30</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4071,7 +4130,7 @@ more)</em></p></td>
 <div class="paragraph">
 <p><em>(Organization role)</em></p>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.29</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.30</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4093,7 +4152,7 @@ more)</em></p></td>
 <div class="paragraph">
 <p><em>(Organization subrole)</em></p>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.29</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.30</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4115,7 +4174,7 @@ more)</em></p></td>
 <div class="paragraph">
 <p><em>(Organization role)</em></p>
 </div></div></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.29</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#appealTermsSection">§ 4.4.3.30</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4135,7 +4194,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Submission Language (BT-97)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.31</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.32</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">+</p></th>
@@ -4155,7 +4214,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Lots Max Awarded (BT-33)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.22</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.23</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -4172,7 +4231,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Lots Max Allowed (BT-31)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.22</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.23</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -4192,7 +4251,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Group Identifier (BT-330)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.22</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.23</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -4209,7 +4268,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Group Lot Identifier (BT-1375)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.22</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#maxLotsSection">§ 4.4.3.23</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -4229,7 +4288,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Electronic Ordering (BT-92)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.31</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.32</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4246,7 +4305,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Electronic Payment (BT-93)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.31</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.32</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4266,7 +4325,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Participant Name (BT-47)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#shortlistSection">§ 4.4.3.32</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#shortlistSection">§ 4.4.3.33</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -4286,7 +4345,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Security Clearance Code (BT-578)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#securityClearanceSection">§ 4.4.3.33</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#securityClearanceSection">§ 4.4.3.34</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4303,7 +4362,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Security Clearance Description (BT-732)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#securityClearanceSection">§ 4.4.3.33</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#securityClearanceSection">§ 4.4.3.34</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
@@ -4346,7 +4405,54 @@ more)</em></p></td>
 </tbody>
 </table>
 <div class="sect4">
-<h5 id="EUFundsSection"><a class="anchor" href="#EUFundsSection"></a>4.4.3.1. EU Funds (BG-61)</h5>
+<h5 id="CVDDirectiveLotSection"><a class="anchor" href="#CVDDirectiveLotSection"></a>4.4.3.1. CVD information at Lot level</h5>
+<div class="paragraph">
+<p>At Lot level, only the following information is expected:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clean Vehicle Directive (BT-717, field BT-717-Lot), and</p>
+</li>
+<li>
+<p>CVD Contract Type (BT-735, field BT-735-Lot)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Clean Vehicle Directive Business Term is used to specify whether this
+directive applies or not. When used, it should contain either of the two
+values "true" or "false".
+When BT-717 exists and has its value set to true, the CVD Contract Type
+may also be specified using one of the values of the <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/cvd-contract-type">CVD Contract Type</a>
+codelist. This BT is repeatable.</p>
+</div>
+<div class="paragraph">
+<p>A sample mark-up is provided below for a case where the directive applies
+and procurement concerns "Vehicle purchase, lease or rent" as well as "Other service
+contract" (the structure occurs in the extensions of the TenderingTerms of
+the given Lot):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:StrategicProcurement&gt;
+    &lt;efbc:ApplicableLegalBasis listName="cvd-scope"&gt;true&lt;/efbc:ApplicableLegalBasis&gt;
+    &lt;efac:StrategicProcurementInformation&gt;
+        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ServiceContractType&gt;
+    &lt;/efac:StrategicProcurementInformation&gt;
+    &lt;efac:StrategicProcurementInformation&gt;
+        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ServiceContractType&gt;
+    &lt;/efac:StrategicProcurementInformation&gt;
+&lt;/efac:StrategicProcurement&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This information is also possible at Lot level for Result notices, especially
+if the Lot is listed but not awarded.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="EUFundsSection"><a class="anchor" href="#EUFundsSection"></a>4.4.3.2. EU Funds (BG-61)</h5>
 <div class="paragraph">
 <p>In all notices, the element "<em>cbc:FundingProgramCode</em>" is used per Lot
 to specify whether it is foreseen
@@ -4388,7 +4494,7 @@ codes of the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/eu-programme">eu-programme</a>
 codelist. The content of the EU Funds Financing Identifier shall be the most
 concrete possible (e.g. grant agreement number, national identifier or
-project acronym). EU Funds Details (BT-6160) may only be provided once for
+project acronym). EU Funds Details (BT-6140) may only be provided once for
 each BG-611.</p>
 </div>
 <div class="listingblock">
@@ -4408,7 +4514,7 @@ each BG-611.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="selectionCriteriaSection"><a class="anchor" href="#selectionCriteriaSection"></a>4.4.3.2. Selection criteria</h5>
+<h5 id="selectionCriteriaSection"><a class="anchor" href="#selectionCriteriaSection"></a>4.4.3.3. Selection criteria</h5>
 <div class="paragraph">
 <p>Selection criteria may apply at "<em>Group of Lots</em>" and/or "<em>Lot</em>" level.
 When the Group may not be sub-divided, it is enough to have the criteria
@@ -4490,7 +4596,7 @@ associated with the criterion.</p>
 General under Directive 24</p>
 </li>
 <li>
-<p>If Procedure Type (BT-107) is<sup class="footnote">[<a id="_footnoteref_16" class="footnote" href="#_footnotedef_16" title="View footnote.">16</a>]</sup>:</p>
+<p>If Procedure Type (BT-105) is<sup class="footnote">[<a id="_footnoteref_16" class="footnote" href="#_footnotedef_16" title="View footnote.">16</a>]</sup>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -4540,7 +4646,7 @@ information may/shall be reported.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="variantsSection"><a class="anchor" href="#variantsSection"></a>4.4.3.3. Variants (BT-63)</h5>
+<h5 id="variantsSection"><a class="anchor" href="#variantsSection"></a>4.4.3.4. Variants (BT-63)</h5>
 <div class="paragraph">
 <p>The Variants business term is used to specify whether tenderers are
 "allowed", "not allowed" or "required" to provide tenders fulfilling the
@@ -4556,7 +4662,7 @@ codelist and the BT is expressed as follows:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="staffQualificationSection"><a class="anchor" href="#staffQualificationSection"></a>4.4.3.4. Performing Staff Qualification (BT-79)</h5>
+<h5 id="staffQualificationSection"><a class="anchor" href="#staffQualificationSection"></a>4.4.3.5. Performing Staff Qualification (BT-79)</h5>
 <div class="paragraph">
 <p>To indicate whether supporting information for staff qualification shall
 be provided, or not, and when (e.g. with the <em>tender</em>, with the
@@ -4575,7 +4681,7 @@ codelist.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="recurrenceSection"><a class="anchor" href="#recurrenceSection"></a>4.4.3.5. Recurrence (BT-94) and Recurrence Description (BT-95)</h5>
+<h5 id="recurrenceSection"><a class="anchor" href="#recurrenceSection"></a>4.4.3.6. Recurrence (BT-94) and Recurrence Description (BT-95)</h5>
 <div class="paragraph">
 <p>For QS and CN Notices (design excluded), the Recurrence (BT-94) may be
 used to identify a Procurement whose purpose is likely to also be
@@ -4596,7 +4702,7 @@ another procedure).</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="clearanceDeadlineSection"><a class="anchor" href="#clearanceDeadlineSection"></a>4.4.3.6. Clearance Deadline (BT-78)</h5>
+<h5 id="clearanceDeadlineSection"><a class="anchor" href="#clearanceDeadlineSection"></a>4.4.3.7. Clearance Deadline (BT-78)</h5>
 <div class="paragraph">
 <p>The time limit by which tenderers not holding the required security
 clearances may obtain them is identified with the Business Term Security
@@ -4610,7 +4716,7 @@ Clearance Deadline (BT-78) and marked with the element
 </div>
 </div>
 <div class="sect4">
-<h5 id="multipleTendersSection"><a class="anchor" href="#multipleTendersSection"></a>4.4.3.7. Multiple Tenders (BT-769)</h5>
+<h5 id="multipleTendersSection"><a class="anchor" href="#multipleTendersSection"></a>4.4.3.8. Multiple Tenders (BT-769)</h5>
 <div class="paragraph">
 <p>The Multiple Tenders business term allows to specify for a given Lot
 whether a tenderer may submit more than one tender ("allowed") or not
@@ -4627,7 +4733,7 @@ codelist are accepted.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="financialGuaranteeSection"><a class="anchor" href="#financialGuaranteeSection"></a>4.4.3.8. Financial guarantee (BT-751, BT-75)</h5>
+<h5 id="financialGuaranteeSection"><a class="anchor" href="#financialGuaranteeSection"></a>4.4.3.9. Financial guarantee (BT-751, BT-75)</h5>
 <div class="paragraph">
 <p>Whether a provisional guarantee (BT-751) is required, or not, shall be
 specified using the element "<em>cbc:GuaranteeTypeCode</em>" with
@@ -4646,7 +4752,7 @@ also be provided:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="procurementDocsSection"><a class="anchor" href="#procurementDocsSection"></a>4.4.3.9. Procurement documents (BT-14, BT-15, BT-615, BT-707)</h5>
+<h5 id="procurementDocsSection"><a class="anchor" href="#procurementDocsSection"></a>4.4.3.10. Procurement documents (BT-14, BT-15, BT-615, BT-707)</h5>
 <div class="paragraph">
 <p>The URL to procurement documents (or to information on documents with
 controlled accesses) is marked using the "<em>cbc:URI</em>" element.</p>
@@ -4699,7 +4805,7 @@ and "non-official".</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="termsFinancialSection"><a class="anchor" href="#termsFinancialSection"></a>4.4.3.10. Financial terms (BT-77)</h5>
+<h5 id="termsFinancialSection"><a class="anchor" href="#termsFinancialSection"></a>4.4.3.11. Financial terms (BT-77)</h5>
 <div class="paragraph">
 <p>Financing and payment terms, or reference to any provision governing
 them, is marked with the "<em>cbc:Note</em>" child of the "<em>cac:PaymentTerms</em>"
@@ -4715,7 +4821,7 @@ element.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="crossBorderLawSection"><a class="anchor" href="#crossBorderLawSection"></a>4.4.3.11. Cross Border Law (Procedure) (BT-09)</h5>
+<h5 id="crossBorderLawSection"><a class="anchor" href="#crossBorderLawSection"></a>4.4.3.12. Cross Border Law (Procedure) (BT-09)</h5>
 <div class="paragraph">
 <p>To specify applicable cross border law for the procurement involving
 buyers from different countries, the information shall be marked
@@ -4734,7 +4840,7 @@ information about the legislation reported in the
 </div>
 </div>
 <div class="sect4">
-<h5 id="otherLegalBasisSection"><a class="anchor" href="#otherLegalBasisSection"></a>4.4.3.12. Legal Basis (BT-01)</h5>
+<h5 id="otherLegalBasisSection"><a class="anchor" href="#otherLegalBasisSection"></a>4.4.3.13. Legal Basis (BT-01)</h5>
 <div class="paragraph">
 <p>Local legal basis shall be marked the same way as Cross Border Law:</p>
 </div>
@@ -4774,7 +4880,7 @@ information about the legislation reported in the
 </div>
 </div>
 <div class="sect4">
-<h5 id="reservedParticipationSection"><a class="anchor" href="#reservedParticipationSection"></a>4.4.3.13. Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</h5>
+<h5 id="reservedParticipationSection"><a class="anchor" href="#reservedParticipationSection"></a>4.4.3.14. Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</h5>
 <div class="paragraph">
 <p>Both are within the same "<em>cac:TendererQualificationRequest</em>" element and express
 requirements on the tenderer itself.</p>
@@ -4820,7 +4926,7 @@ Participation" requirement shall be specified.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="tendererReqsSection"><a class="anchor" href="#tendererReqsSection"></a>4.4.3.14. Tenderer requirements (BT-76, BT-761, BT-771, BT-772)</h5>
+<h5 id="tendererReqsSection"><a class="anchor" href="#tendererReqsSection"></a>4.4.3.15. Tenderer requirements (BT-76, BT-761, BT-771, BT-772)</h5>
 <div class="paragraph">
 <p>The existence of a constraint on a legal form that a group of tenderers
 awarded a contract has to take (BT-761), is marked with the
@@ -4858,7 +4964,7 @@ and detailed text using "<em>cbc:Description</em>" (BT-772).</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="subcontractingObligationSection"><a class="anchor" href="#subcontractingObligationSection"></a>4.4.3.15. Subcontracting obligations (BT-64, BT-65, BT-651, BT-729)</h5>
+<h5 id="subcontractingObligationSection"><a class="anchor" href="#subcontractingObligationSection"></a>4.4.3.16. Subcontracting obligations (BT-64, BT-65, BT-651, BT-729)</h5>
 <div class="paragraph">
 <p>These Business Terms apply only for Directive 2009/81 notices of notice types
 "PIN time limit" and "CN general".</p>
@@ -4924,7 +5030,7 @@ codelist.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="reservedExecutionSection"><a class="anchor" href="#reservedExecutionSection"></a>4.4.3.16. Reserved Execution (BT-736)</h5>
+<h5 id="reservedExecutionSection"><a class="anchor" href="#reservedExecutionSection"></a>4.4.3.17. Reserved Execution (BT-736)</h5>
 <div class="paragraph">
 <p>This business term is used to specify whether the procurement execution is
 reserved or not, or whether this is not yet known. The business term must be
@@ -4943,7 +5049,7 @@ codelist (i.e. "yes", "no" or "not-known"):</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="eInvoicingSection"><a class="anchor" href="#eInvoicingSection"></a>4.4.3.17. Electronic Invoicing (BT-743)</h5>
+<h5 id="eInvoicingSection"><a class="anchor" href="#eInvoicingSection"></a>4.4.3.18. Electronic Invoicing (BT-743)</h5>
 <div class="paragraph">
 <p>Use of e-invoicing for the contract execution is encoded with the
 "<em>cbc:ExecutionRequirementCode</em>" element, having its "<em>listName</em>" attribute set to "einvoicing",
@@ -4960,7 +5066,7 @@ codelist:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="nonDisclosureAgreementSection"><a class="anchor" href="#nonDisclosureAgreementSection"></a>4.4.3.18. Non Disclosure Agreement Indicator and Description (BT-801, BT-802)</h5>
+<h5 id="nonDisclosureAgreementSection"><a class="anchor" href="#nonDisclosureAgreementSection"></a>4.4.3.19. Non Disclosure Agreement Indicator and Description (BT-801, BT-802)</h5>
 <div class="paragraph">
 <p>Use of a Non Disclosure Agreement for the contract execution may be encoded with the
 "<em>cbc:ExecutionRequirementCode</em>" element, having its "<em>listName</em>" attribute set to "nda",
@@ -4977,7 +5083,7 @@ and either the 'true' or 'false' value. When the value is set to 'true', further
 </div>
 </div>
 <div class="sect4">
-<h5 id="termsPerformanceSection"><a class="anchor" href="#termsPerformanceSection"></a>4.4.3.19. Terms Performance (BT-70)</h5>
+<h5 id="termsPerformanceSection"><a class="anchor" href="#termsPerformanceSection"></a>4.4.3.20. Terms Performance (BT-70)</h5>
 <div class="paragraph">
 <p>The main information about the performance of the contract (e.g.
 intermediary deliverables, compensation for damages, intellectual
@@ -4994,7 +5100,7 @@ property rights) shall be marked:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="eCatalogueSubmissionSection"><a class="anchor" href="#eCatalogueSubmissionSection"></a>4.4.3.20. Submission Electronic Catalogue (BT-764)</h5>
+<h5 id="eCatalogueSubmissionSection"><a class="anchor" href="#eCatalogueSubmissionSection"></a>4.4.3.21. Submission Electronic Catalogue (BT-764)</h5>
 <div class="paragraph">
 <p>The possibility to submit (parts of) tenders as electronic catalogues is
 specified with the "<em>cbc:ExecutionRequirementCode</em>" element, having its
@@ -5012,7 +5118,7 @@ codelist:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="eSignatureSubmissionSection"><a class="anchor" href="#eSignatureSubmissionSection"></a>4.4.3.21. Submission Electronic Signature (BT-744)</h5>
+<h5 id="eSignatureSubmissionSection"><a class="anchor" href="#eSignatureSubmissionSection"></a>4.4.3.22. Submission Electronic Signature (BT-744)</h5>
 <div class="paragraph">
 <p>Whether or not the use of electronic signature<sup class="footnote">[<a id="_footnoteref_19" class="footnote" href="#_footnotedef_19" title="View footnote.">19</a>]</sup> is required, is indicated by a "true"/"false"
 value in the "<em>cbc:ExecutionRequirementCode</em>" element, having its "<em>listName</em>"
@@ -5027,7 +5133,7 @@ attribute set to "<em>esignature-submission</em>":</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="maxLotsSection"><a class="anchor" href="#maxLotsSection"></a>4.4.3.22. Lots Max Awarded (BT-33), Lots Max Allowed (BT-31) &amp; Group of Lots definition</h5>
+<h5 id="maxLotsSection"><a class="anchor" href="#maxLotsSection"></a>4.4.3.23. Lots Max Awarded (BT-33), Lots Max Allowed (BT-31) &amp; Group of Lots definition</h5>
 <div class="paragraph">
 <p>Regarding Lots distribution, relevant information is:</p>
 </div>
@@ -5113,7 +5219,7 @@ a situation, these will compete at the time of tenders evaluation;</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="awardConsequencesSection"><a class="anchor" href="#awardConsequencesSection"></a>4.4.3.23. Awarding consequences (BT-41, BT-42, BT-120)</h5>
+<h5 id="awardConsequencesSection"><a class="anchor" href="#awardConsequencesSection"></a>4.4.3.24. Awarding consequences (BT-41, BT-42, BT-120)</h5>
 <div class="paragraph">
 <p>Awarding consequences like:</p>
 </div>
@@ -5160,72 +5266,11 @@ respective element should have the value "false".</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="awardCriteriaSection"><a class="anchor" href="#awardCriteriaSection"></a>4.4.3.24. Award Criteria (BT-539, BT-540, BT-541, BT-543, BT-733, BT-734, BT-5421, BT-5422, BT-5423)</h5>
+<h5 id="awardCriteriaSection"><a class="anchor" href="#awardCriteriaSection"></a>4.4.3.25. Award Criteria (BT-539, BT-540, BT-541, BT-543, BT-733, BT-734, BT-5421, BT-5422, BT-5423)</h5>
 <div class="paragraph">
 <p>The way Award criteria is marked has some similarities with Selection
-criteria (cf. <a href="#selectionCriteriaSection">§ 4.4.3.2</a>), they however have some additional
+criteria (cf. <a href="#selectionCriteriaSection">§ 4.4.3.3</a>), they however have some additional
 dedicated elements. Related Award Criteria are specified in a "<em>cac:AwardingCriterion</em>" element.</p>
-</div>
-<div class="paragraph">
-<p>When the use of Award Criteria is performed sequentially based on order
-of importance instead of involving weighted scores, the buyer shall
-justify this decision (BT-733) using the "<em>cbc:Description</em>" element of
-"<em>cac:AwardingCriterion</em>".</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
-    &lt;cbc:Description languageID="ENG"&gt;Each criterion is evaluated separately ...&lt;/cbc:Description&gt;
-    &lt;cbc:Description languageID="FRA"&gt;Chaque critère est évalué individuellement ...&lt;/cbc:Description&gt;
-    &lt;cac:SubordinateAwardingCriterion&gt;
-        &lt;ext:UBLExtensions&gt;
-            &lt;ext:UBLExtension&gt;
-                &lt;ext:ExtensionContent&gt;
-                    &lt;efext:EformsExtension&gt;
-                        &lt;efac:AwardCriterionParameter&gt;
-                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
-                            &lt;efbc:ParameterNumeric&gt;50&lt;/efbc:ParameterNumeric&gt;
-                        &lt;/efac:AwardCriterionParameter&gt;
-                    &lt;/efext:EformsExtension&gt;
-                &lt;/ext:ExtensionContent&gt;
-            &lt;/ext:UBLExtension&gt;
-        &lt;/ext:UBLExtensions&gt;
-        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;price&lt;/cbc:AwardingCriterionTypeCode&gt;
-        &lt;cbc:Name languageID="ENG"&gt;Fair &amp; realistic price&lt;/cbc:Name&gt;
-        &lt;cbc:Name languageID="FRA"&gt;Prix équitable et réaliste&lt;/cbc:Name&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Tenders with a price score lower than 50 ...&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score sur les prix infèrieur ...&lt;/cbc:Description&gt;
-    &lt;/cac:SubordinateAwardingCriterion&gt;
-    &lt;cac:SubordinateAwardingCriterion&gt;
-        &lt;ext:UBLExtensions&gt;
-            &lt;ext:UBLExtension&gt;
-                &lt;ext:ExtensionContent&gt;
-                    &lt;efext:EformsExtension&gt;
-                        &lt;efac:AwardCriterionParameter&gt;
-                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
-                            &lt;efbc:ParameterNumeric&gt;65&lt;/efbc:ParameterNumeric&gt;
-                        &lt;/efac:AwardCriterionParameter&gt;
-                    &lt;/efext:EformsExtension&gt;
-                &lt;/ext:ExtensionContent&gt;
-            &lt;/ext:UBLExtension&gt;
-        &lt;/ext:UBLExtensions&gt;
-        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;quality&lt;/cbc:AwardingCriterionTypeCode&gt;
-        &lt;cbc:Name languageID="ENG"&gt;Technical merit&lt;/cbc:Name&gt;
-        &lt;cbc:Name languageID="FRA"&gt;Mérite technique&lt;/cbc:Name&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Tenders with a quality score lower than 65 ...&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score qualité infèrieur ...&lt;/cbc:Description&gt;
-    &lt;/cac:SubordinateAwardingCriterion&gt;
-&lt;/cac:AwardingCriterion&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>When Award Criteria calculation is more complex (BT-543), then the
-complicated expression should either be provided here or there should at
-least be a reference to the procurement document section where this
-information may be found. Information is encoded as text with the
-element "<em>cbc:CalculationExpression</em>"; for a given
-"<em>cac:AwardingCriterion</em>" element, the children "<em>cbc:Description</em>" (BT-733)
-and "<em>cbc:CalculationExpression</em>" (BT-543) shall not coexist.</p>
 </div>
 <div class="paragraph">
 <p>Each criteron of an award criteria is specified using a
@@ -5316,9 +5361,106 @@ percentage is used, the 100% rule verified (i.e. sum of the weighting percentage
 &lt;/cac:AwardingCriterion&gt;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>For a given Award Criteria (BG-707), "<em>Order of Importance</em>" may be used instead of precise
+weightings (i.e. code for Award Criterion Number Weight is set to "<em>ord-imp</em>"); in that case:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each and every Award Criterion (BG-38) within the Award Criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shall have an Award Criterion Number Weight (BT-5421) set to "<em>ord-imp</em>",</p>
+</li>
+<li>
+<p>Shall not have an Award Criterion Number Weight (BT-5421) with a code different from "<em>ord-imp</em>";</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The use of Order of Importance instead of weighted scores shall be justified (BT-733) using the
+"<em>cbc:Description</em>" element of "<em>cac:AwardingCriterion</em>",</p>
+</li>
+<li>
+<p>Associated Award Criterion Numbers (BT-541) shall be integers starting with "1" ("1" being for
+the Criterion with highest importance and importance decreases with number increase).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a given Award Criteria (BG-707), when "<em>Order of Importance</em>" is not used, then there should be
+within that Award Criteria no Award Criterion with Award Criterion Number Weight (BT-5421) set to
+"<em>ord-imp</em>".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
+    &lt;cbc:Description languageID="ENG"&gt;For this procurement, quality is a major concern and ...&lt;/cbc:Description&gt;
+    &lt;cbc:Description languageID="FRA"&gt;Pour cet achat, la qualité est une préoccupation majeure et ...&lt;/cbc:Description&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;50&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-weight"&gt;ord-imp&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;2&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;price&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Fair and realistic price&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Prix équitable et réaliste&lt;/cbc:Name&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Tenders with a price score lower than 50 ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score sur les prix infèrieur ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;65&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-weight"&gt;ord-imp&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;1&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;quality&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Technical merit&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Mérite technique&lt;/cbc:Name&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Tenders with a quality score lower than 65 ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score qualité infèrieur ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+&lt;/cac:AwardingCriterion&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When Award Criteria calculation is too complex to be described with the proposed structure,
+the complicated expression, or a reference to the procurement document section where this
+information may be found, should be specified in Award Criteria Complicated (BT-543).
+Information is encoded as text with the element "<em>cbc:CalculationExpression</em>". For a given
+Award Criteria (i.e. "<em>cac:AwardingCriterion</em>" element), the children "<em>cbc:Description</em>"
+(Award Criteria Order Justification, BT-733) and "<em>cbc:CalculationExpression</em>" (Award
+Criteria Complicated, BT-543) shall not coexist.</p>
+</div>
 </div>
 <div class="sect4">
-<h5 id="jurySection"><a class="anchor" href="#jurySection"></a>4.4.3.25. Jury Member Name (BT-46)</h5>
+<h5 id="jurySection"><a class="anchor" href="#jurySection"></a>4.4.3.26. Jury Member Name (BT-46)</h5>
 <div class="paragraph">
 <p>For a contest, Jury composition (BT-46) is described by providing the
 name of each member:</p>
@@ -5335,11 +5477,11 @@ name of each member:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="prizeSection"><a class="anchor" href="#prizeSection"></a>4.4.3.26. Prize information (BT-44, BT-45, BT-644)</h5>
+<h5 id="prizeSection"><a class="anchor" href="#prizeSection"></a>4.4.3.27. Prize information (BT-44, BT-45, BT-644)</h5>
 <div class="paragraph">
 <p>Prize information may be used for various Planning and Competition notices.
 While it is necessary for Design Contest competition notices, it may also
-be useful for other notices when Procedure Features (BT-88) is set to
+be useful for other notices when Procedure Type (BT-105) is set to
 "innovation" (Innovation Partnership) or "comp-dial" (Competitive Dialogue).
 Prize Information covers <em>Prize Rank</em> (BT-44), <em>Value Prize</em> (BT-644) and <em>Rewards Other</em>
 (BT-45); the last one being for prizes not having equivalent monetary
@@ -5372,7 +5514,7 @@ value.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="processingPartiesSection"><a class="anchor" href="#processingPartiesSection"></a>4.4.3.27. Tenders processing parties (BT-18)</h5>
+<h5 id="processingPartiesSection"><a class="anchor" href="#processingPartiesSection"></a>4.4.3.28. Tenders processing parties (BT-18)</h5>
 <div class="paragraph">
 <p>Other parties that can be involved in processing tenders are:</p>
 </div>
@@ -5420,7 +5562,7 @@ the "<em>cac:TenderRecipientParty</em>" element.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="tenderValiditySection"><a class="anchor" href="#tenderValiditySection"></a>4.4.3.28. Tender Validity Deadline (BT-98)</h5>
+<h5 id="tenderValiditySection"><a class="anchor" href="#tenderValiditySection"></a>4.4.3.29. Tender Validity Deadline (BT-98)</h5>
 <div class="paragraph">
 <p>The period, starting from the tender submission deadline, during which
 the tender must remain valid is expressed as follows:</p>
@@ -5441,7 +5583,7 @@ expression of the duration using integers.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="appealTermsSection"><a class="anchor" href="#appealTermsSection"></a>4.4.3.29. Appeal terms</h5>
+<h5 id="appealTermsSection"><a class="anchor" href="#appealTermsSection"></a>4.4.3.30. Appeal terms</h5>
 <div class="paragraph">
 <p>Different stakeholders may request a decision review, and such
 initiative is subject to a deadline (<em>Review Deadline Description&#8201;&#8212;&#8201;BT-99</em>). The review process involves a Review Organization (collecting
@@ -5474,7 +5616,7 @@ subrole</a> codelist).</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="tenderingLanguageSection"><a class="anchor" href="#tenderingLanguageSection"></a>4.4.3.30. Tendering language (BT-97)</h5>
+<h5 id="tenderingLanguageSection"><a class="anchor" href="#tenderingLanguageSection"></a>4.4.3.31. Tendering language (BT-97)</h5>
 <div class="paragraph">
 <p>The languages that may be used to submit tenders (BT-97) shall be marked
 using
@@ -5493,7 +5635,7 @@ codes:</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="postAwardSection"><a class="anchor" href="#postAwardSection"></a>4.4.3.31. Post award process (BT-92, BT-93)</h5>
+<h5 id="postAwardSection"><a class="anchor" href="#postAwardSection"></a>4.4.3.32. Post award process (BT-92, BT-93)</h5>
 <div class="paragraph">
 <p>The use of <em>Electronic Ordering (BT-92)</em> and <em>Payment (BT-93)</em> during
 execution is specified by two indicators:</p>
@@ -5518,7 +5660,7 @@ subtype, as for any other notice above threshold, when used, BT-93 should be set
 </div>
 </div>
 <div class="sect4">
-<h5 id="shortlistSection"><a class="anchor" href="#shortlistSection"></a>4.4.3.32. Economic Operator Shortlist</h5>
+<h5 id="shortlistSection"><a class="anchor" href="#shortlistSection"></a>4.4.3.33. Economic Operator Shortlist</h5>
 <div class="paragraph">
 <p>The "<em>cac:EconomicOperatorShortList</em>" element in the Tendering Terms
 block shall not be confused with the one in the Tendering Process one.
@@ -5544,7 +5686,7 @@ specify the limitations that will be applied to establish a short list.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="securityClearanceSection"><a class="anchor" href="#securityClearanceSection"></a>4.4.3.33. Security Clearance (BT-578), Deadline (BT-78) &amp; Description (BT-732)</h5>
+<h5 id="securityClearanceSection"><a class="anchor" href="#securityClearanceSection"></a>4.4.3.34. Security Clearance (BT-578), Deadline (BT-78) &amp; Description (BT-732)</h5>
 <div class="paragraph">
 <p>The Security Clearance description is marked with the
 "<em>cbc:Description</em>" element of the "<em>cac:SecurityClearanceTerm</em>" for the
@@ -6771,7 +6913,7 @@ additional information is encoded as follows:</p>
 <h5 id="previousNoticeSection"><a class="anchor" href="#previousNoticeSection"></a>4.4.4.17. Previous Notice (OPP-090)</h5>
 <div class="paragraph">
 <p>Previous Notice (OPP-090) may be used to associate a notice to one or
-more that just preceded. It is not intended to replace:</p>
+more immediately preceding notices. It is not intended to replace:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -6790,8 +6932,13 @@ more that just preceded. It is not intended to replace:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>It is only foreseen for cases where no other option to refer to a previous notice exist. It may be useful when a Procedure already started in TEDXML and goes on in eForms, this Business Term allows then to associate the notices despite the absence of Procedure ID in TEDXML.
-A notice is referred to using either of the two identifiers:</p>
+<p>It is only foreseen for cases where no other option to refer to a previous notice exists.
+It may be useful when some notices for a Procedure have been published in TEDXML,
+and it is desired to publish following notices of the Procedure in eForms. This
+Business Term allows the notices to be associated despite the absence of Procedure ID in TEDXML.</p>
+</div>
+<div class="paragraph">
+<p>A notice is referred to using either of the two identifiers:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7935,7 +8082,7 @@ element</strong></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:ProcurementAdditionalType&#8203;/cbc:ProcurementTypeCode&#8203;[@listName='social-procurement']</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:ProcurementAdditionalType&#8203;/cbc:ProcurementTypeCode&#8203;[@listName='social-objective']</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -9272,8 +9419,7 @@ and maximal),</p>
 made decision,</p>
 </li>
 <li>
-<p>Statistical results for some strategic procurement projects
-(e.g. green vehicles),</p>
+<p>Statistical results for some strategic procurement projects<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup>,</p>
 </li>
 <li>
 <p>Reference to the lot the result applies to.</p>
@@ -9320,6 +9466,17 @@ same notice.</p>
 </div></div></td>
 <td class="tableblock halign-center valign-middle"></td>
 <td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>LotResult Technical ID (OPT-322)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unique identifier for the LotResult.
+<em>Shall follow the scheme "RES-XXXX".</em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cbc:ID</code></pre>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Tender Value highest (BT-711)</strong></p></td>
@@ -9576,7 +9733,7 @@ Submission Type</a> codelist)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Number of tenders or requests to
 participate received. Tenders including variants or multiple tenders
 submitted (for one lot) by the same tenderer should be counted as one
-tender<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup>.</p></td>
+tender<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup>.</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
@@ -9602,13 +9759,35 @@ element shall occur at least once.</em></p>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CVD Contract Type (BT-735)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The type of contract of the procurement procedure
+within the scope of Clean Vehicles Directive 2009/33/EC.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efbc:ProcurementCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Vehicle Category (BT-723)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The category of vehicle falling within the scope
+of Directive 2009/33/EC.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efbc:AssetCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Vehicle Type (OPT-155)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">"labels" for types of vehicles (BT-715, BT-716 &amp;
 BT-725)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsCode</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsCode</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -9619,7 +9798,7 @@ BT-716 &amp; BT-725)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsNumeric</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsNumeric</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -9661,6 +9840,7 @@ BT-716 &amp; BT-725)</p></td>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:NoticeResult&gt;
     &lt;!-- Interrupted Mark-up --&gt;
     &lt;efac:LotResult&gt;
+        &lt;cbc:ID schemeName="result"&gt;RES-0002&lt;/cbc:ID&gt;
         &lt;cbc:HigherTenderAmount currencyID="EUR"&gt;4560000&lt;/cbc:HigherTenderAmount&gt;
         &lt;cbc:LowerTenderAmount currencyID="EUR"&gt;1230000&lt;/cbc:LowerTenderAmount&gt;
         &lt;cbc:TenderResultCode listName="winner-selection-status"&gt;selec-w&lt;/cbc:TenderResultCode&gt;
@@ -9724,14 +9904,74 @@ BT-716 &amp; BT-725)</p></td>
         &lt;efac:SettledContract&gt;
             &lt;cbc:ID schemeName="contract"&gt;CON-0003&lt;/cbc:ID&gt;
         &lt;/efac:SettledContract&gt;
-        &lt;efac:StrategicProcurementStatistics&gt;
-            &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
-            &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
-        &lt;/efac:StrategicProcurementStatistics&gt;
-        &lt;efac:StrategicProcurementStatistics&gt;
-            &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
-            &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
-        &lt;/efac:StrategicProcurementStatistics&gt;
+        &lt;efac:StrategicProcurement&gt;
+            &lt;efac:StrategicProcurementInformation&gt;
+                &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ProcurementCategoryCode&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;n2-n3&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;8&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;m1&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;12&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;8&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;4&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+            &lt;/efac:StrategicProcurementInformation&gt;
+            &lt;efac:StrategicProcurementInformation&gt;
+                &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ProcurementCategoryCode&gt;
+                &lt;efac:ProcurementDetails&gt;
+                &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;m2&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;24&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;18&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;n1&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+            &lt;/efac:StrategicProcurementInformation&gt;
+        &lt;/efac:StrategicProcurement&gt;
         &lt;!-- Interrupted Markup --&gt;
         &lt;efac:TenderLot&gt;
             &lt;cbc:ID schemeName="Lot"&gt;LOT-0001&lt;/cbc:ID&gt;
@@ -11369,7 +11609,7 @@ differ from the ones of the legal organization.</p>
 </div>
 <div class="paragraph">
 <p>A Mark-Up example is provided hereafter for an economic operator
-providing Procurement Services to the buyer in the previous section<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup>.</p>
+providing Procurement Services to the buyer in the previous section<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup>.</p>
 </div>
 <div id="nonTendererNonBuyerElementsFigure" class="imageblock">
 <div class="content">
@@ -11624,7 +11864,7 @@ element</strong></p></td>
 <pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Company&#8203;/cac:PartyName&#8203;/cbc:Name</code></pre>
 </div>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Organization name, possible expression in different linguistic versions<sup class="footnote">[<a id="_footnoteref_31" class="footnote" href="#_footnotedef_31" title="View footnote.">31</a>]</sup></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Organization name, possible expression in different linguistic versions<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">T</p></td>
@@ -12936,7 +13176,7 @@ should be marked, there is a need for some initial clarifications.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Buyer (#)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Organization that manages the budget allocated for the
-procedure and pays for the items being procured<sup class="footnote">[<a id="_footnoteref_32" class="footnote" href="#_footnotedef_32" title="View footnote.">32</a>]</sup>.</p></td>
+procedure and pays for the items being procured<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup>.</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ContractingParty</code></pre>
@@ -12945,7 +13185,7 @@ procedure and pays for the items being procured<sup class="footnote">[<a id="_fo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Winner (#)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The tendering Party to whom the contract is awarded<sup class="footnote">[<a id="_footnoteref_33" class="footnote" href="#_footnotedef_33" title="View footnote.">33</a>]</sup>.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The tendering Party to whom the contract is awarded<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup>.
 NB: A winner may be a single organization or a grouping of organizations</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Only provided as an example (*):</p>
@@ -12957,7 +13197,7 @@ NB: A winner may be a single organization or a grouping of organizations</p></td
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong><em>Tendering Party<sup class="footnote">[<a id="_footnoteref_34" class="footnote" href="#_footnotedef_34" title="View footnote.">34</a>]</sup></em></strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong><em>Tendering Party<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup></em></strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Party, or Parties, who has / have submitted his / their tender</p>
 </div>
@@ -14351,7 +14591,7 @@ found in <a href="#tenderingPartySection">§ 4.5.6</a>.</p>
 </li>
 <li>
 <p>Identify the Tender that have a not null rank and is applied to
-the lot covered by the Lot Result<sup class="footnote">[<a id="_footnoteref_35" class="footnote" href="#_footnotedef_35" title="View footnote.">35</a>]</sup>,</p>
+the lot covered by the Lot Result<sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup>,</p>
 </li>
 <li>
 <p>From the identified tender identify its associated Tendering
@@ -16780,7 +17020,7 @@ codelist.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Some information required by eForms may remain non-public
-("unpublished") for a defined period<sup class="footnote">[<a id="_footnoteref_36" class="footnote" href="#_footnotedef_36" title="View footnote.">36</a>]</sup>.
+("unpublished") for a defined period<sup class="footnote">[<a id="_footnoteref_37" class="footnote" href="#_footnotedef_37" title="View footnote.">37</a>]</sup>.
 This feature may be used for Result, Contract Modification and Contract
 Completion notices only.</p>
 </div>
@@ -19275,7 +19515,7 @@ Modification" notice</em></p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
 <ul>
 <li>
-<p>Any organization other than buyer</p>
+<p>Any organization</p>
 </li>
 </ul>
 </div></div></td>
@@ -19747,13 +19987,13 @@ Law Insider, Dictionary, Tenderer definition
 <a href="#_footnoteref_6">6</a>. For a CAN, when awarded, the contract is signed shortly before; when not awarded, the contract is not signed.
 </div>
 <div class="footnote" id="_footnotedef_7">
-<a href="#_footnoteref_7">7</a>. The first received notice within a given procedure shall either trigger the record of the corresponding procedure ID, or the generation of an error when this value is already used.
+<a href="#_footnoteref_7">7</a>. For disambiguity, the hour value "24" shall not be used.
 </div>
 <div class="footnote" id="_footnotedef_8">
-<a href="#_footnoteref_8">8</a>. To be defined by Business
+<a href="#_footnoteref_8">8</a>. The first received notice within a given procedure shall either trigger the record of the corresponding procedure ID, or the generation of an error when this value is already used.
 </div>
 <div class="footnote" id="_footnotedef_9">
-<a href="#_footnoteref_9">9</a>. For disambiguity, the hour value "24" shall not be used.
+<a href="#_footnoteref_9">9</a>. To be defined by Business
 </div>
 <div class="footnote" id="_footnotedef_10">
 <a href="#_footnoteref_10">10</a>. There is no specific order here and the approach is purely technical. Identification of the first linguistic version (i.e. code for NoticeLanguageCode) is based on the original version (i.e. first encoded text linguistic version) or the author&#8217;s environment.
@@ -19813,28 +20053,31 @@ Law Insider, Dictionary, Tenderer definition
 <a href="#_footnoteref_28">28</a>. i.e. for which "<em>cbc:TenderResultCode</em>" is either "close-nw" or "selec-w".
 </div>
 <div class="footnote" id="_footnotedef_29">
-<a href="#_footnoteref_29">29</a>. When referring to "tender", it should be understood "LotTender". When a received tender applies for multiple lots and groups of lots, there will be as many LotTenders as the number of lots and group of lots tendered. For groups of lots, the same LotTender will be counted as many times as the number of lots (once for every LotTender relative to the lots it is composed of).
+<a href="#_footnoteref_29">29</a>. At the LotResult level, CVD information may be provided so long the Lot has been awarded and the CVD directive applies to the Lot. It is then possible to report the CVD Contract Type (BT-735-LotResult), and for each of them, the Vehicle Category (BT-723-LotResult), and for each of these the number of Vehicles, Zero Emission Vehicles, Clean Vehicles (OPT-155-LotResult, OPT-156-LotResult)
 </div>
 <div class="footnote" id="_footnotedef_30">
-<a href="#_footnoteref_30">30</a>. The link between the Procurement service provider and the Buyer is made at another place in the instance.
+<a href="#_footnoteref_30">30</a>. When referring to "tender", it should be understood "LotTender". When a received tender applies for multiple lots and groups of lots, there will be as many LotTenders as the number of lots and group of lots tendered. For groups of lots, the same LotTender will be counted as many times as the number of lots (once for every LotTender relative to the lots it is composed of).
 </div>
 <div class="footnote" id="_footnotedef_31">
-<a href="#_footnoteref_31">31</a>. Use of multilingual versions of a Business (i.e. legal) name shall be restricted to international organizations and shouldn&#8217;t be confused with the trade name.
+<a href="#_footnoteref_31">31</a>. The link between the Procurement service provider and the Buyer is made at another place in the instance.
 </div>
 <div class="footnote" id="_footnotedef_32">
-<a href="#_footnoteref_32">32</a>. eProcurement Ontology: <a href="https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary" class="bare">https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary</a>
+<a href="#_footnoteref_32">32</a>. Use of multilingual versions of a Business (i.e. legal) name shall be restricted to international organizations and shouldn&#8217;t be confused with the trade name.
 </div>
 <div class="footnote" id="_footnotedef_33">
 <a href="#_footnoteref_33">33</a>. eProcurement Ontology: <a href="https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary" class="bare">https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary</a>
 </div>
 <div class="footnote" id="_footnotedef_34">
-<a href="#_footnoteref_34">34</a>. This role, not referenced in eForms, is needed to understand and deal with situations where economic operators tender together (e.g. consortium)
+<a href="#_footnoteref_34">34</a>. eProcurement Ontology: <a href="https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary" class="bare">https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary</a>
 </div>
 <div class="footnote" id="_footnotedef_35">
-<a href="#_footnoteref_35">35</a>. While a Tender (let&#8217;s call it global tender) may be submitted for multiple Lots and Group of lots, the concept of Tender in eForms (let&#8217;s call it individual tender) is limited to the fragment of that global tender that relates to a single Lot or Group of lots.
+<a href="#_footnoteref_35">35</a>. This role, not referenced in eForms, is needed to understand and deal with situations where economic operators tender together (e.g. consortium)
 </div>
 <div class="footnote" id="_footnotedef_36">
-<a href="#_footnoteref_36">36</a>. as reminded in the "eForms Implementation Handbook" p. 27. Also see Dir 24 Art. 50(4), Dir 25 Art. 70(3),
+<a href="#_footnoteref_36">36</a>. While a Tender (let&#8217;s call it global tender) may be submitted for multiple Lots and Group of lots, the concept of Tender in eForms (let&#8217;s call it individual tender) is limited to the fragment of that global tender that relates to a single Lot or Group of lots.
+</div>
+<div class="footnote" id="_footnotedef_37">
+<a href="#_footnoteref_37">37</a>. as reminded in the "eForms Implementation Handbook" p. 27. Also see Dir 24 Art. 50(4), Dir 25 Art. 70(3),
 </div>
 </div>
 </article>

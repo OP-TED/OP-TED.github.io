@@ -733,6 +733,54 @@ Technical, these are required for some technical constraints and chosen
 design options.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_dates_and_times"><a class="anchor" href="#_dates_and_times"></a>Dates and Times</h3>
+<div class="paragraph">
+<p>All dates and times in eForms XML shall be expressed in ISO-8601 format, with
+local time marked as an offset from Coordinated Universal Time. When a date
+is associated with a time, both must share the same shift to Coordinated
+Universal Time.</p>
+</div>
+<div class="paragraph">
+<p>Time values shall vary from 00:00:00.0000 to 24:00:00 excluded<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>,
+with as many decimals for the seconds as required.</p>
+</div>
+<div class="paragraph">
+<p>A notice sent on November 26<sup>th</sup>, 2019 at 1:38:54 PM CET (i.e. UTC +1)
+to OP shall be marked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2019-11-26+01:00&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;13:38:54+01:00&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When referring to midnight (end of the day for a given date), use 00:00:00
+(start of the following day) instead and adjust the referenced day
+(month and year) accordingly.</p>
+</div>
+<div class="paragraph">
+<p>For December 5<sup>th</sup>, 2020 at midnight CET, the markup shall be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-12-06+01:00&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;00:00:00+01:00&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When dates and times in UTC are used, the offset of zero can be stated
+numerically as "+00:00", or the zero UTC offset zone designator "Z" may be
+used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-03-21Z&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;18:00:00Z&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -897,7 +945,7 @@ Regulation annex</a>.</p>
 <h3 id="dispatchDateEsender"><a class="anchor" href="#dispatchDateEsender"></a>Notice Dispatch Date eSender (BT-803)</h3>
 <div class="paragraph">
 <p>The Notice Dispatch Date eSender (BT-803) represents the date and time the notice was transmitted
-electronically by the eSender to the Publications Office of the European Union. It shall be indicated
+electronically by the eSender to the Publications Office of the European Union. It may be indicated
 in the extensions at Root by specifying its two components (date &amp; time):</p>
 </div>
 <div class="listingblock">
@@ -1001,7 +1049,7 @@ procurement procedure the notice belongs to.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Performed controls ensure its uniqueness<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> and
+<p>Performed controls ensure its uniqueness<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> and
 help check consistency amongst received notices (For a given procedure,
 sequence and content of notices will be carefully checked).</p>
 </div>
@@ -1014,15 +1062,7 @@ sequence and content of notices will be carefully checked).</p>
 <div class="paragraph">
 <p>The <strong>date and time</strong> of the notice receipt by OP. This date will be
 added before its submission to OP and its trustworthiness evaluated
-based on the actual receipt time and a range of acceptable variations<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>.</p>
-</div>
-<div class="paragraph">
-<p>Date and time shall be expressed locally with shift to Coordinated
-Universal Time.</p>
-</div>
-<div class="paragraph">
-<p>Values shall vary from 00:00:00.0000 to 24:00:00 excluded<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>,
-with as many decimals for the seconds as required.</p>
+based on the actual receipt time and a range of acceptable variations<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>A notice sent on November 26<sup>th</sup>, 2019 at 1:38:54 PM CET (i.e. UTC +1)
@@ -1033,24 +1073,6 @@ to OP shall be marked:</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2019-11-26+01:00&lt;/cbc:IssueDate&gt;
 &lt;cbc:IssueTime&gt;13:38:54+01:00&lt;/cbc:IssueTime&gt;</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>When referring to midnight (end of day for a given date), use 00:00:00
-(start of the following day) instead and adjust the referenced day
-(month, and year) accordingly.</p>
-</div>
-<div class="paragraph">
-<p>For December 5<sup>th</sup>, 2020 at midnight CET, the markup shall look like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-12-06+01:00&lt;/cbc:IssueDate&gt;
-&lt;cbc:IssueTime&gt;00:00:00+01:00&lt;/cbc:IssueTime&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Any date shall be specified with time zone. When a date is associated
-with a time, both must share the same shift to Coordinated Universal Time.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1715,6 +1737,43 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">Lot</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">G.Lot</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>Clean Vehicle Directive (*)</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Clean Vehicle Directive (BT-717)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#CVDDirectiveLotSection">CVD information at Lot level</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:STrategicProcurement&#8203;/efbc:ApplicableLegalBasis</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CVD Contract Type (BT-735)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#CVDDirectiveLotSection">CVD information at Lot level</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efbc:ProcurementCategoryCode</code></pre>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>EU Funds Information (*)</strong></p></td>
@@ -3273,6 +3332,53 @@ more)</em></p></td>
 </tbody>
 </table>
 <div class="sect3">
+<h4 id="CVDDirectiveLotSection"><a class="anchor" href="#CVDDirectiveLotSection"></a>CVD information at Lot level</h4>
+<div class="paragraph">
+<p>At Lot level, only the following information is expected:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Clean Vehicle Directive (BT-717, field BT-717-Lot), and</p>
+</li>
+<li>
+<p>CVD Contract Type (BT-735, field BT-735-Lot)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The Clean Vehicle Directive Business Term is used to specify whether this
+directive applies or not. When used, it should contain either of the two
+values "true" or "false".
+When BT-717 exists and has its value set to true, the CVD Contract Type
+may also be specified using one of the values of the <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/cvd-contract-type">CVD Contract Type</a>
+codelist. This BT is repeatable.</p>
+</div>
+<div class="paragraph">
+<p>A sample mark-up is provided below for a case where the directive applies
+and procurement concerns "Vehicle purchase, lease or rent" as well as "Other service
+contract" (the structure occurs in the extensions of the TenderingTerms of
+the given Lot):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:StrategicProcurement&gt;
+    &lt;efbc:ApplicableLegalBasis listName="cvd-scope"&gt;true&lt;/efbc:ApplicableLegalBasis&gt;
+    &lt;efac:StrategicProcurementInformation&gt;
+        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ServiceContractType&gt;
+    &lt;/efac:StrategicProcurementInformation&gt;
+    &lt;efac:StrategicProcurementInformation&gt;
+        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ServiceContractType&gt;
+    &lt;/efac:StrategicProcurementInformation&gt;
+&lt;/efac:StrategicProcurement&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This information is also possible at Lot level for Result notices, especially
+if the Lot is listed but not awarded.</p>
+</div>
+</div>
+<div class="sect3">
 <h4 id="EUFundsSection"><a class="anchor" href="#EUFundsSection"></a>EU Funds (BG-61)</h4>
 <div class="paragraph">
 <p>In all notices, the element "<em>cbc:FundingProgramCode</em>" is used per Lot
@@ -3315,7 +3421,7 @@ codes of the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/eu-programme">eu-programme</a>
 codelist. The content of the EU Funds Financing Identifier shall be the most
 concrete possible (e.g. grant agreement number, national identifier or
-project acronym). EU Funds Details (BT-6160) may only be provided once for
+project acronym). EU Funds Details (BT-6140) may only be provided once for
 each BG-611.</p>
 </div>
 <div class="listingblock">
@@ -3417,7 +3523,7 @@ associated with the criterion.</p>
 General under Directive 24</p>
 </li>
 <li>
-<p>If Procedure Type (BT-107) is<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup>:</p>
+<p>If Procedure Type (BT-105) is<sup class="footnote">[<a id="_footnoteref_10" class="footnote" href="#_footnotedef_10" title="View footnote.">10</a>]</sup>:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -4094,67 +4200,6 @@ criteria (cf. <a href="#selectionCriteriaSection">Selection criteria</a>), they 
 dedicated elements. Related Award Criteria are specified in a "<em>cac:AwardingCriterion</em>" element.</p>
 </div>
 <div class="paragraph">
-<p>When the use of Award Criteria is performed sequentially based on order
-of importance instead of involving weighted scores, the buyer shall
-justify this decision (BT-733) using the "<em>cbc:Description</em>" element of
-"<em>cac:AwardingCriterion</em>".</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
-    &lt;cbc:Description languageID="ENG"&gt;Each criterion is evaluated separately ...&lt;/cbc:Description&gt;
-    &lt;cbc:Description languageID="FRA"&gt;Chaque critère est évalué individuellement ...&lt;/cbc:Description&gt;
-    &lt;cac:SubordinateAwardingCriterion&gt;
-        &lt;ext:UBLExtensions&gt;
-            &lt;ext:UBLExtension&gt;
-                &lt;ext:ExtensionContent&gt;
-                    &lt;efext:EformsExtension&gt;
-                        &lt;efac:AwardCriterionParameter&gt;
-                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
-                            &lt;efbc:ParameterNumeric&gt;50&lt;/efbc:ParameterNumeric&gt;
-                        &lt;/efac:AwardCriterionParameter&gt;
-                    &lt;/efext:EformsExtension&gt;
-                &lt;/ext:ExtensionContent&gt;
-            &lt;/ext:UBLExtension&gt;
-        &lt;/ext:UBLExtensions&gt;
-        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;price&lt;/cbc:AwardingCriterionTypeCode&gt;
-        &lt;cbc:Name languageID="ENG"&gt;Fair &amp; realistic price&lt;/cbc:Name&gt;
-        &lt;cbc:Name languageID="FRA"&gt;Prix équitable et réaliste&lt;/cbc:Name&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Tenders with a price score lower than 50 ...&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score sur les prix infèrieur ...&lt;/cbc:Description&gt;
-    &lt;/cac:SubordinateAwardingCriterion&gt;
-    &lt;cac:SubordinateAwardingCriterion&gt;
-        &lt;ext:UBLExtensions&gt;
-            &lt;ext:UBLExtension&gt;
-                &lt;ext:ExtensionContent&gt;
-                    &lt;efext:EformsExtension&gt;
-                        &lt;efac:AwardCriterionParameter&gt;
-                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
-                            &lt;efbc:ParameterNumeric&gt;65&lt;/efbc:ParameterNumeric&gt;
-                        &lt;/efac:AwardCriterionParameter&gt;
-                    &lt;/efext:EformsExtension&gt;
-                &lt;/ext:ExtensionContent&gt;
-            &lt;/ext:UBLExtension&gt;
-        &lt;/ext:UBLExtensions&gt;
-        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;quality&lt;/cbc:AwardingCriterionTypeCode&gt;
-        &lt;cbc:Name languageID="ENG"&gt;Technical merit&lt;/cbc:Name&gt;
-        &lt;cbc:Name languageID="FRA"&gt;Mérite technique&lt;/cbc:Name&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Tenders with a quality score lower than 65 ...&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score qualité infèrieur ...&lt;/cbc:Description&gt;
-    &lt;/cac:SubordinateAwardingCriterion&gt;
-&lt;/cac:AwardingCriterion&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>When Award Criteria calculation is more complex (BT-543), then the
-complicated expression should either be provided here or there should at
-least be a reference to the procurement document section where this
-information may be found. Information is encoded as text with the
-element "<em>cbc:CalculationExpression</em>"; for a given
-"<em>cac:AwardingCriterion</em>" element, the children "<em>cbc:Description</em>" (BT-733)
-and "<em>cbc:CalculationExpression</em>" (BT-543) shall not coexist.</p>
-</div>
-<div class="paragraph">
 <p>Each criteron of an award criteria is specified using a
 "<em>cac:SubordinateAwardingCriterion</em>" element. For any criterion of the award
 criteria, the type (BT-539) and description (BT-540) shall be provided; the
@@ -4243,6 +4288,103 @@ percentage is used, the 100% rule verified (i.e. sum of the weighting percentage
 &lt;/cac:AwardingCriterion&gt;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>For a given Award Criteria (BG-707), "<em>Order of Importance</em>" may be used instead of precise
+weightings (i.e. code for Award Criterion Number Weight is set to "<em>ord-imp</em>"); in that case:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Each and every Award Criterion (BG-38) within the Award Criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Shall have an Award Criterion Number Weight (BT-5421) set to "<em>ord-imp</em>",</p>
+</li>
+<li>
+<p>Shall not have an Award Criterion Number Weight (BT-5421) with a code different from "<em>ord-imp</em>";</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The use of Order of Importance instead of weighted scores shall be justified (BT-733) using the
+"<em>cbc:Description</em>" element of "<em>cac:AwardingCriterion</em>",</p>
+</li>
+<li>
+<p>Associated Award Criterion Numbers (BT-541) shall be integers starting with "1" ("1" being for
+the Criterion with highest importance and importance decreases with number increase).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a given Award Criteria (BG-707), when "<em>Order of Importance</em>" is not used, then there should be
+within that Award Criteria no Award Criterion with Award Criterion Number Weight (BT-5421) set to
+"<em>ord-imp</em>".</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
+    &lt;cbc:Description languageID="ENG"&gt;For this procurement, quality is a major concern and ...&lt;/cbc:Description&gt;
+    &lt;cbc:Description languageID="FRA"&gt;Pour cet achat, la qualité est une préoccupation majeure et ...&lt;/cbc:Description&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;50&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-weight"&gt;ord-imp&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;2&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;price&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Fair and realistic price&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Prix équitable et réaliste&lt;/cbc:Name&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Tenders with a price score lower than 50 ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score sur les prix infèrieur ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-pass&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;65&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efbc:ParameterCode listName="number-weight"&gt;ord-imp&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;1&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;quality&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Technical merit&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Mérite technique&lt;/cbc:Name&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Tenders with a quality score lower than 65 ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score qualité infèrieur ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+&lt;/cac:AwardingCriterion&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When Award Criteria calculation is too complex to be described with the proposed structure,
+the complicated expression, or a reference to the procurement document section where this
+information may be found, should be specified in Award Criteria Complicated (BT-543).
+Information is encoded as text with the element "<em>cbc:CalculationExpression</em>". For a given
+Award Criteria (i.e. "<em>cac:AwardingCriterion</em>" element), the children "<em>cbc:Description</em>"
+(Award Criteria Order Justification, BT-733) and "<em>cbc:CalculationExpression</em>" (Award
+Criteria Complicated, BT-543) shall not coexist.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="jurySection"><a class="anchor" href="#jurySection"></a>Jury Member Name (BT-46)</h4>
@@ -4266,7 +4408,7 @@ name of each member:</p>
 <div class="paragraph">
 <p>Prize information may be used for various Planning and Competition notices.
 While it is necessary for Design Contest competition notices, it may also
-be useful for other notices when Procedure Features (BT-88) is set to
+be useful for other notices when Procedure Type (BT-105) is set to
 "innovation" (Innovation Partnership) or "comp-dial" (Competitive Dialogue).
 Prize Information covers <em>Prize Rank</em> (BT-44), <em>Value Prize</em> (BT-644) and <em>Rewards Other</em>
 (BT-45); the last one being for prizes not having equivalent monetary
@@ -5698,7 +5840,7 @@ additional information is encoded as follows:</p>
 <h4 id="previousNoticeSection"><a class="anchor" href="#previousNoticeSection"></a>Previous Notice (OPP-090)</h4>
 <div class="paragraph">
 <p>Previous Notice (OPP-090) may be used to associate a notice to one or
-more that just preceded. It is not intended to replace:</p>
+more immediately preceding notices. It is not intended to replace:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -5717,8 +5859,13 @@ more that just preceded. It is not intended to replace:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>It is only foreseen for cases where no other option to refer to a previous notice exist. It may be useful when a Procedure already started in TEDXML and goes on in eForms, this Business Term allows then to associate the notices despite the absence of Procedure ID in TEDXML.
-A notice is referred to using either of the two identifiers:</p>
+<p>It is only foreseen for cases where no other option to refer to a previous notice exists.
+It may be useful when some notices for a Procedure have been published in TEDXML,
+and it is desired to publish following notices of the Procedure in eForms. This
+Business Term allows the notices to be associated despite the absence of Procedure ID in TEDXML.</p>
+</div>
+<div class="paragraph">
+<p>A notice is referred to using either of the two identifiers:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -6862,7 +7009,7 @@ element</strong></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:ProcurementAdditionalType&#8203;/cbc:ProcurementTypeCode&#8203;[@listName='social-procurement']</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:ProcurementAdditionalType&#8203;/cbc:ProcurementTypeCode&#8203;[@listName='social-objective']</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -8201,8 +8348,7 @@ and maximal),</p>
 made decision,</p>
 </li>
 <li>
-<p>Statistical results for some strategic procurement projects
-(e.g. green vehicles),</p>
+<p>Statistical results for some strategic procurement projects<sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup>,</p>
 </li>
 <li>
 <p>Reference to the lot the result applies to.</p>
@@ -8249,6 +8395,17 @@ same notice.</p>
 </div></div></td>
 <td class="tableblock halign-center valign-middle"></td>
 <td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>LotResult Technical ID (OPT-322)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unique identifier for the LotResult.
+<em>Shall follow the scheme "RES-XXXX".</em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cbc:ID</code></pre>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Tender Value highest (BT-711)</strong></p></td>
@@ -8505,7 +8662,7 @@ Submission Type</a> codelist)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Number of tenders or requests to
 participate received. Tenders including variants or multiple tenders
 submitted (for one lot) by the same tenderer should be counted as one
-tender<sup class="footnote">[<a id="_footnoteref_23" class="footnote" href="#_footnotedef_23" title="View footnote.">23</a>]</sup>.</p></td>
+tender<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>.</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
@@ -8531,13 +8688,35 @@ element shall occur at least once.</em></p>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CVD Contract Type (BT-735)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The type of contract of the procurement procedure
+within the scope of Clean Vehicles Directive 2009/33/EC.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efbc:ProcurementCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Vehicle Category (BT-723)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The category of vehicle falling within the scope
+of Directive 2009/33/EC.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efbc:AssetCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Vehicle Type (OPT-155)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">"labels" for types of vehicles (BT-715, BT-716 &amp;
 BT-725)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsCode</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsCode</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -8548,7 +8727,7 @@ BT-716 &amp; BT-725)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsNumeric</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsNumeric</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -8590,6 +8769,7 @@ BT-716 &amp; BT-725)</p></td>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:NoticeResult&gt;
     &lt;!-- Interrupted Mark-up --&gt;
     &lt;efac:LotResult&gt;
+        &lt;cbc:ID schemeName="result"&gt;RES-0002&lt;/cbc:ID&gt;
         &lt;cbc:HigherTenderAmount currencyID="EUR"&gt;4560000&lt;/cbc:HigherTenderAmount&gt;
         &lt;cbc:LowerTenderAmount currencyID="EUR"&gt;1230000&lt;/cbc:LowerTenderAmount&gt;
         &lt;cbc:TenderResultCode listName="winner-selection-status"&gt;selec-w&lt;/cbc:TenderResultCode&gt;
@@ -8653,14 +8833,74 @@ BT-716 &amp; BT-725)</p></td>
         &lt;efac:SettledContract&gt;
             &lt;cbc:ID schemeName="contract"&gt;CON-0003&lt;/cbc:ID&gt;
         &lt;/efac:SettledContract&gt;
-        &lt;efac:StrategicProcurementStatistics&gt;
-            &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
-            &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
-        &lt;/efac:StrategicProcurementStatistics&gt;
-        &lt;efac:StrategicProcurementStatistics&gt;
-            &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
-            &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
-        &lt;/efac:StrategicProcurementStatistics&gt;
+        &lt;efac:StrategicProcurement&gt;
+            &lt;efac:StrategicProcurementInformation&gt;
+                &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ProcurementCategoryCode&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;n2-n3&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;8&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;m1&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;12&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;8&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;4&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+            &lt;/efac:StrategicProcurementInformation&gt;
+            &lt;efac:StrategicProcurementInformation&gt;
+                &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ProcurementCategoryCode&gt;
+                &lt;efac:ProcurementDetails&gt;
+                &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;m2&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;24&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;18&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;n1&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+            &lt;/efac:StrategicProcurementInformation&gt;
+        &lt;/efac:StrategicProcurement&gt;
         &lt;!-- Interrupted Markup --&gt;
         &lt;efac:TenderLot&gt;
             &lt;cbc:ID schemeName="Lot"&gt;LOT-0001&lt;/cbc:ID&gt;
@@ -10300,7 +10540,7 @@ differ from the ones of the legal organization.</p>
 </div>
 <div class="paragraph">
 <p>A Mark-Up example is provided hereafter for an economic operator
-providing Procurement Services to the buyer in the previous section<sup class="footnote">[<a id="_footnoteref_24" class="footnote" href="#_footnotedef_24" title="View footnote.">24</a>]</sup>.</p>
+providing Procurement Services to the buyer in the previous section<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup>.</p>
 </div>
 <div id="nonTendererNonBuyerElementsFigure" class="imageblock">
 <div class="content">
@@ -10555,7 +10795,7 @@ element</strong></p></td>
 <pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Company&#8203;/cac:PartyName&#8203;/cbc:Name</code></pre>
 </div>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Organization name, possible expression in different linguistic versions<sup class="footnote">[<a id="_footnoteref_25" class="footnote" href="#_footnotedef_25" title="View footnote.">25</a>]</sup></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Organization name, possible expression in different linguistic versions<sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">T</p></td>
@@ -11867,7 +12107,7 @@ should be marked, there is a need for some initial clarifications.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Buyer (#)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Organization that manages the budget allocated for the
-procedure and pays for the items being procured<sup class="footnote">[<a id="_footnoteref_26" class="footnote" href="#_footnotedef_26" title="View footnote.">26</a>]</sup>.</p></td>
+procedure and pays for the items being procured<sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup>.</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ContractingParty</code></pre>
@@ -11876,7 +12116,7 @@ procedure and pays for the items being procured<sup class="footnote">[<a id="_fo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Winner (#)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The tendering Party to whom the contract is awarded<sup class="footnote">[<a id="_footnoteref_27" class="footnote" href="#_footnotedef_27" title="View footnote.">27</a>]</sup>.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The tendering Party to whom the contract is awarded<sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup>.
 NB: A winner may be a single organization or a grouping of organizations</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Only provided as an example (*):</p>
@@ -11888,7 +12128,7 @@ NB: A winner may be a single organization or a grouping of organizations</p></td
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong><em>Tendering Party<sup class="footnote">[<a id="_footnoteref_28" class="footnote" href="#_footnotedef_28" title="View footnote.">28</a>]</sup></em></strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong><em>Tendering Party<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup></em></strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Party, or Parties, who has / have submitted his / their tender</p>
 </div>
@@ -13282,7 +13522,7 @@ found in <a href="#tenderingPartySection">Tendering Party</a>.</p>
 </li>
 <li>
 <p>Identify the Tender that have a not null rank and is applied to
-the lot covered by the Lot Result<sup class="footnote">[<a id="_footnoteref_29" class="footnote" href="#_footnotedef_29" title="View footnote.">29</a>]</sup>,</p>
+the lot covered by the Lot Result<sup class="footnote">[<a id="_footnoteref_30" class="footnote" href="#_footnotedef_30" title="View footnote.">30</a>]</sup>,</p>
 </li>
 <li>
 <p>From the identified tender identify its associated Tendering
@@ -15357,13 +15597,13 @@ accessed April 6<sup>th</sup>, 2021</p>
 <div id="footnotes">
 <hr>
 <div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. The first received notice within a given procedure shall either trigger the record of the corresponding procedure ID, or the generation of an error when this value is already used.
+<a href="#_footnoteref_1">1</a>. For disambiguity, the hour value "24" shall not be used.
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. To be defined by Business
+<a href="#_footnoteref_2">2</a>. The first received notice within a given procedure shall either trigger the record of the corresponding procedure ID, or the generation of an error when this value is already used.
 </div>
 <div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. For disambiguity, the hour value "24" shall not be used.
+<a href="#_footnoteref_3">3</a>. To be defined by Business
 </div>
 <div class="footnote" id="_footnotedef_4">
 <a href="#_footnoteref_4">4</a>. There is no specific order here and the approach is purely technical. Identification of the first linguistic version (i.e. code for NoticeLanguageCode) is based on the original version (i.e. first encoded text linguistic version) or the author&#8217;s environment.
@@ -15423,25 +15663,28 @@ accessed April 6<sup>th</sup>, 2021</p>
 <a href="#_footnoteref_22">22</a>. i.e. for which "<em>cbc:TenderResultCode</em>" is either "close-nw" or "selec-w".
 </div>
 <div class="footnote" id="_footnotedef_23">
-<a href="#_footnoteref_23">23</a>. When referring to "tender", it should be understood "LotTender". When a received tender applies for multiple lots and groups of lots, there will be as many LotTenders as the number of lots and group of lots tendered. For groups of lots, the same LotTender will be counted as many times as the number of lots (once for every LotTender relative to the lots it is composed of).
+<a href="#_footnoteref_23">23</a>. At the LotResult level, CVD information may be provided so long the Lot has been awarded and the CVD directive applies to the Lot. It is then possible to report the CVD Contract Type (BT-735-LotResult), and for each of them, the Vehicle Category (BT-723-LotResult), and for each of these the number of Vehicles, Zero Emission Vehicles, Clean Vehicles (OPT-155-LotResult, OPT-156-LotResult)
 </div>
 <div class="footnote" id="_footnotedef_24">
-<a href="#_footnoteref_24">24</a>. The link between the Procurement service provider and the Buyer is made at another place in the instance.
+<a href="#_footnoteref_24">24</a>. When referring to "tender", it should be understood "LotTender". When a received tender applies for multiple lots and groups of lots, there will be as many LotTenders as the number of lots and group of lots tendered. For groups of lots, the same LotTender will be counted as many times as the number of lots (once for every LotTender relative to the lots it is composed of).
 </div>
 <div class="footnote" id="_footnotedef_25">
-<a href="#_footnoteref_25">25</a>. Use of multilingual versions of a Business (i.e. legal) name shall be restricted to international organizations and shouldn&#8217;t be confused with the trade name.
+<a href="#_footnoteref_25">25</a>. The link between the Procurement service provider and the Buyer is made at another place in the instance.
 </div>
 <div class="footnote" id="_footnotedef_26">
-<a href="#_footnoteref_26">26</a>. eProcurement Ontology: <a href="https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary" class="bare">https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary</a>
+<a href="#_footnoteref_26">26</a>. Use of multilingual versions of a Business (i.e. legal) name shall be restricted to international organizations and shouldn&#8217;t be confused with the trade name.
 </div>
 <div class="footnote" id="_footnotedef_27">
 <a href="#_footnoteref_27">27</a>. eProcurement Ontology: <a href="https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary" class="bare">https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary</a>
 </div>
 <div class="footnote" id="_footnotedef_28">
-<a href="#_footnoteref_28">28</a>. This role, not referenced in eForms, is needed to understand and deal with situations where economic operators tender together (e.g. consortium)
+<a href="#_footnoteref_28">28</a>. eProcurement Ontology: <a href="https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary" class="bare">https://github.com/eprocurementontology/eprocurementontology/tree/v2.0.2/v2.0.2/02-Glossary</a>
 </div>
 <div class="footnote" id="_footnotedef_29">
-<a href="#_footnoteref_29">29</a>. While a Tender (let&#8217;s call it global tender) may be submitted for multiple Lots and Group of lots, the concept of Tender in eForms (let&#8217;s call it individual tender) is limited to the fragment of that global tender that relates to a single Lot or Group of lots.
+<a href="#_footnoteref_29">29</a>. This role, not referenced in eForms, is needed to understand and deal with situations where economic operators tender together (e.g. consortium)
+</div>
+<div class="footnote" id="_footnotedef_30">
+<a href="#_footnoteref_30">30</a>. While a Tender (let&#8217;s call it global tender) may be submitted for multiple Lots and Group of lots, the concept of Tender in eForms (let&#8217;s call it individual tender) is limited to the fragment of that global tender that relates to a single Lot or Group of lots.
 </div>
 </div>
 </article>

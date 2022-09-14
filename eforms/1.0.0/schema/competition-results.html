@@ -620,8 +620,7 @@ and maximal),</p>
 made decision,</p>
 </li>
 <li>
-<p>Statistical results for some strategic procurement projects
-(e.g. green vehicles),</p>
+<p>Statistical results for some strategic procurement projects<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>,</p>
 </li>
 <li>
 <p>Reference to the lot the result applies to.</p>
@@ -668,6 +667,17 @@ same notice.</p>
 </div></div></td>
 <td class="tableblock halign-center valign-middle"></td>
 <td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>LotResult Technical ID (OPT-322)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unique identifier for the LotResult.
+<em>Shall follow the scheme "RES-XXXX".</em></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cbc:ID</code></pre>
+</div>
+</div></div></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Tender Value highest (BT-711)</strong></p></td>
@@ -924,7 +934,7 @@ Submission Type</a> codelist)</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Number of tenders or requests to
 participate received. Tenders including variants or multiple tenders
 submitted (for one lot) by the same tenderer should be counted as one
-tender<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>.</p></td>
+tender<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>.</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
@@ -950,13 +960,35 @@ element shall occur at least once.</em></p>
 </div></div></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>CVD Contract Type (BT-735)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The type of contract of the procurement procedure
+within the scope of Clean Vehicles Directive 2009/33/EC.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efbc:ProcurementCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Vehicle Category (BT-723)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The category of vehicle falling within the scope
+of Directive 2009/33/EC.</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efbc:AssetCategoryCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Vehicle Type (OPT-155)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">"labels" for types of vehicles (BT-715, BT-716 &amp;
 BT-725)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsCode</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsCode</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -967,7 +999,7 @@ BT-716 &amp; BT-725)</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsNumeric</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:StrategicProcurement&#8203;/efac:StrategicProcurementInformation&#8203;/efac:ProcurementDetails&#8203;/efac:StrategicProcurementStatistics&#8203;/efbc:StatisticsNumeric</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1009,6 +1041,7 @@ BT-716 &amp; BT-725)</p></td>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:NoticeResult&gt;
     &lt;!-- Interrupted Mark-up --&gt;
     &lt;efac:LotResult&gt;
+        &lt;cbc:ID schemeName="result"&gt;RES-0002&lt;/cbc:ID&gt;
         &lt;cbc:HigherTenderAmount currencyID="EUR"&gt;4560000&lt;/cbc:HigherTenderAmount&gt;
         &lt;cbc:LowerTenderAmount currencyID="EUR"&gt;1230000&lt;/cbc:LowerTenderAmount&gt;
         &lt;cbc:TenderResultCode listName="winner-selection-status"&gt;selec-w&lt;/cbc:TenderResultCode&gt;
@@ -1072,14 +1105,74 @@ BT-716 &amp; BT-725)</p></td>
         &lt;efac:SettledContract&gt;
             &lt;cbc:ID schemeName="contract"&gt;CON-0003&lt;/cbc:ID&gt;
         &lt;/efac:SettledContract&gt;
-        &lt;efac:StrategicProcurementStatistics&gt;
-            &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
-            &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
-        &lt;/efac:StrategicProcurementStatistics&gt;
-        &lt;efac:StrategicProcurementStatistics&gt;
-            &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
-            &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
-        &lt;/efac:StrategicProcurementStatistics&gt;
+        &lt;efac:StrategicProcurement&gt;
+            &lt;efac:StrategicProcurementInformation&gt;
+                &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ProcurementCategoryCode&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;n2-n3&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;8&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;m1&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;12&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;8&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;4&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+            &lt;/efac:StrategicProcurementInformation&gt;
+            &lt;efac:StrategicProcurementInformation&gt;
+                &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ProcurementCategoryCode&gt;
+                &lt;efac:ProcurementDetails&gt;
+                &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;m2&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;24&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;18&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+                &lt;efac:ProcurementDetails&gt;
+                    &lt;efbc:AssetCategoryCode listName="vehicle-category"&gt;n1&lt;/efbc:AssetCategoryCode&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;6&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                    &lt;efac:StrategicProcurementStatistics&gt;
+                        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-clean&lt;/efbc:StatisticsCode&gt;
+                        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+                    &lt;/efac:StrategicProcurementStatistics&gt;
+                &lt;/efac:ProcurementDetails&gt;
+            &lt;/efac:StrategicProcurementInformation&gt;
+        &lt;/efac:StrategicProcurement&gt;
         &lt;!-- Interrupted Markup --&gt;
         &lt;efac:TenderLot&gt;
             &lt;cbc:ID schemeName="Lot"&gt;LOT-0001&lt;/cbc:ID&gt;
@@ -2177,7 +2270,10 @@ and ORG-0015):</p>
 <a href="#_footnoteref_2">2</a>. i.e. for which "<em>cbc:TenderResultCode</em>" is either "close-nw" or "selec-w".
 </div>
 <div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. When referring to "tender", it should be understood "LotTender". When a received tender applies for multiple lots and groups of lots, there will be as many LotTenders as the number of lots and group of lots tendered. For groups of lots, the same LotTender will be counted as many times as the number of lots (once for every LotTender relative to the lots it is composed of).
+<a href="#_footnoteref_3">3</a>. At the LotResult level, CVD information may be provided so long the Lot has been awarded and the CVD directive applies to the Lot. It is then possible to report the CVD Contract Type (BT-735-LotResult), and for each of them, the Vehicle Category (BT-723-LotResult), and for each of these the number of Vehicles, Zero Emission Vehicles, Clean Vehicles (OPT-155-LotResult, OPT-156-LotResult)
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. When referring to "tender", it should be understood "LotTender". When a received tender applies for multiple lots and groups of lots, there will be as many LotTenders as the number of lots and group of lots tendered. For groups of lots, the same LotTender will be counted as many times as the number of lots (once for every LotTender relative to the lots it is composed of).
 </div>
 </div>
 </article>

@@ -525,7 +525,7 @@ Regulation annex</a>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Notice Dispatch Date eSender (BT-803) represents the date and time the notice was transmitted
-electronically by the eSender to the Publications Office of the European Union. It shall be indicated
+electronically by the eSender to the Publications Office of the European Union. It may be indicated
 in the extensions at Root by specifying its two components (date &amp; time):</p>
 </div>
 <div class="listingblock">
@@ -657,14 +657,6 @@ added before its submission to OP and its trustworthiness evaluated
 based on the actual receipt time and a range of acceptable variations<sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup>.</p>
 </div>
 <div class="paragraph">
-<p>Date and time shall be expressed locally with shift to Coordinated
-Universal Time.</p>
-</div>
-<div class="paragraph">
-<p>Values shall vary from 00:00:00.0000 to 24:00:00 excluded<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>,
-with as many decimals for the seconds as required.</p>
-</div>
-<div class="paragraph">
 <p>A notice sent on November 26<sup>th</sup>, 2019 at 1:38:54 PM CET (i.e. UTC +1)
 to OP shall be marked:</p>
 </div>
@@ -673,24 +665,6 @@ to OP shall be marked:</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2019-11-26+01:00&lt;/cbc:IssueDate&gt;
 &lt;cbc:IssueTime&gt;13:38:54+01:00&lt;/cbc:IssueTime&gt;</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>When referring to midnight (end of day for a given date), use 00:00:00
-(start of the following day) instead and adjust the referenced day
-(month, and year) accordingly.</p>
-</div>
-<div class="paragraph">
-<p>For December 5<sup>th</sup>, 2020 at midnight CET, the markup shall look like:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-12-06+01:00&lt;/cbc:IssueDate&gt;
-&lt;cbc:IssueTime&gt;00:00:00+01:00&lt;/cbc:IssueTime&gt;</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Any date shall be specified with time zone. When a date is associated
-with a time, both must share the same shift to Coordinated Universal Time.</p>
 </div>
 </div>
 </div>
@@ -819,7 +793,7 @@ which the notice is officially available.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>"<em>cbc:NoticeLanguageCode</em>" for a first official language<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>, and</p>
+<p>"<em>cbc:NoticeLanguageCode</em>" for a first official language<sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup>, and</p>
 </li>
 <li>
 <p>"<em>cac:AdditionalNoticeLanguage</em>" for any additional official
@@ -833,7 +807,7 @@ element, identifies, using a
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/language">language</a>
 code, the language used for the text. The specification of the value for
 this attribute is required for all text-type elements within a
-notice<sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup>.</p>
+notice<sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup>.</p>
 </div>
 <div class="paragraph">
 <p>A "<em>Notice non-official language</em>" refers to any (EU) Official Language
@@ -878,13 +852,10 @@ description of their role in a joint procurement), or "service provider"
 <a href="#_footnoteref_2">2</a>. To be defined by Business
 </div>
 <div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. For disambiguity, the hour value "24" shall not be used.
+<a href="#_footnoteref_3">3</a>. There is no specific order here and the approach is purely technical. Identification of the first linguistic version (i.e. code for NoticeLanguageCode) is based on the original version (i.e. first encoded text linguistic version) or the author&#8217;s environment.
 </div>
 <div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. There is no specific order here and the approach is purely technical. Identification of the first linguistic version (i.e. code for NoticeLanguageCode) is based on the original version (i.e. first encoded text linguistic version) or the author&#8217;s environment.
-</div>
-<div class="footnote" id="_footnotedef_5">
-<a href="#_footnoteref_5">5</a>. A few text-type elements (e.g. "<em>cbc:RegulatoryDomain</em>", "<em>cbc:Region</em>", "<em>cbc:LimitationDescription</em>") will use codes instead and for these the "<em>languageID</em>" attribute shall not be used. They will be presented later on.
+<a href="#_footnoteref_4">4</a>. A few text-type elements (e.g. "<em>cbc:RegulatoryDomain</em>", "<em>cbc:Region</em>", "<em>cbc:LimitationDescription</em>") will use codes instead and for these the "<em>languageID</em>" attribute shall not be used. They will be presented later on.
 </div>
 </div>
 </article>

@@ -541,6 +541,62 @@ design options.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_dates_and_times"><a class="anchor" href="#_dates_and_times"></a>Dates and Times</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All dates and times in eForms XML shall be expressed in ISO-8601 format, with
+local time marked as an offset from Coordinated Universal Time. When a date
+is associated with a time, both must share the same shift to Coordinated
+Universal Time.</p>
+</div>
+<div class="paragraph">
+<p>Time values shall vary from 00:00:00.0000 to 24:00:00 excluded<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>,
+with as many decimals for the seconds as required.</p>
+</div>
+<div class="paragraph">
+<p>A notice sent on November 26<sup>th</sup>, 2019 at 1:38:54 PM CET (i.e. UTC +1)
+to OP shall be marked:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2019-11-26+01:00&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;13:38:54+01:00&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When referring to midnight (end of the day for a given date), use 00:00:00
+(start of the following day) instead and adjust the referenced day
+(month and year) accordingly.</p>
+</div>
+<div class="paragraph">
+<p>For December 5<sup>th</sup>, 2020 at midnight CET, the markup shall be:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-12-06+01:00&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;00:00:00+01:00&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When dates and times in UTC are used, the offset of zero can be stated
+numerically as "+00:00", or the zero UTC offset zone designator "Z" may be
+used:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cbc:IssueDate&gt;2020-03-21Z&lt;/cbc:IssueDate&gt;
+&lt;cbc:IssueTime&gt;18:00:00Z&lt;/cbc:IssueTime&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. For disambiguity, the hour value "24" shall not be used.
+</div>
+</div>
 </article>
   </div>
 </main>

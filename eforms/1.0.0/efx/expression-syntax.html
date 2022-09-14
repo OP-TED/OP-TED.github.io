@@ -389,9 +389,10 @@
 </dd>
 <dt class="hdlist1">Date, Time</dt>
 <dd>
-<p>In eForms, date and time are always stored in separate fields. Therefore there is no EFX data type that combines date and time together. <code>Date</code> and <code>Time</code> are two separate data types.</p>
+<p>In eForms, date and time are always stored in separate fields. Therefore there is no EFX data type that combines date and time together. <code>Date</code> and <code>Time</code> are two separate data types. As eForms requires a time-zone to be specified for all date and time fields, EFX syntax requires date and time literals to include a time-zone.</p>
 <div class="paragraph">
-<p><strong>Unlike XPath</strong>, EFX date and time literals are not included in quotes.</p>
+<p><strong>Unlike XPath</strong>, EFX date and time literals are not included in quotes.
+NOTE:</p>
 </div>
 </dd>
 <dt class="hdlist1">Duration</dt>
@@ -422,15 +423,17 @@ YearMonthDurationLiteral: '-'? 'P' INTEGER ('Y' | 'M');</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">BtId: ('BT' | 'OPP' | 'OPT') '-' [0-9]+;
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">BtId: ('BT' | 'OPP' | 'OPT' | 'OPA') '-' [0-9]+;
 FieldId: BtId ('(' (('BT' '-' [0-9]+) | [a-z]) ')')? ('-' ([a-zA-Z_] ([a-zA-Z_] | [0-9])*))+;
-NodeId: 'ND' '-' [0-9]+;
+NodeId: 'ND' '-' [a-zA-Z0-9]+;
 
 codelistReference: OpenParenthesis codelistId CloseParenthesis;
 codelistId: Identifier;
 
 Identifier: IdentifierPart ('-' IdentifierPart)*;
-IdentifierPart: [a-zA-Z_] ([a-zA-Z_] | [0-9])*;</code></pre>
+IdentifierPart: [a-zA-Z_] ([a-zA-Z_] | [0-9])*;
+
+Variable: '$' IdentifierPart;</code></pre>
 </div>
 </div>
 </div>
@@ -450,15 +453,16 @@ IdentifierPart: [a-zA-Z_] ([a-zA-Z_] | [0-9])*;</code></pre>
 <div class="listingblock">
 <div class="title">Simplified excerpt from EFX grammar</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">fieldReferenceWithPredicate: simpleFieldReference OpenBracket predicate CloseBracket;
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">fieldReferenceWithPredicate: reference=fieldReferenceWithAxis (OpenBracket predicate CloseBracket)?;
+fieldReferenceWithAxis: axis? simpleFieldReference;
 simpleFieldReference: FieldId;
 
-nodeReferenceWithPredicate: simpleNodeReference OpenBracket predicate CloseBracket;
+nodeReferenceWithPredicate: simpleNodeReference (OpenBracket predicate CloseBracket)?;
 simpleNodeReference: NodeId;
 
-BtId: ('BT' | 'OPP' | 'OPT') '-' [0-9]+;
+BtId: ('BT' | 'OPP' | 'OPT' | 'OPA') '-' [0-9]+;
 FieldId: BtId ('(' (('BT' '-' [0-9]+) | [a-z]) ')')? ('-' ([a-zA-Z_] ([a-zA-Z_] | [0-9])*))+;
-NodeId: 'ND' '-' [0-9]+;</code></pre>
+NodeId: 'ND' '-' [a-zA-Z0-9]+;</code></pre>
 </div>
 </div>
 </div>
@@ -467,10 +471,10 @@ NodeId: 'ND' '-' [0-9]+;</code></pre>
 <h2 id="_predicates"><a class="anchor" href="#_predicates"></a>Predicates</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A field or node reference can be complimented with a predicate that restricts the <code>XML nodes</code> it matches.</p>
+<p>A field or node reference can be complimented with a predicate that restricts the <code>XML elements</code> it matches.</p>
 </div>
 <div class="paragraph">
-<p>Just like in XPath, EFX predicates are EFX logical (boolean) EFX expressions included in square brackets.</p>
+<p>Just like in XPath, EFX predicates are logical (boolean) EFX expressions included in square brackets.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -514,29 +518,263 @@ NodeId: 'ND' '-' [0-9]+;</code></pre>
 <div class="title">Simplified excerpt from EFX grammar</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">booleanExpression
-	: OpenParenthesis booleanExpression CloseParenthesis
-	| booleanExpression Or booleanExpression
-	| booleanExpression And booleanExpression
-	| stringExpression Not? In list
-	| stringExpression Is Not? Empty
-	| setReference Is Not? Present
-	| stringExpression Not? Like pattern=STRING
-	| fieldValueReference Comparison fieldValueReference
-	| booleanExpression Comparison booleanExpression
-	| numericExpression Comparison numericExpression
-	| stringExpression Comparison stringExpression
-	| dateExpression Comparison dateExpression
-	| timeExpression Comparison timeExpression
-	| durationExpression Comparison durationExpression
-	| booleanLiteral
-	| booleanFunction
-	| BooleanTypeCast? fieldValueReference
+    : OpenParenthesis booleanExpression CloseParenthesis
+    | booleanExpression     operator=Or booleanExpression
+    | booleanExpression     operator=And booleanExpression
+    | stringExpression      modifier=Not? In stringSequence
+    | booleanExpression     modifier=Not? In booleanSequence
+    | numericExpression     modifier=Not? In numericSequence
+    | dateExpression        modifier=Not? In dateSequence
+    | timeExpression        modifier=Not? In timeSequence
+    | durationExpression    modifier=Not? In durationSequence
+    | stringExpression      modifier=Not? Like pattern=STRING
+    | stringExpression      Is modifier=Not? Empty
+    | pathFromReference     Is modifier=Not? Present
+    | pathFromReference     Is modifier=Not? Unique In absoluteFieldReference
+    | lateBoundExpression   operator=Comparison lateBoundExpression
+    | booleanExpression     operator=Comparison booleanExpression
+    | numericExpression     operator=Comparison numericExpression
+    | stringExpression      operator=Comparison stringExpression
+    | dateExpression        operator=Comparison dateExpression
+    | timeExpression        operator=Comparison timeExpression
+    | durationExpression    operator=Comparison durationExpression
+    | If booleanExpression Then booleanExpression Else booleanExpression
+    | (Every | Some) iteratorList Satisfies booleanExpression
+    | booleanLiteral
+    | booleanFunction
+    | BooleanTypeCast lateBoundExpression
+    | lateBoundExpression
 	;
 
-    booleanLiteral: Always | True | Never | False;
+booleanLiteral: Always | True | Never | False;
+
+booleanFunction
+    : Not OpenParenthesis booleanExpression CloseParenthesis
+    | ContainsFunction OpenParenthesis haystack=stringExpression Comma needle=stringExpression CloseParenthesis
+    | StartsWithFunction OpenParenthesis haystack=stringExpression Comma needle=stringExpression CloseParenthesis
+    | EndsWithFunction OpenParenthesis haystack=stringExpression Comma needle=stringExpression CloseParenthesis
+    | SequenceEqualFunction OpenParenthesis left=sequenceExpression Comma right=sequenceExpression CloseParenthesis
+    ;
 
     Comparison: '==' | '!=' | '&gt;' | '&gt;=' | '&lt;' | '&lt;=';</code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_string_expressions"><a class="anchor" href="#_string_expressions"></a>String expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EFX allows simple string manipulation.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">stringExpression
+    : If booleanExpression Then stringExpression Else stringExpression
+    | stringLiteral
+    | stringFunction
+    | TextTypeCast lateBoundExpression
+    | lateBoundExpression
+    ;
+
+stringFunction
+    : SubstringFunction OpenParenthesis stringExpression Comma start=numericExpression (Comma length=numericExpression)? CloseParenthesis
+    | StringFunction OpenParenthesis numericExpression CloseParenthesis
+    | ConcatFunction OpenParenthesis stringExpression (Comma stringExpression)* CloseParenthesis
+    | FormatNumberFunction OpenParenthesis numericExpression (Comma format=stringExpression)? CloseParenthesis
+    ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_numeric_expressions"><a class="anchor" href="#_numeric_expressions"></a>Numeric expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EFX numbers can either be integers or decimals.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">numericExpression
+    : OpenParenthesis numericExpression CloseParenthesis
+    | numericExpression operator=(Star | Slash | Percent) numericExpression
+    | numericExpression operator=(Plus | Minus) numericExpression
+    | If booleanExpression Then numericExpression Else numericExpression
+    | numericLiteral
+    | numericFunction
+    | NumericTypeCast lateBoundExpression
+    | lateBoundExpression
+    ;
+
+numericFunction
+    : CountFunction OpenParenthesis sequenceExpression CloseParenthesis
+    | NumberFunction OpenParenthesis stringExpression CloseParenthesis
+    | SumFunction OpenParenthesis numericSequence CloseParenthesis
+    | StringLengthFunction OpenParenthesis stringExpression CloseParenthesis
+    ;
+
+numericLiteral: INTEGER | DECIMAL;
+
+INTEGER: '-'? [0-9]+;
+DECIMAL: '-'? [0-9]? '.' [0-9]+;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_date_time_expressions"><a class="anchor" href="#_date_time_expressions"></a>Date, Time expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Date and time expressions allow the manipulation of date and time values.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">dateExpression
+    : If booleanExpression Then dateExpression Else dateExpression
+    | dateLiteral
+    | dateFunction
+    | DateTypeCast lateBoundExpression
+    | lateBoundExpression
+    ;
+
+timeExpression
+    : If booleanExpression Then timeExpression Else timeExpression
+    | timeLiteral
+    | timeFunction
+    | TimeTypeCast lateBoundExpression
+    | lateBoundExpression
+    ;
+
+dateFunction
+    : DateFunction OpenParenthesis stringExpression CloseParenthesis
+    | AddMeasure OpenParenthesis dateExpression Comma durationExpression CloseParenthesis
+    | SubtractMeasure OpenParenthesis dateExpression Comma durationExpression CloseParenthesis
+    ;
+
+timeFunction
+    : TimeFunction OpenParenthesis stringExpression CloseParenthesis
+    ;
+
+// EFX tokens for date and time
+DATE: DIGIT DIGIT DIGIT DIGIT '-' DIGIT DIGIT '-' DIGIT DIGIT (ZONE | 'Z');
+TIME: DIGIT DIGIT Colon DIGIT DIGIT Colon DIGIT DIGIT (ZONE | 'Z');
+ZONE: ('+' | '-') DIGIT DIGIT ':' DIGIT DIGIT;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_duration_expressions"><a class="anchor" href="#_duration_expressions"></a>Duration expressions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Duration expressions allow to manipulate durations including:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding or subtracting a duration to/from another</p>
+</li>
+<li>
+<p>Multiplying a duration by a number</p>
+</li>
+<li>
+<p>Calculate the duration between two dates</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">durationExpression
+    : OpenParenthesis durationExpression CloseParenthesis
+    | endDate=dateExpression Minus startDate=dateExpression
+    | numericExpression Star durationExpression
+    | durationExpression Star numericExpression
+    | durationExpression Plus durationExpression
+    | durationExpression Minus durationExpression
+    | If booleanExpression Then durationExpression Else durationExpression
+	| durationLiteral
+    | durationFunction
+    | DurationTypeCast lateBoundExpression
+    | lateBoundExpression
+    ;
+
+	durationFunction
+    : DayTimeDurationFunction OpenParenthesis stringExpression CloseParenthesis
+    | YearMonthDurationFunction OpenParenthesis stringExpression CloseParenthesis
+    ;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sequences_and_iterators"><a class="anchor" href="#_sequences_and_iterators"></a>Sequences and iterators</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Sequences allow the manipulation of lists (sets of values).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-antlr4 hljs" data-lang="antlr4">sequenceExpression
+    : sequenceFromReference
+    | stringSequence
+    | booleanSequence
+    | numericSequence
+    | dateSequence
+    | timeSequence
+    | durationSequence
+    | sequenceFunction
+    ;
+
+sequenceFromReference
+    : fieldReference
+    | attributeReference
+    ;
+
+stringSequence
+    : OpenParenthesis stringExpression (Comma stringExpression)* CloseParenthesis
+    | stringSequenceFromIteration
+    | OpenParenthesis stringSequenceFromIteration CloseParenthesis
+    | codelistReference
+    | TextTypeCast? sequenceFromReference
+    ;
+
+codelistReference: OpenParenthesis codeListId=codelistId CloseParenthesis;
+codelistId: Identifier;
+
+// ... <i class="conum" data-value="1"></i><b>(1)</b>
+
+stringSequenceFromIteration: For iteratorList Return stringExpression; <i class="conum" data-value="2"></i><b>(2)</b>
+
+iteratorList: iteratorExpression (Comma iteratorExpression)*;
+iteratorExpression: stringIteratorExpression | booleanIteratorExpression | numericIteratorExpression | dateIteratorExpression | timeIteratorExpression | durationIteratorExpression | contextIteratorExpression;
+
+stringIteratorExpression: stringVariableDeclaration In stringSequence;
+booleanIteratorExpression: booleanVariableDeclaration In booleanSequence;
+numericIteratorExpression: numericVariableDeclaration In numericSequence;
+dateIteratorExpression: dateVariableDeclaration In dateSequence;
+timeIteratorExpression: timeVariableDeclaration In timeSequence;
+durationIteratorExpression: durationVariableDeclaration In durationSequence;
+contextIteratorExpression: contextVariableDeclaration In (fieldContext | nodeContext);
+
+sequenceFunction
+    : DistinctValuesFunction OpenParenthesis (sequenceExpression | variableReference) CloseParenthesis
+    | UnionFunction OpenParenthesis (sequenceExpression | variableReference) Comma (sequenceExpression | variableReference) CloseParenthesis
+    | IntersectFunction OpenParenthesis (sequenceExpression | variableReference) Comma (sequenceExpression | variableReference) CloseParenthesis
+    | ExceptFunction OpenParenthesis (sequenceExpression | variableReference) Comma (sequenceExpression | variableReference) CloseParenthesis
+    ;</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Several other sequence types are omitted here to make the excerpt short. See the EFX grammar for a complete specification.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>For</code> loops allow for the manipulation of sequences. Their syntax is very similar to <code>for</code> loops in XPath.</td>
+</tr>
+</table>
 </div>
 <hr>
 <div class="paragraph">
