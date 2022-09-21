@@ -3,9 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Event Manager :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ted-conversion/event_manager.html">
-    <meta name="description" content="This page is about Event Manager">
+    <title>Installation instructions for software engineers :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/rdf-conversion/demo_installation.html">
     <meta name="generator" content="Antora 2.3.4">
     <link rel="stylesheet" href="../_/css/site.css">
      <link rel="stylesheet" href="../_/css/custom.css">
@@ -78,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="ted-conversion" data-version="master">
+<div class="nav-container" data-component="rdf-conversion" data-version="master">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -175,7 +174,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">XML to RDF Conversion</a></li>
-    <li><a href="event_manager.html">Event Manager</a></li>
+    <li><a href="demo_installation.html">Installation instructions for software engineers</a></li>
   </ul>
 </nav>
 </div>
@@ -184,223 +183,128 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Event Manager</h1>
+<h1 class="page">Installation instructions for software engineers</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Event Manager is designed to handle different types of Event Messages (processes) and log them to different outputs by
-using
-different Event Handlers.</p>
+<p>Make sure you have installed <code>Docker</code> and <code>docker-compose</code>.</p>
+</div>
+<div class="paragraph">
+<p>Create the local <code>venv</code> and activate it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">pip install virtualenv
+virtualenv venv
+source venv/bin/activate</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Install the python dependencies:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make install
+make istall-dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Prepare the Airflow environment</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make create-env-airflow</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set up the local infra</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make build-externals
+make build-airflow
+make init-rml-mapper
+make init-saxon</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Start local infra services</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make start-traefik
+make start-mongo
+make start-metabase
+make start-allegro-graph</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Start Airflow</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make start-airflow</code></pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_technical_usage_guide"><a class="anchor" href="#_technical_usage_guide"></a>Technical usage guide</h2>
+<h2 id="_digest_api_deployment"><a class="anchor" href="#_digest_api_deployment"></a>Digest API deployment</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong>SOURCE</strong>: ted_sws.event_manager</p>
-</div>
-<div class="paragraph">
-<p>The description, full list of parameters and usage hints for every component are documented within the source code.</p>
-</div>
-<hr>
 <div class="sect2">
-<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
+<h3 id="_start_digest_api_server"><a class="anchor" href="#_start_digest_api_server"></a>Start Digest API server</h3>
 <div class="paragraph">
-<p>The main component of Event Manager is the Event Logger (<em>EventLogger</em>).</p>
-</div>
-<div class="paragraph">
-<p>EventLogger can be initialized using 1 of 3 Event Handler Configs (<em>EventHandlerConfig</em>):</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><em>DAGLoggerConfig</em> (to be used specifically for processes in DAG environment)</p>
-</li>
-<li>
-<p><em>CLILoggerConfig</em> (to be used specifically for processes in CLI environment).</p>
-</li>
-<li>
-<p><em>EventHandlerConfig</em> (a generic event handler config)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Every <em>EventHandlerConfig</em> manages 3 (any combination of them) of Event Handlers (<em>EventHandler</em>):</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><em>EventWriterToConsoleHandler</em> (ConsoleHandler)</p>
-</li>
-<li>
-<p><em>EventWriterToFileHandler</em> (FileHandler)</p>
-</li>
-<li>
-<p><em>EventWriterToMongoDBHandler</em> (MongoDBHandler)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Default values can be configured using the following environment variables:</p>
+<p>To start the Digest API in server mode:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>DAG_LOGGER_CONFIG_HANDLERS=MongoDBHandler,ConsoleHandler
-CLI_LOGGER_CONFIG_HANDLERS=MongoDBHandler,ConsoleHandler,FileHandlers
-MONGO_DB_LOGS_DATABASE_NAME=logs_db
-LOGGER_LOG_FILENAME=./event_logs/{today}/{hour}/{minute}.log</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">api-digest_service-start-server</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>The <em>EventLogger</em> logs (using <em>EventHandler</em> via <em>EventHandlerConfig</em>) Event Messages.</p>
-</div>
-<div class="paragraph">
-<p>EventHandler is responsible for logging Event Messages to specific output.</p>
-</div>
-<div class="paragraph">
-<p>There are 4 types of Event Messages (<em>EventMessage</em>), used for specific events/processes:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><em>TechnicalEventMessage</em> (for technical events/processes)</p>
-</li>
-<li>
-<p><em>NoticeEventMessage</em> (for notice related events/processes)</p>
-</li>
-<li>
-<p><em>MappingSuiteEventMessage</em> (for mapping suite related events/processes)</p>
-</li>
-<li>
-<p><em>EventMessage</em> (for generic events/processes)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Every <em>EventMessage</em> type is logged (if MongoDBHandler is used) in separate collection:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><em>TechnicalEventMessage</em> &#8594; <strong>technical_events</strong></p>
-</li>
-<li>
-<p><em>NoticeEventMessage</em> &#8594; <strong>notice_events</strong></p>
-</li>
-<li>
-<p><em>MappingSuiteEventMessage</em> &#8594; <strong>mapping_suite_events</strong></p>
-</li>
-<li>
-<p><em>EventMessage</em> &#8594; <strong>log_events</strong></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<hr>
-<div class="paragraph">
-<p><em>event_log</em> decorator can be used to log the "host" function execution information and/or to inject the event_logger to
-be used
-inside the function.</p>
-</div>
-<hr>
 </div>
 <div class="sect2">
-<h3 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h3>
+<h3 id="_debug_local_api_service"><a class="anchor" href="#_debug_local_api_service"></a>Debug local API service</h3>
 <div class="paragraph">
-<p>EventLogger can log EventMessage using different severity levels:</p>
+<p>Debug scenario with terminal output:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>event_logger.debug(event_message)
-event_logger.info(event_message)
-event_logger.warning(event_message)
-event_logger.error(event_message)</code></pre>
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">uvicorn --host localhost --port 8000 ted_sws.notice_transformer.entrypoints.api.digest_service.main:app --reload
+###
+See http://localhost:8000/api/v1/docs for API usage.</code></pre>
 </div>
 </div>
-<div class="sect3">
-<h4 id="_dag_example"><a class="anchor" href="#_dag_example"></a>DAG example:</h4>
 <div class="paragraph">
-<p>Can be adapted to any function.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>The @event_log decorator will log a TechnicalEventMessage about the host_function (also including the
-execution duration) and will inject the event_logger into dag_context KEYWORD param.</p>
-</div>
-</div>
+<p>CLI usage:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>from ted_sws.event_manager.adapters.event_log_decorator import event_log
-from ted_sws.event_manager.model.event_message import TechnicalEventMessage, NoticeEventMessage
-from ted_sws.event_manager.services.logger_from_context import get_logger_from_dag_context, handle_event_message_metadata_dag_context
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">&gt; api-digest_service-start-server --help
 
-@event_log(TechnicalEventMessage(title="LOG_MESSAGE_ABOUT_HOST_FUNCTION"))
-def host_function(**dag_context)
-  # always provide VAR_KEYWORD params (**dag_context or any other name) for event_logger to be injected
+Usage: api-digest_service-start-server [OPTIONS]
 
-  # Extract injected event_logger from dag_context
-  event_logger = get_logger_from_dag_context(dag_context)
-
-  event_message = NoticeEventMessage(name="PROCESS_NAME")
-  event_message.start_record()  # this will set started_at for logged event message
-
-  context = get_current_context()
-
-  # update event_message metadata with data from dag context (RUN_ID)
-  handle_event_message_metadata_dag_context(event_message, "PROCESS_NAME", context)
-
-  event_message.end_record()  # this will set ended_at and duration for logged event message
-  event_logger.info(event_message)</code></pre>
+Options:
+  -h, --host TEXT
+  -p, --port INTEGER
+  --help                                      Show this message and exit.</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_running_ted_sws_tests"><a class="anchor" href="#_running_ted_sws_tests"></a>Running TED-SWS tests</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make install-dev</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code># just inject the event_logger:
-@event_log(is_loggable=False)
-
-# just log the information about "host" function:
-@event_log(inject_logger=False)
-
-# specify event_message type to be logged, otherwisee a generic EventMessage will be logged:
-@event_log(event_message=NoticeEventMessage(...))</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code>from ted_sws.event_manager.adapters.event_handler_config import EventHandlerConfig
-from ted_sws.event_manager.adapters.event_logger import EventLogger
-from ted_sws.event_manager.adapters.log import ConfigHandlerType
-
-# Initialize a generic event_logger to be used anywhere:
-event_logger = EventLogger(EventHandlerConfig(config_handlers=ConfigHandlerType.ConsoleHandler.value))</code></pre>
-</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>All configuration options are described in source code.</p>
-</div>
-</div>
-</div>
-<hr>
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">make test-unit
+make test-feature
+make test-e2e</code></pre>
 </div>
 </div>
 </div>
@@ -412,7 +316,7 @@ event_logger = EventLogger(EventHandlerConfig(config_handlers=ConfigHandlerType.
 <script src="../_/js/site.js"></script>
 <script async src="../_/js/vendor/highlight.js"></script>
 <script src="../_/js/vendor/lunr.js"></script>
-<script src="../_/js/vendor/search.js" id="search-script" data-base-path=".." data-page-path="/ted-conversion/event_manager.html"></script>
+<script src="../_/js/vendor/search.js" id="search-script" data-base-path=".." data-page-path="/rdf-conversion/demo_installation.html"></script>
 <script async src="../_/../search-index.js"></script>
 
 <footer class="footer">
