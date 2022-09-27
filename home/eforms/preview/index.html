@@ -367,7 +367,7 @@ Please be aware that the interface and the notice forms are very much a work in 
 Application version
 </td>
 <td class="hdlist2">
-<p>NRP-A2</p>
+<p>NRP+1</p>
 </td>
 </tr>
 <tr>
@@ -375,7 +375,7 @@ Application version
 SDK version
 </td>
 <td class="hdlist2">
-<p>0.4.2</p>
+<p>0.6</p>
 </td>
 </tr>
 </table>
@@ -387,7 +387,7 @@ SDK version
 <p>At this point, the application is incomplete, many use cases are not fully implemented and others have dependencies in other applications which are only mocked-up. Similarly, the notice forms are not final as they are missing conditional rules, and significant tweaking or corrections of the sections is still to be expected.</p>
 </div>
 <div class="paragraph">
-<p>All the labels in the user interface (UI), notices and fields are subject to change – what you see are only placeholders and the UI is only fully available in English. The translated labels will not be available for several more months.</p>
+<p>All the labels in the user interface (UI), notices and fields are subject to change – what you see are only placeholders and the UI is only fully available in English.</p>
 </div>
 <div class="paragraph">
 <p>The application is not integrated with any other TED applications, which means there are some limitations to what it can do.</p>
@@ -395,7 +395,7 @@ SDK version
 <div class="ulist">
 <ul>
 <li>
-<p>Notices do not go through validation when they are submitted, therefore do not expect any other validation than the live validation rules that you will find within the form-filling tool.</p>
+<p>Notices do not go through validation when they are submitted, therefore do not expect any other validation than the regex validation rules that you will find within the form-filling tool.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -417,26 +417,26 @@ SDK version
 <p>Submitted notices aren’t published. They will have to go through another workflow in TED Monitor before they can be published, which takes place every working day around 15:00 CET, before you can create a Change notice or continue a procedure.</p>
 </li>
 <li>
-<p>The notices can partially be previewed in either HTML or PDF.</p>
+<p>Preview function is not available at this stage.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK 0.4. In the codelist fields, prefilling of values is supported.</p>
+<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK 0.6. In the codelist fields, prefilling of values is supported.</p>
 </div>
 <div class="paragraph">
-<p>The application also allows users to act upon notices and procedures, archiving, renaming and transferring them to other users or other procedures as well as import/ export notices in XML. There is also a search feature which allows users to sort through long lists of procedures. The main nature of the LOT can now be correctly defined.</p>
+<p>The application also allows users to act upon notices and procedures, archiving, renaming and transferring them to other users or other procedures as well as import/ export notices in XML. Import function is not fully supported, i.e. it will generate errors in the imported XML. There is also a search feature which allows users to sort through long lists of procedures.</p>
 </div>
 <div class="paragraph">
 <p>Users can create workgroups between themselves and test the definitions of roles and permissions within these workgroups. They can also work and submit notices worked upon collectively.</p>
 </div>
 <div class="paragraph">
-<p>Users can also define personalised settings for the legal basis and notice types that they want to use, as well as default languages in the notice, and tailoring of some fields is available (please note that adding a "default" currency will not allow you to create a Change notice):</p>
+<p>Users can also define personalised settings for the legal basis and notice types that they want to use, as well as default languages in the notice, and tailoring of some fields is available:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Optional fields can be set to mandatory or hidden.</p>
+<p>Optional fields can be set to mandatory or hidden (please note that if you chose to hide all optional fields, any notice created upon that selection will be completely empty).</p>
 </li>
 <li>
 <p>Confidential fields can be set to be always confidential or non-confidential.</p>
@@ -444,10 +444,13 @@ SDK version
 </ul>
 </div>
 <div class="paragraph">
-<p>The first iteration of the address book has been implemented, which allows users to create a database of addresses of known organisations which regularly take part in the procurement process and import them in their notices.</p>
+<p>The address book has been implemented, which allows users to create a database of addresses of known organisations which regularly take part in the procurement process and import them in their notices. In addition, users can create a Main Buyer in the address book.</p>
 </div>
 <div class="paragraph">
-<p>eNotices2 uses the codelists from the SDK, which have not been tailored. This means that certain codelists have too many entries, such as countries or languages that no longer exist.</p>
+<p>In the notice sections a search feature has been added and pagination for up to 2000 lots is supported.</p>
+</div>
+<div class="paragraph">
+<p>eNotices2 uses the codelists from the SDK, which have not been completely tailored. This means that certain codelists have too many entries, such as countries or languages that no longer exist.</p>
 </div>
 <div class="paragraph">
 <p>The eNotices2 API URLs and parameters will change in later releases. The Swagger UI provides basic documentation of the four functions.</p>
@@ -462,7 +465,7 @@ SDK version
 Indicative planning
 </td>
 <td class="hdlist2">
-<p>August 2022</p>
+<p>October 2022</p>
 </td>
 </tr>
 <tr>
@@ -470,7 +473,7 @@ Indicative planning
 Applcation version
 </td>
 <td class="hdlist2">
-<p>NRP+1</p>
+<p>1.3.0</p>
 </td>
 </tr>
 <tr>
@@ -478,7 +481,7 @@ Applcation version
 SDK version used
 </td>
 <td class="hdlist2">
-<p>0.6.2</p>
+<p>1</p>
 </td>
 </tr>
 </table>
@@ -487,16 +490,10 @@ SDK version used
 <p>This version of the application is focused on improvements to the UI experience and the correction of bugs.</p>
 </div>
 <div class="paragraph">
-<p>There are many improvements in the form filling tool including the possibility to filter optional fields and a notable improvement to the usability of CPV and NUTS codelists.</p>
+<p>The version is focused on compliance with the SDK and producing valid XML, as well as on some improvements on the form-filling tool and the usability of CPV and NUTS codelists.</p>
 </div>
 <div class="paragraph">
-<p>The address book usage has been improved and the notion of main buyer allows users to set up their own “contracting body” to be always present, except within the workgroups.</p>
-</div>
-<div class="paragraph">
-<p>Users can see an improved mock-up of the CVS.</p>
-</div>
-<div class="paragraph">
-<p>In the notice sections a search feature has been added and pagination for up to 2000 lots is supported.</p>
+<p>Users can see the validation returned from CVS and have their notices rendered in HTML and PDF.</p>
 </div>
 </div>
 </div>
@@ -617,7 +614,7 @@ Scope
 Indicative planning
 </td>
 <td class="hdlist2">
-<p>August 2022</p>
+<p>October 2022</p>
 </td>
 </tr>
 <tr>
@@ -633,7 +630,7 @@ Application version
 SDK versions
 </td>
 <td class="hdlist2">
-<p>0.4.2, 0.5.0 and 0.6.2</p>
+<p>1</p>
 </td>
 </tr>
 <tr>
