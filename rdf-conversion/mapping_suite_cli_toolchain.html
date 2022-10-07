@@ -41,7 +41,7 @@
                 <div class="navbar-item has-dropdown is-hoverable">
   <a class="navbar-link" href="#">Products</a>
   <div class="navbar-dropdown">
-    <a class="navbar-item" href="../eforms/1.1.1/index.html">eForms SDK</a>
+    <a class="navbar-item" href="../eforms/1.2.0/index.html">eForms SDK</a>
     <a class="navbar-item" href="../EPO/dev/index.html">eProcurement Ontology</a>
     <a class="navbar-item" href="../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
   </div>
@@ -107,19 +107,16 @@
     </div>
   <ul class="components">
     <li class="component">
-      <a class="title" href="../eforms/1.1.1/index.html">eForms SDK</a>
+      <a class="title" href="../eforms/1.2.0/index.html">eForms SDK</a>
       <ul class="versions">
         <li class="version is-latest">
+          <a href="../eforms/1.2.0/index.html">1.2.0</a>
+        </li>
+        <li class="version">
           <a href="../eforms/1.1.1/index.html">1.1.1</a>
         </li>
         <li class="version">
           <a href="../eforms/1.0.0/index.html">1.0.0</a>
-        </li>
-        <li class="version">
-          <a href="../eforms/0.7.0/index.html">0.7.0</a>
-        </li>
-        <li class="version">
-          <a href="../eforms/0.6.2/index.html">0.6.2</a>
         </li>
       </ul>
     </li>
@@ -729,6 +726,63 @@ Options:
 Options:
   -m, --opt-mappings-folder TEXT
   --help                          Show this message and exit.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cmd_conceptual_mapping_differ"><a class="anchor" href="#_cmd_conceptual_mapping_differ"></a>CMD: conceptual_mapping_differ</h3>
+<div class="paragraph">
+<p>Generate reports (JSON, HTML) with differences between 2 Conceptual Mappings</p>
+</div>
+<div class="paragraph">
+<p>Use:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">conceptual_mapping_differ --help</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to get the Usage Help:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">Usage: conceptual_mapping_differ [OPTIONS]
+
+  Generate reports (JSON, HTML) with differences between 2 Conceptual Mappings
+
+Options:
+  -ms-id, --mapping-suite-id TEXT Mapping Suite IDs
+  -f, --file TEXT                 Conceptual Mappings files
+  -b, --branch TEXT               GIT branches or tags
+  -m, --opt-mappings-folder TEXT
+  -o, --opt-output-folder TEXT
+  --help                          Show this message and exit.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use for:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">* --file vs --file
+# conceptual_mapping_differ --file=&lt;CONCEPTUAL_MAPPINGS_FILE1&gt; --file=&lt;CONCEPTUAL_MAPPINGS_FILE2&gt;
+
+* --mapping-suite-id vs --file
+# conceptual_mapping_differ --mapping-suite-id=&lt;MAPPING_SUITE_ID1&gt; --file=&lt;CONCEPTUAL_MAPPINGS_FILE2&gt;
+
+* --mapping-suite-id vs --mapping-suite-id
+# conceptual_mapping_differ --mapping-suite-id=&lt;MAPPING_SUITE_ID1&gt; --mapping-suite-id=&lt;MAPPING_SUITE_ID2&gt;
+
+* --branch + --mapping-suite-id vs --branch + --mapping-suite-id
+# conceptual_mapping_differ --branch=&lt;BRANCH1&gt;  --mapping-suite-id=&lt;MAPPING_SUITE_ID1&gt; --branch=&lt;BRANCH2&gt; --mapping-suite-id=&lt;MAPPING_SUITE_ID2&gt;
+# conceptual_mapping_differ -b &lt;BRANCH1&gt; -ms-id &lt;MAPPING_SUITE_ID1&gt; -b &lt;BRANCH2&gt; -ms-id &lt;MAPPING_SUITE_ID2&gt;
+
+* --branch + --mapping-suite-id vs --file
+# conceptual_mapping_differ --branch=&lt;BRANCH1&gt; --mapping-suite-id=&lt;MAPPING_SUITE_ID1&gt; --file=&lt;FILE2&gt;
+
+* --branch + --mapping-suite-id (remote) vs --mapping-suite-id (local)
+# conceptual_mapping_differ --branch=&lt;BRANCH&gt; --mapping-suite-id=&lt;MAPPING_SUITE_ID&gt;</code></pre>
 </div>
 </div>
 </div>
