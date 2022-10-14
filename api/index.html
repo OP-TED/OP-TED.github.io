@@ -194,7 +194,10 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). However, all TED APIs manipulating notices that are not yet published, require the caller to be authenticated with an API Key.</p>
+<p>TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). These APIs are mostly targeted to data reusers. You can find information on reusing TED data at the <a href="https://simap.ted.europa.eu/en_GB/web/simap/developers-corner#get-published">SIMAP Developers' Corner</a>.</p>
+</div>
+<div class="paragraph">
+<p>All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API Key.</p>
 </div>
 </div>
 </div>
@@ -231,7 +234,7 @@ Only one API key is allowed per user. The creation of a new API Key implies the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API Key will be delivered to you only at the time of generation. Copy,`` and safely store the provided API Key. If you lose it will have to generate a new one.
+For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API Key will be delivered to you only at the time of generation. Copy and safely store the provided API Key. If you lose it you will have to generate a new one.
 </td>
 </tr>
 </table>
@@ -241,7 +244,7 @@ For security reasons API Keys are not stored and cannot be retrieved via the TED
 <h3 id="_api_key_lifetime"><a class="anchor" href="#_api_key_lifetime"></a>API key lifetime</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Expiration</dt>
+<dt class="hdlist1">Expiry</dt>
 <dd>
 <p>Every API key is valid for 12 months. After its validity period elapses, the API key expires.</p>
 </dd>
@@ -276,7 +279,7 @@ For security reasons API Keys are not stored and cannot be retrieved via the TED
 </dd>
 <dt class="hdlist1">Publication</dt>
 <dd>
-<p>Submit notices; follow-up; stop publication:<br>
+<p>Submit notices; search notices; stop publication:<br>
 <a href="https://enotices2.preview.ted.europa.eu/esenders/webjars/swagger-ui/index.html" class="bare">https://enotices2.preview.ted.europa.eu/esenders/webjars/swagger-ui/index.html</a></p>
 </dd>
 <dt class="hdlist1">Visualisation</dt>
@@ -286,6 +289,67 @@ For security reasons API Keys are not stored and cannot be retrieved via the TED
 </dd>
 </dl>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The URLs provided above are for the eForms Preview Environment. For production URLs just remove the <code>.preview</code> subdomain from the provided URL.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_your_apps"><a class="anchor" href="#_testing_your_apps"></a>Testing your apps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To allow developers to test their  applications, an <strong>eForms Preview Environment</strong> is available. You can find more <a href="#eforms:preview/index.adoc" class="page unresolved">details on the eForms Preview Environment here</a>.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+To use the eForms Preview Environment you will need an API Key generated using the <a href="https://developer.preview.ted.europa.eu/home">TED Developer Portal of the Preview Environment</a>. This means that you will also need an EU-Login account from the <a href="https://ecas.acceptance.ec.europa.eu/cas/login">EU-Login Acceptance Environment</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Information about eSentool, the legacy API to submit and manage notices, is available on the <a href="https://webgate.ec.europa.eu/fpfis/wikis/display/TEDeSender">legacy eSenders Wiki</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_status_roadmap"><a class="anchor" href="#_status_roadmap"></a>Status &amp; Roadmap</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The TED API endpoints currently available are the first generation of APIs for the new TED web services for eForms.</p>
+</div>
+<div class="paragraph">
+<p>These APIs have been initially released in June 2022 together with the "eForms Preview Environment" and have since remain unchanged. These endpoints will also remain unchanged throughout their lifetime.</p>
+</div>
+<div class="paragraph">
+<p>We are currently in the process of simplifying, better documenting and rationalising our APIs to improve user experience and to allow us to keep enriching them in the future for offering better and consistent services to our developer community.</p>
+</div>
+<div class="paragraph">
+<p>A second generation of TED APIs will soon therefore be released. The release of this second version of TED APIs (which will be known as TED API v2) will be added next to the currently available endpoints listed above, and will not replace them. This will allow 3rd party applications that already use the current endpoints to continue functioning <strong>undisrupted</strong>. The current endpoints will only be discontinued when no 3rd party applications use them any more.</p>
+</div>
 </div>
 </div>
 <div id="footnotes">
@@ -294,7 +358,7 @@ For security reasons API Keys are not stored and cannot be retrieved via the TED
 <a href="#_footnoteref_1">1</a>. The <a href="https://developer.ted.europa.eu">TED Developer Portal</a> is the single point of access for all TED developers.
 </div>
 <div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. EU Login is the European Commission&#8217;s user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. To create an EU Login account <a href="https://webgate.ec.europa.eu/IMSOC/tracesnt-help/Content/C_EU%20login/create-a-new-EU-login-account.htm">click here</a>.
+<a href="#_footnoteref_2">2</a>. EU Login is the European Commission&#8217;s user authentication service. It allows authorised users to access a wide range of Commission web services, using a single email address and password. If you don&#8217;t have one, you can <a href="https://ecas.ec.europa.eu/cas/eim/external/register.cgi">create an EU Login account here</a>.
 </div>
 </div>
 </article>
