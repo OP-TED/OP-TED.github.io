@@ -91,7 +91,7 @@ function nameClassifier(name, separator)
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA1.html">catalogue</a>, <a href="EA3.html">catalogue item price</a>, <a href="EA7.html">item relations</a>, <a href="EA11.html">tax category</a></td>
+			<td class="ObjectDetailsValue"><a href="EA1.html">catalogue</a>, <a href="EA3.html">catalogue item price</a>, <a href="EA7.html">item relations</a>, <a href="EA11.html">tax category</a>, order only</td>
 		</tr>
 	</table>
 	<div class="ObjectDetailsNotes">Aggregated information about the terms and specifications for procuring an item.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;Details about an item, like prices, packaging, discounts, special promotions, etc.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;TC 440:&lt;br/&gt;&lt;br/&gt;Detailed information of an item, price and its composition in a Catalogue.&lt;br/&gt;&lt;br/&gt;Composition: e.g. information referring to its description, how to order it, what it is made of, properties, delivery conditions, etc.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div>
@@ -112,64 +112,6 @@ function nameClassifier(name, separator)
 						<tr>
 				<td width="100%" class="TableRow">
 					<i>Public xsd:boolean</i><br /><strong>&nbsp;&nbsp;epo-cat:isOrderable</strong>
-				</td>
-			</tr>
-			<tr>
-				<td class="TableRowBottomDashed"  colspan="1">										
-					<a href="#" onclick="parent.toggleData('DetailsImageAttributes52')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="DetailsImageAttributes52" border="0" />Details:</a>
-					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
-					
-						<tr id="DetailsImageAttributes52_00" style="display: none;">
-							<td width="75"><i>Alias:</i></td>
-							<td></td>
-						</tr>
-						<tr id="DetailsImageAttributes52_01" style="display: none;">
-							<td width="75"><i>Initial:</i></td>
-							<td></td>
-						</tr>
-						<tr id="DetailsImageAttributes52_02" style="display: none;">
-							<td width="75"><i>Stereotype: </i></td>
-							<td></td>
-						</tr>
-						<tr id="DetailsImageAttributes52_03" style="display: none;">
-							<td width="75"><i>Ordered: </i></td>
-							<td></td>
-						</tr>
-						<tr id="DetailsImageAttributes52_04" style="display: none;">
-							<td width="75"><i>Range: </i></td>
-							<td>Range:0 to 1</td>
-						</tr>
-						<tr id="DetailsImageAttributes52_05" style="display: none;">
-							<td width="75"><i>Transient: </i></td>
-							<td>False</td>
-						</tr>
-						<tr id="DetailsImageAttributes52_06" style="display: none;">
-							<td width="75"><i>Derived: </i></td>
-							<td>False</td>
-						</tr>
-							<tr id="DetailsImageAttributes52_07" style="display: none;">
-							<td width="75"><i>IsID: </i></td>
-						<td>False</td>
-						</tr>
-					</table>
-					
-					
-						<div class="ObjectDetailsNotes"><table>
-	<tr>
-		<td valign="top">
-			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
-		</td>
-		<td>
-			Indicator, if the item is orderable or not, e.g. because it is temporarily out of stock.&lt;br/&gt;
-		</td>
-	</tr>
-</table></div>
-
-						
-				</td>
-			</tr>			<tr>
-				<td width="100%" class="TableRow">
-					<i>Public xsd:decimal</i><br /><strong>&nbsp;&nbsp;epo-cat:hasOrderableUnitFactorRate</strong>
 				</td>
 			</tr>
 			<tr>
@@ -218,7 +160,7 @@ function nameClassifier(name, separator)
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			The factor by which the Item net price of an unit of an item can be converted to the orderable unit.&lt;br/&gt;
+			Indicator, if the item is orderable or not, e.g. because it is temporarily out of stock.&lt;br/&gt;
 		</td>
 	</tr>
 </table></div>
@@ -227,7 +169,7 @@ function nameClassifier(name, separator)
 				</td>
 			</tr>			<tr>
 				<td width="100%" class="TableRow">
-					<i>Public xsd:integer</i><br /><strong>&nbsp;&nbsp;epo-cat:hasOrderableQuantityIncrement</strong>
+					<i>Public xsd:decimal</i><br /><strong>&nbsp;&nbsp;epo-cat:hasOrderableUnitFactorRate</strong>
 				</td>
 			</tr>
 			<tr>
@@ -276,7 +218,7 @@ function nameClassifier(name, separator)
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Orderable quantity increment: The increment of Orderable units that can be ordered.&lt;br/&gt;
+			The factor by which the Item net price of an unit of an item can be converted to the orderable unit.&lt;br/&gt;
 		</td>
 	</tr>
 </table></div>
@@ -285,7 +227,7 @@ function nameClassifier(name, separator)
 				</td>
 			</tr>			<tr>
 				<td width="100%" class="TableRow">
-					<i>Public rdfs:Literal</i><br /><strong>&nbsp;&nbsp;epo-cat:hasWarrantyInformation</strong>
+					<i>Public xsd:integer</i><br /><strong>&nbsp;&nbsp;epo-cat:hasOrderableQuantityIncrement</strong>
 				</td>
 			</tr>
 			<tr>
@@ -334,7 +276,7 @@ function nameClassifier(name, separator)
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Warranty information that applies to the catalogue line item.&lt;br/&gt;
+			Orderable quantity increment: The increment of Orderable units that can be ordered.&lt;br/&gt;
 		</td>
 	</tr>
 </table></div>
@@ -343,7 +285,7 @@ function nameClassifier(name, separator)
 				</td>
 			</tr>			<tr>
 				<td width="100%" class="TableRow">
-					<i>Public xsd:boolean</i><br /><strong>&nbsp;&nbsp;epo-cat:isContractedItem</strong>
+					<i>Public rdfs:Literal</i><br /><strong>&nbsp;&nbsp;epo-cat:hasWarrantyInformation</strong>
 				</td>
 			</tr>
 			<tr>
@@ -392,7 +334,7 @@ function nameClassifier(name, separator)
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
-			Indicator if the item is offered in accordance to an existing contract.&lt;br/&gt;
+			Warranty information that applies to the catalogue line item.&lt;br/&gt;
 		</td>
 	</tr>
 </table></div>
@@ -401,7 +343,7 @@ function nameClassifier(name, separator)
 				</td>
 			</tr>			<tr>
 				<td width="100%" class="TableRow">
-					<i>Public rdfs:Literal</i><br /><strong>&nbsp;&nbsp;epo-cat:hasTransactionConditions</strong>
+					<i>Public xsd:boolean</i><br /><strong>&nbsp;&nbsp;epo-cat:isContractedItem</strong>
 				</td>
 			</tr>
 			<tr>
@@ -450,6 +392,64 @@ function nameClassifier(name, separator)
 			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
 		</td>
 		<td>
+			Indicator if the item is offered in accordance to an existing contract.&lt;br/&gt;
+		</td>
+	</tr>
+</table></div>
+
+						
+				</td>
+			</tr>			<tr>
+				<td width="100%" class="TableRow">
+					<i>Public rdfs:Literal</i><br /><strong>&nbsp;&nbsp;epo-cat:hasTransactionConditions</strong>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="1">										
+					<a href="#" onclick="parent.toggleData('DetailsImageAttributes58')" style="text-decoration: none; color: #000000;"><img src="../../images/plus03.gif" align="absmiddle" id="DetailsImageAttributes58" border="0" />Details:</a>
+					<table border="0" cellspacing="0" cellpadding="0" class="Table" style="padding: 4px 18px;">
+					
+						<tr id="DetailsImageAttributes58_00" style="display: none;">
+							<td width="75"><i>Alias:</i></td>
+							<td></td>
+						</tr>
+						<tr id="DetailsImageAttributes58_01" style="display: none;">
+							<td width="75"><i>Initial:</i></td>
+							<td></td>
+						</tr>
+						<tr id="DetailsImageAttributes58_02" style="display: none;">
+							<td width="75"><i>Stereotype: </i></td>
+							<td></td>
+						</tr>
+						<tr id="DetailsImageAttributes58_03" style="display: none;">
+							<td width="75"><i>Ordered: </i></td>
+							<td></td>
+						</tr>
+						<tr id="DetailsImageAttributes58_04" style="display: none;">
+							<td width="75"><i>Range: </i></td>
+							<td>Range:0 to 1</td>
+						</tr>
+						<tr id="DetailsImageAttributes58_05" style="display: none;">
+							<td width="75"><i>Transient: </i></td>
+							<td>False</td>
+						</tr>
+						<tr id="DetailsImageAttributes58_06" style="display: none;">
+							<td width="75"><i>Derived: </i></td>
+							<td>False</td>
+						</tr>
+							<tr id="DetailsImageAttributes58_07" style="display: none;">
+							<td width="75"><i>IsID: </i></td>
+						<td>False</td>
+						</tr>
+					</table>
+					
+					
+						<div class="ObjectDetailsNotes"><table>
+	<tr>
+		<td valign="top">
+			<i>Notes: </i><span style="margin-left: .4cm;"> </span>
+		</td>
+		<td>
 			Textual description of the specific transaction conditions (purchasing, sales, payment) for an item.&lt;br/&gt;
 		</td>
 	</tr>
@@ -483,8 +483,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink58" onclick="parent.toggleDiv('detailsDIVLink58','DetailsImageLink58')" />Details:
-							<div id="detailsDIVLink58" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink59" onclick="parent.toggleDiv('detailsDIVLink59','DetailsImageLink59')" />Details:
+							<div id="detailsDIVLink59" class="DetailsDiv" >
 							<div class="ObjectDetailsNotes">The item price based on a standardised unit.&lt;br/&gt;&lt;br/&gt;Additional Information:&lt;br/&gt;The unit must be indicated in the Quantity, with a quantity value of 1.&lt;br/&gt;</div>
 
 							</div>
@@ -507,8 +507,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink59" onclick="parent.toggleDiv('detailsDIVLink59','DetailsImageLink59')" />Details:
-							<div id="detailsDIVLink59" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink60" onclick="parent.toggleDiv('detailsDIVLink60','DetailsImageLink60')" />Details:
+							<div id="detailsDIVLink60" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -530,8 +530,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink60" onclick="parent.toggleDiv('detailsDIVLink60','DetailsImageLink60')" />Details:
-							<div id="detailsDIVLink60" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink61" onclick="parent.toggleDiv('detailsDIVLink61','DetailsImageLink61')" />Details:
+							<div id="detailsDIVLink61" class="DetailsDiv" >
 							<div class="ObjectDetailsNotes">The minimum quantity of an item that is guaranteed by the seller to be delivered.&lt;br/&gt;&lt;br/&gt;&lt;br/&gt;</div>
 
 							</div>
@@ -554,8 +554,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink61" onclick="parent.toggleDiv('detailsDIVLink61','DetailsImageLink61')" />Details:
-							<div id="detailsDIVLink61" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink62" onclick="parent.toggleDiv('detailsDIVLink62','DetailsImageLink62')" />Details:
+							<div id="detailsDIVLink62" class="DetailsDiv" >
 							<div class="ObjectDetailsNotes">The maximum number of orderable units that can be ordered according to details provided in the catalogue line, such as price.&lt;br/&gt;&lt;br/&gt;</div>
 
 							</div>
@@ -578,8 +578,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink62" onclick="parent.toggleDiv('detailsDIVLink62','DetailsImageLink62')" />Details:
-							<div id="detailsDIVLink62" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink63" onclick="parent.toggleDiv('detailsDIVLink63','DetailsImageLink63')" />Details:
+							<div id="detailsDIVLink63" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -601,8 +601,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink63" onclick="parent.toggleDiv('detailsDIVLink63','DetailsImageLink63')" />Details:
-							<div id="detailsDIVLink63" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink64" onclick="parent.toggleDiv('detailsDIVLink64','DetailsImageLink64')" />Details:
+							<div id="detailsDIVLink64" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -624,8 +624,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink64" onclick="parent.toggleDiv('detailsDIVLink64','DetailsImageLink64')" />Details:
-							<div id="detailsDIVLink64" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink65" onclick="parent.toggleDiv('detailsDIVLink65','DetailsImageLink65')" />Details:
+							<div id="detailsDIVLink65" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>
@@ -647,8 +647,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink65" onclick="parent.toggleDiv('detailsDIVLink65','DetailsImageLink65')" />Details:
-							<div id="detailsDIVLink65" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink66" onclick="parent.toggleDiv('detailsDIVLink66','DetailsImageLink66')" />Details:
+							<div id="detailsDIVLink66" class="DetailsDiv" >
 							<div class="ObjectDetailsNotes">A unique identifier of the instance of the concept.&lt;br/&gt;&lt;br/&gt;Additional Information&lt;br/&gt;&lt;br/&gt;For example, in the case of the Procurement Identifier, this could be the European Public Procurement Identifier, and/or any other identifier provided by the buyer, the service provider or any other stakeholder.&lt;br/&gt;&lt;br/&gt;WG Approval 12/11/2019&lt;br/&gt;&lt;br/&gt;</div>
 
 							</div>
@@ -667,6 +667,30 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
+						epo-ord:OrderLine<br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> epo-ord:refersToCatalogueLine<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink67" onclick="parent.toggleDiv('detailsDIVLink67','DetailsImageLink67')" />Details:
+							<div id="detailsDIVLink67" class="DetailsDiv" >
+							<div class="ObjectDetailsNotes">&lt;br/&gt;Additional Information:&lt;br/&gt;The reference to the catalogue line is for information only, to trace the source of the information provided in the order line. &lt;br/&gt;</div>
+
+							</div>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
 						<a href="EA39.html">epo-cat:Catalogue</a><br />
 						Class &nbsp;
 					</td>
@@ -681,8 +705,8 @@ function nameClassifier(name, separator)
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink66" onclick="parent.toggleDiv('detailsDIVLink66','DetailsImageLink66')" />Details:
-							<div id="detailsDIVLink66" class="DetailsDiv" >
+						<div class="DetailsDivParent"><img src="../../images/minus03.gif" align="absmiddle" id="DetailsImageLink68" onclick="parent.toggleDiv('detailsDIVLink68','DetailsImageLink68')" />Details:
+							<div id="detailsDIVLink68" class="DetailsDiv" >
 							&nbsp;
 							</div>
 						</div>

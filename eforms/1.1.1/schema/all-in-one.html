@@ -2155,7 +2155,7 @@ marked:</p>
 <div class="sect3">
 <h4 id="futureNoticeSection"><a class="anchor" href="#futureNoticeSection"></a>4.3.9. Future Notice</h4>
 <div class="paragraph">
-<p>The "<em>cbc:PlannedDate</em>" element is used for planning notices (PIN only excluded)
+<p>The "<em>cbc:PlannedDate</em>" element is used for planning notices (PIN Profile excluded)
 to specify when the competition notice will be published. Mark-up should
 be as follows:</p>
 </div>
@@ -4178,7 +4178,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Submission Language (BT-97)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#postAwardSection">§ 4.4.3.32</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#tenderingLanguageSection">§ 4.4.3.31</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">+</p></th>
@@ -5269,7 +5269,8 @@ codelist.</p>
 <p>This criterion may be quantified in one or more dimensions, each within
 an "<em>efac:AwardCriterionParameter</em>" element. The dimension is specified with
 the "<em>efbc:ParameterCode</em>" element, and the "<em>efbc:ParameterNumeric</em>" element
-shall hold the value associated with that dimension.</p>
+shall hold the value associated with that dimension (Award Criterion
+Number, BT-541).</p>
 </div>
 <div class="paragraph">
 <p>The number dimension shall be:</p>
@@ -5302,8 +5303,6 @@ percentage is used, the 100% rule verified (i.e. sum of the weighting percentage
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
-    &lt;cbc:CalculationExpression languageID="ENG"&gt;Price-quality score calculation is based on ...&lt;/cbc:CalculationExpression&gt;
-    &lt;cbc:CalculationExpression languageID="FRA"&gt;Le calcul du score prix-qualité est basée sur ...&lt;/cbc:CalculationExpression&gt;
     &lt;cac:SubordinateAwardingCriterion&gt;
         &lt;ext:UBLExtensions&gt;
             &lt;ext:UBLExtension&gt;
@@ -5434,13 +5433,40 @@ within that Award Criteria no Award Criterion with Award Criterion Number Weight
 </div>
 </div>
 <div class="paragraph">
-<p>When Award Criteria calculation is too complex to be described with the proposed structure,
+<p>When Award Criteria calculation is too complex to be described with the
+proposed structure based on the use of Award Criterion Number (BT-541),
 the complicated expression, or a reference to the procurement document section where this
 information may be found, should be specified in Award Criteria Complicated (BT-543).
 Information is encoded as text with the element "<em>cbc:CalculationExpression</em>". For a given
 Award Criteria (i.e. "<em>cac:AwardingCriterion</em>" element), the children "<em>cbc:Description</em>"
 (Award Criteria Order Justification, BT-733) and "<em>cbc:CalculationExpression</em>" (Award
-Criteria Complicated, BT-543) shall not coexist.</p>
+Criteria Complicated, BT-543) shall not coexist. Similarly, for a given Award
+Criteria (i.e. "<em>cac:AwardingCriterion</em>" element), the child element
+"<em>cbc:CalculationExpression</em>" (Award Criteria Complicated, BT-543) shall not
+coexist with the descendant elements "<em>efbc:ParameterNumeric</em>" (BT-541) or
+"<em>efbc:ParameterCode</em>" (BT-5421, BT-5422, BT-5423).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
+    &lt;cbc:CalculationExpression languageID="ENG"&gt;Price-quality score calculation is based on ...&lt;/cbc:CalculationExpression&gt;
+    &lt;cbc:CalculationExpression languageID="FRA"&gt;Le calcul du score prix-qualité est basée sur ...&lt;/cbc:CalculationExpression&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;price&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Price&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Prix&lt;/cbc:Name&gt;
+        &lt;cbc:Description languageID="ENG"&gt;The price score is calculated by ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Le score de prix est calculé par ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;quality&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Quality&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Qualité&lt;/cbc:Name&gt;
+        &lt;cbc:Description languageID="ENG"&gt;The quality score is calculated by ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Le score de qualité est calculé par ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+&lt;/cac:AwardingCriterion&gt;</code></pre>
+</div>
 </div>
 </div>
 <div class="sect4">
