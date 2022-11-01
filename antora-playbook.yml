@@ -3,6 +3,13 @@ site:
   url: https://docs.ted.europa.eu
   start_page: home::index.adoc
 
+antora:
+  extensions:
+    - require: ./lib/apidoc/apidoc-antora-extension
+      redoc:
+        config: redoc/redoc-config.json
+        template: redoc/redoc-template.hbs
+
 asciidoc:
   attributes:
     ### Component's Latest Version
@@ -19,6 +26,9 @@ asciidoc:
     eforms_latest_version: '1.2.1'
     epo_latest_version: '3.0.1'
     espd_latest_version: '3.0.1'
+
+  extensions:
+  - ./lib/apidoc/apidoc-asciidoc-extension
 
 content:
   edit_url: false

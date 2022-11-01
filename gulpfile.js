@@ -10,9 +10,8 @@ require('global-agent/bootstrap')
 
 const connect = require('gulp-connect')
 const fs = require('fs')
-const generator = require('antora-eui-site-generator-lunr')
+const generator = require('@antora/site-generator-default')
 process.env['DOCSEARCH_ENABLED'] = true
-process.env['DOCSEARCH_ENGINE'] = 'lunr'
 const { reload: livereload } = process.env.LIVERELOAD === 'true' ? require('gulp-connect') : {}
 const { series, src, watch } = require('gulp')
 const yaml = require('js-yaml')
@@ -21,7 +20,7 @@ const playbookFilename = 'antora-playbook.yml'
 const playbook = yaml.safeLoad(fs.readFileSync(playbookFilename, 'utf8'))
 const outputDir = process.env['SITE_DIR'] || (playbook.output || {}).dir || 'build/site'
 const serverConfig = { name: 'Preview Site', livereload, port: 5000, root: outputDir }
-const antoraArgs = ['--playbook', playbookFilename, '--generator', 'antora-eui-site-generator-lunr']
+const antoraArgs = ['--playbook', playbookFilename]
 const watchPatterns = playbook.content.sources.filter((source) => !source.url.includes(':')).reduce((accum, source) => {
   accum.push(`${source.url}/${source.start_path ? source.start_path + '/' : ''}antora.yml`)
   accum.push(`${source.url}/${source.start_path ? source.start_path + '/' : ''}**/*.adoc`)
