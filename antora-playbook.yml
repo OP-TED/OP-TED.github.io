@@ -5,10 +5,17 @@ site:
 
 antora:
   extensions:
-    - require: ./lib/apidoc/apidoc-antora-extension
+    - id: render-apidocs
+      require: ./lib/apidoc/apidoc-antora-extension
       openapi-generator:
         config: config/openapi-generator/asciidoc.yaml
         templates: templates/openapi-generator/asciidoc
+    - id: algolia-search
+      require: ./lib/algolia/algolia-antora-extension
+      enabled: false
+    - id: lunr-search
+      require: ./lib/lunr/lunr-antora-extension
+      enabled: false
 
 asciidoc:
   attributes:
@@ -43,7 +50,7 @@ content:
   - url: https://github.com/OP-TED/eforms-docs.git
     start_path: /
     branches: 1.2.x, 1.2.x-generated, 1.1.x, 1.1.x-generated, 1.0.x, 1.0.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
-  
+
   ### ePO Documentation
   - url: https://github.com/OP-TED/epo-docs.git
     start_path: /
