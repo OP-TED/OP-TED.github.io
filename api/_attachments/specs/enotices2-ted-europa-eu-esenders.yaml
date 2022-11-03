@@ -1,0 +1,247 @@
+openapi: 3.0.1
+info:
+  title: Public API Documentation
+  description: Public API documentation aims to describe the Public API endpoints.
+  license:
+    name: EUPL
+    url: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+  version: 1.1.6
+servers:
+  - description: Generated server url
+    url: https://enotices2.ted.europa.eu/esenders
+security:
+  - esenders-token: []
+paths:
+  /api/notice/notices/{businessId}/validation-report:
+    get:
+      tags:
+        - Notice
+      summary: Get notice validation report
+      operationId: getValidationReport
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+  /api/notice/notices/{businessId}/stop-publication-esentool:
+    post:
+      tags:
+        - Notice
+      summary: send stop notice publication to ted monitor
+      operationId: stopPublicationEsentool
+      parameters:
+        - name: businessId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EsentoolNoticeDto'
+  /api/notice/notices/submit:
+    post:
+      tags:
+        - Notice
+      summary: Submit XML notice
+      operationId: submitNotice
+      parameters:
+        - name: metadata
+          description: the metadata are used to identify the original author of the notice
+          schema:
+            $ref: '#/components/schemas/EsenderAuthor'
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - metadata
+                - notice
+              type: object
+              properties:
+                notice:
+                  type: string
+                  format: binary
+                metadata:
+                  $ref: '#/components/schemas/EsenderAuthor'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+  /api/notice/notices/search-esentool:
+    get:
+      tags:
+        - Notice
+      summary: search procedures
+      operationId: searchProceduresEsentool
+      parameters:
+        - name: page
+          in: query
+          required: false
+          schema:
+            minimum: 0
+            type: integer
+            format: int32
+            default: 0
+        - name: size
+          in: query
+          required: false
+          schema:
+            minimum: 1
+            type: integer
+            format: int32
+            default: 20
+        - name: sortProperty
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: sortDirection
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ASC
+            enum:
+              - ASC
+              - DESC
+        - name: searchNoticesEsentool
+          in: query
+          required: true
+          schema:
+            $ref: '#/components/schemas/SearchNoticesEsentool'
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+components:
+  schemas:
+    EsentoolNoticeDto:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        versionId:
+          type: string
+        procedureId:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+            - DRAFT
+            - SUBMITTED
+            - STOPPED
+            - PUBLISHING
+            - PUBLISHED
+            - DELETED
+            - NOT_PUBLISHED
+            - CONVERTED_FROM_PUBLISHED
+            - ARCHIVED
+            - VALIDATION_FAILED
+        updatedAt:
+          type: string
+          format: date-time
+        submittedAt:
+          type: string
+          format: date-time
+        publicationId:
+          type: string
+        publicationDate:
+          type: string
+          format: date
+        noticeType:
+          type: string
+        legalBasis:
+          type: string
+        languages:
+          type: array
+          items:
+            type: string
+    EsenderAuthor:
+      type: object
+      properties:
+        noticeAuthorEmail:
+          type: string
+        noticeAuthorLocale:
+          type: string
+    XmlNoticeSubmissionDto:
+      type: object
+      properties:
+        cvsLink:
+          type: string
+        success:
+          type: boolean
+    SearchNoticesEsentool:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        versionId:
+          type: string
+        submittedBefore:
+          type: string
+          format: date-time
+        submittedAfter:
+          type: string
+          format: date-time
+        publishedBefore:
+          type: string
+          format: date-time
+        publishedAfter:
+          type: string
+          format: date-time
+        statuses:
+          type: array
+          items:
+            type: string
+            enum:
+              - DRAFT
+              - SUBMITTED
+              - STOPPED
+              - PUBLISHING
+              - PUBLISHED
+              - DELETED
+              - NOT_PUBLISHED
+              - CONVERTED_FROM_PUBLISHED
+              - ARCHIVED
+              - VALIDATION_FAILED
+    EsentoolPageDtoEsentoolNoticeDto:
+      type: object
+      properties:
+        totalSize:
+          type: integer
+          format: int64
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/EsentoolNoticeDto'
+  securitySchemes:
+    esenders-token:
+      type: http
+      name: esenders-token
+      description: API Key generated using TED API
+      scheme: bearer
+      bearerFormat: JWT

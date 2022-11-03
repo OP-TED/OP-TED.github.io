@@ -6,7 +6,7 @@
     <title>Event Manager :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/rdf-conversion/event_manager.html">
     <meta name="description" content="This page is about Event Manager">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../_/css/site.css">
      <link rel="stylesheet" href="../_/css/custom.css">
     <link rel="stylesheet" href="../_/css/search.css">
@@ -251,7 +251,7 @@ different Event Handlers.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>DAG_LOGGER_CONFIG_HANDLERS=MongoDBHandler,ConsoleHandler
+<pre class="highlightjs highlight"><code class="language-none hljs">DAG_LOGGER_CONFIG_HANDLERS=MongoDBHandler,ConsoleHandler
 CLI_LOGGER_CONFIG_HANDLERS=MongoDBHandler,ConsoleHandler,FileHandlers
 MONGO_DB_LOGS_DATABASE_NAME=logs_db
 LOGGER_LOG_FILENAME=./event_logs/{today}/{hour}/{minute}.log</code></pre>
@@ -324,7 +324,7 @@ inside the function.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>event_logger.debug(event_message)
+<pre class="highlightjs highlight"><code class="language-none hljs">event_logger.debug(event_message)
 event_logger.info(event_message)
 event_logger.warning(event_message)
 event_logger.error(event_message)</code></pre>
@@ -345,7 +345,7 @@ execution duration) and will inject the event_logger into dag_context KEYWORD pa
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>from ted_sws.event_manager.adapters.event_log_decorator import event_log
+<pre class="highlightjs highlight"><code class="language-none hljs">from ted_sws.event_manager.adapters.event_log_decorator import event_log
 from ted_sws.event_manager.model.event_message import TechnicalEventMessage, NoticeEventMessage
 from ted_sws.event_manager.services.logger_from_context import get_logger_from_dag_context, handle_event_message_metadata_dag_context
 
@@ -370,7 +370,7 @@ def host_function(**dag_context)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code># just inject the event_logger:
+<pre class="highlightjs highlight"><code class="language-none hljs"># just inject the event_logger:
 @event_log(is_loggable=False)
 
 # just log the information about "host" function:
@@ -382,7 +382,7 @@ def host_function(**dag_context)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>from ted_sws.event_manager.adapters.event_handler_config import EventHandlerConfig
+<pre class="highlightjs highlight"><code class="language-none hljs">from ted_sws.event_manager.adapters.event_handler_config import EventHandlerConfig
 from ted_sws.event_manager.adapters.event_logger import EventLogger
 from ted_sws.event_manager.adapters.log import ConfigHandlerType
 
@@ -410,7 +410,7 @@ event_logger = EventLogger(EventHandlerConfig(config_handlers=ConfigHandlerType.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>def get_logger(name: str = None) -&gt; EventLogger:
+<pre class="highlightjs highlight"><code class="language-none hljs">def get_logger(name: str = None) -&gt; EventLogger:
     """
     This method returns a global (DAG) logger or a custom named DAG logger
 
@@ -452,7 +452,7 @@ def get_logger_from_dag_context(dag_context: dict) -&gt; EventLogger:
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>def log_info(message: str, name: str = None):
+<pre class="highlightjs highlight"><code class="language-none hljs">def log_info(message: str, name: str = None):
     """
     Logs INFO EventMessage, using global (DAG) logger or a custom named one
     :param message:
@@ -632,7 +632,7 @@ def log_cli_brief_error(message: str, name: str = None):
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code>def event_log(
+<pre class="highlightjs highlight"><code class="language-none hljs">def event_log(
         event_message: EventMessage = EventMessage(),
         event_handler_config: EventHandlerConfig = DAGLoggerConfig(
             name=DEFAULT_DAG_LOGGER_NAME

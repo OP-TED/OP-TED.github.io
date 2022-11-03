@@ -1,0 +1,101 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+  - url: https://cvs.ted.europa.eu
+paths:
+  /v1/notices/validation:
+    post:
+      tags:
+        - notice-rest-controller
+      summary: Validate the notice
+      description: Validate a notice sent on body. The request returns a schematron validation report which describes all the tests performed.
+      operationId: validate
+      parameters:
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InputNoticeValidation'
+        required: true
+      responses:
+        '200':
+          description: The report is returned.
+          content:
+            application/xml: {}
+        '400':
+          description: |-
+            Possible issues:
+            - The 'language' parameter is not valid.
+            - The 'validationMode' parameter is not valid. The 'validationMode' parameter is not valid.
+            - The rules are missing for the following version.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: |-
+            Possible issues:
+            - Missing key in header: X-API-Key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: |-
+            Possible issues:
+            - Invalid key in header: X-API-Key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    InputNoticeValidation:
+      required:
+        - notice
+      type: object
+      properties:
+        notice:
+          type: string
+          description: Payload in base64 for the XML document
+          format: byte
+          example: aGVsbG8=
+        language:
+          type: string
+          description: 'Language to generate the SVRL report. Enum: [bg, cs, da, de, el, en, es, et, fi, fr, ga, hu, it, lt, lv, mt, nl, pl, pt, ro, sk, sl, sv, hr]'
+          example: en
+          default: en
+        validationMode:
+          type: string
+          description: Specify the validation mode that will be applied, selecting the corresponding sub-group of the eForms SDK version.
+          example: static
+          default: static
+          enum:
+            - dynamic
+            - static
+        eFormsSdkVersion:
+          type: string
+          description: Specify the eForms SDK version to use for validating the XML document encoded in base64.
+          example: eforms-sdk-1.0
+      description: Request parameters for validation
+    ErrorResponse:
+      type: object
+      properties:
+        errorCode:
+          type: integer
+          description: HTTP error code
+          format: int32
+        message:
+          type: string
+          description: Error description
+        timestamp:
+          type: string
+          description: Error timestamp in RFC 3339 format
+      description: Error response

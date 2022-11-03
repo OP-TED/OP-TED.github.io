@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Notice Types :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/eforms/1.2.1/notice-types/index.html">
-    <meta name="generator" content="Antora 2.3.4">
+    <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
      <link rel="stylesheet" href="../../../_/css/custom.css">
     <link rel="stylesheet" href="../../../_/css/search.css">
@@ -441,7 +441,7 @@ In order to avoid confusion with the more general notion of "notice type" (contr
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>Identifier of the label for the name of the notice subtype. The label is available in the <a href="../translations/index.html" class="page">translations</a> folder.</td>
+<td>Identifier of the label for the name of the notice subtype. The label is available in the <a href="../translations/index.html" class="xref page">translations</a> folder.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
@@ -476,7 +476,7 @@ Those files are available in the <a href="https://github.com/OP-TED/eForms-SDK">
 <code>&lt;subTypeId&gt;.json</code></p>
 </div>
 <div class="paragraph">
-<p>These files reference the fields contained in the form via their identifier. The information for every field is centralised in <a href="../fields/index.html#field-repository" class="page">the field repository</a>.</p>
+<p>These files reference the fields contained in the form via their identifier. The information for every field is centralised in <a href="../fields/index.html#field-repository" class="xref page">the field repository</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="_overall_structure"><a class="anchor" href="#_overall_structure"></a>Overall structure</h3>
@@ -592,7 +592,7 @@ Those files are available in the <a href="https://github.com/OP-TED/eForms-SDK">
 <p>Every <code>field</code> element represents a valid eForms field. The <code>id</code> property of <code>field</code> elements always contains the <em>eForms field&#8217;s</em> identifier and can be used to retrieve the field&#8217;s metadata from the field repository (<code>fields.json</code>).</p>
 </div>
 <div class="paragraph">
-<p>Every <code>group</code> element is primarily a visual/logical structure element. However,  in some cases, a <code>group</code> element may also correspond to an <em>XML element</em> (<code>node</code>) in the notice XML file. In this case, a <code>nodeId</code> property is provided indicating the identifier of the <code>node</code> which can be used to retrieve node metadata from the <a href="../fields/xml-structure.html" class="page"><code>xmlStructure</code></a> section of <code>fields.json</code>.</p>
+<p>Every <code>group</code> element is primarily a visual/logical structure element. However,  in some cases, a <code>group</code> element may also correspond to an <em>XML element</em> (<code>node</code>) in the notice XML file. In this case, a <code>nodeId</code> property is provided indicating the identifier of the <code>node</code> which can be used to retrieve node metadata from the <a href="../fields/xml-structure.html" class="xref page"><code>xmlStructure</code></a> section of <code>fields.json</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -707,7 +707,7 @@ value: <code>"GROUP"</code> or <code>"SECTION"</code></p>
 <code>nodeId</code>
 </td>
 <td class="hdlist2">
-<p>The property is only present in <code>group</code> elements that can be associated with a <code>node</code> in the <a href="../fields/xml-structure.html" class="page">xmlStructure</a>. When present, it indicates the identifier of the corresponding <code>node</code> which can be used to retrieve further node metadata from <code>fields.json</code>.<br>
+<p>The property is only present in <code>group</code> elements that can be associated with a <code>node</code> in the <a href="../fields/xml-structure.html" class="xref page">xmlStructure</a>. When present, it indicates the identifier of the corresponding <code>node</code> which can be used to retrieve further node metadata from <code>fields.json</code>.<br>
 value: a <code>node</code> identifier (a text string like <code>"ND-LotResult"</code>)</p>
 </td>
 </tr>
@@ -863,7 +863,7 @@ value: a label identifier</p>
 <p>You may be wondering why some property names (like <code>_repeatable</code>) start with an underscore, while others (like <code>hidden</code> or <code>readOnly</code>) do not. What is the difference?</p>
 </div>
 <div class="paragraph">
-<p>The difference is that the <code>_repeatable</code> property is a <strong>complementary property</strong> that could have been omitted without any information loss. This is because a <code>group</code> element is repeatable if and only if it is associated with a repeatable <code>node</code>. Therefore using the provided <code>nodeId</code> property value, one can always determine whether the <code>group</code> should be repeatable or not, by looking up the information in the <a href="../fields/xml-structure.html" class="page"><code>xmlStructure</code></a> (in <code>fields.json</code>).</p>
+<p>The difference is that the <code>_repeatable</code> property is a <strong>complementary property</strong> that could have been omitted without any information loss. This is because a <code>group</code> element is repeatable if and only if it is associated with a repeatable <code>node</code>. Therefore using the provided <code>nodeId</code> property value, one can always determine whether the <code>group</code> should be repeatable or not, by looking up the information in the <a href="../fields/xml-structure.html" class="xref page"><code>xmlStructure</code></a> (in <code>fields.json</code>).</p>
 </div>
 <div class="paragraph">
 <p>However, having to look-up some specific additional information is very common while processing this file. For convenience, we decided therefore to include some complementary properties that help you avoid some common look-ups. To make these properties stand-out we decided to use a slightly different naming convention: starting their names with an underscore character (<code>_</code>).</p>
