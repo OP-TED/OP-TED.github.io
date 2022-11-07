@@ -11,25 +11,69 @@ require('global-agent/bootstrap')
 const connect = require('gulp-connect')
 const fs = require('fs')
 const generator = require('@antora/site-generator-default')
-process.env['SEARCH_ENABLED'] = true
-process.env['SEARCH_ENGINE'] = 'lunr'
+const yaml = require('js-yaml');
+
 const { reload: livereload } = process.env.LIVERELOAD === 'true' ? require('gulp-connect') : {}
 const { series, src, watch } = require('gulp')
-const yaml = require('js-yaml')
+
+const antoraArgs = []
+
+readProperties()
+
+if(process.env['SEARCH_ENABLED']) {
+  if(process.env['SEARCH_ENGINE'] == 'lunr') {
+    antoraArgs.push('--extension', 'lunr-search')
+  }
+}
+
+if(process.env['NODE_DEBUG']) {
+  antoraArgs.push('--log-level', 'debug')
+} else {
+  console['debug'] = function(){};
+  antoraArgs.push( '--log-level', 'info')
+}
 
 const playbookFilename = fs.existsSync('antora-playbook-local.yml')  ? 'antora-playbook-local.yml' : 'antora-playbook.yml'
+antoraArgs.push('--playbook', playbookFilename)
+
 const playbook = yaml.safeLoad(fs.readFileSync(playbookFilename, 'utf8'))
 const outputDir = process.env['SITE_DIR'] || (playbook.output || {}).dir || 'build/site'
+antoraArgs.push('--to-dir', outputDir)
+
 const serverConfig = { name: 'Preview Site', livereload, port: 5000, root: outputDir }
-const antoraArgs = ['--playbook', playbookFilename, '--extension', 'lunr-search', '--log-level', 'info']
+
 const watchPatterns = playbook.content.sources.filter((source) => !source.url.includes(':')).reduce((accum, source) => {
   accum.push(`${source.url}/${source.start_path ? source.start_path + '/' : ''}antora.yml`)
   accum.push(`${source.url}/${source.start_path ? source.start_path + '/' : ''}**/*.adoc`)
   return accum
 }, [])
 
+function readProperties () {
+  if(fs.existsSync('env.yml')) {
+    const env = yaml.safeLoad(fs.readFileSync('env.yml', 'utf8'))
+
+    const propsFromFile = Object.assign({}, ...function _flatten(o, path=[]) {
+      return []
+      .concat(...Object.keys(o)
+        .map(key => {
+          return typeof o[key] === 'object' ?
+            _flatten(o[key], path.concat(key.toUpperCase())) :
+            ({[path.concat(key.toUpperCase()).join('_')]: o[key]})
+        }))
+      }(env)
+    )
+
+    process.env = Object.assign(propsFromFile, process.env)
+  }
+}
+
 function generate (done) {
-  console.log(`Using: ${playbookFilename}`)
+  console.debug(`NODE_DEBUG: ${process.env['NODE_DEBUG']}`)
+  console.debug(`SEARCH_ENABLED: ${process.env['SEARCH_ENABLED']}`)
+  console.debug(`SEARCH_ENGINE: ${process.env['SEARCH_ENGINE']}`)
+  
+  console.log(`Using playbook [${playbookFilename}]`)
+
   generator(antoraArgs, process.env)
     .then(() => done())
     .catch((err) => {
