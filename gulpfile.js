@@ -23,6 +23,10 @@ readProperties()
 if(process.env['SEARCH_ENABLED']) {
   if(process.env['SEARCH_ENGINE'] == 'lunr') {
     antoraArgs.push('--extension', 'lunr-search')
+  } else if(process.env['SEARCH_ENGINE'] == 'algolia') {
+    if(!process.env['ALGOLIA_API_KEY']) { throw 'Undefined environment variable ALGOLIA_API_KEY'}
+    if(!process.env['ALGOLIA_API_ID']) { throw 'Undefined environment variable ALGOLIA_API_ID'}
+    if(!process.env['ALGOLIA_INDEX_NAME']) { throw 'Undefined environment variable ALGOLIA_INDEX_NAME'}
   }
 }
 
@@ -68,6 +72,9 @@ function readProperties () {
 }
 
 function generate (done) {
+  console.debug(`ALGOLIA_API_ID: ${process.env['ALGOLIA_API_ID']}`)
+  console.debug(`ALGOLIA_API_KEY: ${process.env['ALGOLIA_API_KEY']}`)
+  console.debug(`ALGOLIA_INDEX_NAME: ${process.env['ALGOLIA_INDEX_NAME']}`)
   console.debug(`NODE_DEBUG: ${process.env['NODE_DEBUG']}`)
   console.debug(`SEARCH_ENABLED: ${process.env['SEARCH_ENABLED']}`)
   console.debug(`SEARCH_ENGINE: ${process.env['SEARCH_ENGINE']}`)
