@@ -10,9 +10,6 @@ antora:
       openapi-generator:
         config: config/openapi-generator/asciidoc.yaml
         templates: templates/openapi-generator/asciidoc
-    - id: algolia-search
-      require: ./lib/algolia/algolia-antora-extension
-      enabled: false
     - id: lunr-search
       require: ./lib/lunr/lunr-antora-extension
       enabled: false
@@ -42,9 +39,9 @@ content:
   sources:
 
   ### Local content
-  - url: https://github.com/OP-TED/OP-TED.github.io.git
+  - url: .
     start_path: content
-    branches: master
+    branches: HEAD
   
   ### eForms SDK
   - url: https://github.com/OP-TED/eforms-docs.git
@@ -72,7 +69,7 @@ content:
   - url: https://github.com/OP-TED/espd-docs.git
     start_path: /
     branches: wgm-reports
-   
+
   ### TED API
   - url: https://github.com/OP-TED/tedapi-docs.git
     start_path: /
@@ -86,7 +83,7 @@ content:
   - url: https://github.com/OP-TED/ted-rdf-mapping.git
     start_path: docs/antora
     branches: main
-    
+
 urls:
   redirect_facility: static
   # html_extension_style: indexify
