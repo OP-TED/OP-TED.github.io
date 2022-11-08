@@ -1,0 +1,1 @@
+window.antoraAlgolia=function(){const e=document.getElementById("search-script").dataset,t=e.apiKey,a=e.apiId,o=e.indexName;var i=docsearch({apiKey:t,appId:a,indexName:o,inputSelector:"#search-input",algoliaOptions:{hitsPerPage:20},autocompleteOptions:{hint:!1,keyboardShortcuts:["s"]}}).autocomplete;i.on("autocomplete:closed",(function(){i.autocomplete.setVal()}))}();
