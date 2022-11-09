@@ -5,6 +5,7 @@ on:
   push:
     branches: 
       - master
+
 jobs:
   publish_site:
     name: "Build and publish site with Antora"
@@ -41,3 +42,22 @@ jobs:
           FOLDER: build/site
           BRANCH: 'gh-pages'
           COMMIT-MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
+
+  index_site:
+    name: "Index site using Docsearch Crawler"
+    needs: publish_site
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get the content of docsearch-config.json as config
+        id: docsearch_config
+        run: echo "docsearch_config=$(cat config/docsearch-config.json | jq -r tostring)" >> $GITHUB_ENV
+
+      - name: Push indices to Algolia
+        uses: signcl/docsearch-scraper-action@master
+        env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          CONFIG: ${{ env.docsearch_config }}
