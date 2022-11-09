@@ -1423,7 +1423,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Exclusion Grounds (BT-67)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#exclusionGrounds">Exclusion Grounds (BT-67)</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -1448,7 +1448,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Reserved Participation (BT-71)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">Reserved Participation (BT-71)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">+</p></th>
@@ -2905,21 +2905,37 @@ information about the legislation reported in the
 </div>
 </div>
 <div class="sect2">
-<h3 id="reservedParticipationSection"><a class="anchor" href="#reservedParticipationSection"></a>Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</h3>
-<div class="paragraph">
-<p>Both are within the same "<em>cac:TendererQualificationRequest</em>" element and express
-requirements on the tenderer itself.</p>
-</div>
+<h3 id="exclusionGrounds"><a class="anchor" href="#exclusionGrounds"></a>Exclusion Grounds (BT-67)</h3>
 <div class="paragraph">
 <p>Exclusion Grounds (BT-67) refer to criteria that, not met and justified
 (even with self-declaration), lead to the tenderer exclusion. This
 information is expected as a code from the technical codelist
-"exclusion-ground" built on the ESPD codelist. More than one exclusion
+"exclusion-ground" tailored from the <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/criterion">criterion</a> codelist. More than one exclusion
 ground may be used, each in a dedicated
 "<em>cac:SpecificTendererRequirement</em>" element, a given code may however be
 used only once. Additionally to the code, a text ("cbc:Description") may
 be used.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TendererQualificationRequest&gt;
+    &lt;cac:SpecificTendererRequirement&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="exclusion-ground"&gt;crime-org&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Applicants not satisfying ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les candidats ne satisfaisant pas ...&lt;/cbc:Description&gt;
+    &lt;/cac:SpecificTendererRequirement&gt;
+    &lt;cac:SpecificTendererRequirement&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="exclusion-ground"&gt;fraud&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Applicants not satisfying ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les candidats ne satisfaisant pas ...&lt;/cbc:Description&gt;
+    &lt;/cac:SpecificTendererRequirement&gt;
+    &lt;!-- interrupted MarkUp --&gt;
+&lt;/cac:TendererQualificationRequest&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reservedParticipationSection"><a class="anchor" href="#reservedParticipationSection"></a>Reserved Participation (BT-71)</h3>
 <div class="paragraph">
 <p>Reserved Participation (BT-71) expresses a participation restriction;
 only tenderers with specific social missions may tender. Information is
@@ -2939,12 +2955,10 @@ Participation" requirement shall be specified.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TendererQualificationRequest&gt;
     &lt;cac:SpecificTendererRequirement&gt;
-        &lt;cbc:TendererRequirementTypeCode listName="exclusion-ground"&gt;CRITERION.EXCLUSION.NATIONAL.OTHER&lt;/cbc:TendererRequirementTypeCode&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Applicants not satisfying ...&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Les candidats ne satisfaisant pas ...&lt;/cbc:Description&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="reserved-procurement"&gt;res-pub-ser&lt;/cbc:TendererRequirementTypeCode&gt;
     &lt;/cac:SpecificTendererRequirement&gt;
     &lt;cac:SpecificTendererRequirement&gt;
-        &lt;cbc:TendererRequirementTypeCode listName="reserved-procurement"&gt;none&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="reserved-procurement"&gt;res-ws&lt;/cbc:TendererRequirementTypeCode&gt;
     &lt;/cac:SpecificTendererRequirement&gt;
 &lt;/cac:TendererQualificationRequest&gt;</code></pre>
 </div>

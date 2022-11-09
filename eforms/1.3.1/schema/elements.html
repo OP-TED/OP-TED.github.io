@@ -2300,7 +2300,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Exclusion Grounds (BT-67)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#exclusionGrounds">Exclusion Grounds (BT-67)</a></p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -2325,7 +2325,7 @@ more)</em></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Reserved Participation (BT-71)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#reservedParticipationSection">Reserved Participation (BT-71)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <th class="tableblock halign-center valign-middle"><p class="tableblock">+</p></th>
@@ -3782,21 +3782,37 @@ information about the legislation reported in the
 </div>
 </div>
 <div class="sect3">
-<h4 id="reservedParticipationSection"><a class="anchor" href="#reservedParticipationSection"></a>Exclusion Grounds (BT-67) &amp; Reserved Participation (BT-71)</h4>
-<div class="paragraph">
-<p>Both are within the same "<em>cac:TendererQualificationRequest</em>" element and express
-requirements on the tenderer itself.</p>
-</div>
+<h4 id="exclusionGrounds"><a class="anchor" href="#exclusionGrounds"></a>Exclusion Grounds (BT-67)</h4>
 <div class="paragraph">
 <p>Exclusion Grounds (BT-67) refer to criteria that, not met and justified
 (even with self-declaration), lead to the tenderer exclusion. This
 information is expected as a code from the technical codelist
-"exclusion-ground" built on the ESPD codelist. More than one exclusion
+"exclusion-ground" tailored from the <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/criterion">criterion</a> codelist. More than one exclusion
 ground may be used, each in a dedicated
 "<em>cac:SpecificTendererRequirement</em>" element, a given code may however be
 used only once. Additionally to the code, a text ("cbc:Description") may
 be used.</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TendererQualificationRequest&gt;
+    &lt;cac:SpecificTendererRequirement&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="exclusion-ground"&gt;crime-org&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Applicants not satisfying ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les candidats ne satisfaisant pas ...&lt;/cbc:Description&gt;
+    &lt;/cac:SpecificTendererRequirement&gt;
+    &lt;cac:SpecificTendererRequirement&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="exclusion-ground"&gt;fraud&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Applicants not satisfying ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les candidats ne satisfaisant pas ...&lt;/cbc:Description&gt;
+    &lt;/cac:SpecificTendererRequirement&gt;
+    &lt;!-- interrupted MarkUp --&gt;
+&lt;/cac:TendererQualificationRequest&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reservedParticipationSection"><a class="anchor" href="#reservedParticipationSection"></a>Reserved Participation (BT-71)</h4>
 <div class="paragraph">
 <p>Reserved Participation (BT-71) expresses a participation restriction;
 only tenderers with specific social missions may tender. Information is
@@ -3816,12 +3832,10 @@ Participation" requirement shall be specified.</p>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TendererQualificationRequest&gt;
     &lt;cac:SpecificTendererRequirement&gt;
-        &lt;cbc:TendererRequirementTypeCode listName="exclusion-ground"&gt;CRITERION.EXCLUSION.NATIONAL.OTHER&lt;/cbc:TendererRequirementTypeCode&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Applicants not satisfying ...&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Les candidats ne satisfaisant pas ...&lt;/cbc:Description&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="reserved-procurement"&gt;res-pub-ser&lt;/cbc:TendererRequirementTypeCode&gt;
     &lt;/cac:SpecificTendererRequirement&gt;
     &lt;cac:SpecificTendererRequirement&gt;
-        &lt;cbc:TendererRequirementTypeCode listName="reserved-procurement"&gt;none&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;cbc:TendererRequirementTypeCode listName="reserved-procurement"&gt;res-ws&lt;/cbc:TendererRequirementTypeCode&gt;
     &lt;/cac:SpecificTendererRequirement&gt;
 &lt;/cac:TendererQualificationRequest&gt;</code></pre>
 </div>
@@ -8354,15 +8368,15 @@ including options and renewals.</p></td>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:NoticeResult&gt;
     &lt;cbc:TotalAmount currencyID="EUR"&gt;123456.00&lt;/cbc:TotalAmount&gt;
-    &lt;cbc:EstimatedOverallFrameworkContractsAmount currencyID="EUR"&gt;6000&lt;/cbc:EstimatedOverallFrameworkContractsAmount&gt;
+    &lt;efbc:OverallMaximumFrameworkContractsAmount currencyID="EUR"&gt;6000&lt;/efbc:OverallMaximumFrameworkContractsAmount&gt;
     &lt;efac:GroupFramework&gt;
-        &lt;efbc:GroupFrameworkValueAmount currencyID="EUR"&gt;1200000&lt;/efbc:GroupFrameworkValueAmount&gt;
+        &lt;efbc:GroupFrameworkMaximumValueAmount currencyID="EUR"&gt;1200000&lt;/efbc:GroupFrameworkMaximumValueAmount&gt;
         &lt;efac:TenderLot&gt;
             &lt;cbc:ID schemeName="LotsGroup"&gt;GLO-0001&lt;/cbc:ID&gt;
         &lt;/efac:TenderLot&gt;
     &lt;/efac:GroupFramework&gt;
     &lt;efac:GroupFramework&gt;
-        &lt;efbc:GroupFrameworkValueAmount currencyID="EUR"&gt;800000&lt;/efbc:GroupFrameworkValueAmount&gt;
+        &lt;efbc:GroupFrameworkMaximumValueAmount currencyID="EUR"&gt;800000&lt;/efbc:GroupFrameworkMaximumValueAmount&gt;
         &lt;efac:TenderLot&gt;
             &lt;cbc:ID schemeName="LotsGroup"&gt;GLO-0002&lt;/cbc:ID&gt;
         &lt;/efac:TenderLot&gt;
@@ -8678,7 +8692,7 @@ options and renewals.</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:FrameworkAgreementValues&#8203;/cbc:EstimatedMaximumValueAmount</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:FrameworkAgreementValues&#8203;/efbc:ReestimatedValueAmount</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -8888,8 +8902,8 @@ BT-716 &amp; BT-725)</p></td>
             &lt;cbc:ID schemeName="tender"&gt;TEN-0003&lt;/cbc:ID&gt;
         &lt;/efac:LotTender&gt;
         &lt;efac:FrameworkAgreementValues&gt;
-            &lt;cbc:EstimatedMaximumValueAmount currencyID="EUR"&gt;123&lt;/cbc:EstimatedMaximumValueAmount&gt;
             &lt;cbc:MaximumValueAmount currencyID="EUR"&gt;12345&lt;/cbc:MaximumValueAmount&gt;
+            &lt;efbc:ReestimatedValueAmount currencyID="EUR"&gt;123&lt;/efbc:ReestimatedValueAmount&gt;
         &lt;/efac:FrameworkAgreementValues&gt;
         &lt;efac:ReceivedSubmissionsStatistics&gt;
             &lt;efbc:StatisticsCode listName="received-submission-type"&gt;tenders&lt;/efbc:StatisticsCode&gt;
