@@ -1,0 +1,40 @@
+name: Index TED Developer Docs
+
+on:
+  workflow_dispatch:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 4 * * *'
+
+jobs:
+  delete_site_index:
+    name: "Delete existing site index"
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Download Algolia CLI
+        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.2.1/algolia_1.2.1_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
+
+      - name: Create Algolia profile
+        run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --admin-api-key ${{ secrets.ALGOLIA_API_KEY }} --default
+
+      - name: Delete index ${{ secrets.ALGOLIA_INDEX_NAME }}
+        run: ./algolia-cli/algolia indices delete -y ${{ secrets.ALGOLIA_INDEX_NAME }}
+
+  index_site:
+    name: "Index site using Docsearch Crawler"
+    needs: delete_site_index
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Get the content of docsearch-config.json as config
+        id: docsearch_config
+        run: echo "docsearch_config=$(cat config/docsearch-config.json | jq -r tostring)" >> $GITHUB_ENV
+
+      - name: Push indices to Algolia
+        uses: signcl/docsearch-scraper-action@master
+        env:
+          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+          CONFIG: ${{ env.docsearch_config }}
