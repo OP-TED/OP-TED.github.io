@@ -4,12 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 23 * * *'
+    - cron:  '0 4 * * *'
 
 jobs:
   delete_site_index:
     name: "Delete existing site index"
-    needs: publish_site
     runs-on: [ubuntu-latest]
     steps:
       - name: Download Algolia CLI
