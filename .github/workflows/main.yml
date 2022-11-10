@@ -43,9 +43,23 @@ jobs:
           BRANCH: 'gh-pages'
           COMMIT-MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
 
+  delete_site_index:
+    name: "Delete existing site index"
+    needs: publish_site
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Download Algolia CLI
+        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.2.1/algolia_1.2.1_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
+
+      - name: Create Algolia profile
+        run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --admin-api-key ${{ secrets.ALGOLIA_API_KEY }} --default
+
+      - name: Delete index ${{ secrets.ALGOLIA_INDEX_NAME }}
+        run: ./algolia-cli/algolia indices delete -y ${{ secrets.ALGOLIA_INDEX_NAME }}
+
   index_site:
     name: "Index site using Docsearch Crawler"
-    needs: publish_site
+    needs: delete_site_index
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
