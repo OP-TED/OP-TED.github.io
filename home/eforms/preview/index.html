@@ -242,7 +242,7 @@
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-For accessing the web applications in the "preview" environment (eNotices2 and the TED Developer Portal), you need an EU-Login acceptance environment account which you can get at <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a>.
+For accessing the web applications in the "preview" environment (eNotices2 and the TED Developer Portal), you need an EU-Login acceptance environment account which you can get at <a href="https://ecas.acceptance.ec.europa.eu/cas" class="bare">https://ecas.acceptance.ec.europa.eu/cas</a>. To access eNotices2 API in Preview, you would need to generate a key from the TED Developer Portal in Preview: <a href="https://developer.preview.ted.europa.eu/home" class="bare">https://developer.preview.ted.europa.eu/home</a>
 </td>
 </tr>
 </table>
@@ -364,7 +364,7 @@ Please be aware that the interface and the notice forms are very much a work in 
 Application version
 </td>
 <td class="hdlist2">
-<p>1.3.0</p>
+<p>1.3.2</p>
 </td>
 </tr>
 <tr>
@@ -372,22 +372,25 @@ Application version
 SDK version
 </td>
 <td class="hdlist2">
-<p>1.2</p>
+<p>1.3.2</p>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK 1.2. In the codelist fields, prefilling of values is supported.</p>
+<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK 1.3. In the codelist fields, prefilling of values is supported.</p>
+</div>
+<div class="paragraph">
+<p>Users can see the validation returned from CVS and have their notices rendered in HTML and PDF.</p>
 </div>
 <div class="paragraph">
 <p>Before you can create a Change notice or continue a procedure on a published notice, bear in mind that submitted notices go through another workflow in TED Monitor before they can be published, which takes place every working day.</p>
 </div>
 <div class="paragraph">
-<p>The application also allows users to act upon notices and procedures, archiving, renaming and transferring them to other users or other procedures as well as import/ export notices in XML.</p>
+<p>The application also allows users to act upon notices and procedures, archiving, renaming and transferring them to other users or other procedures as well as import/ export notices in XML. Import function is partially supported.</p>
 </div>
 <div class="paragraph">
-<p>Import function is partially supported. There is also a search feature which allows users to sort through long lists of procedures.</p>
+<p>There is also a search feature which allows users to sort through long lists of procedures.</p>
 </div>
 <div class="paragraph">
 <p>Users can create workgroups between themselves and test the definitions of roles and permissions within these workgroups. They can also work and submit notices worked upon collectively.</p>
@@ -398,15 +401,15 @@ SDK version
 <div class="ulist">
 <ul>
 <li>
-<p>Optional fields can be set to mandatory or hidden, however, please note that some optional fields could become mandatory under conditions (conditionally mandatory).</p>
+<p>Optional fields can be set to mandatory or hidden, however, please note that we have removed the Conditional rules as of SDK 1.3 – for these please leave the default behaviour.</p>
 </li>
 <li>
 <p>Confidential fields can be set to be always confidential or non-confidential.</p>
 </li>
+<li>
+<p>To get started, please fill in Organisation Name, Organisation Identifier and Oganisation Part Name under My Form Settings &gt; Main Buyer Settings.</p>
+</li>
 </ul>
-</div>
-<div class="paragraph">
-<p>The address book has been implemented, which allows users to create a database of addresses of known organisations which regularly take part in the procurement process and import them in their notices. In addition, users can create a Main Buyer in the address book. The Main Buyer, Organisation Name, Organisation Identifier and Oganisation Part Name can be only filled in under My Form Settings &gt; Main Buyer Settings.</p>
 </div>
 <div class="paragraph">
 <p>In the notice sections a search feature has been added and pagination for up to 2000 lots is supported.</p>
@@ -415,32 +418,25 @@ SDK version
 <div class="sect3">
 <h4 id="_known_issues"><a class="anchor" href="#_known_issues"></a>Known issues</h4>
 <div class="paragraph">
-<p>At this point, the application is incomplete, many use cases are not fully implemented and others have dependencies in other applications which are only mocked-up. Similarly, the notice forms are not final as they are missing conditional rules, and significant tweaking or corrections of the sections is still to be expected.</p>
+<p>At this point, the application is incomplete and many use cases are not fully implemented.</p>
 </div>
 <div class="paragraph">
-<p>All the labels in the user interface (UI), notices and fields are subject to change – translation of labels is still work in progress.</p>
+<p>All validation errors are currently displayed as a pop-up window, without pointing to the error location.</p>
 </div>
 <div class="paragraph">
-<p>The application has some limitations to what it can do and Preview function is currently unstable.</p>
+<p>All the error messages and labels in the user interface (UI), notices and fields are subject to change – translation of labels is still work in progress.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
+<p>Apart from the Organisation Name, Organisation Identifier and Oganisation Part Name, the rest of My Form Settings is currently not fully implemented and this function should not be used. Currently Touchpoints and Groups of Lots cannot be deleted once created.</p>
+</div>
+<div class="paragraph">
 <p>Notices go through CVS validation when they are submitted, or when the user clicks on validate in the user interface, however, the feature may be unstable.</p>
-</li>
-<li>
-<p>Mandatory fields are shown by red asterisks.</p>
-</li>
-<li>
-<p>Patterns and regular expressions will have a red highlight until the right value is entered.</p>
-</li>
-<li>
-<p>Live validation of mandatory and conditional fields is not fully implemented and may be prone to errors at this stage.</p>
-</li>
-</ul>
 </div>
 <div class="paragraph">
-<p>eNotices2 uses the codelists from the SDK, which have not been completely tailored. This means that certain codelists have too many entries, such as countries or languages that no longer exist.</p>
+<p>Result notices cannot be successfully validated/ submitted through the user interface.</p>
+</div>
+<div class="paragraph">
+<p>eNotices2 uses the codelists from the SDK, which have not been completely tailored.</p>
 </div>
 <div class="paragraph">
 <p>The eNotices2 API URLs and parameters will change in later releases. The <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/">Swagger UI</a> provides basic documentation of the four functions.</p>
@@ -448,16 +444,10 @@ SDK version
 <div class="ulist">
 <ul>
 <li>
-<p>POST submit XML request should return a "cvsLink", which currently produces a communication error.</p>
+<p>POST submit XML request should return a "cvsLink", which currently does not link to the CVS report.</p>
 </li>
 <li>
-<p>Notices that fail validation, will currently be submitted to eNotices2 with “notice_status_VALIDATION_FAILED”. Note that notices that fail validation will not get status “submitted” in the future.</p>
-</li>
-<li>
-<p>For notices successfully submitted via API, the validation report can be fetched from GET validation report.</p>
-</li>
-<li>
-<p>Stop publication currently works with notice ID instead of notice ID + version ID.</p>
+<p>Notices that trigger a lawfulness warning, will currently be submitted to eNotices2 with “VALIDATION_FAILED”.</p>
 </li>
 </ul>
 </div>
@@ -471,7 +461,7 @@ SDK version
 Indicative planning
 </td>
 <td class="hdlist2">
-<p>October 2022</p>
+<p>November 2022</p>
 </td>
 </tr>
 <tr>
@@ -479,7 +469,7 @@ Indicative planning
 Application version
 </td>
 <td class="hdlist2">
-<p>1.3.x</p>
+<p>1.3.3</p>
 </td>
 </tr>
 <tr>
@@ -487,19 +477,13 @@ Application version
 SDK version used
 </td>
 <td class="hdlist2">
-<p>1.3</p>
+<p>1.3.3</p>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
 <p>This version of the application is focused on improvements to the UI experience and the correction of bugs.</p>
-</div>
-<div class="paragraph">
-<p>The version is focused on compliance with the SDK and producing valid XML, as well as on some improvements on the form-filling tool and the usability of CPV and NUTS codelists.</p>
-</div>
-<div class="paragraph">
-<p>Users can see the validation returned from CVS and have their notices rendered in HTML and PDF.</p>
 </div>
 </div>
 </div>
@@ -567,7 +551,7 @@ Scope
 <dl>
 <dt class="hdlist1">API documentation</dt>
 <dd>
-<p>To come at <a href="https://viewer.preview.ted.europa.eu/swagger-ui/" class="bare">https://viewer.preview.ted.europa.eu/swagger-ui/</a></p>
+<p>To come at <a href="https://viewer.preview.ted.europa.eu/swagger-ui/index.html" class="bare">https://viewer.preview.ted.europa.eu/swagger-ui/index.html</a></p>
 </dd>
 </dl>
 </div>
@@ -580,7 +564,7 @@ Scope
 Application version
 </td>
 <td class="hdlist2">
-<p>1.2.1</p>
+<p>1.2.2</p>
 </td>
 </tr>
 <tr>
@@ -588,7 +572,7 @@ Application version
 SDK versions
 </td>
 <td class="hdlist2">
-<p>1.2</p>
+<p>1.3.2</p>
 </td>
 </tr>
 <tr>
@@ -608,34 +592,10 @@ Scope
 <table>
 <tr>
 <td class="hdlist1">
-Indicative planning
-</td>
-<td class="hdlist2">
-<p>November 2022</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-Application version
-</td>
-<td class="hdlist2">
-<p>1.2.2</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-SDK versions
-</td>
-<td class="hdlist2">
-<p>1.3</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
 Scope
 </td>
 <td class="hdlist2">
-<p>This release contains improvements to view-templates and labels</p>
+<p>Ongoing improvements with successive SDK releases</p>
 </td>
 </tr>
 </table>
