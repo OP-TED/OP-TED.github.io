@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>TED eForms Notice Viewer API :: TED Developer Documentation</title>
+    <title>Visualisation API :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/api/endpoints/viewer-ted-europa-eu.html">
-    <meta name="keywords" content="openapi, rest, TED eForms Notice Viewer API">
+    <meta name="keywords" content="openapi, rest, Visualisation API">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link rel="stylesheet" href="../../_/css/custom.css">
@@ -190,13 +190,13 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">TED eForms Notice Viewer API</h1>
+<h1 class="page">Visualisation API</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="quoteblock abstract">
 <div class="title">Abstract</div>
 <blockquote>
-This API provides multiple read-only operations on the TED Notice Viewer. The TED notice viewer is only used for eForms notices.&lt;/br&gt;&lt;/br&gt;Note: &lt;a href=\"https://data.europa.eu/eli/reg_impl/2019/1780/oj\" target=\"_blank\"&gt;eForms&lt;/a&gt; introduce a new TED schema. If you reuse TED notices, you need to adapt your systems to support the new notices. More information available on the &lt;a href=\"https://simap.ted.europa.eu/en_GB/web/simap/eforms\" target=\"_blank\"&gt;dedicated SIMAP page&lt;/a&gt;.
+This API provides operation to get HTML or PDF rendering of a notice
 </blockquote>
 </div>
 </div>
@@ -212,7 +212,7 @@ This API provides multiple read-only operations on the TED Notice Viewer. The TE
 <p><code>POST /v1/render</code></p>
 </div>
 <div class="paragraph">
-<p>Request to render a notice in HTML or PDF</p>
+<p>Get HTML or PDF rendering of a notice sent in the request body.</p>
 </div>
 <div class="sect4">
 <h5 id="_description"><a class="anchor" href="#_description"></a>Description</h5>
@@ -272,7 +272,7 @@ This API provides multiple read-only operations on the TED Notice Viewer. The TE
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">X-API-Key</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TED API key identifying the author of the request</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -344,7 +344,7 @@ This API provides multiple read-only operations on the TED Notice Viewer. The TE
 <div class="sect2">
 <h3 id="NoticeRenderRequestDto"><a class="anchor" href="#NoticeRenderRequestDto"></a>2.1. <em>NoticeRenderRequestDto</em></h3>
 <div class="paragraph">
-<p>New Notice Render Request</p>
+<p>Notice Render Request</p>
 </div>
 <table class="tableblock frame-all grid-all stretch fields-NoticeRenderRequestDto">
 <colgroup>

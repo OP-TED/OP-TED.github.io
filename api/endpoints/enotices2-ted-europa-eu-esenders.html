@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Public API Documentation :: TED Developer Documentation</title>
+    <title>Publication API :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/api/endpoints/enotices2-ted-europa-eu-esenders.html">
-    <meta name="keywords" content="openapi, rest, Public API Documentation">
+    <meta name="keywords" content="openapi, rest, Publication API">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link rel="stylesheet" href="../../_/css/custom.css">
@@ -190,13 +190,13 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Public API Documentation</h1>
+<h1 class="page">Publication API</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="quoteblock abstract">
 <div class="title">Abstract</div>
 <blockquote>
-Public API documentation aims to describe the Public API endpoints.
+This API provides operations for submission of notices for publication and their follow-up
 </blockquote>
 </div>
 </div>
@@ -221,10 +221,10 @@ Public API documentation aims to describe the Public API endpoints.
 <div class="sect3 getValidationReport">
 <h4 id="_getvalidationreport"><a class="anchor" href="#_getvalidationreport"></a>2.1.1. getValidationReport</h4>
 <div class="paragraph">
-<p><code>GET /api/notice/notices/{businessId}/validation-report</code></p>
+<p><code>GET /api/v2/notice/notices/{businessId}/validation-report</code></p>
 </div>
 <div class="paragraph">
-<p>Get notice validation report</p>
+<p>Retrieve the notice validation report.</p>
 </div>
 <div class="sect4">
 <h5 id="_description"><a class="anchor" href="#_description"></a>Description</h5>
@@ -254,7 +254,7 @@ Public API documentation aims to describe the Public API endpoints.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">businessId</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice business identifier (notice identifier - version)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -275,6 +275,9 @@ Public API documentation aims to describe the Public API endpoints.
 <ul>
 <li>
 <p><strong>/</strong></p>
+</li>
+<li>
+<p>application/json</p>
 </li>
 </ul>
 </div>
@@ -298,8 +301,18 @@ Public API documentation aims to describe the Public API endpoints.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides the notice validation report in SVRL (Schematron Validation Report Language) format.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#File">[File]</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice or notice report was not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key. - Several versions of notice with given noticeId exist.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
 </tr>
 </tbody>
 </table>
@@ -315,7 +328,7 @@ Public API documentation aims to describe the Public API endpoints.
 <p><code>GET /api/notice/notices/search-esentool</code></p>
 </div>
 <div class="paragraph">
-<p>search procedures</p>
+<p>Search procedures.</p>
 </div>
 <div class="sect4">
 <h5 id="_description_2"><a class="anchor" href="#_description_2"></a>Description</h5>
@@ -345,28 +358,28 @@ Public API documentation aims to describe the Public API endpoints.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">page</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the current page of results</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">size</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the size of the page</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sortProperty</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the property to use to sort the results</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sortDirection</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the sort direction, ascending (ASC) or descending (DESC)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ASC</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -395,6 +408,9 @@ Public API documentation aims to describe the Public API endpoints.
 <li>
 <p><strong>/</strong></p>
 </li>
+<li>
+<p>application/json</p>
+</li>
 </ul>
 </div>
 </div>
@@ -420,6 +436,11 @@ Public API documentation aims to describe the Public API endpoints.
 <td class="tableblock halign-left valign-top"><p class="tableblock">OK</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsentoolPageDtoEsentoolNoticeDto"><em>EsentoolPageDtoEsentoolNoticeDto</em></a></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -431,10 +452,10 @@ Public API documentation aims to describe the Public API endpoints.
 <div class="sect3 stopPublicationEsentool">
 <h4 id="_stoppublicationesentool"><a class="anchor" href="#_stoppublicationesentool"></a>2.1.3. stopPublicationEsentool</h4>
 <div class="paragraph">
-<p><code>POST /api/notice/notices/{businessId}/stop-publication-esentool</code></p>
+<p><code>POST /api/notice/notices/{noticeId}/stop-publication-esentool</code></p>
 </div>
 <div class="paragraph">
-<p>send stop notice publication to ted monitor</p>
+<p>Request to stop the publication of a notice</p>
 </div>
 <div class="sect4">
 <h5 id="_description_3"><a class="anchor" href="#_description_3"></a>Description</h5>
@@ -464,7 +485,7 @@ Public API documentation aims to describe the Public API endpoints.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">businessId</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice business identifier (notice identifier - version)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
 <td class="tableblock halign-left valign-top"></td>
@@ -484,7 +505,7 @@ Public API documentation aims to describe the Public API endpoints.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>/</strong></p>
+<p>application/json</p>
 </li>
 </ul>
 </div>
@@ -508,8 +529,23 @@ Public API documentation aims to describe the Public API endpoints.
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The publication of the notice has been stopped.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsentoolNoticeDto"><em>EsentoolNoticeDto</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - Notice publication cannot be stopped</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice was not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key. - Several versions of notice with given noticeId exist.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
 </tr>
 </tbody>
 </table>
@@ -561,7 +597,7 @@ Public API documentation aims to describe the Public API endpoints.
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">metadata</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">esenderAuthor</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsenderAuthor">[EsenderAuthor]</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
@@ -582,7 +618,7 @@ Public API documentation aims to describe the Public API endpoints.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>/</strong></p>
+<p>application/json</p>
 </li>
 </ul>
 </div>
@@ -605,9 +641,19 @@ Public API documentation aims to describe the Public API endpoints.
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">201</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from &#39;cvsLink&#39; response property.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#XmlNoticeSubmissionDto"><em>XmlNoticeSubmissionDto</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - No compatible SDK version found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key. - Notice cannot be created (parsing errors) - Notice with the same noticeId and versionId already exists.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
 </tr>
 </tbody>
 </table>
@@ -647,77 +693,77 @@ Public API documentation aims to describe the Public API endpoints.
 <td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UUID</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice identifier (without the version).</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">versionId</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the version identifier.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">procedureId</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UUID</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the procedure identifier.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">status</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NoticeStatus</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Enum:</em> DRAFT, SUBMITTED, STOPPED, PUBLISHING, PUBLISHED, DELETED, NOT_PUBLISHED, CONVERTED_FROM_PUBLISHED, ARCHIVED, VALIDATION_FAILED,</p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">updatedAt</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice updated date/time.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">submittedAt</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice submitted date/time.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">publicationId</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice publication identifier.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">publicationDate</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice publication date.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">noticeType</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice notice type.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">legalBasis</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice legal basis code.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">languages</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">List  of <a href="#string">[string]</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice languages.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -747,21 +793,82 @@ Public API documentation aims to describe the Public API endpoints.
 <td class="tableblock halign-left valign-top"><p class="tableblock">totalSize</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the total size of entities found.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">int64</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">content</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">List  of <a href="#EsentoolNoticeDto"><em>EsentoolNoticeDto</em></a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the content of entities found.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="SearchNoticesEsentool"><a class="anchor" href="#SearchNoticesEsentool"></a>3.3. <em>SearchNoticesEsentool</em></h3>
+<h3 id="ExceptionBody"><a class="anchor" href="#ExceptionBody"></a>3.3. <em>ExceptionBody</em></h3>
+<table class="tableblock frame-all grid-all stretch fields-ExceptionBody">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field Name</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">code</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the exception code.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">message</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the exception message.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="NoticeStatus"><a class="anchor" href="#NoticeStatus"></a>3.4. <em>NoticeStatus</em></h3>
+<div class="paragraph">
+<p>the notice status.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch fields-NoticeStatus">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field Name</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+</table>
+</div>
+<div class="sect2">
+<h3 id="SearchNoticesEsentool"><a class="anchor" href="#SearchNoticesEsentool"></a>3.5. <em>SearchNoticesEsentool</em></h3>
 <table class="tableblock frame-all grid-all stretch fields-SearchNoticesEsentool">
 <colgroup>
 <col style="width: 20%;">
@@ -784,56 +891,56 @@ Public API documentation aims to describe the Public API endpoints.
 <td class="tableblock halign-left valign-top"><p class="tableblock">id</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UUID</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice identifier (without the version).</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">uuid</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">versionId</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the version identifier.</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">submittedBefore</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">submittedAfter</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the minimum date/time value used to find notices submitted after this point.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">publishedBefore</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">submittedBefore</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the maximum date/time value used to find notices submitted before this point.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">publishedAfter</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the minimum date/time value used to find notices published after this point.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">publishedBefore</p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the maximum date/time value used to find notices published before this point.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">date-time</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">statuses</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">List  of <a href="#string">[string]</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the list of status to include in the search</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Enum:</em></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="XmlNoticeSubmissionDto"><a class="anchor" href="#XmlNoticeSubmissionDto"></a>3.4. <em>XmlNoticeSubmissionDto</em></h3>
+<h3 id="XmlNoticeSubmissionDto"><a class="anchor" href="#XmlNoticeSubmissionDto"></a>3.6. <em>XmlNoticeSubmissionDto</em></h3>
 <table class="tableblock frame-all grid-all stretch fields-XmlNoticeSubmissionDto">
 <colgroup>
 <col style="width: 20%;">
@@ -856,14 +963,14 @@ Public API documentation aims to describe the Public API endpoints.
 <td class="tableblock halign-left valign-top"><p class="tableblock">cvsLink</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the link to use to retrieve the CVS report</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">success</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the status of the submission. True if success, otherwise false.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>

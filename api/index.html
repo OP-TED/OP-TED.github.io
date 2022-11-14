@@ -204,7 +204,7 @@
 <p>Submit new public procurement notices for publication,</p>
 </li>
 <li>
-<p>Validate, render, or translate notices.</p>
+<p>Validate or render notices.</p>
 </li>
 </ul>
 </div>
@@ -212,18 +212,18 @@
 <p>TED API allows anonymous access to all services manipulating published notices (i.e. searching for, or retrieving notices already published on TED). These APIs are mostly targeted to data reusers. You can find information on reusing TED data at the <a href="https://simap.ted.europa.eu/en_GB/web/simap/developers-corner#get-published">SIMAP Developers' Corner</a>.</p>
 </div>
 <div class="paragraph">
-<p>All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API Key.</p>
+<p>All TED APIs manipulating notices that are not yet published, require the \cas\logincaller to be authenticated with an API key.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_api_keys"><a class="anchor" href="#_api_keys"></a>API Keys</h2>
+<h2 id="_api_keys"><a class="anchor" href="#_api_keys"></a>API keys</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>User authentication and authorisation (for those TED APIs that require it) is controlled with the use of API Keys. TED API Keys are essentially UUIDs (Universally Unique Identifiers), without hyphens (dashes).</p>
+<p>User authentication and authorisation (for those TED APIs that require it) is controlled with the use of API keys. TED API keys are essentially UUIDs (Universally Unique Identifiers), without hyphens (dashes).</p>
 </div>
 <div class="paragraph">
-<p>You can generate and manage your own API Keys by logging-in to your account in the <a href="https://developer.ted.europa.eu"><strong>TED Developer Portal</strong></a><sup class="footnote" id="_footnote_portal">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
+<p>You can generate and manage your own API keys by logging-in to your account in the <a href="https://developer.ted.europa.eu"><strong>TED Developer Portal</strong></a><sup class="footnote" id="_footnote_portal">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -232,15 +232,15 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Only one API key is allowed per user. The creation of a new API Key implies the automatic revocation of the previous one.
+Only one API key is allowed per user. The creation of a new API key implies the automatic revocation of the previous one.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_api_key_generation"><a class="anchor" href="#_api_key_generation"></a>API KEY Generation</h3>
+<h3 id="_api_key_generation"><a class="anchor" href="#_api_key_generation"></a>API key Generation</h3>
 <div class="paragraph">
-<p>You can generate an API Key by logging-in to the TED Developer Portal<sup class="footnoteref">[<a class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU-Login<sup class="footnote" id="_footnote_eu-login">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> account.</p>
+<p>You can generate an API Key by logging into the TED Developer Portal<sup class="footnoteref">[<a class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup> and clicking on the "Manage your API Keys" button. To login to the TED Developer Portal you will need a valid EU Login<sup class="footnote" id="_footnote_eu-login">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup> account.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -249,7 +249,7 @@ Only one API key is allowed per user. The creation of a new API Key implies the 
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For security reasons API Keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API Key will be delivered to you only at the time of generation. Copy and safely store the provided API Key. If you lose it you will have to generate a new one.
+For security reasons API keys are not stored and cannot be retrieved via the TED Developer Portal after they are generated. Your API key will be delivered to you only at the time of generation. Copy and safely store the provided API key. If you lose it you will have to generate a new one.
 </td>
 </tr>
 </table>
@@ -261,13 +261,13 @@ For security reasons API Keys are not stored and cannot be retrieved via the TED
 <dl>
 <dt class="hdlist1">Expiry</dt>
 <dd>
-<p>Every API key is valid for 12 months. After its validity period elapses, the API key expires.</p>
+<p>Every API key is valid for 24 months. After its validity period elapses, the API key expires.</p>
 </dd>
 <dt class="hdlist1">Renewal</dt>
 <dd>
-<p>API Key renewal extends the validity of an API Key for 12 months.</p>
+<p>API key renewal extends the validity of an API key for 12 months.</p>
 <div class="paragraph">
-<p>An automated notification will be sent two (2) days before the expiration of the API key to the email address associated with the EU-Login account of the user that created the API key. The email will contain a hyperlink that can be used to renew the API key.</p>
+<p>An automated notification will be sent four (4) weeks before the expiration of the API key to the email address associated with the EU-Login account of the user that created the API key. The email will contain a hyperlink that can be used to renew the API key. If you don&#8217;t click on the hyperlink within 21 days, the link will expire and a new email will be sent to you with a new hyperlink.</p>
 </div>
 </dd>
 <dt class="hdlist1">Revocation</dt>
@@ -283,38 +283,26 @@ For security reasons API Keys are not stored and cannot be retrieved via the TED
 <h2 id="_available_apis"><a class="anchor" href="#_available_apis"></a>Available APIs</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can find below the Swagger pages documenting the TED API endpoints that are currently available:</p>
+<p>You can find below the Swagger pages documenting the TED API endpoints that are currently available in production:</p>
 </div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">Validation</dt>
 <dd>
 <p>Validate notices, get validation report.<br>
-<a href="https://cvs.preview.ted.europa.eu/swagger-ui/index.html" class="bare">https://cvs.preview.ted.europa.eu/swagger-ui/index.html</a></p>
+<a href="https://cvs.ted.europa.eu/swagger-ui/index.html" class="bare">https://cvs.ted.europa.eu/swagger-ui/index.html</a></p>
 </dd>
 <dt class="hdlist1">Publication</dt>
 <dd>
-<p>Submit notices; search notices; stop publication:<br>
-<a href="https://enotices2.preview.ted.europa.eu/esenders/webjars/swagger-ui/index.html" class="bare">https://enotices2.preview.ted.europa.eu/esenders/webjars/swagger-ui/index.html</a></p>
+<p>Submit notices; search submitted notices; stop publication:<br>
+<a href="https://enotices2.ted.europa.eu/esenders/webjars/swagger-ui/index.html" class="bare">https://enotices2.ted.europa.eu/esenders/webjars/swagger-ui/index.html</a></p>
 </dd>
 <dt class="hdlist1">Visualisation</dt>
 <dd>
-<p>Render notices in PDF or HTML; translate notices:<br>
-<a href="https://viewer.preview.ted.europa.eu/swagger-ui/index.html" class="bare">https://viewer.preview.ted.europa.eu/swagger-ui/index.html</a></p>
+<p>Render notices in PDF or HTML:<br>
+<a href="https://viewer.ted.europa.eu/swagger-ui/index.html" class="bare">https://viewer.ted.europa.eu/swagger-ui/index.html</a></p>
 </dd>
 </dl>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The URLs provided above are for the eForms Preview Environment. For production URLs just remove the <code>.preview</code> subdomain from the provided URL.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
@@ -322,7 +310,7 @@ The URLs provided above are for the eForms Preview Environment. For production U
 <h2 id="_testing_your_apps"><a class="anchor" href="#_testing_your_apps"></a>Testing your apps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To allow developers to test their  applications, an <strong>eForms Preview Environment</strong> is available. You can find more <a href="../home/eforms/preview/index.html" class="xref page">details on the eForms Preview Environment here</a>.</p>
+<p>An <strong>eForms Preview Environment</strong> is available to allow and encourage developers to test their applications. You can find more <a href="../home/eforms/preview/index.html" class="xref page">details on the eForms Preview Environment here</a>.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -331,7 +319,7 @@ The URLs provided above are for the eForms Preview Environment. For production U
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-To use the eForms Preview Environment you will need an API Key generated using the <a href="https://developer.preview.ted.europa.eu/home">TED Developer Portal of the Preview Environment</a>. This means that you will also need an EU-Login account from the <a href="https://ecas.acceptance.ec.europa.eu/cas/login">EU-Login Acceptance Environment</a>.
+To use the eForms Preview Environment you will need an API key generated using the <a href="https://developer.preview.ted.europa.eu/home">TED Developer Portal of the Preview Environment</a>. This means that you will also need an EU Login account from the <a href="https://ecas.acceptance.ec.europa.eu/cas/login">EU-Login Acceptance Environment</a>.
 </td>
 </tr>
 </table>
@@ -357,13 +345,13 @@ Information about eSentool, the legacy API to submit and manage notices, is avai
 <p>The TED API endpoints currently available are the first generation of APIs for the new TED web services for eForms.</p>
 </div>
 <div class="paragraph">
-<p>These APIs have been initially released in June 2022 together with the "eForms Preview Environment" and have since remain unchanged. These endpoints will also remain unchanged throughout their lifetime.</p>
+<p>These APIs have been initially released in June 2022 together with the "eForms Preview Environment" and have since remained unchanged. These endpoints will also remain unchanged throughout their lifetime.</p>
 </div>
 <div class="paragraph">
 <p>We are currently in the process of simplifying, better documenting and rationalising our APIs to improve user experience and to allow us to keep enriching them in the future for offering better and consistent services to our developer community.</p>
 </div>
 <div class="paragraph">
-<p>A second generation of TED APIs will soon therefore be released. The release of this second version of TED APIs (which will be known as TED API v2) will be added next to the currently available endpoints listed above, and will not replace them. This will allow 3rd party applications that already use the current endpoints to continue functioning <strong>undisrupted</strong>. The current endpoints will only be discontinued when no 3rd party applications use them any more.</p>
+<p>A second generation of TED APIs is being developed. The release of this second version of TED APIs (which will be known as TED API v2) will be added next to the currently available endpoints and will not replace them. This will allow 3rd party applications that already use the current endpoints to continue functioning <strong>undisrupted</strong>. The current endpoints will only be discontinued when no 3rd party applications use them any more.</p>
 </div>
 </div>
 </div>

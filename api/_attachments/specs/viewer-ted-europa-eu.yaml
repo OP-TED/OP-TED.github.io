@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: TED eForms Notice Viewer API
-  description: 'This API provides multiple read-only operations on the TED Notice Viewer. The TED notice viewer is only used for eForms notices.</br></br>Note: <a href="https://data.europa.eu/eli/reg_impl/2019/1780/oj" target="_blank">eForms</a> introduce a new TED schema. If you reuse TED notices, you need to adapt your systems to support the new notices. More information available on the <a href="https://simap.ted.europa.eu/en_GB/web/simap/eforms" target="_blank">dedicated SIMAP page</a>. '
+  title: Visualisation API
+  description: 'This API provides operation to get HTML or PDF rendering of a notice'
   termsOfService: https://ted.europa.eu/TED/misc/legalNotice.do
   contact:
     name: TED
@@ -19,10 +19,11 @@ paths:
     post:
       tags:
         - notice-render-controller
-      summary: Request to render a notice in HTML or PDF
+      summary: Get HTML or PDF rendering of a notice sent in the request body.
       operationId: renderNotice
       parameters:
         - name: X-API-Key
+          description: TED API key identifying the author of the request
           in: header
           required: true
           schema:
@@ -100,4 +101,4 @@ components:
         summary:
           type: boolean
           description: Render notice by displaying only the specific elements
-      description: New Notice Render Request
+      description: Notice Render Request

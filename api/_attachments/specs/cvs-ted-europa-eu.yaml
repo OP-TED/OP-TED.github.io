@@ -1,6 +1,7 @@
 openapi: 3.0.1
 info:
-  title: OpenAPI definition
+  title: Validation API
+  description: This API provides operation to validate a notice and get the validation report
   version: v0
 servers:
   - url: https://cvs.ted.europa.eu
@@ -8,13 +9,14 @@ paths:
   /v1/notices/validation:
     post:
       tags:
-        - notice-rest-controller
-      summary: Validate the notice
-      description: Validate a notice sent on body. The request returns a schematron validation report which describes all the tests performed.
+        - Validation
+      summary: Validate a notice
+      description: Validate a notice sent in the request body. This operation returns a schematron validation report which describes all the tests performed.
       operationId: validate
       parameters:
         - name: X-API-Key
           in: header
+          description: TED API key identifying the author of the request
           required: true
           schema:
             type: string

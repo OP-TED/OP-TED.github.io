@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: Public API Documentation
-  description: Public API documentation aims to describe the Public API endpoints.
+  title: Publication API 
+  description: This API provides operations for submission of notices for publication and their follow-up
   license:
     name: EUPL
     url: https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
@@ -12,47 +12,81 @@ servers:
 security:
   - esenders-token: []
 paths:
-  /api/notice/notices/{businessId}/validation-report:
+  /api/v2/notice/notices/{businessId}/validation-report:
     get:
       tags:
         - Notice
-      summary: Get notice validation report
+      summary: Retrieve the notice validation report.
       operationId: getValidationReport
       parameters:
         - name: businessId
           in: path
+          description: the notice business identifier (notice identifier - version)
           required: true
           schema:
             type: string
-            format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6-01
       responses:
         '200':
-          description: OK
+          description: Provides the notice validation report in SVRL (Schematron Validation Report Language) format.
           content:
             '*/*':
               schema:
                 type: string
                 format: binary
-  /api/notice/notices/{businessId}/stop-publication-esentool:
+        '404':
+          description: Notice or notice report was not found.
+          content:
+            application/json: {}
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - Several versions of notice with given noticeId exist.
+          content:
+            application/json: {}
+         
+  /api/notice/notices/{noticeId}/stop-publication-esentool:
     post:
       tags:
         - Notice
-      summary: send stop notice publication to ted monitor
+      summary: Request to stop the publication of a notice
       operationId: stopPublicationEsentool
       parameters:
         - name: businessId
           in: path
+          description: the notice business identifier (notice identifier - version)
           required: true
           schema:
             type: string
-            format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6-01
       responses:
         '200':
-          description: OK
+          description: The publication of the notice has been stopped.
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/EsentoolNoticeDto'
+        '403': 
+          description: |-
+            Possible issues:
+            - Notice publication cannot be stopped
+          content:
+            application/json: {}
+        '404':
+          description: Notice was not found.
+          content:
+            application/json: {}
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - Several versions of notice with given noticeId exist.
+          content:
+            application/json: {}
+
   /api/notice/notices/submit:
     post:
       tags:
@@ -60,8 +94,8 @@ paths:
       summary: Submit XML notice
       operationId: submitNotice
       parameters:
-        - name: metadata
-          description: the metadata are used to identify the original author of the notice
+        - name: esenderAuthor
+          description: the metadata that is used to identify the original author of the notice.
           schema:
             $ref: '#/components/schemas/EsenderAuthor'
       requestBody:
@@ -69,31 +103,49 @@ paths:
           multipart/form-data:
             schema:
               required:
-                - metadata
+                - esenderAuthor
                 - notice
               type: object
               properties:
                 notice:
                   type: string
                   format: binary
-                metadata:
+                esenderAuthor:
                   $ref: '#/components/schemas/EsenderAuthor'
       responses:
-        '200':
-          description: OK
+        '201':
+          description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'cvsLink' response property.
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+        '404':
+          description: |-
+            Possible issues:
+            - No compatible SDK version found
+          content:
+            application/json: {} 
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+            - Notice cannot be created (parsing errors)
+            - Notice with the same noticeId and versionId already exists.
+          content:
+            application/json: {}
+  
   /api/notice/notices/search-esentool:
     get:
       tags:
         - Notice
-      summary: search procedures
+      summary: Search procedures.
       operationId: searchProceduresEsentool
       parameters:
         - name: page
+          description: Sequence number of the page from the search results list.
           in: query
+          description: the current page of results
           required: false
           schema:
             minimum: 0
@@ -101,7 +153,9 @@ paths:
             format: int32
             default: 0
         - name: size
+          description: Maximum number of search results per page.
           in: query
+          description: the size of the page
           required: false
           schema:
             minimum: 1
@@ -109,12 +163,27 @@ paths:
             format: int32
             default: 20
         - name: sortProperty
+          description: Property to use to sort the search results.
           in: query
+          description: the property to use to sort the results
           required: false
           schema:
             type: string
+            enum:
+              - id
+              - versionId
+              - procedureId
+              - status
+              - updatedAt
+              - submittedAt
+              - publicationId
+              - publicationDate
+              - noticeType
+              - legalBasis
         - name: sortDirection
+          description: Ascending or descending order, in case sortProperty is set.
           in: query
+          description: the sort direction, ascending (ASC) or descending (DESC)
           required: false
           schema:
             type: string
@@ -134,89 +203,146 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+        '500':
+          description: |-
+            Possible issues:
+            - TED API key is missing or is not valid.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json: {}
 components:
   schemas:
+    ExceptionBody:
+      type: object
+      properties:
+        code:
+          type: string
+          description: the exception code.
+          example: notice.NOTICE_NOT_FOUND
+        message:
+          type: string
+          description: the exception message.
+          example: No notice found
     EsentoolNoticeDto:
       type: object
       properties:
         id:
           type: string
+          description: the notice identifier (without the version).
           format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
         versionId:
           type: string
+          description: the version identifier.
+          example: '01'
         procedureId:
           type: string
+          description: the procedure identifier.
           format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa5
         status:
-          type: string
-          enum:
-            - DRAFT
-            - SUBMITTED
-            - STOPPED
-            - PUBLISHING
-            - PUBLISHED
-            - DELETED
-            - NOT_PUBLISHED
-            - CONVERTED_FROM_PUBLISHED
-            - ARCHIVED
-            - VALIDATION_FAILED
+          $ref: '#/components/schemas/NoticeStatus'
         updatedAt:
           type: string
+          description: the notice updated date/time.
           format: date-time
+          example: '2022-01-01T13:15:55.89Z'
         submittedAt:
           type: string
+          description: the notice submitted date/time.
           format: date-time
+          example: '2022-01-01T13:15:55.89Z'
         publicationId:
           type: string
+          description: the notice publication identifier.
         publicationDate:
           type: string
+          description: the notice publication date.
           format: date
         noticeType:
           type: string
+          description: the notice notice type.
         legalBasis:
           type: string
+          description: the notice legal basis code.
         languages:
           type: array
+          description: the notice languages.
           items:
             type: string
+            description: the notice languages.
+    NoticeStatus:
+      type: string
+      description: the notice status.
+      enum:
+        - DRAFT
+        - SUBMITTED
+        - STOPPED
+        - PUBLISHING
+        - PUBLISHED
+        - DELETED
+        - NOT_PUBLISHED
+        - CONVERTED_FROM_PUBLISHED
+        - ARCHIVED
+        - VALIDATION_FAILED
     EsenderAuthor:
       type: object
       properties:
         noticeAuthorEmail:
           type: string
+          description: the notice author email.
+          example: john@doe.com
         noticeAuthorLocale:
           type: string
+          description: the notice author locale.
+          example: en
     XmlNoticeSubmissionDto:
       type: object
       properties:
         cvsLink:
           type: string
+          description: the link to use to retrieve the CVS report
         success:
           type: boolean
+          description: the status of the submission. True if success, otherwise false.
     SearchNoticesEsentool:
       type: object
       properties:
         id:
           type: string
+          description: the notice identifier (without the version).
           format: uuid
+          example: 3fa85f64-5717-4562-b3fc-2c963f66afa6
         versionId:
           type: string
-        submittedBefore:
-          type: string
-          format: date-time
+          description: the version identifier.
+          example: '01'
         submittedAfter:
           type: string
+          description: the minimum date/time value used to find notices submitted after this point.
           format: date-time
-        publishedBefore:
+          example: '2022-01-01T13:15:55.89Z'
+        submittedBefore:
           type: string
+          description: the maximum date/time value used to find notices submitted before this point.
           format: date-time
+          example: '2022-12-01T23:00:00Z'
         publishedAfter:
           type: string
+          description: the minimum date/time value used to find notices published after this point.
           format: date-time
+          example: '2022-01-01T13:15:55.89Z'
+        publishedBefore:
+          type: string
+          description: the maximum date/time value used to find notices published before this point.
+          format: date-time
+          example: '2022-12-01T23:00:00Z'
         statuses:
           type: array
+          description: the list of status to include in the search
           items:
             type: string
+            description: the list of status to include in the search
             enum:
               - DRAFT
               - SUBMITTED
@@ -233,15 +359,18 @@ components:
       properties:
         totalSize:
           type: integer
+          description: the total size of entities found.
           format: int64
+          example: 99
         content:
           type: array
+          description: the content of entities found.
           items:
             $ref: '#/components/schemas/EsentoolNoticeDto'
   securitySchemes:
     esenders-token:
       type: http
       name: esenders-token
-      description: API Key generated using TED API
+      description: TED API key generated by TED Developer Portal
       scheme: bearer
       bearerFormat: JWT
