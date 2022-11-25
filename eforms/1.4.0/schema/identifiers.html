@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Identifiers and References :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/1.4.0/schema/identifiers.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="../index.html">eForms SDK</a>
+    <a class="navbar-item" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
+    <a class="navbar-item" href="../../../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="eforms" data-version="1.4.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">eForms Schema</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="elements.html">Elements</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../codelists/index.html">Codelists in eForms</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../translations/index.html">Translations</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-types/index.html">Notice Types</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../viewer-templates/index.html">Notice View Templates</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/index.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-terms/index.html">Business Terms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-rules/index.html">Business Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/code-lists/index.html">Codelists</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../efx/index.html">eForms Expression Language</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../efx-toolkit/index.html">EFX Toolkit for Java</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-viewer/index.html">Notice Viewer Sample App</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+    <div class="context">
+        <span class="title">eForms SDK</span>
+        <span class="version">1.4.0</span>
+    </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">eForms SDK</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">1.4.0</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3.2/index.html">1.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2.1/index.html">1.2.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.1.1/index.html">1.1.1</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../EPO/dev/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../EPO/dev/index.html">dev</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../ESPD-EDM/3.0.1/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li><a href="index.html">eForms Schema</a></li>
+    <li><a href="identifiers.html">Identifiers</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.4.0</button>
+  <div class="version-menu">
+    <a class="version is-current" href="identifiers.html">1.4.0</a>
+    <a class="version" href="../../1.3.2/schema/identifiers.html">1.3.2</a>
+    <a class="version" href="../../1.2.1/schema/identifiers.html">1.2.1</a>
+    <a class="version" href="../../1.1.1/schema/identifiers.html">1.1.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Identifiers and References</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the sections below, the different identifiers are listed.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="identifiersSection"><a class="anchor" href="#identifiersSection"></a>Identifiers</h2>
+<div class="sectionbody">
+<table id="identifiersTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Identifiers</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle"><strong>Business Term</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Name of the Business Term</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Description</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>schemeName</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>ID format</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-01</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Procedure Legal Basis (ELI - celex)</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ELI,</p>
+</div>
+<div class="paragraph">
+<p>celex</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Pattern matching / codes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-04</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Procedure Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Generated &amp; assigned by OP/eSender</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID v4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-09</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Cross Border Law</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CrossBoderLaw</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-137</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Purpose Lot Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Encoded by the Contracting Authority in
+accordance with the prescribed format.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Lot</p>
+</div>
+<div class="paragraph">
+<p>Part</p>
+</div>
+<div class="paragraph">
+<p>LotsGroup</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">- LOT-XXXX, <br>
+- PAR-XXXX, <br>
+- GLO-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-150</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contract Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defined and encoded by the Contracting
+Authority. Should be unique between all Contract Identifiers of the
+procedure</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction yet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-22</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Internal Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CAs define it. No restriction besides
+string length.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">InternalID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">100 characters max.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-3201</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tender Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defined and encoded by the Contracting
+Authority. Should be unique between all Tender Identifiers of the
+procedure</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction yet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-501</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Organisation Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Discussions ongoing. It will be
+encoded by the Contracting Authority</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction yet</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-5011</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contract EU Funds Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Financing Identifier;  The
+most concrete information must be given (e.g. grant agreement number,
+national identifier, project acronym, contract number)</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-701</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Notice Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Generated &amp; assigned by OP/eSender</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID
+v4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-757</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Notice Version</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">01 for initial version, assigned by the User
+Interface, any new version should have a higher version number than any
+previous one.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2 digits.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPP-010</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Notice Publication ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Information added by OP prior to
+publication</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ojs-notice-id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">XXXXXXXXXX-YYYY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPP-011</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OJEU Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Information added by OP prior to publication</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ojs-id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">XXX/YYYY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-001</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UBL version ID (UBL)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Currently based on version 2.3 of the
+standard.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">2.3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-002</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Customization ID (UBL)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Customization ID based on the SDK
+versioning</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NA</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">eforms-sdk-x.y</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-111</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tax Legislation Document ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID required by the
+standard</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-112</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Environmental Legislation Document ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID required
+by the standard</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-113</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Employment Legislation Document ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID required by
+the standard</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-140</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Procurement Documents ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID required by the
+standard</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No restriction</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-200</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Company Technical Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Identifier used in the notice to
+refer to the Organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-201</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TouchPoint Technical Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Identifier used in the notice
+to refer to the alternate contact details associated to a specific
+role/subrole</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">touchpoint</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TPO-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-202</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Beneficial Owner Technical Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Identifier used in the
+notice to refer to the Ultimate Beneficial Owner</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ubo</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UBO-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-210</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tendering Party ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID allowing reference from the
+LotResult (or from the the LotTender) to the Tendering Party with its
+composition (Tenderers and sucontractors).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tendering-party</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TPA-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-316</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contract Technical ID</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID allowing reference to the contract.
+Should be unique between all contract technical Identifiers of the
+procedure</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">contract</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CON-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-321</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tender Technical Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Technical ID allowing reference to the tender.
+Should be unique between all Tender technical identifiers of the
+procedure</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">tender</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TEN-XXXX</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="IDsReferencesSection"><a class="anchor" href="#IDsReferencesSection"></a>IDs &amp; References</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_referring_to_objects"><a class="anchor" href="#_referring_to_objects"></a>Referring to objects</h3>
+<table id="referencesTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. References</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-center valign-middle"><strong>Business Term</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Name of the Business Term</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Defined by</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>schemeName</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>ID format</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">BT-125</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Previous Planning Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A combination of the Notice
+Identifier (BT-701) and the Notice Version (BT-757) of the previous
+planning notice</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">notice-id-ref</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID-XX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Publication ID of the previous planning notice</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ojs-notice-id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">XXXXXXXX-YYYY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1251</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Previous Planning Part Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Purpose Lot Identifier of
+the previous planning notice Part</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">PAR-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1252</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Direct Award Justification Previous Procedure Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Procedure Identifier (BT-04)</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID v4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-13713</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Result Lot Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Lot (BT-137, LOT-XXXX)
+the result is about</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Lot</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">LOT-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-13714</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tender Lot Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference to the Lot or Group of lots
+the LotTender applies to.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Lot,</p>
+</div>
+<div class="paragraph">
+<p>LotsGroup</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>LOT-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>GLO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-13716</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Change Previous Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NB: points to the
+section of the current notice</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>For eForms notices:</p>
+</div>
+<div class="paragraph">
+<p>Cf. <a href="#sectionsIDsTable">Table 3</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1375</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Group Lot Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference to individual lots that
+constitute a Group of lot</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Lot</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">LOT-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">BT-1501(n)</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Modification Previous Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference
+to the CAN (eforms notice only) that announced the contract now subject
+to modification, using a combination of the Notice Identifier (BT-701)
+and the Notice Version (BT-757)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">notice-id-ref</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>UUID-vv</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference to the CAN (eforms or TEDXML) that announced the contract
+now subject to modification, using the Publication Number</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ojs-notice-id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">XXXXXXXXXX-YYYY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1501(s)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Modification Previous Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>NB: points to the section of the current notice</p>
+</div>
+<div class="paragraph">
+<p>A single contract modification per notice</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">RESULT</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-195</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Unpublished Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Values defined in a codelist of
+Unpublished Business Terms Codes</p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Cf. <a href="#withheldPublicationOfInformationSection">[withheldPublicationOfInformationSection]</a>.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-3202</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contract Tender Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to one of the existing
+(Lot-) Tenders (OPT-321)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">tender</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TEN-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-330</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Group Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to a defined Group of lots (BT-137,
+GLO-XXXX)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">LotsGroup</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">GLO-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-556</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Group Framework Value Lot Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference to the Group of
+lots the Framework applies to.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">LotsGroup</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">GLO-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">BT-758</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Change Notice Version Identifier</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A combination of the
+Notice Identifier (BT-701) and the Notice Version (BT-757) of the notice
+being changed (eForms notices only).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">notice-id-ref</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID-vv</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Publication ID of the notice being changed. eForms or TEDXML
+notices.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ojs-notice-id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">XXXXXXXX-YYYY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle" rowspan="2"><div class="content"><div class="paragraph">
+<p>OPT-100</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><div class="content"><div class="paragraph">
+<p>Framework Notice Identifier</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A combination of the Notice Identifier (BT-701) and the Notice Version
+(BT-757) of the notice that announced the Framework Agreement
+(eForms notices only)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">notice-id-ref</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID-vv</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Publication ID of the notice that announced the Framework
+Agreement (eForms or TEDXML notices).</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ojs-notice-id</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">XXXXXXXX-YYYY</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-300</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Buyer Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the
+Organization acting as a Buyer</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-300</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Service Provider Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the
+Organization acting as a Service Provider</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-300</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Signatory Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Organization who
+signed the contract</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-300</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tenderer ID Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to an Organization tendering
+alone, or jointly as part of a consortium or equivalent arrangement.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Additional Info Provider Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Organization, or its alternate contact details, from
+where additional information about the procurement procedure may be
+obtained.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Document Provider Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to
+the Organization, or its alternate address, from where documents may be
+consulted offline.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Employment Legislation Organization Technical Identifier
+Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Organization, or its alternate contact details,
+from where additional information about the employment legislation may
+be obtained.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Environmental Legislation Organization Technical Identifier
+Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Organization, or its alternate contact details,
+from where additional information about the environmental legislation
+may be obtained.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tax Legislation Information Provider Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Organization, or its alternate contact details, from
+where additional information about the tax legislation may be
+obtained.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Financing Party (ID reference)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the Organization
+whose Budget is used to pay the contract</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Main Contractor ID Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">For a given Sub-contractor,
+points to the tenderer of the same tendering Party to which it is
+providing services</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Mediator Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the
+organization, or one of its alternate contact details, dealing with
+mediation.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Payer Party (ID reference)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the organization
+executing the payments</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Review Information Providing Organization Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to
+the Organization, or one of its alternate contact details, where more
+information on the time limits for review procedures may be obtained.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Review Organization Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to
+the Organization, or one of its alternate contact details, dealing with
+reviews.</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Subcontractor ID Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the sub-contractor of a
+Tendering Party</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">organization</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ORG-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tender Evaluator Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the
+Organization, or one of its alternate contact details, processing
+tenders or requests to participate</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-301</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tender Recipient Technical Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Points to the
+Organization, or one of its alternate contact details, receiving tenders
+or requests to participate</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>organization,</p>
+</div>
+<div class="paragraph">
+<p>touchpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ORG-XXXX,</p>
+</div>
+<div class="paragraph">
+<p>TPO-XXXX</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-302</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Beneficial Owner Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">For an economic operator acting as
+a tenderer or subcontractor, points to the Ultimate Beneficial Owner.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ubo</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UBO-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-310</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tendering Party ID Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">From a LotResult or from a
+LotTender, points to the associated TenderingParty</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">tendering-party</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TPA-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-315</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contract Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">From a LotResult, points to a
+contract</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">contract</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CON-XXXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OPT-320</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tender Identifier Reference</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">From a Contract points to a
+related tender and from a LotResult to a tender that applies to the lot
+(or a group of lots containing it)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">tender</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TEN-XXXX</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_referring_to_sections_of_a_notice"><a class="anchor" href="#_referring_to_sections_of_a_notice"></a>Referring to sections of a notice</h3>
+<div class="paragraph">
+<p>When creating a change, an author has to identify the notice sections
+involved. The section references will be extracted from the Change
+notice itself (i.e. the technical identifiers will exist and be known).
+The following table lists the usable identifiers available to refer to
+the different sections. Section for which the text is in grey italic
+can&#8217;t be modified with a Change notice and there is therefore no code
+associated (<em>NA</em>).</p>
+</div>
+<table id="sectionsIDsTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Sections IDs</caption>
+<colgroup>
+<col style="width: 34%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>ID</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Object</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Information</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>BUYER</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyers</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PROCEDURE</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procedure</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Purpose</p>
+</li>
+<li>
+<p>Place of performance</p>
+</li>
+<li>
+<p>Value</p>
+</li>
+<li>
+<p>General information</p>
+</li>
+<li>
+<p>Procurement terms</p>
+</li>
+<li>
+<p>Exclusion grounds</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>PAR-XXXX</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N<sup>th</sup> part</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Purpose</p>
+</li>
+<li>
+<p>Place of performance</p>
+</li>
+<li>
+<p>Duration (planned period)</p>
+</li>
+<li>
+<p>Value</p>
+</li>
+<li>
+<p>General information</p>
+</li>
+<li>
+<p>Procurement documents</p>
+</li>
+<li>
+<p>Techniques</p>
+</li>
+<li>
+<p>Organisations</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>GLO-XXXX</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">N<sup>th</sup> Group of lots</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Value</p>
+</li>
+<li>
+<p>General information</p>
+</li>
+<li>
+<p>Award criteria</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>LOT-XXXX</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lot N</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Purpose</p>
+</li>
+<li>
+<p>Place of performance</p>
+</li>
+<li>
+<p>Duration (planned period)</p>
+</li>
+<li>
+<p>Renewal</p>
+</li>
+<li>
+<p>Value</p>
+</li>
+<li>
+<p>General information</p>
+</li>
+<li>
+<p>Strategic procurement</p>
+</li>
+<li>
+<p>Accessibility criteria</p>
+</li>
+<li>
+<p>Selection criteria</p>
+</li>
+<li>
+<p>Award criteria</p>
+</li>
+<li>
+<p>Procurement documents</p>
+</li>
+<li>
+<p>Procurement terms</p>
+</li>
+<li>
+<p>Techniques</p>
+</li>
+<li>
+<p>Organisations</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RESULT</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice Result</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Framework Group of Lots Frameworks values</p>
+</li>
+<li>
+<p>Notice value</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>RES-XXXX</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Result for Lot N</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Winner(s)</p>
+</li>
+<li>
+<p>Tenderer(s)</p>
+</li>
+<li>
+<p>Statistical information</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>NA</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Contract modification</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>A "change" on a "Contract
+Modification" will act on the other sections of the parent "Contract
+Modification" notice</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ORG-XXXX</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organizations</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Any organization</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>NA</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Changes</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>A "change" on a "Change" will act on the other
+sections of the parent "Change" notice</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong><em>NA</em></strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Notice information</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Notice metadata can not be modified
+with a "Change".</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="pointlessDueToDesignSection"><a class="anchor" href="#pointlessDueToDesignSection"></a>Pointless due to design</h2>
+<div class="sectionbody">
+<table id="pointlessBTsDueToTechnicalDesignTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Pointless BTs due to technical design</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Name of the field</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Explanation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-557</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Framework Estimated Maximum Value Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1371</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Previous Planning Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1372</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Place Performance Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1373</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Duration Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1374</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Funds Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-330</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1375</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1376</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Second Stage Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1377</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Rewards Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1378</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Selection Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1379</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requirements Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13717</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Terms Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13710</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criteria Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13711</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Techniques Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13712</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Communication Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13718</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Documents Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13719</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Submission Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13720</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Organisation Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Links conveyed by UBL
+elements at dedicated places within the XML (cf. <a href="#linkingRolesSubrolesToOrganizationsSection">[linkingRolesSubrolesToOrganizationsSection]</a>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13721</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Strategic Procurement Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13722</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer Review Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-13715</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Additional Information Lot Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
