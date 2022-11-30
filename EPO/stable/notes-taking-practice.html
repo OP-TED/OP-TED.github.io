@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Ontology workgroup note-taking practice proposal :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/EPO/stable/notes-taking-practice.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="../../eforms/stable/index.html">eForms SDK</a>
+    <a class="navbar-item" href="index.html">eProcurement Ontology</a>
+    <a class="navbar-item" href="../../ESPD-EDM/stable/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="EPO" data-version="dev">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Conceptual Model</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="development-branch.html">development</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="frozen-2.0.2-branch.html">frozen 2.0.2</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="epo-guidelines.html">Guidelines</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/index.html">Working Group Documents</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+    <div class="context">
+        <span class="title">eProcurement Ontology</span>
+        <span class="version">dev</span>
+    </div>
+  <ul class="components">
+    <li class="component">
+      <a class="title" href="../../eforms/stable/index.html">eForms SDK</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../eforms/stable/index.html">1.4.1</a>
+        </li>
+        <li class="version">
+          <a href="../../eforms/1.3.2/index.html">1.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../eforms/1.2.1/index.html">1.2.1</a>
+        </li>
+        <li class="version">
+          <a href="../../eforms/1.1.1/index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../eforms/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <a class="title" href="index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">dev</a>
+        </li>
+        <li class="version">
+          <a href="../3.0.1/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../ESPD-EDM/stable/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../ESPD-EDM/stable/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">eProcurement Ontology</a></li>
+    <li><a href="notes-taking-practice.html">Ontology workgroup note-taking practice proposal</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">dev</button>
+  <div class="version-menu">
+    <a class="version is-current" href="notes-taking-practice.html">dev</a>
+    <a class="version is-missing" href="../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.0/index.html">1.0.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Ontology workgroup note-taking practice proposal</h1>
+<div id="preamble">
+<div class="sectionbody">
+<!-- toc disabled -->
+<div class="paragraph">
+<p>This document proposes a methodology on how to capture in a structured manner the discussions in of the expert working group.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements"><a class="anchor" href="#_requirements"></a>Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section captures the set of requirements for documenting the workgroup sessions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The workgroup meeting discussions need to be recorded so that on a latter occasion the reader know what were the topics addressed and the decision on each of the topics.</p>
+</li>
+<li>
+<p>The workgroup decisions must be accessible on a public space, preferably next to the model.</p>
+</li>
+<li>
+<p>The notes should, where possible, contain visual representation or diagrams for better conveying the intended meaning.</p>
+</li>
+<li>
+<p>to be continued &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_session_setup"><a class="anchor" href="#_session_setup"></a>Session setup</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Moderator</strong></p>
+</div>
+<div class="paragraph">
+<p>Each workgroup session should be conducted by a <em>moderator</em>, who is responsible to bing a meeting agenda or a general session theme, to direct the discussion flow, and optionally to moderate the turn-taking among participants.</p>
+</div>
+<div class="paragraph">
+<p>The final goals and main responsibilities of the model editor are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure the discussions are efficient and concise so that the decisions and agreement can be reached in minimal amount of time.</p>
+</li>
+<li>
+<p>frame the discussions so well-defined issues are discussed one at a time.</p>
+</li>
+<li>
+<p>prepare the meeting agenda with a list of topics to address or a general session discussion theme.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Model editor</strong></p>
+</div>
+<div class="paragraph">
+<p>The session has at its center a view (or screen) of the model at work shared by the <em>model editor</em>. All the participants see the model view and discuss a given issue, its representation in the model or information from reference materials that need to be considered. The <em>model editor</em> shows on the screen the discussed model parts and if needed performs the necessary model editing actions to reflect what participants are discussing.</p>
+</div>
+<div class="paragraph">
+<p>The final goals and main responsibilities of the model editor are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>ensure the model part under revision is consistent with the decision of the group</p>
+</li>
+<li>
+<p>ensure that the editing is complete (online or offline by the next session). If the editing is incomplete, the editor will either ask questions or require time to complete the model part editing, or take note of what shall be done after the session.</p>
+</li>
+<li>
+<p>implement all the previous session tasks before the next session (provided that the tasks were well specified and did not require domain expert validation)</p>
+</li>
+<li>
+<p>ask competency questions to the working group in order to elicit modeling aspects and implement them on the spot or record implementation tasks.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Session secretary</strong></p>
+</div>
+<div class="paragraph">
+<p>The session discussion is documented by the <em>session secretary</em>, who is responsible mainly of taking structured notes on the discussed issues and the decisions taken by the group. The taken notes must capture the discussed problems, the possible alternative solutions to it and the rationale why a solution is preferred.</p>
+</div>
+<div class="paragraph">
+<p>The final goals and main responsibilities of the session secretary are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>be clear what issue is discussed (most of the time). If the discussion is out of the scope of the issue, then the course is gently turned back in.</p>
+</li>
+<li>
+<p>document as clearly as possible (in a structured manner) the basic aspects of each discussed issue. The preferred decision structure shall be compatible with <em>model anamnesis</em> approach described in Section <a href="#_model_anamnesis">Model anamnesis</a>. If the documentation is incomplete, then the additional questions are asked in order to register a complete picture of the issue.</p>
+</li>
+<li>
+<p>record competency questions for each issue discussed that characterise on element of a part of the model.</p>
+</li>
+<li>
+<p>records model editing tasks that shall be executed after the session is complete and before the next session. This means that the tasks are not complex and are either model agnostic or very well specified so that no presence of no domain expert is necessary.</p>
+</li>
+<li>
+<p>publish the session notes at the end of each session together with the model change-log.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Domain experts</strong></p>
+</div>
+<div class="paragraph">
+<p>The <em>domain expert</em> participants are discussing the issue proposed by the moderator. They provide insights and answer questions from the model editor, secretary and the moderator.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_note_taking"><a class="anchor" href="#_note_taking"></a>Note-taking</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The session note-taking shall be done preferably in a persistent collaborative environment. This means that solutions that allow simultaneous multi-user editing on the same document shall be preferred. All workgroup participants shall have access to the document or at minimum the session moderator, secretary and model editor.</p>
+</div>
+<div class="paragraph">
+<p>Possible technical choices:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Word and Excel files in Sharepoint/MsTeams</p>
+</li>
+<li>
+<p>Google Documents/Sheets</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model_anamnesis"><a class="anchor" href="#_model_anamnesis"></a>Model anamnesis</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The approach of recording a modelling and design decisions recommended here is based on [Plataniotis et.al. 2012] titled "EA Anamnesis: Towards an approach for EnterpriseArchitecture rationalization".
+"Anamnesis", an ancient Greek word, is a term used in medicine, philosophy and other sciences and denotes reminiscence and repair of forgetfulness.</p>
+</div>
+<div class="paragraph">
+<p>The "model anamnesis" approach proposes a specialised template that captures a model decision that is taken, in terms of decision attributes. The template form is presented in the table below.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 30%;">
+<col style="width: 70%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Decision attribute</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Title</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>A small but informative description of the EA decision that was taken.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issue</strong> <em>(the problem)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This ﬁeld addresses the issue that the Enterprise Architect had to solve with this decision. It is a short description of the issue and not an argumentation for thedecision.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative choices</strong> <em>(the possible solutions)</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This ﬁeld describes the alternative choices that were considered for the same EA issue. An architect can use alternatives to describe the alternative options for addressing the EA issue.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Rationale</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>The reason that leads the architect to choose the speciﬁc decision among the alternatives. A rationale answers the “why” question for each decision. The information of this ﬁeld should provide some added value to the overall decision of the information.</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notes</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Here are recorded general and additional information that help the reader to better understand the issue</em></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_versioning_system"><a class="anchor" href="#_versioning_system"></a>Versioning system</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A versioning system shall be used consistently for storing the model and tracking its evolution over time. In a similar manner the work group notes and session documentation shall be stored and tracked over time.</p>
+</div>
+<div class="paragraph">
+<p>For the Enterprise Architect Models, there are several alternatives available. One of them, native to the Enterprise Architect is establishment of a model repository available in the Corporate, Unified and Ultimate versions of the software. A more widely known and open approach is using the Git versioning system.</p>
+</div>
+<div class="paragraph">
+<p>For EPO model the GitHub solution is chosen. A similar approach or one available in the GitHub ecosystem shall be adopted for the model documentation and the work group meetings. The GitHub wiki, GitHub pages with Sphinx or AsciiDoc are only a few approaches that can be adopted.</p>
+</div>
+<div class="paragraph">
+<p>It is a good practice to edit the model in session specific branches. This however not be always possible or convenient. The important part is to be able to identify the model version before the beginning of the workgroup session and the model version after its completion.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_publishing"><a class="anchor" href="#_publishing"></a>Publishing</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The model evolution over time shall be published so that the wider public has access to a specific (tagged) version of the model, a development branch or the latest stable version of the model.</p>
+</div>
+<div class="paragraph">
+<p>When publishing the following aspects shall be available:
+* the session notes covering the issues discussed and the associated decisions
+* the (reference to) model version before the session
+* the (reference to) model version after the session
+* the diff report between the initial and final models, which is automatically generated and lists the atomic changes in the model.</p>
+</div>
+<div class="paragraph">
+<p>Each well-defined set of model changes that can also be properly delimited and motivated must be documented using the model anamnesis approach described in Section <a href="#_model_anamnesis">Model anamnesis</a>. A well-defined set of changes can be framed by:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a workgroup session covering a list of documented issues</p>
+</li>
+<li>
+<p>an offline modelling session executing a set of tasks or an implementation of a well-defined modelling target.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_proposed_workflow_tools"><a class="anchor" href="#_proposed_workflow_tools"></a>Proposed workflow &amp; tools</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_note_taking_2"><a class="anchor" href="#_note_taking_2"></a>Note-taking</h3>
+<div class="paragraph">
+<p>A lucrative Google Docs or Sharepoint shared folder where date-tagged documents are added.</p>
+</div>
+<div class="paragraph">
+<p>Google Docs is preferred because it is collaborative concomitant multi-editor application with available add-ons that are instrumental to publishing in Markdown or AsciiDoc format on GitHub.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generating_the_asciidocmarkdown_session_notes"><a class="anchor" href="#_generating_the_asciidocmarkdown_session_notes"></a>Generating the AsciiDoc/Markdown session notes</h3>
+<div class="paragraph">
+<p>In Google Doc use the add-ons "Articul8" or "AsciiDoc Processor" to export the preferred output format.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generating_the_model_diff_report"><a class="anchor" href="#_generating_the_model_diff_report"></a>Generating the model-diff report</h3>
+<div class="paragraph">
+<p>Unfortunately there are not many tools that can generate a comprehensive change-notes report between two versions of a model. One such tool is called LemonTree.</p>
+</div>
+<div class="paragraph">
+<p>It has advantages such as: allowing to use Git versioning natively from Enterprise Architect, comparing versions of two models in ain interactive manner, merging and resolving conflicts between versions of a model.</p>
+</div>
+<div class="paragraph">
+<p>The downside is that no human-readable diff-report can be generated, which means that  the change-log is available only as a diffing session that can be seen using LemonTree software.</p>
+</div>
+<div class="paragraph">
+<p>Using LemonTree shall be generated an interactive session that contains the compared EA models. This method shall be used until a replacement method to generate the human-readable model diff-report is found.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_committing_to_github"><a class="anchor" href="#_committing_to_github"></a>Committing to GitHub</h3>
+<div class="paragraph">
+<p>The model changes shall be committed soon after the session is complete. The session decision notes and the diff report must follow the model commit.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_publishing_the_notes_as_github_pages"><a class="anchor" href="#_publishing_the_notes_as_github_pages"></a>Publishing the notes as GitHub pages</h3>
+<div class="paragraph">
+<p>Once the notes are committed to GitHub they shall be published for the broader public. This shall be done by setting up GitHub Action automations that execute Antora playbook and produce the GitHub pages.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
