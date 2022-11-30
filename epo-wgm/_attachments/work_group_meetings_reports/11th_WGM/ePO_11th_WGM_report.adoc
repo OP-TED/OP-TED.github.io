@@ -1,0 +1,148 @@
+== REPORT ON THE 11TH WORKING GROUP MEETING OF THE EPROCUREMENT ONTOLOGY
+
+
+=== Date
+
+28 june 2022
+
+=== Object of the meeting
+
+To present and request feedback on eProcurement Ontology version 3.0.0
+
+=== Meeting agenda
+
+Welcome  +
+Methodology [20 min]  +
+Model refactoring & modules [20 min]  +
+        — break 15 min —  +
+Evolution of 2.0.1 to 3.0.0 [30 min]  +
+Open discussion [30 min]  +
+        — break 15 min —  +
+Open discussion [30 min]  +
+Closing
+
+=== Summary of the meeting
+
+Manuela Cruz from the Publications Office of the European Union (OP) gave the welcoming speech, thanking everyone for joining and accepting the invitation. It was stated that work on the eProcurement Ontology (ePO) has  continued through meetings  twice-a-week since the last face to face meeting in November 2019. +
+
+During 2021 the version 2.0.1 was issued that was used for the BDTI project (Big Data Test Infrastructure). The scope was trying to bring data from different sources into a common language.  +
+
+The goal of this meeting is to provide an overview of ePO version 3.0.0. The release for this version is intended for the end of July 2022. Feedback is much appreciated. +
+
+Other parts of the ontology will be developed in the future and participation in the follow-up meetings is appreciated.   +
+
+The meeting continued with a presentation of the major developments of the Ontology: the methodology, the model refactoring, the question of the evolution of the ontology itself. +
+The plan is to have a face-to-face meeting by the end of this year 2022 in Luxemburg.
+
+==== Development Methodology
+
+Some of the rules that were followed while advancing on the development of the ePO are presented. +
+
+A source management methodology was adopted to show how the development is advancing and can easily inform others that are not involved on a weekly basis. +
+
+Things were framed by using a set of rules:
+
+* Put all concepts into a temporary context
+* Use an upper-level ontology as an anchor and decide what is the proper level of abstraction
+* Have a principle-based perspective
+* Rescoping in order to make sure that ontology covers the eForms
+* Multiple aspects need to be addressed by ePO and it a modular structure of the ePO will provide an easier way of maintaining the model
+
+*Source management methodology* +
+Good development practices are used: branches and tags in GIT. The main branch is the master and when we introduce some changes the development will not be done in the master but in a different branch. Upon completion, changes are validated by a member of the team and only then is this new branch merged with the master. +
+
+*Time phase approach* +
+When we came to the stage of describing the objects (Lot, Procedure, Tender etc.), we realised that some properties have to take into account the phase of the procurement to which they are to be applied.  For this reason, a time phase approach has been implemented. However, it should be noted that some concepts of the ontology are time agnostic (a buyer for example). +
+
+*Upper-level organisation* +
+It is not always trivial to have the definition of a concept. It is important and helpful to have an upper level of definition: example agent is the higher or abstract level and person is a lower level and more concrete. +
+
+*Principle-based perspective* +
+Once an instance is created, it cannot be changed. For example, an instance of the Organization class should be created only once and it cannot be represented in a different way in the model.   +
+
+*eForms coverage* +
+One of the use cases is that  eForms business terms (BT) can be mapped to the ontology. This means that BTs became attributes of a class or relations (predicates). +
+
+*Modularity* +
+It is possible to put all concepts of ontology together eCatalogue, eEvaluation, etc. but it makes the ontology too heavy. The modular approach makes it possible to focus on each individual phase. This is a work in progress. +
+
+*Technical aspects* +
+Enterprise Architect (EA) is the tool used to design the conceptual model in UML. +
+
+As pointed out by an attendee there are different tools for representing Web Ontology Language (OWL) which is the machine-readable format.
+
+==== Model refactoring
+
+The new version adopts a package-based grouping of concepts. Also, there are more diagrams introduced than at the beginning of the ePO development. The aim is to avoid getting distracted by neighbouring concepts.  +
+
+The new structure of the ePO model provides hierarchy and relations diagrams and scoped views versus a wide view of the model.  +
+
+The meeting continued with presenting the ePO modules that are work in progress. All these modules will be imported into the ePO core model that is presented in this meeting.
+
+==== Evolution of 2.0.1 to 3.0.0
+
+* The documentation has been migrated from GitHub Wiki to the https://docs.ted.europa.eu[TED documentation page.] A live presentation of the documentation page followed. One point in particular is if the user knows which class he is interested in, he can access the related classes by clicking on the concept. It is also possible to go to the description of each concept. The model can be viewed in the HTML version https://docs.ted.europa.eu/EPO/3.0.1/_attachments/html_reports/v3.0.1/ePO/index.html[here].
+* UML/UBL data types were migrated to XSD datatypes.
+* In the past the properties of a class the attribute type ‘Code’ was associated with the class where needed. Currently these attributes type code have been removed and there are only relations.
+* The naming conventions have been harmonised for predicates and class names. For example, when a term connects to an object or refers to another object a verb is used in the relation ‘Predicate type’. The source class is connected with the target class by using a verb.
+* The definitions of classes and attributes were completed for version 3.0.0.
+* Change notes: detailed lists of which classes were added or removed. This is to be found in the Developers Doc / Ontology / Change notes
+* Efforts were made to align to core vocabularies. The following core vocabularies were re-used:
+       - Core Location Vocabulary  +
+       - Core Person Vocabulary  +
+       - Core Public Organisation Vocabulary  +
+       - Core Business Vocabulary  +
+       - Core Criterion and Core Evidence Vocabulary  +
+       - Core Public Service Vocabulary Application Profile
+
+* Another important part of the development was focused on the reification of the roles. After many discussions, the agent in the role design pattern was chosen. In version 3.0.0, the roles are represented as a hierarchical structure of concepts, with the superclass being the AgentInRole concept.  The agent in role is played by an agent and it is contextualised by a procurement object (for example, lot or procedure).
+
+The meeting continued with presentation of the monetary values diagrams through the different procurement phases. This approach made it possible for the objects linked to the monetary value concept to be more visible.
+
+=== Open discussion
+
+Q1: It would be great to have a solution for dealing with the Identifier class. +
+A1: In version 2.0.1 there was already an issue, it is a legacy problem. The simple answer is still a set of old decisions in UBL and we need to align with it. The way we work in OWL has to be aligned to UBL. We cannot take a single sided decision. We would like to have more participants in the discussions to get feedback and take decisions. Identifier is one of the top candidates to be addressed in the next release but needs to be discussed with the users/WG.
+
+Q2: I think that the Controlled Vocabulary (CV) buyer-legal-type for the buyer is not really appropriate. The buyer is just a role, while if you see the CV there are values like Regional Authority. Regional Authority is a type of the organisation not of the role. It could be obsolete vocabulary and avoid confusing Agent with Role +
+A2: We can take this point in the next ePO WG meeting. It was not once but many times that the WG was wrapping who was doing what in which context, what are the responsibilities of the different role in a different context. There is a big overlap and it is easy to misuse the common language and we are going to try to be more precise
+
+Q3: How are you organising the SKOS concept schemes? Is it done in GitHub as well or are you using specific tools for maintaining them? +
+A3: Regarding the controlled vocabularies we are in close contact with the EU Vocabularies team, who publish the controlled vocabularies which provides reference data at EU level. In the scope of the Ontology most of the code lists published in the Business collection Procurement were defined within the context of the eForms and some in the context of the ESPD. They are managed by EU Vocabularies which does not mean that we cannot add new concepts and code lists. Questions concerning the code lists should be addressed to the https://github.com/OP-TED/ePO/issues[ePO] group so that they do not end up in a common inbox in EU Vocabularies as it is very specific for procurement.
+
+Q4: What is the average number of RDF triples needed to represent a full contracting process? +
+A4: We are planning to publish in the Cellar repository standard forms converted from XML to RDF format. The question now is how big will the data be? We cannot know how big the data will be concerning the different phases of the process. However, we will eventually be able to calculate the average number of triples per notice type.
+
+_After meeting note: For F03 there are on average 350 triples._
+
+Q5: I am not convinced with the solution for Agents, roles and organisations but we will see during the ePO WG meetings. Through the model we can see some classes which do not exist in reality were created just to avoid confusion. My concern is how business people can understand these classes that do not exist. We need a kind of guideline to understand this. +
+A5: In the first part of the presentation, we showed that in the model the user can select a class and see the definition and also see where it belongs. In the model we can see some classes that are not intended to be instantiated in the Ontology but are created to show alignment with other ontologies.
+
+Q6: The contextual information /descriptions are not easy to understand because it is just a ‘glue’. +
+A6: True that we have two types of contextual information that need to be investigated and taken care of. This links back to one of the difficulties that ePO had in the past trying to leave out the abstract classes, which can bring more chaos than order. We intend to publish the most useful concepts and we will be glad to discuss leaving out the abstract classes.
+
+Q7: Legacy is also based on legislation; it is not only about systems. +
+A7: This is true for example in the current forms we see many Booleans which are problematic for the model.  As we have to represent legal constraints this can create a rather non-elegant model, however since the eForms were foreseen for open data this legacy problem will slowly disappear.
+
+Q8: Are there definitions for all classes of ePO?  +
+A8: Normally, yes.
+
+Q9: An organisation group should also be an organisation. For example, joint ventures: https://www.zaragoza.es/sede/servicio/contratacion-publica/licitador/2492[https://www.zaragoza.es/sede/servicio/contratacion-publica/licitador/2492] +
+A9: This will be brought up in the following WG meetings.
+
+Q10: Where do the definitions of concepts in the ontology come from? +
+A10: Definitions come from the legislation, unless it is not possible to get them from there so the WG creates definitions for the concepts. Any user is free to send a request to change or explain a definition.
+
+=== Closing
+
+They take place twice a week during the year. Everybody is welcome. Tuesday meetings are more about ePO core development. Thursday meetings are more specific for different modules: eCatalogue, eOrdering, etc. +
+From now on the meetings will be held on Webex. The Thursday meetings have a different link. Users do not need to follow on a weekly basis and any doubt can be put also in a GitHub issue. +
+We would like to finish version 3.0.0 by the end of July and we would appreciate any feedback even if it is sent late. The suggestions will be taken into consideration for a future release. All addresses to contact the ePO team are provided in the last slide: +
+
+Github issues: https://github.com/OP-TED/ePO/issues   +
+or alternatively via:  +
+Email: OP-EPROCUREMENT-ONTOLOGY@publications.europa.eu +
+Email: mailto:natalie.muric@publications.europa.eu[natalie.muric@publications.europa.eu] +
+
+Lawyers interested in the public procurement domain are interested in receiving some more general information on the subject and participate in the future developments of the ePO. Definitions for classes, attributes and predicates can be modified. The ePO will work on producing more user-friendly documentation, such as information sheets which are more understandable from a business point of view. +
+The meeting ended by asking everyone that received a forwarded invitation to the meeting to send OP an email in order to be able to contact them back and to add them to the distribution list.
