@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Saving a notice in XML :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/latest/guide/xml-generation.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="../../latest/index.html">eForms SDK</a>
+    <a class="navbar-item" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+    <a class="navbar-item" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="eforms" data-version="1.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../schema/index.html">eForms Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../schema/elements.html">Elements</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../codelists/index.html">Codelists</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-types/index.html">Notice Types</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../viewer-templates/index.html">View Templates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../translations/index.html">Translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../efx/index.html">EFX grammar</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Start Here</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="understanding-the-sdk.html">Understanding the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="sdk-glossary.html">SDK glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../versioning.html">SDK versioning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Working with the SDK</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="notice-forms.html">Create the forms</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="xml-generation.html">Generate XML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="visualisation.html">Visualize notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="validation.html">Validate notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="implementing-eforms-without-the-sdk.html">Working without the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Java Libraries</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../efx-toolkit/index.html">EFX Toolkit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../eforms-core/index.html">eForms Core Library</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Sample Applications</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-viewer/index.html">Notice Viewer (Java)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-editor/index.html">Notice Editor (Java)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+    <div class="context">
+        <span class="title">eForms SDK</span>
+        <span class="version">1.1.1</span>
+    </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../../latest/index.html">eForms SDK</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../latest/index.html">1.4.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.3/index.html">1.3.2</a>
+        </li>
+        <li class="version">
+          <a href="../../1.2/index.html">1.2.1</a>
+        </li>
+        <li class="version is-current">
+          <a href="../index.html">1.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../1.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../EPO/latest/index.html">dev</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component">
+      <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../../ESPD-EDM/latest/index.html">3.0.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+        </li>
+        <li class="version">
+          <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li>Working with the SDK</li>
+    <li><a href="xml-generation.html">Generate XML</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.1.1</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/guide/xml-generation.html">1.4.1</a>
+    <a class="version" href="../../1.3/guide/xml-generation.html">1.3.2</a>
+    <a class="version" href="../../1.2/guide/xml-generation.html">1.2.1</a>
+    <a class="version is-current" href="xml-generation.html">1.1.1</a>
+    <a class="version" href="../../1.0/guide/xml-generation.html">1.0.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Saving a notice in XML</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your user has filled-in their notice on the screen and it is now time to serialize the notice data and store it in an XML file that will be submitted for publication.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The first thing you need to worry about is getting the XML right. The XML file you generate must comply with the eForms schema. That is easier said than done, but once you get this right, you won&#8217;t have to worry about future schema changes again. Read on to see how this is done.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The notice data is still somewhere in a data structure in your application. This is a data structure that you have designed and it probably matches the needs of your user interface. We will refer to this data structure from now on in our discussion as the <strong>visual model</strong>. See <a href="#_definitions">definitions</a>.</p>
+</div>
+<div class="paragraph">
+<p>Your goal is to get the data out of the <strong>visual model</strong> and transform it in such a way that it can easily be serialized to XML. In other words, you want to move your data to another data structure that is closer to the actual physical representation that your data will take inside the XML file. We will refer to this target data structure from now on in our discussion as the <strong>physical model</strong>. See <a href="#_definitions">definitions</a>.</p>
+</div>
+<div class="paragraph">
+<p>The problem of saving your notice data becomes therefore a transformation problem from a <strong>visual model</strong> to a <strong>physical model</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Although you can attempt to do this transformation in one go, it will probably be too complicated to get right, because the visual and physical models are just too different. The one matches the end-user&#8217;s conceptualisation of a notice as it appears on their screen, while the other matches the physical structure of the notice as it is stored inside and XML file. Fields that might be grouped together on the screen, might actually be stored in totally different parts of the XML. So, what you need to do to simplify things is to break this transformation into two steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Transform you notice data from your <strong>visual model</strong> to an intermediate model that breaks out of the <strong>visual structure</strong> but maintains all the information necessary to construct the <strong>physical model</strong>.</p>
+</li>
+<li>
+<p>Transform your data from this intermediate model to the <strong>physical model</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>We will refer to this intermediate model from now on in our discussion as the <strong>conceptual model</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_definitions"><a class="anchor" href="#_definitions"></a>Definitions</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Visual Model</dt>
+<dd>
+<p>A data model that the notice data adheres to while the notice is being edited by the end-user. This data model contains visual elements like notice sections, control groups and user-input controls together with the values entered by the user. We call it a visual model because its structure conforms to the structure of the notice on the end-user&#8217;s screen.</p>
+</dd>
+<dt class="hdlist1">Conceptual Model</dt>
+<dd>
+<p>A data model that follows the conceptualisation of a notice used by the eForms SDK. This data model contains <code>nodes</code> and <code>fields</code> and it follows the logical structure of a notice as defined in the eForms SDK (in <code>fields/fields.json</code>).</p>
+</dd>
+<dt class="hdlist1">Physical Model</dt>
+<dd>
+<p>A data model that follows the actual physical structure that the notice data will have when stored inside the XML file. This model contains XML elements and XML attributes and follows the notice structure as defined by the eForms schema.</p>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_conceptual_model_elements"><a class="anchor" href="#_conceptual_model_elements"></a>Conceptual model elements</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>node</code></dt>
+<dd>
+<p>A <code>node</code> is a structural element of the conceptual model. Every <code>node</code> has a parent <code>node</code> (except the root <code>node</code>). Every <code>node</code> has a XPath relative to [the absolute XPath of] its parent <code>node</code>. The relative XPath of a <code>node</code> may contain more than one <code>steps</code> (each representing an XML element). XPath <code>steps</code> are always separated with a forward slash <code>/</code>. A <code>node</code> may contain child <code>nodes</code> as well as <code>fields</code>. A <code>node</code> may or may not be repeatable.</p>
+</dd>
+<dt class="hdlist1">Repeatable <code>node</code></dt>
+<dd>
+<p>A repeatable <code>node</code> can repeat (itself) inside its parent <code>node</code>. When a <code>node</code> is repeatable, then the XML element that repeats in the XML document, is the first XML element (the first <code>step</code>) in its relative XPath. A repeatable <code>node</code> may have several other repeatable <code>nodes</code> in its <code>node-path</code>.</p>
+</dd>
+<dt class="hdlist1"><code>node-path</code></dt>
+<dd>
+<p>The <code>node-path</code> of a <code>node</code> is a list of all the ancestors of a <code>node</code> in hierarchical order (starting from the root <code>node</code> and continuing hierarchically until the <code>node</code> itself). The <code>node-path</code> is a concept similar to the concept of XPath, where each <code>step</code> is a <code>node</code> identifier rather than an XML element. The <code>node-path</code> of a <code>field</code> is the <code>node-path</code> of its parent <code>node</code> followed by the <code>field</code> identifier.</p>
+</dd>
+<dt class="hdlist1"><code>field</code></dt>
+<dd>
+<p>A field is a data element in the conceptual model. Every <code>field</code> has a parent <code>node</code>. Every <code>field</code> has a XPath relative to [the absolute XPath of] its parent <code>node</code>. The relative XPath of a <code>field</code> may contain more than one <code>steps</code> (each representing an XML element or XML attribute). XPath <code>steps</code> are always separated with a forward slash <code>/</code>. The relative XPath of a <code>field</code> may point to an XML element or an XML attribute. A <code>field</code> may or may not be repeatable.</p>
+</dd>
+<dt class="hdlist1">Repeatable <code>field</code></dt>
+<dd>
+<p>A repeatable <code>field</code> can repeat (itself) inside its parent <code>node</code>. When a <code>field</code> is repeatable, then the XML element that repeats in the XML document, is the first XML element (the first <code>step</code>) in its relative XPath. A repeatable <code>field</code> may have several repeatable <code>nodes</code> in its <code>node-path</code>.</p>
+</dd>
+<dt class="hdlist1">Multilingual <code>field</code></dt>
+<dd>
+<p>A multilingual <code>field</code> is never repeatable. However several instances of a multilingual <code>field</code> can be created by the user to store the different text values of the field in different languages. All the instances of a multilingual <code>field</code> are meant to be created next to each other inside the parent <code>node</code> of the <code>field</code>.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_visual_model_elements"><a class="anchor" href="#_visual_model_elements"></a>Visual model elements</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>display-group</code></dt>
+<dd>
+<p>A <code>display-group</code> is a structural element of the visual model. It represents a section of the notice or a group of <code>input-fields</code>. Every <code>display-group</code> has a parent <code>display-group</code> (except the root <code>display-group</code>). A <code>display-group</code> may contain several other <code>display-groups</code> as well as several <code>input-fields</code>. A <code>display-group</code> may or may not be <code>repeatable</code>.</p>
+</dd>
+<dt class="hdlist1">Repeatable <code>display-group</code></dt>
+<dd>
+<p>A repeatable <code>display-group</code> may repeat more than one times inside its parent <code>display-group</code>. A repeatable <code>display-group</code> is <strong>always</strong> associated with a repeatable <code>node</code> in the conceptual model.</p>
+</dd>
+<dt class="hdlist1"><code>input-field</code></dt>
+<dd>
+<p>An <code>input-field</code> is a data element of the visual model. It represents an input element in the form where the user will enter data for a specific <code>field</code>. An <code>input-field</code> is always associated with a <code>field</code> in the conceptual model. An <code>input-field</code> may or may not be repeatable.</p>
+</dd>
+<dt class="hdlist1">Repeatable <code>input-field</code></dt>
+<dd>
+<p>A repeatable <code>input-field</code> may repeat more than one times inside its parent <code>display-group</code>. A repeatable <code>input-field</code> is always associated with a repeatable <code>field</code> in the conceptual model.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_1_transforming_from_visual_to_conceptual_model"><a class="anchor" href="#_step_1_transforming_from_visual_to_conceptual_model"></a>Step 1: Transforming from visual to conceptual model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you constructed your visual model, you used the visual structure provided in the notice type definition files in the eForms SDK. To transform the notice data to the conceptual model you need to traverse all the elements of the visual model, one by one and follow the pseudo-algorithm presented here.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can traverse the visual model tree in several different ways. Choose the way that makes most sense to you. The way we chose to do it, is by executing a depth-first search in the visual model. For this discussion we assume you will use the visitor design pattern or a similar concept.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_visiting_the_elements_in_your_visual_model"><a class="anchor" href="#_visiting_the_elements_in_your_visual_model"></a>Visiting the elements in your visual model</h3>
+<div class="paragraph">
+<p>The first thing you need to do is create all the repeatable <code>nodes</code> needed in the conceptual model. This is the hardest part of the job and the most critical to get right, so take care of this first.</p>
+</div>
+<div class="paragraph">
+<p>Here is how it works: For every repeatable <code>node</code> that needs to appear in the conceptual model, there is always a repeatable <code>display-group</code> in your visual model associated with that <code>node</code>. All you have to do is go though all the <code>display-groups</code> in your visual model and check if they are associated with a <code>node</code>.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+You need to conduct a depth-first search starting from the root level <code>display-groups</code> in your visual model. To be able to do this you need to make sure that your visual model maintains its hierarchical structure. This way, you can move as needed, to the parent element and child elements of any visual element you visit.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If a <code>display-group</code> is not repeatable, continue to its first child <code>display-group</code>. As soon as you find a <code>display-group</code> that is repeatable you need to create one or more <code>nodes</code> for it in the conceptual model. Actually you need to create as many <code>nodes</code> as the times the end-user has repeated the <code>display-group</code> in the notice data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Remember: When a <code>node</code> is marked as <code>repeatable</code> it means that the <code>node</code> itself repeats inside its parent <code>node</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Before creating any <code>node</code> in the conceptual model, always make sure to create its parent <code>node</code> first. This way the root <code>node</code> of the conceptual model will always end up being created first and there will always be a parent <code>node</code> to which you can attach your new <code>node</code>. Now that the parent <code>node</code> exists, you can proceed with creating one <code>node</code> for each instance of the repeatable <code>display-group</code> and and attaching it to its parent <code>node</code> in the conceptual model.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">When creating a <code>node</code></div>
+<div class="paragraph">
+<p>When adding a <code>node</code> to your conceptual model, make sure to assign a unique instance identifier to it. Also make sure to assign the same unique instance identifier to the <code>display-group</code> in your visual model, which the new node corresponds to. You are doing this so that you can later find the instance of the <code>display-group</code>, which a given <code>node</code> instance corresponds to, and vice versa.</p>
+</div>
+<div class="paragraph">
+<p>You may also get away without instance identifiers, but this will depend on how your recursion algorithm is constructed. The point is that you need to be able to match a <code>display-group</code> instance with the corresponding <code>node</code> instance. If you can do it without instance identifiers, then all is good too. We recommend using instance identifiers because there is no way to make a mistake if you use them.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Continue your depth-first search until you find the next repeatable <code>display-group</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nested_repeatable_display_groups"><a class="anchor" href="#_nested_repeatable_display_groups"></a>Nested repeatable <code>display-groups</code></h3>
+<div class="paragraph">
+<p>What if a repeatable <code>display-group</code> is nested inside one or more repeatable <code>display-groups</code>? When you encounter a case like that, you can safely assume that both the visual and the conceptual models, always follow the same nesting pattern. For example, if you are visiting repeatable <code>display-group-B</code> and <code>display-group-B</code> has a repeatable ancestor <code>display-group-A</code> in the visual model, then you can assume that the repeatable <code>node-A</code> in the conceptual model is also an ancestor of the repeatable <code>node-B</code> (where <code>node-A</code> is the repeatable <code>node</code> that corresponds to the repeatable <code>display-group-A</code> and <code>node-B</code> likewise for <code>display-group-B</code>).</p>
+</div>
+<div class="paragraph">
+<p>The reason why you are doing a depth-first search has just become apparent. All the ancestor repeatable <code>display-groups</code> have already been visited and processed, so their corresponding <code>nodes</code> are already created in the conceptual model. The only thing you need to do now, is to find the correct instance of the ancestor repeatable <code>node</code> to which to attach the new <code>node</code>.</p>
+</div>
+<div class="paragraph">
+<p>To do that, you will need to use unique instance identifiers. Remember you are doing a depth-first search in the visual model and you are currently visiting a repeatable <code>display-group</code>. You need to find its first ancestor which is also repeatable. Get its unique identifier. Look for the <code>node</code> in the conceptual model with the same unique identifier. That&#8217;s the <code>node</code> you are looking for. From that <code>node</code> reconstruct the <code>node-path</code> until you reach the <code>node</code> that you are trying to attach. Done.</p>
+</div>
+<div class="paragraph">
+<p>Continue your depth-first search until done. Now you have a conceptual model that contains all the <code>nodes</code> that are needed to construct your physical model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_visiting_input_fields"><a class="anchor" href="#_visiting_input_fields"></a>Visiting <code>input-fields</code></h3>
+<div class="paragraph">
+<p>When visiting an <code>input-field</code> you need to add a corresponding <code>field</code> in your conceptual model.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Much of the logic that applies when visiting an <code>input-field</code> is the same as the one that applies when visiting a repeatable <code>display-group</code>. We are keeping this description brief as we assume that you have just read the preceding part of this document and that you are already familiar with the concepts involved.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Like when adding <code>nodes</code>, before adding a <code>field</code> in the conceptual model, always make sure the you have added its parent <code>node</code> first.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>An <code>input-field</code> will never have a repeatable ancestor in the visual model unless that repeatable ancestor corresponds to a repeatable <code>node</code> that is also an ancestor of the corresponding <code>field</code>. Therefore, it is safe to assume that whenever you visit an <code>input-field</code>, then any repeatable ancestors will have already been visited and their corresponding <code>nodes</code> have already been created in the conceptual model.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>input-field</code> has any repeatable ancestors in the visual model, then you can follow the same logic that you followed for nested repeatable <code>display-groups</code>: Find the first repeatable ancestor in the visual model, go to the corresponding <code>node</code> in the conceptual model, and from there reconstruct all the necessary nodes from the <code>node-path</code> of the <code>field</code>. until you can add the <code>field</code> itself.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>input-field</code> is repeatable, then add as many instances of the corresponding <code>field</code> in the conceptual model as the number of times the end-user repeated the <code>input-field</code> in the notice form.</p>
+</div>
+<div class="paragraph">
+<p>If the <code>input-field</code> does not have any repeatable ancestors, then simply create any of the ancestor <code>nodes</code> that are not already present in the conceptual model. Any <code>node</code> that has no repeatable ancestors always appears once.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_step_2_transforming_from_conceptual_to_physical_model"><a class="anchor" href="#_step_2_transforming_from_conceptual_to_physical_model"></a>Step 2: Transforming from conceptual to physical model</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You now have all the notice data in a new data structure (the conceptual model) which is much closer to the final shape that the notice data will take inside the XML file. Your goal is now to transform the notice data from the conceptual to the physical model so that you can eventually serialise them in XML.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Remember: The conceptual model contains <code>nodes</code> and <code>fields</code>. The physical model contains XML elements and attributes. Each <code>node</code> and  <code>field</code> has a XPath relative to their parent <code>node</code>. This relative XPath contains one or more <code>steps</code>, separated by a forward slash '/'. Each of these <code>steps</code> is an XML element or XML attribute.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To generate your physical model you need to "unpack" the XML elements contained in the relative XPath of each of the <code>nodes</code> and <code>fields</code> in your conceptual model. To do this you need to traverse the conceptual model, element by element. Do a depth-first search again, starting from the root node.</p>
+</div>
+<div class="sect2">
+<h3 id="_visiting_a_node"><a class="anchor" href="#_visiting_a_node"></a>Visiting a <code>node</code></h3>
+<div class="paragraph">
+<p>When visiting a <code>node</code> in the conceptual model, take its relative XPath and extract the <code>steps</code> it contains. Add an XML element to the physical model for each <code>step</code> that you extracted.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If the <code>node</code> is a repeatable node, then <strong>only the first</strong> <code>step</code> that you extracted from its relative XPath should be repeated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_visiting_a_field"><a class="anchor" href="#_visiting_a_field"></a>Visiting a <code>field</code></h3>
+<div class="paragraph">
+<p>Just as you did when visiting a <code>node</code>, extract all the <code>steps</code> from the relative XPath of the <code>field</code> which you are currently visiting, and add them to the physical model.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+If the <code>field</code> is repeatable, then only the XML element that corresponds to first <code>step</code> that you extracted should be repeated.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Some fields point to XML attributes. Make sure you properly reflect that into your physical model, so that you can take it into account when serialise it to XML.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>After visiting all the <code>nodes</code> and <code>fields</code> in the conceptual model, you now have a full physical model that you can directly serialise to XML.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getting_the_xml_elements"><a class="anchor" href="#_getting_the_xml_elements"></a>Getting the XML elements</h3>
+<div class="paragraph">
+<p>One "inconvenience" that you will have to face is that you have to extract the XML elements and XML attributes that you need to add to your physical model, from the relative XPaths provided inside <code>fields.json</code>. Be aware that the XPaths are not always trivial as many of them contain one or more predicates.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Simply splitting the XPath string on <code>'/'</code> won&#8217;t work. You can use regular expressions to extract the steps. We use an XPath parser just to be on the safe side.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We know that extracting the <code>steps</code> from an XPath is not rocket science and that you can do it yourself; but it would have been much easier for everyone, if we had provided this information pre-processed and ready for you inside <code>fields.json</code>. Actually, this is something we intend to do in a future release of the SDK.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getting_the_element_order_right"><a class="anchor" href="#_getting_the_element_order_right"></a>Getting the element order right</h3>
+<div class="paragraph">
+<p>Ideally we would like you to be able to generate the XML without ever needing to look at the XSD. For the moment however, there is a piece of necessary information that you can only find inside the XSD: the correct order of XML elements within their parent element. This si because the order of XML elements inside an <code>xsd:sequence</code> is significant.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+We are aware that having to open the XSD just to lookup the order of XML elements is not very convenient. So we plan to add this in <code>fields.json</code> in a future release of the SDK.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
