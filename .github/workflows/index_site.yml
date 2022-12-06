@@ -39,7 +39,7 @@ jobs:
             shouldIndex=true;
           else
             [ -n "${{ env.lastBuildDate }}" ] \
-            && [[ "$(date -d "${{ env.lastBuildDate }}")" > "$(date -d "${{ env.lastIndexDate }}")" ]] \
+            && [[ "$(date -d "${{ env.lastBuildDate }}" "+%Y%m%d%H%M%S")" > "$(date -d "${{ env.lastIndexDate }}" "+%Y%m%d%H%M%S")" ]] \
             && shouldIndex=true || shouldIndex=false; \
           fi; \
           echo "shouldIndex=${shouldIndex}" >> ${GITHUB_OUTPUT}
