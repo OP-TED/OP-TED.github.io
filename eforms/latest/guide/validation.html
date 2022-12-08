@@ -395,13 +395,13 @@ TED CVS checks the information submitted in the notice for correctness, consiste
 <p>An obvious choice that is available to everyone, is to rely on the Validation API for validating your notices. The API will provide you with a validation report in SVRL (Schematron Validation Report Language) which you can use to pass validation messages on to your end-users.</p>
 </div>
 <div class="paragraph">
-<p>The report contains a list of all validation rules that were executed. Any assertions that failed will be indicated with <code>svrl:failed-assert</code> elements providing you with additional information on the severity of the failure (in the <code>@role</code> attribute), the <code>@location</code> (XPath) of the issue, and <code>@test</code> (XPath) that was performed.</p>
+<p>The report contains a list of all validation rules that were executed. Any assertions that failed will be indicated with <code>svrl:failed-assert</code> elements providing you with additional information on the severity of the failure (in the <code>@role</code> attribute), the <code>@location</code> (XPath) of the issue, and the <code>@test</code> (XPath) that was performed.</p>
 </div>
 <div class="paragraph">
-<p>The  validation message intended for display to your end-user is provided in the <code>svrl:text</code> element as a label identifier, which you can use to retrieve the actual validation message text translated in the language of your choice.</p>
+<p>The  validation message intended for display to your end-user is provided in the <code>svrl:text</code> element, in the language you indicated in your request. If the message is not available yet in this language, the identifier of label is given instead.</p>
 </div>
 <div class="paragraph">
-<p>To correlate the location of the failure with your form, the identifier of the relevant <strong><em>field</em></strong> is provided in the <code>svrl:diagnostic-reference</code> element.</p>
+<p>For certain types of rules, the value in the <code>@location</code> attribute does not indicate the exact element that caused the problem. For example, for a rule that checks that a mandatory element is present, <code>@location</code> will point to the XML element that is supposed to contain this mandatory element. In this case, the XPath of the missing element is given in the <code>svrl:diagnostic-reference</code> element, relative to the XPath indicated in <code>@location</code>.</p>
 </div>
 </div>
 </div>

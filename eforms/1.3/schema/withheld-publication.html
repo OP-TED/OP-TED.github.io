@@ -1509,6 +1509,60 @@ fields.</p>
 &lt;/ContractAwardNotice&gt;</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information for some DAP related fields.
+ Comments are used to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TenderingProcess&gt;
+    &lt;cbc:ProcedureCode listName="procurement-procedure-type"&gt;neg-wo-call&lt;/cbc:ProcedureCode&gt;
+    &lt;cac:ProcessJustification&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-60 : Direct Award Justification Code (BT-136) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-jus&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-61 : Direct Award Justification Previous (BT-1252) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-pre&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-62 : Direct Award Justification Text (BT-135) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-tex&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;!-- # UNPUB-60 : Direct Award Justification Code (BT-136) publication will be delayed --&gt;
+        &lt;cbc:ProcessReasonCode listName="direct-award-justification"&gt;ecom-excl&lt;/cbc:ProcessReasonCode&gt;
+        &lt;!-- # UNPUB-62 : Direct Award Justification Text (BT-135) publication will be delayed --&gt;
+        &lt;cbc:ProcessReason languageID="ENG"&gt;Direct award is justified ...&lt;/cbc:ProcessReason&gt;
+        &lt;cbc:ProcessReason languageID="FRA"&gt;L'attribution ...&lt;/cbc:ProcessReason&gt;
+        &lt;!-- # UNPUB-61 : Direct Award Justification Previous (BT-1252) publication will be delayed --&gt;
+        &lt;cbc:Description&gt;123e4567-e89b-12d3-a456-426614174000&lt;/cbc:Description&gt;
+    &lt;/cac:ProcessJustification&gt;
+&lt;/cac:TenderingProcess&gt;</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="lotsGroupOfLotsLevelSection"><a class="anchor" href="#lotsGroupOfLotsLevelSection"></a>Lot/Group of lots level</h3>

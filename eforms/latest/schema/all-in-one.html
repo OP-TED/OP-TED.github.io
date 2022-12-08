@@ -2368,9 +2368,7 @@ procurement procedure).</p>
 <p>XXXX: set of 4 digits.</p>
 </div>
 <div class="paragraph">
-<p>By default the numbering should be increased by 1 from one object to the
-following object of the same category and leading 0 should be used to
-satisfy the 4 digits format</p>
+<p>Leading 0 should be used to satisfy the 4 digits format</p>
 </div>
 <div class="paragraph">
 <p>For Procedure without Lots (i.e. with a single "technical" lot), the ID
@@ -4448,10 +4446,10 @@ the given Lot):</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:StrategicProcurement&gt;
     &lt;efbc:ApplicableLegalBasis listName="cvd-scope"&gt;true&lt;/efbc:ApplicableLegalBasis&gt;
     &lt;efac:StrategicProcurementInformation&gt;
-        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ServiceContractType&gt;
+        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;oth-serv-contract&lt;/efbc:ProcurementCategoryCode&gt;
     &lt;/efac:StrategicProcurementInformation&gt;
     &lt;efac:StrategicProcurementInformation&gt;
-        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ServiceContractType&gt;
+        &lt;efbc:ProcurementCategoryCode listName="cvd-contract-type"&gt;veh-acq&lt;/efbc:ProcurementCategoryCode&gt;
     &lt;/efac:StrategicProcurementInformation&gt;
 &lt;/efac:StrategicProcurement&gt;</code></pre>
 </div>
@@ -4756,10 +4754,10 @@ also be provided:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="procurementDocsSection"><a class="anchor" href="#procurementDocsSection"></a>8.3.10. Procurement documents (BT-14, BT-15, BT-615, BT-707)</h4>
+<h4 id="procurementDocsSection"><a class="anchor" href="#procurementDocsSection"></a>8.3.10. Procurement documents (BT-14, BT-15, BT-615, BT-707, BT-708, BT-737)</h4>
 <div class="paragraph">
-<p>The URL to procurement documents (or to information on documents with
-controlled accesses) is marked using the "<em>cbc:URI</em>" element.</p>
+<p>The URL to procurement documents BT-15 (or to information on documents with
+controlled accesses BT-615) is marked using the "<em>cbc:URI</em>" element.</p>
 </div>
 <div class="paragraph">
 <p>The identifier "<em>cbc:ID</em>" is mandatory and shall not be empty. There is
@@ -4779,8 +4777,8 @@ the "non-restricted-document" value and the element
 <em>cbc:DocumentTypeCode</em> shall not be used.</p>
 </div>
 <div class="paragraph">
-<p>When there is a need to specify the linguistic version, then the
-"<em>cbc:LanguageID</em>" element has to be used with values from the
+<p>When there is a need to specify the linguistic version (BT-708 or BT-737),
+then the "<em>cbc:LanguageID</em>" element has to be used with values from the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/language">language</a>
 codelist. This element is not repeatable and when multiple linguistic
 versions have to be referenced, the whole block
@@ -4789,7 +4787,7 @@ versions have to be referenced, the whole block
 <div class="paragraph">
 <p>The status of a given linguistic version may also be specified using the
 "<em>cbc:DocumentStatusCode</em>" element with either of the two values: "official"
-and "non-official".</p>
+(for BT-708) or "non-official" (for BT-737).</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -5529,7 +5527,7 @@ Prize Information covers <em>Prize Rank</em> (BT-44), <em>Value Prize</em> (BT-6
 value.</p>
 </div>
 <div class="paragraph">
-<p>The Prize Rank is marked using "<em>cbc:RankCode</em>".</p>
+<p>The Prize Rank is marked using "<em>cbc:RankCode</em>", and shall be an integer.</p>
 </div>
 <div class="paragraph">
 <p>The Value Prize is encoded by specifying currency and amount.</p>
@@ -6984,7 +6982,7 @@ Business Term allows the notices to be associated despite the absence of Procedu
 <div class="ulist">
 <ul>
 <li>
-<p>its notice identifier (UUID) concatenated with its version identifier (e.g. &lt;UUUID&gt;-&lt;vv&gt;), or</p>
+<p>its notice identifier (UUID) concatenated with its version identifier (e.g. &lt;UUID&gt;-&lt;vv&gt;), or</p>
 </li>
 <li>
 <p>its Notice Publication ID (XXXXXX-YYYY).</p>
@@ -7011,7 +7009,7 @@ It may also be repeated to point to multiple previous notices when needed.</p>
 <div class="paragraph">
 <p>Identification of a Planning notice related to this notice is done using
 its notice identifier (UUID) concatenated with the associated version
-identifier (2 digits) in the form &lt;UUUID&gt;-&lt;vv&gt;. Another option is to
+identifier (2 digits) in the form &lt;UUID&gt;-&lt;vv&gt;. Another option is to
 refer to the Notice Publication ID (XXXXXX-YYYY). Both may be differentiated
 with the schemeName: "notice-id-ref" and "ojs-notice-id" respectively.</p>
 </div>
@@ -10760,7 +10758,9 @@ a framework agreement. Only two values are possible "true" and "false".</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Framework Notice Identifier (OPT-100)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ID of the notice related to
-the Framework Contract under which the current contract takes place</p></td>
+the Framework Contract under which the current contract takes place.
+In either format: notice identifier (UUID) concatenated with its version
+identifier (i.e. &lt;UUID&gt;-&lt;vv&gt;), or Notice Publication ID (XXXXXX-YYYY).</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>?</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
@@ -10920,7 +10920,6 @@ programme or project used at least partially finance the procurement.</p></td>
         &lt;efbc:ContractFrameworkIndicator&gt;true&lt;/efbc:ContractFrameworkIndicator&gt;
         &lt;cac:NoticeDocumentReference&gt;
             &lt;cbc:ID schemeName="ojs-notice-id"&gt;62783-2020&lt;/cbc:ID&gt;
-            &lt;cbc:ReferencedDocumentInternalAddress&gt;RES-OOO3&lt;/cbc:ReferencedDocumentInternalAddress&gt;
         &lt;/cac:NoticeDocumentReference&gt;
         &lt;cac:SignatoryParty&gt;
             &lt;cac:PartyIdentification&gt;
@@ -12079,7 +12078,7 @@ efac:Company&#8203;/cac:PostalAddress&#8203;/cac:AddressLine&#8203;/cbc:Line</co
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">StreetName for first address line; Additional StreetName for the 2<sup>nd</sup>
-and AddressLine for 3<sup>rd</sup> and subsequent lines</p></td>
+and a single AddressLine for 3<sup>rd</sup> and subsequent lines</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">T</p></td>
@@ -18318,6 +18317,60 @@ fields.</p>
     &lt;/cac:TenderingProcess&gt;
     &lt;!-- interrupted mark-up --&gt;
 &lt;/ContractAwardNotice&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information for some DAP related fields.
+ Comments are used to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TenderingProcess&gt;
+    &lt;cbc:ProcedureCode listName="procurement-procedure-type"&gt;neg-wo-call&lt;/cbc:ProcedureCode&gt;
+    &lt;cac:ProcessJustification&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-60 : Direct Award Justification Code (BT-136) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-jus&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-61 : Direct Award Justification Previous (BT-1252) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-pre&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-62 : Direct Award Justification Text (BT-135) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-tex&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;!-- # UNPUB-60 : Direct Award Justification Code (BT-136) publication will be delayed --&gt;
+        &lt;cbc:ProcessReasonCode listName="direct-award-justification"&gt;ecom-excl&lt;/cbc:ProcessReasonCode&gt;
+        &lt;!-- # UNPUB-62 : Direct Award Justification Text (BT-135) publication will be delayed --&gt;
+        &lt;cbc:ProcessReason languageID="ENG"&gt;Direct award is justified ...&lt;/cbc:ProcessReason&gt;
+        &lt;cbc:ProcessReason languageID="FRA"&gt;L'attribution ...&lt;/cbc:ProcessReason&gt;
+        &lt;!-- # UNPUB-61 : Direct Award Justification Previous (BT-1252) publication will be delayed --&gt;
+        &lt;cbc:Description&gt;123e4567-e89b-12d3-a456-426614174000&lt;/cbc:Description&gt;
+    &lt;/cac:ProcessJustification&gt;
+&lt;/cac:TenderingProcess&gt;</code></pre>
 </div>
 </div>
 </div>
