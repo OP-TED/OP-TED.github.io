@@ -239,7 +239,7 @@
 <p>To allow early access to these applications before they are deployed in production, we have prepared an additional "preview" environment for eSenders and stakeholders, where we progressively deploy early versions of the TED Apps for eForms as they become available.</p>
 </div>
 <div class="paragraph">
-<p>The application features, URLs as well as the data present in the "preview" environment, are subject to unannounced changes until the go-live deadline is reached in November 2022.</p>
+<p>The application features, URLs as well as the data present in the "preview" environment, are subject to unannounced changes.</p>
 </div>
 <div class="admonitionblock caution">
 <table>
@@ -445,10 +445,10 @@ SDK version
 <p>Result notices cannot be successfully validated/ submitted through the user interface.</p>
 </div>
 <div class="paragraph">
-<p>For the moment, CVS validation does not work dynamically, i.e. there is no check between notices. This has implications, e.g. for checking notices of the same procedure or the same UUID v4 and different version ID; currently it is possible to submit and publish two notices that carry the same notice ID and different version IDs. See in contrast: <a href="https://docs.ted.europa.eu/eforms/latest/schema/elements.html#noticeIDSection" class="bare">https://docs.ted.europa.eu/eforms/latest/schema/elements.html#noticeIDSection</a>.</p>
+<p>For the moment, CVS validation does not work dynamically, i.e. there is no check between notices. This has implications, e.g. for checking notices of the same procedure or the same UUID v4 and different version ID; currently it is possible to submit and publish two notices that carry the same notice ID and different version IDs. See in contrast: <a href="https://docs.ted.europa.eu/eforms/latest/schema/notice-information.html#noticeIDSection" class="bare">https://docs.ted.europa.eu/eforms/latest/schema/notice-information.html#noticeIDSection</a>.</p>
 </div>
 <div class="paragraph">
-<p>For the moment, it is not possible to link a TED Schema notice to an eForms notice via the Previous Notice (OPP-090) as described in the documentation: <a href="https://docs.ted.europa.eu/eforms/latest/schema/elements.html#previousNoticeSection" class="bare">https://docs.ted.europa.eu/eforms/latest/schema/elements.html#previousNoticeSection</a>.</p>
+<p>For the moment, it is not possible to link a TED Schema notice to an eForms notice via the Previous Notice (OPP-090) as described in the documentation: <a href="https://docs.ted.europa.eu/eforms/latest/schema/procedure-lot-part-information.html#previousNoticeSection" class="bare">https://docs.ted.europa.eu/eforms/latest/schema/procedure-lot-part-information.html#previousNoticeSection</a>.</p>
 </div>
 <div class="paragraph">
 <p>eNotices2 uses the codelists from the SDK, which have not been completely tailored.</p>
@@ -459,10 +459,13 @@ SDK version
 <div class="ulist">
 <ul>
 <li>
-<p>POST submit XML request should return a "cvsLink", which currently does not link to the CVS report.</p>
+<p>POST submit XML request should return a "cvsLink"(to be renamed instead “validationReportUrl”), which currently does not link to the CVS report. The reason is that URL should contain the businessID (noticeID + versionID), whereas it currently returns the noticeID.</p>
 </li>
 <li>
 <p>Notices that trigger a lawfulness warning, will currently be submitted to eNotices2 with “VALIDATION_FAILED”.</p>
+</li>
+<li>
+<p>Currently, the automated email notification “Notice validation failed” is sent to the eSender instead of the Contracting Authority (i.e. <a href="https://docs.ted.europa.eu/home/eforms/FAQ/index.html#:~:text=Will%20eNotices2%20send%20email%20notification%20for%20notices%20submitted%20by%20Web%20Services%20about%20publications%20or%20non%2Dpublication%3F">Notice Author</a> and does not detail what has failed validation.</p>
 </li>
 </ul>
 </div>

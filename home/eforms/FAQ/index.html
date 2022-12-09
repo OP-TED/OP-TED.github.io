@@ -291,8 +291,8 @@ this time. The current reception (eSentool and current eNotices) and production 
 <p><em>Until when will the current eNotices application be available?</em></p>
 <p>The current eNotices application will be available to submit notices until 24 October 2023.</p>
 <div class="paragraph">
-<p>The new eNotices2 application will be available as of 14 November 2022
-and run in parallel with the current eNotices application during the
+<p>The new eNotices2 application is available as of 14 November 2022
+and will be running in parallel with the current eNotices application during the
 transition period.</p>
 </div>
 <div class="paragraph">
@@ -382,6 +382,9 @@ General for Internal Market, Industry, Entrepreneurship, and SME)<br>
 <p>For any questions or issues, please contact the TED helpdesk at: ted@publications.europa</p>
 </div>
 <div class="paragraph">
+<p>For developers, please see our <a href="https://docs.ted.europa.eu/eforms/latest/guide/index.html">eForms Developer Guide</a>.</p>
+</div>
+<div class="paragraph">
 <p>For technical and development-related questions, GitHub discussions are open for developers: <a href="https://github.com/OP-TED/eForms-SDK/discussions/" class="bare">https://github.com/OP-TED/eForms-SDK/discussions/</a>.
 The forum is to allow eForms application developers to provide feedback and share their experiences using the eForms SDK.
 The eForms SDK development team at the Publications Office may collect feedback but may not be able to engage in discussions.
@@ -434,8 +437,8 @@ send eForms notices for any procedures that were started with the
 current standard forms. As there is no Procedure Identifier in the
 current forms, in these cases the notice number of the previous TED XML
 notice (as published in the OJ S) must be entered in the previous
-publication field in the eForms notice. See <a href="https://docs.ted.europa.eu/eforms/latest/schema/elements.html#previousNoticeSection">Previous Notice (OPP-090)</a>
-in the documentation.</p>
+publication field in the eForms notice.
+See <a href="https://docs.ted.europa.eu/eforms/latest/schema/procedure-lot-part-information.html#previousNoticeSection">Previous Notice (OPP-090)</a> in the documentation.</p>
 </li>
 <li>
 <p><em>In the documentation we can read that we must use a UUID version 4 for the Procedure Identifier. Are there any limitations? Can we use every possible identifier and is it possible that two or more eSenders use the same number identifier in this case?</em></p>
@@ -453,7 +456,7 @@ whether the notice uses the current TED schema or is an eForms notice.
 If the previous notice does not use eForms, the identifier will be the OJ S Notice ID (XXXXXX-YYYY).
 For eForms, the previous notice identifier can be the Notice ID (UUID-vv).</p>
 <div class="paragraph">
-<p>See also <a href="https://docs.ted.europa.eu/eforms/latest/schema/elements.html#previousNoticeSection">Previous Notice (OPP-090)</a>
+<p>See also <a href="https://docs.ted.europa.eu/eforms/latest/schema/procedure-lot-part-information.html#previousNoticeSection">Previous Notice (OPP-090)</a>
 in the documentation.</p>
 </div>
 </li>
@@ -519,7 +522,7 @@ using BT-718 Procurement Documents Change Indicator and BT-719 Procurement Docum
 A description of the changes to the procurement documents may be included in BT-141 Change Description.</p>
 </div>
 <div class="paragraph">
-<p>The Notice VersionID is described in the <a href="https://docs.ted.europa.eu/eforms/latest/schema/elements.html#noticeIDSection">Notice &amp; Version Identifiers</a>
+<p>The Notice VersionID is described in the <a href="https://docs.ted.europa.eu/eforms/latest/schema/notice-information.html#noticeIDSection">Notice &amp; Version Identifiers</a>
 section: "Versions of a notice are purely editorial and for a given Notice ID, a single version may be published."</p>
 </div>
 <div class="paragraph">
@@ -595,12 +598,6 @@ should match identifiers that exist in the change notice. The list of section id
 <p>Draft: The notice is being drafted.</p>
 </li>
 <li>
-<p>Locked: The notice is being edited.</p>
-</li>
-<li>
-<p>Validated: The notice is validated and ready for submission.</p>
-</li>
-<li>
 <p>Submitted: The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022).</p>
 </li>
 <li>
@@ -610,9 +607,20 @@ should match identifiers that exist in the change notice. The list of section id
 <p>Stopped: Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted.</p>
 </li>
 <li>
-<p>Not published: The notice was received but not published on TED</p>
+<p>Not published: The notice was received but not published on TED.</p>
+</li>
+<li>
+<p>Deleted: The notice has been deleted by front-end user.</p>
+</li>
+<li>
+<p>Archived: The notice has been archived by front-end user.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>The following notice statuses can be queried via the API for eSenders:
+DRAFT, SUBMITTED, STOPPED, PUBLISHED, DELETED, NOT_PUBLISHED, ARCHIVED, VALIDATION_FAILED.
+For more information, see the relevant section: <a href="https://docs.ted.europa.eu/home/eforms/FAQ/index.html#_apis_and_web_services" class="bare">https://docs.ted.europa.eu/home/eforms/FAQ/index.html#_apis_and_web_services</a>.</p>
 </div>
 </li>
 <li>
@@ -621,7 +629,7 @@ should match identifiers that exist in the change notice. The list of section id
 the notice will obtain the status “Not published”.</p>
 <div class="paragraph">
 <p>From an API point of view, a notice that fails the CVS check will not even reach status “submitted”.
-The CVS will give a validation report, which will detail all the reasons why a notice did not get through and the status “Not published”
+The CVS will give a validation report, which will detail all the reasons why a notice did not get through and the status “NOT_PUBLISHED”
 can be queried through the API. Rejection due to lawfulness manual check will be communicated via email to the contracting authority only.</p>
 </div>
 </li>
@@ -868,7 +876,7 @@ at https://github.com/OP-TED/eForms-SDK/tree/main/examples/notices.</p>
 </div>
 </li>
 <li>
-<p><em>What is the meaning of section 9.CHANGE in eForms 40 - Contract Modification Notice?</em></p>
+<p><em>What is the meaning of section 10.CHANGE in eForms 40 - Contract Modification Notice?</em></p>
 <p>eForm 40 is the equivalent of current TED schema form 20; it is used to publicise changes in ongoing contracts.
 As with all other forms, it may be corrected, in which case, a form 40 will contain section 10 (change) and
 will be published as a Change notice for a <a href="https://docs.ted.europa.eu/eforms/latest/schema/contract-modification-notice.html">Contract Modification Notice</a>.</p>
@@ -906,7 +914,9 @@ version of the eForms SDK used when they were created or last modified.</p>
 <p>For more information on SDK versioning: <a href="https://docs.ted.europa.eu/eforms/latest/versioning" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning</a></p>
 </div>
 <div class="paragraph">
-<p>The purpose of the SDK is to assist eForms developers in creating applications that generate eForms notices in order to send them to eNotices2.</p>
+<p>The purpose of the SDK is to assist eForms developers in creating applications that generate eForms notices in order to send them to eNotices2.
+Our <a href="https://docs.ted.europa.eu/eforms/latest/guide/index.html">eForms Developer Guide</a> aims to address some of the most common issues
+faced by developers of eForms Applications.</p>
 </div>
 <div class="paragraph">
 <p>The components of the SDK are intended to be directly consumed by these applications. Multiple versions of the SDK will be maintained and remain
@@ -936,17 +946,14 @@ planned in the upcoming releases.</p>
 as described in <a href="https://docs.ted.europa.eu/eforms/latest/versioning.html">eForms SDK Versioning</a>.</p>
 </div>
 <div class="paragraph">
-<p>The metadata of the SDK, in particular the schema and the rules, will still change after version 1.0.0 and until shortly before November 2022.</p>
+<p>The metadata of the SDK, in particular the schema and the rules, have still changed after version 1.0.0 and until shortly before November 2022.</p>
 </div>
 <div class="paragraph">
-<p>The European Commission is planning to publish an amendment to the 2019 eForms implementing regulations. This amendment will change
-and add several business terms. The amendment will not be published on EUR-Lex before December, however, the public consultation is available at:</p>
+<p>This is because the European Commission has published an amendment to the 2019 eForms implementing regulations which changed
+and added several business terms: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2303" class="bare">https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32022R2303</a></p>
 </div>
 <div class="paragraph">
-<p><a href="https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/13550-Public-procurement-eForms-amending-the-Implementing-Regulation-on-standard-forms-used-for-publication-of-notices_en" class="bare">https://ec.europa.eu/info/law/better-regulation/have-your-say/initiatives/13550-Public-procurement-eForms-amending-the-Implementing-Regulation-on-standard-forms-used-for-publication-of-notices_en</a></p>
-</div>
-<div class="paragraph">
-<p>The BTs included in this version of the annex are the same ones that we have included in the SDK and that the amendment will have;
+<p>The BTs included in this version of the annex are the same ones that we have included in the SDK and that the amendment has;
 please note that there are some limited changes since the public consultation involving BT names and descriptions.</p>
 </div>
 </li>
@@ -961,8 +968,8 @@ might force us to deprecate an active version of the SDK after a pre-announced t
 <p>Having a metadata-driven approach to this should enable users to make the technical transition with little to no effort.
 In theory, a metadata-driven approach could render any changes directly consumable by an application without human intervention
 and the goal of the SDK is to minimise the effort.
-For more information on SDK versioning and backwards compatibility:
-<a href="https://docs.ted.europa.eu/eforms/latest/versioning" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning</a></p>
+For more information on SDK versioning and backwards compatibility: <a href="https://docs.ted.europa.eu/eforms/latest/versioning" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning</a>.
+See also related GitHub discussion from a technical perspective: <a href="https://github.com/OP-TED/eForms-SDK/discussions/222" class="bare">https://github.com/OP-TED/eForms-SDK/discussions/222</a>.</p>
 </div>
 </li>
 <li>
@@ -1086,7 +1093,7 @@ i.e. submitting/ validating/ visualising notices. Any user can be a Web Services
 <p>The URL used for eForms notices will be different to the one used for
 the current notices in eSentool.</p>
 <div class="paragraph">
-<p>The new URL will be communicated when it becomes available.</p>
+<p>For the URLs and TED API documentation, please read the docs: <a href="https://docs.ted.europa.eu/api/index.html" class="bare">https://docs.ted.europa.eu/api/index.html</a></p>
 </div>
 </li>
 <li>
@@ -1106,6 +1113,19 @@ It also caters for the multilingual versions of text elements and added options 
 <p><em>Can I send an incomplete notice via Web Service-API and continue via eNotices2 UI?</em></p>
 <p>No, the notices must be complete before they are submitted via API.</p>
 </li>
+<li>
+<p><em>What are the notice statuses that eSenders will be able to query via the API?</em></p>
+<p>eSenders will be be able to query their notices with the below statuses:</p>
+<div class="paragraph">
+<p>DRAFT, SUBMITTED, STOPPED, PUBLISHED, DELETED, NOT_PUBLISHED, ARCHIVED, VALIDATION_FAILED.</p>
+</div>
+<div class="paragraph">
+<p>Notice status VALIDATION_FAILED is only relevant to eSenders (users of eNotices2 API) and refers to notices that failed validation
+– i.e. that triggered CVS errors – upon submission. Such notices will never reach status “submitted” and will instead appear
+in the user interface and when querying the API with status “validation failed”. The same businessID (noticeID + versionID) cannot be reused.
+Via the concept of Notice Author, an email notification will be sent to the Contracting Authority only, detailing what failed validation.</p>
+</div>
+</li>
 </ol>
 </div>
 </div>
@@ -1115,16 +1135,6 @@ It also caters for the multilingual versions of text elements and added options 
 <div class="sectionbody">
 <div class="qlist qanda">
 <ol>
-<li>
-<p><em>What is the release date for the eForms schema version that will be used for production in the future?</em></p>
-<p>The latest version of the schema is close to the version that will be
-used for production.  The remaining unstated requirements
-are being identified.</p>
-<div class="paragraph">
-<p>Please consult the <a href="https://github.com/OP-TED/eForms-SDK">eForms Software Development Kit (SDK)</a> for more
-details on the latest version of the schema and other technical components.</p>
-</div>
-</li>
 <li>
 <p><em>What is a Group of Lots and is it optional?</em></p>
 <p>Grouping of Lots is optional and simply a question of ease of use, as some buyers might find it easier to group lots together for a particular reason.</p>
@@ -1402,11 +1412,6 @@ to allow the Contracting Authority (should they really wish so) to go back to th
 to mark that the procedure/ lot would be relaunched.</p>
 </li>
 <li>
-<p><em>When we look at the eForms PIN only notices (4-5-6), they allow to indicate whether a Framework Agreement will be used (BT-765), but not whether a Dynamic Purchasing System will be used (BT-766). Shouldn’t both BTs either be allowed or not allowed for forms 4-5-6?</em></p>
-<p>The following changes will be included in the upcoming Amendment to the Regulation: DPS will be added for PIN only notices,
-aligned with Framework Agreement BT-765. DPS will also be added for D81 forms, in case Member States do use them.</p>
-</li>
-<li>
 <p><em>Should "BT-746 The winner is listed on a regulated market" be added for each winning organisations in case of several winners as a Tendering party?</em></p>
 <p>As an indicator, it should be added to each and every single tenderer in the notice.</p>
 </li>
@@ -1429,11 +1434,7 @@ are expected in BT-760, even when null.</p>
 </li>
 <li>
 <p><em>Are BT-715 and BT-716 made redundant through OPT-155 and OPT-156? In this case will there be a codelist available for the three applicable vehicle types?</em></p>
-<p>Yes, BT-715 and -716 have been made redundant by OPT-155 and OPT-156.
-Please note that BTs relating to clean vehicles are due to be changed in the amendment to the 2019 eForms implementing regulation
-that the European Commission is planning to publish. Therefore, the BTs and their related codelists may also change,
-but no later than November 2022 when eForms come into effect. Any changes will first be reflected in the SDK shortly before November 2022
-followed by their required codelists changes.</p>
+<p>Yes, BT-715 and -716 have been made redundant by OPT-155 and OPT-156.</p>
 </li>
 <li>
 <p><em>Only three fields have the new property inChangeNotice. Will it be added to all other fields? Can a field without the property never or always be changed?</em></p>
