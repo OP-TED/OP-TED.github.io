@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="ESPD-EDM" data-version="3.0.1">
+<div class="nav-container" data-component="ESPD-EDM" data-version="3.1.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -139,7 +139,7 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">ESPD EDM</span>
-          <span class="version">3.0.1</span>
+          <span class="version">3.1.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -192,7 +192,10 @@
         <a class="title" href="index.html">ESPD EDM</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="index.html">3.0.1</a>
+              <a href="index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.0.1/index.html">3.0.1</a>
             </li>
             <li class="version">
               <a href="../2.1.1/index.html">2.1.1</a>
@@ -223,9 +226,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">3.0.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">3.1.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="release_notes.html">3.0.1</a>
+    <a class="version is-current" href="release_notes.html">3.1.0</a>
+    <a class="version" href="../3.0.1/release_notes.html">3.0.1</a>
     <a class="version" href="../2.1.1/release_notes.html">2.1.1</a>
     <a class="version" href="../2.1.0/release_notes.html">2.1.0</a>
     <a class="version" href="../2.0.2/release_notes.html">2.0.2</a>
@@ -240,1070 +244,483 @@
 <article class="doc">
 <h1 class="page">Release Notes</h1>
 <div class="sect1">
-<h2 id="_v3_0_1_february_2022"><a class="anchor" href="#_v3_0_1_february_2022"></a>1. v3.0.1 (February 2022)</h2>
+<h2 id="_espd_edm_v3_1_0_december_2022"><a class="anchor" href="#_espd_edm_v3_1_0_december_2022"></a>1. ESPD-EDM v3.1.0 (December 2022)</h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_espd_edm_github"><a class="anchor" href="#_espd_edm_github"></a>1.1. ESPD-EDM GitHub</h3>
-<div class="sect3">
-<h4 id="_reorganisation_of_the_distribution_package_folders"><a class="anchor" href="#_reorganisation_of_the_distribution_package_folders"></a>1.1.1. Reorganisation of the distribution package folders</h4>
 <div class="paragraph">
-<p><span class="image"><img src="_images/Distribution_package.jpg" alt="Distribution package" width="100" height="220"></span></p>
+<p>The ESPD-EDM v3.0.1 was focused on the ESPD-EDM online documentation updates. This current version v3.1.0 provides changes and fixes suggested by the Member States and stakeholders via the GitHub repositories issues workspace, mostly related to the data structure.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>__ESPDTeam__</strong>: contains files for ESPD Team internal use in maintenance tasks of the ESPD-EDM;</p>
-</li>
-<li>
-<p><strong>codelists</strong>: contains the different code lists used in ESPD in Genericode format and the criterion structure definition.</p>
-</li>
-<li>
-<p><strong>conceptual-model</strong>: contains the UML conceptual model of the ESPD in .eap, .xmi and HTML format.</p>
-</li>
-<li>
-<p><strong>java-library</strong>: contains the XML schemas used to generate the JAXB annotated Java classes.</p>
-</li>
-<li>
-<p><strong>ubl-2.3</strong>: contains a redistribution package from UBL 2.3.</p>
-</li>
-<li>
-<p><strong>validation</strong>: contains business rules validation files for Schematron and Testbed.</p>
-</li>
-<li>
-<p><strong>xml-examples</strong>: contains default ESPDRequest and ESPDResponse xml samples and the criterion xml schema.</p>
-</li>
-</ul>
-</div>
-</div>
+<div class="paragraph">
+<p>The list below details the updates included in this release.</p>
 </div>
 <div class="sect2">
-<h3 id="_espd_edm_conceptual_model"><a class="anchor" href="#_espd_edm_conceptual_model"></a>1.2. ESPD-EDM conceptual model</h3>
-<div class="paragraph">
-<p>ESPD-EDM coneptual model provided as follows:</p>
-</div>
+<h3 id="_espd_edm_conceptual_model"><a class="anchor" href="#_espd_edm_conceptual_model"></a>1.1. ESPD-EDM conceptual model</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.1/conceptual-model"><em>.eap</em> and <em>.xmi</em> files</a> with two views and diagrams:</p>
-<div class="ulist">
-<ul>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.1.0/conceptual-model"><em>.eap</em> and <em>.xmi</em> files</a> with two views and diagrams:</p>
+</li>
 <li>
 <p><strong>Business oriented view (BOV)</strong> aimed at facilitating the understanding of the model and the business context, with references to the technical model, and;</p>
 </li>
 <li>
-<p><strong>Technically oriented view (TOV)</strong> providing an UBL based schema with references to business oriented view and aligned with the eProcurement ontology.</p>
-</li>
-</ul>
-</div>
+<p><strong>Technically oriented view (TOV)</strong> providing an UBL-based schema with references to business-oriented view and aligned with the eProcurement ontology.</p>
 </li>
 <li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.1/conceptual-model/ESPD_CM_html"><em>HTML</em> version</a> of the UML conceptual model.If you do not want to download the folder to view the model you can view it on the documentation page under <a href="https://docs.ted.europa.eu/ESPD-EDM/3.0.1/_attachments/ESPD_CM_html/index.html">ESPD-EDM CONCEPTUAL MODEL HTML</a>.</p>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.1.0/conceptual-model/ESPD_CM_html"><em>HTML</em> version</a> of the UML conceptual model.If you do not want to download the folder to view the model you can view it on the documentation page under <a href="https://docs.ted.europa.eu/ESPD-EDM/3.1.0/_attachments/ESPD_CM_html/index.html">ESPD-EDM CONCEPTUAL MODEL HTML</a>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_code_list"><a class="anchor" href="#_code_list"></a>1.3. Code list</h3>
+<h3 id="_espd_edm_criterion_file_data_structure"><a class="anchor" href="#_espd_edm_criterion_file_data_structure"></a>1.2. ESPD-EDM Criterion file - Data Structure</h3>
 <div class="paragraph">
-<p>EU Vocabularies code lists version updated (specific files can be found in folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.0.1/codelists/gc">codelists/gc</a>)</p>
+<p>Several issues have been resolved related to the data structure of the ESPD-EDM Criterion file.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>access-right</strong> version updated to	20211208-0.</p>
+<p><strong>Zooming, Bolding first 2 lines, Missing the first line, and Indentation Issue in the Criterion Excel file</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The following Criterion Excel sheets have been zoomed in at 100%: “SC-Abilities_1 (Persons)” that contains C41, “SC_Abilities_3 (Education)” that contains C47.</p>
 </li>
 <li>
-<p><strong>country</strong>	version updated to 20211208-0.</p>
+<p>Title rows 1 and 2 have been put in bold for the following sheets: “SC-Professional_risk_insurance” which contains C35, “SC-Other_economic_or_financial” which contains C36.</p>
+</li>
+<li>
+<p>Indentation issue has been corrected:  in criteria related to turnover C29, C30, C31, C32 for element: “./RG1/QSG4”, and in criteria C40, C41, C42, C44, C45, C46, C47 for element “./RG1/RSG1/QSG1”.</p>
+</li>
+<li>
+<p>Numbered first line has been added in the Criterion Excel file for Criterion C65 SC SME.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>UUID and Cardinality to be removed from closing Requirement Group element</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The UUID and the Cardinality have been removed from the closing Requirement Group of criterion C30.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Confusing Evidence Group or Subgroup relation with Question Subgroup (QSG) in criteria</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In criterion C36, the evidence subgroup has been moved as a child of the parent Requirement Subgroup for the 2 related Question Subgroups. So, it is common to the 2 related QSG.</p>
+</li>
+<li>
+<p>In criteria C37, C38, C39 (SC-References), the Evidence Subgroup has been kept as linked to "Reference".</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Updating description of Requirement in criteria C49, C50</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In the description of requirement 1, there was a misspelling of the word "minimum" which was written "minum" in criteria C49 and C50. The misspelling has been corrected.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Why cardinality of the Requirement "Business Domain" of criterion C31 spec-aver-to is multiple?</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cardinality of Requirement "Business Domain" of criterion C31 spec-aver-to should be aligned with the cardinality of Requirement "Business Domain" of criterion C32 spec-year-to.</p>
+</li>
+<li>
+<p>Cardinality of Requirement "Business Domain" of criterion C31 spec-aver-to has been updated to 1.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Legislation UUID</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Legislation UUID should be different all over the Criterion Excel file since it is a structural terminal element that holds value.</p>
+</li>
+<li>
+<p>The Legislation UUID is now different for each criterion in the criterion excel file.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/287">#287</a> - Part IV: Selection criteria, C: Technical and professional ability (CA`s)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>At the user´s request, a new optional requirement section has been added to criterion 51 with cardinality 0..n.</p>
+</li>
+<li>
+<p>A new UUID has been generated for this new requirement section:  75b14cf3-c30f-4b8f-b9ab-549ff5ba595a</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/320">#320</a> - Duplicate "Question Group UUID" in the same Criterion and the Question Groups have different structures</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>UUID used in Criterions 40 and 41 for question subgroup structures: "Technician" and "Technical body" were the same but the structures were different.</p>
+</li>
+<li>
+<p>A new UUID has been generated in Criterion 40 and 41 for structure "Technical body" to avoid this issue: 70e28455-d0e1-47e7-9caa-ead3b7df7644.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/326">#326</a> - EVIDENCE_IDENTIFIER with different cardinality</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>EVIDENCE_IDENTIFIER: 0a166f0a-0c5f-42b0-81e9-0fc9fa598a48 cardinality fixed to 1..n in criteria 40 and 41 in ESPD-criterion.xlsx file</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/327">#327</a> - Groups with same UUID and different cardinality</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>10822ddd-9ba6-42d5-9339-de0845aeafc9: different cardinality are 1 and 1..n: different structures, a new UUID has been generated and assigned to criterion 50: add786b6-7e75-4303-8b9a-3d477331abd9.</p>
+</li>
+<li>
+<p>289f39b3-2a15-421a-8050-a29858031f35: different cardinality are 1 and 1..n: the issue no longer exists since version 3.0.1 and older versions are not under support, so no changes are necessary.</p>
+</li>
+<li>
+<p>5f9f09f7-f701-432c-9fdc-c22c124a74c9: different cardinality are 1 and 0..1: cardinality is wrong in criterion 22, it has been updated to 1.</p>
+</li>
+<li>
+<p>74e6c7b4-757b-4b40-ada6-fad6a997c310: different cardinality are 0..1 and [empty]: empty cardinality is wrong in criteria 18 and 19, it has been updated to 0..1.</p>
+</li>
+<li>
+<p>9026e403-3eb6-4705-a9e9-e21a1efc867d: different cardinality are 1 and 0..1: cardinalities 0..1 in criteria 40 and 41 are wrong, have been updated to 1</p>
+</li>
+<li>
+<p>a53561d5-6614-4dbe-987e-b96f35387f46: different cardinality are 0..n and 1..n: cardinality is wrong in criterion 26, it has been updated to 0..n</p>
+</li>
+<li>
+<p>c0cd9c1c-e90a-4ff9-bce3-ac0fe31abf16: different cardinality are 1 and 1..n: cardinality is correct as this criterion is for Yearly Turnovers (more than one value, usually 3 years) while Average Turnover is just one single value, so no changes are necessary.</p>
+</li>
+<li>
+<p>cc1da737-6c4e-4f4e-821d-c260029058f6: different cardinality are 0..1 and 1..n: UUID has been removed as it´s a structure close line.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/333">#333</a> - Same requirement group UUID with different content</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The same UUID: 53c9aad8-dc80-48f8-85d9-755c2aab8e95 is re-used for exclusion grounds (criterions 7 and 8) and selection criteria (criterions 37, 38 and 39) and they have different structures in the file, therefore, one of the two requires a different UUID.</p>
+</li>
+<li>
+<p>A new UUID has been generated: c7d60cb5-b6fc-4e1a-a6b0-e0d91a09c80a and assigned to the criterions 7 and 8 that were previously using the UUID: 53c9aad8-dc80-48f8-85d9-755c2aab8e95.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/338">#338</a> - Invalid text in Taxonomy in SC-Professional_risk_insurance tab</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>There was an error in Criterion 25 (tab SC-Professional_risk_insurance tab): the values in the Codelist column needed to be moved to the Comment column, one to the right.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/340">#340</a> - General yearly turnover - differences in taxonomy and mock-ups from ESPD-EDM</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>it was missing an intermediate requirement that represents the selection of "threshold per year".</p>
+</li>
+<li>
+<p>It has been added in the data structures a new requirement that allows selecting when it should apply per year or all years together.</p>
+</li>
+<li>
+<p>If it is per year, the question_subgroup that has 1..n and it is marked in yellow, would be replicated as many times as years asked.</p>
+</li>
+<li>
+<p>Since no other data structure is equal, a new UUID has been generated to cover this data structure.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/347">#347</a> - Missing "0000.0" code in Occupation codelist</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updating the data structure by removing the requirement "other register" in criterion C25 SC prof-regist.</p>
+</li>
+<li>
+<p>The Note where the code "0000.0" was mentioned has been deleted. The note was in the online documentation "Technical handbook", section "Selection criteria", subsection "Suitability" and finally sub-subsection "XML example".</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/350">#350</a> - SC Suitability: EO side. Question_subgroup: Your answer?</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>There was a mistake in the cardinality of the question subgroup, which should be 1.</p>
+</li>
+<li>
+<p>Although it is possible to have several requirement groups within criteria within Suitability, prof-regist allowing here to define different occupations, we can have only one set of answers per requirement group meaning per occupation.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_edm_xslt_files"><a class="anchor" href="#_espd_edm_xslt_files"></a>1.3. ESPD-EDM XSLT files</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Refactoring the XSLT files</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generation of UUID only in the main XSLT files available in the GitHub folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/xml-examples/<em>xslt</em>/ODS-Data-Structures-to-ESPD-XML">ODS-Data-Structures-to-ESPD-XML</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Different use cases for exclusion ground and selection criteria</p>
+</li>
+<li>
+<p>Refactoring of templates (or functions) position in the XSLT files</p>
+</li>
+<li>
+<p><strong>Updating attributes values in the xslt files for the xml samples</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The value of some attributes is not correct (schemeAgencyID, schemeVersionID, listAgencyID, listVersionID) and hence has been updated:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>SchemeAgencyID value is “OP” and not “EU-COM-GROW/EU-COM-OP” for groups or subgroups ID.</p>
+</li>
+<li>
+<p>SchemeAgencyID value is “XXXESPD-SERVICEXXX” (a given espd-service) and not “EU-COM-GROW/EU-COM-OP for questions and requirements ID.</p>
+</li>
+<li>
+<p>SchemeAgencyID value is “XXXAGENCYXXX” whenever the ID comes from an external Agency like for the element “cac:Evidence”.</p>
+</li>
+<li>
+<p>SchemeVersionID value is “3.1.0” and not “3.0.0”.</p>
+</li>
+<li>
+<p>ListAgencyID value is “OP” and not “EU-COM-GROW/EU-COM-OP”.</p>
+</li>
+<li>
+<p>ListVersionID value is “3.1.0” and not “3.0.0”.</p>
+</li>
+<li>
+<p>The right ESPD version in the comments is ESPD-V3.x.x</p>
+</li>
+<li>
+<p>XMLs that were still referring to v2.2 of UBL has been updated to v2.3</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Converting samples from Excel to XML format with the Updated XSLT</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The resulting updated XSLT files have been used to generate the XML samples available in the GitHub folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/xml-examples">xml-examples</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_edm_code_lists"><a class="anchor" href="#_espd_edm_code_lists"></a>1.4. ESPD-EDM Code Lists</h3>
+<div class="paragraph">
+<p>EU Vocabularies code lists version updated (specific files can be found in the folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v3.1.0/codelists/gc">codelists/gc</a>)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>AccessRight</strong> version updated to	 20220316-0.</p>
+</li>
+<li>
+<p><strong>country</strong>	version updated to  20221019-0.</p>
 </li>
 <li>
 <p><strong>criterion</strong>	version updated to 20210616-0.</p>
 </li>
 <li>
-<p><strong>currency</strong> version updated to 20211208-0.</p>
+<p><strong>currency</strong> version updated to 20220928-0.</p>
 </li>
 <li>
-<p><strong>economic-operator-size</strong> version updated to 20210317-0.</p>
+<p><strong>EconomicOperatorSize</strong> version updated to 20220316-0.</p>
 </li>
 <li>
-<p><strong>eo-role-type</strong> version updated to 20211208-0.</p>
+<p><strong>EoRoleType</strong> version updated to 20211208-0.</p>
 </li>
 <li>
-<p><strong>language</strong> version updated to 20211208-0.</p>
+<p><strong>language</strong> version updated to 20220928-0.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>ESPD version has also been updated in the related files to match the current version.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/332">#332</a> - Question regarding the DATE Response Data Type</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>There was a mistake in the codelist ResponseDataType with one date format YYYY-DD-MM.</p>
+</li>
+<li>
+<p>The codelist was updated to the right date format YYYY-MM-DD.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/337">#337</a> - Financial ratio type translations</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>There were some errors in the translations in the FinancialRatioType codelist, due to some problems in the XLST transformation file and in the Excel Codelists file.</p>
+</li>
+<li>
+<p>The XLST transformation file and Excel Codelists file has been updated to fix the errors.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_interoperability_testbed"><a class="anchor" href="#_interoperability_testbed"></a>1.4. Interoperability Testbed</h3>
+<h3 id="_espd_edm_interoperability_testbed"><a class="anchor" href="#_espd_edm_interoperability_testbed"></a>1.5. ESPD-EDM Interoperability Testbed</h3>
 <div class="paragraph">
 <p>Update of Interoperability Testbed <a href="https://www.itb.ec.europa.eu/espd/upload">ESPD validator</a></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated v3.0.1 on the validator.</p>
+<p>Updated v3.1.0 on the validator.</p>
 </li>
 <li>
-<p>Removed v3.0.0 from the validator.</p>
+<p>Removed v3.0.1 from the validator.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_online_documentation"><a class="anchor" href="#_online_documentation"></a>1.5. Online documentation</h3>
+<h3 id="_espd_edm_online_documentation_espd_docs_github"><a class="anchor" href="#_espd_edm_online_documentation_espd_docs_github"></a>1.6. ESPD-EDM Online documentation - espd-docs GitHub</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Fix issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/347">#347</a> - "0000.0" code in Occupation codelist</strong></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Documented handbook migration to <a href="https://docs.ted.europa.eu/home/index.html">Ted Developer Docs</a>.</p>
+<p>The Note where the code "0000.0" is mentioned is in the "Technical handbook", section "Selection criteria", subsection "Suitability" and finally sub-subsection "XML example". This note has been deleted.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Fix issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/335">#335</a> - Short Tag Name and Implicit Numbering</strong></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Documentation updated as follow:</p>
+<p>Guidelines and recommendations about short tag names and implicit numbering of criterion elements are provided in the online documentation for users and developers of the ESPD project.</p>
 </div>
-<div class="sect3">
-<h4 id="_technical_handbook"><a class="anchor" href="#_technical_handbook"></a>1.5.1. Technical Handbook</h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Section 2.3 ESPD Request cardinalities</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Removed sentence <em>'Notice that ESPD-EDM does not change anything else from the UBL-2.3 Schema.'</em> because it did not help understanding what is kept from <strong>UBL-2.3</strong> and what is changed.</p>
-</li>
-<li>
-<p><strong>Figure 12.</strong> ESPD-EDM 'QualificationApplicationRequest', UML diagram</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:EconomicOperatorParty</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in the <strong>ESPD Request</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProject</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProjectLot</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference/cbc:ID</em>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: updated from <em>1..n</em> to <em>0..n</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:QualificationApplicationTypeCode</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:WeightScoringMethodologyDescription</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:WeightingType</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 2.4 Root elements</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 5.</strong> Class QualificationApplicationRequest, components required by the ESPD-EDM</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ProcurementProject</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-<li>
-<p><em>Type</em>: updated from <em>Associated class</em> to <em>Text</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> according to <em>Figure 12. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em>.</p>
-</li>
-<li>
-<p><em>Requirement</em>: updated from <em>'This information is not required for the ESPD 3.0.0 since the information related to the procedure will come from eForms.'</em> to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProjectLot</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference/cbc:ID</em>.</p>
-</li>
-<li>
-<p><em>Type</em>: updated from <em>Associated class</em> to <em>Identifier</em>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: updated from <em>1..n</em> to <em>0..n</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:ProcedureCode</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> according to <em>Figure 12. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 2.5 Lot Management</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ProcurementLotReference</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Element replaced by <em>cac:ProcurementProjectLotReference</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 2.6 EU and notice publications</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>XSD Schema</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:AdditionalReferenceDocument</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:AdditionalDocumentReference</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 6.</strong> Reference to additional documents, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:AdditionalDocumentReference</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Path</em>: replaced <em>/QualificationApplicationRequest/cac:AdditionalReferenceDocument</em> by <em>/QualificationApplicationRequest/cac:AdditionalDocumentReference</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 7.</strong> External Reference</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:AdditionalDocumentReference</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Path</em>: replaced <em>/QualificationApplicationRequest/cac:AdditionalReferenceDocument/cac:Attachment/cac:ExternalReference</em> by <em>/QualificationApplicationRequest/cac:AdditionalDocumentReference/cac:Attachment/cac:ExternalReference</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 2.7 Contracting Body</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 8.</strong> Contracting body, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ContractParty</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ContractingParty</em> according to <em>Figure 11: QualificationApplicationRequest-2.3 main elements.</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 9.</strong> Contracting body party, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:PartyIdentification/cbc:Identifier</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: Replaced by <em>cac:PartyIdentification/cbc:ID</em> because <em>cac:PartyIdentification/cbc:Identifier</em> does not exist in <strong>UBL-2.3</strong>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: Updated from <em>0..1</em> to <em>1</em>.</p>
-</li>
-<li>
-<p><em>Requirement</em>: updated from <em>'More than one identifier can be specified. When possible use the VAT identification of the contracting body (see the VIES platform for a EU cross-border national VAT number verification system). '</em> to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 2.8. Service Provider</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 38.</strong> Service provider, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:PostalAddress/cac:Country/cbc:IdentificationCode</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Type</em>: updated from <em>Identifier</em> to <em>Code</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 3. Common aspects for criteria</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Figure 33.</strong> Criterion - UML diagram</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated wrong cardinalities <em>1..*..*</em> to <em>1..*</em> to fix the typo. Cardinalities corrected are: <em>cac:TenderingCriterionPropertyGroup</em>, <em>cac:TenderingCriterionProperty</em> and <em>cac:ProcurementProjectLotReference</em>.</p>
-</li>
-<li>
-<p><em>cac:EconomicOperatorParty</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in the <strong>ESPD Request</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProject</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProjectLot</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is replaced by <em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em> in the same figure.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:TenderingCriterion/cac:ProcurementProjectLotReference</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: update from <em>1..n</em> to <em>0..n</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:QualificationApplicationTypeCode</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:WeightScoringMethodologyDescription</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:WeightingType</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 3.1 General behavior</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 20.</strong> Criterion, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ProcurementProjectLotReference</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Type</em>: updated from <em>Text</em> to <em>Class</em>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: updated from <em>1..n</em> to <em>0..n</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 3.2 Legislation</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 21.</strong> Legislation, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cbc:ID</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: added.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:Description</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Type</em>: updated from <em>Code</em> to <em>Text</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:LegislationTitle</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cbc:Title</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 3.4 Properties</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 23.</strong> Properties, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cbc:ExpectedAmount</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: added.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>_cbc:ExpectedDescription</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: added.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 5.1 Lot Management approach for Selection Criteria</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Text updated from <em>'The buyer may specify the criteria that each selection criteria apply by using the element cac:ProcurementProjectLotReference that includes cbc:TenderingCriterion.'</em> to <em>'The buyer may specify the criteria that each selection criteria apply by using the element cac:TenderingCriterion that includes cac:ProcurementProjectLotReference.'</em>.</p>
-</li>
-<li>
-<p><em>cac:ProcurementLotReference</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Element replaced by <em>cac:ProcurementProjectLotReference</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 6.2 ESPD Response XSD Schema</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ContractingAuthorityParty</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ContractingParty</em> according to <em>Figure 191. QualificationApplicationResponse XSD Schema, global view</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 6.3 ESPD Response cardinalities</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Figure 193.</strong> ESPD-EDM 'QualificationApplicationResponse', UML diagram</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ProcurementProject</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProjectLot</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: updated from <em>1..n</em> to <em>1</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:ProfileExecutionID</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:QualificationApplicationTypeCode</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:WeightScoringMethodologyDescription</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:WeightingType</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: removed because it is not used in <strong>ESPD-EDM v3.0.x</strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 6.4 Root elements</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 26.</strong> Class QualificationApplicationResponse, components required by the ESPD-EDM</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ContractingParty</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Desciption</em>: updated with text <em>'See section <a href="2.7_Contracting_Body.html" class="xref page">Contracting Body</a> for more specification details.'</em> where this element is described.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:EconomicOperator</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:EconomicOperatorParty</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProject</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:ProcurementProject/cbc:Description</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-<li>
-<p><em>Type</em>: updated from <em>Associated class</em> to <em>Text</em> in alignment with <strong>eForms</strong>.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
-</li>
-<li>
-<p><em>Requirement</em>: updated from <em>'Use this component to identify and describe the procurement administrative procedure. If the procurement procedure is divided into lots use the ProcurementProjectLot component to provide details specific to the lot and reserve the ProcurementProject component to describe the global characteristics of the procedure.'</em> to <em>'This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.'</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:ProcurementProjectLot</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
-</li>
-<li>
-<p><em>Description</em>: updated from <em>'One of the procurement project lots into which this contract can be divided.'</em> to _'The procurement project lot or group of lots this ESPD Response tenders to.'.'</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:EconomicOperatorGroupName</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Type</em>: updated from <em>Code</em> to <em>Text</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:ProcedureCode</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram.</em>.</p>
-</li>
-<li>
-<p><em>Type</em>: updated from <em>Identifier</em> to <em>Code</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:ProfileExecutionID</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: added.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: added <em>1</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cbc:UUID</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Cardinality</em>: updated from <em>0..1</em> to <em>1</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 6.5 Reference to publications and to the ESPD Request</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Table 27.</strong> Reference to the ESPD Request, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:AdditionalDocumentReference</em>
-***<em>Path:</em> replaced <em>/QualificationApplicationResponse/cac:AdditionalReferenceDocument</em> by <em>/QualificationApplicationResponse/cac:AdditionalDocumentReference</em>.</p>
-</li>
-<li>
-<p><em>cbc:DocumentDescription</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: added.</p>
-</li>
-<li>
-<p><em>Cardinality</em>: added <em>0..1</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 28.</strong> External Reference</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:ExternalReference</em>
-***<em>Path:</em> replaced <em>/QualificationApplicationResponse/cac:AdditionalReferenceDocument</em> by <em>/QualificationApplicationResponse/cac:AdditionalDocumentReference</em>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: added <em>cbc:FileName</em> and <em>cbc:Description</em>.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 6.6 Economic Operator</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:EconomicOperator</em></p>
 <div class="ulist">
 <ul>
-<li>
-<p><em>Component</em>: replaced by <em>cac:EconomicOperatorParty</em> according to <em>Figure 193. ESPD-EDM 'QualificationApplicationResponse', UML diagram</em>.</p>
-</li>
-</ul>
-</div>
-</li>
 <li>
-<p><strong>Table 33.</strong> Qualifying Party, expected elements</p>
+<p><strong>Section added "3.9 Short Tag Name and Implicit Numbering"</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>cac:Party/cac:PartyIdentifier/cbc:ID</em></p>
+<p><strong>Short Tag Name</strong></p>
 <div class="ulist">
 <ul>
-<li>
-<p><em>Component</em>: repleaced by <em>cac:Party/cac:PartyIdentification/cbc:ID</em>.</p>
-</li>
 <li>
-<p><em>Cardinality</em>: Updated from <em>0..1</em> to <em>1</em>.</p>
-</li>
-</ul>
-</div>
+<p>Description</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 34.</strong> Economic operator role, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cbc:RoleDescription</em></p>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Cardinality</em>: updated from <em>0..n</em> to <em>0..1</em>.</p>
-</li>
-</ul>
-</div>
+<p>_Table 25. Correspondence between "criterion element", "UBL element" and "Short Tag Name"</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Table 35.</strong> (Qualifying) economic operator party, expected elements</p>
+<p><strong>Implicit Numbering</strong></p>
 <div class="ulist">
 <ul>
-<li>
-<p><em>cac:PartyIdentification/cbc:Identifier</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Component</em>: Replaced by <em>cac:PartyIdentification/cbc:ID</em> because <em>cac:PartyIdentification/cbc:Identifier</em> does not exist in <strong>UBL-2.3</strong>.</p>
-</li>
 <li>
-<p><em>Requirement</em>: updated from <em>'More than one identifier can be specified. Compulsory use of the attribute schemeAgencyID and highly recommended the use of the attribute schemeAgencyID. The preferred identifier is the national VAT number. Additional identifiers may be used'</em> to <em>'When possible use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible a different identifier may be used.'</em> because previous text was ambiguous.</p>
-</li>
-</ul>
-</div>
+<p>Description</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 36.</strong> Economic operator postal address, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:PostalAddress</em></p>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Path</em>: updated from <em>/QualificationApplicationResponse/​cac:EconomicOperator/​cac:Party/​cac:PostalAddress</em> to <em>/QualificationApplicationResponse/​cac:EconomicOperatorParty/​cac:Party/​cac:PostalAddress</em> according to <em>Figure 198. cac:QualifyingParty element, XSD</em>.</p>
-</li>
-</ul>
-</div>
+<p><em>Figure 49. Short Tag Name and Numbering for Criterion C1 EG crime-org</em></p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Table 38.</strong> Service provider, expected elements</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:PostalAddress/cac:Country/cbc:IdentificationCode</em></p>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Type</em>: updated from <em>Identifier</em> to <em>Code</em>.</p>
-</li>
-</ul>
-</div>
+<p><em>Figure 50. Short Tag Name and Numbering for Criterion C32 SC spec-year-to</em></p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Section 6.8 Evidences</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:Evidence/cac:DocumentReference/cac:IssuerParty</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Element replaced by <em>cac:Evidence/cac:DocumentReference/cac:IssuerParty/cac:Party/cac:PartyIdentification/cbc:ID</em>.</p>
 </li>
 </ul>
 </div>
 </li>
-<li>
-<p><strong>Table 44</strong>. Elements expected in an Evidence</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cbc:CandidateStatement</em></p>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Requirement</em>: updated from <em>'None. Not currently used in ESPD.'</em> to <em>'None. No rule is applied.'</em> because previous text was misleading.</p>
-</li>
-</ul>
-</div>
+<p><strong>Attribute value updates</strong></p>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p><strong>Table 45.</strong> Elements expected from the 'cac:Evidence/cac:DocumentReference' element</p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>cac:Attachment/cac:ExternalReference/cbc:URI</em></p>
-<div class="ulist">
-<ul>
-<li>
-<p><em>Requirement</em>: updated from <em>'None. Not currently used in ESPD.'</em> to <em>'None. No rule is applied.'</em> because previous text was misleading.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Attributes value has been updated all over the online documentation.</p>
 </div>
-</li>
-<li>
-<p><em>cac:IssuerParty/cbc:ID</em></p>
 <div class="ulist">
 <ul>
 <li>
-<p><em>Component</em>: replaced by <em>cac:IssuerParty/cac:PartyIdentification/cbc:ID</em>.</p>
+<p>version value for attributes schemeVersionID, listVersionID</p>
 </li>
-</ul>
-</div>
-</li>
-<li>
-<p><em>cac:IssuerParty/cbc:Name</em></p>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Component</em>: replaced by <em>cac:IssuerParty/cac:PartyName/cbc:Name</em>.</p>
-</li>
-</ul>
-</div>
+<p>agency value for attributes schemeAgencyID, listAgencyID</p>
 </li>
-<li>
-<p><em>cac:IssuerParty/cbc:WebsiteURI</em></p>
-<div class="ulist">
-<ul>
 <li>
-<p><em>Requirement</em>: updated from <em>'None. Not currently used in ESPD.'</em> to <em>'None. No rule is applied.'</em> because previous text was misleading.</p>
+<p>value EU-COM-GROW or EU-COM-OP has been replaced by "OP"</p>
 </li>
 </ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
 </div>
 </div>
 </div>
