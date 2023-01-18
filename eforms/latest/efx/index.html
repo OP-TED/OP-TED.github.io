@@ -235,7 +235,7 @@
     <a class="nav-link" href="../guide/xml-generation.html">Generate XML</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../guide/visualisation.html">Visualize notices</a>
+    <a class="nav-link" href="../guide/visualisation.html">Visualise notices</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../guide/validation.html">Validate notices</a>
@@ -386,7 +386,7 @@
 <h2 id="_needs_covered_by_efx"><a class="anchor" href="#_needs_covered_by_efx"></a>Needs covered by EFX</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Every business rule is associated with a logical condition that determines whether the rule is applicable or not in a certain situation. Moreover, every business rule involves and additional logical operation to determine weather the rule is respected or not. While some of these logical operations are simple enough to be defined indirectly, many of them require a formal language that allows for ad hoc calculations as well as logical operations. EFX is used therefore to express non-trivial logical operations necessary for notice validation.</p>
+<p>Every business rule is associated with a logical condition that determines whether the rule is applicable or not in a certain situation. Moreover, every business rule involves an additional logical operation to determine whether the rule is respected or not. While some of these logical operations are simple enough to be defined indirectly, many of them require a formal language that allows for ad hoc calculations as well as logical operations. EFX is used therefore to express non-trivial logical operations necessary for notice validation.</p>
 </div>
 <div class="paragraph">
 <p>Additionally, EFX is used to define templates for notice visualisation. The visual structure of a notice is not the same as the physical structure of the XML file. Moreover, in many cases, combining values of several fields is necessary to visualise a particular piece of information. The templating features of EFX allow us to overcome these difficulties in defining and maintaining correct and reusable notice visualisation templates.</p>
@@ -407,7 +407,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>First and foremost, EFX supports the definition of expressions that involve references to eForms fields, nodes, codelists. In EFX you reference a field using its identifier.</p>
+<p>First and foremost, EFX supports the definition of expressions that involve references to eForms fields, nodes and codelists. In EFX you reference a field using its identifier.</p>
 </li>
 <li>
 <p>EFX supports all the data types used in eForms and provides operators and functions to manipulate them.</p>
@@ -435,10 +435,10 @@
 <p>EFX is defined using ANTLR v4. <a href="https://www.antlr.org">ANTLR</a> is a well established parser generator that can generate parsers in Java, C#, Python, JavaScript, Go, C++, Swift, PHP and DART.</p>
 </div>
 <div class="paragraph">
-<p>To create an EFX parser you need the EFX grammar (included in the eForms SDK), as well as the ANTLR developer tools targetting your development environment.</p>
+<p>To create an EFX parser you need the EFX grammar (included in the eForms SDK), as well as the ANTLR developer tools targeting your development environment.</p>
 </div>
 <div class="paragraph">
-<p>ANTLR will generate for you, in the target language of your choice, the source code of an EFX lexical analyser and parser. It will also generate a listener and/or visitor base-class, which you should extend to create translators that can translate EFX expressions to the scripting language of your choice (one that your eForms application can execute).</p>
+<p>ANTLR will generate for you, in the target language of your choice, the source code of an EFX lexical analyser and parser. It will also generate a listener and/or visitor base class, which you should extend to create translators that can translate EFX expressions to the scripting language of your choice (one that your eForms application can execute).</p>
 </div>
 <div class="paragraph">
 <p>For our own needs at the Publications Office we have developed translators that translate EFX expressions to XPath, and EFX templates to XSLT. These translators are available in Github for you to reuse, improve or use as an inspiration for creating your own.</p>
@@ -456,7 +456,7 @@
 </dd>
 <dt class="hdlist1"><a href="https://github.com/OP-TED/efx-toolkit-java">EFX Parser and Translators in Java</a></dt>
 <dd>
-<p>The parser and translators that we have created for our own needs are available in <a href="https://github.com/OP-TED/efx-toolkit-java">Github</a>. Our EFX expression translator, translates EFX expressions to XPath. The translator is also designed in a way that allows you to reuse it for translating to other target languages.</p>
+<p>The parser and translators that we have created for our own needs are available in <a href="https://github.com/OP-TED/efx-toolkit-java">Github</a>. Our EFX Expression Translator translates EFX expressions to XPath. The translator is also designed in a way that allows you to reuse it for translating to other target languages.</p>
 </dd>
 <dt class="hdlist1"><a href="https://github.com/OP-TED/eforms-notice-viewer">Notice Viewer sample application</a></dt>
 <dd>

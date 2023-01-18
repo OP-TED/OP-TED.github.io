@@ -235,7 +235,7 @@
     <a class="nav-link" href="../guide/xml-generation.html">Generate XML</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../guide/visualisation.html">Visualize notices</a>
+    <a class="nav-link" href="../guide/visualisation.html">Visualise notices</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../guide/validation.html">Validate notices</a>
@@ -379,7 +379,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>A transpiler, is a form of translator that takes as input the source code written in an input programming language and outputs the equivalent source code in a target output language. A famous transpiler is the one of TypeScript, which takes as input TypeScript source code and transpiles it to plain JavaScript.</p>
+<p>A transpiler is a form of translator that takes as input the source code written in an input programming language and outputs the equivalent source code in a target output language. A famous transpiler is the one of TypeScript, which takes as input TypeScript source code and transpiles it to plain JavaScript.</p>
 </div>
 <div class="paragraph">
 <p>EFX was not designed to drive an EFX template engine or to be executed directly in an EFX runtime environment. There is no EFX runtime or EFX template processor. Instead EFX was designed to be translatable to several other languages that target existing runtime environments and template engines.</p>
@@ -405,13 +405,13 @@ Typically, there is no reason to translate the EFX expressions and templates at 
 <h2 id="_available_efx_transpilers"><a class="anchor" href="#_available_efx_transpilers"></a>Available EFX transpilers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The EFX Toolkit for Java Developers, contains a generic translator that can be reused to translate EFX to several different target languages. See <a href="#create-your-own-translators">next section</a> for more details.</p>
+<p>The EFX Toolkit for Java Developers, contains a generic translator that can be reused to translate EFX to several different target languages. See the <a href="#create-your-own-translators">next section</a> for more details.</p>
 </div>
 <div class="paragraph">
-<p>The toolkit, provides an implementation of the <code>ScriptGenerator</code> interface that targets <strong>XPath</strong> (see <code>XPathScriptGenerator</code>). This is the same implementation used by the Publications Office to generate the Schematron files included in the eForms SDK.</p>
+<p>The toolkit provides an implementation of the <code>ScriptGenerator</code> interface that targets <strong>XPath</strong> (see <code>XPathScriptGenerator</code>). This is the same implementation used by the Publications Office to generate the Schematron files included in the eForms SDK.</p>
 </div>
 <div class="paragraph">
-<p>Additionally, the Notice Viewer sample application, contains an implementation of the <code>MarkupGenerator</code> interface that targets <strong>XSLT</strong> (for transpiling EFX templates). Although the implementation in this sample application is too simplistic to be suitable for reuse without modifications, you can always use it as an inspiration or as the starting point to create a <code>MarkupGenerator</code> for XSLT that satisfies your production requirements.</p>
+<p>Additionally, the Notice Viewer sample application contains an implementation of the <code>MarkupGenerator</code> interface that targets <strong>XSLT</strong> (for transpiling EFX templates). Although the implementation in this sample application is too simplistic to be suitable for reuse without modifications, you can always use it as an inspiration or as the starting point to create a <code>MarkupGenerator</code> for XSLT that satisfies your production requirements.</p>
 </div>
 </div>
 </div>
@@ -450,7 +450,7 @@ Typically, there is no reason to translate the EFX expressions and templates at 
 <div class="sect2">
 <h3 id="_implementing_the_symbolresolver_interface"><a class="anchor" href="#_implementing_the_symbolresolver_interface"></a>Implementing the SymbolResolver interface</h3>
 <div class="paragraph">
-<p>The SymbolResolver provides to the transpiler, access to the eForms metadata available in the eForms SDK.</p>
+<p>The SymbolResolver provides to the transpiler access to the eForms metadata available in the eForms SDK.</p>
 </div>
 <div class="paragraph">
 <p>An implementation of the <code>SymbolResolver</code> interface that reads data directly from the eForms SDK is available in the Notice Viewer sample application.</p>
@@ -467,7 +467,7 @@ Typically, there is no reason to translate the EFX expressions and templates at 
 <p>the data type associated with a symbol</p>
 </li>
 <li>
-<p>the relation of the symbol with other symbols like its parent node.</p>
+<p>the relation of the symbol to other symbols like its parent node.</p>
 </li>
 </ul>
 </div>
@@ -494,7 +494,7 @@ public interface SymbolResolver {
 </div>
 </div>
 <div class="paragraph">
-<p>The reason we abstract this functionality away from the transpiler implementation is because, some applications, may not read metadata directly from the SDK. Instead your application may combine the SDK metadata with other information in a proprietary metadata store. Implementing this interface allows you to reuse the existing transpiler in your application.</p>
+<p>The reason we abstract this functionality away from the transpiler implementation is because some applications may not read metadata directly from the SDK. Instead your application may combine the SDK metadata with other information in a proprietary metadata store. Implementing this interface allows you to reuse the existing transpiler in your application.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -515,7 +515,7 @@ You will notice that some methods require you to return a <code>PathExpression</
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The interface is easy to implement. However there is one detail that needs attention. There are two methods that require you to return a relative path. If the path you are returning is not an XPath, then you need to craft your implementation carefully so that relative paths are calculated correctly. If, however, you use XPath then you can reuse the <code>XPathContextualizer</code> provided in the EFX Toolkit.
+The interface is easy to implement. However there is one detail that needs attention. There are two methods that require you to return a relative path. If the path you are returning is not an XPath, then you need to craft your implementation carefully so that relative paths are calculated correctly. However, if you use XPath then you can reuse the <code>XPathContextualizer</code> provided in the EFX Toolkit.
 </td>
 </tr>
 </table>
@@ -533,13 +533,13 @@ The interface is easy to implement. However there is one detail that needs atten
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-All methods in this interface return an object of type <code>Expression</code> (or a derived type). The <code>Expression</code> class and  its subclasses are defined in the <code>eu.europa.ted.efx.model</code> package. Their goal is to enforce type safety. The <code>Expression</code> is an abstraction of an "expression" in the target scripting language. It only stores the target language script in its <code>script</code> field and along with it, it conveys data type information. This makes the code more readable and more type-safe.
+All methods in this interface return an object of type <code>Expression</code> (or a derived type). The <code>Expression</code> class and  its subclasses are defined in the <code>eu.europa.ted.efx.model</code> package. Their goal is to enforce type safety. The <code>Expression</code> is an abstraction of an "expression" in the target scripting language. It only stores the target language script in its <code>script</code> field and along with this, it conveys data type information. This makes the code more readable and more type-safe.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Most methods in this interface, start with the verb "compose". You will notice that these methods take as parameters <code>Expression</code> objects. These <code>Expression</code> objects are actually the return values of other methods of the same interface. The goal of the "composeXyz" methods is to "compose" the target language script that appropriately combines the passed <code>Expression</code> objects to perform a specific operation.</p>
+<p>Most methods in this interface start with the verb "compose". You will notice that these methods take as parameters <code>Expression</code> objects. These <code>Expression</code> objects are actually the return values of other methods of the same interface. The goal of the "composeXyz" methods is to "compose" the target language script that appropriately combines the passed <code>Expression</code> objects to perform a specific operation.</p>
 </div>
 <div class="paragraph">
 <p>The methods that do not start with "compose" in this interface follow the naming convention "getXyzEquivalent". These methods take as a parameter a string that is typically an EFX literal, and are expected to return the equivalent script for that literal in the target language.</p>
@@ -632,7 +632,7 @@ You will notice that all methods in this interface return objects of type <code>
 <p>Similarly to the <code>ScriptGenerator</code> interface, some methods in this interface also start with the verb "compose". These methods take as parameters <code>Markup</code> objects that have been previously returned by other methods in the same interface. Their goal is to appropriately combine these <code>Markup</code> parameters into new markup for a specific scenario.</p>
 </div>
 <div class="paragraph">
-<p>The remaining methods in this interface start with the verb "render". You will notice that these methods take as a parameter <code>Expression</code> objects that have been returned by your <code>ScriptGenerator</code> implementation. These methods are expected to return the target language markup for rendering these expressions in the output template.</p>
+<p>The remaining methods in this interface start with the verb "render". You will notice that these methods take as parameters <code>Expression</code> objects that have been returned by your <code>ScriptGenerator</code> implementation. These methods are expected to return the target language markup for rendering these expressions in the output template.</p>
 </div>
 <div class="paragraph">
 <p>Below is a simplified listing of the <code>MarkupGenerator</code> interface for quick reference. You can find <a href="https://github.com/OP-TED/efx-toolkit-java/blob/develop/src/main/java/eu/europa/ted/efx/interfaces/MarkupGenerator.java">the actual definition in Github</a>.</p>
@@ -665,7 +665,7 @@ public interface MarkupGenerator {
 <h2 id="_creating_your_own_transpilers_from_scratch"><a class="anchor" href="#_creating_your_own_transpilers_from_scratch"></a>Creating your own transpilers from scratch</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>If our application is written in Java, or you can include the EFX Toolkit for Java in your workflow then you don&#8217;t need to write your own transpilers.</p>
+<p>If your application is written in Java, or you can include the EFX Toolkit for Java in your workflow then you don&#8217;t need to write your own transpilers.</p>
 </div>
 <div class="paragraph">
 <p>In case you want to create a transpiler in C# or any of the other languages supported by ANTLR4, then you will need to download the ANTLR4 developer tools for your platform and use the EFX grammar provided in the eForm SDK as input to ANTRL4 to generate an EFX parser. You can <a href="https://www.antlr.org/download.html">download ANTLR4 developer tools</a> for the following languages:</p>
@@ -673,25 +673,25 @@ public interface MarkupGenerator {
 <div class="ulist">
 <ul>
 <li>
-<p>Java,</p>
+<p>Java</p>
 </li>
 <li>
-<p>C#,</p>
+<p>C#</p>
 </li>
 <li>
-<p>Python,</p>
+<p>Python</p>
 </li>
 <li>
-<p>JavaScript,</p>
+<p>JavaScript</p>
 </li>
 <li>
-<p>Go,</p>
+<p>Go</p>
 </li>
 <li>
-<p>C++,</p>
+<p>C++</p>
 </li>
 <li>
-<p>Swift,</p>
+<p>Swift</p>
 </li>
 <li>
 <p>PHP</p>
@@ -715,12 +715,12 @@ public interface MarkupGenerator {
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Creating a transpiler is not trivial but is not rocket science either. If you can avoid writing your own transpiler, all the better. The trickiest parts of the implementation are:</p>
+<p>Creating a transpiler is not trivial but it is not rocket science either. If you can avoid writing your own transpiler, all the better. The trickiest parts of the implementation are:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>properly handing indentation in EFX templates,</p>
+<p>properly handing indentation in EFX templates</p>
 </li>
 <li>
 <p>leveraging stacks to maintain context</p>
