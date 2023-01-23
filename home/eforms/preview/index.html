@@ -379,7 +379,7 @@ Please be aware that the interface and the notice forms still need further work 
 Application version
 </td>
 <td class="hdlist2">
-<p>1.5.0</p>
+<p>1.5.1</p>
 </td>
 </tr>
 <tr>
@@ -387,7 +387,7 @@ Application version
 SDK versions
 </td>
 <td class="hdlist2">
-<p>1.3.2, 1.4.1, 1.5.0</p>
+<p>1.3.2, 1.4.1, 1.5.0, 1.5.1</p>
 </td>
 </tr>
 </table>
@@ -454,9 +454,6 @@ SDK versions
 <p>eNotices2 uses the codelists from the SDK, which have not been completely tailored.</p>
 </div>
 <div class="paragraph">
-<p>Notice subtype 14 cannot be used for now in the user interface.</p>
-</div>
-<div class="paragraph">
 <p>Converting a notice to the latest SDK version will affect the change notice by removing its change section.</p>
 </div>
 <div class="paragraph">
@@ -469,12 +466,15 @@ SDK versions
 <p>As of 19 December 2022, status “published” is not shown in Preview for notices that are submitted successfully. We are currently working on this issue.</p>
 </div>
 <div class="paragraph">
+<p>Action “Export validation report” on notices in status “validation failed” is currently producing an error; we are working on this issue.</p>
+</div>
+<div class="paragraph">
 <p>The eNotices2 API URLs and parameters will change in later releases. The <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/">Swagger UI</a> provides basic documentation of the four functions.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Currently, the automated email notification “Notice validation failed” is sent to the eSender instead of the Contracting Authority (i.e. <a href="https://docs.ted.europa.eu/home/eforms/FAQ/index.html#:~:text=Will%20eNotices2%20send%20email%20notification%20for%20notices%20submitted%20by%20Web%20Services%20about%20publications%20or%20non%2Dpublication%3F">Notice Author</a> and does not detail what has failed validation.</p>
+<p>Currently, the Contracting Authority (Notice Author) receives no automated notification upon submission of a notice.</p>
 </li>
 <li>
 <p>Currently, "stop publication" on a submitted notice will return error 500 in certain cases, i.e when the notice is being processed and ready to be published. The process will be simplified in the future with the introduction of status “PUBLISHING”, which will forbid stopping publication of a notice of this status. For more information on notice statuses, please see the <a href="https://docs.ted.europa.eu/home/eforms/FAQ/index.html#_apis_and_web_services">eForms FAQ</a>.</p>
@@ -537,6 +537,9 @@ In Production (live environment), the actual export to TED happens on workdays a
 <li>
 <p>Any date field which has a time attached must always have a value in the time field.</p>
 </li>
+<li>
+<p>In Contact notices of the Defence directive, BT-71-Lot should not be filled in.</p>
+</li>
 </ul>
 </div>
 </div>
@@ -549,7 +552,7 @@ In Production (live environment), the actual export to TED happens on workdays a
 Indicative planning
 </td>
 <td class="hdlist2">
-<p>February 2023</p>
+<p>March 2023</p>
 </td>
 </tr>
 <tr>
@@ -580,7 +583,7 @@ SDK version
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The current version of Preview is planned to go into Production in the first or second week of January 2023.
+The current version of Preview is also in Production environment.
 </td>
 </tr>
 </table>
@@ -661,7 +664,7 @@ Scope
 Application version
 </td>
 <td class="hdlist2">
-<p>1.2.4</p>
+<p>1.2.6</p>
 </td>
 </tr>
 <tr>
