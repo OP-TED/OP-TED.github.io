@@ -3897,45 +3897,42 @@ found in <a href="competition-results.html#tenderingPartySection" class="xref pa
 <div class="sect2">
 <h3 id="_the_winner"><a class="anchor" href="#_the_winner"></a>The winner</h3>
 <div class="paragraph">
-<p>The results are provided per lot.</p>
+<p>The results are provided per Lot.</p>
 </div>
 <div class="paragraph">
-<p>For a given lot, winners are the Tendering Parties for which the tender:</p>
+<p>For a given Lot, winners are members of a Tendering Party which submitted a Tender that:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Was submitted for that lot, and</p>
+<p>Was submitted for that Lot, and</p>
 </li>
 <li>
-<p>Has been selected as part of the winning tenders (i.e. is not a non-winning tender, hence does not have a tender Rank set to zero.).</p>
+<p>Has been selected as part of the winning Tenders (Tenders associated to a Contract,
+i.e. Tender for which the value of its OPT-321-Tender field equals the value of a BT-3202-Contract
+field of an existing Contract.
+.).</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>NB: Tenders are only listed once the award decision has been made and any tender listed with a not null rank are considered winning tenders.</p>
-</div>
-<div class="paragraph">
-<p>Therefore to identify a winner, there is a need to successively:</p>
+<p>Therefore to identify winners for a given Lot, there is a need to successively:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Look for tenders referenced at the Lot Result,</p>
+<p>Identify the Tenders submitted for that Lot or a Group of Lots containing that Lot,</p>
 </li>
 <li>
-<p>Identify the Tender that have a not null rank and is applied to
-the lot covered by the Lot Result<sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup>,</p>
+<p>Extract, from these Tenders, the ones referenced in any Contracts,</p>
 </li>
 <li>
-<p>From the identified tender identify its associated Tendering
-Party.</p>
+<p>Identify the associated Tendering Parties, and</p>
+</li>
+<li>
+<p>Identify each Tenderer belonging to at least one of those Tendering Parties.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>From there it is also possible to identify each individual organization
-that belongs to this Tendering Party.</p>
 </div>
 </div>
 <div class="sect2">
@@ -5751,20 +5748,19 @@ in the LotResult references to the contracts:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>there may exist multiple Tenders, not all tenders are winning
-tenders and multiple tenders could be issued by the same Tendering
+<p>there may exist multiple Tenders, not all Tenders are winning
+Tenders and multiple Tenders could be submitted by the same Tendering
 Party,</p>
 </li>
 <li>
-<p>There may also be multiple winning tenders (e.g. Framework
+<p>There may also be multiple winning Tenders (e.g. Framework
 Agreement),</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Therefore, when identifying a specific winner of a lot (i.e. Tendering
-Party associated to a winning tender for this lot), it is important to
-identify the tender and and check this is a winning one.</p>
+<p>Therefore, when identifying a specific winner of a Lot, it is important to
+identify the Tender and check that it is a winning one.</p>
 </div>
 </div>
 <div class="sect2">
@@ -6016,9 +6012,6 @@ accessed April 6<sup>th</sup>, 2021</p>
 </div>
 <div class="footnote" id="_footnotedef_5">
 <a href="#_footnoteref_5">5</a>. This role, not referenced in eForms, is needed to understand and deal with situations where economic operators tender together (e.g. consortium)
-</div>
-<div class="footnote" id="_footnotedef_6">
-<a href="#_footnoteref_6">6</a>. While a Tender (let&#8217;s call it global tender) may be submitted for multiple Lots and Group of lots, the concept of Tender in eForms (let&#8217;s call it individual tender) is limited to the fragment of that global tender that relates to a single Lot or Group of lots.
 </div>
 </div>
 </article>
