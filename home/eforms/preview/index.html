@@ -379,7 +379,7 @@ Please be aware that the interface and the notice forms still need further work 
 Application version
 </td>
 <td class="hdlist2">
-<p>1.5.1</p>
+<p>1.6.2</p>
 </td>
 </tr>
 <tr>
@@ -433,7 +433,7 @@ SDK versions
 <div class="sect3">
 <h4 id="_known_issues"><a class="anchor" href="#_known_issues"></a>Known issues</h4>
 <div class="paragraph">
-<p>At this point, the application is incomplete and many use cases are not fully implemented, e.g. the "import a notice" function is currently disabled.</p>
+<p>At this point, the application is incomplete and many use cases are not fully implemented.</p>
 </div>
 <div class="paragraph">
 <p>All validation errors are currently displayed as a pop-up window, without pointing to the error location. Please set a default currency to avoid validation errors in the notices created in the user interface that can lead to a message that the: “notice is probably incomplete”.</p>
@@ -454,10 +454,7 @@ SDK versions
 <p>eNotices2 uses the codelists from the SDK, which have not been completely tailored.</p>
 </div>
 <div class="paragraph">
-<p>Converting a notice to the latest SDK version will affect the change notice by removing its change section.</p>
-</div>
-<div class="paragraph">
-<p>In change notices, section "Information about the change" should not be repeated.</p>
+<p>In Change notices, section "Information about the change" should not be repeated.</p>
 </div>
 <div class="paragraph">
 <p>On 10 and 11 January 2023, notices submitted may have acquired status “not published”; this issue is now fixed.</p>
@@ -466,20 +463,10 @@ SDK versions
 <p>As of 19 December 2022, status “published” may not be shown in Preview for notices that are submitted successfully. We are currently working on this issue.</p>
 </div>
 <div class="paragraph">
-<p>Action “Export validation report” on notices in status “validation failed” is currently producing an error; we are working on this issue.</p>
-</div>
-<div class="paragraph">
 <p>The eNotices2 API URLs and parameters will change in later releases. The <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/">Swagger UI</a> provides basic documentation of the four functions.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>Currently, the Contracting Authority (Notice Author) receives no automated notification upon submission of a notice.</p>
-</li>
-<li>
+<div class="paragraph">
 <p>Currently, "stop publication" on a submitted notice will return error 500 in certain cases, i.e when the notice is being processed and ready to be published. The process will be simplified in the future with the introduction of status “PUBLISHING”, which will forbid stopping publication of a notice of this status. For more information on notice statuses, please see the <a href="https://docs.ted.europa.eu/home/eforms/FAQ/index.html#_apis_and_web_services">eForms FAQ</a>.</p>
-</li>
-</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -488,7 +475,7 @@ SDK versions
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Preview environment is for testing purposes; new SDK releases will first be made available on Preview before deployment in Production. Please note, however, that Preview only simulates Production and notices submitted in Preview are not published in a test environment of TED. “Published” is only a mock status that is automatically assigned to submitted notices at around 15:00 CET with the next mock-export (that in turn simulates the publication process). Preview will show status “published” regardless of the preferred publication date (if any). Notices submitted in Preview are not checked for lawfulness.
+The Preview environment is for testing purposes; new SDK releases will first be made available on Preview before deployment in Production. Please note, however, that Preview only simulates Production and notices submitted in Preview are not published in a test environment of TED. “Published” is only a mock status that is automatically assigned to submitted notices at around 15:00 CET when they enter the export (notices are not actually published on TED). If there is a preferred publication date, Preview will show status “published” as soon as the export finishes, which is the previous working day at around 15:00 CET. As an example, if the preferred publication date falls on a Monday, the status will change to "published" the previous Friday at around 15:00 CET, when the export takes place (provided Friday is not a public holiday). Notices submitted in Preview are not checked for lawfulness.
 </td>
 </tr>
 </table>
@@ -523,10 +510,7 @@ In Production (live environment), the actual export to TED happens on workdays a
 <p>"Award criteria complicated" should be filled-in with a variation of "See the procurement documents" to avoid having to fill in Criterion parameters.</p>
 </li>
 <li>
-<p>Avoid repeating the award criteria group (first level).</p>
-</li>
-<li>
-<p>Please avoid using the section “Information about late submission” except for the mandatory fileds and the “Description of the NDA”.</p>
+<p>Please avoid using the section “Information about late submission” except for the mandatory fields and the “Description of the NDA”.</p>
 </li>
 <li>
 <p>For Exclusion Grounds, use only once the code value and enter ”all other exclusion grounds apply" in the description; avoid repeating codelist values.</p>
@@ -538,9 +522,15 @@ In Production (live environment), the actual export to TED happens on workdays a
 <p>Any date field which has a time attached must always have a value in the time field.</p>
 </li>
 <li>
-<p>In Contact notices of the Defence directive, BT-71-Lot should not be filled in.</p>
+<p>In Contract notices of the Defence directive, BT-71-Lot should not be filled in.</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>If you are an eSender, please note that the concept of Workgroups is reserved for users of eNotices2 web User Interface (UI).</p>
+</div>
+<div class="paragraph">
+<p>eSenders/ users of eNotices2 API can still create workgroups in the UI of eNotices2 but the API is not aware of the context or workgroups, i.e. no API function can be performed on a notice that has been manually transferred to the context of a Workgroup.</p>
 </div>
 </div>
 <div class="sect3">
@@ -560,7 +550,7 @@ Indicative planning
 Application version
 </td>
 <td class="hdlist2">
-<p>1.6.0</p>
+<p>1.7</p>
 </td>
 </tr>
 <tr>
@@ -568,7 +558,7 @@ Application version
 SDK version
 </td>
 <td class="hdlist2">
-<p>1.5.x</p>
+<p>1.6</p>
 </td>
 </tr>
 </table>
@@ -583,7 +573,7 @@ SDK version
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The current version of Preview is planned to go into Production by January 24.
+The current version of Preview is planned to go into Production on 16 February 2023.
 </td>
 </tr>
 </table>
