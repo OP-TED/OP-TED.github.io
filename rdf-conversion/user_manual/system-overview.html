@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/rdf-conversion/user_manual/system-overview.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rdf-conversion" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">XML to RDF Conversion</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>General References</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ted-sws-introduction.html">About TED-SWS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../glossary.html">Glossary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For TED-SWS Operators</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="getting_started_user_manual.html">Getting started</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="system-overview.html">System overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="access-security.html">Security and access</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workflow-management-airflow.html">Workflow management with Airflow</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="system-monitoring-metabase.html">System monitoring with Metabase</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For DevOps</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="_attachments/aws-infra-docs/TED-SWS-Installation-manual-v2.5.0.pdf" target="_blank" rel="noopener">AWS installation manual (v2.5.0)</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="_attachments/aws-infra-docs/TED-SWS-AWS-Infrastructure-architecture-overview-v0.9.pdf" target="_blank" rel="noopener">AWS infrastructure architecture (v0.9)</a></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For End User Developers</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../ted_data/using_procurement_data.html">Accessing data in Cellar</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="https://docs.ted.europa.eu/EPO/latest/index.html" target="_blank" rel="noopener">eProcurement ontology (latest)</a></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For TED-SWS Developers</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../technical/mapping_suite_cli_toolchain.html">Mapping suite toolchain</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../technical/demo_installation.html">Development installation instructions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../technical/event_manager.html">Event manager description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture/arhitecture_choices.html">System architecture overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="_attachments/ted-sws-architecture/index.html" target="_blank" rel="noopener">Enterprise architecture model</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../architecture/arhitecture_choices.html">Architectural choices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../EPO/3.1.1/index.html">3.1.1 ~dev</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">XML to RDF Conversion</a></li>
+    <li><span class="separated"><strong>For TED-SWS Operators</strong></span></li>
+    <li><a href="system-overview.html">System overview</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="6">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_system_overview"><a class="anchor" href="#_system_overview"></a>System overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides a high level overview of the TED-SWS system and
+its components. As presented in the image below the system is built by
+multitude of services / components grouped together to help to reach the
+end goal. The system can be divided into 2 main parts:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Controlling and monitoring</p>
+</li>
+<li>
+<p>Core functionality (code base / TED SWS pipeline)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each part of the system is formed by a group of components.</p>
+</div>
+<div class="paragraph">
+<p>Controlling and monitoring, controlled by an operation manager, contains
+a workflow / pipeline management service (Airflow) and data
+visualization service (Metabase). Using this group of services any user
+should be able to control execution of the existing pipelines and also
+monitor the execution results.</p>
+</div>
+<div class="paragraph">
+<p>The core functionality has many services developed to accommodate the
+entire transformation process of a public procurement notice (in XML
+format) available on the TED Website into RDF format and to publish it
+into CELLAR. Here is a short description of some of the main services:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fetching service - fetching the notice from TED website</p>
+</li>
+<li>
+<p>indexing service - getting the unique XPATHs in a notice XML</p>
+</li>
+<li>
+<p>metadata normalisation service - extract notice metadata from the XML</p>
+</li>
+<li>
+<p>transformation service - transform the XML to RDF</p>
+</li>
+<li>
+<p>entity resolution and deduplication service - resolve duplicated
+entities in the RDF</p>
+</li>
+<li>
+<p>validation service - validation the RDF transformation</p>
+</li>
+<li>
+<p>packaging service - creating the METS package</p>
+</li>
+<li>
+<p>publishing service - sending the METS package to CELLAR</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/user_manual/media/image59.png" alt="image" width="100%" height="270"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pipelines_structure_airflow_dags"><a class="anchor" href="#_pipelines_structure_airflow_dags"></a>Pipelines structure ( Airflow DAGs )</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section will see a graphic representation that will show the
+flow and dependencies of the available pipelines (DAGs) in Airflow. In
+this representation will see the presence of two users AirflowUser and
+AirflowScheduler, where the AirflowUser is the user that will enable and
+trigger the DAGs and AirflowScheduler is the Airflow component that will
+start the DAGs automatically following a schedule.</p>
+</div>
+<div class="paragraph">
+<p>The automatic triggered DAGs controlled by the Airflow Scheduler are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>fetch_notices_by_date</p>
+</li>
+<li>
+<p>daily_check_notices_availibility_in_cellar</p>
+</li>
+<li>
+<p>daily_materialized_views_update</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/user_manual/media/image63.png" alt="image" width="100%" height="382"></span></p>
+</div>
+<div class="paragraph">
+<p>The DAGs marked with <em>purple</em> (load_mapping_suite_in_database), <em>yellow</em>
+(reprocess_unnormalised_notices_from_backlog,reprocess_unpackaged_notices_from_backlog,
+reprocess_unpublished_notices_from_backlog,reprocess_untransformed_notices_from_backlog,
+reprocess_unvalidated_notices_from_backlog) and <em>green</em>
+(fetch_notices_by_date, fetch_notices_by_date_range,
+fetch_notices_by_query) will trigger automatically the
+<strong>notice_processing_pipeline</strong> marked with <em>blue</em>, and this will take care
+of the entire processing steps for a notice. These can be used by a user
+by manually triggering these DAGs with or without configuration.</p>
+</div>
+<div class="paragraph">
+<p>The DAGs marked with <em>green</em> (fetch_notices_by_date,
+fetch_notices_by_date_range, fetch_notices_by_query) are in charge of
+fetching the notices from TED API. The ones marked with <em>yellow</em> (
+reprocess_unnormalised_notices_from_backlog,
+reprocess_unpackaged_notices_from_backlog,
+reprocess_unpublished_notices_from_backlog,
+reprocess_untransformed_notices_from_backlog,
+reprocess_unvalidated_notices_from_backlog) will handle the reprocessing
+of notices from the backlog. The purple marked DAG
+(load_mapping_suite_in_database) will handle the loading of mapping
+suites in the database that will be used to transform the notices.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/user_manual/media/image11.png" alt="image" width="100%" height="660"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notice_statuses"><a class="anchor" href="#_notice_statuses"></a>Notice statuses</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During the transformation process through the TED-SWS system, a notice
+will start with a certain status and it will transition to other
+statuses when a particular step of the pipeline
+(notice_processing_pipeline) offered by the system has completed
+successfully or unsuccessfully. This transition is done automatically
+and it will change the <em>status</em> property of a notice. The system has the
+following statuses:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>RAW</p>
+</li>
+<li>
+<p>INDEXED</p>
+</li>
+<li>
+<p>NORMALISED_METADATA</p>
+</li>
+<li>
+<p>INELIGIBLE_FOR_TRANSFORMATION</p>
+</li>
+<li>
+<p>ELIGIBLE_FOR_TRANSFORMATION</p>
+</li>
+<li>
+<p>PREPROCESSED_FOR_TRANSFORMATION</p>
+</li>
+<li>
+<p>TRANSFORMED</p>
+</li>
+<li>
+<p>DISTILLED</p>
+</li>
+<li>
+<p>VALIDATED</p>
+</li>
+<li>
+<p>INELIGIBLE_FOR_PACKAGING</p>
+</li>
+<li>
+<p>ELIGIBLE_FOR_PACKAGING</p>
+</li>
+<li>
+<p>PACKAGED</p>
+</li>
+<li>
+<p>INELIGIBLE_FOR_PUBLISHING</p>
+</li>
+<li>
+<p>ELIGIBLE_FOR_PUBLISHING</p>
+</li>
+<li>
+<p>PUBLISHED</p>
+</li>
+<li>
+<p>PUBLICLY_UNAVAILABLE</p>
+</li>
+<li>
+<p>PUBLICLY_AVAILABLE</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The transition from one status to another is decided by the system and
+can be viewed in the graphic representation below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/user_manual/media/image14.png" alt="image" width="100%" height="444"></span></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notice_structure"><a class="anchor" href="#_notice_structure"></a>Notice structure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section aims at presenting the anatomy of a Notice in the TED-SWS
+system and the dependence of structural elements on the phase of the
+transformation process. This is useful for the user to understand what
+happens behind the scene and what information is available in the
+database, to build analytics dashboards.</p>
+</div>
+<div class="paragraph">
+<p>The structure of a notice within the TED-SWS system consists of the
+following structural elements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Status</p>
+</li>
+<li>
+<p>Metadata</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Original Metadata</p>
+</li>
+<li>
+<p>Normalised Metadata</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Manifestation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>XMLManifestation</p>
+</li>
+<li>
+<p>RDFManifestation</p>
+</li>
+<li>
+<p>METSManifestation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Validation Report</p>
+<div class="ulist">
+<ul>
+<li>
+<p>XPATH Coverage Validation</p>
+</li>
+<li>
+<p>SHACL Validation</p>
+</li>
+<li>
+<p>SPARQL Validation</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The diagram below shows the high level structure of the Notice object
+and that certain structural parts of a notice within the system are
+dependent on its state. This means that as the transformation process
+runs through its steps the Notice state changes and new structural parts
+are added. For example, for a notice in the NORMALISED status we can
+access the Original Metadata, Normalised Metadata and XMLManifestation
+fields, for a notice in the TRANSFORMED status we can access in addition
+the RDFManifestation field and similarly for the rest of the statuses.</p>
+</div>
+<div class="paragraph">
+<p>The diagram depicts states as swim-lanes while the structural elements
+are depicted as ArchiMate Business Objects [cite ArchiMate]. The
+relations we use are composition (arrow with diamond ending) and
+inheritance (arrow with full triangle ending).</p>
+</div>
+<div class="paragraph">
+<p>As was mentioned above about the states through which a notice can
+transition, a certain structural field if it is present at a certain
+state, then all the states originating from this state will also have
+this field. Not all possible states are depicted. For brevity, we chose
+only the most significant ones, which segment the transformation process
+into stages.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="../_images/user_manual/media/image94.png" alt="image" width="100%" height="390"></span></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>

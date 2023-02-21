@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/rdf-conversion/ted-sws-introduction.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/custom.css">
+    <link rel="stylesheet" href="../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="rdf-conversion" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">XML to RDF Conversion</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>General References</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ted-sws-introduction.html">About TED-SWS</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="glossary.html">Glossary</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For TED-SWS Operators</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="user_manual/getting_started_user_manual.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="user_manual/system-overview.html">System overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="user_manual/access-security.html">Security and access</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="user_manual/workflow-management-airflow.html">Workflow management with Airflow</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="user_manual/system-monitoring-metabase.html">System monitoring with Metabase</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For DevOps</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="_attachments/aws-infra-docs/TED-SWS-Installation-manual-v2.5.0.pdf" target="_blank" rel="noopener">AWS installation manual (v2.5.0)</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="_attachments/aws-infra-docs/TED-SWS-AWS-Infrastructure-architecture-overview-v0.9.pdf" target="_blank" rel="noopener">AWS infrastructure architecture (v0.9)</a></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For End User Developers</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ted_data/using_procurement_data.html">Accessing data in Cellar</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="https://docs.ted.europa.eu/EPO/latest/index.html" target="_blank" rel="noopener">eProcurement ontology (latest)</a></span>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text"><span class="separated"><strong>For TED-SWS Developers</strong></span></span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="technical/mapping_suite_cli_toolchain.html">Mapping suite toolchain</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="technical/demo_installation.html">Development installation instructions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="technical/event_manager.html">Event manager description</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture/arhitecture_choices.html">System architecture overview</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <span class="nav-text"><a href="_attachments/ted-sws-architecture/index.html" target="_blank" rel="noopener">Enterprise architecture model</a></span>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="architecture/arhitecture_choices.html">Architectural choices</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../eforms/latest/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../EPO/3.1.1/index.html">3.1.1 ~dev</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../EPO/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../ESPD-EDM/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">XML to RDF Conversion</a></li>
+    <li><span class="separated"><strong>General References</strong></span></li>
+    <li><a href="ted-sws-introduction.html">About TED-SWS</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="6">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although TED notice data is already available to the general public
+through the search API provided by the TED website, the current offering
+has many limitations that impede access to and reuse of the data. One
+such important impediment is for example the current format of the data.</p>
+</div>
+<div class="paragraph">
+<p>Historical TED data come in various XML formats that evolved together
+with the standard TED XML schema. The imminent introduction of eForms
+will also introduce further diversity in the XML data formats available
+through TED&#8217;s search API. This makes it practically impossible for users
+to consume and process data that span across several years, as
+their information systems must be able to process several different
+flavours of the available XML schemas as well as to keep up with the
+schema&#8217;s continuous evolution. Their search capabilities are therefore
+confined to a very limited set of metadata.</p>
+</div>
+<div class="paragraph">
+<p>The TED Semantic Web Service will remove these barriers by providing one
+common format for accessing and reusing all TED data. Coupled with the
+eProcurement Ontology, the TED data will also have semantics attached to
+them allowing users to directly link them with other datasets.
+Moreover, users will now be able to perform much more elaborate
+queries directly on the data source (through the SPARQL endpoint). This
+will reduce their need for data warehousing in order to perform complex
+queries.</p>
+</div>
+<div class="paragraph">
+<p>These developments, by lowering the barriers, will give rise to a vast
+number of new use-cases that will enable stakeholders and end-users to
+benefit from increased availability of analytics. The ability to perform
+complex queries on public procurement data will be equally open to large
+information systems as well as to simple desktop users with a copy of
+Excel and an internet connection.</p>
+</div>
+<div class="paragraph">
+<p>To summarize, the TED Semantic Web Service (TED SWS) is a pipeline
+system that continuously converts the public procurement notices (in XML
+format) available on the TED Website into RDF format, publishes them
+into CELLAR and makes them available to the public through CELLAR’s
+SPARQL endpoint.</p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
