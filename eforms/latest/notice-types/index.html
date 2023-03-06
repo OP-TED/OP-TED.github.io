@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.5">
+<div class="nav-container" data-component="eforms" data-version="1.6">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -195,6 +195,9 @@
     <a class="nav-link" href="../translations/index.html">Translations</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schematrons/index.html">Schematron</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
     <a class="nav-link" href="../efx/index.html">EFX grammar</a>
 <ul class="nav-list">
@@ -271,14 +274,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.5.1</span>
+          <span class="version">1.6.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../index.html">eForms SDK</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">1.5.1</a>
+              <a href="../index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../../1.5/index.html">1.5.1</a>
             </li>
             <li class="version">
               <a href="../../1.4/index.html">1.4.1</a>
@@ -358,9 +364,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.5.1</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.6.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="index.html">1.5.1</a>
+    <a class="version is-current" href="index.html">1.6.0</a>
+    <a class="version" href="../../1.5/notice-types/index.html">1.5.1</a>
     <a class="version" href="../../1.4/notice-types/index.html">1.4.1</a>
     <a class="version" href="../../1.3/notice-types/index.html">1.3.2</a>
     <a class="version" href="../../1.2/notice-types/index.html">1.2.1</a>
@@ -426,7 +433,16 @@ In order to avoid confusion with the more general notion of "notice type" (contr
     {
       "id" : "PIN", <i class="conum" data-value="12"></i><b>(12)</b>
       "namespace" : "urn:oasis:names:specification:ubl:schema:xsd:PriorInformationNotice-2", <i class="conum" data-value="13"></i><b>(13)</b>
-      "rootElement" : "PriorInformationNotice" <i class="conum" data-value="14"></i><b>(14)</b>
+      "rootElement" : "PriorInformationNotice", <i class="conum" data-value="14"></i><b>(14)</b>
+      "schemaLocation" : "schemas/maindoc/UBL-PriorInformationNotice-2.3.xsd", <i class="conum" data-value="15"></i><b>(15)</b>
+      "additionalNamespaces" : [ <i class="conum" data-value="16"></i><b>(16)</b>
+        {
+          "prefix" : "cac", <i class="conum" data-value="17"></i><b>(17)</b>
+          "uri" : "urn:oasis:names:specification:ubl:schema:xsd:CommonAggregateComponents-2", <i class="conum" data-value="18"></i><b>(18)</b>
+          "schemaLocation" : "schemas/common/UBL-CommonAggregateComponents-2.3.xsd" <i class="conum" data-value="19"></i><b>(19)</b>
+        },
+        ...
+      ]
     },
     ...
   ]
@@ -491,11 +507,31 @@ In order to avoid confusion with the more general notion of "notice type" (contr
 <td><i class="conum" data-value="14"></i><b>14</b></td>
 <td>Root XML element for the document type.</td>
 </tr>
+<tr>
+<td><i class="conum" data-value="15"></i><b>15</b></td>
+<td>Location of the XSD file that contains the definition of the root element, relative to the root of the SDK.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="16"></i><b>16</b></td>
+<td>Additional namespaces used in an XML instance of the document type.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="17"></i><b>17</b></td>
+<td>Prefix to use in the declaration of the additional namespace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="18"></i><b>18</b></td>
+<td>Full URI of the additional namespace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="19"></i><b>19</b></td>
+<td>Location of the XSD file that contains the definition of the elements in the namespace, relative to the root of the SDK.</td>
+</tr>
 </table>
 </div>
 <div class="paragraph">
 <p>From the information visible in the example above, we can see that the notice subtype 1 has the document type <code>PIN</code>, so the root element in the XML is <code>PriorInformationNotice</code>.
-The definition of each root element is in the corresponding file present in the folder <code>schemas/maindoc</code> in the eForms SDK.</p>
+The definition of this root element is in the file indicated by the <code>schemaLocation</code> property.</p>
 </div>
 </div>
 </div>
@@ -749,7 +785,16 @@ value: a <code>node</code> identifier (a text string like <code>"ND-LotResult"</
 </td>
 <td class="hdlist2">
 <p>Appears only if <code>_repeatable</code> is <code>true</code>. This property provides the identifier of the field that should be used to store the identifier generated for each instance of this repeatable <code>group</code>. The <code>identifierFieldId</code> can be retrieved through metadata of the associated <code>node</code> (<code>fields.json</code>) but it is provided also here for convenience.<br>
-value: a <code>field</code> identifier (a text string like <code>"BT-11-Procedure-Buyer"</code>)</p>
+value: a <code>field</code> identifier (a text string like <code>"BT-137-Lot"</code>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>_captionFieldId</code>
+</td>
+<td class="hdlist2">
+<p>Appears only if <code>_repeatable</code> is <code>true</code>. This property provides the identifier of the field that can be used to help a user recognise a specific instance of this repeatable <code>group</code>, like a name or title. The <code>identifierFieldId</code> can be retrieved through metadata of the associated <code>node</code> (<code>fields.json</code>) but it is provided also here for convenience.<br>
+value: a <code>field</code> identifier (a text string like <code>"BT-21-Lot"</code>)</p>
 </td>
 </tr>
 <tr>
@@ -759,6 +804,15 @@ value: a <code>field</code> identifier (a text string like <code>"BT-11-Procedur
 <td class="hdlist2">
 <p>Appears only if <code>_repeatable</code> is <code>true</code>. Indicates the identifier scheme associated with the field in this <code>group</code> where the identifier of the <code>group</code> must be stored. It should be used as a prefix of identifiers generated for the instances of this repeatable group (e.g. <code>"LOT-0001"</code>). The value can be retrieved through the <code>field</code> metadata  (<code>fields.json</code>) but is provided also here for convenience. <br>
 value: an <code>idScheme</code> identifier (a text string like <code>"LOT"</code>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>_schemeName</code>
+</td>
+<td class="hdlist2">
+<p>Appears only if <code>_repeatable</code> is <code>true</code>. Indicates the name of the scheme associated with the field in this <code>group</code> where the identifier of the <code>group</code> must be stored. The value can be retrieved through the <code>field</code> metadata  (<code>fields.json</code>) but is provided also here for convenience. <br>
+value: an <code>schemeName</code> identifier (a text string like <code>"Lot"</code>)</p>
 </td>
 </tr>
 <tr>
@@ -884,6 +938,15 @@ values:  <code>true</code> or <code>false</code> <em>(default)</em></p>
 <td class="hdlist2">
 <p>The identifier of the label that should be used for this <code>field</code> in the user interface of your application.<br>
 value: a label identifier</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>_presetValue</code>
+</td>
+<td class="hdlist2">
+<p>The known value that should be used to pre-fill this <code>field</code> in your application.<br>
+value: a string value, which must be converted to the type of the field. "{NOW}" corresponds to the current date or time.</p>
 </td>
 </tr>
 </table>
