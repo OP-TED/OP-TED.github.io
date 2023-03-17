@@ -1149,9 +1149,8 @@ qualification procedure for eForms and any user with an API key and an eNotices2
 will be able to submit notices via the API. Similarly, Qualification and Simulation endpoints will cease to exist.
 The environments available will be instead Production and Preview.</p>
 <div class="paragraph">
-<p>The Preview environment that we are currently setting up will be available indefinitely
-so that users can test validation of notices against new versions of the SDK. The latter will first be implemented
-in Preview environment during a pre-announced transition period before going into Production.
+<p>The Preview environment will be available indefinitely so that users can test validation of notices against new versions of the SDK.
+The latter will first be implemented in Preview environment during a pre-announced transition period before going into Production.
 An SDK Management Service will be accessible as an API so that users can check all active versions of the SDK at any given time.</p>
 </div>
 <div class="paragraph">
@@ -1198,6 +1197,11 @@ it needs to be generated in the <a href="https://developer.preview.ted.europa.eu
 <div class="paragraph">
 <p>To use eNotices2 API (either in Preview or in Production), an eSender should log in at least once in the corresponding environment
 of the User Interface to pair their API key with their eNotices2 account.</p>
+</div>
+<div class="paragraph">
+<p>A guide on how to test in "Preview" was presented in
+<a href="https://op.europa.eu/en/web/eforms-2022/agenda">Day 1 of the second eForms Technical Workshop</a>:
+<a href="https://op.europa.eu/documents/10630606/0/TED-Developer-Portal-eForms-APIs-Sep29-eForms-Technical-Workshop.pptx/d0237e8e-500d-4b11-526c-e66c23ec773c?t=1664438251508">"TED Developer Portal and using eForms APIs"</a>.</p>
 </div>
 </li>
 <li>
@@ -1261,8 +1265,19 @@ It also caters for the multilingual versions of text elements and added options 
 <div class="paragraph">
 <p>Notice status VALIDATION_FAILED is only relevant to eSenders (users of eNotices2 API) and refers to notices that failed validation
 – i.e. that triggered CVS errors – upon submission. Such notices will never reach status “submitted” and will instead appear
-in the user interface and when querying the API with status “validation failed”. The same notice businessID (noticeID + versionID) cannot be reused.
-Via the concept of Notice Author, an email notification will be sent to the Contracting Authority only, detailing what failed validation.</p>
+in the user interface and when querying the API with status “validation failed”.</p>
+</div>
+<div class="paragraph">
+<p>HTTP response is in this case “201 created” with "validationReportUrl"
+and "success"=false. The validation report is stored in eNotices2 and can be retrieved with the given URL (with proper authentication)
+or exported directly from the User Interface of eNotices2. The same notice businessID (noticeID + versionID) cannot be reused.</p>
+</div>
+<div class="paragraph">
+<p>Via the concept of Notice Author, an email notification will be sent to the Contracting Authority only, detailing what failed validation.</p>
+</div>
+<div class="paragraph">
+<p>An overview of eForms notice statuses was presented during the 3rd eForms Technical Workshop -
+<a href="https://op.europa.eu/en/web/ted-eforms/agenda">The lifecycle of eForms notices</a></p>
 </div>
 </li>
 <li>
