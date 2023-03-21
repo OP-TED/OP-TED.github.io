@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>eForms Preview environment :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/home/eforms/preview/index.html">
-    <meta name="generator" content="Antora 3.1.2">
+    <meta name="generator" content="Antora 3.1.1">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
     <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
@@ -474,6 +474,9 @@ SDK versions
 <div class="paragraph">
 <p>Notices created before 15 March 2023 in Preview or Production environments and updated to SDK 1.6 may have issues. If editing a notice leads to an error (server error) or 'Notice Locked', the workaround is to export (download) the xml and reimport it somewhere else in eNotices2, even if it is in the same procedure.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_known_enotices2_api_issues"><a class="anchor" href="#_known_enotices2_api_issues"></a>Known eNotices2 API issues</h4>
 <div class="paragraph">
 <p>The eNotices2 API URLs and parameters will change in later releases. The <a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/">Swagger UI</a> provides basic documentation of the four functions.</p>
 </div>
@@ -482,6 +485,9 @@ SDK versions
 </div>
 <div class="paragraph">
 <p>Currently, when submitting an XML to eNotices2 API that is invalid against XSD, error code 500 will be returned. To see if this the case, i.e. the XML is not compliant against XSD, please check the notice for now through CVS API.</p>
+</div>
+<div class="paragraph">
+<p>The 'validationReportUrl' is currently not fully correct; /api/v2/ is missing in the URL. Until this bug is fixed, eSenders should use instead URL pattern 'https://enotices2.preview.ted.europa.eu/esenders/api/v2/notice/notices/{businessId}/validation-report' where the {businessId} is replaced with value taken from the submitted notice ('noticeId-versionId') or with {businessId} from validationReportUrl.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -550,14 +556,21 @@ In Production (live environment), the actual export to TED happens on workdays a
 <p>If you are an eSender, please note that the concept of Workgroups is reserved for users of eNotices2 web User Interface (UI). eSenders/ users of eNotices2 API       can still create workgroups in the UI of eNotices2 but the API is not aware of the context or workgroups, i.e. no API function can be performed on a notice           that has been manually transferred to the context of a Workgroup.</p>
 </li>
 <li>
-<p>To avoid authorisation issues when using eNotices2 API, make sure you generate your API key in the corresponding environment of the TED Developer Portal. Then log in at least once in the corresponding environment of the User Interface to pair your API key with your eNotices2 account:</p>
+<p>To avoid authorisation issues when using eNotices2 API, make sure you generate your API key in the corresponding environment of the TED Developer Portal:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://developer.ted.europa.eu/home">Developer Portal in Production</a></p>
+<p><a href="https://developer.preview.ted.europa.eu/home">Developer Portal in Preview</a></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
-<p><a href="https://developer.preview.ted.europa.eu/home">Developer Portal in Preview</a></p>
+<p>To avoid authorisation issues when using eNotices2 API, log in at least once in the corresponding environment of the User Interface to pair your API key with your eNotices2 account and make sure that your eNotices2 account is active:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://enotices2.preview.ted.europa.eu/home">eNotices2 in Preview</a></p>
 </li>
 </ul>
 </div>
