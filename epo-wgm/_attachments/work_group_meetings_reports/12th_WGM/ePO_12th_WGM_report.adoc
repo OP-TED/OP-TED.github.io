@@ -1,0 +1,244 @@
+= 12th WGM Meeting Report
+
+== Meeting Agenda
+
+* Welcome
+* What is the eProcurement ontology (ePO)?
+* ePO Releases
+* ePO HTML version presentation
+* ePO core updates
+* _break [15 min]_
+
+* eNotice
+* eCatalogue
+* eOrdering
+* eFulfilment
+* Work planned for 2023
+* Open discussion
+* Closing
+
+== Welcome
+
+Manuela Cruz from the Publications Office of the European Union (OP) gave the welcoming speech, thanking everyone for joining and accepting the invitation. She explained that the OP is in charge of the development of the eProcurement ontology and this is done with the support of an active user community of experts interested in electronic public procurement and interoperability. Manuela Cruz thanked the ePO working group for their support in this project.  +
+Manuela Cruz then explained the objective of this meeting is to present a summary of what has been done during the last year and what is foreseen in the future.  She continued to say:  +
+The main goal of the meeting is divided into two parts:
+
+. Provide a better understanding of the ePO.
+. Present the model to all the interested people, regardless of their professional background.
+Some practical uses of the ontology are:
+
+* Building the new generation of public procurement forms (eForms)
+* Building TED Semantic Web Services, that give the possibility to extract TED data in a format that is interoperable
+* Basis of the future Public Procurement Data Space
+Next, Natalie Muric from the Publications Office of the European Union (OP) provided rules and guidelines on how this meeting should further continue. She explained that this meeting tries to address the comments from the previous meeting, where people wanted to know more about what the ontology is about.   Therefore the first part of the meeting covers a description of how the human readable version of the ontology is developed and the second part covers what was carried out in the last quarter.  +
+The following sections provide a summary of what was presented by Andrea Pasare  and discussed.
+
+== What is eProcurement Ontology?
+
+*What is the purpose of eProcurement Ontology (ePO)?*  +
+The main goal of ePO is to provide a common understanding of the procurement domain between all stakeholders. This will enable the correct input of data in systems and solutions, thus ensuring that the data exchanged is understood, ensuring data quality and viability, and allowing data to be combined and further analysed.  +
+Other purposes of ePO are to facilitate data transparency, trend detection, monitoring, reporting and informed policy decisions.
+
+=== What is the eProcurement Ontology?
+
+The Public Procurement Ontology is a tool to create a basic common understanding of concepts and terms used in EU public procurement.  It prevents ambiguity and promotes clarity.    +
+The Ontology offers a way to describe and to structure data in a standardised manner, making it possible to bring together and combine data from various origins, because the data is expressed in a similar way.   +
+The Ontology facilitates the exchange of information between humans without ambiguity. It also facilitates exchange of data via machine-to-machine communication. Data structured by an ontology can be easily processed by a computer without human intervention. Therefore, different applications that use the same Ontology can easily communicate.  +
+When people have different understandings of the meaning of concepts, data can be wrongly attributed, therefore affecting the quality of data analysis as different data is assigned to different concepts.   +
+E.g., date of conclusion of the contract is the date when the contract is signed and not the date when contract is finished.
+
+=== Human readable vs machine readable
+
+Examples of both human readable and machine-readable formats are given. The human readable diagram can be used by anyone to visualise all concepts and relations between the concepts.   +
+The machine-readable format is represented by the Turtle and RDF output files. Links to both type of output formats are given in the presentation.
+
+=== Building blocks
+
+The European Public Procurement Ontology describes the structure and the definition of data in a standardised manner.   +
+From the structure of data point of view, the ontology consists of concepts/classes, attributes and predicates/relations.  +
+The ontology includes definitions for all these building blocks: concepts, attributes and predicates.
+
+=== Transformation of the model
+
+The human readable version is represented using Universal Modeling Language (UML) diagram. This model is then transformed into machine-readable OWL and SHACL shapes files automatically by using an internal pipeline.  +
+As UML is open to interpretation, UML conventions have been defined for this project.  +
+Each transformation is preceded by checking the conformity to those conventions. There is a report that contains all the errors, warnings, etc. From the conformity checking.  +
+*Querying datasets*  +
+Datasets that are implemented in conformity with the ePO, can then be queried. An example of a query based on standard form data was presented: retrieve all the Lots that foresee funding by the European Union funds.
+
+=== What is the practical use of the Ontology?
+
+* The Publications Office uses the Ontology to build the new public procurement eforms (eForms). These forms are used by Member States to send the announcements of their public contracts for publication in TED.
+* It’s terminology is also reused by the  European Committee for Standardization/Technical Committee for Electronic Public Procurement CEN/TC440
+* The Ontology will also be used as a basis for the Public Procurement Data Space. The PPDS will bring together data published in TED and data published in national platforms.
+
+== ePO releases
+
+The major ePO 3.0.0 release was followed by a minor patch, ePO 3.0.1, that included the following updates:
+
+* All subclasses of epo:Notice were moved to a separate module, eNotice.
+* The prefix used for the eNotice module is “epo-not:”.
+* The prefix used for the eCatalogue module is “epo-cat:”.
+* Diagrams were cleaned up to provide a better user readability.
+* Updates were made to enable mappings to TED standard forms.
+ePO version 3.1.0 is planned to be released on *Dec 16*^*th*^*, 2022.*
+
+== ePO HTML version presentation
+
+The documentation of ePO project is stored on the website of https://docs.ted.europa.eu/[https://docs.ted.europa.eu/[ ]]https://docs.ted.europa.eu/[TED developer docs]. The following parts of the documentation were presented:
+
+* The navigation menu for the eProcurement Ontology. The first section of the navigation menu represents an overview of the entire project which explains the reasons behind ePO, including user stories and competency questions.
+* The Working Group Meetings minutes page which contains all the minutes from various meetings that concern ePO project.
+* Latest release documentation page.
+* The glossary page is also presented. A glossary contains all the concepts, attributes and relations, along with their definitions. A search feature is also included in the glossary. It also provides the domain, range and cardinalities for the properties.
+* The release notes, report and guideline sections were also presented.
+* The HTML version of ePO which contains diagrams for all modules.
+* The overview page of the ePO core module contains a structure of all the views within the core model and can be used for a fast access to specific diagrams within the ePO core module.
+* The diagram folder of the ePO core module contains all the diagrams included in the core and they are divided into  different packages (eg Agent, Roles, Document…) depending on  the desired view. Each package usually contains a hierarchical and a relations diagram.
+* All the classes are stored in a class package. If we select a class, we are able to see the definition of it and all the attributes and predicates that we have on that class.
+* Two more packages are presented containing the controlled lists and the empirical types (monetary value, identifier, period, quantity and duration).
+* The datatypes used in ePO were then presented.
+
+== Updates for version 3.1.0
+
+Version 3.1.0 is foreseen to be published on 16 December 2022
+
+== ePO core
+Updates with regard to feedback from the previous ePO meeting
+
+There was a discussion centered on the fact that an OrganisationGroup should also be an Organization in the last meeting and this was implemented release 3.1.0.  +
+Also in the last meeting there was a question regarding how many triples do we have for F03. The answer to that is 350 triples on average.
+
+=== ePO core updates include the following:
+
+* Procurement Objects
+* Roles hierarchy restructure
+* model2owl updates
+* https://github.com/OP-TED/ePO/issues/[GitHub issues] revision and labeling
+* GitHub issues fixes for https://github.com/OP-TED/ePO/milestone/1[https://github.com/OP-TED/ePO/milestone/1[ ]]https://github.com/OP-TED/ePO/milestone/1[Q4 2022 milestone]
+* Updates for standard forms mappings - https://github.com/OP-TED/ted-rdf-mapping/issues[https://github.com/OP-TED/ted-rdf-mapping/issues[ ]]https://github.com/OP-TED/ted-rdf-mapping/issues[TED-RDF-mapping]
+
+=== Procurement objects
+
+ProcurementObject is to be createdas a parent class for Procedure, Lot and PlannedProcurementPart, since they have multiple properties in common.  +
+ProcurementElement will now become the gathering class for all critical/central elements in the procurement process.
+
+=== Roles hierarchy restructure
+
+In the previous release, ePO 3.0.1, Roles were classified using primary, secondary and tertiary types as gathering classes. All three concepts represented roles within the procurement process that tie an agent to a part they play in a given situation having a different level of involvement depending if they are primary, secondary or tertiary.  +
+In the future release, ePO 3.1.0, the roles will be classified using other three concepts: AquiringParty, OfferingParty and AuxiliaryParty. We were trying to find a better naming for these concepts. Ideas are more than welcomed.  +
+AquiringParty represents the role of an agent that acts on the buying side of a procurement process.  +
+OfferingParty represents the role of an agent that acts on the economic operator side during a procurement process.  +
+AuxiliaryParty represents the role of an agent who may be mentioned in the information exchanged during the procurement process but who does not play an active part in it.
+
+== model2owl updates
+
+model2owl is an ePO related project that comprises a set of tools for transforming an UML (v2.5) model from its XMI (v2.5.1) serialisation into a formal ontology.   +
+The project provides scripts that generate the OWL (core and restrictions layer) and SHACL (data shape constraints layer) output files. Also, a conformance report to the technical conventions of the conceptual model and a glossary that contains all the concepts, attributes and predicates within the ontology are generated.  +
+Some of the updates done for these tools are the following:
+
+* Provide combined glossary output for all ePO modules.
+* Provide Turtle output files.
+* Implemented metadata management mechanism:
+* imports
+* prefixes
+* ontology version
+* authors & contributors
+* creation date
+* GitHub issues for model2owl:https://github.com/OP-TED/model2owl/issues[https://github.com/OP-TED/model2owl/issues[ ]]https://github.com/OP-TED/model2owl/issues[https://github.com/OP-TED/model2owl/issues]
+
+== Open discussion before the break
+
+Q1: Is an OrganisationGroup for  instance  a joint venture?   +
+A1: Yes.  OrganisationGroup could be a formal or an informal group of organisations depending on the attributes.  +
+Q2: Is  eOrder online  +
+A2: Yes, it is online it can be found in the https://docs.ted.europa.eu/EPO/latest/eOrdering-Conceptual-Model.html[documentation].  +
+Q3: Suggestion to have stable links for the latest release and the development branch.  +
+A3: There are plans to do some changes in the documentation page and hopefully this will fix these issues for the next release.  +
+Q4: Does the eCatalogue cover pre-award and post-award phases  +
+A4: It covers the needs for post-award and some of the needs for pre-award. For example: in post-award, items are defined precisely by the seller and sent to the buyer this is modelled; however in pre-award, the buyer specifies what sort of items are needed, this is not currently modelled. But the ontology contains concepts covering both pre-award and post-award.  +
+It was noted that it is great to have the same generic terms and definitions that we can use in the pre-award and post-award catalogues.
+
+Q4 The recent CEN/TC 440 plenary meeting mentioned that all WG are reusing semantics of the ePO, which is free however the deliverables of CEN are not free.  It would be good if the syntax bindings such as UBL and UNCEFACT could be introduced into the ontology.  +
+A4:  eForms will be in UBL (universal business language) and eForms will be mapped to the ontology, the suggestion of  introducing UNCEFACT and UBL into the ontology will have to be carefully considered so as to avoid any IPR problems.  +
+Also, this was an issue in SEMIC  where core vocabularies and application profile are developed using RDF (semantic technologies).  Often the messages are being exchanged in xml format creating a desire  to algin xml to the semantic model, however it is not possible to establish isomorphism between semantic models and syntactic schema because the same semantic model can be manifested in multiple ways in the syntactic schema.
+
+
+== eNotice
+
+Although this was drawn up almost a year ago, it was never entirely published until now.  The module is structured in three packages: notice core, eForms standardisation and standard Forms standardisation.   +
+The standardisation of the notices was done taking into account the notice types: planning, competition, Direct Award Prenotification, result, contract modification and completion. This is the so-called “phase organisation of the notices”.  +
+In the case of standard forms, we also did a classification based on the directives. Hybrid concepts were created that help us combine a notice type with a Directive and a specific standard form.
+
+== eCatalogue
+
+These are  diagrams that contain new classes specific to Catalogue used in the procurement.   +
+Although eCatalogue exists since version 3.0.0.,  some small updates will be included in the next release (v3.1.0):
+
+* A new Buyer’s item identifier was added to the Item concept.
+* Two new controlled vocabularies were added to the diagrams: document-type and price-type.
+* Links from the Catalogue to Seller, Buyer and CatalogueReceiver were added.
+
+== eOrdering
+
+This is a new module that contains classes specific to the Ordering phase of  procurement.  +
+The development of the Ordering module was initiated with an alignment to the PEPPOL order use cases.  +
+New Roles specific to Ordering were added, like Originator, Invoicee, Seller, Beneficiary.  +
+While we were doing this, we realised that there are different implementations of some concepts, depending on the Member State, one being at the Order/header level, and the other one at the OrderLine level. This led to the creation of information hubs. A specific diagram for information hubs was presented. An Information hub is characterised:
+
+* Relation from hub to object of concern
+* Relation from Order to hub
+* Relation from hub to OrderLine
+
+== Future Release
+
+=== eFulfilment
+
+This module will be included in the next release. The development of this module was carried out by doing an alignment to PEPPOL. A diagram containing the Concepts of the eFulfilment module, like DespatchAdvice, DespatchLine, Despatcher, Carrier, ShipmentInformation was presented.
+
+== ePO future plans
+
+Future work in 2203 foresees updates to: ePO core, eNotice, eCatalogue, eOrdering and the development of : eFulfilment, eAccess, eContract, eSubmission, eInvoincing, Contracts Registry.   +
+Another important part of the future work is to continue fixing Github issues, both from ePO project and model2owl project and the documentation for ePO.
+
+== Open discussion
+
+Q: Is the UBL semantics used for electronic invoice?  +
+A: We have of yet not modelled the electronic invoice. In general we have to take all the concepts that are needed for all models and make sure that they can be re-used in different implementations. We focus on the semantic modeling, which in theory should be expressible in various syntaxes. The bindings to the syntaxes can end up be serialised in different ways.  +
+It was suggested  to have some notes for each element of the ontology that is equal to some element in a different syntax.    +
+It was stated that this needs a commitment to establish alignments and that is out of scope for the moment. This can be considered as a part of future scope.  +
+It was noted that in CEN/TC 440   there are three steps Choreography, transactions and syntax bindings, we are on the way to build bridges. The vocabulary used in the transactions of CEN TC440 will be reused from the ontology which will then be bound to the UBL syntax.
+
+== Closing
+
+The audience is thanked for its participation and the audience was reminded of the following information:  +
+Regular ePO Working Group meetings:   +
+  	- every Tuesday from 14:30 to 16:30 (EET)
+  	- https://ecconf.webex.com/ecconf/j.php?MTID=mc9b4a430d67591e79374801c5911a82b[https://ecconf.webex.com/ecconf/j.php?MTID=mc9b4a430d67591e79374801c5911a82b[ ]]https://ecconf.webex.com/ecconf/j.php?MTID=mc9b4a430d67591e79374801c5911a82b[meeting link]
+
+Specific ePO Working Group meetings:  +
+  	- every other Thursday from 14:30 to 16:30 (EET)
+  	- https://ecconf.webex.com/ecconf/j.php?MTID=ma90a2cd20751757a74ecd0de55219ac9[https://ecconf.webex.com/ecconf/j.php?MTID=ma90a2cd20751757a74ecd0de55219ac9[ ]]https://ecconf.webex.com/ecconf/j.php?MTID=ma90a2cd20751757a74ecd0de55219ac9[meeting link]
+
+Quarterly seminars:
+
+
+* Tues 7 or Thurs 9 March (afternoons)
+* Tues 13 or Thurs 15 June (afternoons)
+* Tues 5 or Thurs 7 September (afternoons)
+* Tues 5 or Thurs 7 December (afternoons)
+
+
+  	- 6-8 June is bank holiday
+
+Feedback and questions can be sent via:
+
+* GitHub issues:https://github.com/OP-TED/ePO/issues[https://github.com/OP-TED/ePO/issues[ ]]https://github.com/OP-TED/ePO/issues[https://github.com/OP-TED/ePO/issues]
+or alternatively via:
+
+* Email: +++<u>+++OP-EPROCUREMENT-ONTOLOGY@publications.europa.eu+++</u>+++
+* E mail: +++<u>+++natalie.muric@publications.europa.eu+++</u>+++
+
+
+
+

@@ -466,10 +466,13 @@ SDK versions
 <p>In Change notices, section "Information about the change" should not be repeated.</p>
 </div>
 <div class="paragraph">
+<p>As of 19 December 2022, status “published” may not have been shown in Preview for notices that were submitted successfully; this issue is now fixed.</p>
+</div>
+<div class="paragraph">
 <p>On 10 and 11 January 2023, notices submitted may have acquired status “not published”; this issue is now fixed.</p>
 </div>
 <div class="paragraph">
-<p>As of 19 December 2022, status “published” may not be shown in Preview for notices that are submitted successfully. We are currently working on this issue.</p>
+<p>Due to an error in the processing of notices at export time some notices remain in "submitted" status; we are working on fixing this issue.</p>
 </div>
 <div class="paragraph">
 <p>Notices created before 15 March 2023 in Preview or Production environments and updated to SDK 1.6 may have issues. If editing a notice leads to an error (server error) or 'Notice Locked', the workaround is to export (download) the xml and reimport it somewhere else in eNotices2, even if it is in the same procedure.</p>
@@ -487,7 +490,7 @@ SDK versions
 <p>Currently, when submitting an XML to eNotices2 API that is invalid against XSD, error code 500 will be returned. To see if this the case, i.e. the XML is not compliant against XSD, please check the notice for now through CVS API.</p>
 </div>
 <div class="paragraph">
-<p>The 'validationReportUrl' is currently not fully correct; /api/v2/ is missing in the URL. Until this bug is fixed, eSenders should use instead URL pattern 'https://enotices2.preview.ted.europa.eu/esenders/api/v2/notice/notices/{businessId}/validation-report' where the {businessId} is replaced with value taken from the submitted notice ('noticeId-versionId') or with {businessId} from validationReportUrl.</p>
+<p>The 'validationReportUrl' property  present in the response body for submit notice is currently not fully correct; /api/v2/ is missing in the URL. Until this bug is fixed, eSenders should use instead URL pattern: 'https://enotices2.preview.ted.europa.eu/esenders/api/v2/notice/notices/{businessId}/validation-report' where the {businessId} is replaced with value taken from the submitted notice ('noticeId-versionId') or with {businessId} from validationReportUrl.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -576,7 +579,7 @@ In Production (live environment), the actual export to TED happens on workdays a
 </div>
 </li>
 <li>
-<p>For the value to indicate in the cbc:CustomizationID element, it should always have the format "eforms-sdk-major.minor".  See this page for more details:
+<p>eNotices2 API supports currently SDK versions 1.3, 1.4, 1.5 and 1.6. SDK version 1.6 is supported both in Preview and Production environments as of 15 March 2023. For the value to indicate in the cbc:CustomizationID element, it should always have the format "eforms-sdk-major.minor".  See this page for more details:
 <a href="https://docs.ted.europa.eu/eforms/latest/versioning.html#_significance_of_the_sdk_version_in_notice_handling_and_validation" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning.html#_significance_of_the_sdk_version_in_notice_handling_and_validation</a></p>
 </li>
 </ul>
