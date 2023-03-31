@@ -6675,7 +6675,7 @@ communication.</p>
 </div>
 <div class="paragraph">
 <p>This optional Business Term is to be used, for PIN and CN notices only, in
-conjunction with BT-724 &amp; BT-124. It shall be marked using the extension
+conjunction with BT-124. It shall be marked using the extension
 mechanism at the level of the "<em>cac:TenderingProcess</em>" element of the
 Lot or Part it applies to.</p>
 </div>
@@ -18744,7 +18744,7 @@ accessed February 11<sup>th</sup>, 2020.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="identifiersAndReferencesSection"><a class="anchor" href="#identifiersAndReferencesSection"></a>15. Identifiers and References</h2>
+<h2 id="identifiersAndReferencesSection"><a class="anchor" href="#identifiersAndReferencesSection"></a>15. Identifiers, References and Pointless Business Terms</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>In the sections below, the different identifiers are listed.</p>
@@ -19093,7 +19093,7 @@ constitute a Group of lot</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">BT-1501(n)</p></td>
-<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Modification Previous Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Modification Previous Notice Identifier</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Reference
 to the CAN (eforms notice only) that announced the contract now subject
 to modification, using a combination of the Notice Identifier (BT-701)
@@ -19702,7 +19702,14 @@ with a "Change".</em></p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="pointlessDueToDesignSection"><a class="anchor" href="#pointlessDueToDesignSection"></a>15.3. Pointless due to design</h3>
+<h3 id="pointlessDueToDesignSection"><a class="anchor" href="#pointlessDueToDesignSection"></a>15.3. Pointless Business Terms due to design</h3>
+<div class="paragraph">
+<p>Structural differences between the eForms Regulation Annex and UBL
+(e.g. normalized vs denormalized data) make some Business Terms not
+necessary and not possible to represent.
+Additionally, some indicators based rules make those indicators and
+their associated Business Terms useless.</p>
+</div>
 <table id="pointlessBTsDueToTechnicalDesignTable" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 41. Pointless BTs due to technical design</caption>
 <colgroup>
@@ -19823,6 +19830,25 @@ elements at dedicated places within the XML (cf. <a href="parties.html#linkingRo
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-13715</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional Information Lot Identifier</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Options</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not represented in UBL. Not required as BT-54 is mandatory
+when BT-53 is "Yes". If BT-54 is not there, then BT-53 is "No"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-724</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Atypical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When dealing with an atypical tool, the URL where
+the tool may be found (BT-124) is mandatory, else it is not allowed. The
+presence of BT-124 is sufficient to detect whether the tool is atypical or not.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-778</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Framework Maximum Participants</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not represented in UBL. Not required,
+if BT-113 is mandatory when BT-778 is "Yes". If BT-113 is not there, then BT-778 is "No"</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-5561</p></td>

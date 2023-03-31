@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Identifiers and References :: TED Developer Documentation</title>
+    <title>Identifiers, References and Pointless Business Terms :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/eforms/latest/schema/identifiers.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -371,7 +371,7 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">Identifiers and References</h1>
+<h1 class="page">Identifiers, References and Pointless Business Terms</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
@@ -726,7 +726,7 @@ constitute a Group of lot</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">BT-1501(n)</p></td>
-<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Modification Previous Notice Section Identifier</p></td>
+<td class="tableblock halign-left valign-middle" rowspan="2"><p class="tableblock">Modification Previous Notice Identifier</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Reference
 to the CAN (eforms notice only) that announced the contract now subject
 to modification, using a combination of the Notice Identifier (BT-701)
@@ -1336,8 +1336,15 @@ with a "Change".</em></p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="pointlessDueToDesignSection"><a class="anchor" href="#pointlessDueToDesignSection"></a>Pointless due to design</h2>
+<h2 id="pointlessDueToDesignSection"><a class="anchor" href="#pointlessDueToDesignSection"></a>Pointless Business Terms due to design</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Structural differences between the eForms Regulation Annex and UBL
+(e.g. normalized vs denormalized data) make some Business Terms not
+necessary and not possible to represent.
+Additionally, some indicators based rules make those indicators and
+their associated Business Terms useless.</p>
+</div>
 <table id="pointlessBTsDueToTechnicalDesignTable" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 4. Pointless BTs due to technical design</caption>
 <colgroup>
@@ -1458,6 +1465,25 @@ elements at dedicated places within the XML (cf. <a href="parties.html#linkingRo
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-13715</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Additional Information Lot Identifier</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-53</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Options</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not represented in UBL. Not required as BT-54 is mandatory
+when BT-53 is "Yes". If BT-54 is not there, then BT-53 is "No"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-724</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Atypical</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">When dealing with an atypical tool, the URL where
+the tool may be found (BT-124) is mandatory, else it is not allowed. The
+presence of BT-124 is sufficient to detect whether the tool is atypical or not.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">BT-778</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Framework Maximum Participants</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not represented in UBL. Not required,
+if BT-113 is mandatory when BT-778 is "Yes". If BT-113 is not there, then BT-778 is "No"</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-5561</p></td>
