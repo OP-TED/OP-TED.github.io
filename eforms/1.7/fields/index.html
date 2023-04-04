@@ -513,13 +513,14 @@ subset of those fields.</p>
     "btId" : "BT-01", <i class="conum" data-value="4"></i><b>(4)</b>
     "xpathAbsolute" : "/*/cbc:RegulatoryDomain", <i class="conum" data-value="5"></i><b>(5)</b>
     "xpathRelative" : "cbc:RegulatoryDomain", <i class="conum" data-value="6"></i><b>(6)</b>
-    "type" : "code", <i class="conum" data-value="7"></i><b>(7)</b>
-    "legalType" : "CODE", <i class="conum" data-value="8"></i><b>(8)</b>
-    "maxLength" : 400, <i class="conum" data-value="9"></i><b>(9)</b>
-    "repeatable" : { <i class="conum" data-value="10"></i><b>(10)</b>
+    "xsdSequenceOrder" : [ { "cbc:RegulatoryDomain" : 18 } ], <i class="conum" data-value="7"></i><b>(7)</b>
+    "type" : "code", <i class="conum" data-value="8"></i><b>(8)</b>
+    "legalType" : "CODE", <i class="conum" data-value="9"></i><b>(9)</b>
+    "maxLength" : 400, <i class="conum" data-value="10"></i><b>(10)</b>
+    "repeatable" : { <i class="conum" data-value="11"></i><b>(11)</b>
       "value" : false
     },
-    "codeList" : { <i class="conum" data-value="11"></i><b>(11)</b>
+    "codeList" : { <i class="conum" data-value="12"></i><b>(12)</b>
       "value" : {
         "id" : "legal-basis",
         "type" : "flat"
@@ -532,14 +533,15 @@ subset of those fields.</p>
     "btId" : "BT-137",
     "xpathAbsolute" : "/*/cac:ProcurementProjectLot[cbc:ID/@schemeName='Lot']/cbc:ID",
     "xpathRelative" : "cbc:ID",
+    "xsdSequenceOrder" : [ { "cbc:ID" : 2 } ],
     "type" : "id",
-    "idScheme" : "LOT", <i class="conum" data-value="12"></i><b>(12)</b>
+    "idScheme" : "LOT", <i class="conum" data-value="13"></i><b>(13)</b>
     "legalType" : "IDENTIFIER",
     "repeatable" : {
       "value" : false,
       "severity" : "ERROR"
     },
-    "forbidden" : { <i class="conum" data-value="13"></i><b>(13)</b>
+    "forbidden" : { <i class="conum" data-value="14"></i><b>(14)</b>
       "value" : false,
       "severity" : "ERROR",
       "constraints" : [ {
@@ -548,7 +550,7 @@ subset of those fields.</p>
         "severity" : "ERROR"
       } ]
     },
-    "mandatory" : { <i class="conum" data-value="14"></i><b>(14)</b>
+    "mandatory" : { <i class="conum" data-value="15"></i><b>(15)</b>
       "value" : false,
       "severity" : "ERROR",
       "constraints" : [ {
@@ -557,7 +559,7 @@ subset of those fields.</p>
         "severity" : "ERROR"
       } ]
     },
-    "pattern" : { <i class="conum" data-value="15"></i><b>(15)</b>
+    "pattern" : { <i class="conum" data-value="16"></i><b>(16)</b>
       "value" : "^LOT-\\d{4}$",
       "severity" : "ERROR"
     }
@@ -568,8 +570,9 @@ subset of those fields.</p>
     "btId" : "BT-13714",
     "xpathAbsolute" : "/*/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/efext:EformsExtension/efac:NoticeResult/efac:LotTender/efac:TenderLot/cbc:ID",
     "xpathRelative" : "efac:TenderLot/cbc:ID",
+    "xsdSequenceOrder" : [ { "efac:TenderLot" : 14 }, { "cbc:ID" : 1 } ],
     "type" : "id-ref",
-    "idSchemes" : [ "LOT", "GLO" ], <i class="conum" data-value="16"></i><b>(16)</b>
+    "idSchemes" : [ "LOT", "GLO" ], <i class="conum" data-value="17"></i><b>(17)</b>
     "legalType" : "IDENTIFIER",
     "repeatable" : {
       "value" : false,
@@ -617,43 +620,47 @@ subset of those fields.</p>
 </tr>
 <tr>
 <td><i class="conum" data-value="7"></i><b>7</b></td>
-<td>Technical data type of the field.</td>
+<td>Position of each XML element relative to its siblings. <a href="#xsdSequenceOrder">See below for details</a>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="8"></i><b>8</b></td>
-<td>Data type of the business term, as indicated in the eForms Regulation.</td>
+<td>Technical data type of the field.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="9"></i><b>9</b></td>
-<td>Maximum number of characters allowed in the value of the field, optional.</td>
+<td>Data type of the business term, as indicated in the eForms Regulation.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="10"></i><b>10</b></td>
-<td>Indicates if the field can appear more than once inside its container</td>
+<td>Maximum number of characters allowed in the value of the field, optional.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="11"></i><b>11</b></td>
+<td>Indicates if the field can appear more than once inside its container</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="12"></i><b>12</b></td>
 <td>Identifier of the code list from which the field value must belong.
 Applicable only for fields of type "code" or "internal-code"</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="12"></i><b>12</b></td>
+<td><i class="conum" data-value="13"></i><b>13</b></td>
 <td>Identifier scheme used by a field with <code>"type" : "id"</code>.</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="13"></i><b>13</b></td>
+<td><i class="conum" data-value="14"></i><b>14</b></td>
 <td>This property provides information on when a field&#8217;s presence is forbidden.</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="14"></i><b>14</b></td>
+<td><i class="conum" data-value="15"></i><b>15</b></td>
 <td>This property provides information on when a field&#8217;s value is mandatory.</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="15"></i><b>15</b></td>
+<td><i class="conum" data-value="16"></i><b>16</b></td>
 <td>A RegEx pattern the field&#8217;s value must match.</td>
 </tr>
 <tr>
-<td><i class="conum" data-value="16"></i><b>16</b></td>
+<td><i class="conum" data-value="17"></i><b>17</b></td>
 <td>Array indicating the valid <code>idScheme</code> values which this identifier reference field (<code>"type" : "id-ref"</code>) can reference.</td>
 </tr>
 </table>
@@ -717,6 +724,14 @@ Applicable only for fields of type "code" or "internal-code"</td>
 </td>
 <td class="hdlist2">
 <p>The XPath of the field relative to its parent <code>node</code>. See <code>parentNodeId</code>.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code id="xsdSequenceOrder">xsdSequenceOrder</code>
+</td>
+<td class="hdlist2">
+<p>This indicates, for each XML element that is part of <code>xpathRelative</code>, the position that this element should have relative to its siblings in order to have an XML instance valid against the XML Schema. This information is extracted from the definition of the corresponding complex type in the XSD files.</p>
 </td>
 </tr>
 <tr>

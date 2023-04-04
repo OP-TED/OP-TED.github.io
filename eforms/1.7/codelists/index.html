@@ -382,8 +382,7 @@ website.</p>
 </div>
 <div class="paragraph">
 <p>A subset of these vocabularies are relevant to the domain of eProcurement;
-most of these
-are flat lists of terms and their definitions; some, such as the NUTS
+most of these are flat lists of terms and their definitions; some, such as the NUTS
 (Nomenclature of Territorial Units for Statistics) are hierarchical
 taxonomies. They are listed on the
 <a href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">Authority tables and taxonomies used in eProcurement</a>
@@ -395,7 +394,7 @@ page.</p>
 <h2 id="_codelists"><a class="anchor" href="#_codelists"></a>Codelists</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A codelist is a flat (non-hierarchical) implementation of a vocabulary: a
+<p>A codelist implements a vocabulary: a
 list of language-independent codes that represent an agreed set of values
 for a particular data context.</p>
 </div>
@@ -506,7 +505,7 @@ applicability:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Entire codelists from the EU Vocabularies site</p>
+<p>Codelists derived from the EU Vocabularies site</p>
 </li>
 <li>
 <p>Tailored codelists</p>
@@ -517,13 +516,97 @@ applicability:</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="_entire_codelists"><a class="anchor" href="#_entire_codelists"></a>Entire codelists</h4>
+<h4 id="_codelists_from_eu_vocabularies"><a class="anchor" href="#_codelists_from_eu_vocabularies"></a>Codelists from EU Vocabularies</h4>
 <div class="paragraph">
 <p>These are eProcurement codelists published and maintained on the
 <a href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">Authority tables and taxonomies used in eProcurement</a>
-page of EU Vocabularies. They are used as provided, no changes are made, and
-all codes are available for use in the relevant eForms XML elements.
-The canonical source of these codelists is the EU Vocabularies website.</p>
+page of EU Vocabularies.</p>
+</div>
+<div class="paragraph">
+<p>In the SDK we include only the codes that are relevant to eForms. For example we don&#8217;t include currencies that are currently not in use.
+Those codes are marked with the "EFORMS" use context, which is available in the SKOS files available on EU Vocabularies</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;lemon:context rdf:resource="http://publications.europa.eu/resource/authority/use-context/EFORMS"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As NUTS and CPV have no use-context we take the complete current version of these codelists.</p>
+</div>
+<div class="sect4">
+<h5 id="_hierarchical_codelists"><a class="anchor" href="#_hierarchical_codelists"></a>Hierarchical codelists</h5>
+<div class="paragraph">
+<p>Some codelists have a tree-like structure, with some codes corresponding to subdivisions of other codes. This is the case for the NUTS and CPV codelists.</p>
+</div>
+<div class="paragraph">
+<p>In order to provide information on this structure, the parent code is indicated in the genericode file, in an additional column called "ParentCode".
+The parent code is optional, as top level elements do not have a parent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ColumnSet&gt;
+  ...
+  &lt;Column Id="parentCode" Use="optional"&gt; <i class="conum" data-value="1"></i><b>(1)</b>
+    &lt;ShortName&gt;ParentCode&lt;/ShortName&gt;
+    &lt;Data Lang="eng" Type="normalizedString"/&gt;
+  &lt;/Column&gt;
+  ...
+&lt;/ColumnSet&gt;
+...
+&lt;Row&gt;
+  &lt;Value ColumnRef="code"&gt;
+    &lt;SimpleValue&gt;FR&lt;/SimpleValue&gt; <i class="conum" data-value="2"></i><b>(2)</b>
+  &lt;/Value&gt;
+  &lt;Value ColumnRef="Name"&gt;
+    &lt;SimpleValue&gt;France&lt;/SimpleValue&gt;
+  &lt;/Value&gt;
+  &lt;Value ColumnRef="eng_label"&gt;
+    &lt;SimpleValue&gt;France&lt;/SimpleValue&gt;
+  &lt;/Value&gt;
+  ...
+&lt;/Row&gt;
+&lt;Row&gt;
+  &lt;Value ColumnRef="code"&gt;
+    &lt;SimpleValue&gt;FRD&lt;/SimpleValue&gt; <i class="conum" data-value="3"></i><b>(3)</b>
+  &lt;/Value&gt;
+  &lt;Value ColumnRef="Name"&gt;
+    &lt;SimpleValue&gt;Normandie&lt;/SimpleValue&gt;
+  &lt;/Value&gt;
+  &lt;Value ColumnRef="parentCode"&gt;
+    &lt;SimpleValue&gt;FR&lt;/SimpleValue&gt; <i class="conum" data-value="4"></i><b>(4)</b>
+  &lt;/Value&gt;
+  &lt;Value ColumnRef="eng_label"&gt;
+    &lt;SimpleValue&gt;Normandie&lt;/SimpleValue&gt;
+  &lt;/Value&gt;
+  ...
+&lt;/Row&gt;
+...</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Column definition for the optional parent code</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The code "FR" representing France</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>The code "FRD" representing Normandie</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>The parent code of "FRD" is "FR", linking Normandie to France</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The parent code is not indicated in tailored codelists based on hierarchical codelists.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
