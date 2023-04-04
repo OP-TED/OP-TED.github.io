@@ -17109,17 +17109,6 @@ however appears during contract execution and applies to a CAN only.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Previous Section Identifier (BT-1501)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of
-the modified sections</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>+</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangedSectionIdentifier</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Description (BT-202)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the modification</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
@@ -17148,6 +17137,17 @@ reasons expressed as text</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ChangeReason/efbc:ReasonDescription</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Previous Section Identifier (BT-1501)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of
+the modified sections</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>+</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efac:ChangedSection/efbc:ChangedSectionIdentifier</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -17187,10 +17187,16 @@ Modification notice using the contract technical identifier.</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:ContractModification&gt;
     &lt;efbc:ChangedNoticeIdentifier&gt;755db7f6-6aa1-453b-9087-1df5f7725112-02&lt;/efbc:ChangedNoticeIdentifier&gt;
     &lt;efac:Change&gt;
-        &lt;efbc:ChangedSectionIdentifier&gt;CON-0001&lt;/efbc:ChangedSectionIdentifier&gt;
-        &lt;efbc:ChangedSectionIdentifier&gt;LOT-0001&lt;/efbc:ChangedSectionIdentifier&gt;
-        &lt;efbc:ChangedSectionIdentifier&gt;LOT-0003&lt;/efbc:ChangedSectionIdentifier&gt;
         &lt;efbc:ChangeDescription languageID="ENG"&gt;The scope of the procurement ...&lt;/efbc:ReasonDescription&gt;
+        &lt;efac:ChangedSection&gt;
+            &lt;efbc:ChangedSectionIdentifier&gt;CON-0001&lt;/efbc:ChangedSectionIdentifier&gt;
+        &lt;/efac:ChangedSection&gt;
+        &lt;efac:ChangedSection&gt;
+            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0001&lt;/efbc:ChangedSectionIdentifier&gt;
+        &lt;/efac:ChangedSection&gt;
+        &lt;efac:ChangedSection&gt;
+            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0003&lt;/efbc:ChangedSectionIdentifier&gt;
+        &lt;/efac:ChangedSection&gt;
     &lt;/efac:Change&gt;
     &lt;efac:ChangeReason&gt;
         &lt;cbc:ReasonCode listName="modification-justification"&gt;mod-cir&lt;/cbc:ReasonCode&gt;
