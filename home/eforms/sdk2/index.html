@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>eForms SDK Roadmap :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/home/eforms/roadmap/index.html">
+    <title>eForms SDK 2.0.0 :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/home/eforms/sdk2/index.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -95,8 +95,8 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../../eforms/latest/index.html">eForms SDK Docs <code>1.6.0</code></a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="index.html">SDK Roadmap</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../roadmap/index.html">SDK Roadmap</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../FAQ/index.html">eForms FAQ</a>
@@ -234,7 +234,7 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../../index.html">Developer Docs</a></li>
-    <li><a href="index.html">SDK Roadmap</a></li>
+    <li><a href="index.html">eForms SDK 2.0.0</a></li>
   </ul>
 </nav>
 </div>
@@ -243,38 +243,73 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">eForms SDK Roadmap</h1>
-<div class="sect1">
-<h2 id="_eforms_sdk_1_x_x"><a class="anchor" href="#_eforms_sdk_1_x_x"></a>eForms SDK 1.x.x</h2>
+<h1 class="page">eForms SDK 2.0.0</h1>
+<div id="preamble">
 <div class="sectionbody">
-<div class="paragraph">
-<p>Since the release of the eForms SDK 1.0.0 in August 2022, we have continued to release updates to the SDK that incrementally improve the eForms metadata that is included in it. These updates are all backwards compatible with the SDK 1.0.0 and therefore they can be used by applications that have already been adapted to the SDK 1.0.0. At the time of updating this roadmap (April 2023), the latest version of the SDK is 1.6.0, while testing is underway for the release of 1.7.0 foreseen to be released next week.</p>
-</div>
-<div class="paragraph">
-<p>Further updates to SDK 1.x.x will continue to be released with the frequency of roughly one update per month. We are dedicated in the continued support of the SDK 1.x.x and we will continue to update it with new minor releases as well as patches to all active SDK versions. Minor releases will introduce updates to the eForms business rules as needed, while patches will ensure updated translations and other metadata are made available to all eSender applications regardless of whether or not they are already using the latest minor version of the eForms SDK.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_eforms_sdk_2_0_0"><a class="anchor" href="#_eforms_sdk_2_0_0"></a>eForms SDK 2.0.0</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>In parallel, we are working on the next major version of the eForms SDK, which we plan to release by the end of June 2023. The new version aims at improving the grammar of EFX to make it more flexible and easier to read and write. Its main goal is to improve the expressiveness of EFX Templates so that we can overcome current limitations in notice visualisation. We are also adding new functions that will allow us to better manipulate and format notice data, as well as improve our current internationalisation capabilities.</p>
-</div>
-<div class="paragraph">
-<p>For more details on what is coming with SDK 2.0.0, you can consult the <a href="../sdk2/index.html" class="xref page">SDK 2 preliminary documentation</a> that we have made available. You can find more <a href="../sdk2/efx2.html" class="xref page">details on EFX 2 here</a>.</p>
-</div>
-<div class="admonitionblock note">
+<div class="admonitionblock warning">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Please note that the SDK 2 documentation is still a work in progress and that it will be updated as we make progress on the development of SDK 2.0.0.
+This is a pre-release version of this document.
+ The eForms SDK 2.0.0 is still under development.
+ This notice will be removed when the document is finalized.
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_whats_new"><a class="anchor" href="#_whats_new"></a>What&#8217;s new</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main goal of version 2.0.0 of the eForms SDK is to update the EFX grammar. We have tried to focus exclusively on the EFX grammar and avoid any other changes in order to minimise the impact on existing applications. Here is an overview of the changes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated EFX grammar</p>
+</li>
+<li>
+<p><em>No other changes currently foreseen</em></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_efx_2"><a class="anchor" href="#_efx_2"></a>EFX 2</h3>
+<div class="paragraph">
+<p>EFX 1 had a number of limitations that we are trying to address in EFX 2. More specifically,</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>we have enriched the syntax for creating EFX Templates in order to overcome current limitations in notice visualisation.</p>
+</li>
+<li>
+<p>we have added a number of new functions that give us more control over formatting, text manipulation and internationalisation.</p>
+</li>
+<li>
+<p>we have introduced aliases for Fields and Nodes, in order to make EFX Expressions more readable.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In short EFX 2 allows us to improve notice visualisation while making EFX expressions simpler to read and write.</p>
+</div>
+<div class="paragraph">
+<p>For details on what has changed on EFX 2, see the dedicate page on <a href="efx2.html" class="xref page"><strong>"What&#8217;s new in EFX 2"</strong></a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_migration"><a class="anchor" href="#_migration"></a>Migration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>A complete migration guide will be provided.</em></p>
 </div>
 </div>
 </div>
