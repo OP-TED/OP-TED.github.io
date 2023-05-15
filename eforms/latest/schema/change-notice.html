@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.6">
+<div class="nav-container" data-component="eforms" data-version="1.7">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -274,17 +274,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.6.0</span>
+          <span class="version">1.7.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../../1.7/index.html">1.7.0</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="../index.html">1.6.0</a>
+              <a href="../index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../1.6/index.html">1.6.0</a>
             </li>
             <li class="version">
               <a href="../../1.5/index.html">1.5.1</a>
@@ -371,10 +371,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.6.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.7.0</button>
   <div class="version-menu">
-    <a class="version" href="../../1.7/schema/change-notice.html">1.7.0</a>
-    <a class="version is-current" href="change-notice.html">1.6.0</a>
+    <a class="version is-current" href="change-notice.html">1.7.0</a>
+    <a class="version" href="../../1.6/schema/change-notice.html">1.6.0</a>
     <a class="version" href="../../1.5/schema/change-notice.html">1.5.1</a>
     <a class="version" href="../../1.4/schema/change-notice.html">1.4.1</a>
     <a class="version" href="../../1.3/schema/change-notice.html">1.3.2</a>
@@ -409,8 +409,8 @@ the first Change notice, the original notice,</p>
 </div>
 <div class="paragraph">
 <p>While changes may apply to notices of any form type, the Change notice
-Form Type and Notice Type values must respectively correspond to
-"change" and "corr". A change notice may only concern a single notice
+Form Type and Notice Type values must be identical to the ones of the
+original notice. A change notice may only concern a single notice
 and  contains all the information from that initial notice with applied
 changes in addition to the information on those changes.</p>
 </div>
@@ -587,23 +587,23 @@ procurement documents have changed</p></td>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Previous Section Identifier (BT-13716)</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of the
-changed sections</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangedSectionIdentifier</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Description (BT-141)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the changes</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangeDescription</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Change Previous Section Identifier (BT-13716)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of the
+changed sections</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>*</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efac:ChangedSection/efbc:ChangedSectionIdentifier</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -650,14 +650,18 @@ well as information about changes to procurement documents:</p>
                     &lt;efac:Changes&gt;
                         &lt;efbc:ChangedNoticeIdentifier schemeName="notice-id-ref"&gt;755db7f6-6aa1-453b-9087-1df5f7725112-02&lt;/efbc:ChangedNoticeIdentifier&gt;
                         &lt;efac:Change&gt;
-                            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0001&lt;/efbc:ChangedSectionIdentifier&gt;
                             &lt;efbc:ChangeDescription languageID="ENG"&gt;The changes have been applied to ...&lt;/efbc:ChangeDescription&gt;
+                            &lt;efac:ChangedSection&gt;
+                                &lt;efbc:ChangedSectionIdentifier&gt;LOT-0001&lt;/efbc:ChangedSectionIdentifier&gt;
+                            &lt;/efac:ChangedSection&gt;
                         &lt;/efac:Change&gt;
                         &lt;efac:Change&gt;
-                            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0002&lt;/efbc:ChangedSectionIdentifier&gt;
                             &lt;efbc:ProcurementDocumentsChangeDate&gt;2019-10-24+01:00&lt;/efbc:ProcurementDocumentsChangeDate&gt;
                             &lt;efbc:ProcurementDocumentsChangeIndicator&gt;true&lt;/efbc:ProcurementDocumentsChangeIndicator&gt;
                             &lt;efbc:ChangeDescription languageID="ENG"&gt;Updated procurement documents&lt;/efbc:ChangeDescription&gt;
+                            &lt;efac:ChangedSection&gt;
+                                &lt;efbc:ChangedSectionIdentifier&gt;LOT-0002&lt;/efbc:ChangedSectionIdentifier&gt;
+                            &lt;/efac:ChangedSection&gt;
                         &lt;/efac:Change&gt;
                         &lt;efac:ChangeReason&gt;
                             &lt;cbc:ReasonCode listName="change-corrig-justification"&gt;update-add &lt;/cbc:ReasonCode&gt;
