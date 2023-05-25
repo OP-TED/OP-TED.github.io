@@ -501,7 +501,7 @@ SDK versions
 <p>BT-125(i) and OPP-090-Procedure; respectively the previous planning identifier and the previous notice identifier (in TED-Schema) don’t appear in the XML even if completed in the form-filling tool.</p>
 </li>
 <li>
-<p>Currently, it is not possible to refer to a TED-XML notice (using nnnnnn-yyyy publication number in BT-758) in a Change notice; a Change notice can only refer to an eForms notice ID (uuid) in BT-758. An issue in our back-office system (TED Monitor) will reject such notices causing them to end up in status "Not Published”. We are working to fix this bug as soon as possible.</p>
+<p>If you send a Change notice (referring to the TED XML schema – publication ID ‘XXXXXX-XXXX’ or eForms notice (publication id or notice id), you should not stop it because it is not possible to use the same publication id or notice id twice in the ChangedNoticeIdentifier element. The same is true for the User Interface of eNotices2 and when using field BT-758-notice (version of the previous notice to be changed). A bug in our internal application will currently reject any second or third Change notice, etc., that refers to the same notice identifier (TED XML schema or eForms). We are working to fix this issue by mid-June. For now, please avoid stopping the publication of Change notices. In case of mistakes, you should publish the Change notice and make corrections after its publication by referencing the newly published notice in the ChangedNoticeIdentifier.</p>
 </li>
 </ul>
 </div>
