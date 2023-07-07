@@ -35,10 +35,9 @@ jobs:
         run: yarn run build
 
       - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.3
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          # ACCESS_TOKEN: # optional
-          TOKEN: "${{ github.token}}"
-          FOLDER: build/site
-          BRANCH: 'gh-pages'
-          COMMIT-MESSAGE: "[CI] Publish Documentation for ${{ github.sha }}"
+          token: "${{ github.token}}"
+          folder: build/site
+          branch: 'gh-pages'
+          commit-message: "[CI] Publish Documentation for ${{ github.sha }}"
