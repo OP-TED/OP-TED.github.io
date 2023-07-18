@@ -460,9 +460,6 @@ SDK versions
 <p>For the moment, CVS validation does not work dynamically, i.e. there is no check between notices. This has implications, e.g. for checking notices of the same procedure or the same UUID v4 and different version ID; currently, it is possible to submit and publish two notices that carry the same notice ID and different version IDs. See in contrast: <a href="https://docs.ted.europa.eu/eforms/latest/schema/notice-information.html#noticeIDSection" class="bare">https://docs.ted.europa.eu/eforms/latest/schema/notice-information.html#noticeIDSection</a>.</p>
 </div>
 <div class="paragraph">
-<p>For the moment, it is not possible to link a TED-Schema notice to an eForms notice via the Previous Notice (OPP-090) as described in the documentation: <a href="https://docs.ted.europa.eu/eforms/latest/schema/procedure-lot-part-information.html#previousNoticeSection" class="bare">https://docs.ted.europa.eu/eforms/latest/schema/procedure-lot-part-information.html#previousNoticeSection</a>.</p>
-</div>
-<div class="paragraph">
 <p>eNotices2 uses the codelists from the SDK, which have not been completely tailored.</p>
 </div>
 <div class="paragraph">
@@ -473,9 +470,6 @@ SDK versions
 </div>
 <div class="paragraph">
 <p>On 10 and 11 January 2023, notices submitted may have acquired status “not published”; this issue is now fixed.</p>
-</div>
-<div class="paragraph">
-<p>Due to an error in the processing of notices at export time some notices remain in "submitted" status; we are working on fixing this issue.</p>
 </div>
 <div class="paragraph">
 <p>Notices created before 15 March 2023 in Preview or Production environments and updated to SDK 1.6 may have issues. If editing a notice leads to an error (server error) or 'Notice Locked', the workaround is to export (download) the xml and reimport it somewhere else in eNotices2, even if it is in the same procedure.</p>
@@ -493,9 +487,6 @@ SDK versions
 </li>
 <li>
 <p>Each TPO (Touchpoint) should be assigned a role; users may have to remove TPOs from the notice if there are not enough roles to fill. In particular, for notice subtypes 1 to 3, no roles can be assigned to Touchpoints at the moment, meaning that all touchpoints should be removed from the notice.</p>
-</li>
-<li>
-<p>If you send a Change notice (referring to the TED XML schema – publication ID ‘XXXXXX-XXXX’ or eForms notice (publication id or notice id), you should not stop it because it is not possible to use the same publication id or notice id twice in the ChangedNoticeIdentifier element. The same is true for the User Interface of eNotices2 and when using field BT-758-notice (version of the previous notice to be changed). A bug in our internal application will currently reject any second or third Change notice, etc., that refers to the same notice identifier (TED XML schema or eForms). We are working to fix this issue by end of June. For now, please avoid stopping the publication of Change notices. In case of mistakes, you should publish the Change notice and make corrections after its publication by referencing the newly published notice in the ChangedNoticeIdentifier.</p>
 </li>
 </ul>
 </div>

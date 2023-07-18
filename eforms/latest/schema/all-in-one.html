@@ -4305,7 +4305,7 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:LotDistribution&#8203;/cac:LotsGroup&#8203;/cbc:ID</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:LotDistribution&#8203;/cac:LotsGroup&#8203;/cbc:LotsGroupID</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -6665,10 +6665,13 @@ the process will be restarted.</p>
 <div class="paragraph">
 <p>The "<em>efbc:ProcedureRelaunchIndicator</em>" element shall only be used when
 "true"; when it applies to the whole procurement, it shall appear in the
-"<em>cac:TenderingProcess</em>" of the notice (i.e. at notice level) only.
-When applied to a Lot, all the individual Lots included in a Group of
-Lots with that same Lot shall be marked as such, and Group of Lots
-containing the Lot, shall not exist anymore.</p>
+"<em>cac:TenderingProcess</em>" of the notice (i.e. at notice level) only.</p>
+</div>
+<div class="paragraph">
+<p>When applied to a Lot that is included in a Group of Lots defined in
+preceding notices of the same procedure, all the individual Lots included
+in that Group of Lots shall be marked as such, and that Group of Lots
+shall not exist in the current notice.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -9512,7 +9515,7 @@ including options and renewals.</p></td>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:NoticeResult&gt;
     &lt;cbc:TotalAmount currencyID="EUR"&gt;123456.00&lt;/cbc:TotalAmount&gt;
-    &lt;efbc:OverallMaximumFrameworkContractsAmount currencyID="EUR"&gt;6000&lt;/efbc:OverallMaximumFrameworkContractsAmount&gt;
+    &lt;efbc:OverallMaximumFrameworkContractsAmount currencyID="EUR"&gt;3400000&lt;/efbc:OverallMaximumFrameworkContractsAmount&gt;
     &lt;efac:GroupFramework&gt;
         &lt;efbc:GroupFrameworkMaximumValueAmount currencyID="EUR"&gt;1200000&lt;/efbc:GroupFrameworkMaximumValueAmount&gt;
         &lt;efac:TenderLot&gt;
@@ -16219,6 +16222,18 @@ general</strong></p></td>
 </div>
 <div class="sect2">
 <h3 id="linkingRolesSubrolesToOrganizationsSection"><a class="anchor" href="#linkingRolesSubrolesToOrganizationsSection"></a>10.6. Linking roles/subroles to organizations</h3>
+<div class="paragraph">
+<p>For the eForms technical implementation, it has been decided to keep the normalized approach for
+organisations to prevent unnecessary repetitions and their associated inconsistency risks.
+The denormalized approach of the UBL Standard has been kept and reduced to its minimum (i.e. use
+of references to the organisation or touchpoint involved) as it is associated to a context which
+helps differentiate various roles/subroles.
+The references to the organisation or its touchpoint is performed  using OPT-300-xxx or
+OPT-301-xxxx fields. As a rule of thumb, OPT-300-xxxx is associated to an organisation (i.e.
+identifier of the form ORG-XXXX) while OPT-301-xxxx is associated to an organisation or a touchoint
+(i.e. identifier of the form ORG-XXXX and TPO-XXXX respectively). Please note that exceptions may
+occur with business rules clarifications while the field has already been defined.</p>
+</div>
 <div class="sect3">
 <h4 id="_buyer"><a class="anchor" href="#_buyer"></a>10.6.1. Buyer</h4>
 <div class="sect4">
@@ -16342,7 +16357,7 @@ entity-activity, subset of main-activity</p></td>
     &lt;/cac:ContractingActivity&gt;
     &lt;cac:Party&gt;
         &lt;cac:PartyIdentification&gt;
-            &lt;!-- Reference (Technical ID) to the legal organization acting as a Buyer. --&gt;
+            &lt;!-- OPT-300-Procedure-Buyer: Reference (Technical ID) to the legal organization acting as a Buyer. --&gt;
             &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
         &lt;/cac:PartyIdentification&gt;
         &lt;cac:ServiceProviderParty&gt;
@@ -16350,7 +16365,7 @@ entity-activity, subset of main-activity</p></td>
             &lt;cbc:ServiceTypeCode listName="organisation-role"&gt;serv-prov&lt;/cbc:ServiceTypeCode&gt;
             &lt;cac:Party&gt;
                 &lt;cac:PartyIdentification&gt;
-                    &lt;!-- Reference (Technical ID) to the legal organization acting as a PSP. --&gt;
+                    &lt;!-- OPT-300-Procedure-SProvider: Reference (Technical ID) to the legal organization acting as a PSP. --&gt;
                     &lt;cbc:ID schemeName="organization"&gt;ORG-0005&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
             &lt;/cac:Party&gt;
@@ -16390,9 +16405,11 @@ done in the "Organizations" section.</p>
     &lt;efbc:ListedOnRegulatedMarketIndicator&gt;false&lt;/efbc:ListedOnRegulatedMarketIndicator&gt;
     &lt;efbc:NaturalPersonIndicator&gt;false&lt;/efbc:NaturalPersonIndicator&gt;
     &lt;efac:UltimateBeneficialOwner&gt;
+        &lt;!-- OPT-302-Organization: Reference (Technical ID) to the Utimate Beneficial Owner. --&gt;
         &lt;cbc:ID schemeName="ubo"&gt;UBO-0001&lt;/cbc:ID&gt;
     &lt;/efac:UltimateBeneficialOwner&gt;
     &lt;efac:UltimateBeneficialOwner&gt;
+        &lt;!-- OPT-302-Organization: Reference (Technical ID) to the Utimate Beneficial Owner. --&gt;
         &lt;cbc:ID schemeName="ubo"&gt;UBO-0002&lt;/cbc:ID&gt;
     &lt;/efac:UltimateBeneficialOwner&gt;
     &lt;efac:Company&gt;
@@ -16481,11 +16498,14 @@ associated subcontractor (ORG-0005):</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:TenderingParty&gt;
     &lt;cbc:ID schemeName="tendering-party"&gt;TPA-0001&lt;/cbc:ID&gt;
     &lt;efac:Tenderer&gt;
+        &lt;!-- OPT-300-Tenderer --&gt;
         &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
     &lt;/efac:Tenderer&gt;
     &lt;efac:SubContractor&gt;
+        &lt;!-- OPT-301-Tenderer-SubCont --&gt;
         &lt;cbc:ID schemeName="organization"&gt;ORG-0005&lt;/cbc:ID&gt;
         &lt;efac:MainContractor&gt;
+            &lt;!-- OPT-301-Tenderer-MainCont --&gt;
             &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
         &lt;/efac:MainContractor&gt;
     &lt;/efac:SubContractor&gt;
@@ -16522,7 +16542,7 @@ to "true").</p>
     &lt;cbc:RankCode&gt;1&lt;/cbc:RankCode&gt;
     &lt;!-- Interrupted Mark-Up --&gt;
     &lt;efac:TenderingParty&gt;
-        &lt;!-- Reference to the tendering Party --&gt;
+        &lt;!-- OPT-310-Tender: Reference to the tendering Party --&gt;
         &lt;cbc:ID schemeName="tendering-party"&gt;TPA-0001&lt;/cbc:ID&gt;
     &lt;/efac:TenderingParty&gt;
     &lt;efac:TenderLot&gt;
@@ -16608,7 +16628,7 @@ the Buyer side.</p>
     &lt;cbc:ID schemeName="contract"&gt;CON-0001&lt;/cbc:ID&gt;
     &lt;!-- Interrupted Mark-Up --&gt;
     &lt;cac:SignatoryParty&gt;
-        &lt;!-- Reference to the Organization signing the contract --&gt;
+        &lt;!-- OPT-300-Contract-Signatory: Reference to the Organization signing the contract --&gt;
         &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
     &lt;/cac:SignatoryParty&gt;
     &lt;!-- Interrupted Mark-Up --&gt;
@@ -16631,13 +16651,13 @@ element. References shall be made to the legal person assuming the role:</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:LotResult&gt;
     &lt;!-- Interrupted Mark-Up --&gt;
     &lt;cac:FinancingParty&gt;
-        &lt;!-- Reference to the organization financing the project --&gt;
+        &lt;!-- OPT-301-LotResult-Financing: Reference to the organization financing the project --&gt;
         &lt;cac:PartyIdentification&gt;
             &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
         &lt;/cac:PartyIdentification&gt;
     &lt;/cac:FinancingParty&gt;
     &lt;cac:PayerParty&gt;
-        &lt;!-- Reference to the organization performing payments --&gt;
+        &lt;!-- OPT-301-LotResult-Paying: Reference to the organization performing payments --&gt;
         &lt;cac:PartyIdentification&gt;
             &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
         &lt;/cac:PartyIdentification&gt;
@@ -16692,7 +16712,7 @@ reporting of as many parties as needed.</p>
                 &lt;/cac:ExternalReference&gt;
             &lt;/cac:Attachment&gt;
             &lt;cac:IssuerParty&gt;
-                &lt;!-- Reference to the legal person --&gt;
+                &lt;!-- OPT-301-Lot-FiscalLegis: Reference to the legal person --&gt;
                 &lt;cac:PartyIdentification&gt;
                     &lt;cbc:ID schemeName="organization"&gt;ORG-0007&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
@@ -16708,7 +16728,7 @@ reporting of as many parties as needed.</p>
                 &lt;/cac:ExternalReference&gt;
             &lt;/cac:Attachment&gt;
             &lt;cac:IssuerParty&gt;
-                &lt;!-- Reference to the legal person --&gt;
+                &lt;!-- OPT-301-Lot-EnvironLegis: Reference to the legal person --&gt;
                 &lt;cac:PartyIdentification&gt;
                     &lt;cbc:ID schemeName="organization"&gt;ORG-0007&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
@@ -16724,7 +16744,7 @@ reporting of as many parties as needed.</p>
                 &lt;/cac:ExternalReference&gt;
             &lt;/cac:Attachment&gt;
             &lt;cac:IssuerParty&gt;
-                &lt;!-- Reference to the legal person --&gt;
+                &lt;!-- OPT-301-Lot-EmployLegis: Reference to the legal person --&gt;
                 &lt;cac:PartyIdentification&gt;
                     &lt;cbc:ID schemeName="organization"&gt;ORG-0007&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
@@ -16751,27 +16771,25 @@ illustration purpose:</p>
     &lt;cac:TenderingTerms&gt;
         &lt;!-- Interrupted Mark-Up --&gt;
         &lt;cac:AdditionalInformationParty&gt;
-            &lt;!-- "Organization providing additional information on procurement procedure" --&gt;
+            &lt;!-- OPT-301-Lot-AddInfo: "Organization providing additional information on procurement procedure" --&gt;
             &lt;cac:PartyIdentification&gt;
                 &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0001&lt;/cbc:ID&gt;
             &lt;/cac:PartyIdentification&gt;
         &lt;/cac:AdditionalInformationParty&gt;
         &lt;cac:DocumentProviderParty&gt;
-            &lt;!-- "Organization providing offline access to procurement documents" --&gt;
+            &lt;!-- OPT-301-Lot-DocProvider: "Organization providing offline access to procurement documents" --&gt;
             &lt;cac:PartyIdentification&gt;
                 &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0001&lt;/cbc:ID&gt;
             &lt;/cac:PartyIdentification&gt;
         &lt;/cac:DocumentProviderParty&gt;
         &lt;cac:TenderRecipientParty&gt;
-            &lt;!-- "Organization Receiving Requests to participate" --&gt;
-            &lt;!-- "Organization Receiving Tenders" --&gt;
+            &lt;!-- OPT-301-Lot-TenderReceipt: "Organization Receiving Requests to participate" or "Organization Receiving Tenders" --&gt;
             &lt;cac:PartyIdentification&gt;
                 &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0001&lt;/cbc:ID&gt;
             &lt;/cac:PartyIdentification&gt;
         &lt;/cac:TenderRecipientParty&gt;
         &lt;cac:TenderEvaluationParty&gt;
-            &lt;!-- "Organization evaluating Requests to participate" --&gt;
-            &lt;!-- "Organization evaluating Tenders" --&gt;
+            &lt;!-- OPT-301-Lot-TenderEval: "Organization evaluating Requests to participate" or "Organization evaluating Tenders" --&gt;
             &lt;cac:PartyIdentification&gt;
                 &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0001&lt;/cbc:ID&gt;
             &lt;/cac:PartyIdentification&gt;
@@ -16780,19 +16798,19 @@ illustration purpose:</p>
         &lt;cac:AppealTerms&gt;
             &lt;!-- Interrupted Mark-Up --&gt;
             &lt;cac:AppealInformationParty&gt;
-                &lt;!-- Reference to the Organization or TouchPoint for further info on review --&gt;
+                &lt;!-- OPT-301-Lot-ReviewInfo: Reference to the Organization or TouchPoint for further info on review --&gt;
                 &lt;cac:PartyIdentification&gt;
                     &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0001&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
             &lt;/cac:AppealInformationParty&gt;
             &lt;cac:AppealReceiverParty&gt;
-                &lt;!-- Reference to the Organization or TouchPoint for reviews --&gt;
+                &lt;!-- OPT-301-Lot-ReviewOrg: Reference to the Organization or TouchPoint for reviews --&gt;
                 &lt;cac:PartyIdentification&gt;
                     &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0003&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
             &lt;/cac:AppealReceiverParty&gt;
             &lt;cac:MediationParty&gt;
-                &lt;!-- Reference to the Organization or TouchPoint for mediation --&gt;
+                &lt;!-- OPT-301-Lot-Mediator: Reference to the Organization or TouchPoint for mediation --&gt;
                 &lt;cac:PartyIdentification&gt;
                     &lt;cbc:ID schemeName="touchpoint"&gt;TPO-0005&lt;/cbc:ID&gt;
                 &lt;/cac:PartyIdentification&gt;
@@ -19783,16 +19801,6 @@ their associated Business Terms useless.</p>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-1374</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Funds Lot Identifier</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BT-330</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Group Identifier</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">BT-1375</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Group Lot Identifier</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">BT-137</p></td>
 </tr>
 <tr>
