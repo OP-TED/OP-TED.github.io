@@ -431,6 +431,40 @@ starts with the identifier of the corresponding business term.</p>
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="_fields_other_than_bt"><a class="anchor" href="#_fields_other_than_bt"></a>Fields other than "BT-*"</h3>
+<div class="paragraph">
+<p>In addition to the above, some fields do not correspond to a business term in the eForms Regulation. They are needed because of the specific structure of the XML notices, or to fulfil a specific requirement.</p>
+</div>
+<div class="paragraph">
+<p>The identifiers for those fields all start with "OP" (the abbreviation for "Publications Office"), followed by a letter indicating the nature of the field:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><code>OPT</code></dt>
+<dd>
+<p>Technical field, needed because of a technical design choice or constraint.</p>
+<div class="paragraph">
+<p>For example, "OPT-300-Procedure-Buyer" corresponds to the reference to the identifier of the organisation for the buyer.</p>
+</div>
+</dd>
+<dt class="hdlist1"><code>OPP</code></dt>
+<dd>
+<p>"Production" field, needed for the production and publication processes, or for forms that are not defined in the eForms Regulation.</p>
+<div class="paragraph">
+<p>For example, "OPP-012-notice" corresponds to the date of publication of the notice in the Official Journal of the EU.</p>
+</div>
+</dd>
+<dt class="hdlist1"><code>OPA</code></dt>
+<dd>
+<p>"Alias" field, needed to get the numerical value of a regular field that also has a unit (duration, monetary amount, etc.). Those fields can be ignored when generating the XML notice, as the regular field has the numerical value and unit.</p>
+<div class="paragraph">
+<p>For example, "OPA-36-Lot-Number" corresponds to the numerical value of "BT-36-Lot", which is the estimated duration of the contract.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">

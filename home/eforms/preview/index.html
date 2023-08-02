@@ -549,7 +549,7 @@ Notices submitted in Preview are only checked for lawfulness upon request. Pleas
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-In Production (live environment), the actual export to TED happens on workdays around 16:00 CET depending on the number of notices to be published in the next OJ S. When this process is initiated and a submitted notice is in the daily export, it will be published on TED at 09:00 CET in the next available OJ S based on the release calendar. Its status will then change to “Published”. Please note that stopping publication of a notice is not allowed at this stage, i.e. between the export and publication. We will later introduce the status “Publishing” for such cases to avoid confusion. For more information on notice statuses, please see the eForms FAQ.
+In Production (live environment), the actual export to TED happens on workdays around 16:00 CET depending on the number of notices to be published in the next OJ S. When this process is initiated and a submitted notice is in the daily export, it will be published on TED at 09:00 CET in the next available OJ S based on the release calendar. Its status will then change to “Published”. Please note that stopping publication of a notice is not allowed at this stage, i.e. between the export and publication. In the Preview environment, the notice is only in Publishing status for a few seconds because there is a mock process to imitate publishing on TED. In Production, the notice will be in "Publishing" status between the daily afternoon export and publication on TED the next morning (working days). We will later introduce the status “Publishing” for such cases to avoid confusion. For more information on notice statuses, please see the eForms FAQ.
 </td>
 </tr>
 </table>
@@ -604,11 +604,14 @@ In Production (live environment), the actual export to TED happens on workdays a
 </div>
 </li>
 <li>
-<p>To avoid authorisation issues when using eNotices2 API, log in at least once in the corresponding environment of the User Interface to pair your API key with your eNotices2 account and make sure that your eNotices2 account is active:</p>
+<p>To avoid authorisation issues when using eNotices2 API, log in at least once in the corresponding environment of the User Interface to pair your API key with your eNotices2 account and make sure that you perform at least one valid API request with your key to eNotices2 API:</p>
 <div class="ulist">
 <ul>
 <li>
 <p><a href="https://enotices2.preview.ted.europa.eu/home">eNotices2 in Preview</a></p>
+</li>
+<li>
+<p><a href="https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/" class="bare">https://enotices2.preview.ted.europa.eu/esenders/swagger-ui/</a></p>
 </li>
 </ul>
 </div>
@@ -782,6 +785,12 @@ Scope
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_known_issues_2"><a class="anchor" href="#_known_issues_2"></a>Known issues</h4>
+<div class="paragraph">
+<p>In SDK 1.7 and 1.8, the “Results” section is not displayed properly on TED in Production. This bug will be fixed in SDK 1.9.</p>
 </div>
 </div>
 </div>
