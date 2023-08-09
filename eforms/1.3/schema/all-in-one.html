@@ -6989,8 +6989,8 @@ additional information is encoded as follows:</p>
 <div class="sect3">
 <h4 id="previousNoticeSection"><a class="anchor" href="#previousNoticeSection"></a>8.4.17. Previous Notice (OPP-090)</h4>
 <div class="paragraph">
-<p>Previous Notice (OPP-090) may be used to associate a notice to one or
-more immediately preceding notices. It is not intended to replace:</p>
+<p>Previous Notice (OPP-090) may be used to associate a notice to one or more
+immediately preceding TEDXML notices. It is also not intended to replace:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -7004,40 +7004,35 @@ more immediately preceding notices. It is not intended to replace:</p>
 <p>Previous Planning Identifier (BT-125), or</p>
 </li>
 <li>
-<p>Framework Notice Identifier (OPT-100).</p>
+<p>Framework Notice Identifier (OPT-100),</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>It is only foreseen for cases where no other option to refer to a previous notice exists.
-It may be useful when some notices for a Procedure have been published in TEDXML,
-and it is desired to publish following notices of the Procedure in eForms. This
-Business Term allows the notices to be associated despite the absence of Procedure ID in TEDXML.</p>
+<p>which should still be used even when referring to a TEDXML notice.</p>
 </div>
 <div class="paragraph">
-<p>A notice is referred to using either of the two identifiers:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>its notice identifier (UUID) concatenated with its version identifier (e.g. &lt;UUID&gt;-&lt;vv&gt;), or</p>
-</li>
-<li>
-<p>its Notice Publication ID (XXXXXX-YYYY).</p>
-</li>
-</ul>
+<p>Previous Notice (OPP-090) is only foreseen for cases where no other option
+to refer to a previous notice exists. It may be useful when some notices
+for a Procedure have been published in TEDXML (format which does not have
+a Procedure ID), and it is desired to publish following notices of the
+Procedure in eForms. This Business Term allows the notices to be associated
+despite the absence of Procedure ID in TEDXML.</p>
 </div>
 <div class="paragraph">
-<p>Previous Notice (OPP-090) applies to the whole notice, and not just a single lot.
-It may also be repeated to point to multiple previous notices when needed.</p>
+<p>A TEDXML notice is referred to using its Notice Publication ID (XXXXXX-YYYY).</p>
+</div>
+<div class="paragraph">
+<p>Previous Notice (OPP-090) applies to the whole notice, and not just a single
+lot. It may also be repeated to point to multiple previous notices when needed.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:NoticeDocumentReference&gt;
-    &lt;cbc:ID schemeName="notice-id-ref"&gt;123e4567-e89b-12d3-a456-426614174000-06&lt;/cbc:ID&gt;
+    &lt;cbc:ID schemeName="ojs-notice-id"&gt;1624-2023&lt;/cbc:ID&gt;
 &lt;/cac:NoticeDocumentReference&gt;
 &lt;cac:NoticeDocumentReference&gt;
-    &lt;cbc:ID schemeName="notice-id-ref"&gt;33b03807-58ce-4eb2-aac2-25702d0ad624-06&lt;/cbc:ID&gt;
+    &lt;cbc:ID schemeName="ojs-notice-id"&gt;38976-2022&lt;/cbc:ID&gt;
 &lt;/cac:NoticeDocumentReference&gt;</code></pre>
 </div>
 </div>
@@ -16929,7 +16924,12 @@ root of the notice.</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>There must exist at least one "<em>efac:Change</em>" element in the Change Notice.</p>
+<p>There must exist at least one "<em>efac:Change</em>" element in the Change Notice,
+except for the case of:
+* a <em>cancel notice</em> (i.e. Change Reason set to "cancel") where no "<em>efac:Change</em>"
+node is expected, and
+* an <em>intent to cancel</em> a lot/procedure (i.e. Change Reason set to "cancel-intent")
+where "<em>efac:Change</em>" node may be used to identify the lots.</p>
 </div>
 <div class="paragraph">
 <p>A change may cover one or more sections of a notice and the element used to
