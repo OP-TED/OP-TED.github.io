@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Project Charter Proposal PWC EU Services Version 1.0 :: TED Developer Documentation</title>
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="EPO" data-version="4.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="Overview_V4.0.0-rc.1.html">Release v4.0.0-rc.1 Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release-notes.html">Release Notes v4.0.0-rc.1 (detailed)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="references.html">Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="methodology.html">Ontology Methodology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="history.html">Version History</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/index.html">Working Group Documents</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eProcurement Ontology</span>
+          <span class="version">4.0.0-rc.1</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../eforms/1.9/index.html">1.9.0</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-current">
+              <a href="index.html">4.0.0-rc.1</a>
+            </li>
+            <li class="version">
+              <a href="../3.1.1/index.html">3.1.1 ~dev</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">eProcurement Ontology</a></li>
+    <li><a href="charter.html">Project Charter Proposal PWC EU Services Version 1.0</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">4.0.0-rc.1</button>
+  <div class="version-menu">
+    <a class="version is-current" href="charter.html">4.0.0-rc.1</a>
+    <a class="version is-missing" href="../3.1.1/index.html">3.1.1 ~dev</a>
+    <a class="version is-missing" href="../latest/index.html">3.1.0</a>
+    <a class="version is-missing" href="../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.0/index.html">1.0.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Project Charter Proposal PWC EU Services Version 1.0</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_considerations_on_the_business_case">1. CONSIDERATIONS ON THE BUSINESS CASE</a></li>
+<li><a href="#_project_description">2. PROJECT DESCRIPTION</a>
+<ul class="sectlevel2">
+<li><a href="#_scope">2.1. Scope</a>
+<ul class="sectlevel3">
+<li><a href="#_includes_in_scope">2.1.1. Includes ("IN" Scope)</a></li>
+<li><a href="#_excludes_out_of_scope">2.1.2. Excludes ("OUT of" Scope)</a></li>
+<li><a href="#_scope_statement">2.1.3. Scope Statement</a></li>
+</ul>
+</li>
+<li><a href="#_success_criteria">2.2. Success Criteria</a></li>
+<li><a href="#_stakeholder_and_user_needs">2.3. Stakeholder and User Needs</a></li>
+<li><a href="#_deliverables">2.4. Deliverables</a></li>
+<li><a href="#_assumptions">2.5. Assumptions</a></li>
+<li><a href="#_risks">2.6. Risks</a></li>
+</ul>
+</li>
+<li><a href="#_cost_timing_and_resources">3. COST, TIMING AND RESOURCES</a>
+<ul class="sectlevel2">
+<li><a href="#_cost">3.1. Cost</a></li>
+<li><a href="#_timing_and_milestones">3.2. Timing and Milestones</a></li>
+<li><a href="#_planned_resources">3.3. Planned Resources</a></li>
+</ul>
+</li>
+<li><a href="#_approach">4. APPROACH</a>
+<ul class="sectlevel2">
+<li><a href="#_process">4.1. Process</a></li>
+<li><a href="#_methodology">4.2. Methodology</a></li>
+<li><a href="#_change_management">4.3. Change Management</a></li>
+</ul>
+</li>
+<li><a href="#_governance_and_stakeholders">5. GOVERNANCE AND STAKEHOLDERS</a>
+<ul class="sectlevel2">
+<li><a href="#_structure">5.1. Structure</a></li>
+<li><a href="#_roles_and_responsibilities">5.2. Roles and Responsibilities</a></li>
+</ul>
+</li>
+<li><a href="#_annex_i_use_cases_to_be_developed_by_the_working_group">6. Annex I: USE CASES TO BE DEVELOPED BY THE WORKING GROUP</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Document Metadata</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017-08-03</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Status</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accepted</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Makx Dekkers - AMI Consult
+Emidio Stani - PwC EU Services
+Florian Barthélemy - PwC EU Services</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reviewed by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Nikolaos Loutas - PwC EU Services
+Natalie Muric - Publications Office of the EU</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Approved by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Natalie Muric - Publications Office of the EU</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>This report was prepared for the Publications Office of the European Union by:</strong>
+<em>PwC EU Service</em></p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Disclaimer</strong></p>
+</div>
+<div class="paragraph">
+<p>The views expressed in this report are purely those of the authors and may not, in any circumstances, be interpreted as stating an official position of the European Commission.
+The European Commission does not guarantee the accuracy of the information included in this study, nor does it accept any responsibility for any use thereof.
+Reference herein to any specific products, specifications, process, or service by trade name, trademark, manufacturer, or otherwise, does not necessarily constitute or imply its endorsement, recommendation, or favouring by the European Commission.
+All care has been taken by the author to ensure that s/he has obtained, where necessary, permission to use any parts of manuscripts including illustrations, maps, and graphs, on which intellectual property rights already exist from the titular holder(s) of such rights or from her/his or their legal representative.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: this Project Charter is an adaptation of the Project Charter template of PM² V2.5.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_considerations_on_the_business_case"><a class="anchor" href="#_considerations_on_the_business_case"></a>1. CONSIDERATIONS ON THE BUSINESS CASE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Public procurement represents around 20% of GDP in Europe. This big buying volume offers a high economic potential to enhance efficiency of European procurement. The EU is investing significantly on the digitalisation of the public procurement process (referred to as e-procurement). This goes beyond simply moving to electronic tools; it rethinks various pre-award and post-award phases with the aim to make them simpler for businesses to participate in and for the public sector to manage. It also allows for the integration of data-based approaches at various stages of the procurement process.</p>
+</div>
+<div class="paragraph">
+<p>Directive 2014/24/EU on public procurement, Directive 2014/25/EU on procurement by entities operating in the water, energy, transport and postal services sectors, and Directive 2014/23/EU on the award of concession contracts establish rules on the procedures for procurement by contracting authorities with respect to public contracts, design contests and concessions, requiring contracting authorities in the EU to publish notices above certain thresholds. Directive 2014/55/EU on electronic invoicing in public procurement5 defines the requirement for a European standard for electronic invoices, while the Commission Implementing Regulation (EU) 2015/19866 specifies standard forms for the publication of notices in the Official Journal of the European Union.Article 6 of the Regulation states that either the eNotices online application or the TED eSender systems should be used to electronically transmit notices to the Publications Office of the European Union. From a different angle, the implementation of the revised PSI directive7 across the EU is calling for open, unobstructed access to public data in order to improve transparency and to boost innovation via the reuse of public data.</p>
+</div>
+<div class="paragraph">
+<p>Procurement data has been identified as data with a high-reuse potential. Therefore, making this data available in machine-readable formats, following the data as a service paradigm, is required in order to maximise its reuse.
+Given the increasing importance of data standards for e-procurement, a number of initiatives driven by the public sector, the industry and academia have been kick-started in the recent years. Some have grown organically, while others are the result of standardisation work. The vocabularies and the semantics that they are introducing, the
+phases of public procurement that they are covering, and the technologies that they are using all differ. These differences hamper data interoperability and thus its reuse by them or by the wider public. This creates the need for a common data standard for publishing public procurement data, hence allowing data from different sources to be easily accessed and linked, and consequently reused.</p>
+</div>
+<div class="paragraph">
+<p>In this context, the Publications Office of the EU aims to develop an e-procurement ontology. The objective of the e-procurement ontology is to act as this common standard on the conceptual level, based on consensus of the main stakeholders and designed to encompass the major requirements of the e-procurement process in conformance with the Directives and Regulation mentioned above.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_project_description"><a class="anchor" href="#_project_description"></a>2. PROJECT DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_scope"><a class="anchor" href="#_scope"></a>2.1. Scope</h3>
+<div class="sect3">
+<h4 id="_includes_in_scope"><a class="anchor" href="#_includes_in_scope"></a>2.1.1. Includes ("IN" Scope)</h4>
+<div class="paragraph">
+<p>The project will develop the e-procurement ontology in a collaborative effort among the main stakeholders with the overall objective to overcome the fragmentation that hinders interoperability among e-procurement systems. The result of the work will be a specification showing the conceptual model and its representation in OWL, and the deployment of the ontology and related code lists and classifications on the metadata registry.</p>
+</div>
+<div class="paragraph">
+<p>The ontology will support the whole of the e-procurement process, from e-notification until and including e-payment as depicted in Figure 1.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/charter1.png" alt="Figure 1: e-procurement phases">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_excludes_out_of_scope"><a class="anchor" href="#_excludes_out_of_scope"></a>2.1.2. Excludes ("OUT of" Scope)</h4>
+<div class="paragraph">
+<p>The project described here does not include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the practical implementation of systems that implement the ontology, beyond the deployment of the ontology and related code lists and classifications on the metadata registry.</p>
+</li>
+<li>
+<p>the implementation of the change management and maintenance of the ontology after its publication (change management and maintenance will however be taken into consideration and described).</p>
+</li>
+<li>
+<p>activities to create implementation guidelines; however, future implementations
+will be taken into consideration when developing the ontology.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scope_statement"><a class="anchor" href="#_scope_statement"></a>2.1.3. Scope Statement</h4>
+<div class="paragraph">
+<p>The ultimate objective of the e-procurement ontology is to put forth a commonly agreed OWL ontology that will conceptualise, formally encode and make available in an open, structured and machine-readable format data about public procurement, covering end-to-end procurement, i.e. from notification, through tendering to awarding, ordering, invoicing and payment.</p>
+</div>
+<div class="paragraph">
+<p>The aim of the project is to produce the final ontology within twelve months including a public review of at least two months. Comments received in the public review period will be resolved and integrated in the deliverable, which will then be published.</p>
+</div>
+<div class="paragraph">
+<p>The development of the e-procurement ontology will take place in an open working group, as recommended in the Report on policy support for e-procurement.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_success_criteria"><a class="anchor" href="#_success_criteria"></a>2.2. Success Criteria</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Commitment on the part of the working group members to actively participate in
+the work towards finding common ground with an objective to implement the
+ontology after its publication.</p>
+</li>
+<li>
+<p>Consensus in the Working Group on the conceptual model.</p>
+</li>
+<li>
+<p>Expression of the conceptual model as an ontology in OWL.</p>
+</li>
+<li>
+<p>Publication of the conceptual model and ontology.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_stakeholder_and_user_needs"><a class="anchor" href="#_stakeholder_and_user_needs"></a>2.3. Stakeholder and User Needs</h3>
+<div class="paragraph">
+<p>In Figure 2, the various stakeholders are depicted.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/charter2.png" alt="Figure 2: Stakeholder and User Needs">
+</div>
+</div>
+<div class="paragraph">
+<p>The main stakeholders of the e-procurement ontology are the contracting authorities who request the items procured, and the economic operators who deliver the items.
+The stakeholders in these two categories provide the data for the elements in the ontology, while the other stakeholders use the data provided to meet their specific needs.</p>
+</div>
+<div class="paragraph">
+<p>These needs are related to three categories of use cases:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Transparency and monitoring: to enable verification that public procurement is conducted according to the rules set by the Directives and Regulation.</p>
+</li>
+<li>
+<p>Innovation &amp; value added services: to allow the emergence of new applications and services on the basis of the availability of procurement data.</p>
+</li>
+<li>
+<p>Interconnection of public procurement systems: to support increased interoperability across procurement systems.
+The ontology needs to be able to satisfy the needs of various stakeholder categories as shown in Table 1.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. : Stakeholder areas of interest and types of use cases</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Stakeholder category</th>
+<th class="tableblock halign-left valign-top">Type of use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contracting authorities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interconnection of public procurement systems
+Transparency and monitoring
+Innovation &amp; value added services</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Economic operators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transparency and monitoring
+Innovation &amp; value added services</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procurement intermediaries and aggregators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interconnection of public procurement systems
+Innovation &amp; value added services</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Academia and researchers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Innovation &amp; value added services
+Transparency and monitoring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Media and (data) journalists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transparency and monitoring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auditors and regulators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transparency and monitoring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Members of parliaments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transparency and monitoring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standardisation organisations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Interconnection of public procurement systems</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NGOs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transparency and monitoring</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Citizens</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Transparency and monitoring</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_deliverables"><a class="anchor" href="#_deliverables"></a>2.4. Deliverables</h3>
+<div class="paragraph">
+<p>The following deliverables are foreseen as results of the work.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. : Deliverables</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Deliverable Name</th>
+<th class="tableblock halign-left valign-top">Deliverable Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e-Procurement Conceptual Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conceptual model of the e-procurement ontology specifying the relevant entities, attributes and relationships. This deliverable will be developed in an incremental way, with several drafts being created and published for discussion in the working group. These drafts will be designed as Working Draft &lt;no&gt;. See also section 4.1.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specification of the conceptual model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The specification will provide the definition of the concepts and relationships and eventual synonyms</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">e-Procurement Ontology</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">OWL expression of the ontology. The OWL expression will be included as an annex in D01, but also published separately at a persistent URI under the Commission&#8217;s URI Policy.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_assumptions"><a class="anchor" href="#_assumptions"></a>2.5. Assumptions</h3>
+<div class="paragraph">
+<p>The following assumptions have been taken into account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The e-procurement ontology takes into account the data standards and structures described in the document Data Structures and Standards used at the Publications Office, Version: 1.0.0 of 19 December 2016 so as to ensure seamless testing of the ontology in the environment of the Publications Office.</p>
+</li>
+<li>
+<p>The e-procurement ontology is expressed in OWL2 in conformance with the conditions listed in section 2.1 of the W3C Recommendation OWL 2 Web Ontology Language Conformance (Second Edition)</p>
+</li>
+<li>
+<p>The e-procurement ontology is made available on-line under the ISA Open Metadata Licence v1.111</p>
+</li>
+<li>
+<p>The Working Group consists of experts in the following areas:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>e-procurement, taking into consideration the perspective of the stakeholder they represent;</p>
+</li>
+<li>
+<p>data modelling and ontology design; and</p>
+</li>
+<li>
+<p>OWL and the wider area of Linked Open Data technologies.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The members of the Working Group share an objective of reaching consensus by finding common ground across potentially different perspectives.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_risks"><a class="anchor" href="#_risks"></a>2.6. Risks</h3>
+<div class="paragraph">
+<p>A number of risks can be identified. Table 3 lists these risks with an indication of the impact, the likelihood and a proposed mitigation strategy.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. : Risks</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 16.6666%;">
+<col style="width: 16.6666%;">
+<col style="width: 33.3335%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Risk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Impact</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Likelihood</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mitigation strategy</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">No consensus can be reached</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Strong oversight and gentle steering by Working Group chair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insufficient participation by Working Group members</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Commitment by a core set of stakeholders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lack of relevant skills in the Working Group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">High</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Taking care that the right experts are invited</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Competition of conflicting approaches, e.g. XML-based standards</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Establishing liaisons with other initiatives, explaining that the e-procurement ontology is intended to define a semantic view that should encompass other approaches.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Insufficient awareness in stakeholder community</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Medium</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Low</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cost_timing_and_resources"><a class="anchor" href="#_cost_timing_and_resources"></a>3. COST, TIMING AND RESOURCES</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_cost"><a class="anchor" href="#_cost"></a>3.1. Cost</h3>
+<div class="paragraph">
+<p>The project cost in financial terms is not estimated, however the human resources required is estimated.</p>
+</div>
+<div class="paragraph">
+<p>Table 4 contains estimates of the time required for the different roles of the involved experts. These estimates are based on previous experiences with the development of other interoperability specification in the ISA/ISA2 programmes.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. : Resource estimates (person days)</caption>
+<colgroup>
+<col style="width: 14.2857%;">
+<col style="width: 42.8571%;">
+<col style="width: 42.8572%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Role</th>
+<th class="tableblock halign-left valign-top">Time requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group Chair</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6 days per month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Editor</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1-2 editors full time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">R3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group Member</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,5-2 days per month, depending on the level of activity that the member wishes to invest</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_timing_and_milestones"><a class="anchor" href="#_timing_and_milestones"></a>3.2. Timing and Milestones</h3>
+<div class="paragraph">
+<p>The overall time plan for the work is shown in Table 5. The table includes the calendar months that would result from a possible start of the project right after the summer holiday of 2017.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. : Overall time plan</caption>
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 50%;">
+<col style="width: 37.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Milestone Description</th>
+<th class="tableblock halign-left valign-top">Target Delivery Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start of the project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 0 - September 2017</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publication of the draft deliverable for public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 9 - June 2018</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">M3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publication of final deliverable</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 11 - September 2018</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Given this overall time plan, a meeting plan for the Working Group and delivery of intermediate draft could look as shown in Table 6. The actual plan should be decided in the first meeting of the Working Group in Month 0. Depending on the size of the working group, the number of entities in the ontology and the occurrence of contentious issues,
+the plan may be revised to include more or fewer meetings and drafts, as time passes.</p>
+</div>
+<div class="paragraph">
+<p>The mention of "meetings" in Table 6 does not imply that face-to-face meeting must be held in all cases. For most meetings, teleconference facilities will be sufficient. However, it is advisable to plan for some face-to-face meetings at crucial points in time, for example at the start of the work (E1/M1) and before issuing the draft for public review (E16/M2).</p>
+</div>
+<div class="paragraph">
+<p>Table 6 includes the proposed activities to be carried out by the Working Group. The work preparing the items listed with the meetings two, three and four will be undertaken by the Editors between meetings.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. : Provisional meeting and publication plan</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 40%;">
+<col style="width: 20%;">
+<col style="width: 30%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Event</th>
+<th class="tableblock halign-left valign-top">Event date</th>
+<th class="tableblock halign-left valign-top">Indicative activities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 0 - September</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2017 (M1)
+Prioritisation of use cases Grouping them to be treated in consecutive meetings
+Provision of updated conceptual model and its specification
+Discussion on the conceptual model and its specifications</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">First draft of conceptual model and its specification corresponding to the use cases concerned for the next meeting and incorporating the results from the iscussions of the previous meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 1 - October 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by editors based on discussions from the previous meeting and all corresponding input for the following meeting</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Second WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 2 - November 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E2 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Second draft of conceptual model and its specification corresponding to the use cases concerned for the next meeting and incorporating the results from the discussions of the previous meeting.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 2 - November 2017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by editors based on discussions from the previous meeting and all corresponding input for the following meeting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Third WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 4 - January 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E4 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Third draft of conceptual model and its specification corresponding to the use cases concerned for the next meeting and incorporating the results from the discussions of the previous meeting.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 4 - January 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by the editors based on discussions from the previous meeting and all corresponding input for the following meeting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fourth WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 5 - February 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E6 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fourth draft of conceptual model and its specification corresponding to the use cases concerned for the next meeting and incorporating the results from the discussions of the previous meeting.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 5 - February 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by editors based on discussions from the previous meeting and all corresponding input for the following meeting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fifth WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 6 - March 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E8 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fifth draft of conceptual model and its specification corresponding to the use cases concerned for the next meeting and incorporating the results from the discussions of the previous meeting.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 6 - March 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by editors based on discussions from the previous meeting and all corresponding input for the following meeting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sixth WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 7 - April 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E10 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sixth draft of the conceptual model and its specification corresponding to all the discussions within the working group.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 7 - April 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by the editors based on discussions from the previous meeting and all corresponding input for the following meeting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seventh WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 8 - May 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E12 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Finalisation of conceptual model and its specification and the ontology in OWL</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 9 - June 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by editors based on discussions from the previous meeting and all corresponding input for the following meeting.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Eighth WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 9 - June 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E14 document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publication of ontology for public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 10 - July 2018 (M2)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Proposed resolution of issues raised in public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 12 - September 2018 (M3)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepared by editors</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">E18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ninth WG meeting</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Month 12 - September 2018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Discussion/consensus on E17</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>In Table 6, one of the activities for the first meeting is to set priorities for the use cases that were decided in the inception phase. A list of the use cases is included in Annex I.
+For each of those use cases, the Editor will further develop the use case according to the methodology presented in the inception phase. In the meetings two to six, the use cases will be presented by the Editor, and the working group will come to a consensus to any changes that need to be made to the use case.</p>
+</div>
+<div class="paragraph">
+<p>For the development of the conceptual data model Editors will derive the concepts from the use cases as described in D02.01: “Specification of the process and methodology to develop the eProcurement ontology with initial draft of the eProcurement Ontology for 3 use case”. The Editor will document this alongside the use cases and the concepts roughly one month ahead of each working group meeting. The documentation will also include the definition of concepts, identification of subclasses or subtypes, relevant properties and relationships.</p>
+</div>
+<div class="paragraph">
+<p>The working group will review the documentation mentioned above ahead of the meetings. Working Group members may at any time propose additional concepts to be added to the conceptual model. Such proposals will be discussed by the Working Group; the proposed concept will be added if the Working Group decides that the proposed concept is relevant and necessary.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_planned_resources"><a class="anchor" href="#_planned_resources"></a>3.3. Planned Resources</h3>
+<div class="paragraph">
+<p>The technical tools available for this project are listed in Table 7.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. : Technical infrastructure</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Resource Requirement</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RR1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ontology development tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Protégé, <a href="http://protege.stanford.edu/" class="bare">http://protege.stanford.edu/</a> or VocBench 3</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RR2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Model visualisation tool</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TBD</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RR3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Conference call facility</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">WebEx, <a href="https://ecwacs.webex.com/ecwacs/" class="bare">https://ecwacs.webex.com/ecwacs/</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RR4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mailing list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="mailto:eprocurementontology@joinup.ec.europa.eu">eprocurementontology@joinup.ec.europa.eu</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RR5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Issue tracker</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GitHub <a href="https://github.com/eprocurementontology" class="bare">https://github.com/eprocurementontology</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RR6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publication channel</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://joinup.ec.europa.eu/asset/eprocurementontology/" class="bare">https://joinup.ec.europa.eu/asset/eprocurementontology/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_approach"><a class="anchor" href="#_approach"></a>4. APPROACH</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The project will be based on the ISA Process and Methodology for the development of semantic agreements12 as described in section 2 of the Report on policy support for e-procurement.</p>
+</div>
+<div class="sect2">
+<h3 id="_process"><a class="anchor" href="#_process"></a>4.1. Process</h3>
+<div class="paragraph">
+<p>An important part of the process as described in the ISA Process and Methodology for the development of semantic agreements, and in particular the establishment of the Working Group, has already taken place in the preparatory phase. Therefore, the process to be followed by the Working Group in this Project consists of the following six elements:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. : Process overview</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Process</strong>
+<em>Reaching consensus</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">. Publish Working Drafts (Chair(s) and Editor(s))
+. Review Working Drafts (Working Group)
+. Publish last call Working Draft (Chair(s) and Editor(s))
+. Review last call Working Draft (the Public)
+. Gather evidence of acceptance (Chair(s) and Editor(s))
+. Submit for endorsement (The Publications Office)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_methodology"><a class="anchor" href="#_methodology"></a>4.2. Methodology</h3>
+<div class="paragraph">
+<p>The methodology takes into account the step-by-step approach agreed in the preliminary phase. Building on the initial draft published at the end of the preliminary phase, the methodology involves the following five steps:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 9. : Methodology overview</caption>
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Methodology</strong>
+<em>Developing the ontology</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Follow the step-by-step development process from requirements to OWL ontology (Editor(s), Working Group) which involves:
+Step 1. Define use cases
+Step 2. Define requirements from the use cases
+Step 3. Develop a conceptual data model
+Step 4. Consider reusing existing ontologies
+Step 5. Define and implement an OWL ontology</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Drafts of the specification are published on Joinup; working group members provide comments on GitHub, referencing the relevant section in the document.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_change_management"><a class="anchor" href="#_change_management"></a>4.3. Change Management</h3>
+<div class="paragraph">
+<p>The change management of the e-procurement ontology is defined on the basis of the approach described in the document “Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme”.</p>
+</div>
+<div class="paragraph">
+<p>The main characteristics are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Openness: In order for public administrations to rely on specifications, the openness of the change management is a key – openness is also a key assessment criterion in the Common Assessment Method of Standards and Specifications
+(CAMSS)14. Openness means that requests for changes can be submitted by any stakeholder and that the analysis and decisions taken are logged in a transparent manner. An open change management process improves the quality of the
+specification.</p>
+</li>
+<li>
+<p>Controlled change: Public administrations that use structural metadata or implement specifications must not be negatively impacted by unexpected changes to these specifications. A release schedule must be established, allowing changes to take place in a stepwise and traceable manner. New releases should also be versioned consistently.
+The approach includes work flows for several types of changes: editorial changes, minor semantic changes and major semantic changes.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As part of the approach, a version numbering scheme and time table is defined:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Editorial changes and bug fixes
+Once per year, the submitted requests for this type of change are collected and
+processed.
+The resulting release is numbered X.Y.(Z+1), e.g. 1.0.1, 1.0.2 etc.</p>
+</li>
+<li>
+<p>Minor semantic changes
+Once per year, the submitted requests for this type of change are collected and
+processed. At this time, also editorial changes and bug fixes are processed.
+The resulting release is numbered X.(Y+1).0, e.g. 1.1.0, 1.2.0 etc.</p>
+</li>
+<li>
+<p>Major semantic changes
+Every second year, the submitted requests for this type of change are collected and
+processed. At that time, also editorial changes and bug fixes as well as minor
+semantic changes are processed.
+The resulting release is numbered (X+1).0.0, e.g. 2.0.0, 3.0.0 etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_governance_and_stakeholders"><a class="anchor" href="#_governance_and_stakeholders"></a>5. GOVERNANCE AND STAKEHOLDERS</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_structure"><a class="anchor" href="#_structure"></a>5.1. Structure</h3>
+<div class="paragraph">
+<p>The diagram in Figure 3 depicts the governance structure of the project. The roles and
+relationships are further detailed in section 5.2.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/charter3.png" alt="Figure 3: Governance structure">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_roles_and_responsibilities"><a class="anchor" href="#_roles_and_responsibilities"></a>5.2. Roles and Responsibilities</h3>
+<div class="paragraph">
+<p>The roles and responsibilities of each of the groups depicted in Figure 3 are outlined in Table 10.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 10. : Roles and responsibilities</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 50%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Who</th>
+<th class="tableblock halign-left valign-top">What</th>
+<th class="tableblock halign-left valign-top">When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Publications Office</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Owns the project, provides oversight and supplies WG chair; endorses the final result at the end of the project</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Continuously</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides input, reviews and validate the ontology in synergy with the active developmental propositions of editors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Continuously</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Community</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Participates in public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">At publication of draft for public review</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_annex_i_use_cases_to_be_developed_by_the_working_group"><a class="anchor" href="#_annex_i_use_cases_to_be_developed_by_the_working_group"></a>6. Annex I: USE CASES TO BE DEVELOPED BY THE WORKING GROUP</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>e-tendering process:
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/8" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/8</a></p>
+</li>
+<li>
+<p>Analysing e-procurement procedures,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/11" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/11</a></p>
+</li>
+<li>
+<p>Increase cross-domain interoperability in terms of (financial) exclusion grounds
+among Member States,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/13" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/13</a></p>
+</li>
+<li>
+<p>Public understandability (Use case to be derived from interviews with transparency watchdogs and similar stakeholders)</p>
+</li>
+<li>
+<p>Monitor the money flow,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/9" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/9</a></p>
+</li>
+<li>
+<p>Detect fraud and compliance with procurement criteria,
+<a href="https://github.com/eprocurementontology/eprocurementontology/wiki/Add-a-new-use-case" class="bare">https://github.com/eprocurementontology/eprocurementontology/wiki/Add-a-new-use-case</a></p>
+</li>
+<li>
+<p>Alerting services,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/10" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/10</a></p>
+</li>
+<li>
+<p>Introduce automated classification systems in public procurement (not a real use case but a set of ideas for classification systems to be gathered)</p>
+</li>
+<li>
+<p>Businesses need to participate in procurement,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/15" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/15</a></p>
+</li>
+<li>
+<p>Buyers need to buy things, which means following the e-procurement phases,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/15" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/15</a>. This
+use case includes (and therefore could be breakdown into other use cases at a lower granular level):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating new information (e.g. description of the procurement, giving points for award criteria).</p>
+</li>
+<li>
+<p>Reusing information from different databases and domains, such as</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>business registries (to reduce administrative burden and ensure consistency of information); and</p>
+</li>
+<li>
+<p>tax, social payments, etc. systems (to verify that potential contractors meet selection criteria).</p>
+<div class="ulist">
+<ul>
+<li>
+<p>(Sending information to other systems to ensure transparency etc. requirements are met, e.g. contract registers).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Other public entities are directly involved in the e-procurement phases,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/15" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/15</a>. This use case includes (and therefore could be breakdown into other use cases at a lower granular level):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creating new information (e.g. review authority freezing the procurement process, rejecting a complaint, or awarding damages).</p>
+</li>
+<li>
+<p>Exchanging data between e-procurement systems and systems used by auditors and review bodies, so that it is easier for them to check the validity of the procurement process.</p>
+</li>
+<li>
+<p>Regulators (ministries, review bodies, etc.), citizens, journalists, NGOs, academics, buyers, etc. use the data to answer policy-relevant questions,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/15" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/15</a>. This use case includes (and therefore could be breakdown into other use cases at a lower granular level):</p>
+</li>
+<li>
+<p>Accessing information created by the use cases above.</p>
+</li>
+<li>
+<p>Accessing information created specifically to be used only in this use case.</p>
+</li>
+<li>
+<p>Connecting this information with other information, in particular:</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>budget systems (to answer questions linked to following the money).
+(Note: e-invoicing is not included in this section, because it falls within the scope of "e-procurement phases described in the Project Charter", i.e. the first use cases in this list.); and</p>
+</li>
+<li>
+<p>contract registers (to allow answering more sophisticated questions, e.g. linked to the full text of contracts).</p>
+</li>
+<li>
+<p>Analyse the success rate of the procurement process and the reasons for failure,
+as well as estimate the costs associated,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/16" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/16</a></p>
+</li>
+<li>
+<p>Long term analysis about the evolution of procurement activities in the EU Institutions,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/16" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/16</a></p>
+</li>
+<li>
+<p>Providing information for Contract Registries,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/18" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/18</a></p>
+</li>
+<li>
+<p>Enable the publication of notices as linked open data to enable the exploitation of the corresponding data through the semantic web in ways yet to be envisaged,
+<a href="https://github.com/eprocurementontology/eprocurementontology/issues/18" class="bare">https://github.com/eprocurementontology/eprocurementontology/issues/18</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
