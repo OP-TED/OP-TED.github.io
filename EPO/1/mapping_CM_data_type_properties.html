@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/EPO/latest/index.html">
+    <link rel="canonical" href="https://docs.ted.europa.eu/EPO/1/mapping_CM_data_type_properties.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link rel="stylesheet" href="../../_/css/custom.css">
@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="EPO" data-version="1.0.0">
+<div class="nav-container" data-component="EPO" data-version="1">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -86,7 +86,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="index.html">Overview</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -129,7 +129,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="mapping_CM_classes.html">Mapping CM Classes</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="mapping_CM_data_type_properties.html">Mapping CM Data type properties</a>
   </li>
   <li class="nav-item" data-depth="2">
@@ -255,18 +255,19 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">eProcurement Ontology</a></li>
-    <li><a href="index.html">Overview</a></li>
+    <li>Mapping of the conceptual data entities to OWL</li>
+    <li><a href="mapping_CM_data_type_properties.html">Mapping CM Data type properties</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">1.0.0</button>
   <div class="version-menu">
-    <a class="version" href="../4.0.0/index.html">4.0.0-rc.1</a>
-    <a class="version" href="../latest/index.html">3.1.0</a>
-    <a class="version" href="../3.0.1/index.html">3.0.1</a>
-    <a class="version" href="../2.0.1/index.html">2.0.1</a>
-    <a class="version" href="../2.0.0/index.html">2.0.0</a>
-    <a class="version is-current" href="index.html">1.0.0</a>
+    <a class="version is-missing" href="../4.0.0/index.html">4.0.0-rc.1</a>
+    <a class="version is-missing" href="../latest/index.html">3.1.0</a>
+    <a class="version is-missing" href="../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-current" href="mapping_CM_data_type_properties.html">1.0.0</a>
   </div>
 </div>
 </div>
@@ -276,39 +277,67 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_eprocurement_ontology_overview"><a class="anchor" href="#_eprocurement_ontology_overview"></a><strong>eProcurement Ontology overview</strong></h2>
+<h2 id="_mapping_cm_data_type_properties"><a class="anchor" href="#_mapping_cm_data_type_properties"></a>Mapping CM Data type properties</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_abstract"><a class="anchor" href="#_abstract"></a>Abstract</h3>
-<div class="paragraph">
-<p><em>In 2016 the <a href="https://publications.europa.eu/en/home">Publications Office of the European Union</a> (Publications Office or OP) started a project funded by the <a href="https://ec.europa.eu/isa2/home_en">ISA Programme</a> to organise and support the development of a Public Procurement Ontology (ePO).</em></p>
-</div>
-<div class="paragraph">
-<p><em>The ultimate objective of the ontology is to put forth a commonly agreed OWL ontology that will conceptualise, formally encode and make available in an open, structured and machine-readable format data about public procurement, covering it from end to end, i.e. from notification, through tendering to awarding, ordering, invoicing and payment. With this goal in mind the OP engaged a Working Group (WG) of experts with the mission of building consensus on the analysis results and deliverables developed by the OP’s teams.</em></p>
-</div>
-<div class="paragraph">
-<p><em>By mid-2017 a version 1.00 of the Ontology was delivered and submitted to the Working group for discussion. All the materials related to this version were made public and are accessible through the ISA2 <a href="https://joinup.ec.europa.eu/solution/eprocurement-ontology">Joinup</a> platform; including the discussions held in the Working Group (WG).</em></p>
-</div>
-<div class="paragraph">
-<p><em>A new stage of the development, identified as ePO v2.0.0, was initiated in January 2018. The goal of this new version is to improve and extend the previous version.</em></p>
-</div>
-<div class="paragraph">
-<p><em>This document describes the objectives, the methodological approach and the deliverables produced in this new version.</em></p>
-</div>
+<h3 id="_properties_in_the_conceptual_data_model_for_the_three_use_cases_selected"><a class="anchor" href="#_properties_in_the_conceptual_data_model_for_the_three_use_cases_selected"></a>Properties in the conceptual data model for the three use cases selected:</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Label</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>URI</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">has Amount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:decimal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>http://www.omg.org/spec/EDMC-FIBO/FND/Accounting/CurrencyAmount/hasAmount</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">has Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em><a href="http://xmlns.com/foaf/spec/20140114.html#term_name" class="bare">http://xmlns.com/foaf/spec/20140114.html#term_name</a></em></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
-<h3 id="_context"><a class="anchor" href="#_context"></a>Context</h3>
+<h3 id="_submit_an_issue"><a class="anchor" href="#_submit_an_issue"></a>Submit an issue:</h3>
 <div class="paragraph">
-<p>Given the increasing importance of data standards for e-Procurement, a number of initiatives driven by the public sector, the industry and academia have been launched in the recent years. Some have grown organically, while others are the result of standardisation work. The vocabularies and the semantics that they are introducing, the phases of public procurement they are covering, and the technologies they are using vary greatly amongst themselves. These differences hamper data interoperability and their reuse.</p>
+<p>To propose a new mapping of the data type property or to create any issue related to data type properties, please <a href="https://github.com/eprocurementontology/eprocurementontology/labels/Mapping%20CM%20-%20Data%20type%20properties">click here</a> and then click on "New issue".
+For a new mapping, <strong>adapt</strong> the first column of the table proposed to follow the data type property template below:</p>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Element</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A short title of the property, e.g. “hasVAT”</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Data type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The data type describes the type of value in which a property can be expressed, for example “number”, “string” or “value from a controlled vocabulary”.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A string of characters used to identify a resource</p></td>
+</tr>
+</tbody>
+</table>
 <div class="paragraph">
-<p>This situation creates the need for a common representation of the knowledge about the eProcurement domain as it is understood and practiced in the European Union. For this to happen a common vocabulary, axioms and rules are needed.</p>
-</div>
-<div class="paragraph">
-<p>This document describes the work carried out by the Publications Office and the working group to develop the "eProcurement Ontology" (henceforth referred to as the ePO).</p>
-</div>
-<div class="paragraph">
-<p>In the framework of this project, we will identify and give examples of each step of the process for creating the e-procurement ontology. Clearly specifying the roles of the different actors and the input required of them within the timeline of creating the ontology. The different phases needed to create the ontology and the intermediary processes within these phases will be clearly defined giving examples taken from the 3 use cases. In parallel to this process, a working group composed of stakeholders from multiple interested groups will be set up. This working group will decide by consensus on how the ontology should be developed at all stages and may decide to adopt the first draft of the specification proposed and described during the first meeting. This project will provide the working group with the process, methodology and technology to be followed for developing the final version of the e-procurement ontology.</p>
+<p>Use the second column of the template as guidance to propose the new mapping for the data type property.</p>
 </div>
 </div>
 </div>
