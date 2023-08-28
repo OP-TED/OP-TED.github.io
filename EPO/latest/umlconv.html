@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>eProcurement UML conceptual model conventions :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/EPO/latest/umlconv.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="EPO" data-version="3.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/business.html">Business Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/references.html">Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/versioning.html">ePO Versioning Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Working Group Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/wider.html">Quarterly Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/cumulative.html">Cumulative Reports (by year)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/indiv.html">Individual Meeting Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eProcurement Ontology</span>
+          <span class="version">3.1.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../eforms/1.9/index.html">1.9.0</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../4.0.0/index.html">4.0.0-rc.1</a>
+            </li>
+            <li class="version is-current is-latest">
+              <a href="index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">eProcurement Ontology</a></li>
+    <li><a href="umlconv.html"><strong>eProcurement UML conceptual model conventions</strong></a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">3.1.0</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../4.0.0/index.html">4.0.0-rc.1</a>
+    <a class="version is-current" href="umlconv.html">3.1.0</a>
+    <a class="version is-missing" href="../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.0/index.html">1.0.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page"><strong>eProcurement UML conceptual model conventions</strong></h1>
+<div id="toc" class="toc">
+<div id="toctitle">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a>
+<ul class="sectlevel2">
+<li><a href="#_context">1.1. Context</a></li>
+<li><a href="#_requirements">1.2. Requirements</a></li>
+<li><a href="#_keywords_for_requirement_statements">1.3. Keywords for Requirement Statements</a></li>
+</ul>
+</li>
+<li><a href="#_preliminary_definitions">2. Preliminary definitions</a>
+<ul class="sectlevel2">
+<li><a href="#_the_conceptual_model">2.1. The Conceptual Model</a></li>
+<li><a href="#_unified_modelling_language_uml">2.2. Unified Modelling Language (UML)</a></li>
+<li><a href="#_formal_ontology">2.3. Formal ontology</a></li>
+</ul>
+</li>
+<li><a href="#_constraints_in_naming_and_structural_conventions">3. Constraints in Naming and Structural Conventions</a>
+<ul class="sectlevel2">
+<li><a href="#_what_is_in_a_name">3.1. What is in a name?</a></li>
+<li><a href="#_case_sensitivity">3.2. Case sensitivity</a></li>
+<li><a href="#_delimitation">3.3. Delimitation</a></li>
+<li><a href="#_uniqueness_of_names">3.4. Uniqueness of Names</a></li>
+<li><a href="#_suffix_and_prefix">3.5. Suffix and prefix</a></li>
+<li><a href="#_classes">3.6. Classes</a></li>
+<li><a href="#_relations">3.7. Relations</a></li>
+<li><a href="#_relations_re_usability">3.8. <strong>Relations re-usability</strong></a></li>
+<li><a href="#_attributes">3.9. Attributes</a></li>
+<li><a href="#_controlled_lists">3.10. Controlled lists</a></li>
+<li><a href="#_notes_descriptions_and_comments">3.11. Notes, descriptions, and comments</a></li>
+</ul>
+</li>
+<li><a href="#_technical_constraints">4. Technical constraints</a>
+<ul class="sectlevel2">
+<li><a href="#_namespaces">4.1. Namespaces</a></li>
+<li><a href="#_character_encoding">4.2. Character encoding</a></li>
+<li><a href="#_umlpackage">4.3. uml:Package</a></li>
+<li><a href="#_umlclass">4.4. uml:Class</a></li>
+<li><a href="#_umlclass_attributes">4.5. uml:Class attributes</a></li>
+<li><a href="#_umlenumeration">4.6. uml:Enumeration</a></li>
+<li><a href="#_umldatatype">4.7. uml:Datatype</a></li>
+<li><a href="#_umlassociation">4.8. uml:Association</a></li>
+<li><a href="#_umldependency">4.9. uml:Dependency</a></li>
+<li><a href="#_umlgeneralization">4.10. uml:Generalization</a></li>
+</ul>
+</li>
+<li><a href="#_bibliography">5. Bibliography</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Adapted from the document:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OP-TED/model2owl/blob/master/doc/uml-conventions/uml-conventions.pdf">eProcurement UML conceptual model conventions</a></p>
+</div>
+<div class="paragraph">
+<p>PWC EU Services/ AMI Consulting</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This document provides a working specification of the guidelines and conventions for the eProcurement conceptual model, such that it qualifies suitable input for the transformation scripts meant to generate the formal eProcurement ontology.</p>
+</div>
+<div class="paragraph">
+<p>The business context and the project overview are detailed in Costetchi [7].</p>
+</div>
+<div class="paragraph">
+<p>The next section provides the motivation for the current document and situates it within the project.</p>
+</div>
+<div class="sect2">
+<h3 id="_context"><a class="anchor" href="#_context"></a>1.1. Context</h3>
+<div class="paragraph">
+<p>In the eProcurement ontology project, the decision was made to represent the conceptual model in Unified Modelling Language (UML). UML is a visual representation language that facilitates understanding and convergence between stakeholders, towards a common conceptualisation of the model.</p>
+</div>
+<div class="paragraph">
+<p>Generally, the primary application of UML for ontology design is in the specification of class diagrams initially conceived for object-oriented software. UML does not define formal semantics that permit the determination of the consistency of the ontology from class diagrams, nor the accuracy of the implementation of the ontology. In this scenario, semantics become subject to interpretation by the stakeholders involved in the development process, and later by the users in the application and integration tasks.</p>
+</div>
+<div class="paragraph">
+<p>UML is closer to the programming languages in which enterprise applications are implemented than to more logic-oriented approaches. Therefore, the current specification needs to establish conventions for the interpretation of the UML-based conceptual model.</p>
+</div>
+<div class="paragraph">
+<p>The UML Conceptual Model of the eProcurement domain serves as the single source of truth, which means that the formal eProcurement ontology is derived from it through a model transformation process. It is possible to generate  the formal ontology in RDF format from the XMI (v.2.5.1) serialisation of a UML (v.2.5) model [6] automatically, provided that a set of clear transformation rules are established, and that a set of modelling conventions is respected.</p>
+</div>
+<div class="paragraph">
+<p>This document provides the UML modelling constraints and a set of conventional and technical recommendations for naming and structuring the UML class diagram elements:
+packages, classes, data types, enumerations, enumeration items, class attributes, the association relation and the dependency relation.</p>
+</div>
+<div class="paragraph">
+<p>There are additional elements which will be addressed contextually in the following sections.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_requirements"><a class="anchor" href="#_requirements"></a>1.2. Requirements</h3>
+<div class="paragraph">
+<p>The eProcurement conceptual model must fulfil mainly four fundamental objectives:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Facilitate an understanding of the represented system</p>
+</li>
+<li>
+<p>Promote efficient transfer of system details between team members and external stakeholders.</p>
+</li>
+<li>
+<p>Provide a point of reference for system designers to gather system specifications and documentation.</p>
+</li>
+<li>
+<p>Serve as input for development of a (more) formal model.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In order to support the objectives, a conceptual model should fulfil the following requirements:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Be available to all team members, to facilitate collaboration and iteration.</p>
+</li>
+<li>
+<p>Be easily changeable, as a continuous reflection of up-to-date information.</p>
+</li>
+<li>
+<p>Contain both visual and written forms of diagramming, to  explain the abstract concepts it may represent better.</p>
+</li>
+<li>
+<p>Establish relevant terms and concepts that will be used throughout the project.</p>
+</li>
+<li>
+<p>Define these terms and concepts.</p>
+</li>
+<li>
+<p>Provide a basic structure for project entities.</p>
+</li>
+<li>
+<p>Reduce ambiguity while maintaining simple and concise encoding.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_keywords_for_requirement_statements"><a class="anchor" href="#_keywords_for_requirement_statements"></a>1.3. Keywords for Requirement Statements</h3>
+<div class="paragraph">
+<p>The keywords “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in RFC 2119.</p>
+</div>
+<div class="paragraph">
+<p>The keywords “MUST (BUT WE KNOW YOU WON’T)”, “SHOULD CONSIDER”, “REALLY SHOULD NOT”, “OUGHT TO”, “WOULD PROBABLY” “MAY WISH TO”, “COULD”, “POSSIBLE”, and “MIGHT” in this document are to be interpreted as described in RFC 6919.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_preliminary_definitions"><a class="anchor" href="#_preliminary_definitions"></a>2. Preliminary definitions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this document three closely related and mostly overlapping domains are used interchangeably. They come from the worlds of: enterprise architecture, software engineering and design and formal knowledge representation. It is therefore necessary to establish the terms, especially the common ones, by defining what they mean in each of these domains.</p>
+</div>
+<div class="sect2">
+<h3 id="_the_conceptual_model"><a class="anchor" href="#_the_conceptual_model"></a>2.1. The Conceptual Model</h3>
+<div class="paragraph">
+<p>A conceptual model is a representation of a system that uses concepts to form said representation. A concept can be viewed as an idea or notion; or a unit of thought. However, what constitutes a unit of thought is subjective, and this definition is meant to be suggestive, rather than restrictive. That is why each concept needs to be well named by providing preferred and alternative labels, and a clear and precise definition supported by examples and explanatory notes.</p>
+</div>
+<div class="paragraph">
+<p>The conceptual model consists of representations of concepts, their qualities or attributes, and their relationships to other concepts. Most commonly, these are association and generalisation relations. In addition, behaviour can be represented ranging from the concept level up to the level of the system as a whole. Behavioural aspects, however, fall out of the scope of the current specification, which addresses mainly structural elements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unified_modelling_language_uml"><a class="anchor" href="#_unified_modelling_language_uml"></a>2.2. Unified Modelling Language (UML)</h3>
+<div class="paragraph">
+<p>The Unified Modelling Language (UML) is a general-purpose, developmental modelling language in the field of software engineering that is intended to provide a standard way to visualise the design of a system. Its set of specifications is based on the assumption that conceptual models are represented with UML. Moreover, for the purposes of this convention, only the structural elements of UML are considered, in particular those making up a class diagram.</p>
+</div>
+<div class="paragraph">
+<p>The most important structural elements will now be introduced:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <strong>class</strong> represents a discrete concept within the domain being modelled. It is a description of a set of individual objects that share the same attributes, behaviour, and relationships. Graphically, a class is rendered as a rectangle.</p>
+</li>
+<li>
+<p>An <strong>instance</strong> or individual object is a discrete (run-time) entity with an identity, state and invocable behaviour, which can be distinguished from other (run-time) entities. t is said that an individual object instantiates a class and represents a concrete (run-time) manifestation of that class. Conversely, a class represents the abstract concept by which instantiated individual objects are understood and described.</p>
+</li>
+<li>
+<p>A <strong>property</strong> is a structural feature which represents a named part of the structure of a class and characterises it in a particular fashion. It can be an attribute of a classifier, or a member end of a relation.</p>
+</li>
+<li>
+<p>An <strong>attribute</strong> is a named property of a class that describes the types and range of values that instances of the property may hold. An attribute may be conceptualised as a slot shared by all objects of that class that is filled by values through instantiation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When building abstractions, very few classes stand alone. Instead, most of them are connected to each other in a number of different ways. In UML, there are three kinds of relationships that are important in this specification:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>dependencies</strong>, which represent using relationships among classes (including refinement, trace, and bind relationships);</p>
+</li>
+<li>
+<p><strong>generalisations</strong>, which link generalised classes to their specialisations; and</p>
+</li>
+<li>
+<p><strong>associations</strong>, which represent structural relationships among objects. Each of these relationships provides a different way of combining your abstractions.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a class participates in an association, it has a specific role that it plays in that relationship. A role is the face the class at the near end of the association presents to the class at the other end of the association. It is possible to name the role a class plays in an association explicitly.</p>
+</div>
+<div class="paragraph">
+<p>An association represents a structural relationship among objects. In many modelling situations, it’s important to state how many objects may be connected across an instance of an association. This “how many” is called the multiplicity of an association’s role, and is written as an expression that evaluates to a range of values or an explicit value. It is possible to show a multiplicity of exactly one, zero or one [0..1], many [0..<strong>], one or more [1..</strong>], or even an exact number, for example, "3" . Multiplicity applies not only to associations, but to dependency relations as well, and also, to class attributes.</p>
+</div>
+<div class="paragraph">
+<p>A stereotype represents an extensibility mechanism that is foreseen in UML. It allows for the possibility of creating new domain specific kinds of elements that are derived from the existing standard ones. In the simplest form, they act as annotations on the UML building blocks, but can redefine the visual representation of the UML element entirely. For example, some elements may be considered optional, recommended or required in the context of information exchange. This is possible by creating the three stereotypes and applying them accordingly.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_formal_ontology"><a class="anchor" href="#_formal_ontology"></a>2.3. Formal ontology</h3>
+<div class="paragraph">
+<p>There has been much discussion as to what an ontology is and is not. In a computational context, an ontology encompasses a representation, formal naming, and definition of the categories, properties, and relations between the concepts, data, and entities that substantiate one, many, or all domains of the discourse.</p>
+</div>
+<div class="paragraph">
+<p>We have adopted Studer et al.'s [29] definition that “an ontology is a formal, explicit specification of a shared conceptualization”. In this specification we adopt Web Ontology Language (OWL 2) to specify the formal ontologies. OWL 2 is a knowledge representation language, with formally defined meaning, designed to formulate, exchange, and reason with knowledge about a domain of interest.</p>
+</div>
+<div class="paragraph">
+<p>OWL 2 ontologies can be used with information written in Resource Description Framework (RDF). RDF is a standard model for data interchange on the Web. OWL 2 ontologies themselves are primarily exchanged as RDF documents.</p>
+</div>
+<div class="paragraph">
+<p>An RDF document is composed of RDF statements. The RDF statement, or triple, is a three-slotted structure of the form &lt; subject − predicate − object &gt;. The RDF statement asserts that a relationship holds , indicated by the predicate, between the resources denoted by the subject and object. The subject is always a resource identified by a URI, while the object may be either a URI resource or a literal value.</p>
+</div>
+<div class="paragraph">
+<p>Next, the relevant OWL 2 concepts will be introduced:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Classes</strong> provide an abstraction mechanism for grouping resources with similar characteristics. Classes can be understood as sets of individuals, called the class extension. The individuals in the class extension are called the instances of the class [9].</p>
+</li>
+<li>
+<p><strong>Individuals</strong> in OWL 2 represent actual objects from the domain. There can be named individuals, which are given an explicit name to refer to the same object; and anonymous individuals, which do not have an explicit name and are used locally.</p>
+</li>
+<li>
+<p><strong>Data types</strong> are entities that refer to sets of data values. Thus, data types are analogous to classes, the main difference being that the former contain data values such as strings and numbers, rather than individuals [21].</p>
+</li>
+<li>
+<p><strong>Literals</strong> represent data values such as particular strings or integers. They can also be understood as individuals denoting data values. Literals can be either plain (no datatype) or typed [21].</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In OWL 2, properties are defined as those taking the predicate role in an RDF statement, and are distinguished as either object properties or data type properties.</p>
+</div>
+<div class="paragraph">
+<p>Object properties represent relationships between pairs of individuals. Data properties represent relationships between an individual and a literal. In some knowledge representation systems, functional data properties are called attributes [21].</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_constraints_in_naming_and_structural_conventions"><a class="anchor" href="#_constraints_in_naming_and_structural_conventions"></a>3. Constraints in Naming and Structural Conventions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Defining naming and structural conventions for concepts in an ontology and then strictly adhering to these conventions does not only make the ontology easier to understand, but also helps avoid some common modelling mistakes.</p>
+</div>
+<div class="paragraph">
+<p>UML is a language without formal semantics. Moreover, it also allows many alternatives in naming concepts. Often there is no particular reason to choose one or another alternative. However, a set of naming conventions for classes, relations, attributes, and controlled lists, needs to be defined and adhered to.</p>
+</div>
+<div class="paragraph">
+<p>In theory, any name can be assigned to a concept, relationship or property. In practice, there are two types of constraints which affects the kinds of names that should be used: technical and conventional.</p>
+</div>
+<div class="paragraph">
+<p>This section deals with conventional constraints; technical constraints are addressed in Section 4.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_is_in_a_name"><a class="anchor" href="#_what_is_in_a_name"></a>3.1. What is in a name?</h3>
+<div class="paragraph">
+<p>Naming conventions apply to element names in the conceptual model. These names are intended for further use as human-readable denominations, called labels; and machine-readable denominations, called identifiers.</p>
+</div>
+<div class="paragraph">
+<p>Identifiers serve as a basis for generating URIs to ensure unambiguous reference to a formal construct; while labels assist understanding by human-readers. For this reason we will apply, primarily, the conventional recommendations provided here and not the technical constraints.</p>
+</div>
+<div class="paragraph">
+<p>The names should also belong to and be organised by namespaces. Namespaces can be provided as a short prefix to the element name, for example “org:Organisation”,
+“epo:Notice” or “skos:Concept”. Namespaces are addressed in detail in Section 4.1.</p>
+</div>
+<div class="paragraph">
+<p>In a simple convention is proposed: that the identifier of a conceptual element is the name of the element, where spaces have been removed. For example, the identifier of the “Legal Entity” class is  LegalEntity”. Note that the case format is important and is addressed in Section 3.2.</p>
+</div>
+<div class="paragraph">
+<p><strong>Recommendations:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Names and descriptions for classes and properties should be expressed in British English [10] and, in addition, a mechanism for providing a multilingual labelling system should be adopted.</p>
+</li>
+<li>
+<p>Avoid abbreviations in concept names.</p>
+</li>
+<li>
+<p>Avoid words employed in the meta-model such as “class”, “property”, “attribute”,“connector” etc.</p>
+</li>
+<li>
+<p>Not use Names which are nonsensical, unpronounceable, hard to read, or easily confused with other names.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_case_sensitivity"><a class="anchor" href="#_case_sensitivity"></a>3.2. Case sensitivity</h3>
+<div class="paragraph">
+<p>The readability of an ontology can be greatly improved if consistent rules for capitalisation in concept names are maintained. For example, it is common to capitalise class names and use lower case for property names. Therefore, the names of classes, data-types and enumerations must begin with a capital letter while the names of class attributes, enumeration items, association and dependency relations, including their source and target roles, must begin with a lower case character.</p>
+</div>
+<div class="paragraph">
+<p>All names are case-sensitive. This means that the class “Buyer”, and the attribute “buyer”, are two different entities.</p>
+</div>
+<div class="paragraph">
+<p><strong>Recommendations:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Confusing similarities are strongly discouraged and more elaborated names are highly encouraged. For example, a simple elaboration is to use suffixes or prefixes.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delimitation"><a class="anchor" href="#_delimitation"></a>3.3. Delimitation</h3>
+<div class="paragraph">
+<p>In UML, spaces in names are allowed and using them may be the most intuitive solution for many ontology developers. It is however, important to consider other systems with which the system may interact. If those systems do not use spaces, or if the presentation medium does not handle spaces well, it can be useful to use another method [19].</p>
+</div>
+<div class="paragraph">
+<p><strong>Recommendations:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Element names should avoid using spaces and instead follow a camel-case convention. CamelCasing is the practice of writing phrases such that the word or abbreviation in the middle of the phrase begins with a capital case.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In an exception, if the conceptual model authors must maintain high readability of the UML diagrams, spaces may be tolerated but must then be handled by the conversion script.</p>
+</div>
+<div class="paragraph">
+<p>In the conversion process, spaces are trimmed and phrases turned into camel-case form.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="paragraph">
+<p>“ Pre-award catalogue request ” is transformed into “PreAwardCatalogueRequest”</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uniqueness_of_names"><a class="anchor" href="#_uniqueness_of_names"></a>3.4. Uniqueness of Names</h3>
+<div class="paragraph">
+<p>In the formal ontology, each class, property or individual in the formal ontology must be uniquely identifiable in it. Therefore, the elements of the conceptual model such as classes, attributes, connectors, and instances, should have unique names. This means that a class, and an attribute with the same name, such as a class “Buyer”, and a property “buyer”, cannot (may not) both exist. Neither may there be a class and an instance, or an instance and a relation, with the same name.</p>
+</div>
+<div class="paragraph">
+<p>Names that reduce to the same identifier are considered unique.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="paragraph">
+<p>“Legal Entity” and “LegalEntity” are different labels, but they reduce to the same identifier “LegalEntity”.</p>
+</div>
+<div class="paragraph">
+<p>In such cases the names are considered equal, and the UML elements replicated.</p>
+</div>
+<div class="paragraph">
+<p>Uniqueness of name is a recommendation, but sometimes it is useful to replicate a UML element. In such cases, when names are reused, the assumption is that the two UML elements represent manifestations of the same meaning. This is especially important for relations and is explained further in Section 3.8.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_suffix_and_prefix"><a class="anchor" href="#_suffix_and_prefix"></a>3.5. Suffix and prefix</h3>
+<div class="paragraph">
+<p>Some ontology engineering methodologies suggest using prefix and suffix conventions in the names to distinguish between classes and attributes. Two common practices are to add a “has-” or a suffix “-of” to attribute names.</p>
+</div>
+<div class="paragraph">
+<p>Thus, our attributes become “hasAwardStatus” and ”hasBuyer” if we chose the “has-” convention. The attributes become “awardStatusOf” and “buyerOf” if we chose the “-of” convention.</p>
+</div>
+<div class="paragraph">
+<p>This approach allows anyone looking at a term to determine immediately if the term is a class or an attribute, however, the term names become slightly longer.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that the names of class attributes employ the “has-” suffix.</p>
+</div>
+<div class="paragraph">
+<p>Other common suffixes are the prepositions “-by” and “-to”. The organisation ontology adopts their usage in cases such as “embodiedBy” and conformsTo”. However, if a preposition is not absolutely needed, then it should be.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended to use prepositions in the ontology terms only if necessary. Optionally common and descriptive prefixes and suffixes for related properties or classes may be used. While they are just labels and their names have no inherent semantic meaning, it is still a useful way for humans to cluster and understand the vocabulary. For example, properties about languages or tools might contain suffixes such as “Language” (e.g. “displayLanguage”) or “Tool” (e.g. “validationTool”) for all related properties [10].</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_classes"><a class="anchor" href="#_classes"></a>3.6. Classes</h3>
+<div class="paragraph">
+<p>When choosing class names, the convention is to use simple nouns or noun phrases. Where the class refers to actions, states, relations, or qualities, which are usually expressed in natural language by verbs or adjectives, they must be nominalised. The process of nominalisation is where a noun is formed from other parts of speech, most commonly from a verb or an adjective.</p>
+</div>
+<div class="paragraph">
+<p>A noun phrase can then be used instead of the verb or adjective to create a more formal style.</p>
+</div>
+<div class="paragraph">
+<p>A class name represents a collection of objects. For example, a class “Language” actually represents all languages. Therefore, it could be more natural for some model designers to call the class “Languages” rather than “Language”.</p>
+</div>
+<div class="paragraph">
+<p>In practice, however, the singular is used more often for class names, while the plural for sets and collections. Therefore, class names must always use the singular form.</p>
+</div>
+<div class="paragraph">
+<p>When building the class hierarchy, names of direct subclasses of a class should all consistently either  include or not include the name of the superclass.</p>
+</div>
+<div class="paragraph">
+<p>For example, if we are creating two subclasses of the “Wine” class to represent red and white wines, the two subclass names should be either “Red Wine” and “White Wine” or “Red” and “White”, but not “Red Wine” and “White”.</p>
+</div>
+<div class="paragraph">
+<p>Class specialisations with a single child must be avoided. This means that there should be at least two sibling subclasses specified in the model. By default, the classes are not disjunctive, however, if required, the transformation script may generate disjunctive classes by default.</p>
+</div>
+<div class="paragraph">
+<p>Circular inheritance must be avoided. This means that if there is a B that specialises a class A then A may not specialise B or any of the sub-classes of B.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relations"><a class="anchor" href="#_relations"></a>3.7. Relations</h3>
+<div class="paragraph">
+<p>When establishing relations between concepts the convention is to use verbs of action, state, process, or relation such as “includes”, “replaces”, “manages”.</p>
+</div>
+<div class="paragraph">
+<p>A verb or a verb phrase must be used for relationship terms. It should be in lowerCamelCase such that &lt; subject − predicate − object &gt; triples may actually be read as natural language clauses, e.g. “EconomicOperator offers ProcuredItem”.</p>
+</div>
+<div class="paragraph">
+<p>The verb phrase must be in the present tense, expressed in the third person, singular. If an additional level of specificity is needed, a qualifying nominal phrase may be appended.</p>
+</div>
+<div class="paragraph">
+<p>Relationships are usually bi-directional, and a reverse one should be provided where applicable. Adjusting the verb phrases in the predicates as appropriate, usually, by employing the active and passive voice in the term formulation, will achieve the desired result. For example, “uses/isUsedBy” and “refersTo/isReferredToBy” or “offers/isOfferedBy”.</p>
+</div>
+<div class="paragraph">
+<p>The name of the reverse relation should not be a semantically inverted verb, such as in “buys/sells” , or “open/closes”. The semantically inverted dichotomies must be modelled in separate connectors because they represent different relations.</p>
+</div>
+<div class="paragraph">
+<p>For example, the dichotomy “buys/sells” should be modelled as two pairs: “buys/isBoughtBy” and “sells/isSoldBy”.</p>
+</div>
+<div class="paragraph">
+<p>When the relation is of a different nature, more like an attribute, then prefixing and suffixing techniques can be employed.</p>
+</div>
+<div class="paragraph">
+<p>For example, in the Organisation Ontology, the concepts of an “Organisation” and a “Site” are defined along with two relationships that are the inverse of each other: “Organisation hasSite Site” and “Site siteOf Organisation” [24].</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that each relationship includes a definition of its inverse.</p>
+</div>
+<div class="paragraph">
+<p>Models should define such inverse pairs for relationships, although this does not extend to attributes.</p>
+</div>
+<div class="paragraph">
+<p>For example, Dublin Core includes a property of “dateAccepted” where there is no inverse property that would link a given date. This is then expressed as a simple value applying to all documents accepted for publication on that date.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_relations_re_usability"><a class="anchor" href="#_relations_re_usability"></a>3.8. <strong>Relations re-usability</strong></h3>
+<div class="paragraph">
+<p>Relation names should be chosen so that  there is a balance of accuracy and precision on one hand, and relation re-usability on the other. These two dimensions are inversely correlated: the higher the reuse, the lower the accuracy, and vice versa.</p>
+</div>
+<div class="paragraph">
+<p>If more generic predicates are choosen such as “isSpecifiedIn”, this tends towards maximising relation reusability across the model. However, at the same time the risk of overloading the relation meaning also increases.</p>
+</div>
+<div class="paragraph">
+<p>The above risk could be mitigated by simply appending the range class to the relation name: such as “isSpecifiedInContract”, and “isSpecifiedInProcedure” following the following naming pattern: verbPhrase + [RangeClassName] Qualifier. This ensures predicate uniqueness and maximum level of specificity at the cost of re-usability across and beyond the model. The latter can be achieved through inference, but an additional predicate inheritance structure must be defined.</p>
+</div>
+<div class="paragraph">
+<p>Another risk is that a change or evolution of the name of the class has a direct impact on all incoming predicates, and thus raising the chances of errors. This in turn may decrease the model agility and elasticity.</p>
+</div>
+<div class="paragraph">
+<p>There is the option that the transformation process from the conceptual model to the formal ontology may contain an automatic mechanism of appending the name of the range class to the predicate name, to produce a predicate with higher specificity, should this be required.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_attributes"><a class="anchor" href="#_attributes"></a>3.9. Attributes</h3>
+<div class="paragraph">
+<p>When creating attribute names, the convention is to use simple nouns such as “name”, “weight”, “colour”. Attributes are special types of relations that describe an entity in terms of its qualities. To be consistent with the above convention, and to increase clarity, it is recommended that the prefix “has-” is employed for each attribute even if this does not add to the term’s meaning. Therefore, the preference is to use terms such as “hasName”, “hasWeight” and “hasColour”.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that simple nouns are used for attribute names prefixed with the verb “has-”. To avoid doing this manually, it is possible to rely on the convention that attribute names starting with a capital letter must be read as having the “has-” prefix. This means that the transformation script will prepend the “has-” prefix to all attributes starting with a capital letter.</p>
+</div>
+<div class="paragraph">
+<p>By default, attribute multiplicity is “1”. This should be read as any number which is expressed as “0..*”. In special cases, a list of custom default multiplicities is defined for the transformation script, which means that some data types or classes that are used as attribute types are paired with a default multiplicity, for example “1..1”, “0..1”, “2..2”.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_controlled_lists"><a class="anchor" href="#_controlled_lists"></a>3.10. Controlled lists</h3>
+<div class="paragraph">
+<p>A controlled list is a carefully selected list of words and phrases often employed in modelling practices. A controlled list has a name, and a set of terms. For example the list of grammatical genders can be named “Gender” and comprise the terms “masculine”, “feminine”, “neuter” and <mark>“utrum”? - other?</mark>.</p>
+</div>
+<div class="paragraph">
+<p>It is required that controlled lists are named using nouns or nominal phrases starting with a capital letter. Enumeration items must start with a lower case.</p>
+</div>
+<div class="paragraph">
+<p>As a rule of thumb, but not always, the relationship between the controlled list as a whole and its constituent elements can be informally conceptualised as a classinstance, class-subclass, set-item, or part-whole.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_notes_descriptions_and_comments"><a class="anchor" href="#_notes_descriptions_and_comments"></a>3.11. Notes, descriptions, and comments</h3>
+<div class="paragraph">
+<p>A strong emphasis is set on naming conventions. Nonetheless, most often, a good name is insufficient for accurate or easy comprehension by human-readers. To mitigate this and increase the conceptual richness, practitioners may wish to provide "human-readable definitions, notes, examples and comments grasping the underlying assumptions, usage examples, additional explanations and other types of information that are readable by, and instantly comprehensible to, humans.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that each element is defined by a crisp, one-line definition that starts with a capital letter and ends with a period.</p>
+</div>
+<div class="paragraph">
+<p>A description may provide complementary information concerning the usage of the element, or its relation to relevant standards. For example, a description may contain recommendations about which controlled vocabularies to use, and describe the underlying assumptions and additional explanations for reducing ambiguity. Descriptions may contain multiple paragraphs separated by blank lines. Descriptions should not paraphrase the definitions.</p>
+</div>
+<div class="paragraph">
+<p>Where the model editor provides concrete examples of possible element values or instances, they must be provided as a comma-separated list. Each example value should be enclosed in quotes and has the option of being followed by a short explanation enclosed in parentheses.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_technical_constraints"><a class="anchor" href="#_technical_constraints"></a>4. Technical constraints</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_namespaces"><a class="anchor" href="#_namespaces"></a>4.1. Namespaces</h3>
+<div class="paragraph">
+<p>To enable the reuse of names defined in other models, and reuse of unique references for names that support easy identification, namespace management must be considered. An XML approach to defining and managing namespaces has been adopted as it is inherent in both XMI and OWL2 standards. Hence, a namespace is a set of symbols, that are used to organise objects of various kinds, so that these objects may be referred to by name and be uniquely identifiable.</p>
+</div>
+<div class="paragraph">
+<p>Namespaces are commonly structured as hierarchies to allow  the reuse of names in different contexts. This mechanism can be implemented in UML through partitioning the model using packages. Packages are described in section 4.3.</p>
+</div>
+<div class="paragraph">
+<p>A namespace organises a collection of names obeying three constraints, that each name is</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>unique,</p>
+</li>
+<li>
+<p>assigned in a consistent way, and</p>
+</li>
+<li>
+<p>assigned according to a common definition.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An (expanded) name in a namespace is a pair consisting of a namespace name, also called base URI or just base, and a local name, also called local segment. The combination of a universally managed URI with a vocabulary local name is effective in avoiding name clashes.</p>
+</div>
+<div class="paragraph">
+<p>For example, in the expanded name “http://www.w3.org/ns/org#Organization”, “http://www.w3.org/ns/org#” is the namespace name and “Organization” is the local name.</p>
+</div>
+<div class="paragraph">
+<p>Unlike in the XML specifications, the constraints on the local name are slightly relaxed, allowing token delimitation by space character (see Section 3.3). This provides an additional level of readability to the conceptual model users. Nevertheless, local names must be normalised strings, which means that only single occurrences of a space character are permitted. Other delimiting characters, such as a tab, a line feed, or a carriage return, must be replaced by an occurrence of a space, and trimmed. In the transformation process, when URIs are generated, the spaces are removed anyway, and they then conform with the XML conventions (see Section 3.1).</p>
+</div>
+<div class="paragraph">
+<p>name = &lt;namespace name&gt;/&lt;local name&gt;
+name = &lt;namespace name&gt;#&lt;local name&gt;</p>
+</div>
+<div class="paragraph">
+<p>URI references are often inconveniently long, so  expanded names should not be used directly. Instead, qualified names should be used. (Expanded names are strongly discouraged.)</p>
+</div>
+<div class="paragraph">
+<p>A qualified name is a name subject to namespace interpretation. Syntactically, they can be either prefixed names or non-prefixed names.</p>
+</div>
+<div class="paragraph">
+<p>qualified name = [&lt;namespace prefix&gt;:]&lt;local name&gt;</p>
+</div>
+<div class="paragraph">
+<p>The namespace name is usually applied as a prefix to the local name, but it may also be missing. Reference [16] specifies a declaration syntax which permits the binding of prefixes to namespace names, and to a default namespace that applies to non-prefixed element names.</p>
+</div>
+<div class="paragraph">
+<p>For example, we can bind the namespace name “http://www.w3.org/ns/org#” to the prefix “org”, which we can then use to create the same name “org:Organization”.
+The prefix is subject to namespace interpretation and resolved to a URI [16]. It is recommended that the UML element names indicate the namespace prefix by
+prepending it to the name delimited by colon character (:).</p>
+</div>
+<div class="paragraph">
+<p>Where the namespace is not specified, not delimited, then the name of the package containing the current element is used as namespace prefix.</p>
+</div>
+<div class="paragraph">
+<p>For example if a class “Contract” is placed in a package “epo” then the name of the containing package is used as the namespace prefix and resolved to “epo:Contract”. If the delimiter (:) is used without any prefix, then the empty string prefix is resolved to the default namespace as defined in reference [16].</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_character_encoding"><a class="anchor" href="#_character_encoding"></a>4.2. Character encoding</h3>
+<div class="paragraph">
+<p>In the formal ontology, names must conform to RDF [30] and XML[5] format specifications. Effectively, both languages  require that terms begin with an upper or lower case letter from the ASCII character set, or an underscore ( ). This tight restriction means that, for example, that terms may not begin with a number, hyphen or accented character [24]. Although underscores are permitted, they are discouraged as they may be, in some cases, misread as spaces. A formal definition of these restrictions is given in the XML specification document [5].</p>
+</div>
+<div class="paragraph">
+<p>It is required that names use words beginning with an upper or lower case letter, (A–Z, a–z), or an underscore, ( ), for all terms in the model. Digits (0–9) are allowed in subsequent character positions. Also, as mentioned above, spaces are permitted in the local segment of the name.</p>
+</div>
+<div class="paragraph">
+<p>Encoded UTF-8 and UTF-16 names are supported [5, 20], but it is recommended that character encodings in element names is avoided. Encoded characters are, for the most part, not readable and require a decoding to become "human friendly". Also, unexpected results may occur in the transformation script. This recommendation does not apply to content strings such as descriptions, notes and comments, which may use any character encoding.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umlpackage"><a class="anchor" href="#_umlpackage"></a>4.3. uml:Package</h3>
+<div class="paragraph">
+<p>Packages should be used to define a logical partition of the model. They serve as the primary method for the vertical slicing of the conceptual model as described in the layering and slicing section of Costetchi [7].</p>
+</div>
+<div class="paragraph">
+<p>Packages may form hierarchies. In this case the hierarchical relation is interpreted as meronymy, denoting a constituent parts of the package. Formally they are translated into owl:import statements.The module corresponding to the parent package imports modules corresponding to the child packages.</p>
+</div>
+<div class="paragraph">
+<p>No empty packages shall be present in the model. A package is empty if it contains no child elements.</p>
+</div>
+<div class="paragraph">
+<p>Package names shall be short lowercase normalised strings representing an acronym or a short name. They may serve as proxies for the namespace prefixes and be used to resolve the name of any comprised elements when the prefix is not provided. This, however, should not be used as a primary naming method, but rather for suggesting corrections in the element name.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umlclass"><a class="anchor" href="#_umlclass"></a>4.4. uml:Class</h3>
+<div class="paragraph">
+<p>uml:Class is transformed into an owl:Class. Each uml:Class must have a name and should have a description representing the "human-readable" class definition in the domain context.</p>
+</div>
+<div class="paragraph">
+<p>Where there is the technical functionality to distinguish between UML notes, there is the additional option to provide editorial notes, notes on the history, or comments, as class descriptors.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that a uml:Class has relations, attributes, or both. A class must have at lease one of either attributes or relations associated with it. Using the same name in a class, attribute or a relation, must be avoided.</p>
+</div>
+<div class="paragraph">
+<p>Classes may use an &lt;&lt; abstract &gt;&gt; stereotype. This means that no instances of this class are allowed in the datasets. This is not covered by the OWL 2 [21] but can be expressed in SHACL data shapes [14].</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umlclass_attributes"><a class="anchor" href="#_umlclass_attributes"></a>4.5. uml:Class attributes</h3>
+<div class="paragraph">
+<p>A uml:Attribute is mostly transformed into an owl:DataProperty and in some controlled cases into an owl:ObjectProperty.</p>
+</div>
+<div class="paragraph">
+<p>Each uml:Attribute must have a name and attribute type. The name is used to generate the URI and label while the type is used to define the range restriction.</p>
+</div>
+<div class="paragraph">
+<p>An attribute may contain an alias, which is used as an alternative label; and it may have an initial value provided which is transferred into a definition.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that the attribute type is one of the XSD and RDF data types compatible1 with OWL 2. As an exception, generic data types such as “Numeric”, “String”, “Date” can be used. In such cases the transformation script uses a correspondence table defining which XSD data type shall be used for each atomic UML 1https://www.w3.org/2011/rdf-wg/wiki/XSD_Datatypes type. If the datatype is not found in the correspondence table then it is considered invalid.</p>
+</div>
+<div class="paragraph">
+<p>The attribute multiplicity should be specified indicating the minimum and maximum cardinality. The default [1] multiplicity shall be interpreted as unspecified as expressed as [0..*] in the OWL model.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended to avoid duplicate attributes names across multiple classes, unless, by design, attributes with the same name are shared across multiple classes.</p>
+</div>
+<div class="paragraph">
+<p>It is mandatory to avoid using the same name in an attribute and in a relation, unless there is an additional rule that handles intentional exceptions.</p>
+</div>
+<div class="paragraph">
+<p>All attribute data types must be defined in the model for reference, regardless of whether they have been reused from other models or are specific to the local model. Where external models have been , the local (re-)definitions serve merely as proxies, as explained in
+Section 4.7.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that the attribute type is an atomic data type. It is possible to use uml:Enumeration as an attribute type. These cases are transformed into an
+owl:ObjectProperty in a manner similar to that of uml:Dependency described in Section 4.9.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended to avoid using another class as the attribute type. An acceptable exception for this is with a controlled set of classes. The list of allowed classes must be explicitly indicated in the transformations script. These cases are transformed into owl:ObjectProperty in a manner similar to uml:Association, described in Section 4.8. For the eProcurement project, the set of exceptions is: Identifier, Amount, Quantity, and Measure. These were initially defined as composite data types and then
+transformed into classes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umlenumeration"><a class="anchor" href="#_umlenumeration"></a>4.6. uml:Enumeration</h3>
+<div class="paragraph">
+<p>In UML, the controlled lists, discussed in Section 3.10, are represented as uml:Enumeration. They are transformed into instances of a SKOS model [17].</p>
+</div>
+<div class="paragraph">
+<p>Each uml:Enumeration element is transformed into a skos:ConceptScheme and each enumeration item, represented by an uml:Attribute, is transformed into a skos:Concept.</p>
+</div>
+<div class="paragraph">
+<p>An enumeration must not be empty. In an enumeration element, the name shall be interpreted as the controlled list name; it must be a normalised string.
+Each attribute name is used as a local segment in
+the generation of the concept URI. The attribute type is ignored and by default is considered to be skos:Concept. The attribute alias is transformed into the skos:Concept preferred label. The attribute initial value is transformed into the alternative label of the concept. If the attribute alias is longer than the attribute initial value, then it is assumed that the two fields have been swapped by mistake.</p>
+</div>
+<div class="paragraph">
+<p>Where no attribute alias is specified then the attribute name is used as preferred label of the skos:Concept. This happens because skos:prefLabel is a mandatory property in the SKOS model.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to employ the enumerations for class properties by drawing a dependency (uml:Dependency) relation from the class to the enumeration and providing a relation target role.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umldatatype"><a class="anchor" href="#_umldatatype"></a>4.7. uml:Datatype</h3>
+<div class="paragraph">
+<p>This convention draws the distinction between primitive (or atomic) types consisting of a single literal value, and composite types consisting of multiple attributes. [25].</p>
+</div>
+<div class="paragraph">
+<p>Composite data types must be defined as classes and handled as such. For example: AmountType, Identifier, Quantity, and Measure are to be treated as
+classes even if conceptually they could be seen as composite data types.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended to employ the primitive data types that are already defined in XSD [23] and RDF [30], which cover the standard, and most common types. Thus,
+definitions of custom data types shall be avoided unless the model really needs them. Such cases are, however, rare.</p>
+</div>
+<div class="paragraph">
+<p>The data types defined in the UML model, and custom models, are resolved into their XSD equivalent using the corresponding data types from Table 1. Note that the family of string data types is mapped to rdf:langString. This means that the instance data should provide a language tag for the textual data indicating how it should be read.</p>
+</div>
+<div class="paragraph">
+<p>This enables a multilingual data specification. Also, note that Date is mapped to xsd:date and DateTime is mapped to xsd:dateTime. However, the xsd:date is not included in the OWL2 interpretation and, instead, a strong preference is expressed for xsd:dateTime. Therefore, it is recommended to follow the OWL2 specification, although the xsd:date is a valid datatype in the RDF data, and in SPARQL queries. It is recommended to use OWL 2 compliant XSD and RDF standard data types.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. : UML to XSD datatype correspondences</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">UML</th>
+<th class="tableblock halign-left valign-top">XSD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Float</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:float</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Integer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:integer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Char, Character, String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">rdf:langString</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Short</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:short</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Long</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:long</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Decimal</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:decimal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:date</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DateTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:dateTime</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>OWL 2 compliant XSD and RDF standard data types may be useful in indicating a specific data type which is not possible with UML types. For example, making a distinction between a general string (xsd:string), and a literal with a language tag (rdf:langString), or XML encoded ones such as rdf:HTML and rdf:XMLLiteral.</p>
+</div>
+<div class="paragraph">
+<p>For model consistency, it is recommended that proxy data types be defined in the model for the XSD2 and RDF data types3 used in the model. The proxies must follow the standard namespace convention using the “rdf” and “xsd” prefixes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umlassociation"><a class="anchor" href="#_umlassociation"></a>4.8. uml:Association</h3>
+<div class="paragraph">
+<p>The uml:Association connectors represent relations between source and target classes. The association connector cannot be used between other kinds of UML elements.</p>
+</div>
+<div class="paragraph">
+<p>A generic UML connector may have a name applied to it, and, in addition, may have source/target roles specified. This provides flexibility in how the domain knowledge may be expressed in UML, however this freedom also increases the level of ambiguity.</p>
+</div>
+<div class="paragraph">
+<p>Two distinct ways to express properties are foreseen, using the connector generic name, or using the connector source/target ends:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If a connector name is specified then no source or target roles can be provided. The name must be valid as it is used to generate the OWL property URI. The minimum and maximum cardinality of the relation must be specified as target multiplicity.</p>
+</li>
+<li>
+<p>The recommended approach is if the connector has no name then the target role must be specified. Or, conversely, if a target role is specified then no connector name can be specified.  A source role may optionally be provided.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In such a case the relation direction must be changed from “Source-¿Target” to “Bidirectional”. Or, conversely, if the connector direction is “Bidirectional” then source and target roles must be provided. No other directions are permitted.</p>
+</div>
+<div class="paragraph">
+<p>The target and source multiplicity must be specified accordingly, indicating the minimum and maximum cardinality.</p>
+</div>
+<div class="paragraph">
+<p>It is recommended that each association has a definition. The definition is then used for each role as they stand for the same meaning manifested in the inverse direction.</p>
+</div>
+<div class="paragraph">
+<p>Additional, specific definitions can be specified along with the target and source roles.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umldependency"><a class="anchor" href="#_umldependency"></a>4.9. uml:Dependency</h3>
+<div class="paragraph">
+<p>The dependency connector may be used between uml:Class and uml:Enumeration boxes, oriented from the class towards the enumeration. This indicates that the class has an owl:ObjectProperty whose range is a controlled vocabulary.</p>
+</div>
+<div class="paragraph">
+<p>The connector must have the direction “Source-¿Target”. No other directions are acceptable. The connector must have a valid name and no source/target roles are acceptable. The multiplicity must be specified at the target of the connector.</p>
+</div>
+<div class="paragraph">
+<p>,For reasoning purposes in the transformation process, the range of the property must be expressed as a range restriction using owl:oneOf the values from the enumeration Concept scheme. This is also valuable for generating SHACL shapes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_umlgeneralization"><a class="anchor" href="#_umlgeneralization"></a>4.10. uml:Generalization</h3>
+<div class="paragraph">
+<p>The uml:Generalization connector signifies a class-subClass relation and is transformed into the rdfs:subClassOf relation standing between source and target classes.</p>
+</div>
+<div class="paragraph">
+<p>The connector must have no name or source/target roles specified in the UML model.</p>
+</div>
+<div class="paragraph">
+<p>Where a model class should inherit a class from an external model, proxies must be created for those classes. For example if “Buyer” specialises an “org:Organization” then a proxy for “org:Organization” must be created in the “org” package.</p>
+</div>
+<div class="paragraph">
+<p>In this specification, the subclasses are assumed disjoint by default unless otherwise specified in the transformations script, or explicitly marked on the generalisation relation with ¡¡non-disjoint¿¿ stereotype. For the converse case the ¡¡disjoint¿¿ stereotype shall be used.</p>
+</div>
+<div class="paragraph">
+<p>Where two classes are equivalent, the &lt;&lt; equivalent &gt;&gt; or &lt;&lt; complete &gt;&gt; stereotype should be used as a marker.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>5. Bibliography</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Xml metadata interchange (xmi) specification: Version 2.5.1. Standard formal/2015-06-07, Object Management Group (OMG), 2015. URL http: //www.omg.org/spec/XMI/2.5.1.</p>
+</li>
+<li>
+<p>T. Berners-Lee, R. T. Fielding, and L. M. Masinter. Uniform Resource Identifier (URI): Generic Syntax. RFC 3986, Jan. 2005. URL <a href="https://rfc-editor.org/rfc/rfc3986.txt" class="bare">https://rfc-editor.org/rfc/rfc3986.txt</a>.</p>
+</li>
+<li>
+<p>G. Booch, J. Rumbaugh, and I. Jacobson. Unified Modeling Language User Guide, The (2nd Edition) (Addison-Wesley Object Technology Series). Addison-Wesley Professional, 2005. ISBN 0321267974.</p>
+</li>
+<li>
+<p>S. O. Bradner. Key words for use in RFCs to Indicate Requirement Levels. RFC 2119, Mar. 1997. URL <a href="https://rfc-editor.org/rfc/rfc2119.txt" class="bare">https://rfc-editor.org/rfc/rfc2119.txt</a>.</p>
+</li>
+<li>
+<p>T. Bray, M. Sperberg-McQueen, E. Maler, F. Yergeau, and J. Paoli. Extensible markup language (XML) 1.0 (fifth edition). W3C recommendation, W3C, Nov. 2008. <a href="http://www.w3.org/TR/2008/REC-xml-20081126/" class="bare">http://www.w3.org/TR/2008/REC-xml-20081126/</a>.</p>
+</li>
+<li>
+<p>S. Cook, C. Bock, P. Rivett, T. Rutt, E. Seidewitz, B. Selic, and D. Tolbert. Unified modeling language (UML) version 2.5.1. Standard formal/2017-12-05, Object Management Group (OMG), Dec. 2017. URL <a href="https://www.omg.org/spec/UML/2.5.1" class="bare">https://www.omg.org/spec/UML/2.5.1</a>.</p>
+</li>
+<li>
+<p>E. Costetchi. eProcurement ontology architecture and formalisation specifications. Recommendation, Publications Office of the European Union, April 2020.</p>
+</li>
+<li>
+<p>E. Costetchi. eProcurement uml conceptual model to owl ontology transformation. Recommendation, Publications Office of the European Union, April 2020.</p>
+</li>
+<li>
+<p>M. Dean and G. Schreiber. OWL web ontology language reference. W3C recommendation, W3C, Feb. 2004. <a href="http://www.w3.org/TR/2004/REC-owl-ref-20040210/" class="bare">http://www.w3.org/TR/2004/REC-owl-ref-20040210/</a>.</p>
+</li>
+<li>
+<p>M. Dekkers, E. Stani, B. Wyns, and F. Barthelemy. D02.01 - specification of the process and methodology to develop the eprocurement ontology with initial draft of the eprocurement ontology for 3 use cases. Deliverable SC378DI07171, Publications Office of the European Union, 2017.</p>
+</li>
+<li>
+<p>M. Fowler. UML distilled: a brief guide to the standard object modeling language. Addison-Wesley Professional, 2004.</p>
+</li>
+<li>
+<p>M. Grunninger. Enterprise modelling. In Handbook on enterprise architecture, pages 515–541. Springer, 2003.</p>
+</li>
+<li>
+<p>N. Guarino, D. Oberle, and S. Staab. What is an ontology? In Handbook on ontologies, pages 1–17. Springer, 2009.</p>
+</li>
+<li>
+<p>H. Knublauch and D. Kontokostas. Shapes constraint language (SHACL). W3C recommendation, W3C, July 2017. <a href="https://www.w3.org/TR/2017/REC-shacl-20170720/" class="bare">https://www.w3.org/TR/2017/REC-shacl-20170720/</a>.</p>
+</li>
+<li>
+<p>J. Kunze and T. Baker. The dublin core metadata element set. Technical report, RFC 5013, August, 2007.</p>
+</li>
+<li>
+<p>A. Layman, T. Bray, H. Thompson, D. Hollander, and R. Tobin. Namespaces in XML 1.0 (third edition). W3C recommendation, W3C, Dec. 2009. <a href="http://www.w3.org/TR/2009/REC-xml-names-20091208/" class="bare">http://www.w3.org/TR/2009/REC-xml-names-20091208/</a>.</p>
+</li>
+<li>
+<p>A. Miles and S. Bechhofer. SKOS simple knowledge organization system reference. W3C recommendation, W3C, Aug. 2009. <a href="http://www.w3.org/TR/2009/REC-skos-reference-20090818/" class="bare">http://www.w3.org/TR/2009/REC-skos-reference-20090818/</a>.</p>
+</li>
+<li>
+<p>R. Moats. Urn syntax, 1997.</p>
+</li>
+<li>
+<p>N. F. Noy, D. L. McGuinness, et al. Ontology development 101: A guide to
+creating your first ontology, 2001.</p>
+</li>
+<li>
+<p>J. Paoli, F. Yergeau, M. Sperberg-McQueen, T. Bray, E. Maler, and J. Cowan. Extensible markup language (XML) 1.1 (second edition). W3C recommendation, W3C, Aug. 2006. <a href="http://www.w3.org/TR/2006/REC-xml11-20060816/" class="bare">http://www.w3.org/TR/2006/REC-xml11-20060816/</a>.</p>
+</li>
+<li>
+<p>B. Parsia, P. Patel-Schneider, and B. Motik. OWL 2 web ontology language structural specification and functional-style syntax (second edition). W3C
+recommendation, W3C, Dec. 2012. <a href="http://www.w3.org/TR/2012/REC-owl2-syntax-20121211/" class="bare">http://www.w3.org/TR/2012/REC-owl2-syntax-20121211/</a>.</p>
+</li>
+<li>
+<p>P. Patel-Schneider, B. Parsia, and B. Motik. OWL 2 web ontology language structural specification and functional-style syntax. W3C recommendation,
+W3C, Oct. 2009. <a href="http://www.w3.org/TR/2009/REC-owl2-syntax-20091027/" class="bare">http://www.w3.org/TR/2009/REC-owl2-syntax-20091027/</a>.</p>
+</li>
+<li>
+<p>D. Peterson, A. Malhotra, S. Gao, M. Sperberg-McQueen, P. V. Biron, and H. Thompson. W3C xml schema definition language (XSD) 1.1 part 2: Datatypes. W3C recommendation, W3C, Apr. 2012. <a href="http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/" class="bare">http://www.w3.org/TR/2012/REC-xmlschema11-2-20120405/</a>.</p>
+</li>
+<li>
+<p>PwC EU Services. D3.1 - process and methodology for core vocabularies. Deliverable, ISA programme of the European Commission, 2011.</p>
+</li>
+<li>
+<p>PwC EU Services. e-government core vocabularies handbook. Report, ISA<sup>2</sup> programme of the European Commission, 2015. URL <a href="https://ec.europa" class="bare">https://ec.europa</a>.
+eu/isa2/library/e-government-core-vocabularies-handbook_en.</p>
+</li>
+<li>
+<p>E. Rescorla, R. Barnes, and S. Kent. Further Key Words for Use in RFCs to Indicate Requirement Levels. RFC 6919, Apr. 2013. URL <a href="https://rfc-editor" class="bare">https://rfc-editor</a>.
+org/rfc/rfc6919.txt.</p>
+</li>
+<li>
+<p>D. Reynolds. The organization ontology. W3C recommendation, W3C, Jan. 2014. <a href="http://www.w3.org/TR/2014/REC-vocab-org-20140116/" class="bare">http://www.w3.org/TR/2014/REC-vocab-org-20140116/</a>.</p>
+</li>
+<li>
+<p>P. Saint-Andre and J. Klensin. Uniform resource names (urns). Internet Engineering Task Force (IETF), RFC, 8141, 2017.</p>
+</li>
+<li>
+<p>R. Studer, V. R. Benjamins, and D. Fensel. Knowledge engineering: principles
+and methods. Data &amp; knowledge engineering, 25(1-2):161–197, 1998.</p>
+</li>
+<li>
+<p>D. Wood, R. Cyganiak, and M. Lanthaler. RDF 1.1 concepts and abstract syntax. W3C recommendation, W3C, Feb. 2014.
+<a href="http://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/" class="bare">http://www.w3.org/TR/2014/REC-rdf11-concepts-20140225/</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>

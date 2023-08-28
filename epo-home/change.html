@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/epo-home/change.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/custom.css">
+    <link rel="stylesheet" href="../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="epo-home" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../EPO/latest/release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="business.html">Business Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="references.html">Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="versioning.html">ePO Versioning Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Working Group Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-wgm/wider.html">Quarterly Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-wgm/cumulative.html">Cumulative Reports (by year)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-wgm/indiv.html">Individual Meeting Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../eforms/1.9/index.html">1.9.0</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../eforms/latest/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.6/index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../EPO/4.0.0/index.html">4.0.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../EPO/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">eProcurement Ontology</a></li>
+    <li><a href="change.html">Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme</h1>
+<div id="toc" class="toc">
+<div id="toctitle">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. INTRODUCTION</a>
+<ul class="sectlevel2">
+<li><a href="#_objective">1.1. Objective</a></li>
+<li><a href="#_scope">1.2. Scope</a></li>
+<li><a href="#_structure_of_this_document">1.3. Structure of this document</a></li>
+</ul>
+</li>
+<li><a href="#_governance_mechanism">2. GOVERNANCE MECHANISM</a>
+<ul class="sectlevel2">
+<li><a href="#_governance_structure">2.1. Governance structure</a>
+<ul class="sectlevel3">
+<li><a href="#_steering_committee_isa_coordination_group">2.1.1. Steering Committee – ISA Coordination Group.</a></li>
+<li><a href="#_governance_committee_isa_programme_management">2.1.2. Governance Committee – ISA Programme Management.</a></li>
+<li><a href="#_operational_team_contractors">2.1.3. Operational Team – contractors.</a></li>
+<li><a href="#_working_groups_stakeholders_and_invited_experts">2.1.4. Working Groups – stakeholders and invited experts.</a></li>
+</ul>
+</li>
+<li><a href="#_public_review">2.2. Public review</a></li>
+<li><a href="#_public_announcement">2.3. Public announcement</a></li>
+<li><a href="#_transparency">2.4. Transparency</a></li>
+<li><a href="#_decision_mechanism">2.5. Decision mechanism</a></li>
+<li><a href="#_persistent_identification">2.6. Persistent identification</a></li>
+</ul>
+</li>
+<li><a href="#_types_of_changes_release_cycles_and_process_phases">3. TYPES OF CHANGES, RELEASE CYCLES AND PROCESS PHASES</a>
+<ul class="sectlevel2">
+<li><a href="#_types_of_changes">3.1. Types of changes</a></li>
+<li><a href="#_release_cycles">3.2. Release cycles</a></li>
+<li><a href="#_process_phases">3.3. Process phases</a>
+<ul class="sectlevel3">
+<li><a href="#_request_handling">3.3.1. Request handling</a></li>
+<li><a href="#_request_resolution">3.3.2. Request resolution</a></li>
+<li><a href="#_release_preparation">3.3.3. Release preparation</a></li>
+<li><a href="#_release_endorsement">3.3.4. Release endorsement</a></li>
+<li><a href="#_release_publication">3.3.5. Release publication</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_change_management_processes">4. CHANGE MANAGEMENT PROCESSES</a>
+<ul class="sectlevel2">
+<li><a href="#_request_handling_2">4.1. Request handling</a></li>
+<li><a href="#_request_resolution_2">4.2. Request resolution</a>
+<ul class="sectlevel3">
+<li><a href="#_editorial_changes">4.2.1. Editorial changes</a></li>
+<li><a href="#_minor_semantic_changes">4.2.2. Minor semantic changes</a></li>
+<li><a href="#_major_semantic_changes">4.2.3. Major semantic changes</a></li>
+</ul>
+</li>
+<li><a href="#_release_preparation_2">4.3. Release preparation</a></li>
+<li><a href="#_release_endorsement_2">4.4. Release endorsement</a></li>
+<li><a href="#_release_publication_2">4.5. Release publication</a></li>
+</ul>
+</li>
+<li><a href="#_deployment">5. DEPLOYMENT</a></li>
+<li><a href="#_works_cited">6. WORKS CITED</a></li>
+<li><a href="#_annex_experiences_from_the_application_of_the_change_management">7. ANNEX: EXPERIENCES FROM THE APPLICATION OF THE CHANGE MANAGEMENT</a></li>
+</ul>
+</div>
+<div id="preamble">
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>The views expressed in this report are purely those of the authors and may not, in any circumstances, be interpreted as stating an official position of the European Commission.
+The European Commission does not guarantee the accuracy of the information included in this study, nor does it accept any responsibility for any use thereof.
+Reference herein to any specific products, specifications, process, or service by trade name, trademark, manufacturer, or otherwise, does not necessarily constitute or imply its endorsement, recommendation, or favouring by the European Commission.
+All care has been taken by the author to ensure that s/he has obtained, where necessary, permission to use any parts of manuscripts including illustrations, maps, and graphs, on which intellectual property rights already exist from the titular holder(s) of such rights or from her/his or their legal representative.
+Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. INTRODUCTION</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_objective"><a class="anchor" href="#_objective"></a>1.1. Objective</h3>
+<div class="paragraph">
+<p>This document formalises how changes to the specifications of structural metadata developed by the ISA Programme are managed and how new releases are published.</p>
+</div>
+<div class="paragraph">
+<p>According to the definitions followed by the ISA Programme, structural metadata includes data models (e.g. the DCAT application profile for data portals in Europe) and
+reference data (e.g. the ADMS Controlled Vocabularies).</p>
+</div>
+<div class="paragraph">
+<p>The proposed change management process has the following characteristics:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Openness: In order for public administrations to rely on specifications of structural metadata developed by the ISA Programme, the openness of the change management is a key – openness is also a key assessment criterion in the Common Assessment Method of Standards and Specifications. Openness means that requests for changes can be submitted by any stakeholder and that the analysis and decisions taken are logged in a transparent manner. An open change management process improves the quality of the specification.</p>
+</li>
+<li>
+<p>Controlled change: Public administrations that use structural metadata or implement specifications of structural metadata developed by the ISA
+Programme must not be negatively impacted by unexpected changes to these
+specifications. A release schedule must be established, allowing changes to take place in a stepwise and traceable manner. New releases should also be versioned consistently.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The Change Management process is based on generic change and release management processes in ITILv3 [2] and the generic “Process and methodology for Metadata Governance and Management” [3].</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scope"><a class="anchor" href="#_scope"></a>1.2. Scope</h3>
+<div class="paragraph">
+<p>The following interoperability solutions developed by the ISA Programme will be
+managed according to this process:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Core Vocabularies;</p>
+</li>
+<li>
+<p>The DCAT Application Profile for Datasets in Europe;</p>
+</li>
+<li>
+<p>The ADMS Application Profile; and</p>
+</li>
+<li>
+<p>Any other data specification developed in the future by the ISA Programme.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is the intention that the processes described in this document will stay aligned with the processes specified for the Common Assessment Method for Standards and Specifications (CAMSS). Experiences with the ISA process may be submitted as feedback to CAMSS.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_structure_of_this_document"><a class="anchor" href="#_structure_of_this_document"></a>1.3. Structure of this document</h3>
+<div class="paragraph">
+<p>The remainder of this report is organised as follows:</p>
+</div>
+<div class="paragraph">
+<p>In section 2, the governance structure and mechanism, which are proposed for the management of the specifications of structural metadata, are outlined.</p>
+</div>
+<div class="paragraph">
+<p>Section 3 describes the types of changes, proposes release cycles for these types of changes, and outlines the process phases.</p>
+</div>
+<div class="paragraph">
+<p>Section 4 describes the processes for managing change requests, for preparing releases of the specifications and for the publication of releases.</p>
+</div>
+<div class="paragraph">
+<p>Section 5 covers some of the deployment aspects that are related to changing specifications of structural metadata.</p>
+</div>
+<div class="paragraph">
+<p>Finally, a list of works cited is included at the end of the document.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_governance_mechanism"><a class="anchor" href="#_governance_mechanism"></a>2. GOVERNANCE MECHANISM</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The governance mechanism has the objective to implement the open process to achieve the controlled change of specifications developed by the ISA Programme.</p>
+</div>
+<div class="paragraph">
+<p>The intended result is that the needs and requirements of the public administrations that are the main stakeholders are being satisfied. These stakeholders are organisations that rely on the specifications of the structural metadata, for example when they manage or implement systems or applications that use or incorporate data that is based on those specifications. As the operation of their systems and applications, and, in particular, the exchange of information with other
+organisations is dependent on those specifications, those stakeholders need to play an important role in the change management process.</p>
+</div>
+<div class="sect2">
+<h3 id="_governance_structure"><a class="anchor" href="#_governance_structure"></a>2.1. Governance structure</h3>
+<div class="paragraph">
+<p>Preceding work under ISA Action 1.1 analysed requirements and criteria for metadata management and governance [3]. Based on that earlier work, the following governance structure is proposed:</p>
+</div>
+<div class="sect3">
+<h4 id="_steering_committee_isa_coordination_group"><a class="anchor" href="#_steering_committee_isa_coordination_group"></a>2.1.1. Steering Committee – ISA Coordination Group.</h4>
+<div class="paragraph">
+<p>Composed of representatives of the Member States, the Steering Committee:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensures continuity and consistency on the basis of the general directions set by the European Commission in the rolling ISA Work Programme</p>
+</li>
+<li>
+<p>Is informed about activities and progress in their regular meetings; and</p>
+</li>
+<li>
+<p>Endorses the new release of ISA specifications.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_governance_committee_isa_programme_management"><a class="anchor" href="#_governance_committee_isa_programme_management"></a>2.1.2. Governance Committee – ISA Programme Management.</h4>
+<div class="paragraph">
+<p>The ISA Programme Management Team is the maintenance organisation for the ISA specifications. In the context of that role, the Team:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Organises the activities for maintenance of the ISA specifications, safeguards the proper execution of the maintenance process, reports to the Steering Committee and funds the Operational Team;</p>
+</li>
+<li>
+<p>Identifies the need for a revision of an ISA specification, based on change requests received from stakeholders and initial analysis of the change requests by the Operational Team;</p>
+</li>
+<li>
+<p>Instructs the Operational Team to apply editorial changes and minor semantic changes to ISA specifications;</p>
+</li>
+<li>
+<p>Establishes Working Groups composed of stakeholders and invited experts to discuss and resolve requests for major semantic changes to ISA
+specifications;</p>
+</li>
+<li>
+<p>Prepares new releases of ISA specifications for endorsement by the Steering Committee.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_operational_team_contractors"><a class="anchor" href="#_operational_team_contractors"></a>2.1.3. Operational Team – contractors.</h4>
+<div class="paragraph">
+<p>This is composed of a single team that carries out the day-to-day work. In the case of ISA specifications, the Operational Team usually consists of contractors, under the guidance and responsibility of the Governance Committee. The Operational Team:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Gathers change requests from stakeholders;</p>
+</li>
+<li>
+<p>Advises the Governance Committee on the nature of changes, e.g. whether the change is clear and relevant for the specification at hand, and whether it is an editorial change, or a minor or major semantic change (see section 3.1);</p>
+</li>
+<li>
+<p>Provides the editor for Working Groups;</p>
+</li>
+<li>
+<p>Documents the resolution of change requests in a new release of the specification, either by applying an editorial change, a minor semantic change or by incorporating changes agreed in a Working Group.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_working_groups_stakeholders_and_invited_experts"><a class="anchor" href="#_working_groups_stakeholders_and_invited_experts"></a>2.1.4. Working Groups – stakeholders and invited experts.</h4>
+<div class="paragraph">
+<p>When change requests are received that require major semantic changes in an ISA specification, the Governance Committee establishes a Working Group consisting of stakeholders (organisations that are either implementing or planning to implement the specification concerned) and invited experts (individuals who bring necessary expertise and possibly connections with a wider community).</p>
+</div>
+<div class="paragraph">
+<p>Participants in Working Groups are not funded by the ISA Programme. A Working Group has a chair person from one of the stakeholder organisations, and an editor provided by the Operational Team, while a representative of the Governance Committee attends Working Group meetings and conference calls as observer.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_public_review"><a class="anchor" href="#_public_review"></a>2.2. Public review</h3>
+<div class="paragraph">
+<p>Before a new release is finalised, the proposed release is submitted for public review with a minimum period of four weeks, unless the changes are only editorial in nature.</p>
+</div>
+<div class="paragraph">
+<p>The public review is announced on Joinup and through other relevant channels, e.g. mailing lists of related initiatives. A public comment facility is made available on Joinup.</p>
+</div>
+<div class="paragraph">
+<p>Comments are resolved either by the Operational Team in case of minor semantic changes, or by the Working Group for semantic changes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_public_announcement"><a class="anchor" href="#_public_announcement"></a>2.3. Public announcement</h3>
+<div class="paragraph">
+<p>The governance mechanism requires that all potential stakeholders are informed about the possibilities to participate, e.g. as contributors or reviewers, and about the processes that govern the management of the structural metadata. To that end, announcements of the start of a release cycle (see section 3.2) are posted on Joinup.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_transparency"><a class="anchor" href="#_transparency"></a>2.4. Transparency</h3>
+<div class="paragraph">
+<p>Information about all process events, including change requests, Working Group meeting reports and resolutions will be made public on a suitable location on the Joinup platform.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_decision_mechanism"><a class="anchor" href="#_decision_mechanism"></a>2.5. Decision mechanism</h3>
+<div class="paragraph">
+<p>For editorial changes and minor semantic changes, the Governance Committee takes a decision based on a proposal from the Operational Team.</p>
+</div>
+<div class="paragraph">
+<p>For changes that are processed by a Working Group, the decision process is based on three pillars:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Consensus</strong>: Decisions in the Working Group are taken by consensus; the Working Group chairs make sure that consensus is reached among stakeholders. Consensus is reported to the Governance Committee. The Governance Committee is also informed if consensus cannot be reached; in such case, the Governance Committee takes a decision, taking into account the overall strategy and objectives of the ISA Programme;</p>
+</li>
+<li>
+<p><strong>Appeal</strong>: In the specific case when a stakeholder considers that the process has not been followed properly, or that the stakeholder’s opinions have not been taken into account properly, the stakeholder has the possibility to lodge a formal appeal to the Governance Committee. The Governance Committee takes a decision on the appeal, taking into account the overall strategy and objectives of the ISA Programme;</p>
+</li>
+<li>
+<p><strong>Endorsement</strong>: Revised specifications are endorsed by the Steering Committee on proposal from the Governance Committee.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_persistent_identification"><a class="anchor" href="#_persistent_identification"></a>2.6. Persistent identification</h3>
+<div class="paragraph">
+<p>Joinup will be the authoritative source for specifications released by the ISA Programme. A mechanism of Persistent identifiers (HTTP URIs) is set up to guarantee persistence. The Persistent Identifier mechanism provides a way to uniquely, unambiguously and persistently identify the classes and properties in a specification by creating an RDF namespace that is maintained on behalf of the ISA programme. In specific cases,
+namespace maintenance can be assigned to an external organisation such as an (international) standards body.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_types_of_changes_release_cycles_and_process_phases"><a class="anchor" href="#_types_of_changes_release_cycles_and_process_phases"></a>3. TYPES OF CHANGES, RELEASE CYCLES AND PROCESS PHASES</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_types_of_changes"><a class="anchor" href="#_types_of_changes"></a>3.1. Types of changes</h3>
+<div class="paragraph">
+<p>There are three types of changes that are considered in the change management process:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Editorial changes and bug fixes</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An editorial change or bug fix is a correction of an error in a specification, or an additional clarification of an aspect that may not have been well specified. No effect on existing applications is expected.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Minor semantic changes</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A minor semantic change may be the addition of a property, the relaxation of the obligation for a particular property or the relaxation of a cardinality. Implementation of minor releases may exist concurrently without a major effect on interoperability.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major semantic changes</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A major semantic change occurs when fundamental aspects of a specification are affected. For example, if a change is made to the overall data model. Such changes typically affect all existing applications and therefore need a specific roll-out plan to ensure and well-defined and well-managed deployment phase.</p>
+</div>
+<div class="paragraph">
+<p>These three types of changes are handled in different ways as described below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release_cycles"><a class="anchor" href="#_release_cycles"></a>3.2. Release cycles</h3>
+<div class="paragraph">
+<p>The three types of changes are processed in three different release cycles, starting with the processing of request and ending with the publication of a revised specification.</p>
+</div>
+<div class="paragraph">
+<p>Requests can be submitted by stakeholders and the wider community continuously through a request submission facility on Joinup. As soon as requests are received, they are classified by the Operational Team as one of the three types of changes.</p>
+</div>
+<div class="paragraph">
+<p>The following timetable is established:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Editorial changes and bug fixes</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once per year, the submitted requests for this type of change are collected and processed as described in section 4.2.1. The resulting release is numbered <strong>X.Y.(Z+1)</strong>, e.g. 1.0.1, 1.0.2 etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Minor semantic changes</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Once per year, the submitted requests for this type of change are collected and processed as described in section 4.2.2. At this time, also editorial changes and bug fixes are processed.
+The resulting release is numbered <strong>X.(Y+1).0</strong>, e.g. 1.1.0, 1.2.0 etc.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major semantic changes</strong>
+Every second year, the submitted requests for this type of change are collected and processed as described in section 4.2.3. At this time, also editorial changes and bug fixes as well as minor semantic changes are processed.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The resulting release is numbered (X+1).0.0, e.g. 2.0.0, 3.0.0 etc. If at the scheduled time for a particular release, no requests of that type have been submitted, a release of a lower category can still be taken into account. If, for example, in two years no major or minor semantic change requests have been received, there may still be a release with editorial changes and bug fixes with release number <strong>X.Y.(Z+1)</strong>. If, in the period leading up to the planned date for a particular type of change, no changes for that or any of the lower categories have been received, no new release will be created.</p>
+</div>
+<div class="paragraph">
+<p>At the start of every release cycle, an announcement is made on Joinup.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_process_phases"><a class="anchor" href="#_process_phases"></a>3.3. Process phases</h3>
+<div class="paragraph">
+<p>In this section, a brief overview of the process phases is given. The phases are further elaborated in section 4.</p>
+</div>
+<div class="sect3">
+<h4 id="_request_handling"><a class="anchor" href="#_request_handling"></a>3.3.1. Request handling</h4>
+<div class="paragraph">
+<p>This phase starts with the receipt of a request for change (RFC) from a stakeholder. The request is evaluated by the Operational Team (OT). Based on the analysis by the OT, the Governance Committee (GC) decides on the further process.</p>
+</div>
+<div class="paragraph">
+<p>If the request is rejected because it is not clear or not relevant for the specification at hand, the GC informs the submitter of the rejection with a justification.</p>
+</div>
+<div class="paragraph">
+<p>If the request is accepted, the GC will schedule the request for inclusion in a new release. As soon as a new release needs to be prepared according to the time plan outlined in section 3.2, the process continues with the Request resolution phase.</p>
+</div>
+<div class="paragraph">
+<p>The GC informs the Steering Committee (SC) of the start of the release process.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_request_resolution"><a class="anchor" href="#_request_resolution"></a>3.3.2. Request resolution</h4>
+<div class="paragraph">
+<p>In this phase, there are three options: one for editorial changes and bug fixes, one for minor semantic changes and one for major semantic changes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Editorial changes and bug fixes</strong>. For such a change, the GC instructs the OT to apply the change to the specification. The process continues with the Release preparation phase.</p>
+</div>
+<div class="paragraph">
+<p><strong>Minor semantic changes</strong>. For a minor semantic change, the GC instructs the OT to apply the change, and then publishes a draft of the new specification for public review. The OT resolves any comments and finalises the new specification. The process continues with the Release preparation phase.</p>
+</div>
+<div class="paragraph">
+<p><strong>Major semantic changes</strong>. For major semantic changes, the GC establishes a Working Group (WG). The WG elaborates one or more drafts of the revised specification and discusses these drafts until consensus is reached. It then submits the draft to the GC who publishes the draft for public review. The WG resolves any comments and finalises the new specification. The process continues with the Release preparation phase.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_release_preparation"><a class="anchor" href="#_release_preparation"></a>3.3.3. Release preparation</h4>
+<div class="paragraph">
+<p>The GC instructs the OT to prepare the specification and any additional documentation. The GC notifies the Steering Committee (SC) that the new release is ready for publication and requests endorsement by the SC.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_release_endorsement"><a class="anchor" href="#_release_endorsement"></a>3.3.4. Release endorsement</h4>
+<div class="paragraph">
+<p>The SC discusses the new release and endorses its publication.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_release_publication"><a class="anchor" href="#_release_publication"></a>3.3.5. Release publication</h4>
+<div class="paragraph">
+<p>Following endorsement by the SC, the GC publishes the new release and notifies the stakeholders and the wider public of its availability.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_change_management_processes"><a class="anchor" href="#_change_management_processes"></a>4. CHANGE MANAGEMENT PROCESSES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The process of managing specifications of structural metadata includes the processes for managing changes in the specification, managing the preparation of releases of the specification, and managing the process of publication of a release of the specification.</p>
+</div>
+<div class="paragraph">
+<p>The three following sections provide an outline of those processes, including the goal of the process, the precondition, the actors, the workflow, the frequency and the triggers.</p>
+</div>
+<div class="sect2">
+<h3 id="_request_handling_2"><a class="anchor" href="#_request_handling_2"></a>4.1. Request handling</h3>
+<div class="paragraph">
+<p>This section describes the handling of change request depicted in the figure below.
+<span class="image"><img src="_images/change1.png" alt="change1"></span></p>
+</div>
+<div class="paragraph">
+<p>Figure 1: Request handling</p>
+</div>
+<div class="paragraph">
+<p>The flow consists of the following steps, executed by their corresponding actor:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. : Steps of request handling process</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Receive request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Initial evaluation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accept/Reject request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Schedule resolution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Inform Steering Committee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Precondition</strong>: the specification of the structural metadata exists and is published.</p>
+</div>
+<div class="paragraph">
+<p><strong>Trigger</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Stakeholder submission of change request;</p>
+</li>
+<li>
+<p>Error report;</p>
+</li>
+<li>
+<p>Release of a new version of a related specification.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to ensure that change requests are processed in an open yet controlled fashion.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Stakeholders</strong>: submit Request for Change (RFC)</p>
+</li>
+<li>
+<p><strong>Governance Committee</strong>: takes decision on further processing of RFCs.</p>
+</li>
+<li>
+<p><strong>Operational Team</strong>: performs an initial evaluation of the RFC.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>receive request</strong>, the Governance Committee acknowledges receipt of a request submitted by a stakeholder or group of stakeholders, assigns a reference identifier to it and refers the request for the Operational Team for initial evaluation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 2, <strong>initial evaluation</strong>, the Operational Team performs an eligibility check, verifying that the RFC is indeed related to the specification it references, that it conform to the data modelling underlying the specification, that it does not conflict with or duplicates elements that are already in the specification, and that it describes clearly what the requirement is and which change is requested. If the RFC is deemed valid, the Operational Team determines the type of change requested: editorial, minor semantic or major semantic. The Operational Team notifies the Governance Committee of the result of the initial evaluation, recommending acceptance or rejection of the request and specifying the type of request.</p>
+</li>
+<li>
+<p>In step 3, <strong>accept/reject request</strong>, the Governance Committee verifies that the Operational Team has properly executed the initial evaluation and in case the request is rejected, notifies the submitter with a justification why the request was rejected.</p>
+</li>
+<li>
+<p>In step 4, <strong>schedule resolution</strong>, the Governance Committee schedules the resolution of the request based on the type of request. For editorial changes, the Operational Team is instructed to make the necessary changes; for minor semantic changes, the Operational Team is instructed to prepare a draft resolution for public review; and for major semantic changes, the Governance Committee establishes a Working Group.</p>
+</li>
+<li>
+<p>In step 5, <strong>inform Steering Committee</strong>, the Governance Committee reports at regular intervals about RFCs that were rejected and about the start of a release cycle.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_request_resolution_2"><a class="anchor" href="#_request_resolution_2"></a>4.2. Request resolution</h3>
+<div class="paragraph">
+<p>This section describes the resolution of requests. Diagrams are included in the subsections below.</p>
+</div>
+<div class="sect3">
+<h4 id="_editorial_changes"><a class="anchor" href="#_editorial_changes"></a>4.2.1. Editorial changes</h4>
+<div class="paragraph">
+<p>The following light-weight process is applied to editorial changes.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/change2.png" alt="change2"></span></p>
+</div>
+<div class="paragraph">
+<p>Figure 2: Request resolution - editorial changes</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. : Steps of request resolution process for editorial changes</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hand over request to Operational Team</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply necessary changes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Trigger</strong>: RFCs that specify an editorial issue have been submitted, accepted and scheduled for release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to ensure that small editorial changes are made with minimum delay.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Governance Committee</strong>: hands over the resolution of the RFCs to the Operational Team.</p>
+</li>
+<li>
+<p><strong>Operational Team</strong>: makes changes to the specification.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>hand over request</strong>, the Governance Committee instructs the
+Operational Team to make the necessary changes.</p>
+</li>
+<li>
+<p>In step 2, <strong>apply necessary changes</strong>, the Operational Team incorporates the editorial change to the existing specification and submits the revised version to the Governance Committee.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_minor_semantic_changes"><a class="anchor" href="#_minor_semantic_changes"></a>4.2.2. Minor semantic changes</h4>
+<div class="paragraph">
+<p>The following process is applied to minor semantic changes. A minor semantic change may be the addition of a property, the relaxation of the obligation for a particular property or the relaxation of a cardinality.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/change3.png" alt="change3"></span></p>
+</div>
+<div class="paragraph">
+<p>Figure 3: Request resolution - minor semantic changes</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. : Steps of request resolution process for minor semantic changes</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hand over request to Operational Team</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Apply necessary changes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publish proposed revision for public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolve public comments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Trigger</strong>: RFCs that specify a minor semantic change have been submitted, accepted and scheduled for release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to ensure that minor semantic changes are made with minimum delay but with opportunity for the wider community to comment on a new proposed release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Governance Committee</strong>: hands over the resolution of the RFCs to the
+Operational Team and publishes the draft revision for public review.</p>
+</li>
+<li>
+<p><strong>Operational Team</strong>: makes changes to the specification and prepares a draft for public review and resolves any public comments.</p>
+</li>
+<li>
+<p><strong>Stakeholders and other members of the public</strong>: comment on the proposed
+revision in the public review period.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>hand over request</strong>, the Governance Committee instructs the
+Operational Team to prepare a draft revision.</p>
+</li>
+<li>
+<p>In step 2, <strong>apply necessary changes</strong>, the Operational Team drafts a revised specification for public review.</p>
+</li>
+<li>
+<p>In step 3, <strong>publish proposed revision for public review</strong>, the Governance
+Committee makes the draft available for public review.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>In step 4, *resolve public comments</strong>, the Operational Team resolves any
+comments received, and submits the revised version to the Governance
+Committee.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In case the public review comments require a substantial change in the revision, steps 3 and 4 can be repeated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_major_semantic_changes"><a class="anchor" href="#_major_semantic_changes"></a>4.2.3. Major semantic changes</h4>
+<div class="paragraph">
+<p>The following process is applied to major semantic changes. A major change occurs when fundamental aspects of the specification are  affected. For example, if a change is made to the overall data model.</p>
+</div>
+<div class="paragraph">
+<p>Figure 4: Request resolution - major semantic changes</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/change4.png" alt="change4"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. : Steps of request resolution process for major semantic changes</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Establish Working Group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Elaborate drafts and discuss in scheduled meetings and
+calls</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publish proposed revision for public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publish draft for public review</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolve public comments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Trigger</strong>: RFCs that specify major semantic changes have been submitted, accepted and scheduled for release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to ensure that major semantic changes are made with appropriate involvement from stakeholders and with opportunity for the wider community to comment on a new proposed release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Governance Committee</strong>: establishes a Working Group and publishes draft for public review.</p>
+</li>
+<li>
+<p><strong>Stakeholders and invited experts</strong>: form the membership of the Working
+Group.</p>
+</li>
+<li>
+<p><strong>Operational Team</strong>: provides the editor in the Working Group.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>establish working group</strong>, the Governance Committee sets up a
+Working Group according to the methodology defined in the Process and
+Methodology for Core Vocabularies of the ISA Programme [4]. Members of the
+Working Group are recruited from the stakeholders with invited experts. A
+Working Group has a chair person from one of the stakeholders and an editor appointed from the Operational Team. The Governance Committee participates in the Working Group as observer.</p>
+</li>
+<li>
+<p>In step 2, <strong>elaborate drafts</strong>, the Working Group creates and discusses a number of drafts until consensus is reached.</p>
+</li>
+<li>
+<p>In step 3, <strong>finalise draft</strong>, the Working Group issues a draft based on consensus reached that is sufficiently mature to be published for public review.</p>
+</li>
+<li>
+<p>In step 4, <strong>publish proposed revision for public review</strong>, the Governance
+Committee makes the draft available for public review.</p>
+</li>
+<li>
+<p>In step 5, <strong>resolve public comments</strong>, the Working Group resolves any
+comments received, and submits the revised version to the Governance
+Committee.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In case the public review comments require a substantial change in the revision, steps 4 and 5 can be repeated.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release_preparation_2"><a class="anchor" href="#_release_preparation_2"></a>4.3. Release preparation</h3>
+<div class="paragraph">
+<p>This section describes the release preparation process depicted in the figure below.</p>
+</div>
+<div class="paragraph">
+<p>Figure 5: Release preparation</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/change6.png" alt="change6"></span></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. : Steps of release preparation process</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Check submitted revision for compliance with strategic objectives and policies</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accept/rejects revision</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Hand over final version to Operational Team</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prepare release</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notify Steering Committee requesting endorsement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Trigger</strong>: revised specification is available for release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to ensure that all relevant documents and supporting information are finalised in order for the Steering Committee to be able to endorse release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Governance Committee</strong>: checks the proposed revision against strategic
+objectives and policies, accepts or rejects the revision and submits the final specification to the Steering Committee for endorsement.</p>
+</li>
+<li>
+<p><strong>Operational Team</strong>: prepares all documents and supporting information, ready for endorsement and publication.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>check submitted revision</strong>, verifies that the proposed revision meets the strategic objectives and policies of the ISA Programme.</p>
+</li>
+<li>
+<p>In step 2, <strong>accept/reject revision</strong>, the Governance Committee decides to
+accept or reject the revision. Rejection will only happen in exceptional cases and will be accompanied by a thorough public justification.</p>
+</li>
+<li>
+<p>In step 3, <strong>hand over final version</strong>, the Governance Committee instructs the Operational Team to prepare all documentation necessary for the release of the revision.</p>
+</li>
+<li>
+<p>In step 4, <strong>prepare release</strong>, the Operational Team prepares all documentation necessary for endorsement and publication.</p>
+</li>
+<li>
+<p>In step 5, <strong>notify Steering Committee</strong>, the Governance Committee submits the release documentation to the Steering Committee with a request to endorse the new release.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release_endorsement_2"><a class="anchor" href="#_release_endorsement_2"></a>4.4. Release endorsement</h3>
+<div class="paragraph">
+<p>This section describes the release endorsement process depicted in the next figure.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/change6.png" alt="change6"></span></p>
+</div>
+<div class="paragraph">
+<p>Figure 6: Release endorsement</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 6. : Steps of release endorsement process</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Present new release</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Accept/reject release</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Steering Committee</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Trigger</strong>: new release submitted to the Steering Committee.</p>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to get endorsement on the new release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong>:
+* <strong>Governance Committee</strong>: presents the new release to the Steering Committee.
+* <strong>Steering Committee</strong>: decides on endorsement of the new release.</p>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>present new release</strong>, the Governance Committee introduces the new release at a meeting of the Steering Committee.</p>
+</li>
+<li>
+<p>In step 2, <strong>accept/reject release</strong>, following its own operational principles related to decision-making, the Steering Committee decides on endorsement, verifying that due process is followed and that the release respects the strategic directions of the ISA work programme.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release_publication_2"><a class="anchor" href="#_release_publication_2"></a>4.5. Release publication</h3>
+<div class="paragraph">
+<p>This section describes the publication process depicted in the figure below.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/change7.png" alt="change7"></span>
+Figure 7: Release publication
+The flow consists of the following steps, executed by their corresponding actor:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 7. : Steps of publication flow</caption>
+<colgroup>
+<col style="width: 9.0909%;">
+<col style="width: 54.5454%;">
+<col style="width: 36.3637%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Step</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Actor</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Publish release</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notify stakeholders and wider community of new
+release</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Trigger</strong>: endorsement of the new release</p>
+</div>
+<div class="paragraph">
+<p><strong>Goal</strong>: to make sure that the new specifications are documented and published properly.</p>
+</div>
+<div class="paragraph">
+<p><strong>Primary Actors</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Operational Team: <strong>moves the release to the publication environment</strong>.</p>
+</li>
+<li>
+<p>Governance Committee: <strong>notifies stakeholders of the new release of the
+specifications</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Secondary Actors</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Stakeholders and wider community: are <strong>notified of the release, the roll-out plan and the new specifications</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Workflow</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In step 1, <strong>publish release</strong>, the Operational Team makes the release and additional documentation available for access by the stakeholders and the wider community.</p>
+</li>
+<li>
+<p>In step 2, <strong>notify stakeholders</strong>, the Governance Committee issues a message to the stakeholders and to the wider community with the link to the new release of the specification and the additional documentation.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deployment"><a class="anchor" href="#_deployment"></a>5. DEPLOYMENT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although the scope of this document is on the management of specifications of structural metadata and in particular for the management of specifications of Core Vocabularies and Application Profiles, some consideration is given in this section on the approach to the incorporation of the changes applied to these specification in
+applications and systems that rely on these specifications to interoperate.</p>
+</div>
+<div class="paragraph">
+<p>There are two main cases to consider:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Changes that are not backward compatible, such as adding new mandatory
+elements or mandatory use of a specific vocabulary; and</p>
+</li>
+<li>
+<p>Changes that are backward compatible, such as adding optional elements or relaxing cardinalities or obligations.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In case changes are not backward compatible and cannot work with the software that was based on the previous version of the data model or schema, the propagation of these changes needs to be accompanied by a software upgrade process. Especially in cases were multiple software vendors are involved, such upgrades need to be carefully planned and executed with ample time for testing and verification.</p>
+</div>
+<div class="paragraph">
+<p>For changes that are backward compatible, the process does not rely on all systems in the operational environment installing the changes at the same time. Existing systems can continue to operate unchanged, but before they upgrade they will not be able to access functionality that is provided by the new model elements. This means that in the environment of interconnected systems the availability of the new functionality will become available gradually over a certain period of time.</p>
+</div>
+<div class="paragraph">
+<p>To maintain interoperability, two conditions need to be met:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Systems that still operate with the old version of the model need to be able to ignore the additional elements in the new version of the schema; and</p>
+</li>
+<li>
+<p>Systems that have already upgraded to the new version need to be able to process data using both versions of the schema.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Even in the case of backward compatibility, it is recommended to organise the upgrade across the network as a well-planned and well-communicated project so that all communication partners are aware of the status of the propagation of the new functionality across the network at all times during the transition period.</p>
+</div>
+<div class="paragraph">
+<p>A common way of supporting the deployment of changes to system components is the distinction between alpha, beta and stable releases.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alpha: Ready for testing the new release of the structural metadata by a small group.</p>
+</li>
+<li>
+<p>Beta: Ready for review by the community. A review could be performed via a public consultation, but this is optional.</p>
+</li>
+<li>
+<p>Stable: Tested and positively reviewed by the stakeholders.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_works_cited"><a class="anchor" href="#_works_cited"></a>6. WORKS CITED</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>IDABC Programme, “CAMSS Assessment Criteria,” 4 June 2012. [Online].
+Available: <a href="https://joinup.ec.europa.eu/community/camss/og_page/camss-wiki" class="bare">https://joinup.ec.europa.eu/community/camss/og_page/camss-wiki</a>.
+[Accessed 27 November 2014].</p>
+</li>
+<li>
+<p>The Stationary Office (TSO), “The Official Introduction to the ITIL Service Lifecycle,” 2007.</p>
+</li>
+<li>
+<p>European Commission, ISA Programme, “D4.2 Methodology and tools for
+Metadata Governance and Management for EU institutions and Member States,” 2014. [Online].</p>
+</li>
+<li>
+<p>European Commission, ISA Programme, “Process and Methodology for Core
+Vocabularies,” 2011. [Online]. Available:
+<a href="https://joinup.ec.europa.eu/node/43160" class="bare">https://joinup.ec.europa.eu/node/43160</a>.</p>
+</li>
+<li>
+<p>Publications Office, “Proposal for metadata governance on interinstitutional level,”2011. [Online]. Available: <a href="http://publications.europa.eu/mdr/resource/coremetadata/IMMC_reu3_adoption_anx3.pdf_A-2011-764293.pdf" class="bare">http://publications.europa.eu/mdr/resource/coremetadata/IMMC_reu3_adoption_anx3.pdf_A-2011-764293.pdf</a>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_annex_experiences_from_the_application_of_the_change_management"><a class="anchor" href="#_annex_experiences_from_the_application_of_the_change_management"></a>7. ANNEX: EXPERIENCES FROM THE APPLICATION OF THE CHANGE MANAGEMENT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>PROCESS IN THE CASE OF THE DCAT-AP REVISION</p>
+</div>
+<div class="paragraph">
+<p><strong>Context</strong></p>
+</div>
+<div class="paragraph">
+<p>The change management process specified in this report was applied in the context of the revision of the DCAT-AP5, which ran between January and October 2015.</p>
+</div>
+<div class="paragraph">
+<p><strong>Activities performed</strong>
+The following activities have been performed by each of the governance roles for the revision process of the DCAT-AP:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 8. : Activities performed for the revision of DCAT-AP</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Governance level</th>
+<th class="tableblock halign-left valign-top">Activities</th>
+<th class="tableblock halign-left valign-top">Who</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Steering Committee (SC)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Stayed informed about progress</p>
+</li>
+<li>
+<p>Endorsed new release (pending)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISA Coordination Group, PSI Expert Group (DG CNECT)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee (GC)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Organised and safeguarded the proper execution of maintenance activities</p>
+</li>
+<li>
+<p>Contributed to the establishment of the Working Group</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ISA Programme Management Team</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational Team (OT)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Gathered change requests</p>
+</li>
+<li>
+<p>Advised Governance Committee on nature of changes</p>
+</li>
+<li>
+<p>Provided the editor for the Working Group</p>
+</li>
+<li>
+<p>Documented the resolution of change requests</p>
+</li>
+<li>
+<p>Animated the Working Group and the mailing list</p>
+</li>
+<li>
+<p>Prepared intermediate drafts that were discussed in the meetings of the Working Group</p>
+</li>
+<li>
+<p>Organised and prepared the meetings of the Working Group</p>
+</li>
+<li>
+<p>Ensure alignment with the GeoDCAT-AP Working Group</p>
+</li>
+<li>
+<p>Prepared final release for Steering Committee endorsement (pending)</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contractor of ISA action 1.1.
+- Chair: Norbert Hohn, Willem Van
+Gemert (Publications Office of
+the EU)
+- Editor: Makx Dekkers</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group (WG)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p> Brought expertise
+ Raised issues
+ Proposed requests for change,
+ Proposed resolutions
+ Contributed feedback
+ Reached consensus</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">- Organisations implementing the
+specification
+- Individual experts</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Effort estimation</strong></p>
+</div>
+<div class="paragraph">
+<p>The estimation of effort spent for the revision of the DCAT-AP is based on two dimensions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The effort spent by the contractor of ISA Action 1.1. This adds up to a total of 43 person-days</p>
+</li>
+<li>
+<p>In addition to that, we estimate below the effort spent by:</p>
+</li>
+<li>
+<p>The members of the Governance Committee</p>
+</li>
+<li>
+<p>The Chairs of the Working Group</p>
+</li>
+<li>
+<p>The member of the Working Group</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In total 107 issues were created, from which 6 were created by members of the WG. Also, 403 comments were submitted, from which 131 were submitted by the members of the WG, 11 from the Chairs of the WG, and the rest from the editor of the WG.</p>
+</div>
+<div class="paragraph">
+<p>The total number of mails that were exchanged via the mailing list6 of the WG is 221. 112 of these mails were written by members of the WG, 12 of them by the Chairs of the WG and the rest from the editor of the WG.</p>
+</div>
+<div class="paragraph">
+<p>The estimation of effort spent by the members of the Governance Committee, the Chairs and the members of the Working Group (excluding the time spent by the editor) is analysed in the table below and adds up to a total of 141 person-days (approximation).</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Role</th>
+<th class="tableblock halign-left valign-top">Attending meetings</th>
+<th class="tableblock halign-left valign-top">Reviewing drafts</th>
+<th class="tableblock halign-left valign-top">Participating in discussions, reading emails, sharing feedback</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Governance Committee</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 meetings * 2 people in average per meeting * 120 min. <em>Total of 1200 min</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Interim drafts</p>
+<p class="tableblock">Public review draft</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2 people in average (AK, VP) * 200 emails received * 3 min to read an email.
+<em>Total of 1200 min</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Operational team (OT)
+*<em>not including effort spent by the contractor</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 meetings * 4 people in average per meeting from the OP* 120 min.
+<em>Total of 2400 min</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Interim drafts</p>
+<p class="tableblock">Public review draft</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4 people in average * 200 emails received * 3 min to read an email.
+<em>Total of 2400 min</em></p>
+<p class="tableblock">12 emails * 30 min to write an
+email.
+<em>Total of 360 min</em></p>
+<p class="tableblock">11 comments * 15 min to write a comment on an issue.
+<em>Total of 165 min</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Working Group (WG)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5 meetings * 11 people in average per meeting * 120 min.
+<em>Total of 660 min</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Interim drafts</p>
+<p class="tableblock">Public review draft</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">90 people * 200 emails received * 3 min to read an email.
+<em>Total of 54000 min</em></p>
+<p class="tableblock">112 emails * 30 min to write an email.
+<em>Total of 3360 min</em></p>
+<p class="tableblock">6 issues * 30 min to form and post an issue on Joinup.
+<em>Total of 180 min</em></p>
+<p class="tableblock">131 comments * 15 min to write a comment on an issue.
+<em>Total of 1965 min</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Lessons learned</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The most active stakeholder is the operational team. The participation/involvement of the Steering Committee was less than initially foreseen.</p>
+</li>
+<li>
+<p>The 80-20 rule applies for the resolution of change requests, i.e. approximately 80% of the time was spent for resolving the 20% most critical change requests. Minor issues were closed without much debate.</p>
+</li>
+<li>
+<p>Using the same issue tracker both for the revision of the DCAT-AP and GeoDCAT-AP led to difficulties in organising and filtering relevant issues. It is recommended that in the future the issue tracker is not shared between different specifications, even if they are related to each other.</p>
+</li>
+<li>
+<p>Time assigned to meetings needs to reflect the amount and complexity of issues.</p>
+</li>
+<li>
+<p>Non-controversial issues should not be on the agenda but those should be proposed for resolution off-line.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>Any comments on the documentation?</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OP-TED/epo-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
