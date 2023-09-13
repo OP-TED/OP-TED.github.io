@@ -57,7 +57,7 @@ jobs:
         run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --admin-api-key ${{ secrets.ALGOLIA_API_KEY }} --default
 
       - name: Delete index ${{ secrets.ALGOLIA_INDEX_NAME }}
-        run:  echo ./algolia-cli/algolia indices list; \
+        run:  ./algolia-cli/algolia indices list; \
               if $(./algolia-cli/algolia indices list)|grep -q '${{ secrets.ALGOLIA_INDEX_NAME }}'; then \
               ./algolia-cli/algolia indices delete -y ${{ secrets.ALGOLIA_INDEX_NAME }}; \
               fi;
