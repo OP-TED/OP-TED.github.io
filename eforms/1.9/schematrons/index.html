@@ -301,7 +301,7 @@
         <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
         <ul class="versions">
             <li class="version">
-              <a href="../../../EPO/4.0.0/index.html">4.0.0-rc.1</a>
+              <a href="../../../EPO/4.0.0/index.html">4.0.0-rc.2</a>
             </li>
             <li class="version is-latest">
               <a href="../../../EPO/latest/index.html">3.1.0</a>
@@ -392,7 +392,7 @@
 <p>Schematron is a rule-based validation language for making assertions about the structure and content of XML documents. It is expressed in XML using a small number of elements and XPath. It has been standardised as part of ISO/IEC 19757.</p>
 </div>
 <div class="paragraph">
-<p>All validation rules to be applied on eForms XML notices are expressed in Schematron. The Central Validation Service (CVS) executes the Schematron files in order to produce a validation report in the Schematron Validation Report Language (SVRL).</p>
+<p>All validation rules to be applied on eForms XML notices are expressed in Schematron. The Central Validation Service (CVS) executes the Schematron files in order to produce a validation report in the Schematron Validation Report Language (SVRL). SVRL as also described as part of the ISO/IEC 19757 standard.</p>
 </div>
 </div>
 </div>
@@ -532,8 +532,17 @@
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>MOTE: As described above, the messages for failed assertions included in a validation report are identifiers of translation text. These identifiers and their translations are held in "rule_*" files in the <code>translations</code> folder of the SDK. CVS performs an additional step after validation, replacing the identifiers in the messages with the text of the messages in the language specified in the request to CVS.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As shown in the example above, after executing the Schematron files, the messages for failed assertions in the validation report are identifiers of translation text. These identifiers and their translations are held in "rule_*" files in the <code>translations</code> folder of the SDK. CVS performs an additional step after validation, replacing the identifiers in the messages with the text of the messages in the language specified in the request to CVS.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The attributes of the <code>failed-assert</code> element provide specific information:</p>
