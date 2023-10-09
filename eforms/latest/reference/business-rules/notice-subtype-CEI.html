@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.8">
+<div class="nav-container" data-component="eforms" data-version="1.9">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -274,17 +274,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.8.0</span>
+          <span class="version">1.9.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../../../1.9/index.html">1.9.0</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="../../index.html">1.8.0</a>
+              <a href="../../index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.8/index.html">1.8.0</a>
             </li>
             <li class="version">
               <a href="../../../1.7/index.html">1.7.0</a>
@@ -379,10 +379,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
   <div class="version-menu">
-    <a class="version is-missing" href="../../../1.9/index.html">1.9.0</a>
-    <a class="version is-current" href="notice-subtype-CEI.html">1.8.0</a>
+    <a class="version is-current" href="notice-subtype-CEI.html">1.9.0</a>
+    <a class="version" href="../../../1.8/reference/business-rules/notice-subtype-CEI.html">1.8.0</a>
     <a class="version" href="../../../1.7/reference/business-rules/notice-subtype-CEI.html">1.7.0</a>
     <a class="version" href="../../../1.6/reference/business-rules/notice-subtype-CEI.html">1.6.0</a>
     <a class="version" href="../../../1.5/reference/business-rules/notice-subtype-CEI.html">1.5.1</a>
@@ -467,6 +467,20 @@
 <div class="title">Condition in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-14-Lot == 'non-restricted-document')</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00018-0058</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-18-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong> Submission Electronic (BT-17-Lot) is equal to 'not-allowed'.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-17-Lot == 'not-allowed'</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -704,10 +718,32 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00064-0017</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-64-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00065-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-65-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00067-0068</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-67(b)-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong> Exclusion Grounds Code (BT-67(a)-Procedure) is not present.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-67(a)-Procedure is not present</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -1026,6 +1062,20 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-137-LotsGroup</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00140-0067</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-140-notice</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong> Change Notice Version Identifier (BT-758-notice) is not present.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-758-notice is not present</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -2558,6 +2608,38 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00197-4827</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-197(BT-541)-LotsGroup-Fixed</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00197-4862</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-197(BT-541)-Lot-Fixed</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00197-4897</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-197(BT-541)-LotsGroup-Threshold</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00197-4932</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-197(BT-541)-Lot-Threshold</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00198-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-198(BT-118)-NoticeResult</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3142,6 +3224,14 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00500-0270</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-500-Business-European</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00501-0067</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-501-Business-National</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3683,7 +3773,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00708-0067</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-708-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+<p><strong>Forbidden if</strong> BT-14-Lot is not present.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-14-Lot is not present</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -3856,6 +3952,14 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00729-0017</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-729-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00730-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-730-Tender</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3947,7 +4051,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00737-0067</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-737-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+<p><strong>Forbidden if</strong> BT-14-Lot is not present.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-14-Lot is not present</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -4009,7 +4119,15 @@
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00752-0017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-752-Lot</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-752-Lot-WeightNumber</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00752-0067</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-752-Lot-ThresholdNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
 </div></div></td>
@@ -5070,6 +5188,14 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00124-0017</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-124-Business</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00130-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-130-Business</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -5086,40 +5212,8 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00027-0017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-27-Procedure-Currency</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00036-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-36-Part-Number</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00036-1017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-36-Part-Unit</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00050-0017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-050-Part</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00050-0067</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-050-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
 </div></div></td>
@@ -5176,14 +5270,6 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00098-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-98-Lot-Number</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00098-1017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-98-Lot-Unit</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
 </div></div></td>
@@ -5256,14 +5342,6 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00113-0068</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-113-Lot-EmployLegis</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00118-0017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-118-NoticeResult-Currency</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
 </div></div></td>
@@ -5348,14 +5426,6 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00161-0017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPA-161-NoticeResult-Currency</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00170-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-170-Tenderer</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -5374,6 +5444,14 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00210-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-210-Tenderer</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00211-0017</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-211-Tenderer</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type CEI.</p>
 </div></div></td>
@@ -5737,6 +5815,14 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00018-0017</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-18-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00021-0017</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-21-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -5819,6 +5905,14 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00137-0119</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-137-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type CEI.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00140-0017</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-140-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always mandatory</strong> in notice sub-type CEI.</p>
 </div></div></td>
@@ -6111,14 +6205,6 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00140-0068</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-140-Lot</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type CEI.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00150-0017</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-150-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always mandatory</strong> in notice sub-type CEI.</p>
 </div></div></td>

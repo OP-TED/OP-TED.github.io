@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.8">
+<div class="nav-container" data-component="eforms" data-version="1.9">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -274,17 +274,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.8.0</span>
+          <span class="version">1.9.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../../1.9/index.html">1.9.0</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="../index.html">1.8.0</a>
+              <a href="../index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../1.8/index.html">1.8.0</a>
             </li>
             <li class="version">
               <a href="../../1.7/index.html">1.7.0</a>
@@ -379,10 +379,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
   <div class="version-menu">
-    <a class="version" href="../../1.9/schematrons/index.html">1.9.0</a>
-    <a class="version is-current" href="index.html">1.8.0</a>
+    <a class="version is-current" href="index.html">1.9.0</a>
+    <a class="version" href="../../1.8/schematrons/index.html">1.8.0</a>
     <a class="version" href="../../1.7/schematrons/index.html">1.7.0</a>
     <a class="version" href="../../1.6/schematrons/index.html">1.6.0</a>
     <a class="version is-missing" href="../../1.5/index.html">1.5.1</a>
@@ -407,7 +407,7 @@
 <p>Schematron is a rule-based validation language for making assertions about the structure and content of XML documents. It is expressed in XML using a small number of elements and XPath. It has been standardised as part of ISO/IEC 19757.</p>
 </div>
 <div class="paragraph">
-<p>All validation rules to be applied on eForms XML notices are expressed in Schematron. The Central Validation Service (CVS) executes the Schematron files in order to produce a validation report in the Schematron Validation Report Language (SVRL).</p>
+<p>All validation rules to be applied on eForms XML notices are expressed in Schematron. The Central Validation Service (CVS) executes the Schematron files in order to produce a validation report in the Schematron Validation Report Language (SVRL). SVRL as also described as part of the ISO/IEC 19757 standard.</p>
 </div>
 </div>
 </div>
@@ -547,8 +547,17 @@
 </tr>
 </table>
 </div>
-<div class="paragraph">
-<p>MOTE: As described above, the messages for failed assertions included in a validation report are identifiers of translation text. These identifiers and their translations are held in "rule_*" files in the <code>translations</code> folder of the SDK. CVS performs an additional step after validation, replacing the identifiers in the messages with the text of the messages in the language specified in the request to CVS.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As shown in the example above, after executing the Schematron files, the messages for failed assertions in the validation report are identifiers of translation text. These identifiers and their translations are held in "rule_*" files in the <code>translations</code> folder of the SDK. CVS performs an additional step after validation, replacing the identifiers in the messages with the text of the messages in the language specified in the request to CVS.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The attributes of the <code>failed-assert</code> element provide specific information:</p>

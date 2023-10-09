@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.8">
+<div class="nav-container" data-component="eforms" data-version="1.9">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -274,17 +274,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.8.0</span>
+          <span class="version">1.9.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../../1.9/index.html">1.9.0</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="../index.html">1.8.0</a>
+              <a href="../index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../1.8/index.html">1.8.0</a>
             </li>
             <li class="version">
               <a href="../../1.7/index.html">1.7.0</a>
@@ -381,10 +381,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.8.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
   <div class="version-menu">
-    <a class="version" href="../../1.9/schema/procedure-lot-part-information.html">1.9.0</a>
-    <a class="version is-current" href="procedure-lot-part-information.html">1.8.0</a>
+    <a class="version is-current" href="procedure-lot-part-information.html">1.9.0</a>
+    <a class="version" href="../../1.8/schema/procedure-lot-part-information.html">1.8.0</a>
     <a class="version" href="../../1.7/schema/procedure-lot-part-information.html">1.7.0</a>
     <a class="version" href="../../1.6/schema/procedure-lot-part-information.html">1.6.0</a>
     <a class="version" href="../../1.5/schema/procedure-lot-part-information.html">1.5.1</a>
@@ -1293,23 +1293,6 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>Procurement documents (**)</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Restricted Justification (BT-707)</strong></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">Procurement documents (BT-14, BT-15, BT-615, BT-707, BT-708, BT-737)</a></p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:CallForTendersDocumentReference&#8203;[cbc:DocumentType/text()='restricted-document']&#8203;/cbc:DocumentTypeCode&#8203;[@listName='communication-justification']</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Official Language (BT-708)</strong></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">Procurement documents (BT-14, BT-15, BT-615, BT-707, BT-708, BT-737)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
@@ -1322,7 +1305,7 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:CallForTendersDocumentReference&#8203;/cbc:LanguageID</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:CallForTendersDocumentReference&#8203;/ext:UBLExtensions​&#8203;/ext:UBLExtension&#8203;​/ext:ExtensionContent&#8203;​/efext:EformsExtension&#8203;​/efac:OfficialLanguages&#8203;​/cac:Language&#8203;​/cbc:ID</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1339,15 +1322,24 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:CallForTendersDocumentReference&#8203;/cbc:LanguageID</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:CallForTendersDocumentReference&#8203;/ext:UBLExtensions​&#8203;/ext:UBLExtension&#8203;​/ext:ExtensionContent&#8203;​/efext:EformsExtension&#8203;​/efac:NonOfficialLanguages&#8203;​/cac:Language&#8203;​/cbc:ID</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p>AND</p>
-</div>
-<div class="listingblock">
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Documents Restricted Justification (BT-707)</strong></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#procurementDocsSection">Procurement documents (BT-14, BT-15, BT-615, BT-707, BT-708, BT-737)</a></p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cbc:DocumentStatusCode with value "non-official"</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">cac:CallForTendersDocumentReference&#8203;[cbc:DocumentType/text()='restricted-document']&#8203;/cbc:DocumentTypeCode&#8203;[@listName='communication-justification']</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -1590,7 +1582,7 @@ more)</em></p></td>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>Subcontracting obligations (Dir. 81 only) (**)</strong></p></td>
+<td class="tableblock halign-center valign-middle" colspan="11"><p class="tableblock"><strong>Subcontracting Indication and obligations (Dir. 81 only) (**)</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Subcontracting Tender Indication (BT-651)</strong></p></td>
@@ -1614,10 +1606,10 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><a href="#subcontractingObligationSection">Subcontracting obligations (BT-64, BT-65, BT-651, BT-729)</a></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">?</p></th>
+<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
@@ -2838,7 +2830,7 @@ also be provided:</p>
 controlled accesses BT-615) is marked using the "<em>cbc:URI</em>" element.</p>
 </div>
 <div class="paragraph">
-<p>The identifier "<em>cbc:ID</em>" is mandatory and shall not be empty. There is
+<p>The identifier "<em>cbc:ID</em>" (OPT-140) is mandatory and shall not be empty. There is
 no predefined structure or list and any relevant value may be used so
 long it does not exceed the string length limitation.</p>
 </div>
@@ -2855,26 +2847,38 @@ the "non-restricted-document" value and the element
 <em>cbc:DocumentTypeCode</em> shall not be used.</p>
 </div>
 <div class="paragraph">
-<p>When there is a need to specify the linguistic version (BT-708 or BT-737),
-then the "<em>cbc:LanguageID</em>" element has to be used with values from the
+<p>When there is a need to specify the language(s) in which the documents are available (BT-708 or BT-737),
+this has to be specified with values from the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/language">language</a>
-codelist. This element is not repeatable and when multiple linguistic
-versions have to be referenced, the whole block
-"<em>cac:CallForTendersDocumentReference</em>" has to be repeated.</p>
-</div>
-<div class="paragraph">
-<p>The status of a given linguistic version may also be specified using the
-"<em>cbc:DocumentStatusCode</em>" element with either of the two values: "official"
-(for BT-708) or "non-official" (for BT-737).</p>
+codelist.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:CallForTendersDocumentReference&gt;
+    &lt;ext:UBLExtensions&gt;
+        &lt;ext:UBLExtension&gt;
+            &lt;ext:ExtensionContent&gt;
+                &lt;efext:EformsExtension&gt;
+                    &lt;efac:NonOfficialLanguages&gt;
+                        &lt;cac:Language&gt;
+                            &lt;cbc:ID&gt;FRA&lt;/cbc:ID&gt;
+                        &lt;/cac:Language&gt;
+                        &lt;cac:Language&gt;
+                            &lt;cbc:ID&gt;DEU&lt;/cbc:ID&gt;
+                        &lt;/cac:Language&gt;
+                    &lt;/efac:NonOfficialLanguages&gt;
+                    &lt;efac:OfficialLanguages&gt;
+                        &lt;cac:Language&gt;
+                            &lt;cbc:ID&gt;ENG&lt;/cbc:ID&gt;
+                        &lt;/cac:Language&gt;
+                    &lt;/efac:OfficialLanguages&gt;
+                &lt;/efext:EformsExtension&gt;
+            &lt;/ext:ExtensionContent&gt;
+        &lt;/ext:UBLExtension&gt;
+    &lt;/ext:UBLExtensions&gt;
     &lt;cbc:ID&gt;20210521/CTFD/ENG/7654-02&lt;/cbc:ID&gt;
     &lt;cbc:DocumentTypeCode listName="communication-justification"&gt;ipr-iss&lt;/cbc:DocumentTypeCode&gt;
     &lt;cbc:DocumentType&gt;restricted-document&lt;/cbc:DocumentType&gt;
-    &lt;cbc:LanguageID&gt;ENG&lt;/cbc:LanguageID&gt;
-    &lt;cbc:DocumentStatusCode listName="linguistic-status"&gt;official&lt;/cbc:DocumentStatusCode&gt;
     &lt;cac:Attachment&gt;
         &lt;cac:ExternalReference&gt;
             &lt;cbc:URI&gt;https://mywebsite.com/proc/2019024/accessinfo&lt;/cbc:URI&gt;
