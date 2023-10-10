@@ -391,7 +391,7 @@ Please be aware that the interface and the notice forms still need further work 
 Application version
 </td>
 <td class="hdlist2">
-<p>1.10.2</p>
+<p>1.11.1</p>
 </td>
 </tr>
 <tr>
@@ -399,16 +399,16 @@ Application version
 SDK versions
 </td>
 <td class="hdlist2">
-<p>1.3.2, 1.4.1, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.8.0</p>
+<p>1.3.2, 1.4.1, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.8.0, 1.9.0</p>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK versions 1.3, 1.4, 1.5, 1.6, 1.7 and 1.8. SDK version 1.8 is supported in Preview environment as of 1 August 2023.</p>
+<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest. The fields which are available, along with their behaviour, are consistent with SDK versions 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 and 1.9.</p>
 </div>
 <div class="paragraph">
-<p>In the Production environment, SDK version 1.8 is supported as of 9 August 2023.</p>
+<p>SDK version 1.9 is supported in Preview environment as of 10 October 2023. In the Production environment, SDK version 1.9 is supported as of 11 October 2023.</p>
 </div>
 <div class="paragraph">
 <p>In the codelist fields, prefilling of values is supported.</p>
@@ -483,10 +483,10 @@ SDK versions
 <div class="ulist">
 <ul>
 <li>
-<p>OPT-060-Lot in the subtypes where it&#8217;s mandatory "17", "18", "22" might prevent users from submitting a notice.</p>
+<p>In subtypes "17", "18", "22" when OPT-060-Lot rule is triggered, users must fill in BT-70-Lot.</p>
 </li>
 <li>
-<p>T02 cannot be submitted until SDK 1.9.</p>
+<p>T02 cannot be submitted yet.</p>
 </li>
 <li>
 <p>Each TPO (Touchpoint) should be assigned a role; users may have to remove TPOs from the notice if there are not enough roles to fill. In particular, for notice subtypes 1 to 3, no roles can be assigned to Touchpoints at the moment, meaning that all touchpoints should be removed from the notice.</p>
@@ -497,12 +497,15 @@ SDK versions
 </ul>
 </div>
 <div class="paragraph">
-<p>The following issues have been identified as of application version 1.10.2:</p>
+<p>The following issues have been identified as of application version 1.11.1:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Filling in any of the "(published later)" sections, will result in an invalid notice that cannot be submitted.</p>
+<p>Legal basis (BT-01(f)-Procedure) field cannot be repeated.</p>
+</li>
+<li>
+<p>If you are filling in an Organisation in the form-filling tool, Registration number (BT-501-Organization-Company) cannot be exported to the address book.</p>
 </li>
 </ul>
 </div>
@@ -517,9 +520,6 @@ SDK versions
 <li>
 <p>Please note that the HTTP responses are still a work in progress; in certain cases, error code 500 is returned instead of 400. We are in the process of identifying these cases and correcting the responses and their corresponding messages to clearly indicate that the error is on client side and not on the server side. For instance, an error code 400 would mean that the notice is rejected by eNotices2 API and does not even get validated by CVS. In this case, the instance/ notice cannot be created in eNotices2.</p>
 </li>
-<li>
-<p>Currently, "stop publication" on a submitted notice will return error code in certain cases, i.e when the notice is being processed and ready to be published. The process will be simplified in the future with the introduction of status “PUBLISHING”, which will forbid stopping publication of a notice of this status. For more information on notice statuses, please see the <a href="https://docs.ted.europa.eu/home/eforms/FAQ/index.html#_apis_and_web_services">eForms FAQ</a>.</p>
-</li>
 </ul>
 </div>
 <div class="admonitionblock note">
@@ -529,7 +529,7 @@ SDK versions
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The Preview environment is for testing purposes; new SDK releases will first be made available on Preview before deployment in Production. Please note, however, that Preview only simulates Production and notices submitted in Preview are not published in a test environment of TED. “Published” is only a mock status that is automatically assigned to submitted notices at around 15:00 CET when they enter the export (notices are not actually published on TED). If there is a preferred publication date, Preview will show status “published” as soon as the export finishes, which is the previous working day at around 15:00 CET. As an example, if the preferred publication date falls on a Monday, the status will change to "published" the previous Friday at around 15:00 CET, when the export takes place (provided Friday is not a public holiday).
+The Preview environment is for testing purposes; new SDK releases will first be made available on Preview before deployment in Production. Please note, however, that Preview only simulates Production and notices submitted in Preview are not published in a test environment of TED. "Publishing” and “Published” are mock statuses that will be assigned to submitted notices at around 15.00 and 16:00 respectively when they enter the export. If there is a preferred publication date, Preview will show status “published” as soon as the export finishes, which is the previous working day at around 16:00 CET. As an example, if the preferred publication date falls on a Monday, the status will change to "published" the previous Friday at around 16:00 CET, when the export takes place (provided Friday is not a public holiday).
 </td>
 </tr>
 </table>
@@ -553,7 +553,7 @@ Notices submitted in Preview are only checked for lawfulness upon request. Pleas
 <i class="fa icon-caution" title="Caution"></i>
 </td>
 <td class="content">
-In Production (live environment), the actual export to TED happens on workdays around 16:00 CET depending on the number of notices to be published in the next OJ S. When this process is initiated and a submitted notice is in the daily export, it will be published on TED at 09:00 CET in the next available OJ S based on the release calendar. Its status will then change to “Published”. Please note that stopping publication of a notice is not allowed at this stage, i.e. between the export and publication. In the Preview environment, the notice is only in Publishing status for a few seconds because there is a mock process to imitate publishing on TED. In Production, the notice will be in "Publishing" status between the daily afternoon export and publication on TED the next morning (working days). We will later introduce the status “Publishing” for such cases to avoid confusion. For more information on notice statuses, please see the eForms FAQ.
+In Production (live environment), the actual export to TED happens on workdays around 16:00 CET depending on the number of notices to be published in the next OJ S. When this process is initiated and a submitted notice is in the daily export, it will be published on TED at 09:00 CET in the next available OJ S based on the release calendar. Its status will then change to “Published”. Please note that stopping publication of a notice is not allowed at this stage, i.e. between the export and publication. In the Preview environment, a notice reaches Publishing status on workdays between 15:00 and 16:00 CET once the export is done by our internal service. In Production, the notice will be in "Publishing" status between the daily afternoon export and publication on TED the next morning (working days). For more information on notice statuses, please see the eForms FAQ.
 </td>
 </tr>
 </table>
@@ -621,7 +621,7 @@ In Production (live environment), the actual export to TED happens on workdays a
 </div>
 </li>
 <li>
-<p>eNotices2 API supports currently SDK versions 1.3, 1.4, 1.5, 1.6, 1.7 and 1.8. SDK version 1.8 is supported in Preview environment as of 1 August 2023 and in Production as of 9 August 2023. For the value to indicate in the cbc:CustomizationID element, it should always have the format "eforms-sdk-major.minor".  See this page for more details:
+<p>eNotices2 API supports currently SDK versions 1.3, 1.4, 1.5, 1.6, 1.7, 1.8 and 1.9. SDK version 1.9 is supported in Preview environment as of 10 October 2023 and in Production as of 11 October 2023. For the value to indicate in the cbc:CustomizationID element, it should always have the format "eforms-sdk-major.minor".  See this page for more details:
 <a href="https://docs.ted.europa.eu/eforms/latest/versioning.html#_significance_of_the_sdk_version_in_notice_handling_and_validation" class="bare">https://docs.ted.europa.eu/eforms/latest/versioning.html#_significance_of_the_sdk_version_in_notice_handling_and_validation</a></p>
 </li>
 <li>
@@ -650,7 +650,7 @@ Indicative planning
 Application version
 </td>
 <td class="hdlist2">
-<p>1.10.x</p>
+<p>1.11.x</p>
 </td>
 </tr>
 <tr>
@@ -673,7 +673,7 @@ SDK version
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The current application version of Preview is into Production as of 9 August 2023.
+The current application version of Preview is into Production as of 11 October 2023.
 </td>
 </tr>
 </table>
@@ -762,7 +762,7 @@ Application version
 SDK versions
 </td>
 <td class="hdlist2">
-<p>1.0.0, 1.1.1, 1.2.1, 1.3.2, 1.4.2, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.8.0</p>
+<p>1.0.0, 1.1.1, 1.2.1, 1.3.2, 1.4.2, 1.5.0, 1.5.1, 1.6.0, 1.7.0, 1.8.0, 1.9.0</p>
 </td>
 </tr>
 <tr>
@@ -795,9 +795,6 @@ Scope
 <h4 id="_known_issues_2"><a class="anchor" href="#_known_issues_2"></a>Known issues</h4>
 <div class="ulist">
 <ul>
-<li>
-<p>In SDK 1.7 and 1.8, the “Results” section is not displayed properly on TED in Production. This bug will be fixed in SDK 1.9.</p>
-</li>
 <li>
 <p>Currency values are currently not rendered correctly, e.g. “10,000,000.00” instead of “10 000 000,00”. This will be fixed with SDK 2.0,
 so that currency values are also correctly displayed in the OJ S.</p>
