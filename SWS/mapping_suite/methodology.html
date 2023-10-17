@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Mapping Methodology :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/SWS/mapping_suite/methodology.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="SWS" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">TED Semantic Web Service</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../audience.html">Target Audience</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Mapping suite contents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../genref.html">General Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../glossary.html">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Mapping suites</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="mapping-suite-structure.html">Mapping suite package structure</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-list-resources.html">Code list mappings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="preparing-test-data.html">Data samples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reusing semantic web service artefacts</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sample_app/sa_glossary.html">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sample_app/sparql_queries.html">SPARQL Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="versioning.html">Versioning</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.8/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../EPO/4.0.0/index.html">4.0.0-rc.2</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">TED Semantic Web Service</a></li>
+    <li><a href="methodology.html">Mapping Methodology</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="6">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Mapping Methodology</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of this guide is to describe a <strong>methodology for creating mapping rules</strong> that can be used for transforming XML data representing the content of the TED “Standard” Forms into RDF graphs that conform to the <a href="https://github.com/OP-TED/ePO">ePO ontology</a>.</p>
+</div>
+<div class="paragraph">
+<p>The methodology will rely on various resources generated by earlier attempts (e.g. those created by Everis), outcomes of projects that work on related issues (e.g. by Deloitte e.a.), as well as the input of a number of people with in-depth knowledge of the ePO ontology, XML, RML and expertise in Semantic Web technologies in general.</p>
+</div>
+<div class="paragraph">
+<p>The mappings generated by this methodology are to be used as part of <a href="https://docs.ted.europa.eu/rdf-conversion/_attachments/ted-sws-architecture/index.html?goto=1:1:36">the notice transformation workflow</a> for <strong>all</strong> <a href="https://ted.europa.eu/TED/browse/browseByMap.do">Tenders Electronic Daily (TED)</a> notices conforming to "Standard" forms that are published in the TED XML format, into RDF format, in order to make it available for querying through a SPARQL endpoint.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mapping-lifecycle-chapter"><a class="anchor" href="#_mapping-lifecycle-chapter"></a>Mapping development lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of this section is to provide a high-level overview of the mapping development lifecycle before the mapping suites are ready to be used for transformation in production settings.</p>
+</div>
+<div class="paragraph">
+<p>The diagram in <a href="#mapping-lifecycle">Figure 1</a> describes the complete mapping development lifecycle.</p>
+</div>
+<div id="mapping-lifecycle" class="imageblock text-center">
+<div class="content">
+<img src="../_images/maping_development_lifecycle.png" alt="maping development lifecycle">
+</div>
+<div class="title">Figure 1. Mapping development lifecycle</div>
+</div>
+<div class="paragraph">
+<p>The process starts by <strong>deciding which notice type to map</strong>. The notice classification scheme currently considered are the <a href="https://simap.ted.europa.eu/web/simap/standard-forms-for-public-procurement">"standard forms"</a> and the <a href="https://simap.ted.europa.eu/web/simap/eforms">"eForms"</a>. In the future, however, it is likely that new classification schemes will follow.</p>
+</div>
+<div class="paragraph">
+<p>Once the target form is selected, <strong>a set of representative shall be selected</strong> in order to serve as a test set for the developed mapping.</p>
+</div>
+<div class="paragraph">
+<p>The notice classification scheme is usually subject to regulations and described in multiple forms starting from PDF documents, XSD schemes, and other documents. All possible documentation and modelling artefacts are <strong>analysed in order to produce a conceptual mapping</strong> (described in the <a href="#_conceptual-mapping-structure">Conceptual mapping structure</a> section). This artefact, stored as a workbook, establishes the correspondence of the TED notice fields, to XPath expressions, and to EPO structures.</p>
+</div>
+<div class="paragraph">
+<p>Once the conceptual mapping is established between the XPath expressions and ontology structures, <strong>a corresponding technical mapping is implemented</strong>. This technical mapping consists of a set of mapping rules expressed in <a href="https://rml.io/specs/rml/">RDF Mapping Language (RML)</a> and it represents a translation of the conceptual mapping into a formal language which can be automatically executed by a transformation engine, such as <a href="https://github.com/RMLio/rmlmapper-java">RMLMapper</a>.</p>
+</div>
+<div class="paragraph">
+<p>Reading RML, for revision or debugging purposes, can be difficult. To ease this process, the <strong>RML files can be turned into a comprehensive HTML report</strong>. This human friendly form can serve, for example, parsing the set of conceptual mapping rules and the technical ones, in order to <strong>check their completeness or consistency</strong>.</p>
+</div>
+<div class="paragraph">
+<p>That completeness check is a manual step but not the only quality assurance mechanism foreseen in the lifecycle process. The setup and conventions of the conceptual mapping file  permits generation of several additional artefacts (described elsewhere). In particular, <strong>a set of SPARQL assertion queries can be generated</strong>. These queries can be used to assess whether or not the fields mapped in the conceptual mapping are found in that form in the RDF file generated from an XML notice.</p>
+</div>
+<div class="paragraph">
+<p>To put the SPARQL assertions into practice, the sample data, initially selected <strong>sample data is automatically transformed into RDF</strong>, using the RML mapping rules. And on each output, the <strong>SPARQL queries are applied</strong> resulting in a report, which indicates which query yielded a positive and which a negative result. The resulting validation reports can be checked to detect mistakes in the RML transformation rules or the conceptual mapping.</p>
+</div>
+<div class="paragraph">
+<p>The final step consists of another assessment of the generated data: the <strong>fingerprinting</strong>. This procedure generates a report which <strong>reconstructs the data shape instantiated in a particular notice</strong>. This permits identification of mistakes with regard to the EPO ontology.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_elements_involved_in_the_mapping_process"><a class="anchor" href="#_key_elements_involved_in_the_mapping_process"></a>Key elements involved in the mapping process</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section we will provide descriptions and references to the key elements (concepts or resources) that are involved in the creation of mappings or the mapping process itself.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the mapping process is to generate a “mapping table” (described in the conceptual mapping artefact section) that can be processed by an automated workflow of the <a href="https://github.com/OP-TED/ted-rdf-conversion-pipeline">TED-SWS system</a> to “execute” these mappings in order to convert the TED XML input data into an ePO conformant RDF graph (the output of the mapping). This “mapping table” will be encoded as a spreadsheet, with multiple worksheets, whose structure is described elsewhere.</p>
+</div>
+<div class="sect2">
+<h3 id="_notices_to_be_mapped"><a class="anchor" href="#_notices_to_be_mapped"></a>Notices to be mapped</h3>
+<div class="paragraph">
+<p>The input for the transformation process are <strong>XML files</strong> that contain TED notice data. These data are structured according to the <a href="https://simap.ted.europa.eu/web/simap/standard-forms-for-public-procurement">“Standard Forms”</a>  published by the European Commission. There are 23 standard forms defined (numbered 1-8, 12-25, T1 and T2), whose PDF versions can be found here: <a href="https://simap.ted.europa.eu/standard-forms-for-public-procurement">https://simap.ted.europa.eu/standard-forms-for-public-procurement</a>.</p>
+</div>
+<div class="paragraph">
+<p>The XML files need to conform to the official TED XML format defined by <a href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tedschemas">TED XML Schema</a> (XSD). Over the years, multiple versions of this TED XML Schema were released, and there is a significant amount of XML data published that conform to these various versions. The latest XML notices are conformant to the <a href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tedschemas"><strong>versions R2.0.8 (more precisely R2.0.8.S05.E01_002-20201027 - in case of forms 16-19) and R2.0.9 (more precisely R2.0.9.S05 - for all the other forms)</a></strong> of the TED XML Schema.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_considered_resources"><a class="anchor" href="#_considered_resources"></a>Considered resources</h3>
+<div class="paragraph">
+<p>To create these mappings, we rely on a number of different resources that were produced by earlier or currently running projects that aim to provide solutions in the TED landscape. The following table contains a non-comprehensive enumeration of these resources, with their short descriptions and links to where they can be found. This table is provided as a quick reference only. More detailed description of the key resources can be found in a dedicated section below.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Resource Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ePO - dev version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The e-Procurement Ontology (currently under development) <a href="https://docs.ted.europa.eu/EPO/dev/">link</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TED_EXPORT.xsd</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The XML Schema defined for the TED XML Notices. Download and extract the versions R2.0.9 and R2.0.8 of the TED XML schema from the links named <em>Reception: TED eSenders XML schema</em> on this page: <a href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tedschemas">link</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TED forms PDFs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PDF files representing the physical forms that are to be completed with the relevant data according to each notice. <a href="https://simap.ted.europa.eu/standard-forms-for-public-procurement">link</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deloitte &amp; OP - TED_XML_Mapping</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Excel spreadsheets that map elements (fields, sections, etc.) found in the Standard Forms to elements in the eForms. These tables provide the full list of elements and also XPaths to identify the corresponding information TED-XML files.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Ontology_eForms_NEW_Mapping_New Regulation</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mappings by Everis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Just for reference. Various parts might be out of date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Test data set by Everis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A set of approx. 300 XML files (6 batches of about 50 files each, for the forms F02, F03, F05, F06, F24 and F25)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">RDF results by Everis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Just for reference. Various parts might be out of date.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML Data analysis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contains various tables, each summarising certain aspects  (e.g. XML elements related to certain fields in the form) of the data extracted from test notice files. <a href="https://docs.google.com/spreadsheets/d/1EoHUDDjvx62wXa-LKnDkvolN6dVIeZ_rgm3nNZ91gQo">link</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML Elements to Vocabulary Mapping</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TED Mappings to ePO terms</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/OP-TED/ePO/tree/master/analysis_and_design/ted_mappings">link</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">conventions_report.html</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Overview of ePO Terms generated from the UML model. <a href="https://github.com/OP-TED/ePO/blob/feature/model-refactoring/analysis_and_design/transformation_output/owl_ontology/conventions_report">conventions_report</a> (to be checked out and open in a browser)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_transformation_output"><a class="anchor" href="#_transformation_output"></a>Transformation output</h3>
+<div class="paragraph">
+<p>The output of the XML notice transformation will be an <strong>RDF graph</strong> instantiating the <a href="https://docs.ted.europa.eu/EPO/dev/index.html">eProcurement Ontology</a>, containing a number of RDF triples where the subjects, predicates and objects of the triples are either:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>unique IRIs</strong>, generated in a deterministic fashion, that can identify the notice or the different component parts of a notice; these IRIs (or less frequently blank nodes) are used in multiple triples (either as subjects or object) to build an <strong>RDF graph</strong>;</p>
+</li>
+<li>
+<p><strong>IRIs</strong> representing <strong>controlled vocabulary terms</strong> or <strong>entities in the ePO ontology</strong>;</p>
+</li>
+<li>
+<p><strong>Literals</strong> representing numbers, boolean values, or strings. The string values are often encoded as multilingual strings of type rdf:langString., to enable the representation of textual values in multiple European languages.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mapping_files_produced"><a class="anchor" href="#_mapping_files_produced"></a>Mapping files produced</h3>
+<div class="paragraph">
+<p>The key element enabling transformation automation are the mapping files: <strong>conceptual</strong> and <strong>technical</strong> mappings. They are developed according to the <a href="#_mapping_creation_method">mapping creation methodology</a>.</p>
+</div>
+<div class="paragraph">
+<p>The mapping rules are organised in mapping suites, described <a href="mapping-suite-structure.html" class="xref page">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conceptual-mapping-structure"><a class="anchor" href="#_conceptual-mapping-structure"></a>Conceptual mapping structure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section we describe the structure of the mapping file that we aim to create as the result of the described mapping process. The mapping file is an Excel workbook containing multiple worksheets. This workbook is generated from a Google Sheets document, where it can be prepared, revised, and refined by multiple contributors in a collaborative fashion. The template for this spreadsheet is provided <a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0">here</a>. This template informs software developers and knowledge engineers alike about what should be the content of such a mapping file.</p>
+</div>
+<div class="paragraph">
+<p>It consists of several important worksheets:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Metadata sheet: provides important technical and descriptive information about the mapping suite</p>
+</li>
+<li>
+<p>Resources sheet: provides the list of resources used in the technical mappings. This list is used to automatically populate the mapping suite with indicated resources files.</p>
+</li>
+<li>
+<p>Rules sheet: provides the actual set of mapping rules</p>
+</li>
+<li>
+<p>Misc: there are additional optional worksheets added by the semantic engineers to manage additional information.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0">Metadata sheet</a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Cell refs.</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Header for content</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B2">B2</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Form number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard Form number (one of <em>F03</em>-<em>F08</em>, <em>F12</em>-<em>F25</em>, <em>T1</em> or <em>T2</em>). For multiple forms a comma separated list can be used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">See list of standard forms <a href="https://simap.ted.europa.eu/standard-forms-for-public-procurement">here</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B3">B3</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Legal Basis</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filter for the directives that constitute the legal bases for the notice. For multiple directives a comma separated list can be used. For any value the character * can be used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Examples: D24 / D23, D25 / R1370</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B4">B4</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Year</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filter for the year when the notice was published. For multiple years a comma separated list or ranges of the form <em>startYear-endYear</em>, or a combination of these two can be used. For any value the character * can be used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid examples: 2018 / 2016-2020 / 2016, 2018-2020</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B5">B5</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice type (eForms)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[TODO]</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B6">B6</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Form type (eForms)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[TODO]</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B7">B7</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mapping Version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A version number for the current mapping table. The version number should be increased for each “released” version of the mapping table that is different from the previously released version, following <a href="https://semver.org/">semantic versioning</a> practices.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example values: 0.1.0 / 1.0.0-beta / 1.1.0 / 2.3.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B8">B8</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">EPO version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version number of EPO to which the mapping is done.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=0&amp;range=B9">B9</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XSD version number(s)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The version number of the TED XML Schema file. Ranges should be also allowed. For multiple versions a comma separated list or ranges of the form (<em>startVersion, endVersion)</em>, or a combination of these two can be used. For any value the character * can be used.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Example values: R2.0.9.S05 (this includes all intermediary versions of R2.0.9.S05.E01, such as R2.0.9.S05.E01_001-20210730) /
+ R2.0.9.S04.E01_002-20201027, R2.0.9.S04.E01_001-20201008 /
+(R2.0.9.S03.E01_005-20180515, R2.0.9.S03.E01_010-20200224] /
+Theoretically anything like this could be used: (,1.0],[1.2,)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=222960787">Resources sheet</a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Cell refs.</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Header for content</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Notes</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=222960787&amp;range=A2:A">A2:A</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">File name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the resource files that are used by the mappings and need to be present in the +resources +folder.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674">Rules sheet</a></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cell refs.</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Header for content</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Notes</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>A:D</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Conceptual mapping</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=A3:A">A3:A</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard Form Field ID (M)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The “identifier” of the field in the Standard Form PDF file. Usually the field number, such as <em>IV.1.1.1.2</em>, or the section name, e.g. “<em>Section IV</em>”</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=B3:B">B3:B</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standard Form Field Name (M)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the field in the Standard Form PDF</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=C3:C">C3:C</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eForm BT-ID (O)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ID of the corresponding business term (BT) or business term group (BG) in eForms. The values are coming from the column B of this spreadsheet (or one of its equivalents):</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=D3:D">D3:D</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">eForm BT Name (O)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the corresponding business term (BT) or business term group (BG) in eForms. The values are coming from the column C of this spreadsheet (or one of its equivalents):</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>E:F</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Standard form technical mapping</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=E3:E">E3:E</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Base XPath (for anchoring) (M)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The “base” XPath that identifies an XML element and all of its sub-elements. It can be specified at the level of a section, or subsection, so that writing XPaths for form elements within that (sub)section will not have to repeat over and over again the “base” XPath.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=F3:F">F3:F</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Field XPath (M)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The XPath that identifies the form element, which is relative to the “base” XPath that was specified for the closest  element above this one.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>G:J</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ePO mapping</strong></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=G3:G">G3:G</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Class path (M)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the types of the resources involved in the entire “path” from the subject to the object, which “connects” the concept that represents this XML element (the object), to an RDF resource already created from previous XML elements (the subject). So, if the representation of an XML element involves the creation of the following triples:
+<em>s p1 o1.   o1 p2 o2.   o2 p3 o.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=H3:H">H3:H</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property path (M)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the properties involved in the entire “path” from the subject to the object, which “connects” the concept that represents this XML element (the object), to an RDF resource already created from previous XML elements (the subject). So, if the representation of an XML element involves the creation of the following triples:
+<em>s p1 o1.   o1 p2 o2.   o2 p3 o.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mandatory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=I3:I">I3:I</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Triple fingerprint (O)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[TODO]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://docs.google.com/spreadsheets/d/1iSk02YD7lfPByKnBDU4Z2XiBjY6zCqMP79uyydiQxxU/edit#gid=435265674&amp;range=J3:J">J3:J</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fragment fingerprint (O)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[TODO]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Optional</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_mapping_creation_method"><a class="anchor" href="#_mapping_creation_method"></a>Mapping development methodology</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of this section is to give a high-level overview of the process that we follow to create the mapping rules that are used to transform TED notices available as XML files into RDF triples that use ePO terms.</p>
+</div>
+<div class="paragraph">
+<p>The methodology that we describe here, focuses in a few steps and artefacts that are at the core of the diagram depicted in <a href="#mapping-creation">Figure 2</a>. This diagram shows only a part of the <a href="#methodology.adoc#_mapping-lifecycle" class="xref unresolved">mapping lifecycle</a>.</p>
+</div>
+<div id="mapping-creation" class="imageblock text-center">
+<div class="content">
+<img src="../_images/mapping_creation.png" alt="mapping creation" width="85%">
+</div>
+<div class="title">Figure 2. Mapping creation steps in the development lifecycle</div>
+</div>
+<div class="paragraph">
+<p>We started out building our methodology by following this theoretical framework, but based on what we learned from our practical experience with manually creating such mappings we have enhanced and refined the mapping creation process. It is safe to assume that as we learn even more from creating further mappings, the process will be further refined and this document will evolve.</p>
+</div>
+<div class="paragraph">
+<p>The focus here is on describing the steps how the <strong>conceptual mapping</strong> and the <strong>technical mapping</strong> are created.</p>
+</div>
+<div class="paragraph">
+<p><strong>Creation of conceptual mappings:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Identify the form elements (and the corresponding XML elements and XPaths) to be mapped</p>
+</li>
+<li>
+<p>Identify eForm Business Terms (BT) corresponding to the XML elements (optional)</p>
+</li>
+<li>
+<p>Identify ePO terms (classes and relations) that correspond to XML elements and their relationships</p>
+</li>
+<li>
+<p>Identify value sets in XML</p>
+</li>
+<li>
+<p>Identify value sets in ePO and in other vocabularies, corresponding to XML controlled values used in the XML files</p>
+</li>
+<li>
+<p>Write Turtle fragments that provide a template for the triples that should be generated, and which can be used in the RML mapping rules</p>
+</li>
+<li>
+<p>Identify and document problems/issue/questions to be clarified with external experts</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Creation of technical mappings:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Identify the sources that are necessary to execute a mapping</p>
+</li>
+<li>
+<p>Prepare vocabulary files, and other “dictionaries” that are to be used as resources for the mapping</p>
+</li>
+<li>
+<p>Prepare test data</p>
+</li>
+<li>
+<p>Write YARRRML rules (optional)</p>
+</li>
+<li>
+<p>Write RML rules (or convert YARRRML rules to RML) and test them</p>
+</li>
+<li>
+<p>Document problems and create tasks to find solutions for them</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Testing the mapping in various ways</strong> to discover potential problems and improve it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Run the mapping on all test notices files and analyse the output</p>
+</li>
+<li>
+<p>Generate the various validation outputs (SHACL shapes, SPARQL queries etc.), for all test data and analyse it</p>
+</li>
+<li>
+<p>Execute the other steps in the mapping development lifecycle to find potential issues and refine the mapping</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Next we provide more detailed descriptions of steps in more detail.</p>
+</div>
+<div class="sect2">
+<h3 id="_steps_involved_in_the_conceptual_mapping_process"><a class="anchor" href="#_steps_involved_in_the_conceptual_mapping_process"></a>Steps involved in the conceptual mapping process</h3>
+<div class="paragraph">
+<p>The conceptual mapping (see structure description here ) is the first artefact that must be created. It requires a thorough understanding of the content of a given form, and all the related concepts in the ePO ontology. It will likely involve several rounds of discussions with people who have deep knowledge in these areas, to ensure that the conceptual mapping is done right. Below we look at certain sub-steps involved in developing the conceptual mapping.</p>
+</div>
+<div class="sect3">
+<h4 id="_identify_the_form_elements_and_the_corresponding_xml_elements_and_xpaths_to_be_mapped"><a class="anchor" href="#_identify_the_form_elements_and_the_corresponding_xml_elements_and_xpaths_to_be_mapped"></a>Identify the Form Elements (and the Corresponding XML Elements and XPaths) to be Mapped</h4>
+<div class="paragraph">
+<p>To identify the XML elements that contain information to be mapped to RDF we look at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The “Standard Forms to eForms” mapping table that corresponds to the form that we are trying to map. This provides us both with the list of the form elements, and XPath expressions that can be used to retrieve the appropriate information (from XML elements, attributes, etc.) from the XML data. *Note: *Some of these XPaths are pretty straight forward, but other times they can be quite complicated, or multiple XPaths are used to retrieve alternative values. We need to test these XPaths, and see if we can write simpler, better and/or more appropriate ones.</p>
+</li>
+<li>
+<p>The <strong>TED_EXPORT.xsd</strong> schema file, corresponding to the XML version that we are trying to map. <strong>Note:</strong> Special attention should be paid to the structure of the XML document (especially when we have repeating elements, or multiple levels of nesting, sometimes involving elements with very similar names)</p>
+</li>
+<li>
+<p>The <strong>PDF form</strong> that we are trying to map, to make sure that all the elements are covered and the correct semantic of the fields has been identified
+Individual XML notices available in our test data set, as well as data extracted from these sample notices and compiled in tables to provide an overview of the different values that are contained in the test regarding a certain field.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identify_eform_business_terms_bt_corresponding_to_the_xml_elements_optional"><a class="anchor" href="#_identify_eform_business_terms_bt_corresponding_to_the_xml_elements_optional"></a>Identify eForm Business Terms (BT) corresponding to the XML elements (optional)</h4>
+<div class="paragraph">
+<p>Although this is not necessary for the conversion of the Standard Form XML to RDF data, from a future-oriented perspective it is still useful to identify the eForm Business Terms corresponding to each Standard Form element. This should be pretty straight forward by looking at the “Standard Forms to eForms” mapping table.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identify_epo_terms_classes_and_relations_that_correspond_to_xml_elements_and_their_relationships"><a class="anchor" href="#_identify_epo_terms_classes_and_relations_that_correspond_to_xml_elements_and_their_relationships"></a>Identify ePO terms (classes and relations) that correspond to XML elements and their relationships</h4>
+<div class="paragraph">
+<p>Basically, in this step, we need to identify the appropriate classes, class attributes, and relationships between the ePO classes that can be used to represent the information contained in the various XML elements. This requires a deep understanding of the ePO model.</p>
+</div>
+<div class="paragraph">
+<p>Identifying the relevant ePO terms might not be very straightforward in some cases, as there is quite a significant difference between the conceptualisation and abstractisations made in the two models, and we can often encounter situations where even the names used for the same concept might differ significantly in the two models. Therefore, in this step it is <strong>highly recommended</strong> consulting with people who have a high level of knowledge of the structure and content of the ePO model.</p>
+</div>
+<div class="paragraph">
+<p>Make sure to <strong>document</strong> any problems and discrepancies that we discover, which prevents the creation of a perfect (one-to-one) mapping. This documentation should happen both on the spreadsheet (e.g. by highlighting problematic cells in certain colours and/or adding comments to them), but also by describing issues in a separate, dedicated, document that can be reviewed and addressed by ePO experts. For more on the documentation process see section below.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identify_value_sets_in_xml"><a class="anchor" href="#_identify_value_sets_in_xml"></a>Identify value sets in XML</h4>
+<div class="paragraph">
+<p>To identify the value sets (i.e. the possible different values) that are used in the XML data, either as certain element names, or attribute values), we need to look at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <strong>TED_EXPORT.xsd</strong> schema file, corresponding to the XML version that we are trying to map,</p>
+</li>
+<li>
+<p>The values that appear in the sample XML notices, summarised in various ways.</p>
+</li>
+<li>
+<p>The <strong>PDF form</strong> that we are trying to map, to see if the form specifies an obvious value set, e.g. by means of checkboxes or radio buttons.</p>
+</li>
+<li>
+<p>Consult the authority tables used in the EPO available from the <a href="https://op.europa.eu/en/web/eu-vocabularies/authority-tables">EU Vocabularies</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identify_value_sets_in_epo_and_in_other_vocabularies_corresponding_to_xml_controlled_values_used_in_the_xml_files"><a class="anchor" href="#_identify_value_sets_in_epo_and_in_other_vocabularies_corresponding_to_xml_controlled_values_used_in_the_xml_files"></a>Identify value sets in ePO and in other vocabularies, corresponding to XML controlled values used in the XML files</h4>
+<div class="paragraph">
+<p>For this step we have to identify the different vocabularies that are referenced by ePO attributes and relationships that are involved in the mapping of a certain XML element, and we should gain some familiarity with that vocabulary. At minimum, we should know what namespace they are using and what are some values and how are they encoded (i.e. which properties they are using to encode labels, ids, etc).</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_write_turtle_fragments_that_provide_a_template_for_the_triples_that_should_be_generated_and_which_can_be_used_in_the_rml_mapping_rules"><a class="anchor" href="#_write_turtle_fragments_that_provide_a_template_for_the_triples_that_should_be_generated_and_which_can_be_used_in_the_rml_mapping_rules"></a>Write Turtle fragments that provide a template for the triples that should be generated, and which can be used in the RML mapping rules</h4>
+<div class="paragraph">
+<p>To give an example of an input (XML notice&#8217;s fragment), and it&#8217;s transformation (RDF result), let&#8217;s see a fragment of an organisation definition.</p>
+</div>
+<div class="sect4">
+<h5 id="_xml_fragment_source_xml"><a class="anchor" href="#_xml_fragment_source_xml"></a>XML fragment (source.xml)</h5>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;TED_EXPORT&gt;
+    &lt;FORM_SECTION&gt;
+        &lt;F03_2014 CATEGORY="ORIGINAL" FORM="F03" LG="PT"&gt;
+            &lt;CONTRACTING_BODY&gt;
+                &lt;ADDRESS_CONTRACTING_BODY&gt;
+                    &lt;OFFICIALNAME&gt;Administração Regional de Saúde do Alentejo, I. P.&lt;/OFFICIALNAME&gt;
+                &lt;ADDRESS_CONTRACTING_BODY&gt;
+            &lt;CONTRACTING_BODY&gt;
+        &lt;F03_2014 CATEGORY="ORIGINAL" FORM="F03" LG="PT"&gt;
+    &lt;FORM_SECTION&gt;
+&lt;TED_EXPORT&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_expected_rdf_result_result_ttl"><a class="anchor" href="#_expected_rdf_result_result_ttl"></a>Expected RDF result (result.ttl)</h5>
+<div class="listingblock">
+<div class="content">
+<pre>@prefix org: &lt;http://www.w3.org/ns/org#&gt; .
+@prefix epo: &lt;http://data.europa.eu/a4g/ontology#&gt; .
+
+epo:Organization/2021-S-001-000163/ab152979-15bf-30c3-b6f3-e0c554cfa9d0
+    a org:Organization;
+    epo:hasName "Administração Regional de Saúde do Alentejo, I. P."@pt .</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To see the corresponding RML rules that we are writing to do such a transformation please see section below: <a href="#_write_rml_rules">Write RML rules</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_identify_and_document_problemsissuequestions_to_be_clarified_with_external_experts"><a class="anchor" href="#_identify_and_document_problemsissuequestions_to_be_clarified_with_external_experts"></a>Identify and document problems/issue/questions to be clarified with external experts</h4>
+<div class="paragraph">
+<p>When we take a look at the way how the RML rules are writen (see <a href="#_technical-mapping-modularisation-chapter">technical mapping chapter</a>) we notice that it is a set of TripleMap. Each one contains:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"LogicalSource" that gives information about the <strong>source</strong> (XML file to transform)</p>
+</li>
+<li>
+<p>"referenceFormulation" witch is the language used to parse the source.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The main problem that we had when we are using XPath as parser of XML notices, is the old version used by <a href="https://github.com/RMLio/rmlmapper-java">RML Mapper</a> to parse the XML notices.
+The only version that were supported is XPath 1.0 that did not offer enough features, functions and expressions to parse an XML file.</p>
+</div>
+<div class="paragraph">
+<p>For example, XPath 1.0 does not support the default namespaces that we find in the notices that we are transforming. The consequences of having these namespaces in the XML notices is that RML Mapper did generate empty RDF result because XPath does not find any element that we are referring for. To handle this problem we started to think to add a pre-processing step that remove these default namespaces from the XML notices. We were not convinced by that solution because modifying/deleting element from the input can impact the quality of the expected results.</p>
+</div>
+<div class="paragraph">
+<p>So that&#8217;s why we contacted the founders of RML Mapper to find a way to handle default namespaces without processing the XML notices.</p>
+</div>
+<div class="paragraph">
+<p>The founders ended up by generously offering us a new version of RML Mapper that supports XPath 2.0/3.0 into witch the default namespaces are supported.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_steps_involved_in_the_technical_mapping_process"><a class="anchor" href="#_steps_involved_in_the_technical_mapping_process"></a>Steps involved in the technical mapping process</h3>
+<div class="paragraph">
+<p>In this section we will describe certain aspects that need to be addressed in the “technical mapping” step of the mapping creation process.</p>
+</div>
+<div class="sect3">
+<h4 id="_identify_the_sources_that_are_necessary_to_execute_a_mapping"><a class="anchor" href="#_identify_the_sources_that_are_necessary_to_execute_a_mapping"></a>Identify the sources that are necessary to execute a mapping</h4>
+<div class="paragraph">
+<p>This step is about making sure that all necessary sources are defined properly in the YARRRML/RML files, and that these sources refer to files that already exist, or will be available at the time of running the mapping, in the mapping package.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important:</strong> The path to the source files should be specified relative to the RML file(s). So, if the RML mapping files are in the transformation/mappings folder (as described above), then the sources they define should point to the <code>../../data/data.xml</code> file, respectively to the various <code>.json</code>, <code>.csv</code> and/or <code>.xml</code> files in the <code>./resources</code> folder</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_prepare_vocabulary_files_and_other_dictionaries_that_are_to_be_used_as_resources_for_the_mapping"><a class="anchor" href="#_prepare_vocabulary_files_and_other_dictionaries_that_are_to_be_used_as_resources_for_the_mapping"></a>Prepare vocabulary files, and other “dictionaries” that are to be used as resources for the mapping</h4>
+
+</div>
+<div class="sect3">
+<h4 id="_prepare_test_data"><a class="anchor" href="#_prepare_test_data"></a>Prepare test data</h4>
+<div class="paragraph">
+<p>Please refer to the <a href="preparing-test-data.html" class="xref page">representative sample data selection chapter</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_write_yarrrml_rules_optional"><a class="anchor" href="#_write_yarrrml_rules_optional"></a>Write YARRRML Rules (optional)</h4>
+<div class="paragraph">
+<p>During the initial phase of our mapping creation process we started out writing the mapping rules in <a href="https://rml.io/yarrrml/spec/">YARRRML</a> (a human-readable text-based representation for declarative generation rules), instead of RML, because it seemed simpler, and the end result was more human friendly. However, as we gained more experience and confidence in how the mappings should be defined, we realised that writing RML rules directly could be even more powerful, and we started to rewrite all our YARRRML mapping rules into RML. If this transition proves to be successful, and writing RML rules directly will be more convenient, our process will not require writing YARRRML rules in the future. This is the reason for why this step is optional. It could be useful for small test cases, quick demos, or showcases, and in cases when some people are more familiar with YARRRML than RML. If people decide to write YARRRML rules, the next step will become unnecessary, as the RML rules will be automatically generated from the YARRRML rules, using <a href="toolchain.html" class="xref page">dedicated tools</a> that were developed for this purpose.</p>
+</div>
+<div class="paragraph">
+<p>Since this step is optional, we will not describe in detail the individual issues that need to be worked on, but they are in principle the same as the ones described in the next section.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_write_rml_rules"><a class="anchor" href="#_write_rml_rules"></a>Write RML rules</h4>
+<div class="paragraph">
+<p>If in the previous step we have defined the mapping rules in YARRRML, then this step consists of the simple action of executing <a href="toolchain.html" class="xref page">the tool that generates RML out of YARRRML</a>.</p>
+</div>
+<div class="paragraph">
+<p>Regardless of which file we chose to define manually, the YARRRML or the RML, at the end of this step we will need to have an RML mapping file that should be able to convert an XML notice into a corresponding RDF graph.</p>
+</div>
+<div class="paragraph">
+<p><strong>In the rest of this section we assume that the RML rules are being written manually</strong>, as this is the solution that promises the biggest potential benefit and this is the approach that we would like to pursue in the future.</p>
+</div>
+<div class="paragraph">
+<p>The technical mappings are written in the <a href="https://rml.io/">RML mapping language</a>. The version of RML used is <a href="https://github.com/julianrojas87/rmlmapper-java">5.0.0-r362</a>, which was recommended to us by Julian Rojas, its principal developer, in which the <a href="https://www.w3schools.com/xml/xpath_intro.asp">XPath</a> version <a href="https://www.w3.org/TR/xpath-31/">3.1</a> is supported.</p>
+</div>
+<div class="sect4">
+<h5 id="_prefix_definition"><a class="anchor" href="#_prefix_definition"></a>prefix definition</h5>
+<div class="paragraph">
+<p>To specify the technical mappings in RML, we start with the definition of the prefixes that are used in the mapping file. For example for the ePO ontology, we would define the epo prefix name as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>@prefix epo: &lt;http://data.europa.eu/a4g/ontology#&gt; .</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The prefix names and their values, which are used in the RML file, should be ALL maintained in the <a href="https://github.com/OP-TED/ted-rdf-conversion-pipeline/blob/feature/TED-311/ted_sws/resources/prefixes/prefixes.json"><code>prefixes.json</code></a> resource file. If the content of that file is maintained and kept up to date properly, the entire prefix declaration section of the RML file could be automatically generated, and re-generated when necessary. (Note: Besides the individual prefixes, please also check out the array that is the assigned value to the <code>rml_rules</code> key).</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_triplesmap"><a class="anchor" href="#_triplesmap"></a>TriplesMap</h5>
+<div class="paragraph">
+<p>The next step after the definition of prefixes, is to define the various TriplesMaps to create class instances. For example, let&#8217;s see an organisation&#8217;s technical mapping.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;#OrganisationMapping&gt; a rr:TriplesMap ;
+   rml:logicalSource
+       [
+           rml:source "source.xml" ;
+           rml:referenceFormulation ql:XPath
+           rml:iterator "/TED_EXPORT/FORM_SECTION/F03_2014/CONTRACTING_BODY/ADDRESS_CONTRACTING_BODY" ;
+
+       ] ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The TriplesMap of this organisation is called “OrganisationMapping”, this name is a unique reference which is used to generate the rdf dataset and also used to refer to it  in the others mappings.</p>
+</div>
+<div class="paragraph">
+<p>A TripleMap has:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>rml:logicalSource</code> : containing the source (it can be the xml notice that we are transforming, or a CSV/JSON file containing the controlled values)</p>
+</li>
+<li>
+<p><code>rml:referenceFormulation</code> : defining the parser for the file. In the case of the XML notices we are using XPath, while for the CSV/JSON files we are using <code>ql:CSV/ql:JsonPath</code></p>
+</li>
+<li>
+<p><code>rml:iterator</code> : the path were the RML mapping starts iterating for this Organisation mappings</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_subjectmap"><a class="anchor" href="#_subjectmap"></a>SubjectMap</h5>
+<div class="paragraph">
+<p>The subjectMap describes how to generate a unique subject value of a TriplesMap (e.g. Organisation).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre> rr:subjectMap
+       [
+           rr:template
+               "http://data.europa.eu/a4g/resource/Organisation/{replace(replace(/TED_EXPORT/CODED_DATA_SECTION/NOTICE_DATA/NO_DOC_OJS, ' ', '-' ), '/' , '-')}/{substring-before(substring-after(unparsed-text('https://www.uuidtools.com/api/generate/v3/namespace/ns:url/name/' || count(preceding::*)+1),'[\"'),'\"]')}" ;
+           rr:class org:Organization
+
+       ] ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The subject should be unique to each different organisation that we find in an XML notice. To do that, we are using a concatenation of</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>a cleaned reference of the notice file
+<code>replace(replace(/TED_EXPORT/CODED_DATA_SECTION/NOTICE_DATA/NO_DOC_OJS, ' ', '-' ), '/' , '-')</code>; and</p>
+</li>
+<li>
+<p>a cleaned result of a <code>MD5</code> function which returns a UUID based on the position of the iterator that is unique to each organisation on the XML notice, this is done with <code>substring-before(substring-after(unparsed-text('https://www.uuidtools.com/api/generate/v3/namespace/ns:url/name/' || count(preceding::*)+1),'[\"'),'\"]')</code>;</p>
+</li>
+<li>
+<p>the type of the mapping is defined by rr:class org:Organization</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This solution also helps us to handle the case of having nested tags by giving each of them a different uuid thanks to the result of the position XPath function.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_predicateobjectmap"><a class="anchor" href="#_predicateobjectmap"></a>predicateObjectMap</h5>
+<div class="paragraph">
+<p>A nested set of predicates objects map to each predicate/object of the organisation instance.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>rr:predicateObjectMap
+   [
+   rr:predicate epo:hasName ;
+   rr:objectMap
+           [
+               rml:reference "OFFICIALNAME"
+           ]
+   ] ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this part of a TriplesMap we find two components:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A predicate <code>rr:predicate epo:hasName</code> ;</p>
+</li>
+<li>
+<p>An objectMap. It can be</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>a rml:reference which is the XPath (starting from the iterator) into the XML notice corresponding to the value of the predicate (OFFICIALNAME) or</p>
+</li>
+<li>
+<p>a rml:template that contains a combination of string and XPath expression</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_refer_to_other_mappings"><a class="anchor" href="#_refer_to_other_mappings"></a>Refer to other mappings</h5>
+<div class="paragraph">
+<p>A referencing object map allows using the subjects of another triples map as the objects generated by a predicate-object map.
+We have two use cases of connecting two TriplesMaps by using the <code>rr:parentTriplesMap</code> pattern</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A referencing object map is represented by a resource that: has exactly one <code>rr:parentTriplesMap</code> property (without joint condition). Here is an example of connecting our Organisation to its ContactPoint</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>rr:predicateObjectMap
+   [
+       rr:predicate epo:hasDefaultContactPoint ;
+       rr:objectMap
+           [
+               rr:parentTriplesMap &lt;#ContactPoint&gt;
+           ] ;
+   ] ;</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A referencing object map is represented by a resource that: many <code>rr:parentTriplesMap</code> properties (we use a <code>rr:joinCondition</code>). Here is an example of connecting an Address to its NUTS code</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>rr:predicateObjectMap
+   [
+       rr:predicate locn:adminUnitL1 ;
+       rr:objectMap
+           [
+               rr:parentTriplesMap &lt;#nuts&gt;;
+               rr:joinCondition [
+                   rr:child "*:NUTS/@CODE";
+                   rr:parent "code.value";
+               ];
+           ] ;
+   ] ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A join condition is represented by a resource that has exactly one value for each of the following two properties:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rr:child</code>, whose value is known as the join condition&#8217;s child reference (the path into the Address TriplesMap)</p>
+</li>
+<li>
+<p><code>rr:parent</code>, whose value is known as the join condition&#8217;s parent source (the path into the ContactPont TriplesMap))</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_document_technical_and_philosophical_issues"><a class="anchor" href="#_document_technical_and_philosophical_issues"></a>Document technical and philosophical issues</h3>
+<div class="paragraph">
+<p>While writing the mapping rules, make sure to document any issues that you are not able to solve, or that raise interesting questions, in the <a href="https://docs.google.com/document/d/1nnvD6XXYPSDzv_VukDHswzYKd_-PDUMe7E-kUGHNcc8/edit?usp=sharing">Observations/Questions about mapping generation</a> Google doc. If warranted, a Jira task should be also created to address the given issue.</p>
+</div>
+<div class="paragraph">
+<p>Problems that were successfully resolved should be integrated in this guide, as recommendations, e.g. in one of the above sections, and marked as [SOLVED] in the document. Unless the problem turns out to be fairly trivial, or there is only one obvious solution to it. It would be recommended NOT to delete the issue from the “Problem description” document, so that we can keep track of the different issues, and the thinking that went into choosing certain solutions.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_technical-mapping-modularisation-chapter"><a class="anchor" href="#_technical-mapping-modularisation-chapter"></a>Create RML Rules Modules</h3>
+<div class="paragraph">
+<p>Forms tend to have similar or identical sections i.e. represent the same information. For example form F03 and F06 have the same section 1 which is the information about the contract authority.</p>
+</div>
+<div class="paragraph">
+<p>In order to not write transformation rules twice (for section 1 of F03 and section 1 of F06), we have set up a module system which consists of writing transformation rules that are reusable by several forms. This gives us the following advantages:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Not to rewrite several times the same rules for different forms (avoid duplication of rules).</p>
+</li>
+<li>
+<p>In the case of an update of the ePO ontology, we will have to implement the modification only once in the module(s) affected by the modification which, and the modification will be passed into all the forms.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>As explained in the
+technical mapping creation section, a TripleMap represent a mapping of an XML element and its content with one class in the ontology, and a set of its predicates objects. In order to have a module that can be reused on many forms we only define in these module files the predicates objects of a TripleMap. The logical sources and subjects map, needed in every TripleMap object, are described separately in the main file as they contain information specific to every form, making these parts of the TripleMap object non-reusable. For example a module that contain an organisation looked like that:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;#OrganisationMapping&gt; a rr:TriplesMap ;
+	rr:predicateObjectMap
+		[
+		rr:predicate epo:hasName ;
+		rr:objectMap
+				[
+					rml:reference "OFFICIALNAME"
+				]
+		] ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This module is extended in the main file of F03 by adding the logicalSource and the SubjectMap in this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;#OrganisationMapping&gt; a rr:TriplesMap ;
+	rml:logicalSource
+		[
+			rml:source "source.xml" ;
+			rml:referenceFormulation ql:XPath
+			rml:iterator "/TED_EXPORT/FORM_SECTION/F03_2014/CONTRACTING_BODY/ADDRESS_CONTRACTING_BODY" ;
+
+		] ;
+	rr:subjectMap
+		[
+			rr:template
+				"http://data.europa.eu/a4g/resource/Organisation/uuid_generation_function ;
+			rr:class epo:Organisation
+
+		] ;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The modules are stored in the ted-rdf-mapping project in the <code>src/mappings</code> folder.
+For the moment we covered five modules that represent the five sections of F03 and part of F06/F25, and one for Annex D1, which is part of F03. The modules are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>s1_contracting_authority.rml.ttl</p>
+</li>
+<li>
+<p>s2_object.rml.ttl</p>
+</li>
+<li>
+<p>s4_procedure.rml.ttl</p>
+</li>
+<li>
+<p>s5_award_of_contract.rml.ttl</p>
+</li>
+<li>
+<p>s6_complementary_information.rml.ttl</p>
+</li>
+<li>
+<p>annex_d1.rml.ttl</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The project contains one <code>src/mappings</code> folder containing all the modules files and one "main" entry point mapping file for each form package. Here is a representation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>/ted-rdf-mapping
+	/XXX
+	/mappings
+		/package_F03
+			/transformation
+				XXXX
+				/mappings
+					...
+					technical_mapping_F03.rml.ttl
+		/package_FXX
+			/transformation
+				XXXX
+				/mappings
+					...
+					technical_mapping_FXX.rml.ttl
+	/src
+		/mappings
+			annex_d1.rml.ttl
+			s1_contracting_authority.rml.ttl
+			s2_object.rml.ttl
+			s4_procedure.rml.ttl
+			s5_award_of_contract.rml.ttl
+			s6_complementary_information.rml.ttl
+			technical_mapping_F03.rml.ttl
+			technical_mapping_FXX.rml.ttl</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>

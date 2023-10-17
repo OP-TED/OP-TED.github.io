@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/SWS/mapping_suite/preparing-test-data.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="SWS" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">TED Semantic Web Service</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../audience.html">Target Audience</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Mapping suite contents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../genref.html">General Reference</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../glossary.html">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Mapping suites</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="mapping-suite-structure.html">Mapping suite package structure</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="code-list-resources.html">Code list mappings</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="preparing-test-data.html">Data samples</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reusing semantic web service artefacts</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sample_app/sa_glossary.html">Glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../sample_app/sparql_queries.html">SPARQL Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="versioning.html">Versioning</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.8/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.4/index.html">1.4.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.3/index.html">1.3.2</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.2/index.html">1.2.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.1/index.html">1.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../EPO/4.0.0/index.html">4.0.0-rc.2</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">TED Semantic Web Service</a></li>
+    <li><a href="preparing-test-data.html">Data samples</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="6">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_representative_sample_data_selection"><a class="anchor" href="#_representative_sample_data_selection"></a>Representative sample data selection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes TED notice data samples and methods used to generate them. At first a sampling is performed on the notices from 2021, and then on a wider set.</p>
+</div>
+<div class="sect2">
+<h3 id="_sample_ted_notices_from_2021"><a class="anchor" href="#_sample_ted_notices_from_2021"></a>Sample TED notices from 2021</h3>
+<div class="paragraph">
+<p>This data sample (<code>test_data/sampling_2021</code>) contains carefully selected TED notices based on the following criteria: maximise representativeness, minimise the number of selected documents. The selected notices are guaranteed to cover all possible XPath configurations available in the data. The sampling was performed automatically.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The current sampling exercise was performed on all records collected in 2021;</p>
+</li>
+<li>
+<p>The data space was partitioned twice based on two criteria: the notice form number (e.g. <code>F03</code>, <code>F06</code>) and the eForms Subtype (e.g. <code>cn-standard</code>, <code>can-utilities</code>);</p>
+</li>
+<li>
+<p>The minimal set of the most representative notices have been selected for each form_number and eforms_subtype .</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sampling_result_statistics"><a class="anchor" href="#_sampling_result_statistics"></a>Sampling result statistics</h3>
+<div class="paragraph">
+<p>Below we present two tables with statistics indicating the total number for each selection criteria, the percentage relative to the total number of considered notices (i.e. total in 2021), and the number of selected most representative notices.</p>
+</div>
+<div class="sect3">
+<h4 id="_sampling_based_on_form_number"><a class="anchor" href="#_sampling_based_on_form_number"></a>Sampling based on form_number:</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>form_number</strong></th>
+<th class="tableblock halign-left valign-top"><strong>nr. of notices</strong></th>
+<th class="tableblock halign-left valign-top"><strong>percentage of total number of notices</strong></th>
+<th class="tableblock halign-left valign-top"><strong>nr. of the most representative notices</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F03</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">249618</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37,35</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F02</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">223430</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33,43</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">77564</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11,6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30244</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4,52</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F06</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27746</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4,15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22452</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3,36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11483</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,72</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7788</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">43</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5844</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,87</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2035</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F08</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2034</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1764</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1680</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1546</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1115</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">957</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F04</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">932</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">93</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">56</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F07</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">F19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Total</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>668381</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>100%</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>365</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_sampling_based_on_eforms_subtype"><a class="anchor" href="#_sampling_based_on_eforms_subtype"></a>Sampling based on eforms_subtype:</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>eforms_subtype</strong></th>
+<th class="tableblock halign-left valign-top"><strong>nr. of notices</strong></th>
+<th class="tableblock halign-left valign-top"><strong>percentage of total number of notices</strong></th>
+<th class="tableblock halign-left valign-top"><strong>nr. of most representative notices</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">29</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">249618</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37,35</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">223430</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33,43</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">41</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">77564</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11,6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27746</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4,15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22452</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3,36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19151</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2,87</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">39</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10797</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,62</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7177</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,07</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7006</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1,05</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5771</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,86</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3872</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,58</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">31</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2035</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1839</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1764</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1680</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1502</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1115</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">19</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">36</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">930</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">499</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,07</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">460</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,07</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">434</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,06</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">411</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,06</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">14</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">40</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">296</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,04</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">235</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,04</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">17</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">157</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,02</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">93</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">73</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">61</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">12</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">56</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">11</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">48</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">44</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">10</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">38</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0,01</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">5</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">37</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">35</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Total</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>668381</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>100%</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>454</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sampling_of_ted_notices_based_on_xsd_versions"><a class="anchor" href="#_sampling_of_ted_notices_based_on_xsd_versions"></a>Sampling of TED notices based on XSD versions</h3>
+<div class="paragraph">
+<p>We also made a separate sampling on <strong>all the TED notices published between 2014 and 2022</strong>. We split up these samples based on the various XSD versions according to which they were created. These samples can be found in the following folder structure</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">test_data
+   sampling_2014_2022
+      R2.0.9.S01.E01            (702 notices)
+      R2.0.9.S02.E01            (808 notices)
+      R2.0.9.S03.E01            (809 notices)
+      R2.0.9.S04.E01            (778 notices)
+      R2.0.9.S05.E01            (662 notices)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each of this folder contains separate samples for each of the Standard forms and eForms subtypes.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
