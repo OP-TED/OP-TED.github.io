@@ -34,24 +34,38 @@ paths:
               schema:
                 type: string
                 format: binary
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: Notice or notice report was not found.
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Several versions of notice with given noticeId exist.
           content:
-            application/json: {}
-         
-  /api/notice/notices/{noticeId}/stop-publication-esentool:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+  /api/v2/notice/notices/{businessId}/stop-publication-esentool:
     post:
       tags:
         - Notice
-      summary: Request to stop the publication of a notice
+      summary: Stop the notice publication.
       operationId: stopPublicationEsentool
       parameters:
         - name: businessId
@@ -68,74 +82,94 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/EsentoolNoticeDto'
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '403': 
           description: |-
             Possible issues:
             - Notice publication cannot be stopped
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: Notice was not found.
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Several versions of notice with given noticeId exist.
           content:
-            application/json: {}
-
-  /api/notice/notices/submit:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'           
+  /api/v2/notice/notices/submit:
     post:
       tags:
         - Notice
       summary: Submit XML notice
       operationId: submitNotice
-      parameters:
-        - name: esenderAuthor
-          description: the metadata that is used to identify the original author of the notice.
-          schema:
-            $ref: '#/components/schemas/EsenderAuthor'
       requestBody:
         content:
           multipart/form-data:
             schema:
-              required:
-                - esenderAuthor
-                - notice
-              type: object
-              properties:
-                notice:
-                  type: string
-                  format: binary
-                esenderAuthor:
-                  $ref: '#/components/schemas/EsenderAuthor'
+              $ref: '#/components/schemas/MetadataAndNotice'
+        required: true
       responses:
         '201':
-          description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'cvsLink' response property.
+          description: The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from 'validationReportUrl' response property.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Notice with the same noticeId and versionId already exists.
+            - Notice cannot be created (parsing errors)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: |-
             Possible issues:
             - No compatible SDK version found
           content:
-            application/json: {} 
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'    
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
-            - Notice cannot be created (parsing errors)
-            - Notice with the same noticeId and versionId already exists.
           content:
-            application/json: {}
-  
-  /api/notice/notices/search-esentool:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'    
+  /api/v2/notice/notices/search-esentool:
     get:
       tags:
         - Notice
@@ -180,6 +214,7 @@ paths:
               - publicationDate
               - noticeType
               - legalBasis
+              - noticeAuthor
         - name: sortDirection
           description: Ascending or descending order, in case sortProperty is set.
           in: query
@@ -187,7 +222,6 @@ paths:
           required: false
           schema:
             type: string
-            default: ASC
             enum:
               - ASC
               - DESC
@@ -198,18 +232,69 @@ paths:
             $ref: '#/components/schemas/SearchNoticesEsentool'
       responses:
         '200':
-          description: OK
+          description: All notices based on filters. Even if 0 results.
           content:
-            '*/*':
+            application/json:
               schema:
                 $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+        '400':
+          description: Missing Authorization header in request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
-            - TED API key is missing or is not valid.
+            - The provided TED API key cannot be currently validated.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
-            application/json: {}
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
+  /api/v2/notice/notices/convert:
+    post:
+      tags:
+        - Notice
+      summary: Convert an XML notice in the old TED XML format to an eForms notice.
+      operationId: convert
+      requestBody:
+        content:
+          application/xml:
+            schema:
+              type: array
+              items:
+                type: string
+                format: byte
+        required: true
+      responses:
+        '200':
+          description: The notice was successfully converted.
+          content:
+            application/xml:
+              schema:
+                type: array
+                items:
+                  type: string
+                  format: byte
+        '400':
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - The request body is incomplete or invalid.
+        '401':
+          description: The provided TED API key doesn't exist or it is invalid.
+        '500':
+          description: |-
+            Possible issues:
+            - The provided TED API key cannot be currently validated.
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
 components:
   schemas:
     ExceptionBody:
@@ -271,21 +356,24 @@ components:
           items:
             type: string
             description: the notice languages.
+        noticeAuthor:
+          type: string
+          description: the notice author.
+          example: minimal@email.eu
     NoticeStatus:
       type: string
       description: the notice status.
       enum:
         - DRAFT
         - SUBMITTED
-        - STOPPED
-        - PUBLISHING
+        - STOPPED        
         - PUBLISHED
+        - PUBLISHING
         - DELETED
-        - NOT_PUBLISHED
-        - CONVERTED_FROM_PUBLISHED
+        - NOT_PUBLISHED        
         - ARCHIVED
         - VALIDATION_FAILED
-    EsenderAuthor:
+    Metadata:
       type: object
       properties:
         noticeAuthorEmail:
@@ -299,9 +387,9 @@ components:
     XmlNoticeSubmissionDto:
       type: object
       properties:
-        cvsLink:
+        validationReportUrl:
           type: string
-          description: the link to use to retrieve the CVS report
+          description: the url to use to retrieve the CVS validation report
         success:
           type: boolean
           description: the status of the submission. True if success, otherwise false.
@@ -346,14 +434,17 @@ components:
             enum:
               - DRAFT
               - SUBMITTED
-              - STOPPED
-              - PUBLISHING
+              - STOPPED              
               - PUBLISHED
+              - PUBLISHING
               - DELETED
-              - NOT_PUBLISHED
-              - CONVERTED_FROM_PUBLISHED
+              - NOT_PUBLISHED              
               - ARCHIVED
               - VALIDATION_FAILED
+        noticeAuthor:
+          type: string
+          description: the notice author
+          example: minimal@email.eu
     EsentoolPageDtoEsentoolNoticeDto:
       type: object
       properties:

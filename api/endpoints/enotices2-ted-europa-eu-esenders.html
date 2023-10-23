@@ -251,6 +251,112 @@ This API provides operations for submission of notices for publication and their
 <div class="sectionbody">
 <div class="sect2 Notice">
 <h3 id="_notice"><a class="anchor" href="#_notice"></a>Notice</h3>
+<div class="sect3 convert">
+<h4 id="_convert"><a class="anchor" href="#_convert"></a>convert</h4>
+<div class="paragraph">
+<p><code>POST /api/v2/notice/notices/convert</code></p>
+</div>
+<div class="paragraph">
+<p>Convert an XML notice in the old TED XML format to an eForms notice.</p>
+</div>
+<div class="sect4">
+<h5 id="_description"><a class="anchor" href="#_description"></a>Description</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h5>
+<div class="sect5">
+<h6 id="_body_parameter"><a class="anchor" href="#_body_parameter"></a>Body Parameter</h6>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 37.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+<col style="width: 12.5%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Default</th>
+<th class="tableblock halign-left valign-top">Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ByteArray</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ByteArray">[ByteArray]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_return_type"><a class="anchor" href="#_return_type"></a>Return Type</h5>
+<div class="paragraph">
+<p><a href="#List">[List]</a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_content_type"><a class="anchor" href="#_content_type"></a>Content Type</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>application/xml</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_responses"><a class="anchor" href="#_responses"></a>Responses</h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. http response codes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 50%;">
+<col style="width: 16.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">Message</th>
+<th class="tableblock halign-left valign-top">Datatype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The notice was successfully converted.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List[<a href="#ByteArray">[ByteArray]</a>]</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - Missing Authorization header in request - The request body is incomplete or invalid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provided TED API key doesn&#39;t exist or it is invalid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - The provided TED API key cannot be currently validated. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_samples"><a class="anchor" href="#_samples"></a>Samples</h5>
+
+</div>
+</div>
 <div class="sect3 getValidationReport">
 <h4 id="_getvalidationreport"><a class="anchor" href="#_getvalidationreport"></a>getValidationReport</h4>
 <div class="paragraph">
@@ -260,11 +366,11 @@ This API provides operations for submission of notices for publication and their
 <p>Retrieve the notice validation report.</p>
 </div>
 <div class="sect4">
-<h5 id="_description"><a class="anchor" href="#_description"></a>Description</h5>
+<h5 id="_description_2"><a class="anchor" href="#_description_2"></a>Description</h5>
 
 </div>
 <div class="sect4">
-<h5 id="_parameters"><a class="anchor" href="#_parameters"></a>Parameters</h5>
+<h5 id="_parameters_2"><a class="anchor" href="#_parameters_2"></a>Parameters</h5>
 <div class="sect5">
 <h6 id="_path_parameters"><a class="anchor" href="#_path_parameters"></a>Path Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
@@ -297,13 +403,13 @@ This API provides operations for submission of notices for publication and their
 </div>
 </div>
 <div class="sect4">
-<h5 id="_return_type"><a class="anchor" href="#_return_type"></a>Return Type</h5>
+<h5 id="_return_type_2"><a class="anchor" href="#_return_type_2"></a>Return Type</h5>
 <div class="paragraph">
 <p><a href="#File">[File]</a></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_content_type"><a class="anchor" href="#_content_type"></a>Content Type</h5>
+<h5 id="_content_type_2"><a class="anchor" href="#_content_type_2"></a>Content Type</h5>
 <div class="ulist">
 <ul>
 <li>
@@ -316,9 +422,9 @@ This API provides operations for submission of notices for publication and their
 </div>
 </div>
 <div class="sect4">
-<h5 id="_responses"><a class="anchor" href="#_responses"></a>Responses</h5>
+<h5 id="_responses_2"><a class="anchor" href="#_responses_2"></a>Responses</h5>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. http response codes</caption>
+<caption class="title">Table 2. http response codes</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 50%;">
@@ -338,37 +444,47 @@ This API provides operations for submission of notices for publication and their
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#File">[File]</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Missing Authorization header in request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provided TED API key doesn&#39;t exist or it is invalid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Notice or notice report was not found.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key. - Several versions of notice with given noticeId exist.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - The provided TED API key cannot be currently validated. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_samples"><a class="anchor" href="#_samples"></a>Samples</h5>
+<h5 id="_samples_2"><a class="anchor" href="#_samples_2"></a>Samples</h5>
 
 </div>
 </div>
 <div class="sect3 searchProceduresEsentool">
 <h4 id="_searchproceduresesentool"><a class="anchor" href="#_searchproceduresesentool"></a>searchProceduresEsentool</h4>
 <div class="paragraph">
-<p><code>GET /api/notice/notices/search-esentool</code></p>
+<p><code>GET /api/v2/notice/notices/search-esentool</code></p>
 </div>
 <div class="paragraph">
 <p>Search procedures.</p>
 </div>
 <div class="sect4">
-<h5 id="_description_2"><a class="anchor" href="#_description_2"></a>Description</h5>
+<h5 id="_description_3"><a class="anchor" href="#_description_3"></a>Description</h5>
 
 </div>
 <div class="sect4">
-<h5 id="_parameters_2"><a class="anchor" href="#_parameters_2"></a>Parameters</h5>
+<h5 id="_parameters_3"><a class="anchor" href="#_parameters_3"></a>Parameters</h5>
 <div class="sect5">
 <h6 id="_query_parameters"><a class="anchor" href="#_query_parameters"></a>Query Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
@@ -414,7 +530,7 @@ This API provides operations for submission of notices for publication and their
 <td class="tableblock halign-left valign-top"><p class="tableblock">sortDirection</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">the sort direction, ascending (ASC) or descending (DESC)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ASC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -429,18 +545,15 @@ This API provides operations for submission of notices for publication and their
 </div>
 </div>
 <div class="sect4">
-<h5 id="_return_type_2"><a class="anchor" href="#_return_type_2"></a>Return Type</h5>
+<h5 id="_return_type_3"><a class="anchor" href="#_return_type_3"></a>Return Type</h5>
 <div class="paragraph">
 <p><a href="#EsentoolPageDtoEsentoolNoticeDto"><em>EsentoolPageDtoEsentoolNoticeDto</em></a></p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="_content_type_2"><a class="anchor" href="#_content_type_2"></a>Content Type</h5>
+<h5 id="_content_type_3"><a class="anchor" href="#_content_type_3"></a>Content Type</h5>
 <div class="ulist">
 <ul>
-<li>
-<p><strong>/</strong></p>
-</li>
 <li>
 <p>application/json</p>
 </li>
@@ -448,9 +561,9 @@ This API provides operations for submission of notices for publication and their
 </div>
 </div>
 <div class="sect4">
-<h5 id="_responses_2"><a class="anchor" href="#_responses_2"></a>Responses</h5>
+<h5 id="_responses_3"><a class="anchor" href="#_responses_3"></a>Responses</h5>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 2. http response codes</caption>
+<caption class="title">Table 3. http response codes</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 50%;">
@@ -466,36 +579,46 @@ This API provides operations for submission of notices for publication and their
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All notices based on filters. Even if 0 results.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsentoolPageDtoEsentoolNoticeDto"><em>EsentoolPageDtoEsentoolNoticeDto</em></a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Missing Authorization header in request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provided TED API key doesn&#39;t exist or it is invalid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - The provided TED API key cannot be currently validated. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
-<h5 id="_samples_2"><a class="anchor" href="#_samples_2"></a>Samples</h5>
+<h5 id="_samples_3"><a class="anchor" href="#_samples_3"></a>Samples</h5>
 
 </div>
 </div>
 <div class="sect3 stopPublicationEsentool">
 <h4 id="_stoppublicationesentool"><a class="anchor" href="#_stoppublicationesentool"></a>stopPublicationEsentool</h4>
 <div class="paragraph">
-<p><code>POST /api/notice/notices/{noticeId}/stop-publication-esentool</code></p>
+<p><code>POST /api/v2/notice/notices/{businessId}/stop-publication-esentool</code></p>
 </div>
 <div class="paragraph">
-<p>Request to stop the publication of a notice</p>
+<p>Stop the notice publication.</p>
 </div>
 <div class="sect4">
-<h5 id="_description_3"><a class="anchor" href="#_description_3"></a>Description</h5>
+<h5 id="_description_4"><a class="anchor" href="#_description_4"></a>Description</h5>
 
 </div>
 <div class="sect4">
-<h5 id="_parameters_3"><a class="anchor" href="#_parameters_3"></a>Parameters</h5>
+<h5 id="_parameters_4"><a class="anchor" href="#_parameters_4"></a>Parameters</h5>
 <div class="sect5">
 <h6 id="_path_parameters_2"><a class="anchor" href="#_path_parameters_2"></a>Path Parameters</h6>
 <table class="tableblock frame-all grid-all stretch">
@@ -528,122 +651,9 @@ This API provides operations for submission of notices for publication and their
 </div>
 </div>
 <div class="sect4">
-<h5 id="_return_type_3"><a class="anchor" href="#_return_type_3"></a>Return Type</h5>
-<div class="paragraph">
-<p><a href="#EsentoolNoticeDto"><em>EsentoolNoticeDto</em></a></p>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_content_type_3"><a class="anchor" href="#_content_type_3"></a>Content Type</h5>
-<div class="ulist">
-<ul>
-<li>
-<p>application/json</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="_responses_3"><a class="anchor" href="#_responses_3"></a>Responses</h5>
-<table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 3. http response codes</caption>
-<colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 50%;">
-<col style="width: 16.6667%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Code</th>
-<th class="tableblock halign-left valign-top">Message</th>
-<th class="tableblock halign-left valign-top">Datatype</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The publication of the notice has been stopped.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsentoolNoticeDto"><em>EsentoolNoticeDto</em></a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">403</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - Notice publication cannot be stopped</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Notice was not found.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key. - Several versions of notice with given noticeId exist.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect4">
-<h5 id="_samples_3"><a class="anchor" href="#_samples_3"></a>Samples</h5>
-
-</div>
-</div>
-<div class="sect3 submitNotice">
-<h4 id="_submitnotice"><a class="anchor" href="#_submitnotice"></a>submitNotice</h4>
-<div class="paragraph">
-<p><code>POST /api/notice/notices/submit</code></p>
-</div>
-<div class="paragraph">
-<p>Submit XML notice</p>
-</div>
-<div class="sect4">
-<h5 id="_description_4"><a class="anchor" href="#_description_4"></a>Description</h5>
-
-</div>
-<div class="sect4">
-<h5 id="_parameters_4"><a class="anchor" href="#_parameters_4"></a>Parameters</h5>
-<div class="sect5">
-<h6 id="_form_parameters"><a class="anchor" href="#_form_parameters"></a>Form Parameters</h6>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 37.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-<col style="width: 12.5%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Name</th>
-<th class="tableblock halign-left valign-top">Description</th>
-<th class="tableblock halign-left valign-top">Required</th>
-<th class="tableblock halign-left valign-top">Default</th>
-<th class="tableblock halign-left valign-top">Pattern</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">notice</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#file">[file]</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">esenderAuthor</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsenderAuthor">[EsenderAuthor]</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">X</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">null</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect4">
 <h5 id="_return_type_4"><a class="anchor" href="#_return_type_4"></a>Return Type</h5>
 <div class="paragraph">
-<p><a href="#XmlNoticeSubmissionDto"><em>XmlNoticeSubmissionDto</em></a></p>
+<p><a href="#EsentoolNoticeDto"><em>EsentoolNoticeDto</em></a></p>
 </div>
 </div>
 <div class="sect4">
@@ -674,25 +684,122 @@ This API provides operations for submission of notices for publication and their
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">201</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from &#39;cvsLink&#39; response property.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#XmlNoticeSubmissionDto"><em>XmlNoticeSubmissionDto</em></a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">200</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The publication of the notice has been stopped.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#EsentoolNoticeDto"><em>EsentoolNoticeDto</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Missing Authorization header in request</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provided TED API key doesn&#39;t exist or it is invalid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">403</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - Notice publication cannot be stopped</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - No compatible SDK version found</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice was not found.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - TED API key is missing or is not valid. - No Enotices2 account found for the EU login account identified by provided TED API key. - Notice cannot be created (parsing errors) - Notice with the same noticeId and versionId already exists.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;&gt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - The provided TED API key cannot be currently validated. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect4">
 <h5 id="_samples_4"><a class="anchor" href="#_samples_4"></a>Samples</h5>
+
+</div>
+</div>
+<div class="sect3 submitNotice">
+<h4 id="_submitnotice"><a class="anchor" href="#_submitnotice"></a>submitNotice</h4>
+<div class="paragraph">
+<p><code>POST /api/v2/notice/notices/submit</code></p>
+</div>
+<div class="paragraph">
+<p>Submit XML notice</p>
+</div>
+<div class="sect4">
+<h5 id="_description_5"><a class="anchor" href="#_description_5"></a>Description</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_parameters_5"><a class="anchor" href="#_parameters_5"></a>Parameters</h5>
+
+</div>
+<div class="sect4">
+<h5 id="_return_type_5"><a class="anchor" href="#_return_type_5"></a>Return Type</h5>
+<div class="paragraph">
+<p><a href="#XmlNoticeSubmissionDto"><em>XmlNoticeSubmissionDto</em></a></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_content_type_5"><a class="anchor" href="#_content_type_5"></a>Content Type</h5>
+<div class="ulist">
+<ul>
+<li>
+<p>application/json</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_responses_5"><a class="anchor" href="#_responses_5"></a>Responses</h5>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. http response codes</caption>
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 50%;">
+<col style="width: 16.6667%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">Message</th>
+<th class="tableblock halign-left valign-top">Datatype</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">201</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The notice is created. If CVS validation succeeds, the notice is submitted for publication. Otherwise, is not submitted for publication and report validation can be retrieved from &#39;validationReportUrl&#39; response property.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#XmlNoticeSubmissionDto"><em>XmlNoticeSubmissionDto</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">400</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - Missing Authorization header in request - Notice with the same noticeId and versionId already exists. - Notice cannot be created (parsing errors)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">401</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The provided TED API key doesn&#39;t exist or it is invalid.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">404</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - No compatible SDK version found</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">500</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Possible issues: - The provided TED API key cannot be currently validated. - No Enotices2 account found for the EU login account identified by provided TED API key.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#ExceptionBody"><em>ExceptionBody</em></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect4">
+<h5 id="_samples_5"><a class="anchor" href="#_samples_5"></a>Samples</h5>
 
 </div>
 </div>
@@ -799,6 +906,13 @@ This API provides operations for submission of notices for publication and their
 <td class="tableblock halign-left valign-top"><p class="tableblock">the notice languages.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noticeAuthor</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice author.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -871,6 +985,43 @@ This API provides operations for submission of notices for publication and their
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">the exception message.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="Metadata"><a class="anchor" href="#Metadata"></a><em>Metadata</em></h3>
+<table class="tableblock frame-all grid-all stretch fields-Metadata">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 10%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Field Name</th>
+<th class="tableblock halign-left valign-top">Required</th>
+<th class="tableblock halign-left valign-top">Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noticeAuthorEmail</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice author email.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noticeAuthorLocale</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice author locale.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -969,6 +1120,13 @@ This API provides operations for submission of notices for publication and their
 <td class="tableblock halign-left valign-top"><p class="tableblock">the list of status to include in the search</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Enum:</em></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">noticeAuthor</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the notice author</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -993,10 +1151,10 @@ This API provides operations for submission of notices for publication and their
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cvsLink</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">validationReportUrl</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">the link to use to retrieve the CVS report</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the url to use to retrieve the CVS validation report</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
