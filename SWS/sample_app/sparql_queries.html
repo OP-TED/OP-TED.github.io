@@ -102,6 +102,12 @@
     <a class="nav-link" href="../glossary.html">Glossary</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mapping_suite/methodology.html">Methodology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mapping_suite/repository-structure.html">Repository structure</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../mapping_suite/index.html">Mapping suites</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -114,6 +120,9 @@
     <a class="nav-link" href="../mapping_suite/preparing-test-data.html">Data samples</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mapping_suite/toolchain.html">Toolchain</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>Reusing semantic web service artefacts</strong></span></span>
   </li>
   <li class="nav-item" data-depth="1">
@@ -121,6 +130,15 @@
   </li>
   <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="sparql_queries.html">SPARQL Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ms_excel.html">MS Excel</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jupyter_notebook_r.html">Jupyter Notebook - R</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jupyter_notebook_python.html">Jupyter Notebook - Python</a>
   </li>
   <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>Reference</strong></span></span>
@@ -262,22 +280,116 @@
 <div class="paragraph">
 <p>A query is submitted to the SPARQL end point by replacing the text highlighted below in blue in the Query Text box below with your query:</p>
 </div>
-<div class="paragraph">
-<p><span class="image"><img src="../_images/sparql.png" alt="SPARQL End Point"></span></p>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/sparql.png" alt="SPARQL End Point">
+</div>
+<div class="title">Figure 1. End point user interface</div>
 </div>
 <div class="paragraph">
-<p>The format of the result can be changed using the drop down box of the Results format.</p>
+<p>The format of the result can be changed using the drop-down box of the Results format.</p>
 </div>
 <div class="paragraph">
-<p>Once the query is in place, and the Results format chosen, the query can be run by pressing “Run Query”</p>
+<p>Once the query is in place, and the Results format chosen, the query can be run by pressing “Run Query”.</p>
 </div>
 <div class="paragraph">
-<p>Below you will find an example of a query:</p>
+<p>Below you will find an example of queries.</p>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_query_how_many_contractors_are_smes_for_a_given_country_and_given_date"><a class="anchor" href="#_query_how_many_contractors_are_smes_for_a_given_country_and_given_date"></a>Query: How many contractors are SMEs for a given country and given date ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>&#160;</p>
+</div>
+<div class="paragraph">
+<p>This SPARQL query aims to count the number of distinct procurement notices that meet specific criteria related to publication date, country code (Germany), and business size (SME).</p>
+</div>
+<div class="paragraph">
+<p>The query retrieves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The number of distinct procurement notices</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The notice publication date, organization country and organization size can be changed to create other queries. To do this, change the following section:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>VALUES (?NoticePublicationDate ?CountryCode ?BusinessSize) {
+        (
+        "20230905"
+        &lt;http://publications.europa.eu/resource/authority/country/DEU&gt;
+        &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;
+        )</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Existing value for publication date in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>"20230905"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Existing value for organization country in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;http://publications.europa.eu/resource/authority/country/DEU&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Existing value for organization size in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;</pre>
+</div>
+</div>
+</li>
+</ul>
 </div>
 <div class="sect2">
-<h3 id="_query_which_notices_have_been_published_by_buyers_from_a_specific_country_for_a_given_date"><a class="anchor" href="#_query_which_notices_have_been_published_by_buyers_from_a_specific_country_for_a_given_date"></a>Query:  Which notices have been published by Buyers from a specific country for a given date?</h3>
+<h3 id="_query_text"><a class="anchor" href="#_query_text"></a>Query text:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
+SELECT
+(COUNT(DISTINCT ?Notice) as ?NrOfNotices)
+WHERE {
+    VALUES (?NoticePublicationDate ?CountryCode ?BusinessSize) {
+            (
+            "20230905"
+            &lt;http://publications.europa.eu/resource/authority/country/DEU&gt;
+            &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;
+            )
+    }
+    ?Notice epo:hasPublicationDate ?NoticePublicationDate .
+    ?Notice epo:announcesRole ?Buyer .
+    ?Buyer epo:playedBy ?Organization .
+    ?Organization epo:hasBusinessSize ?BusinessSize .
+    ?Organization cccev:registeredAddress / epo:hasCountryCode ?CountryCode .
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_which_notices_have_been_published_by_buyers_from_a_specific_country_for_a_given_date"><a class="anchor" href="#_query_which_notices_have_been_published_by_buyers_from_a_specific_country_for_a_given_date"></a>Query:  Which notices have been published by Buyers from a specific country for a given date ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>&#160;</p>
+</div>
 <div class="paragraph">
 <p>This SPARQL query retrieves information about contract award notices that have been published by buyers from Germany and published on TED on 05-09-2023.</p>
 </div>
@@ -301,33 +413,37 @@
 <p>It does so by specifying a set of values and then querying the RDF data based on those values. The query returns information about the notices, the organizations (buyers), and their legal names.</p>
 </div>
 <div class="paragraph">
-<p>The date and country can be changed to create other queries.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>To change the date, change the value:</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>VALUES (?PublicationDate ?countryCode) {</p>
+<p>The publication date and organization country can be changed to create other queries. To do this, change the following section:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>("20230905"</pre>
+<pre>VALUES (?PublicationDate ?countryCode) {
+        ("20230905" &lt;http://publications.europa.eu/resource/authority/country/DEU&gt;)
+}</pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>To change the country change the value:</p>
+<p>Existing value for publication date in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>"20230905"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Existing value for organization country in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;http://publications.europa.eu/resource/authority/country/DEU&gt;</pre>
+</div>
+</div>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><a href="http://publications.europa.eu/resource/authority/country/DEU" class="bare">http://publications.europa.eu/resource/authority/country/DEU</a></p>
-</div>
+<div class="sect2">
+<h3 id="_query_text_2"><a class="anchor" href="#_query_text_2"></a>Query text:</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
@@ -349,12 +465,248 @@ WHERE {
 }</code></pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_who_are_the_winners_for_a_given_date"><a class="anchor" href="#_query_who_are_the_winners_for_a_given_date"></a>Query: Who are the winners for a given date ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>&#160;</p>
+</div>
+<div class="paragraph">
+<p>This SPARQL query aims to retrieve information about the winners of procurement lots for a specific date ("20230921" or 21-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
+</div>
+<div class="paragraph">
+<p>The query retrieves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Notice ID</p>
+</li>
+<li>
+<p>Procedure ID</p>
+</li>
+<li>
+<p>Notice publication date</p>
+</li>
+<li>
+<p>Lot Number (optional, may be missing as it not specified in notice)</p>
+</li>
+<li>
+<p>The legal name of the winner</p>
+</li>
+<li>
+<p>The winners country code as URI</p>
+</li>
+<li>
+<p>Lot value awarded to winner</p>
+</li>
+<li>
+<p>The currency of the awarded value</p>
+</li>
+<li>
+<p>Lot URI</p>
+</li>
+<li>
+<p>Notice URI</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The notice publication date and winner legal name language can be changed to create other queries. To do this, change the following section:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>VALUES ?NoticePublicationDate {
+    "20230831"
+}
+FILTER(LANG(?WinnerLegalName) = 'en')</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Existing value for publication date in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>"20230831"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Existing value for winner legal name language in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>'en'</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_query_text_3"><a class="anchor" href="#_query_text_3"></a>Query text:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
+SELECT DISTINCT
+?NoticeID
+?NoticePublicationDate
+?ProcedureNr
+?LotNr
+?WinnerLegalName
+?WinnerCountryCode
+?LotAwardedValue
+?LotAwardedValueCurrency
+?LotURI
+?NoticeURI
+WHERE {
+    VALUES ?NoticePublicationDate {
+        "20230831"
+    }
+    FILTER(LANG(?WinnerLegalName) = 'en')
+    ?NoticeURI a epo:ResultNotice;
+               epo:hasPublicationDate ?NoticePublicationDate;
+               epo:hasID / epo:hasIdentifierValue ?NoticeID ;
+                           epo:refersToLot ?LotURI.
+    ?LotURI a epo:Lot.
+    ?LotAwardOutcome epo:describesLot ?LotURI;
+                     a epo:LotAwardOutcome;
+                     epo:hasAwardedValue ?LotAwardedValueURI ;
+                     epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
+    ?TenderAwardOutcome a epo:TenderAwardOutcome;
+                        epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
+    ?Winner a org:Organization;
+            epo:hasLegalName ?WinnerLegalName .
+    OPTIONAL {
+        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
+    }
+    ?LotAwardedValueURI a epo:MonetaryValue;
+                        epo:hasAmountValue ?LotAwardedValue;
+                        epo:hasCurrency ?LotAwardedValueCurrency.
+    OPTIONAL {
+        ?LotURI epo:hasID / epo:hasIdentifierValue ?LotNr .
+    }
+    ?ProcedureURI epo:hasProcurementScopeDividedIntoLot ?LotURI;
+                  a epo:Procedure ;
+                  epo:hasID / epo:hasIdentifierValue ?ProcedureNr .
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query_which_is_the_highest_value_published_for_a_contract_award_for_a_given_date"><a class="anchor" href="#_query_which_is_the_highest_value_published_for_a_contract_award_for_a_given_date"></a>Query: Which is the highest value published for a contract award for a given date ?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>&#160;</p>
+</div>
+<div class="paragraph">
+<p>This SPARQL query aims to retrieve the procurement notice, its publication date, the corresponding lot, and the highest awarded amount along with the currency code for a specific date ("20230905" or 05-09-2023). It does so by specifying a value for the date and then querying the RDF data based on that value. The query returns the information in descending order of the awarded amount, with only the highest value being displayed.</p>
+</div>
+<div class="paragraph">
+<p>The query retrieves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lot URI</p>
+</li>
+<li>
+<p>The legal name of the winner</p>
+</li>
+<li>
+<p>The winners country code as URI</p>
+</li>
+<li>
+<p>Lot value awarded to winner</p>
+</li>
+<li>
+<p>The currency of the awarded value</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The notice publication date and winner legal name language can be changed to create other queries. To do this, change the following section:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>VALUES ?NoticePublicationDate {
+    "20230921"
+}
+FILTER(LANG(?WinnerLegalName) = 'en')</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Existing value for publication date in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>"20230921"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Existing value for winner legal name language in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>'en'</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_query_text_4"><a class="anchor" href="#_query_text_4"></a>Query text:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
+SELECT
+?LotURI
+?WinnerLegalName
+?WinnerCountryCode
+?LotAwardedValue
+?LotAwardedValueCurrency
+WHERE {
+    VALUES ?NoticePublicationDate {
+        "20230921"
+    }
+    FILTER(LANG(?WinnerLegalName) = 'en')
+    ?Notice epo:hasPublicationDate ?NoticePublicationDate ;
+            epo:refersToLot ?LotURI .
+    ?LotAwardOutcome epo:describesLot ?LotURI ;
+                     epo:hasAwardedValue ?MonetaryValue ;
+                     epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
+    ?TenderAwardOutcome a epo:TenderAwardOutcome;
+                        epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
+    ?Winner a org:Organization;
+            epo:hasLegalName ?WinnerLegalName .
+    OPTIONAL {
+        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
+    }
+    ?MonetaryValue a epo:MonetaryValue;
+                   epo:hasAmountValue ?LotAwardedValue;
+                   epo:hasCurrency ?LotAwardedValueCurrency .
+}
+ORDER BY DESC(?LotAwardedValue)
+LIMIT 1</code></pre>
+</div>
+</div>
 <hr>
 <div class="paragraph">
 <p>Any comments on the documentation?</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OP-TED/ted-rdf-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
+</div>
 </div>
 </div>
 </article>

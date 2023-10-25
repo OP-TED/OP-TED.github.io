@@ -102,6 +102,12 @@
     <a class="nav-link" href="../glossary.html">Glossary</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mapping_suite/methodology.html">Methodology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mapping_suite/repository-structure.html">Repository structure</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../mapping_suite/index.html">Mapping suites</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -114,6 +120,9 @@
     <a class="nav-link" href="../mapping_suite/preparing-test-data.html">Data samples</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../mapping_suite/toolchain.html">Toolchain</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>Reusing semantic web service artefacts</strong></span></span>
   </li>
   <li class="nav-item" data-depth="1">
@@ -121,6 +130,15 @@
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="sparql_queries.html">SPARQL Queries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="ms_excel.html">MS Excel</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="jupyter_notebook_r.html">Jupyter Notebook - R</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="jupyter_notebook_python.html">Jupyter Notebook - Python</a>
   </li>
   <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>Reference</strong></span></span>
@@ -247,55 +265,16 @@
 </aside>
 <article class="doc">
 <h1 class="page">Jupyter Notebook - Python</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>This document shows an example using the Jupyter Notebook in Python. The
+<p>This document shows an example using Jupyter Notebook in Python.
 Jupyter Notebook is an application for creating and sharing
-computational documents. Python represents a programming language for
-writing computational documents. To realize the proposed scenario, it is
-necessary to install the special tools and use the Python code that will
-perform a query to the cellar and display the results in tabular
-form.</p>
-</div>
-<div class="paragraph">
-<p>Example query:</p>
-</div>
-<div class="paragraph">
-<p><strong>Who are the contract winners for a given date?</strong></p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-select distinct
-?Lot
-?Winner
-?WinnerCountryCode
-?LotAwardetAmountValue
-?LotAwardetValueCurrency
-where {
-    values ?NoticePublicationDate {
-       "20230921"
-    }
-    ?NoticeId a epo:ResultNotice;
-                   epo:hasPublicationDate ?NoticePublicationDate;
-                   epo:refersToLot ?Lot.
-    ?Lot a epo:Lot.
-    ?LotAwardOutcome epo:describesLot ?Lot;
-                   a epo:LotAwardOutcome;
-                   epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
-    ?TenderAwardOutcome a epo:TenderAwardOutcome;
-                          epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
-    ?Winner a org:Organization.
-    optional {
-        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
-    }
-    ?LotAwardOutcome epo:hasAwardedValue ?LotAwardetValue.
-    ?LotAwardetValue a epo:MonetaryValue;
-                epo:hasAmountValue ?LotAwardetAmountValue;
-                epo:hasCurrency ?LotAwardetValueCurrency.
-}</code></pre>
-</div>
+computational documents. Python is a programming language for
+writing computational documents. To work with Jupyter Notebook and Python, it is
+necessary to install some tools and applications to run Python code that will
+perform a query to the CELLAR database and display the results in tabular
+format.</p>
 </div>
 <div class="paragraph">
 <p>To run the sample application using Python language follow the steps below:</p>
@@ -364,7 +343,7 @@ where {
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-After installation, restart kernel from Jupyter Notebook to update it with new dependencies. This can be done by clicking on the "Restart" button in your code editor.
+After installation, restart the kernel from Jupyter Notebook to update it with new dependencies. This can be done by clicking on the "Restart" button in your code editor.
 </td>
 </tr>
 </table>
@@ -385,7 +364,7 @@ After installation, restart kernel from Jupyter Notebook to update it with new d
 <div class="olist arabic">
 <ol class="arabic" start="7">
 <li>
-<p>After running successfully all the cells in the Jupyter Notebook, we can see the result table</p>
+<p>After running all the cells in the Jupyter Notebook successfully, the results table can be viewed</p>
 </li>
 </ol>
 </div>
@@ -393,7 +372,203 @@ After installation, restart kernel from Jupyter Notebook to update it with new d
 <div class="content">
 <img src="../_images/user_manual/jupyter_notebook/image3.png" alt="image" width="987" height="420">
 </div>
-<div class="title">Figure 3. Result table</div>
+<div class="title">Figure 3. Results table</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_explaining_the_query"><a class="anchor" href="#_explaining_the_query"></a>Explaining the query</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Question: Who are the winners for a given date?</strong></p>
+</div>
+<div class="paragraph">
+<p>This SPARQL query aims to retrieve information about the winners of procurement lots for a specific date ("20230921" or 21-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
+</div>
+<div class="paragraph">
+<p>This query is composed of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Prefix section is used to define short aliases (prefixes) for long URIs (Uniform Resource Identifiers).</p>
+<div class="literalblock">
+<div class="content">
+<pre>PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;</pre>
+</div>
+</div>
+</li>
+<li>
+<p>The Select section is responsible for specifying which variables or values are to be retrieved from the dataset.</p>
+<div class="literalblock">
+<div class="content">
+<pre>SELECT DISTINCT
+?Lot
+?WinnerLegalName
+?WinnerCountryCode
+?AwardedValue
+?AwardedValueCurrency</pre>
+</div>
+</div>
+</li>
+<li>
+<p>The Where section is used to define the specific patterns and conditions that the data in the dataset must match in order to be included in the query result. In this example we have:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Specifying specific filters for output</p>
+<div class="literalblock">
+<div class="content">
+<pre>VALUES ?NoticePublicationDate {
+    "20230921"
+}
+FILTER(LANG(?WinnerLegalName) = 'en')</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Defining notice according to EPO ontology</p>
+<div class="literalblock">
+<div class="content">
+<pre>?NoticeId a epo:ResultNotice;
+          epo:hasPublicationDate ?NoticePublicationDate;
+          epo:refersToLot ?Lot.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Defining lot and lot award outcome according to EPO ontology</p>
+<div class="literalblock">
+<div class="content">
+<pre>?Lot a epo:Lot.
+?LotAwardOutcome epo:describesLot ?Lot;
+                 a epo:LotAwardOutcome;
+                 epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
+?TenderAwardOutcome a epo:TenderAwardOutcome;
+                    epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Defining the winner according to EPO ontology</p>
+<div class="literalblock">
+<div class="content">
+<pre>?Winner a org:Organization;
+        epo:hasLegalName ?WinnerLegalName .
+OPTIONAL {
+    ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
+}</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Defining award value and currency according to EPO ontology</p>
+<div class="literalblock">
+<div class="content">
+<pre>?LotAwardOutcome epo:hasAwardedValue ?LotAwardedValue.
+?LotAwardedValue a epo:MonetaryValue;
+                 epo:hasAmountValue ?AwardedValue;
+                 epo:hasCurrency ?AwardedValueCurrency.</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The query retrieves:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Lot URI</p>
+</li>
+<li>
+<p>The legal name of the winner</p>
+</li>
+<li>
+<p>The winners country code as URI</p>
+</li>
+<li>
+<p>The value awarded to winner</p>
+</li>
+<li>
+<p>The currency of the awarded value</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The notice publication date and winner legal name language can be changed to create other queries. To do this, change the following section:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>VALUES ?NoticePublicationDate {
+    "20230921"
+}
+FILTER(LANG(?WinnerLegalName) = 'en')</pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Existing value for publication date in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>"20230921"</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Existing value for winner legal name language in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>'en'</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_query_text"><a class="anchor" href="#_query_text"></a>Query text:</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
+SELECT
+?Lot
+?WinnerLegalName
+?WinnerCountryCode
+?AwardedValue
+?AwardedValueCurrency
+WHERE {
+    VALUES ?NoticePublicationDate {
+        "20230905"
+    }
+    FILTER(LANG(?WinnerLegalName) = 'en')
+    ?Notice epo:hasPublicationDate ?NoticePublicationDate ;
+            epo:refersToLot ?Lot .
+    ?LotAwardOutcome epo:describesLot ?Lot ;
+                     epo:hasAwardedValue ?MonetaryValue ;
+                     epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
+    ?TenderAwardOutcome a epo:TenderAwardOutcome;
+                        epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
+    ?Winner a org:Organization;
+            epo:hasLegalName ?WinnerLegalName .
+    OPTIONAL {
+        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
+    }
+    ?MonetaryValue a epo:MonetaryValue;
+                   epo:hasAmountValue ?AwardedValue;
+                   epo:hasCurrency ?AwardedValueCurrency .
+}
+ORDER BY DESC(?AwardedValue)
+LIMIT 1</code></pre>
+</div>
 </div>
 <hr>
 <div class="paragraph">
@@ -401,6 +576,9 @@ After installation, restart kernel from Jupyter Notebook to update it with new d
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OP-TED/ted-rdf-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
+</div>
+</div>
 </div>
 </article>
   </div>
