@@ -268,17 +268,16 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This document  shows an example in the R language using Jupyter Notebook. R is
-software environment for statistical computing and graphic
-representation. In this case, R is the programming language used for
-writing notebook documents. To work with, it is
-necessary to insta R and Jupiter Notebook, it is necessary to install some tools and applications. After installation, R code can be used to perform a query on the CELLAR database and display the results in tabular format.</p>
+<p>This page shows an example in the R language using Jupyter Notebook. R is a
+software environment for statistical computing and graphical
+representation. In this example, R is the programming language used for
+writing notebook documents. To use R and Jupiter Notebook, it may first be necessary to install some tools and applications. Once installed, the R code can perform a query on the CELLAR database, and display the results in tabular format.</p>
 </div>
 <div class="paragraph">
-<p>Before preceding ensure that Python and Jupyter Notebook is already installed. This can be done using tutorial in <a href="jupyter_notebook_python.html" class="xref page">this</a> section.</p>
+<p>Before proceeding, ensure that Python and Jupyter Notebook are already installed. This can be done using the steps in the <a href="jupyter_notebook_python.html" class="xref page">Jupyter Notebook - Python</a> section.</p>
 </div>
 <div class="paragraph">
-<p>To run the sample application using the R language follow the steps below:</p>
+<p>To run the sample application using R, follow the steps below:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -290,7 +289,7 @@ necessary to insta R and Jupiter Notebook, it is necessary to install some tools
 <div class="olist arabic">
 <ol class="arabic" start="2">
 <li>
-<p><a href="https://github.com/OP-TED/ted-rdf-docs/blob/main/notebooks/query_cellar_R.ipynb">Download the Jupyter Notebook file</a>.</p>
+<p><a href="https://github.com/OP-TED/ted-rdf-docs/blob/main/notebooks/query_cellar_R.ipynb">Download the Jupyter Notebook example file</a>.</p>
 </li>
 </ol>
 </div>
@@ -304,7 +303,7 @@ necessary to insta R and Jupiter Notebook, it is necessary to install some tools
 <div class="olist arabic">
 <ol class="arabic" start="4">
 <li>
-<p>Install the IRKernel.</p>
+<p>Install the IRKernel:</p>
 </li>
 </ol>
 </div>
@@ -379,7 +378,7 @@ install.packages('XML')</code></pre>
 <div class="olist arabic">
 <ol class="arabic" start="8">
 <li>
-<p>After running successfully all the cells in the Jupyter Notebook, the results table can be viewed.</p>
+<p>After running all the cells in the Jupyter Notebook successfully, the results table can be viewed:</p>
 </li>
 </ol>
 </div>
@@ -395,18 +394,18 @@ install.packages('XML')</code></pre>
 <h2 id="_explaining_the_query"><a class="anchor" href="#_explaining_the_query"></a>Explaining the query</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Question: Who are the winners for a given date?</strong></p>
+<p><strong>Query: Who are the winners for a given date?</strong></p>
 </div>
 <div class="paragraph">
-<p>This SPARQL query aims to retrieve information about the winners of procurement lots for a specific date ("20230921" or 21-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
+<p>This SPARQL query retrieves information about the winners of procurement lots for a specific date ("20230921" or 21-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
 </div>
 <div class="paragraph">
-<p>This query is composed of:</p>
+<p>The query is composed of:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The Prefix section is used to define short aliases (prefixes) for long URIs (Uniform Resource Identifiers).</p>
+<p>The Prefix section: used to define short aliases (prefixes) for long URIs (Uniform Resource Identifiers).</p>
 <div class="literalblock">
 <div class="content">
 <pre>PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
@@ -416,7 +415,7 @@ PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;</pre>
 </div>
 </li>
 <li>
-<p>The Select section is responsible for specifying which variables or values are to be retrieved from the dataset.</p>
+<p>The Select section: responsible for specifying which variables or values are to be retrieved from the dataset.</p>
 <div class="literalblock">
 <div class="content">
 <pre>SELECT DISTINCT
@@ -429,7 +428,7 @@ PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;</pre>
 </div>
 </li>
 <li>
-<p>The Where section is used to define the specific patterns and conditions that the data in the dataset must match in order to be included in the query result. In this example we have:</p>
+<p>The Where section: used to define the specific patterns and conditions that the data in the dataset must match in order to be included in the query result. In this example we have:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -444,7 +443,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
 </li>
 <li>
-<p>Defining notice according to EPO ontology</p>
+<p>Defining the notice according to EPO ontology</p>
 <div class="literalblock">
 <div class="content">
 <pre>?NoticeId a epo:ResultNotice;
@@ -454,7 +453,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
 </li>
 <li>
-<p>Defining lot and lot award outcome according to EPO ontology</p>
+<p>Defining the lot and lot award outcome according to eProcurement ontology</p>
 <div class="literalblock">
 <div class="content">
 <pre>?Lot a epo:Lot.
@@ -467,7 +466,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
 </li>
 <li>
-<p>Defining the winner according to EPO ontology</p>
+<p>Defining the winner according to eProcurement ontology</p>
 <div class="literalblock">
 <div class="content">
 <pre>?Winner a org:Organization;
@@ -500,7 +499,7 @@ OPTIONAL {
 <div class="ulist">
 <ul>
 <li>
-<p>Lot URI</p>
+<p>The Lot URI</p>
 </li>
 <li>
 <p>The legal name of the winner</p>
