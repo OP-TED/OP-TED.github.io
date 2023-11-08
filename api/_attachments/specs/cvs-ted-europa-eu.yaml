@@ -57,6 +57,41 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+  /v1/version-range:
+    get:
+      tags:
+        - Version Range
+      summary: Return information on the SDK versions accepted for publication
+      description: Return information on the versions of the eForms SDK currently accepted for publication, as a JSON response.
+        This indicates the earliest and latest SDK versions accepted for publication, and any versions in between that are excluded.
+      operationId: version-range
+      parameters:
+        - name: X-API-Key
+          in: header
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Information on accepted SDK versions is returned.
+          content:
+            application/json: {}
+        '401':
+          description: |-
+            Possible issues:
+            - Missing key in header: X-API-Key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: |-
+            Possible issues:
+            - Invalid key in header: X-API-Key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
     InputNoticeValidation:
