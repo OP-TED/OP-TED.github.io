@@ -394,13 +394,13 @@ install.packages('XML')</code></pre>
 <h2 id="_explaining_the_query"><a class="anchor" href="#_explaining_the_query"></a>Explaining the query</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Query: Who are the winners for a given date?</strong></p>
+<p><strong>Question: Who are the winners for a given date?</strong></p>
 </div>
 <div class="paragraph">
-<p>This SPARQL query retrieves information about the winners of procurement lots for a specific date ("20230921" or 21-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
+<p>This SPARQL query aims to retrieve information about the winners of procurement lots for a specific date ("20230905" or 05-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
 </div>
 <div class="paragraph">
-<p>The query is composed of:</p>
+<p>This query is composed of:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -436,24 +436,24 @@ PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;</pre>
 <div class="literalblock">
 <div class="content">
 <pre>VALUES ?NoticePublicationDate {
-    "20230921"
+    "20230905"
 }
 FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Defining the notice according to EPO ontology</p>
+<p>Defining notice according to EPO ontology</p>
 <div class="literalblock">
 <div class="content">
-<pre>?NoticeId a epo:ResultNotice;
-          epo:hasPublicationDate ?NoticePublicationDate;
-          epo:refersToLot ?Lot.</pre>
+<pre>?Notice a epo:Notice;
+        epo:hasPublicationDate ?NoticePublicationDate ;
+        epo:refersToLot ?Lot .</pre>
 </div>
 </div>
 </li>
 <li>
-<p>Defining the lot and lot award outcome according to eProcurement ontology</p>
+<p>Defining lot and lot award outcome according to EPO ontology</p>
 <div class="literalblock">
 <div class="content">
 <pre>?Lot a epo:Lot.
@@ -466,7 +466,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
 </li>
 <li>
-<p>Defining the winner according to eProcurement ontology</p>
+<p>Defining the winner according to EPO ontology</p>
 <div class="literalblock">
 <div class="content">
 <pre>?Winner a org:Organization;
@@ -481,10 +481,9 @@ OPTIONAL {
 <p>Defining award value and currency according to EPO ontology</p>
 <div class="literalblock">
 <div class="content">
-<pre>?LotAwardOutcome epo:hasAwardedValue ?LotAwardedValue.
-?LotAwardedValue a epo:MonetaryValue;
-                 epo:hasAmountValue ?AwardedValue;
-                 epo:hasCurrency ?AwardedValueCurrency.</pre>
+<pre>?MonetaryValue a epo:MonetaryValue;
+               epo:hasAmountValue ?AwardedValue;
+               epo:hasCurrency ?AwardedValueCurrency .</pre>
 </div>
 </div>
 </li>
@@ -499,7 +498,7 @@ OPTIONAL {
 <div class="ulist">
 <ul>
 <li>
-<p>The Lot URI</p>
+<p>Lot URI</p>
 </li>
 <li>
 <p>The legal name of the winner</p>
@@ -521,7 +520,7 @@ OPTIONAL {
 <div class="literalblock">
 <div class="content">
 <pre>VALUES ?NoticePublicationDate {
-    "20230921"
+    "20230905"
 }
 FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
@@ -532,7 +531,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 <p>Existing value for publication date in example above:</p>
 <div class="literalblock">
 <div class="content">
-<pre>"20230921"</pre>
+<pre>"20230905"</pre>
 </div>
 </div>
 </li>
@@ -561,15 +560,14 @@ SELECT DISTINCT
 ?AwardedValueCurrency
 WHERE {
     VALUES ?NoticePublicationDate {
-        "20230921"
+        "20230905"
     }
     FILTER(LANG(?WinnerLegalName) = 'en')
-    ?NoticeId a epo:ResultNotice;
-              epo:hasPublicationDate ?NoticePublicationDate;
-              epo:refersToLot ?Lot.
-    ?Lot a epo:Lot.
-    ?LotAwardOutcome epo:describesLot ?Lot;
-                     a epo:LotAwardOutcome;
+    ?Notice a epo:Notice;
+            epo:hasPublicationDate ?NoticePublicationDate ;
+            epo:refersToLot ?Lot .
+    ?LotAwardOutcome epo:describesLot ?Lot ;
+                     epo:hasAwardedValue ?MonetaryValue ;
                      epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
     ?TenderAwardOutcome a epo:TenderAwardOutcome;
                         epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
@@ -578,10 +576,9 @@ WHERE {
     OPTIONAL {
         ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
     }
-    ?LotAwardOutcome epo:hasAwardedValue ?LotAwardedValue.
-    ?LotAwardedValue a epo:MonetaryValue;
-                     epo:hasAmountValue ?AwardedValue;
-                     epo:hasCurrency ?AwardedValueCurrency.
+    ?MonetaryValue a epo:MonetaryValue;
+                   epo:hasAmountValue ?AwardedValue;
+                   epo:hasCurrency ?AwardedValueCurrency .
 }</code></pre>
 </div>
 </div>
