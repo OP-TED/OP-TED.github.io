@@ -325,11 +325,9 @@
 <div class="literalblock">
 <div class="content">
 <pre>VALUES (?NoticePublicationDate ?CountryCode ?BusinessSize) {
-        (
-        "20230905"
+        ("20230905"
         &lt;http://publications.europa.eu/resource/authority/country/DEU&gt;
-        &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;
-        )</pre>
+        &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;)</pre>
 </div>
 </div>
 <div class="ulist">
@@ -370,15 +368,14 @@ SELECT
 (COUNT(DISTINCT ?Notice) as ?NrOfNotices)
 WHERE {
     VALUES (?NoticePublicationDate ?CountryCode ?BusinessSize) {
-            (
-            "20230905"
+            ("20230905"
             &lt;http://publications.europa.eu/resource/authority/country/DEU&gt;
-            &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;
-            )
+            &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;)
     }
     ?Notice epo:hasPublicationDate ?NoticePublicationDate .
     ?Notice epo:announcesRole ?Buyer .
-    ?Buyer epo:playedBy ?Organization .
+    ?Buyer a epo:Winner ;
+            epo:playedBy ?Organization .
     ?Organization epo:hasBusinessSize ?BusinessSize .
     ?Organization cccev:registeredAddress / epo:hasCountryCode ?CountryCode .
 }</code></pre>
@@ -462,7 +459,8 @@ WHERE {
     }
     ?Notice epo:hasPublicationDate ?PublicationDate .
     ?Notice epo:announcesRole ?Buyer .
-    ?Buyer epo:playedBy ?Organization .
+    ?Buyer a epo:Buyer ;
+            epo:playedBy ?Organization .
     ?Organization cccev:registeredAddress / epo:hasCountryCode ?countryCode .
     ?Organization epo:hasLegalName ?LegalName .
 }</code></pre>
@@ -478,7 +476,7 @@ WHERE {
 <p>&#160;</p>
 </div>
 <div class="paragraph">
-<p>This SPARQL query aims to retrieve information about the winners of procurement lots for a specific date ("20230921" or 21-09-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
+<p>This SPARQL query aims to retrieve information about the winners of procurement lots for a specific date ("20230831" or 31-08-2023). It does so by specifying a value for the publication date, and then querying the RDF data based on that value. The query returns information about the lots, the organizations that won them, and details about the awarded amounts and currencies.</p>
 </div>
 <div class="paragraph">
 <p>The query retrieves:</p>
@@ -486,34 +484,19 @@ WHERE {
 <div class="ulist">
 <ul>
 <li>
-<p>Notice ID</p>
+<p>Lot URI</p>
 </li>
 <li>
-<p>Procedure ID</p>
+<p>Winner Legal Name</p>
 </li>
 <li>
-<p>Notice publication date</p>
-</li>
-<li>
-<p>Lot Number (optional, may be missing as it not specified in notice)</p>
-</li>
-<li>
-<p>The legal name of the winner</p>
-</li>
-<li>
-<p>The winners country code as URI</p>
+<p>Winner Country Code</p>
 </li>
 <li>
 <p>Lot value awarded to winner</p>
 </li>
 <li>
 <p>The currency of the awarded value</p>
-</li>
-<li>
-<p>Lot URI</p>
-</li>
-<li>
-<p>Notice URI</p>
 </li>
 </ul>
 </div>
@@ -523,7 +506,7 @@ WHERE {
 <div class="literalblock">
 <div class="content">
 <pre>VALUES ?NoticePublicationDate {
-    "20230831"
+    "20230905"
 }
 FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
@@ -534,7 +517,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 <p>Existing value for publication date in example above:</p>
 <div class="literalblock">
 <div class="content">
-<pre>"20230831"</pre>
+<pre>"20230905"</pre>
 </div>
 </div>
 </li>
@@ -556,29 +539,21 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
 PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
 SELECT DISTINCT
-?NoticeID
-?NoticePublicationDate
-?ProcedureNr
-?LotNr
+?Lot
 ?WinnerLegalName
 ?WinnerCountryCode
-?LotAwardedValue
-?LotAwardedValueCurrency
-?LotURI
-?NoticeURI
+?AwardedValue
+?AwardedValueCurrency
 WHERE {
     VALUES ?NoticePublicationDate {
-        "20230831"
+        "20230905"
     }
     FILTER(LANG(?WinnerLegalName) = 'en')
-    ?NoticeURI a epo:ResultNotice;
-               epo:hasPublicationDate ?NoticePublicationDate;
-               epo:hasID / epo:hasIdentifierValue ?NoticeID ;
-                           epo:refersToLot ?LotURI.
-    ?LotURI a epo:Lot.
-    ?LotAwardOutcome epo:describesLot ?LotURI;
-                     a epo:LotAwardOutcome;
-                     epo:hasAwardedValue ?LotAwardedValueURI ;
+    ?Notice a epo:Notice;
+            epo:hasPublicationDate ?NoticePublicationDate ;
+            epo:refersToLot ?Lot .
+    ?LotAwardOutcome epo:describesLot ?Lot ;
+                     epo:hasAwardedValue ?MonetaryValue ;
                      epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
     ?TenderAwardOutcome a epo:TenderAwardOutcome;
                         epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
@@ -587,15 +562,9 @@ WHERE {
     OPTIONAL {
         ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
     }
-    ?LotAwardedValueURI a epo:MonetaryValue;
-                        epo:hasAmountValue ?LotAwardedValue;
-                        epo:hasCurrency ?LotAwardedValueCurrency.
-    OPTIONAL {
-        ?LotURI epo:hasID / epo:hasIdentifierValue ?LotNr .
-    }
-    ?ProcedureURI epo:hasProcurementScopeDividedIntoLot ?LotURI;
-                  a epo:Procedure ;
-                  epo:hasID / epo:hasIdentifierValue ?ProcedureNr .
+    ?MonetaryValue a epo:MonetaryValue;
+                   epo:hasAmountValue ?AwardedValue;
+                   epo:hasCurrency ?AwardedValueCurrency .
 }</code></pre>
 </div>
 </div>
@@ -638,8 +607,8 @@ WHERE {
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>VALUES ?NoticePublicationDate {
-    "20230921"
+<pre>VALUES (?NoticePublicationDate ?LotAwardedValueCurrency) {
+    ("20230905" &lt;http://publications.europa.eu/resource/authority/currency/EUR&gt;)
 }
 FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 </div>
@@ -650,7 +619,7 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 <p>Existing value for publication date in example above:</p>
 <div class="literalblock">
 <div class="content">
-<pre>"20230921"</pre>
+<pre>"20230905"</pre>
 </div>
 </div>
 </li>
@@ -659,6 +628,14 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 <div class="literalblock">
 <div class="content">
 <pre>'en'</pre>
+</div>
+</div>
+</li>
+<li>
+<p>EXisting value for currency in example above:</p>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;http://publications.europa.eu/resource/authority/currency/EUR&gt;</pre>
 </div>
 </div>
 </li>
@@ -678,8 +655,8 @@ SELECT
 ?LotAwardedValue
 ?LotAwardedValueCurrency
 WHERE {
-    VALUES ?NoticePublicationDate {
-        "20230921"
+    VALUES (?NoticePublicationDate ?LotAwardedValueCurrency) {
+        ("20230905" &lt;http://publications.europa.eu/resource/authority/currency/EUR&gt;)
     }
     FILTER(LANG(?WinnerLegalName) = 'en')
     ?Notice epo:hasPublicationDate ?NoticePublicationDate ;
