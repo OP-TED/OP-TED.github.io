@@ -181,18 +181,6 @@
             <li class="version">
               <a href="../../eforms/1.4/index.html">1.4.1</a>
             </li>
-            <li class="version">
-              <a href="../../eforms/1.3/index.html">1.3.2</a>
-            </li>
-            <li class="version">
-              <a href="../../eforms/1.2/index.html">1.2.1</a>
-            </li>
-            <li class="version">
-              <a href="../../eforms/1.1/index.html">1.1.1</a>
-            </li>
-            <li class="version">
-              <a href="../../eforms/1.0/index.html">1.0.0</a>
-            </li>
         </ul>
       </li>
       <li class="component">
@@ -407,11 +395,10 @@ PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;</pre>
 <div class="literalblock">
 <div class="content">
 <pre>SELECT DISTINCT
-?Lot
 ?WinnerLegalName
-?WinnerCountryCode
-?AwardedValue
-?AwardedValueCurrency</pre>
+(SAMPLE(?WinnerCountryCode) as ?WinnereCountryCodeURI)
+(SUM(?AwardedValue) as ?TotalAwardedValue)
+(?AwardedValueCurrency as ?AwardedValueCurrencyURI)</pre>
 </div>
 </div>
 </li>
@@ -478,6 +465,14 @@ OPTIONAL {
 </ul>
 </div>
 </li>
+<li>
+<p>The Group By section: used to group the results by a specific variable. In the example above group by means that the results will be grouped by the winner legal name and the awarded value currency:</p>
+<div class="literalblock">
+<div class="content">
+<pre>GROUP BY ?WinnerLegalName ?AwardedValueCurrency</pre>
+</div>
+</div>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -485,9 +480,6 @@ OPTIONAL {
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p>Lot URI</p>
-</li>
 <li>
 <p>The legal name of the winner</p>
 </li>
@@ -498,7 +490,7 @@ OPTIONAL {
 <p>The value awarded to winner</p>
 </li>
 <li>
-<p>The currency of the awarded value</p>
+<p>The currency of the awarded value as URI</p>
 </li>
 </ul>
 </div>
@@ -541,11 +533,10 @@ FILTER(LANG(?WinnerLegalName) = 'en')</pre>
 PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
 PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
 SELECT DISTINCT
-?Lot
 ?WinnerLegalName
-?WinnerCountryCode
-?AwardedValue
-?AwardedValueCurrency
+(SAMPLE(?WinnerCountryCode) as ?WinnereCountryCodeURI)
+(SUM(?AwardedValue) as ?TotalAwardedValue)
+(?AwardedValueCurrency as ?AwardedValueCurrencyURI)
 WHERE {
     VALUES ?NoticePublicationDate {
         "20230905"
@@ -567,7 +558,8 @@ WHERE {
     ?MonetaryValue a epo:MonetaryValue;
                    epo:hasAmountValue ?AwardedValue;
                    epo:hasCurrency ?AwardedValueCurrency .
-}</code></pre>
+}
+GROUP BY ?WinnerLegalName ?AwardedValueCurrency</code></pre>
 </div>
 </div>
 <hr>
