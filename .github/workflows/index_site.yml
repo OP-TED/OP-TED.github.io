@@ -59,7 +59,7 @@ jobs:
       - name: Delete index ${{ secrets.ALGOLIA_INDEX_NAME }}
         run:  |
               ./algolia-cli/algolia indices list; \
-              if $(./algolia-cli/algolia indices list)|grep -q '${{ secrets.ALGOLIA_INDEX_NAME }}'; then \
+              if echo $(./algolia-cli/algolia indices list)|grep -q '${{ secrets.ALGOLIA_INDEX_NAME }}'; then \
               ./algolia-cli/algolia indices delete -y ${{ secrets.ALGOLIA_INDEX_NAME }}; \
               fi;
 
