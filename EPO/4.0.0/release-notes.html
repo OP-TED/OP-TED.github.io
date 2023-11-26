@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>eProcurement Ontology v4.0.0-rc.2 :: TED Developer Documentation</title>
+    <title>eProcurement Ontology v4.0.0 :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/EPO/latest/release-notes.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
@@ -245,17 +245,217 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">eProcurement Ontology v4.0.0-rc.2</h1>
+<h1 class="page">eProcurement Ontology v4.0.0</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The release candidate v4.0.0-rc.2 and its corresponding technical files can be found <a href="https://github.com/OP-TED/ePO/tree/v4.0.0-rc.2">here</a>.</p>
+<p>The release v4.0.0 and its corresponding technical files can be found <a href="https://github.com/OP-TED/ePO/tree/v4.0.0">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_release_notes"><a class="anchor" href="#_release_notes"></a>Release notes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Modeling Procedure in the context of a Mini-Competition:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Award in the context of a Framework Agreement</p>
+</li>
+<li>
+<p>Award in the context of a Dynamic Purchasing System</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Standard form mapping requirements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Communication means</p>
+</li>
+<li>
+<p>Procurement Criteria Summary</p>
+</li>
+<li>
+<p>Notice relations harmonisation</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>eForm mapping requirements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ensure coverage of all BTs from the new eForm Annex</p>
+</li>
+<li>
+<p>Implemented new eForm business terms</p>
+</li>
+<li>
+<p>Revision of all monetary values</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>New module development: eFulfilment, eContract</p>
+</li>
+<li>
+<p>Post-Award modules alignment (eCatalogue, eOrdering, eFulfilment):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Creation of information hubs to allow data to be provided either at document or line level if not a combination of the two</p>
+</li>
+<li>
+<p>Modelling of different charges allowing for the different requirements across the different phases</p>
+</li>
+<li>
+<p>Deliverable becomes a subclass of the Item</p>
+</li>
+<li>
+<p>PostAward Objects become Documents</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Changed rdfs:Literal data type to rdf:Plain Literal</p>
+</li>
+<li>
+<p>RDF metadata updates</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Metadata</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reference ePO version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0.0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Target ePO version</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4.0.0-rc.2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Authors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Andreea Pasăre</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-11-24</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect1">
+<h2 id="_change_notes"><a class="anchor" href="#_change_notes"></a>Change notes</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_new_classes"><a class="anchor" href="#_new_classes"></a>New classes</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>person:Person (renamed from cv:Person)</p>
+</li>
+<li>
+<p>time:Duration</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deleted_classes"><a class="anchor" href="#_deleted_classes"></a>Deleted classes</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>cv:Person (renamed to person:Person)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_changed_classes"><a class="anchor" href="#_changed_classes"></a>Changed classes</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>module</strong></th>
+<th class="tableblock halign-left valign-top"><strong>class</strong></th>
+<th class="tableblock halign-left valign-top"><strong>added property</strong></th>
+<th class="tableblock halign-left valign-top"><strong>deleted property</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ePO core</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cpov:ContactPoint</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lcon:address &#8594; locn:Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cv:address &#8594; locn:Address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person:Person</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person:placeOfBirth &#8594; dct:Location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person:Person</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person:placeOfDeath &#8594; dct:Location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">org:Organization</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lcon:address &#8594; locn:Address</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cv:address &#8594; locn:Address</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Duration</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generalisation &#8594; time:Duration</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_release_notes"><a class="anchor" href="#_release_notes"></a>Release notes</h2>
+<h2 id="_eprocurement_ontology_v4_0_0_rc_2"><a class="anchor" href="#_eprocurement_ontology_v4_0_0_rc_2"></a><strong>eProcurement Ontology v4.0.0-rc.2</strong></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The release candidate v4.0.0-rc.2 and its corresponding technical files can be found <a href="https://github.com/OP-TED/ePO/tree/v4.0.0-rc.2">here</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_release_notes_2"><a class="anchor" href="#_release_notes_2"></a>Release notes</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -287,13 +487,15 @@
 </tbody>
 </table>
 </div>
-</div>
-<h1 id="_change_notes" class="sect0"><a class="anchor" href="#_change_notes"></a>Change notes</h1>
-<div class="sect1">
-<h2 id="_new_classes"><a class="anchor" href="#_new_classes"></a>New classes</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core"><a class="anchor" href="#_epo_core"></a>ePO core</h3>
+<h3 id="_change_notes_2"><a class="anchor" href="#_change_notes_2"></a>Change notes</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_new_classes_2"><a class="anchor" href="#_new_classes_2"></a>New classes</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -314,13 +516,11 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_deleted_classes"><a class="anchor" href="#_deleted_classes"></a>Deleted classes</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core_2"><a class="anchor" href="#_epo_core_2"></a>ePO core</h3>
+<h3 id="_deleted_classes_2"><a class="anchor" href="#_deleted_classes_2"></a>Deleted classes</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -331,9 +531,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eCatalogue</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_ecatalogue"><a class="anchor" href="#_ecatalogue"></a>eCatalogue</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -351,13 +551,11 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_controlled_vocabularies"><a class="anchor" href="#_new_controlled_vocabularies"></a>New Controlled Vocabularies</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core_3"><a class="anchor" href="#_epo_core_3"></a>ePO core</h3>
+<h3 id="_new_controlled_vocabularies"><a class="anchor" href="#_new_controlled_vocabularies"></a>New Controlled Vocabularies</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -366,13 +564,11 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_deleted_controlled_vocabularies"><a class="anchor" href="#_deleted_controlled_vocabularies"></a>Deleted Controlled Vocabularies</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_ecatalogue_2"><a class="anchor" href="#_ecatalogue_2"></a>eCatalogue</h3>
+<h3 id="_deleted_controlled_vocabularies"><a class="anchor" href="#_deleted_controlled_vocabularies"></a>Deleted Controlled Vocabularies</h3>
+<div class="paragraph">
+<p><strong>eCatalogue</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -384,11 +580,8 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_changed_classes"><a class="anchor" href="#_changed_classes"></a>Changed classes</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_changed_classes_2"><a class="anchor" href="#_changed_classes_2"></a>Changed classes</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -625,17 +818,15 @@
 </table>
 </div>
 </div>
+</div>
 <div class="sect1">
 <h2 id="_eprocurement_ontology_v4_0_0_rc_1"><a class="anchor" href="#_eprocurement_ontology_v4_0_0_rc_1"></a><strong>eProcurement Ontology v4.0.0-rc.1</strong></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The release candidate v4.0.0-rc.1 and its corresponding technical files can be found <a href="https://github.com/OP-TED/ePO/tree/v4.0.0-rc.1">here</a>.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_release_notes_2"><a class="anchor" href="#_release_notes_2"></a>Release notes</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_release_notes_3"><a class="anchor" href="#_release_notes_3"></a>Release notes</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 50%;">
@@ -666,93 +857,16 @@
 </tr>
 </tbody>
 </table>
-<div class="ulist">
-<ul>
-<li>
-<p>Modeling Procedure in the context of a Mini-Competition:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Award in the context of a Framework Agreement</p>
-</li>
-<li>
-<p>Award in the context of a Dynamic Purchasing System</p>
-</li>
-</ul>
 </div>
-</li>
-<li>
-<p>Standard form mapping requirements:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Communication means</p>
-</li>
-<li>
-<p>Procurement Criteria Summary</p>
-</li>
-<li>
-<p>Notice relations harmonisation</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>eForm mapping requirements:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Ensure coverage of all BTs from the new eForm Annex</p>
-</li>
-<li>
-<p>Implemented new eForm business terms</p>
-</li>
-<li>
-<p>Revision of all monetary values</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>New module development: eFulfilment, eContract</p>
-</li>
-<li>
-<p>Post-Award modules alignment (eCatalogue, eOrdering, eFulfilment):</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Creation of information hubs to allow data to be provided either at document or line level if not a combination of the two</p>
-</li>
-<li>
-<p>Modelling of different charges allowing for the different requirements across the different phases</p>
-</li>
-<li>
-<p>Deliverable becomes a subclass of the Item</p>
-</li>
-<li>
-<p>PostAward Objects become Documents</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Changed rdfs:Literal data type to rdf:Plain Literal</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_change_notes_2"><a class="anchor" href="#_change_notes_2"></a>Change notes</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_change_notes_3"><a class="anchor" href="#_change_notes_3"></a>Change notes</h3>
 
 </div>
-</div>
-<div class="sect1">
-<h2 id="_new_classes_2"><a class="anchor" href="#_new_classes_2"></a>New classes</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core_4"><a class="anchor" href="#_epo_core_4"></a>ePO core</h3>
+<h3 id="_new_classes_3"><a class="anchor" href="#_new_classes_3"></a>New classes</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -850,9 +964,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eCatalogue</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_ecatalogue_3"><a class="anchor" href="#_ecatalogue_3"></a>eCatalogue</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -872,9 +986,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eOrdering</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_eordering"><a class="anchor" href="#_eordering"></a>eOrdering</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -897,9 +1011,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eNotice</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_enotice"><a class="anchor" href="#_enotice"></a>eNotice</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -908,13 +1022,11 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_deleted_classes_2"><a class="anchor" href="#_deleted_classes_2"></a>Deleted classes</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core_5"><a class="anchor" href="#_epo_core_5"></a>ePO core</h3>
+<h3 id="_deleted_classes_3"><a class="anchor" href="#_deleted_classes_3"></a>Deleted classes</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -938,20 +1050,29 @@
 <li>
 <p>epo:PublicationProvision</p>
 </li>
+<li>
+<p>owl:Thing</p>
+</li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eCatalogue</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_ecatalogue_4"><a class="anchor" href="#_ecatalogue_4"></a>eCatalogue</h3>
 <div class="ulist">
 <ul>
 <li>
 <p>epo-cat:CatalogueDocument</p>
 </li>
 <li>
-<p>epo-cat:CatalogueUpdateDocument
-=== eOrdering</p>
+<p>epo-cat:CatalogueUpdateDocument</p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>eOrdering</strong></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>epo-ful:Carrier</p>
 </li>
@@ -969,9 +1090,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eNotice</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_enotice_2"><a class="anchor" href="#_enotice_2"></a>eNotice</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -980,13 +1101,11 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_new_controlled_vocabularies_2"><a class="anchor" href="#_new_controlled_vocabularies_2"></a>New Controlled Vocabularies</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core_6"><a class="anchor" href="#_epo_core_6"></a>ePO core</h3>
+<h3 id="_new_controlled_vocabularies_2"><a class="anchor" href="#_new_controlled_vocabularies_2"></a>New Controlled Vocabularies</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1006,9 +1125,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eCatalogue</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_ecatalogue_5"><a class="anchor" href="#_ecatalogue_5"></a>eCatalogue</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1022,9 +1141,9 @@
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>eOrdering</strong></p>
 </div>
-<div class="sect2">
-<h3 id="_eordering_2"><a class="anchor" href="#_eordering_2"></a>eOrdering</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1033,13 +1152,11 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_deleted_controlled_vocabularies_2"><a class="anchor" href="#_deleted_controlled_vocabularies_2"></a>Deleted Controlled Vocabularies</h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="_epo_core_7"><a class="anchor" href="#_epo_core_7"></a>ePO core</h3>
+<h3 id="_deleted_controlled_vocabularies_2"><a class="anchor" href="#_deleted_controlled_vocabularies_2"></a>Deleted Controlled Vocabularies</h3>
+<div class="paragraph">
+<p><strong>ePO core</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -1057,11 +1174,8 @@
 </ul>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_changed_classes_2"><a class="anchor" href="#_changed_classes_2"></a>Changed classes</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_changed_classes_3"><a class="anchor" href="#_changed_classes_3"></a>Changed classes</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 14.2857%;">
@@ -1575,6 +1689,60 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">org:Organization</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOrganisationUnitName</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasOrganisationUnit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">skos:notation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasIdentifierValue</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeAgencyId</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:schemaAgency</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeAgencyName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeDataURI</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasScheme</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeName</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeURI</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeVersion</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasSchemeVersionID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Period</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasDescription</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">eCatalogue</p></td>
@@ -3372,6 +3540,7 @@
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OP-TED/epo-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
 </div>
 </div>
 </div>
