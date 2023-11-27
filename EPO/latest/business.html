@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="EPO" data-version="3.1">
+<div class="nav-container" data-component="EPO" data-version="4.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -87,7 +87,7 @@
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="../../epo-home/index.html">Home</a>
+    <a class="nav-link" href="index.html">Home</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="release-notes.html">Release Notes</a>
@@ -133,7 +133,7 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eProcurement Ontology</span>
-          <span class="version">3.1.0</span>
+          <span class="version">4.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -165,11 +165,11 @@
       <li class="component is-current">
         <a class="title" href="index.html">eProcurement Ontology</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../4.0.0/index.html">4.0.0-rc.2</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="index.html">3.1.0</a>
+              <a href="index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.1/index.html">3.1.0</a>
             </li>
             <li class="version">
               <a href="../3.0.1/index.html">3.0.1</a>
@@ -229,10 +229,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">3.1.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
   <div class="version-menu">
-    <a class="version" href="../4.0.0/business.html">4.0.0-rc.2</a>
-    <a class="version is-current" href="business.html">3.1.0</a>
+    <a class="version is-current" href="business.html">4.0.0</a>
+    <a class="version" href="../3.1/business.html">3.1.0</a>
     <a class="version is-missing" href="../3.0.1/index.html">3.0.1</a>
     <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
     <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
@@ -246,12 +246,59 @@
 </aside>
 <article class="doc">
 <h1 class="page">eProcurement Ontology - an Overview for Business Users</h1>
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>::[]</p>
-</div>
-</div>
+<div id="toc" class="toc">
+<div id="toctitle">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_abstract">1. Abstract</a></li>
+<li><a href="#_what_is_the_epo_ontology">2. What is the ePO Ontology?</a>
+<ul class="sectlevel2">
+<li><a href="#_reasons_for_a_formal_ontology">2.1. Reasons for a formal ontology</a></li>
+</ul>
+</li>
+<li><a href="#_principles_of_the_eprocurement_ontology_epo">3. Principles of the eProcurement Ontology (ePO)</a>
+<ul class="sectlevel2">
+<li><a href="#_time_phased_approach">3.1. Time phased approach</a></li>
+<li><a href="#_other_rules_and_scope">3.2. Other Rules and Scope</a></li>
+<li><a href="#_the_evolution_of_the_eprocurement_ontology">3.3. The Evolution of the eProcurement Ontology</a></li>
+<li><a href="#_working_group_meetings">3.4. Working group meetings</a></li>
+<li><a href="#_stakeholders">3.5. Stakeholders</a></li>
+<li><a href="#_the_hierarchical_nature_of_the_model">3.6. The hierarchical nature of the model</a></li>
+<li><a href="#_key_data_processing_goals">3.7. Key Data Processing Goals</a>
+<ul class="sectlevel3">
+<li><a href="#_the_provision_of_open_data">3.7.1. The provision of open data</a></li>
+<li><a href="#_the_enactment_of_the_interoperable_europe_act_policy_joinup_europa_eu">3.7.2. The Enactment of the Interoperable Europe Act (Policy | Joinup (europa.eu))</a></li>
+</ul>
+</li>
+<li><a href="#_upper_level_ontologies">3.8. Upper Level Ontologies:</a></li>
+<li><a href="#_source_management">3.9. Source Management:</a></li>
+</ul>
+</li>
+<li><a href="#_reuse_of_other_ontologies_and_vocabularies">4. Reuse of other ontologies and vocabularies</a>
+<ul class="sectlevel2">
+<li><a href="#_core_vocabularies">4.1. Core Vocabularies</a>
+<ul class="sectlevel3">
+<li><a href="#_core_criterion_and_core_evidence_vocabulary_cccev">4.1.1. Core Criterion and Core Evidence Vocabulary (CCCEV)</a></li>
+</ul>
+</li>
+<li><a href="#_single_digital_gateway">4.2. Single Digital Gateway</a></li>
+</ul>
+</li>
+<li><a href="#_representation_of_the_eprocurement_ontology">5. Representation of the eProcurement Ontology</a>
+<ul class="sectlevel2">
+<li><a href="#_machine_readable">5.1. Machine-readable:</a></li>
+<li><a href="#_human_readable">5.2. Human readable:</a></li>
+<li><a href="#_the_core_module_and_other_modules">5.3. The Core Module and other modules</a></li>
+<li><a href="#_technical_aspects">5.4. Technical Aspects</a></li>
+<li><a href="#_examples_of_the_conceptual_model_elements">5.5. Examples of the conceptual model elements</a>
+<ul class="sectlevel3">
+<li><a href="#_data_types">5.5.1. Data Types</a></li>
+<li><a href="#_codelists">5.5.2. Codelists</a></li>
+<li><a href="#_naming_conventions">5.5.3. Naming Conventions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="sect1">
 <h2 id="_abstract"><a class="anchor" href="#_abstract"></a>1. Abstract</h2>
@@ -266,7 +313,7 @@
 <p>By mid-2017 a version 1.00 of the Ontology was delivered and submitted to the Working group for discussion. All the materials related to this version were made public and are accessible through the ISA<sup>2</sup> Joinup platform; including the discussions held in the Working Group (WG).</p>
 </div>
 <div class="paragraph">
-<p>ePO v2.0.0, was initiated in January 2018 and subsequently, further versions have been released. More details on the evolution of the ePO can be found on the <a href="../../epo-home/history.html" class="xref page">History and Planned Developments</a> page.</p>
+<p>ePO v2.0.0, was initiated in January 2018 and subsequently, further versions have been released. More details on the evolution of the ePO can be found on the <a href="#epo-home@history.adoc" class="xref unresolved">History and Planned Developments</a> page.</p>
 </div>
 <div class="paragraph">
 <p>This document describes the objectives, the methodological approach and the deliverables produced in this new version.</p>
@@ -399,7 +446,7 @@ eForms coverage</p>
 <span class="image"><img src="_images/2023-2025.png" alt="2023 2025"></span></p>
 </div>
 <div class="paragraph">
-<p>More detail on the proposal for each release, go to the <a href="../../epo-home/history.html" class="xref page">History and Planned Developments</a>.</p>
+<p>More detail on the proposal for each release, go to the <a href="#epo-home@history.adoc" class="xref unresolved">History and Future Developments page</a>.</p>
 </div>
 <div class="paragraph">
 <p>The creation and maintenance of the ontology is a collaboration between the OP, programmers, working group members and other stakeholders. Meetings to discuss, agree and schedule changes to the ontology occur regularly.</p>
@@ -773,7 +820,7 @@ Application profiles (AP) represent a set of constraints on the logical model ty
 <p>*Similarly, The Glossaries for each version and module can beviewed and downloaded via the following link, <a href="https://github.com/OP-TED/ePO/tree/release/x.y.z/glossary" class="bare">https://github.com/OP-TED/ePO/tree/release/x.y.z/glossary</a>, replaceing the x.y.z with a valid version number.</p>
 </div>
 <div class="paragraph">
-<p>The approach for change management is explained in the <a href="../../epo-home/change.html" class="xref page">Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme</a>, also summarised for the eProcurement Ontology in chapter 4.3 of the <a href="../../epo-home/charter.html" class="xref page">Project Charter Document</a></p>
+<p>The approach for change management is explained in the <a href="#epo-home@change.adoc" class="xref unresolved">Description of a change management release and publication process for structural metadata specifications developed by the ISA Programme</a>, also summarised for the eProcurement Ontology in chapter 4.3 of the <a href="#epo-home@charter.adoc" class="xref unresolved">Project Charter Document</a></p>
 </div>
 <div class="paragraph">
 <p>This document formalises how changes to the specifications of structural metadata developed by the ISA Programme are managed and how new releases are published. According to the definitions followed by the ISA Programme, structural metadata includes data models (e.g. <a href="https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/solution/dcat-application-profile-data-portals-europe/release/211">DCAT application profile for data portals in Europe</a> and reference data.</p>
@@ -792,7 +839,7 @@ Application profiles (AP) represent a set of constraints on the logical model ty
 </ul>
 </div>
 <div class="paragraph">
-<p>The Change Management process is based on generic change and release management processes in <a href="https://en.wikipedia.org/wiki/ITIL">ITILv3</a> and the generic <a href="../../epo-home/metgovman.html" class="xref page">Methodology and tools for Structural Metadata Management and Governance</a></p>
+<p>The Change Management process is based on generic change and release management processes in <a href="https://en.wikipedia.org/wiki/ITIL">ITILv3</a> and the generic <a href="#epo-home@metgovman.adoc" class="xref unresolved">Methodology and tools for Structural Metadata Management and Governance</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -890,7 +937,7 @@ The UML model follows a set of conventions so that it can be transformed automat
 </div>
 <hr>
 <div class="paragraph">
-<p>Any comments on the documentation?</p>
+<p>Any comments about the documentation?</p>
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OP-TED/epo-docs/issues/new/choose">Click here to let us know</a></p>
