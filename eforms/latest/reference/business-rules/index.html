@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.9">
+<div class="nav-container" data-component="eforms" data-version="1.10">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -195,6 +195,9 @@
     <a class="nav-link" href="../../translations/index.html">Translations</a>
   </li>
   <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../schemas/index.html">XML Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../schematrons/index.html">Schematron</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -274,17 +277,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.9.0</span>
+          <span class="version">1.10.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../../../1.10/index.html">1.10.0</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="../../index.html">1.9.0</a>
+              <a href="../../index.html">1.10.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.9/index.html">1.9.0</a>
             </li>
             <li class="version">
               <a href="../../../1.8/index.html">1.8.0</a>
@@ -371,10 +374,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.9.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.10.0</button>
   <div class="version-menu">
-    <a class="version is-missing" href="../../../1.10/index.html">1.10.0</a>
-    <a class="version is-current" href="index.html">1.9.0</a>
+    <a class="version is-current" href="index.html">1.10.0</a>
+    <a class="version" href="../../../1.9/reference/business-rules/index.html">1.9.0</a>
     <a class="version" href="../../../1.8/reference/business-rules/index.html">1.8.0</a>
     <a class="version" href="../../../1.7/reference/business-rules/index.html">1.7.0</a>
     <a class="version" href="../../../1.6/reference/business-rules/index.html">1.6.0</a>
@@ -5222,7 +5225,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00030-0052</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-030-Tender</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Value must be one of the codes in <a href="../code-lists/contract-detail.html" class="xref page"><code>contract-detail</code></a> codelist.</p>
+<p>Value must be one of the codes in <a href="../code-lists/contract-term.html" class="xref page"><code>contract-term</code></a> codelist.</p>
 </div>
 <div class="paragraph">
 <p><strong>Always applies</strong> in every notice sub-type.</p>
@@ -5256,6 +5259,17 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-034-Tender-Language</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p>Value must be one of the codes in <a href="../code-lists/eu-official-language.html" class="xref page"><code>eu-official-language</code></a> codelist.</p>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00035-0051</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-035-Tender</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Value must be one of the codes in <a href="../code-lists/revenue-allocation.html" class="xref page"><code>revenue-allocation</code></a> codelist.</p>
 </div>
 <div class="paragraph">
 <p><strong>Always applies</strong> in every notice sub-type.</p>
@@ -5903,155 +5917,71 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0100</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0110</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
+<p>Co_constraint.</p>
 </div>
 <div class="listingblock">
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice == '7' and BT-105-Procedure in ('open','restricted')) or OPP-070-notice != '7' or not(BT-105-Procedure is present)</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure in ('open', 'restricted', 'neg-w-call')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
+<p><strong>Applies if</strong> Procedure Legal Basis (BT-01) value is equal to 'Directive 2014/24/EU' and Procedure is accelerated (BT-106-Procedure is true).</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-106-Procedure == 'true') and (OPP-070-notice in ('16','29','E5')) and (BT-105-Procedure is present) and (BT-01-notice == '32014L0024')</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0101</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0111</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
+<p>Co_constraint.</p>
 </div>
 <div class="listingblock">
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice == '8' and BT-105-Procedure == 'open') or OPP-070-notice != '8' or not(BT-105-Procedure is present)</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure in ('restricted', 'neg-w-call')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
+<p><strong>Applies if</strong> Procedure Legal Basis (BT-01) value is equal to 'Directive 2009/81/EU' and Procedure is accelerated (BT-106-Procedure is true).</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-106-Procedure == 'true') and (OPP-070-notice in ('18','31','E5')) and (BT-105-Procedure is present) and (BT-01-notice == '32009L0081')</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0103</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0112</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
+<p>Co_constraint.</p>
 </div>
 <div class="listingblock">
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('12','13') and BT-105-Procedure in ('restricted','neg-w-call','comp-dial','innovation','oth-single','oth-mult')) or not(OPP-070-notice in ('12','13')) or not(BT-105-Procedure is present)</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure in ('open', 'restricted', 'neg-w-call','comp-dial')</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0104</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
+<p><strong>Applies if</strong> Procedure Legal Basis (BT-01) value is equal to 'Directive 2014/25/EU' and Procedure is accelerated (BT-106-Procedure is true).</p>
 </div>
 <div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
+<div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','E3') and BT-105-Procedure != 'neg-wo-call') or not(OPP-070-notice in ('10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','E3')) or not(BT-105-Procedure is present)</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-106-Procedure == 'true') and (OPP-070-notice in ('17','30','E5')) and (BT-105-Procedure is present) and (BT-01-notice == '32014L0025')</code></pre>
 </div>
-</div>
-<div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0105</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('9','18','22','27','31') and not(BT-105-Procedure in ('open','innovation','oth-single','oth-mult'))) or not(OPP-070-notice in ('9','18','22','27','31')) or not(BT-105-Procedure is present)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0106</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('23','24') and BT-105-Procedure in ('open','restricted','oth-single','oth-mult')) or not(OPP-070-notice in ('23','24'))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0107</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('36','37') and BT-105-Procedure in ('open','restricted','oth-single','oth-mult')) or not(OPP-070-notice in ('36','37'))</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0108</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('32','35') and BT-105-Procedure in ('neg-wo-call','oth-single','oth-mult')) or not(OPP-070-notice in ('32','35')) or not(BT-105-Procedure is present)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0109</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-105-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('25','26','27','28') and BT-105-Procedure == 'neg-wo-call') or not(OPP-070-notice in ('25','26','27','28')) or not(BT-105-Procedure is present)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Always applies</strong> in every notice sub-type.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6097,29 +6027,6 @@
 <div class="title">Condition in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPP-070-notice in ('14','19','28','32','35','40') and (BT-115-Lot is present) and (BT-23-Lot == 'services')</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00118-0100</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-118-NoticeResult</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co-constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(not(BT-156-NoticeResult is present) and ((every text:$faMaxCurr in (BT-709-LotResult/@currencyID) satisfies $faMaxCurr == BT-118-NoticeResult/@currencyID) and (BT-118-NoticeResult == sum(BT-709-LotResult)))) or (BT-156-NoticeResult is present) or not(every text:$faMax in (BT-709-LotResult/@currencyID) satisfies $faMax == BT-118-NoticeResult/@currencyID)</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> Notice Framework Maximum Value (BT-118) exists.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-118-NoticeResult is present</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -6274,29 +6181,6 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00132-0150</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-132(d)-Lot</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co_constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-132(d)-Lot &gt; BT-1311(d)-Lot</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> Public Opening Date (BT-132(d)-Lot) and Deadline Receipt Requests (BT-1311(d)-Lot) exist.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-132(d)-Lot is present) and (BT-1311(d)-Lot is present)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00132-0151</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-132(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -6337,29 +6221,6 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00137-0207</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-137-Lot</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co_constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-137-Lot != 'LOT-0000'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> the notice is a Planning, Competition or DAP divided into lots.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('E1','T01','7','8','9','10','11','CEI','12','13','14','15','16','17','18','19','E3','20','21','22','23','24','25','26','27','28')) and (count(/BT-137-Lot) &gt; 1)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00137-0209</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-137-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -6378,6 +6239,29 @@
 <div class="title">Condition in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('25','26','27','28','29','30','31','32','E4','T02','33','34','35','36','37','38','39','40','E5')) and BT-13713-LotResult is present</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00137-0214</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-137-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-36-Lot is present) or (BT-536-Lot is present and BT-537-Lot is present) or (BT-538-Lot is present)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Applies if</strong> Notice Subtype (OPP-070-notice) is 7, 8, 9, 10, 11, 15, 16, 17, 18, 19 or 22.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPP-070-notice in ('7','8','9','10','11','15','16','17','18','19','22')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -6430,29 +6314,6 @@
 </div>
 <div class="paragraph">
 <p><strong>Always applies</strong> in every notice sub-type.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00137-0208</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-137-Part</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co_constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-137-Part != 'PAR-0000'</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> the Notice is a PIN only, divided into lots.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('4','5','6','E2')) and (count(/BT-137-Part) &gt; 1)</code></pre>
-</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -7986,6 +7847,57 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00022-0241</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-22-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-22-Lot is unique in /BT-22-Lot</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00022-0242</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-22-LotsGroup</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-22-LotsGroup is unique in /BT-22-LotsGroup</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00022-0243</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-22-Part</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-22-Part is unique in /BT-22-Part</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00023-0200</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-23-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -8193,29 +8105,6 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00262-0212</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-262-Lot</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co_constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">starts-with(BT-262-Lot,'45') or starts-with(BT-262-Lot,'49') or starts-with(BT-262-Lot,'5') or starts-with(BT-262-Lot,'6') or starts-with(BT-262-Lot,'7') or starts-with(BT-262-Lot,'8') or starts-with(BT-262-Lot,'9')</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> Procedure Legal Basis (BT-01) value is equal to 'Directive 2014/24/EU' and Buyer Legal Type (BT-11) value is equal to 'Organisation awarding a contract subsidised by a contracting authority' and Classification Type (BT-26) value is equal to 'CPV'.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('1','4','7','8','9','10','12','16','17','18','19','20','23','25','29','33','36','38')) and (BT-11-Procedure-Buyer in ('org-sub', 'org-sub-cga', 'org-sub-ra', 'org-sub-la')) and (BT-262-Lot is present)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00262-0201</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-262-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -8308,29 +8197,6 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00262-0213</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-262-Part</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co_constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">starts-with(BT-262-Part,'45') or starts-with(BT-262-Part,'49') or starts-with(BT-262-Part,'5') or starts-with(BT-262-Part,'6') or starts-with(BT-262-Part,'7') or starts-with(BT-262-Part,'8') or starts-with(BT-262-Part,'9')</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> Procedure Legal Basis (BT-01) value is equal to 'Directive 2014/24/EU' and Buyer Legal Type (BT-11) value is equal to 'Organisation awarding a contract subsidised by a contracting authority' and Classification Type (BT-26) value is equal to 'CPV'.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('1','4','7','8','9','10','12','16','17','18','19','20','23','25','29','33','36','38')) and (BT-11-Procedure-Buyer in ('org-sub', 'org-sub-cga', 'org-sub-ra', 'org-sub-la')) and (BT-262-Part is present)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00262-0202</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-262-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -8395,29 +8261,6 @@
 <div class="title">Condition in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-23-Procedure == 'services') and (BT-262-Procedure is present)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00262-0211</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-262-Procedure</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p>Co_constraint.</p>
-</div>
-<div class="listingblock">
-<div class="title">Co-constraint in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">starts-with(BT-262-Procedure,'45') or starts-with(BT-262-Procedure,'49') or starts-with(BT-262-Procedure,'5') or starts-with(BT-262-Procedure,'6') or starts-with(BT-262-Procedure,'7') or starts-with(BT-262-Procedure,'8') or starts-with(BT-262-Procedure,'9')</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Applies if</strong> Procedure Legal Basis (BT-01) value is equal to 'Directive 2014/24/EU' and Buyer Legal Type (BT-11) value is equal to 'Organisation awarding a contract subsidised by a contracting authority' and Classification Type (BT-26) value is equal to 'CPV'.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPP-070-notice in ('1','4','7','8','9','10','12','16','17','18','19','20','23','25','29','33','36','38')) and (BT-11-Procedure-Buyer in ('org-sub', 'org-sub-cga', 'org-sub-ra', 'org-sub-la')) and (BT-262-Procedure is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -8488,6 +8331,23 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-33-Procedure is present) and (BT-31-Procedure is present)</code></pre>
 </div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00330-0102</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-330-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-330-Procedure is unique in /BT-330-Procedure</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -8638,6 +8498,23 @@
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">((OPP-070-notice == '16') and (BT-105-Procedure == 'innovation') and (BT-50-Lot &gt; 2)) or not(OPP-070-notice == '16') or not(BT-105-Procedure == 'innovation')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00501-0259</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-501-Organization-Company</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-501-Organization-Company is unique in /BT-501-Organization-Company</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9057,6 +8934,23 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00556-0101</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-556-NoticeResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-556-NoticeResult is unique in /BT-556-NoticeResult</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00630-0150</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-630(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -9123,6 +9017,23 @@
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">((BT-634-Procedure == TRUE) and (not(BT-142-LotResult!= 'clos-nw') or (BT-140-notice == 'cancel'))) or not(BT-634-Procedure == TRUE)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00067-0106</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-67(a)-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-67(a)-Procedure is unique in /BT-67(a)-Procedure</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9358,6 +9269,23 @@
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">((BT-748-Lot == 'nyk') and (OPP-070-notice in ('7','8','9','10','11','12','13','14'))) or not(BT-748-Lot == 'nyk')</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00040-0052</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-040-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPP-040-Procedure is unique in /OPP-040-Procedure</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -9689,6 +9617,40 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00090-0052</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-090-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPP-090-Procedure is unique in /OPP-090-Procedure</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00105-0052</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-105-Business</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPP-105-Business is unique in /OPP-105-Business</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00200-0100</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-200-Organization-Company</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -9961,6 +9923,23 @@
 <div class="title">Co-constraint in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(every text:$tenderer in OPT-300-Tenderer satisfies $tenderer not in OPT-300-Procedure-Buyer) and (every text:$subcont in OPT-301-Tenderer-SubCont satisfies $subcont not in OPT-300-Procedure-Buyer)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00300-0290</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-300-Procedure-Buyer</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPT-300-Procedure-Buyer is unique in /OPT-300-Procedure-Buyer</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -11857,6 +11836,20 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-01501-0109</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-1501(s)-Contract</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">RegEx pattern</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-RegEx hljs" data-lang="RegEx">^(RESULT|((CON|RES|TEN|TPA|TPO|ORG)-\d{4}))$</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00151-0053</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-151-Contract</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
@@ -13408,7 +13401,7 @@
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="title">RegEx pattern</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-RegEx hljs" data-lang="RegEx">^eforms-sdk-\d\.\d$</code></pre>
+<pre class="highlightjs highlight"><code class="language-RegEx hljs" data-lang="RegEx">^eforms-sdk-\d+\.\d+$</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -14804,8 +14797,48 @@
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPT-200-Organization-Company in OPT-300-Procedure-Buyer</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPT-200-Organization-Company in OPT-300-Procedure-Buyer) and OPP-070-notice not in ('1','2','3','4','5','6','E1','E2')</code></pre>
 </div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>WARN</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00514-0308</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-514-Organization-Company</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co_constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-514-Organization-Company[OPT-200-Organization-Company in OPT-300-Procedure-Buyer] in (lawful-country))</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Applies if</strong> the organisation (OPT-200-Organization-Company) is a Buyer (OPT-300-Procedure-Buyer) and Notice Type is PMC, PIN Only or PIN Profile.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(OPT-200-Organization-Company in OPT-300-Procedure-Buyer) and OPP-070-notice in ('1','2','3','4','5','6','E1','E2')</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>WARN</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00070-0120</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-070-notice</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Co-constraint.</p>
+</div>
+<div class="listingblock">
+<div class="title">Co-constraint in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">OPP-070-notice != 'CEI'</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Always applies</strong> in every notice sub-type.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>WARN</code></p></td>
 </tr>
