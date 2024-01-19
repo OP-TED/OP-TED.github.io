@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/epo-wgm/notes/2024-01-16-wgm.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../eforms/latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="epo-wgm" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/business.html">Business Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/conceptual.html">Conceptual Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/glossaries.html">Glossaries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/references.html">Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/versioning.html">ePO Versioning Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Working Group Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../wider.html">Quarterly Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../cumulative.html">Cumulative Reports (by year)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../indiv.html">Individual Meeting Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.10.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.9/index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.8/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.4/index.html">1.4.1</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../EPO/4.1/index.html">4.1.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<div class="sect1">
+<h2 id="_working_group_meeting"><a class="anchor" href="#_working_group_meeting"></a>Working Group meeting  <br></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Date</strong>: 16/01/2024   <br>
+<strong>Participants:</strong> <strong> </strong>Paloma Arillo, Natalie Muric, Maneva Petkova, Ewa Salarnier, Dragos Stoica, Pascaline  Laure Tchienehom, Theokritos Zafeiriou <br>
+<strong>Model editor:</strong> Andreea Pasăre  <br>
+<strong>Note editor:</strong> Achilles Dougalis</p>
+</div>
+<div class="sect2">
+<h3 id="_agenda"><a class="anchor" href="#_agenda"></a>Agenda</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Collecting eSubmission requirements.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the first instance, eSubmission will be based on the ESPD Response. We would like your input concerning use cases on data coming from ESPD Responses.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_discussion"><a class="anchor" href="#_discussion"></a>Discussion</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>It was explained at the beginning that the eSubmission is based on ESPD Response. It was noted that eSubmission is much wider that the ESPD Response.</p>
+</li>
+<li>
+<p>It was explained that the eProcurement Ontology covers end-to-end procurement and for each module there is a starting point. In the case of eSubmission that is the ESPD Response.</p>
+</li>
+<li>
+<p>A presentation was given on the existing ePO conceptual models.</p>
+</li>
+<li>
+<p>The draft of the use case and data exchange document was presented:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>It was noted that in the case of a 2 phase procedure at the qualification phase there is not a tender yet, but a Candidate. Therefore the Tenderer text was changed to Candidate/Tenderer test.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Went through UBL terms from <a href="https://docs.ted.europa.eu/ESPD-EDM/latest/_attachments/ESPD_CM_html/index.html">ESPD-EDM Response Technical Overview</a> :</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>UBL Business Term</strong></th>
+<th class="tableblock halign-left valign-top"><strong>ESPD definition</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Comment</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::QualificationApplicationResponse</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A document issued by a procurement organisation to notify an Economic Operator whether it has been admitted to or excluded from the tendering process.</p>
+<p class="tableblock">Business element: ESPDResponse</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">to be implemented as epo-sub:ESPDResponse as a specialisation of epo:Document</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ContractFolderID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: ReferenceNumber
+An identifier, assigned by the sender, for the process file (i.e., record) to which this document belongs.</p>
+<p class="tableblock">ESPD definition: an identifier that is specified by the buyer and used as a reference number for all documents in the procurement process.
+Additional comments: a reference to the procurement procedure to which a Qualification request document and the delivered response documents are associated.</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">technical attribute not to be implemented in ePO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::CustomizationID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: BusinessProcessTypeIdentifier
+Identifies a user-defined customization of UBL for a specific use.</p>
+<p class="tableblock">ESPD definition: identifies the identification scheme for the notice (ESPD XML instance, eForms*), specifically the schemeAgencyID (value "CEN-BII", mandatory) and the schemeVersionID.
+Additional comments: we use the value “urn:www.cenbii.eu:transaction:biitrdm070:ver3.0”.</p>
+<p class="tableblock">13/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">technical attribute not to be implemented in ePO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::EconomicOperatorGroupName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: ConsortiumName
+Economic Operator Group Name associated with this Response document.</p>
+<p class="tableblock">ESPD definition: the name of the group that presents a tender to which this Economic Operator belongs (e.g. the name of a consortium, a joint venture, etc.).</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">It was noted that each member of the Consortium will provide an ESPD Response, also the Subcontractors need to be taken into consideration.
+Name of the Organisation Group that the Economic Operator belongs to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: DocumentIdentifier
+An identifier for this document, assigned by the sender.</p>
+<p class="tableblock">ESPD definition: an identifier for this document, normally generated by the system that creates the ESPD document, or the organisation responsible for the document (e.g. the buyer, or the supplier, e.g. an economic operator). The identifier enables positive referencing the document instance for various purposes including referencing between transactions that are part of the same process, or referencing multiple versions of the ESPD document.
+Additional comments: compulsory use of schemeAgencyID attribute, in order to identify the organisation responsible for the document.</p>
+<p class="tableblock">13/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ESPD Response document identifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::IssueDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: DocumentIssueDate
+The date, assigned by the sender, on which this document was issued.</p>
+<p class="tableblock">ESPD definition: date when the document was issued by the buyer.
+Additional comments: format "YYYY-MM-DD".</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>should it be date of dispatch? epo:hasDispatchDate
+ESPD-EDM team should check if this is issued or dispatch.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::IssueTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: DocumentIssueTime
+The time, assigned by the sender, on which this document was issued.</p>
+<p class="tableblock">ESPD definition: time when the document was issued by the buyer.
+Additional comments: format "hh:mm:ss".</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>should it be date of dispatch? epo:hasDispatchDate
+ESPD-EDM team should check if this is issued or dispatch.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::PreviousVersionID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: PreviousDocumentVersionIdentifier
+Identifies the previous version of the Response document which is superceded by this version.</p>
+<p class="tableblock">ESPD definition: the version identifying the previous modification of the content of this document.</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>ESPD-EDM team should provide an use case for PreviousVersionID.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ProcedureCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: ProcedureCode
+A code signifying the type of this tendering procedure.</p>
+<p class="tableblock">ESPD definition: the type of the procurement administrative procedure according to the EU Directives.
+Additional comments: this information will be linked to eForms.</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">this is the procedure type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ProfileExecutionID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifies an instance of executing a profile, to associate all transactions in a collaboration.
+Business element: ESPDVersionIdentifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">technical attribute not to be implemented in ePO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ProfileID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: SpecificationIdentification
+An identification of the specification containing the total set of rules regarding semantic content, cardinalities and business rules to which the data contained in the instance document conforms.</p>
+<p class="tableblock">ESPD definition: n/a
+Additional comments: the identification may include the version of the specification as well as any customizations applied.</p>
+<p class="tableblock">13/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">technical attribute not to be implemented in ePO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::UBLVersionID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: UBLVersionIdentifier
+Identifies the earliest version of the UBL 2 schema for this document type (besides the ones from the extension) that defines all of the elements that might be encountered in the current  instance.</p>
+<p class="tableblock">ESPD definition: n/a</p>
+<p class="tableblock">13/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">technical attribute not to be implemented in ePO</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::UUID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: DocumentUniversallyUniqueIdentifier
+A universally unique identifier for an instance of this document.</p>
+<p class="tableblock">ESPD definition: a universally unique identifier that can be used to reference this ESPD document instance; this UUID will be used to link the ESPD Response to its corresponding ESPD Request (thus its compulsoriness).
+Additional comments: copies of a document must be identified with a different UUID; compulsory use of schemeAgencyID attribute.</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ESPD Response document epo:hasUUID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::VersionID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: DocumentVersionIdentifier
+Indicates the current version of the Request document.</p>
+<p class="tableblock">ESPD definition: the version identifying the content of this document.
+Additional comments: changes in content should entail the modification of the version identifier and a reference to the previous version.</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ESPD Response document epo:hasVersion</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc:CopyIndicator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: CopyIndicator
+Indicates whether this document is a copy (true) or not (false).</p>
+<p class="tableblock">ESPD definition: this component enables to keep track of the event of having forwarded the same document several times to the same or to different destinations.
+Additional comments: copies of an ESPD document should be identified with distinct UUIDs.</p>
+<p class="tableblock">14/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>on hold until ESPD-EDM team will check further.
+there is a contradiction between the two definitions provided in ESPD.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::AdditionalDocumentReference</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to an additional document</p>
+<p class="tableblock">Business element: Notice</p>
+<p class="tableblock">30/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Document epo:associatedWith (or create a subproperty for this at the level of ESPD Response)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::DocumentDescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text describing the referenced document</p>
+<p class="tableblock">Business element: DocumentDescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::DocumentType</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of document being referenced, expressed as text.</p>
+<p class="tableblock">Business element: NoticeTypeDescription</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>In ePO we do not need to map to the docrefcontent-type since the type of document exists already as a concept.
+NB: there is a typo in name of the codelist in the ESPD-EDM technical overview.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::DocumentTypeCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of document being referenced, expressed as code.</p>
+<p class="tableblock">Business element: NoticeTypeCode</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>In ePO we do not need to map to the docrefcontent-type since the type of document exists already as a concept.
+NB: there is a typo in name of the codelist in the ESPD-EDM technical overview.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to an additional document associated with this document.</p>
+<p class="tableblock">Business element: NoticeIdentifier</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:identifier at the level of the additional document.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::IssueDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The date, assigned by the sender of the referenced document, on which the document was issued.</p>
+<p class="tableblock">Business element: NoticeIssueDate</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>should this be epo:hasPublicationDate since we are referring to things that are published?
+ESPD-EDM team should check if "publication" is the right word instead of "issue".</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::IssueTime</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The time, assigned by the sender of the referenced document, at which the document was issued.</p>
+<p class="tableblock">Business element: NoticeIssueTime</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>should this be epo:hasPublicationDate since we are referring to things that are published?
+ESPD-EDM team should check if "publication" is the right word instead of "issue".</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::UUID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An identifier for the referenced document.</p>
+<p class="tableblock">Business element: NoticeUUID</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasUUID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::DocumentTypeCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link to at-voc:docref-content-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>In ePO we do not need to map to the docrefcontent-type since the type of document exists already as a concept.
+NB: there is a typo in name of the codelist in the ESPD-EDM technical overview.</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::ExternalReference</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to an attached document that is external to the document(s) being exchanged.
+Business element: ExternalReference</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ePO only provides the URI for the attached document.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text describing the external object.</p>
+<p class="tableblock">Business element: Description</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Document dct:description</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::FileName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The file name of the external object.</p>
+<p class="tableblock">Business element: Name</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ePO does not provide external objects.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::URI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Uniform Resource Identifier (URI) that identifies the external object as an Internet resource.</p>
+<p class="tableblock">Business element: URI</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Document epo:hasAccessURL</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::ProcurementProjectLot</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">One of the procurement project lots into which this contract can be split.</p>
+<p class="tableblock">Business element: ProcurementProjectLot</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implemented as epo:Lot</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An identifier for this procurement project lot.</p>
+<p class="tableblock">Business element: LotReference</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:identifier at the epo:Lot level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::ProcurementProject</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe a project to procure goods, works, or services.</p>
+<p class="tableblock">Business element: Procedure</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">implemented as epo:Procedure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text describing this procurement project.</p>
+<p class="tableblock">Business element: Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dct:description at the epo:Procedure</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::Party</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe an organisation, sub-organisation, or individual fulfilling a role in a business process.</p>
+<p class="tableblock">Business element: Organisation</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::PartyIdentification/cbc::Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An identifier for the party; the PartyIdentification UBL class has an associated basic element "cbc:ID".</p>
+<p class="tableblock">Business element: Identifier</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">adms:identifier of the Organization that plays that specific Role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::PartyName/cbc::Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A name for this party; the PartyName class has an associated basic element "cbc:Name" .</p>
+<p class="tableblock">Business element: Name</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasLegalName of the Organization that plays that specific Role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::EndPointID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An identifier for the end point of the routing service (e.g., EAN Location Number, GLN).</p>
+<p class="tableblock">Business element: EndPointID</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:AgentInRole epo:exposesChannel epo:hasIdentifier</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::WebsiteURI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Uniform Resource Identifier (URI) of the organization website; i.e., its Uniform Resource Locator (URL).</p>
+<p class="tableblock">Business element: PartyWebsite</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:hasInternetAddress of the Organization that plays that specific Role.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::ServiceProviderParty</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe a party contracting to provide services, such as transportation, finance, etc.</p>
+<p class="tableblock">Business element: ServiceProvider</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">this is a specialisation of cac::Party</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::ContractingParty</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe an individual, a group, or a body having a procurement role in a tendering process.</p>
+<p class="tableblock">Business element: Buyer</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">this is a specialisation of cac::Party</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::BuyerProfileURI</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The buyer profile is typically located on a web site where the contracting party publishes its procurement opportunities</p>
+<p class="tableblock">Business element: BuyerProfile</p>
+<p class="tableblock">26/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Buyer epo:hasBuyerProfile</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::EconomicOperatorParty</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Economic Operator issuing the Qualification Application Response.</p>
+<p class="tableblock">Business element: EconomicOperator</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">this is a specialisation of cac::Party</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::QualifyingParty/Party/cbc::IndustryClassificationCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This party&#8217;s Industry Classification Code.</p>
+<p class="tableblock">Business element: IndustryClassificationCode</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>is there a typo in this ESPD-EDM attribute? Should it be cac::Party?
+epo:Business epo:hasBusinessSize at-voc:economic-operator-size</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::IndustryClassificationCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link to at-voc:economic-operator-size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:Business epo:hasBusinessSize at-voc:economic-operator-size</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::EconomicOperatorRole</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe the tenderer contracting role.</p>
+<p class="tableblock">Business element: EconomicOperatorRole</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">this can be inferred from epo:OrganisationGroup epo:hasMember (epo:leadBy) org:Organization;
+ePO team to check all values from codelist at-voc:eo-role-type and see if they map to ePO roles.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::RoleCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: EconomicOperatorRoleCode
+A code specifying the role of the party.</p>
+<p class="tableblock">ESPD definition: identifies the role of the Economic Operator in the bid.</p>
+<p class="tableblock">17/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::RoleDescription</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: EconomicOperatorRoleDescription
+A textual description of the party role.</p>
+<p class="tableblock">ESPD definition: n/a.</p>
+<p class="tableblock">27/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc:RoleCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link to at-voc:eo-role-type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::QualifyingParty</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe the distinctive features or characteristics qualifying an economic operator to be a party in a tendering process (e.g., number of employees, number of operating units, type of business, technical and financial capabilities, completed projects).</p>
+<p class="tableblock">Business element: QualifyingParty</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>from technical handbook:</strong> is used to place data about the economic operator that is available from an official list, tenderer register or (pre)qualification system, such as official classification schemes, certificates, the number of employees, references used for the classification, etc.;
+ePO needs to model a Pre-QualificationSystemData that includes the properties from ESPD-EDM model for cac::QualifyingParty</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::BusinessClassificationScheme/cbc::Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: BusinessClassificationScheme
+The classification scheme used for the business profile; the BusinessClassificationScheme UBL class has an associated basic element "cbc:Description".</p>
+<p class="tableblock">ESPD definition: the text describing one official classification assigned by an official list or (pre)qualification system to the Economic Operator.</p>
+<p class="tableblock">17/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::CompletedTask/cbc::Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: CompletedTask
+Text describing this completed task; the CompletedTask UBL class has an associated basic element "cbc:Description".</p>
+<p class="tableblock">ESPD definition: text describing the works, supplies or services executed, delivered or performed in a procurement project (normally used as a reference for the classification of the Economic Operator).</p>
+<p class="tableblock">17/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::FinancialCapability/cbc::ValueAmount</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: GeneralTurnover
+A financial capability of this qualifying party; the FinancialCapability UBL class has an associated basic element "cbc:ValueAmount".</p>
+<p class="tableblock">ESPD definition: a monetary amount as a measure of this capability.</p>
+<p class="tableblock">17/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link to epo:MonetaryValue</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::Party/cac::PartyIdentification/cbc::ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: QualifyingAgencyIdentifier
+An identifier for the party; the PartyIdentification UBL class has an associated basic element "cbc:ID".</p>
+<p class="tableblock">ESPD definition: the identifier of the Economic Operator in an official list, register or (pre)qualification system; the attribute schemeAgencyID must hold the value retrieved from eCertis that identifies unequivocally the (pre)qualification system.
+Additional comments: if, for any reason, that value is not available use the default schemeAgencyID "EU-COM-GROW" and the cac:PartyIdentificaton for the value of the identifier; additionally, use the data structure “registered” to specify an alternative or additional name, identifier and description; the code list EOIDType should be used to indicate the type of identifier used as a value of the schemeID attribute, e.g. schemeID="VAT".</p>
+<p class="tableblock">17/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Economic Operator ID at the level of a Pre-qualification system</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::EmployeeQuantity</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: EOEmployeeQuantity
+The number of people employed by this qualifying party.</p>
+<p class="tableblock">ESPD definition: the number of people employed by the economic operator participating in the tender</p>
+<p class="tableblock">17/09/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">link to epo:Quantity</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::Person</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe a person.</p>
+<p class="tableblock">Business element: RepresentativeNaturalPerson</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person:Person</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac::CitizenshipCountry/cac::Country/cbc::IdentificationCode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The country of the person&#8217;s citizenship.</p>
+<p class="tableblock">Business element: CountryCode</p>
+<p class="tableblock">18/11/2021</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::BirthDate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This person&#8217;s date of birth.</p>
+<p class="tableblock">Business element: RepresentativeNaturalPersonBirthDate</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::BirthplaceName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the place where this person was born, expressed as text.</p>
+<p class="tableblock">Business element: RepresentativeNaturalPersonBirthplace</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><mark>typo: p should be capital letter</mark></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::FamilyName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This person&#8217;s family name.</p>
+<p class="tableblock">Business element: RepresentativeNaturalPersonFamilyName</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::FirstName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This person&#8217;s given name.</p>
+<p class="tableblock">Business element: RepresentativeNaturalPersonFirstName</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::NationalityID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An identifier for this person&#8217;s nationality.</p>
+<p class="tableblock">Business element: RepresentativeNaturalPersonNationality</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac::PowerOfAttorney</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A class to describe a power of attorney.</p>
+<p class="tableblock">Business element: PowerOfAttorney</p>
+<p class="tableblock">25/11/2021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">in ESPD-EDM is a specialisation of cac::Person
+in ePO this can be modelled as an epo:AgentInRole epo:playedBy a person:Person</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cbc::Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Business element: RepresentativeNaturalPersonRoleDescription
+Text describing this power of attorney.</p>
+<p class="tableblock">ESPD definition: Idem.</p>
+<p class="tableblock">20/09/2021</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>This Thursday we will discuss eAccess as now it belongs to the ePO maintenance.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_action_points"><a class="anchor" href="#_action_points"></a>Action Points</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Cells highlighted in <mark>yellow</mark> in the table above are to be addressed by the ESPD-EDM project.</p>
+</li>
+<li>
+<p>ePO action points:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Model cac::PowerOfAttorney as an epo:AgentInRole epo:playedBy a person:Person.</p>
+</li>
+<li>
+<p>Model a Pre-QualificationSystemData that includes the properties from ESPD-EDM model for cac::QualifyingParty.</p>
+</li>
+<li>
+<p>Check all values from codelist at-voc:eo-role-type and see if they map to ePO roles.</p>
+</li>
+<li>
+<p>Check that a Subcontractor role can be part of an OrganizationGroup, so it can also submit its own ESPD Response.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
