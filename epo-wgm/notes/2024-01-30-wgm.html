@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Untitled :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/epo-wgm/notes/2024-01-23-wgm.html">
+    <link rel="canonical" href="https://docs.ted.europa.eu/epo-wgm/notes/2024-01-30-wgm.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../_/css/site.css">
     <link rel="stylesheet" href="../../_/css/custom.css">
@@ -237,14 +237,12 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_working_group_meeting"><a class="anchor" href="#_working_group_meeting"></a>Working Group meeting  <br></h2>
+<h2 id="_working_group_meeting"><a class="anchor" href="#_working_group_meeting"></a>Working Group meeting</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Date</strong>: 23/01/2024   <br>
-<strong>Participants:</strong> <strong> </strong>Paloma Arillo, Natalie Muric, Giovanni Paolo Sellitto, Dragos Stoica, Pascaline Laure Tchienehom</p>
-</div>
-<div class="paragraph">
-<p><strong>Model editor:</strong> Andreea Pasăre  <br>
+<p><strong>Date</strong>: 30/01/2024   <br>
+<strong>Participants:</strong> <strong> </strong>Paloma Arillo, Natalie Muric, Giovanni Paolo Sellitto, Dragos Stoica, Pascaline Laure Tchienehom <br>
+<strong>Model editor:</strong> Andreea Pasăre  <br>
 <strong>Note editor:</strong> Achilles Dougalis</p>
 </div>
 </div>
@@ -255,76 +253,152 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Continue collecting eSubmission requirements.</p>
+<p>Review the eSubmission requirements</p>
+</li>
+<li>
+<p>Discuss ESPD GitHub issues</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>In the first instance, eSubmission will be based on the ESPD Response. We would like your input concerning use cases on data coming from ESPD Responses</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_discussion"><a class="anchor" href="#_discussion"></a>Discussion</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>About the eSubmission requirements<strong></strong> </strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>There is a problem with Power of attorney . A person has a power of attorney and it is not a role. The ESPD model appears to conflate Person and PowerOfAttorney. The modeling in UBL  was consulted (<a href="https://docs.oasis-open.org/ubl/UBL-2.4.html">https://docs.oasis-open.org/ubl/UBL-2.4.html</a>) where the PowerOfAttorney exists, which is a document that has an AgentParty.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The Implementing Regulation for ESPD was consulted (<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0007" class="bare">https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0007</a>).[<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0007" class="bare">https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32016R0007</a>).]</p>
+<p>2 user stories were presented. One for the Tenderer/Candidate, and one for the Buyer.</p>
 </li>
 <li>
-<p>A person can represent an organization and have power of attorney (a capability). This power of attorney is a legal document. The mandate (also a document) contains the context in which the power of attorney works.</p>
+<p>A <a href="https://github.com/OP-TED/ESPD-EDM/issues/412">request</a> was made for more user stories and competency questions. It was explained that the user stories should be created in the same vein as per the eAccess module. Although the ESPD response structure reuses the ESPD request structure, we need to know the questions that could be created on the data in the ESPD response.</p>
 </li>
 <li>
-<p>How should the ePO implement the power of attorney?</p>
+<p>It was agreed that some user stories from eAccess can be modified to accommodate eSubmission, and examples of these modifications were shown during the meeting.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Should it be implemented as a document, with a Person connected with the power of attorney as well as the organization?</p>
+<p>Examples of user stories from eAccess:</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<p>Cac::DocumentReference: Is a class to define a reference to a document (Document Reference)  A reference to the evidentiary document (Evidence) / A reference to a document relevant to this certificate or an application for this certificate (Certificate). We have this in ePO as a *Certificate *(foaf:Person hasCertification epo:Certificate, etc).</p>
-</li>
-<li>
-<p>We do not have examples of the xml for mandate document.</p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">US-SC-1</th>
+<th class="tableblock halign-left valign-top">Economic Operator</th>
+<th class="tableblock halign-left valign-top">As an Economic Operator, I want to know which evidence needs to be supplied by relied upon entities, so I can take part in the Procurement Procedure.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SC-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Economic Operator</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As an Economic Operator, I want to know for which Criterion I need to provide information on a relied upon entity, so I can take part in the Procurement Procedure.</p></td>
+</tr>
+</tbody>
+</table>
 <div class="ulist">
 <ul>
 <li>
-<p>We will create an attribute epo.hasAdditionalDocumentIdentifier</p>
-</li>
-<li>
-<p>A mandate is a token that a person can have, for example in Italy the EIDS token may be used to provide all the mandates/power of attorneys of a given person.</p>
-</li>
-<li>
-<p>We could model the <strong>legal representative</strong> of the organization, without the Power of attorney. the <strong>legal representative</strong> of an organization has a mandate to fulfill and may give someone else the power of attorney.</p>
-</li>
-<li>
-<p>It seems that power of attorney differs from country to country. Maybe we should avoid the words power of Attorney, and use something like: *isLegallyRepresentedBy *a person, and connect this Person to a Certificate in ePO with 2 possible specialisations PowerOfAttorney and Mandate. Unless there is a use case for the specialisations they should not be implemented at this point.</p>
+<p>Translated eSubmission user stories:</p>
 </li>
 </ul>
 </div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">US-SC-1</th>
+<th class="tableblock halign-left valign-top">Buyer</th>
+<th class="tableblock halign-left valign-top">As a Buyer, I want to know if the Tenderer/Candidate relies upon other entities and consult the evidence supplied for this criteria, so I can assess if the Tenderer/Candidate is eligible to take part in the Procurement Procedure.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SC-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As an Buyer, I want to consult the information on an entity that the Tenderer/Candidate relies upon, so I can assess if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>In the user story for the subcontractor the data available will depend on whether explicit information was requested in the ESPD request. The need for information on the subcontractor may vary from country to country.</p>
 </li>
 <li>
-<p>It was discussed whether or how cac:Evidence  cac:EvidenceSupplied should be implemented in the ePO. In the ePO, we will merge these two terms into one concept.</p>
+<p>Financial ratio type:
+It was decided that financial ratio type should be implemented in ePO, even though this  codelist is maintained by the ESPD team in their repository.  <br>
+It was mentioned that ePO could refer to the ESPD&#8217;s code list about Financial ratio type, <a href="https://github.com/OP-TED/ESPD-EDM/blob/master/codelists/gc/FinancialRatioType.gc">espd:FinancialRatioType</a>.  <br>
+It was noted that the name of the dependency link from cac:ResponseValue to the espd:FiancialRatioType codelist is missing in the ESPD Response TOV (see diagram below). We will add a ticket to inform the ESPD team although this has no consequence at this stage on ePO.</p>
 </li>
 <li>
-<p>espd:FinancialRatioType: Is a technical code list that we do not need to implement in the ePO.</p>
+<p>It was decided that the user stories for Exclusion Grounds can be reused in eSubmission as-is for eAccess module.</p>
 </li>
 <li>
-<p>For the access-right code list, the ESPD uses  only the values "<em>confidential" _or "_public"</em>.</p>
+<p>It was mentioned that the US-EG-2 user story is not viable for both eSubmission and eAccess because we cannot have a Procedure without Exclusion Ground.</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">US-EG-2</th>
+<th class="tableblock halign-left valign-top">Buyer</th>
+<th class="tableblock halign-left valign-top">As a Buyer, I want to see if any Procedure has been processed without Exclusion Grounds, and if so, what type of Procedure was it, so I can ???</th>
+</tr>
+</thead>
+</table>
+<div class="paragraph">
+<p><strong>Discussion on ESPD GitHub issues<strong></strong> </strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>It was noted that the ePO team should Specify when creating issues in the ESPD-EDM github whether the issue is related to the ePO via the label "ePO question".</p>
 </li>
 <li>
-<p>By the end of the week we will have the draft of the ORSD document.</p>
+<p>The following issues were discussed and updated:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/issues/406">406</a></p>
+</li>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/issues/407">407</a></p>
+</li>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/issues/408">408</a></p>
+</li>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/issues/411">411</a></p>
+</li>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/issues/412">412</a></p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -336,13 +410,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Create an issue on how the ESPD models the power of Attorney.  We should ask them if there is a conflation between the concept of a person and PowerOfAttorney document.</p>
+<p>Add a ticket to inform the ESPD team about the missing name of the dependency link between cac:ResponseValue and the espd:FiancialRatioType codelist .</p>
 </li>
 <li>
-<p>Create an issue in the ESPD github stating that the link of cac:ResidenceAddress to the at-voc::country is missing in the ESPD document.</p>
-</li>
-<li>
-<p>Edit Github issue 502. (<a href="https://github.com/OP-TED/ePO/issues/502)">https://github.com/OP-TED/ePO/issues/502)</a></p>
+<p>The ESPD should check the competency questions before Friday 2/2/2024.</p>
 </li>
 </ul>
 </div>
