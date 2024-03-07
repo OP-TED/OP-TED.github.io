@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>SDK Active versions :: TED Developer Documentation</title>
+    <title>SDK version lifespan :: TED Developer Documentation</title>
     <link rel="canonical" href="https://docs.ted.europa.eu/home/eforms/active-versions/index.html">
     <meta name="generator" content="Antora 3.1.2">
     <link rel="stylesheet" href="../../../_/css/site.css">
@@ -246,29 +246,85 @@
   <div class="toc-menu"></div>
 </aside>
 <article class="doc">
-<h1 class="page">SDK Active versions</h1>
+<h1 class="page">SDK version lifespan</h1>
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>As indicated in the page on the <a href="../../../eforms/latest/versioning.html" class="xref page">versioning of the eForms SDK</a>, every XML notice must indicate the version of the SDK that was used to create the notice.</p>
+<p>The eForms SDK encodes the eForms specification in a machine-readable format. As the business domain of public procurement evolves over time, the eForms specification is also updated to incorporate the necessary changes. This evolution is reflected in the SDK versions, which permit us to bundle together all the artifacts necessary to interpret notices that have been created in different points in time (and thus under a possibly different regulatory framework).</p>
 </div>
 <div class="paragraph">
-<p>At any point in time, there is a specific set of SDK versions that are accepted for submission and publication. Those versions are referred to as "active", and are defined only in terms of <code>major.minor</code>, as changes made in a <code>patch</code> release (incrementing only the <code>revision number</code>) do not impact the validity of notice.</p>
+<p>When your application creates an XML notice, it includes a <code>cbc:CustomizationID</code> element that indicates the version of the SDK that was used to create the notice. This permits other applications to interpret the notice correctly, by using the corresponding version of the SDK.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>SDK Versioning in a nutshell</strong></p>
 </div>
 <div class="paragraph">
-<p>Any notice that refers to an SDK version (via the <code>cbc:CustomizationID</code> element) that is not in the set of active versions will be rejected. This is enforced by the Central Validation Service (CVS). The response from CVS when you try to validate a notice for an SDK version that is not active is the same as for an SDK version that does not exist.</p>
+<p>SDK versions are indicated using three numbers: <em>major.minor.patch</em>.
+The <strong>major</strong> version number is incremented only when the new SDK introduces fundamental changes. The <strong>minor</strong> is incremented when the updated SDK has an impact on notice validation. Finally, the <strong>patch</strong> indicates an incremental update that does not affect notice validation. When we refer to an SDK version without specifying the patch number, the latest patch of that version is implied.
+For details see the <a href="../../../eforms/latest/versioning.html" class="xref page">SDK Versioning</a> page.</p>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>The Central Validation Service offers an <a href="../../../api/endpoints/cvs-ted-europa-eu.html#_versionrange" class="xref page">API operation named "version-range"</a> that returns the reference information on the set of active SDK versions, including planned changes to this set. For more details on the information returned, see the <a href="#version-range">section below</a>.</p>
+<p>New versions of the SDK are released periodically, not only to accommodate regulatory changes, but also to correct and enrich the existing metadata. To maintain an overall consistency of the data collected through eForms notices, in terms of completeness and quality, it is in the general interest of the public procurement community to ensure that outdated versions of the eForms specification are withdrawn from active use for applications that create eForms notices.</p>
 </div>
 <div class="paragraph">
-<p>SDK versions may be patched for the first year after their initial release. SDK versions are also generally kept active for one year after release.</p>
+<p>To encourage the timely adoption of the most recent version of the eForms specification, the Publications Office has established the following policy for the withdrawal of outdated versions of the SDK.</p>
 </div>
 <div class="paragraph">
-<p>Exceptionally, the active period has been extended for versions expiring in 2024 to allow for the effort of the first SDK upgrades for most eSenders. This means that notices can be submitted to TED until the end of activity but the SDK version will no longer be patched during the extended active period.</p>
+<p>The policy is based on the notion that every SDK version has a predefined lifespan which starts when the TED Central Validation Service (TEDCVS) starts accepting notices created using the new version (right after its release), and ends after a predefined period of activity has elapsed (at which point, TEDCVS will automatically stop accepting any further notices created using that version of the SDK). An SDK version is said to be "active" during the period that TEDCVS accepts notices based on it.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminology"><a class="anchor" href="#_terminology"></a>Terminology</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">SDK release date</dt>
+<dd>
+<p>The date when a new version of the SDK is released.</p>
+</dd>
+<dt class="hdlist1">SDK expiry date</dt>
+<dd>
+<p>The date beyond which an SDK version is no longer accepted by the TED Central Validation Service.
+This date is initially set for every SDK version to twelve (12) months after its release date.
+The expiry date of an SDK version may be extended beyond the standard lifespan of twelve (12) months (see "SDK extended lifespan" below).</p>
+</dd>
+<dt class="hdlist1">Active SDK</dt>
+<dd>
+<p>A version of the SDK is said to be "active" during the period that TEDCVS accepts notices based on it. This period is defined by the SDK release date and the SDK expiry date.</p>
+</dd>
+<dt class="hdlist1">SDK standard lifespan</dt>
+<dd>
+<p>The standard lifespan of an SDK version is the first twelve (12) months after its release date.</p>
+</dd>
+<dt class="hdlist1">SDK extended lifespan</dt>
+<dd>
+<p>To accommodate the needs of eSenders, the Publications Office may decide to extend the lifespan of an SDK version beyond its standard length. If the lifespan of an SDK version is extended beyond the standard lifespan of twelve (12) months, the version is said to be in its "extended lifespan".</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_support_and_updates_for_active_sdk_versions"><a class="anchor" href="#_support_and_updates_for_active_sdk_versions"></a>Support and updates for active SDK versions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Publications Office provides support only for <strong>active</strong> SDK versions through its Helpdesk and GitHub discussions. Priority is given to SDK versions that are in their <strong>standard lifespan</strong>.</p>
 </div>
 <div class="paragraph">
-<p>The table below indicate the end of patches and of activity for SDK versions. The Preview environment has the same active range as the Production environment.</p>
+<p>The Publications Office also updates active SDK versions by releasing patches that correct and improve the provided metadata as needed. However, to conserve resources, patches are provided only during the <strong>standard lifespan</strong> of active SDK versions. SDK versions that are in their <strong>extended lifespan</strong> will only be patched under exceptional circumstances to address critical issues.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_list_of_active_sdk_versions"><a class="anchor" href="#_list_of_active_sdk_versions"></a>List of active SDK versions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The table below indicates the end of the standard and extended lifespan for the SDK versions that are currently active.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -277,13 +333,25 @@
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-These tables are provided for information only, the information provided by CVS should always be considered the reference.
+To accommodate the needs of eSenders during the current transitional period, the Publications Office has decided to extend the lifespan of the SDK versions expiring in 2024. This is an exceptional measure in view of the efforts of eSenders to stabilise their processes for incorporating updates to the eForms specification into their applications.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+The table below is updated manually and may not be always accurate. The information provided by the TED API should always be consulted as the single source of truth. For more details see  <a href="#version-range">Getting  active SDK versions through TED API</a> below.
 </td>
 </tr>
 </table>
 </div>
 <table class="tableblock frame-all grid-all stretch">
-<caption class="title">Table 1. Patched and Active versions of the SDK</caption>
+<caption class="title">Table 1. Active versions of the eForms SDK</caption>
 <colgroup>
 <col style="width: 33.3333%;">
 <col style="width: 33.3333%;">
@@ -292,8 +360,8 @@ These tables are provided for information only, the information provided by CVS 
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">SDK Version</th>
-<th class="tableblock halign-left valign-top">End of patches</th>
-<th class="tableblock halign-left valign-top">End of activity</th>
+<th class="tableblock halign-left valign-top">End of standard lifespan</th>
+<th class="tableblock halign-left valign-top">End of extended lifespan</th>
 </tr>
 </thead>
 <tbody>
@@ -339,13 +407,25 @@ These tables are provided for information only, the information provided by CVS 
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Preview environment has the same active range as the Production environment.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="version-range"><a class="anchor" href="#version-range"></a>Information on active SDK versions</h2>
+<h2 id="version-range"><a class="anchor" href="#version-range"></a>Getting  active SDK versions through TED API</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Central Validation Service provides information on the set of active SDK versions in a JSON file.</p>
+<p>TED API provides information on the set of active SDK versions in JSON format through the <a href="../../../api/endpoints/cvs-ted-europa-eu.html#_versionrange" class="xref page">version-range</a> operation of the Validation API.</p>
 </div>
 <div class="listingblock">
 <div class="content">
