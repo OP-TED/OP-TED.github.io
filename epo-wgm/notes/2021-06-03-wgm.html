@@ -240,7 +240,7 @@
 </aside>
 <article class="doc">
 <div class="sect1">
-<h2 id="_please_find_below_the_minutes_from_03_june_2021"><a class="anchor" href="#_please_find_below_the_minutes_from_03_june_2021"></a>Please find below the minutes from 03 June 2021</h2>
+<h2 id="_working_group_meeting_03062021"><a class="anchor" href="#_working_group_meeting_03062021"></a>Working Group meeting 03/06/2021</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Participants: Paloma Arillo Aranda (OP), Cécile Guasch (ISA2 - DIGIT), Hilde Kjolset (dfø), Giorgia Lodi (ISTC-CNR), Thor Steiner Møller (dfø), Natalie Muric (OP) and Giampaolo Sellitto (ANAC).</p>
@@ -248,26 +248,34 @@
 <div class="paragraph">
 <p><strong>Topic of discussion: Check Summary from 01 June 2021 and update decisions</strong></p>
 </div>
-<div class="paragraph">
-<p>The Contract has no relation with Value in 2.0.2 but in 2.0.1</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Contract has no relation with Value in v2.0.2 but does in 2.0.1.</strong></p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Proposal: rename ‘Value’ to ‘MonetaryValue’ in the new version of the Ontology (this new version will incorporate updates to definitions and predicates with regard to 2.0.1 and will add certain features from 2.0.2). We have to take into consideration this change for all mappings, such as ANAC Data, Consip Data and TED Data.</p>
+<p>Proposal: rename ‘Value’ to ‘MonetaryValue’ in the new version of the Ontology (this new version will incorporate updates to definitions and predicates with regard to 2.0.1, and will add certain features from 2.0.2). We have to consider the implication of this change for all mappings, such as ANAC Data, Consip Data and TED Data.</p>
 </div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
 <p><strong>Maximum and Minimum</strong> were proposed to be used as predicates in 2.0.1 and 2.0.2.</p>
-</div>
-<div class="paragraph">
+</li>
+<li>
 <p>The predicate ‘hasAwardEstimatedValue’ cardinality should be changed to ‘0 .. *’</p>
+</li>
+<li>
+<p>We have to identify all ‘MonetaryValue’ instances in the model to link them to other classes.</p>
+</li>
+<li>
+<p>The following point was brought up: If there is an AwardedValue for the FrameworkAgreement and an AwardedValue for the Contract, is that not a contradiction because the FrameworkAgreement is a Contract?</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>We have to identify all ‘MonetaryValue’ in the model to link it to other classes.</p>
-</div>
-<div class="paragraph">
-<p>The following point was brought up: If there is an AwardedValue for the FrameworkAgreement and an AwardedValue for the Contract. Is there not a contradiction due to the fact that the FrameworkAgreement is a Contract?</p>
-</div>
-<div class="paragraph">
-<p>FrameworkAgreement: either has no value but the value is for the contracts derived of it or you consider the total value of the FrameworkAgreement or you end up with a double value.</p>
+<p>FrameworkAgreement: either has no value and the value is of the contracts derived from it, or it is considered to be the total value of the FrameworkAgreement. Otherwise one ends up with a double value.</p>
 </div>
 <div class="paragraph">
 <p>A comparison of these concepts in the model and the Business Terms in eForms and current forms need to be drawn up to check and ensure that the WG creates a model that reflects the use cases of both, current forms and eForms.</p>
@@ -275,14 +283,18 @@
 <div class="paragraph">
 <p><strong>Topic of discussion: Amount</strong></p>
 </div>
-<div class="paragraph">
-<p>Probably we can eliminate the class Amount by inserting in the MonetaryValue an amount:numeric and currency:skos. We need to check if the same can be done for Amount and Quantity.</p>
-</div>
-<div class="paragraph">
+<div class="ulist">
+<ul>
+<li>
+<p>It might be possible to eliminate the class Amount by inserting an amount:numeric and currency:skos in the MonetaryValue. It must be checked if the same can be done for Amount and Quantity.</p>
+</li>
+<li>
 <p>In the TED mappings the data is mapped to ‘ccts’ and not ‘epo’ as per the OWL file.</p>
-</div>
-<div class="paragraph">
-<p>Checking notice 2020/S 243-602968 it was noted that the minimum and maximum offer is used which is different to the maximum and minimum value of the contract and should probably be associated to the tender as shown in the model created in the last meeting.</p>
+</li>
+<li>
+<p>When checking notice 2020/S 243-602968 it was noted that the minimum and maximum offer is used, which is different to the maximum and minimum value of the contract and should probably be associated to the tender as shown in the model created in the last meeting.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p><strong>Topic of discussion: Plans for the near future</strong></p>
