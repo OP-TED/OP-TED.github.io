@@ -77,7 +77,7 @@
     </nav>
 </header>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.11">
+<div class="nav-container" data-component="eforms" data-version="1.10">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -99,7 +99,7 @@
     <a class="nav-link" href="../../../eforms-common/versioning/index.html">SDK Versioning</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.11</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.10</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -165,7 +165,22 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.11</code></span></span>
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/index.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-terms/index.html">Business Terms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-rules/index.html">Business Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/code-lists/index.html">Codelists</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.10</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -210,7 +225,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.11</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.10</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../guide/index.html">Start Here</a>
@@ -268,17 +283,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.11</span>
+          <span class="version">1.10.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version is-current is-latest">
-              <a href="../index.html">1.11</a>
-            </li>
             <li class="version">
-              <a href="../../1.10/index.html">1.10.0</a>
+              <a href="../../1.11/index.html">1.11</a>
+            </li>
+            <li class="version is-current is-latest">
+              <a href="../index.html">1.10.0</a>
             </li>
             <li class="version">
               <a href="../../1.9/index.html">1.9.0</a>
@@ -371,10 +386,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.11</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.10.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="contract-modification-notice.html">1.11</a>
-    <a class="version" href="../../1.10/schema/contract-modification-notice.html">1.10.0</a>
+    <a class="version" href="../../1.11/schema/contract-modification-notice.html">1.11</a>
+    <a class="version is-current" href="contract-modification-notice.html">1.10.0</a>
     <a class="version" href="../../1.9/schema/contract-modification-notice.html">1.9.0</a>
     <a class="version" href="../../1.8/schema/contract-modification-notice.html">1.8.0</a>
     <a class="version" href="../../1.7/schema/contract-modification-notice.html">1.7.0</a>
@@ -391,105 +406,51 @@
 <article class="doc">
 <h1 class="page">Contract Modification Notice</h1>
 <div class="paragraph">
-<p>A contract modification may occur during contract execution and applies
-to a Result or Contract Modification notice only.</p>
-</div>
-<div class="paragraph">
-<p>With a single Contract Modification notice, it is only possible to modify contracts
-belonging to the same notice, and only if none of them have been modified in the meantime.
-When some contracts in a notice have already been modified, then any further contract
-modification for these contracts has to be applied on the latest Contract Modification
-notice. For contracts that have not been modified, the new contract modification may be
-performed based on the result notice but shall not include contracts already modified.</p>
-</div>
-<div class="paragraph">
-<p>If a notice only contains N SettledContract elements, then there may not be more than N
-references to contracts in the Contract Modification notice. A Contract Modification may
-only refer to a single contract; there may be multiple Contract Modification elements, they
-each have to refer to a different contract.</p>
+<p>A contract modification follows the same structure as a change, it
+however appears during contract execution and applies to a CAN only.</p>
 </div>
 <table id="modificationComponentsTable" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Modification components</caption>
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-center valign-middle"><strong>Field ID</strong></th>
-<th class="tableblock halign-center valign-middle"><strong>Field Name</strong></th>
-<th class="tableblock halign-left valign-middle"><strong>Description</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>eForms BT</strong></th>
+<th class="tableblock halign-center valign-middle"><strong>Description</strong></th>
 <th class="tableblock halign-center valign-middle"><strong>Cardin.</strong></th>
 <th class="tableblock halign-center valign-middle"><strong>XSD element</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1501(n)-Contract</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Previous Notice Identifier</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference
-to the previous notice (Result or Contract Modification)</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ContractModification/efbc:ChangedNoticeIdentifier</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1501(c)-Contract</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modified Contract Reference</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reference to the modified
-contract (i.e. technical ID CON-xxxx)</p></td>
-<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ContractModification/efbc:ModifiedContractIdentifier</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-202-Contract</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Description</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Description (BT-202)</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Description of the modification</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ContractModification/efac:Change/efbc:ChangeDescription</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-1501(p)-Contract</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modified Notice Part Reference</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of the modified
-parts of the notice</p></td>
-<th class="tableblock halign-center valign-middle"><p class="tableblock">*</p></th>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ContractModification/efac:Change/efac:ChangedSection/efbc:ChangedSectionIdentifier</code></pre>
-</div>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-200-Contract</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Reason Code</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Main reason for modifying the contract</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ContractModification/efac:ChangeReason/cbc:ReasonCode</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efbc:ChangeDescription</code></pre>
 </div>
 </div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BT-201-Contract</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Reason Description</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reason, expressed as text, that justifies
-the Contract Modification</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Reason Code (BT-200)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Code to express the modification
+background reasons</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:ChangeReason/cbc:ReasonCode</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Reason Description (BT-201)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Modification background
+reasons expressed as text</p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>1</strong></p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
@@ -497,39 +458,19 @@ the Contract Modification</p></td>
 </div>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Modification Previous Section Identifier (BT-1501)</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Identification of
+the modified sections</p></td>
+<td class="tableblock halign-center valign-middle"><p class="tableblock"><strong>+</strong></p></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">efac:Change/efac:ChangedSection/efbc:ChangedSectionIdentifier</code></pre>
+</div>
+</div></div></td>
+</tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>The possible values Modified Notice Part Reference may have are:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>BUYER to refer to the buyers,</p>
-</li>
-<li>
-<p>RESULT to refer to the Notice Result,</p>
-</li>
-<li>
-<p>The technical identifier of an existing LotResult (RES-xxxx),</p>
-</li>
-<li>
-<p>The technical identifier of an existing LotTender (TEN-xxxx),</p>
-</li>
-<li>
-<p>The technical identifier of an existing Tendering Party (TPA-xxxx),</p>
-</li>
-<li>
-<p>The technical identifier of an existing Touchpoint (TPO-xxxx),</p>
-</li>
-<li>
-<p>The technical identifier of an existing Organisation (ORG-xxxx),</p>
-</li>
-<li>
-<p>The technical identifier of an existing Ultimate Beneficial Owner (UBO-xxxx)</p>
-</li>
-</ul>
-</div>
 <div class="paragraph">
 <p>The possible Modification reason code values are referenced in the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/modification-justification">modification-justification</a>
@@ -540,36 +481,44 @@ codelist.</p>
 of the notice.</p>
 </div>
 <div class="paragraph">
-<p>For each "<em>efac:ContractModification</em>" element, as part of the changed sections, there shall
-be, a unique reference to a contract within the Contract Modification notice using the contract
-technical identifier.</p>
+<p>With a single Contract Modification notice, it is only possible to
+modify contracts belonging to the same notice, and only if none of
+them have been modified in the meantime. When some contracts in a
+notice have already been modified, then any further contract
+modification for these contracts has to be applied on the latest
+Contract Modification notice. For contracts that have not
+been modified, the new contract modification may be performed based
+on the result notice but shall not include contracts already modified.</p>
+</div>
+<div class="paragraph">
+<p>If a notice only contains N SettledContract elements, then there may not be
+more than N references to contracts in the Contract Modification notice.</p>
+</div>
+<div class="paragraph">
+<p>For each "<em>efac:ContractModification</em>" element, as part of the changed
+sections, there shall be, in addition to the other sections
+impacted, a unique reference to a contract within the Contract
+Modification notice using the contract technical identifier.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:ContractModification&gt;
-    &lt;!-- Modification Previous Notice Identifier BT-1501(n)-Contract --&gt;
-    &lt;efbc:ChangedNoticeIdentifier schemeName="notice-id-ref"&gt;755db7f6-6aa1-453b-9087-1df5f7725112-02&lt;/efbc:ChangedNoticeIdentifier&gt;
-    &lt;!-- Modified Contract Reference BT-1501(c)-Contract --&gt;
-    &lt;efbc:ModifiedContractIdentifier schemeName="contract"&gt;CON-0001&lt;/efbc: ModifiedContractIdentifier&gt;
+    &lt;efbc:ChangedNoticeIdentifier&gt;755db7f6-6aa1-453b-9087-1df5f7725112-02&lt;/efbc:ChangedNoticeIdentifier&gt;
     &lt;efac:Change&gt;
-        &lt;!-- Modification Description BT-202-Contract --&gt;
         &lt;efbc:ChangeDescription languageID="ENG"&gt;The scope of the procurement ...&lt;/efbc:ReasonDescription&gt;
-        &lt;efbc:ChangeDescription languageID="FRE"&gt;Le périmètre de ...&lt;/efbc:ReasonDescription&gt;
         &lt;efac:ChangedSection&gt;
-            &lt;!-- Modified Notice Part Reference BT-1501(p)-Contract --&gt;
-            &lt;efbc:ChangedSectionIdentifier&gt;TEN-0001&lt;/efbc:ChangedSectionIdentifier&gt;
+            &lt;efbc:ChangedSectionIdentifier&gt;CON-0001&lt;/efbc:ChangedSectionIdentifier&gt;
         &lt;/efac:ChangedSection&gt;
         &lt;efac:ChangedSection&gt;
-           &lt;!-- Modified Notice Part Reference BT-1501(p)-Contract --&gt;
-           &lt;efbc:ChangedSectionIdentifier&gt;TEN-0003&lt;/efbc:ChangedSectionIdentifier&gt;
+            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0001&lt;/efbc:ChangedSectionIdentifier&gt;
+        &lt;/efac:ChangedSection&gt;
+        &lt;efac:ChangedSection&gt;
+            &lt;efbc:ChangedSectionIdentifier&gt;LOT-0003&lt;/efbc:ChangedSectionIdentifier&gt;
         &lt;/efac:ChangedSection&gt;
     &lt;/efac:Change&gt;
     &lt;efac:ChangeReason&gt;
-        &lt;!-- Modification Reason Code BT-200-Contract --&gt;
         &lt;cbc:ReasonCode listName="modification-justification"&gt;mod-cir&lt;/cbc:ReasonCode&gt;
-        &lt;!-- Modification Reason Description BT-201-Contract --&gt;
         &lt;efbc:ReasonDescription languageID="ENG"&gt;Following an Act of God ...&lt;/efbc:ReasonDescription&gt;
-        &lt;efbc:ReasonDescription languageID="FRE"&gt;Suite à un événement ...&lt;/efbc:ReasonDescription&gt;
     &lt;/efac:ChangeReason&gt;
 &lt;/cac:ContractModification&gt;</code></pre>
 </div>
