@@ -1,0 +1,2447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>country codelist :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/1.10/reference/code-lists/country.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../../latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../../../../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="eforms" data-version="1.10">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/FAQ/index.html">Frequently Asked Questions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/preview/index.html">Preview Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/active-versions/index.html">Active SDK Versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/versioning/index.html">SDK Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.10</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../schema/index.html">eForms Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Elements</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../schema/schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../schema/notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../schema/notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../schema/procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../schema/competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../../schema/parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../schema/other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../index.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-terms/index.html">Business Terms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../business-rules/index.html">Business Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="index.html">Codelists</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.10</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../codelists/index.html">Codelists</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../notice-types/index.html">Notice Types</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../viewer-templates/index.html">View Templates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../translations/index.html">Translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../schemas/index.html">XML Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../schematrons/index.html">Schematron</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../efx/index.html">EFX grammar</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.10</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../guide/index.html">Start Here</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../guide/understanding-the-sdk.html">Understanding the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../guide/sdk-glossary.html">SDK glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Working with the SDK</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/notice-forms.html">Create the forms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/xml-generation.html">Generate XML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/visualisation.html">Visualise notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../guide/validation.html">Validate notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../guide/implementing-eforms-without-the-sdk.html">Working without the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Java Libraries</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/efx-toolkit/index.html">EFX Toolkit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/eforms-core/index.html">eForms Core Library</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Sample Applications</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/notice-viewer/index.html">Notice Viewer (Java)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../../eforms-common/notice-editor/index.html">Notice Editor (Java)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eForms SDK</span>
+          <span class="version">1.10.0</span>
+      </div>
+  <ul class="components">
+      <li class="component is-current">
+        <a class="title" href="../../../latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../latest/index.html">1.11</a>
+            </li>
+            <li class="version is-current">
+              <a href="../../index.html">1.10.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.9/index.html">1.9.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.8/index.html">1.8.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.7/index.html">1.7.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.6/index.html">1.6</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.5/index.html">1.5.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.4/index.html">1.4.1</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../../EPO/4.1/index.html">4.1.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../../EPO/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../../index.html">eForms SDK</a></li>
+    <li><a href="country.html"><code>country</code> codelist</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.10.0</button>
+  <div class="version-menu">
+    <a class="version is-missing" href="../../../latest/index.html">1.11</a>
+    <a class="version is-current" href="country.html">1.10.0</a>
+    <a class="version" href="../../../1.9/reference/code-lists/country.html">1.9.0</a>
+    <a class="version" href="../../../1.8/reference/code-lists/country.html">1.8.0</a>
+    <a class="version" href="../../../1.7/reference/code-lists/country.html">1.7.0</a>
+    <a class="version" href="../../../1.6/reference/code-lists/country.html">1.6</a>
+    <a class="version" href="../../../1.5/reference/code-lists/country.html">1.5.1</a>
+    <a class="version" href="../../../1.4/reference/code-lists/country.html">1.4.1</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page"><code>country</code> codelist</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>List of three characters country codes, correlated with the ISO 3166 international standard and additional authority codes for some countries without assigned ISO code.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Version
+</td>
+<td class="hdlist2">
+<p>20230915-0</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+URI
+</td>
+<td class="hdlist2">
+<p><a href="http://publications.europa.eu/resource/dataset/country" class="bare">http://publications.europa.eu/resource/dataset/country</a></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Tailored by
+</td>
+<td class="hdlist2">
+<p><a href="eea-country.html" class="xref page"><code>eea-country</code></a>, <a href="eforms-country.html" class="xref page"><code>eforms-country</code></a>, <a href="eu-country.html" class="xref page"><code>eu-country</code></a>, <a href="lawful-country.html" class="xref page"><code>lawful-country</code></a>, <a href="nuts-country.html" class="xref page"><code>nuts-country</code></a>, <a href="postcode-country.html" class="xref page"><code>postcode-country</code></a></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Structure
+</td>
+<td class="hdlist2">
+<p>flat</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_codes"><a class="anchor" href="#_codes"></a>Codes</h2>
+<div class="sectionbody">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>ABW</code>
+</td>
+<td class="hdlist2">
+<p>Aruba</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AFG</code>
+</td>
+<td class="hdlist2">
+<p>Afghanistan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AGO</code>
+</td>
+<td class="hdlist2">
+<p>Angola</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AIA</code>
+</td>
+<td class="hdlist2">
+<p>Anguilla</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ALA</code>
+</td>
+<td class="hdlist2">
+<p>Åland Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ALB</code>
+</td>
+<td class="hdlist2">
+<p>Albania</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AND</code>
+</td>
+<td class="hdlist2">
+<p>Andorra</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ARE</code>
+</td>
+<td class="hdlist2">
+<p>United Arab Emirates</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ARG</code>
+</td>
+<td class="hdlist2">
+<p>Argentina</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ARM</code>
+</td>
+<td class="hdlist2">
+<p>Armenia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ASM</code>
+</td>
+<td class="hdlist2">
+<p>American Samoa</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ATA</code>
+</td>
+<td class="hdlist2">
+<p>Antarctica</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ATF</code>
+</td>
+<td class="hdlist2">
+<p>French Southern and Antarctic Lands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ATG</code>
+</td>
+<td class="hdlist2">
+<p>Antigua and Barbuda</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AUS</code>
+</td>
+<td class="hdlist2">
+<p>Australia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AUT</code>
+</td>
+<td class="hdlist2">
+<p>Austria</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>AZE</code>
+</td>
+<td class="hdlist2">
+<p>Azerbaijan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BDI</code>
+</td>
+<td class="hdlist2">
+<p>Burundi</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BEL</code>
+</td>
+<td class="hdlist2">
+<p>Belgium</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BEN</code>
+</td>
+<td class="hdlist2">
+<p>Benin</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BES</code>
+</td>
+<td class="hdlist2">
+<p>Bonaire, Sint Eustatius and Saba</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BFA</code>
+</td>
+<td class="hdlist2">
+<p>Burkina Faso</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BGD</code>
+</td>
+<td class="hdlist2">
+<p>Bangladesh</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BGR</code>
+</td>
+<td class="hdlist2">
+<p>Bulgaria</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BHR</code>
+</td>
+<td class="hdlist2">
+<p>Bahrain</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BHS</code>
+</td>
+<td class="hdlist2">
+<p>Bahamas</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BIH</code>
+</td>
+<td class="hdlist2">
+<p>Bosnia and Herzegovina</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BLM</code>
+</td>
+<td class="hdlist2">
+<p>Saint Barthélemy</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BLR</code>
+</td>
+<td class="hdlist2">
+<p>Belarus</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BLZ</code>
+</td>
+<td class="hdlist2">
+<p>Belize</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BMU</code>
+</td>
+<td class="hdlist2">
+<p>Bermuda</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BOL</code>
+</td>
+<td class="hdlist2">
+<p>Bolivia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BRA</code>
+</td>
+<td class="hdlist2">
+<p>Brazil</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BRB</code>
+</td>
+<td class="hdlist2">
+<p>Barbados</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BRN</code>
+</td>
+<td class="hdlist2">
+<p>Brunei</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BTN</code>
+</td>
+<td class="hdlist2">
+<p>Bhutan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BVT</code>
+</td>
+<td class="hdlist2">
+<p>Bouvet Island</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>BWA</code>
+</td>
+<td class="hdlist2">
+<p>Botswana</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CAF</code>
+</td>
+<td class="hdlist2">
+<p>Central African Republic</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CAN</code>
+</td>
+<td class="hdlist2">
+<p>Canada</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CCK</code>
+</td>
+<td class="hdlist2">
+<p>Cocos (Keeling) Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CHE</code>
+</td>
+<td class="hdlist2">
+<p>Switzerland</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CHL</code>
+</td>
+<td class="hdlist2">
+<p>Chile</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CHN</code>
+</td>
+<td class="hdlist2">
+<p>China</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CIV</code>
+</td>
+<td class="hdlist2">
+<p>Côte d’Ivoire</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CMR</code>
+</td>
+<td class="hdlist2">
+<p>Cameroon</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>COD</code>
+</td>
+<td class="hdlist2">
+<p>Democratic Republic of the Congo</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>COG</code>
+</td>
+<td class="hdlist2">
+<p>Congo</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>COK</code>
+</td>
+<td class="hdlist2">
+<p>Cook Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>COL</code>
+</td>
+<td class="hdlist2">
+<p>Colombia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>COM</code>
+</td>
+<td class="hdlist2">
+<p>Comoros</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CPT</code>
+</td>
+<td class="hdlist2">
+<p>Clipperton</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CPV</code>
+</td>
+<td class="hdlist2">
+<p>Cabo Verde</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CRI</code>
+</td>
+<td class="hdlist2">
+<p>Costa Rica</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CUB</code>
+</td>
+<td class="hdlist2">
+<p>Cuba</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CUW</code>
+</td>
+<td class="hdlist2">
+<p>Curaçao</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CXR</code>
+</td>
+<td class="hdlist2">
+<p>Christmas Island</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CYM</code>
+</td>
+<td class="hdlist2">
+<p>Cayman Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CYP</code>
+</td>
+<td class="hdlist2">
+<p>Cyprus</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>CZE</code>
+</td>
+<td class="hdlist2">
+<p>Czechia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>DEU</code>
+</td>
+<td class="hdlist2">
+<p>Germany</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>DJI</code>
+</td>
+<td class="hdlist2">
+<p>Djibouti</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>DMA</code>
+</td>
+<td class="hdlist2">
+<p>Dominica</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>DNK</code>
+</td>
+<td class="hdlist2">
+<p>Denmark</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>DOM</code>
+</td>
+<td class="hdlist2">
+<p>Dominican Republic</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>DZA</code>
+</td>
+<td class="hdlist2">
+<p>Algeria</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ECU</code>
+</td>
+<td class="hdlist2">
+<p>Ecuador</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>EGY</code>
+</td>
+<td class="hdlist2">
+<p>Egypt</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ERI</code>
+</td>
+<td class="hdlist2">
+<p>Eritrea</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ESH</code>
+</td>
+<td class="hdlist2">
+<p>Western Sahara</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ESP</code>
+</td>
+<td class="hdlist2">
+<p>Spain</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>EST</code>
+</td>
+<td class="hdlist2">
+<p>Estonia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ETH</code>
+</td>
+<td class="hdlist2">
+<p>Ethiopia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FIN</code>
+</td>
+<td class="hdlist2">
+<p>Finland</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FJI</code>
+</td>
+<td class="hdlist2">
+<p>Fiji</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FLK</code>
+</td>
+<td class="hdlist2">
+<p>Falkland Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FRA</code>
+</td>
+<td class="hdlist2">
+<p>France</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FRO</code>
+</td>
+<td class="hdlist2">
+<p>Faroes</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>FSM</code>
+</td>
+<td class="hdlist2">
+<p>Micronesia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GAB</code>
+</td>
+<td class="hdlist2">
+<p>Gabon</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GBR</code>
+</td>
+<td class="hdlist2">
+<p>United Kingdom</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GEO</code>
+</td>
+<td class="hdlist2">
+<p>Georgia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GGY</code>
+</td>
+<td class="hdlist2">
+<p>Guernsey</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GHA</code>
+</td>
+<td class="hdlist2">
+<p>Ghana</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GIB</code>
+</td>
+<td class="hdlist2">
+<p>Gibraltar</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GIN</code>
+</td>
+<td class="hdlist2">
+<p>Guinea</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GMB</code>
+</td>
+<td class="hdlist2">
+<p>The Gambia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GNB</code>
+</td>
+<td class="hdlist2">
+<p>Guinea-Bissau</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GNQ</code>
+</td>
+<td class="hdlist2">
+<p>Equatorial Guinea</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GRC</code>
+</td>
+<td class="hdlist2">
+<p>Greece</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GRD</code>
+</td>
+<td class="hdlist2">
+<p>Grenada</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GRL</code>
+</td>
+<td class="hdlist2">
+<p>Greenland</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GTM</code>
+</td>
+<td class="hdlist2">
+<p>Guatemala</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GUM</code>
+</td>
+<td class="hdlist2">
+<p>Guam</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GUY</code>
+</td>
+<td class="hdlist2">
+<p>Guyana</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>HKG</code>
+</td>
+<td class="hdlist2">
+<p>Hong Kong</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>HMD</code>
+</td>
+<td class="hdlist2">
+<p>Heard Island and McDonald Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>HND</code>
+</td>
+<td class="hdlist2">
+<p>Honduras</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>HRV</code>
+</td>
+<td class="hdlist2">
+<p>Croatia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>HTI</code>
+</td>
+<td class="hdlist2">
+<p>Haiti</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>HUN</code>
+</td>
+<td class="hdlist2">
+<p>Hungary</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IDN</code>
+</td>
+<td class="hdlist2">
+<p>Indonesia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IMN</code>
+</td>
+<td class="hdlist2">
+<p>Isle of Man</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IND</code>
+</td>
+<td class="hdlist2">
+<p>India</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IOT</code>
+</td>
+<td class="hdlist2">
+<p>British Indian Ocean Territory</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IRL</code>
+</td>
+<td class="hdlist2">
+<p>Ireland</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IRN</code>
+</td>
+<td class="hdlist2">
+<p>Iran</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>IRQ</code>
+</td>
+<td class="hdlist2">
+<p>Iraq</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ISL</code>
+</td>
+<td class="hdlist2">
+<p>Iceland</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ISR</code>
+</td>
+<td class="hdlist2">
+<p>Israel</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ITA</code>
+</td>
+<td class="hdlist2">
+<p>Italy</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>JAM</code>
+</td>
+<td class="hdlist2">
+<p>Jamaica</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>JEY</code>
+</td>
+<td class="hdlist2">
+<p>Jersey</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>JOR</code>
+</td>
+<td class="hdlist2">
+<p>Jordan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>JPN</code>
+</td>
+<td class="hdlist2">
+<p>Japan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KAZ</code>
+</td>
+<td class="hdlist2">
+<p>Kazakhstan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KEN</code>
+</td>
+<td class="hdlist2">
+<p>Kenya</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KGZ</code>
+</td>
+<td class="hdlist2">
+<p>Kyrgyzstan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KHM</code>
+</td>
+<td class="hdlist2">
+<p>Cambodia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KIR</code>
+</td>
+<td class="hdlist2">
+<p>Kiribati</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KNA</code>
+</td>
+<td class="hdlist2">
+<p>Saint Kitts and Nevis</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KOR</code>
+</td>
+<td class="hdlist2">
+<p>South Korea</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>KWT</code>
+</td>
+<td class="hdlist2">
+<p>Kuwait</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LAO</code>
+</td>
+<td class="hdlist2">
+<p>Laos</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LBN</code>
+</td>
+<td class="hdlist2">
+<p>Lebanon</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LBR</code>
+</td>
+<td class="hdlist2">
+<p>Liberia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LBY</code>
+</td>
+<td class="hdlist2">
+<p>Libya</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LCA</code>
+</td>
+<td class="hdlist2">
+<p>Saint Lucia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LIE</code>
+</td>
+<td class="hdlist2">
+<p>Liechtenstein</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LKA</code>
+</td>
+<td class="hdlist2">
+<p>Sri Lanka</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LSO</code>
+</td>
+<td class="hdlist2">
+<p>Lesotho</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LTU</code>
+</td>
+<td class="hdlist2">
+<p>Lithuania</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LUX</code>
+</td>
+<td class="hdlist2">
+<p>Luxembourg</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>LVA</code>
+</td>
+<td class="hdlist2">
+<p>Latvia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MAC</code>
+</td>
+<td class="hdlist2">
+<p>Macao</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MAF</code>
+</td>
+<td class="hdlist2">
+<p>Saint Martin</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MAR</code>
+</td>
+<td class="hdlist2">
+<p>Morocco</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MCO</code>
+</td>
+<td class="hdlist2">
+<p>Monaco</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MDA</code>
+</td>
+<td class="hdlist2">
+<p>Moldova</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MDG</code>
+</td>
+<td class="hdlist2">
+<p>Madagascar</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MDV</code>
+</td>
+<td class="hdlist2">
+<p>Maldives</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MEX</code>
+</td>
+<td class="hdlist2">
+<p>Mexico</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MHL</code>
+</td>
+<td class="hdlist2">
+<p>Marshall Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MKD</code>
+</td>
+<td class="hdlist2">
+<p>North Macedonia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MLI</code>
+</td>
+<td class="hdlist2">
+<p>Mali</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MLT</code>
+</td>
+<td class="hdlist2">
+<p>Malta</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MMR</code>
+</td>
+<td class="hdlist2">
+<p>Myanmar/Burma</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MNE</code>
+</td>
+<td class="hdlist2">
+<p>Montenegro</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MNG</code>
+</td>
+<td class="hdlist2">
+<p>Mongolia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MNP</code>
+</td>
+<td class="hdlist2">
+<p>Northern Mariana Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MOZ</code>
+</td>
+<td class="hdlist2">
+<p>Mozambique</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MRT</code>
+</td>
+<td class="hdlist2">
+<p>Mauritania</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MSR</code>
+</td>
+<td class="hdlist2">
+<p>Montserrat</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MUS</code>
+</td>
+<td class="hdlist2">
+<p>Mauritius</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MWI</code>
+</td>
+<td class="hdlist2">
+<p>Malawi</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MYS</code>
+</td>
+<td class="hdlist2">
+<p>Malaysia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NAM</code>
+</td>
+<td class="hdlist2">
+<p>Namibia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NCL</code>
+</td>
+<td class="hdlist2">
+<p>New Caledonia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NER</code>
+</td>
+<td class="hdlist2">
+<p>Niger</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NFK</code>
+</td>
+<td class="hdlist2">
+<p>Norfolk Island</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NGA</code>
+</td>
+<td class="hdlist2">
+<p>Nigeria</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NIC</code>
+</td>
+<td class="hdlist2">
+<p>Nicaragua</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NIU</code>
+</td>
+<td class="hdlist2">
+<p>Niue</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NLD</code>
+</td>
+<td class="hdlist2">
+<p>Netherlands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NOR</code>
+</td>
+<td class="hdlist2">
+<p>Norway</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NPL</code>
+</td>
+<td class="hdlist2">
+<p>Nepal</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NRU</code>
+</td>
+<td class="hdlist2">
+<p>Nauru</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NZL</code>
+</td>
+<td class="hdlist2">
+<p>New Zealand</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>OMN</code>
+</td>
+<td class="hdlist2">
+<p>Oman</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PAK</code>
+</td>
+<td class="hdlist2">
+<p>Pakistan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PAN</code>
+</td>
+<td class="hdlist2">
+<p>Panama</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PCN</code>
+</td>
+<td class="hdlist2">
+<p>Pitcairn Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PER</code>
+</td>
+<td class="hdlist2">
+<p>Peru</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PHL</code>
+</td>
+<td class="hdlist2">
+<p>Philippines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PLW</code>
+</td>
+<td class="hdlist2">
+<p>Palau</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PNG</code>
+</td>
+<td class="hdlist2">
+<p>Papua New Guinea</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>POL</code>
+</td>
+<td class="hdlist2">
+<p>Poland</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PRI</code>
+</td>
+<td class="hdlist2">
+<p>Puerto Rico</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PRK</code>
+</td>
+<td class="hdlist2">
+<p>North Korea</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PRT</code>
+</td>
+<td class="hdlist2">
+<p>Portugal</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PRY</code>
+</td>
+<td class="hdlist2">
+<p>Paraguay</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PSE</code>
+</td>
+<td class="hdlist2">
+<p>Palestine</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>PYF</code>
+</td>
+<td class="hdlist2">
+<p>French Polynesia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>QAT</code>
+</td>
+<td class="hdlist2">
+<p>Qatar</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ROU</code>
+</td>
+<td class="hdlist2">
+<p>Romania</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>RUS</code>
+</td>
+<td class="hdlist2">
+<p>Russia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>RWA</code>
+</td>
+<td class="hdlist2">
+<p>Rwanda</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SAU</code>
+</td>
+<td class="hdlist2">
+<p>Saudi Arabia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SDN</code>
+</td>
+<td class="hdlist2">
+<p>Sudan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SEN</code>
+</td>
+<td class="hdlist2">
+<p>Senegal</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SGP</code>
+</td>
+<td class="hdlist2">
+<p>Singapore</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SGS</code>
+</td>
+<td class="hdlist2">
+<p>South Georgia and the South Sandwich Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SHN</code>
+</td>
+<td class="hdlist2">
+<p>Saint Helena, Ascension and Tristan da Cunha</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SJM</code>
+</td>
+<td class="hdlist2">
+<p>Svalbard and Jan Mayen</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SLB</code>
+</td>
+<td class="hdlist2">
+<p>Solomon Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SLE</code>
+</td>
+<td class="hdlist2">
+<p>Sierra Leone</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SLV</code>
+</td>
+<td class="hdlist2">
+<p>El Salvador</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SMR</code>
+</td>
+<td class="hdlist2">
+<p>San Marino</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SOM</code>
+</td>
+<td class="hdlist2">
+<p>Somalia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SPM</code>
+</td>
+<td class="hdlist2">
+<p>Saint Pierre and Miquelon</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SRB</code>
+</td>
+<td class="hdlist2">
+<p>Serbia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SSD</code>
+</td>
+<td class="hdlist2">
+<p>South Sudan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>STP</code>
+</td>
+<td class="hdlist2">
+<p>São Tomé and Príncipe</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SUR</code>
+</td>
+<td class="hdlist2">
+<p>Suriname</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SVK</code>
+</td>
+<td class="hdlist2">
+<p>Slovakia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SVN</code>
+</td>
+<td class="hdlist2">
+<p>Slovenia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SWE</code>
+</td>
+<td class="hdlist2">
+<p>Sweden</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SWZ</code>
+</td>
+<td class="hdlist2">
+<p>Eswatini</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SXM</code>
+</td>
+<td class="hdlist2">
+<p>Sint Maarten</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SYC</code>
+</td>
+<td class="hdlist2">
+<p>Seychelles</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>SYR</code>
+</td>
+<td class="hdlist2">
+<p>Syria</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TCA</code>
+</td>
+<td class="hdlist2">
+<p>Turks and Caicos Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TCD</code>
+</td>
+<td class="hdlist2">
+<p>Chad</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TGO</code>
+</td>
+<td class="hdlist2">
+<p>Togo</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>THA</code>
+</td>
+<td class="hdlist2">
+<p>Thailand</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TJK</code>
+</td>
+<td class="hdlist2">
+<p>Tajikistan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TKL</code>
+</td>
+<td class="hdlist2">
+<p>Tokelau</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TKM</code>
+</td>
+<td class="hdlist2">
+<p>Turkmenistan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TLS</code>
+</td>
+<td class="hdlist2">
+<p>Timor-Leste</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TON</code>
+</td>
+<td class="hdlist2">
+<p>Tonga</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TTO</code>
+</td>
+<td class="hdlist2">
+<p>Trinidad and Tobago</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TUN</code>
+</td>
+<td class="hdlist2">
+<p>Tunisia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TUR</code>
+</td>
+<td class="hdlist2">
+<p>Türkiye</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TUV</code>
+</td>
+<td class="hdlist2">
+<p>Tuvalu</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TWN</code>
+</td>
+<td class="hdlist2">
+<p>Taiwan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TZA</code>
+</td>
+<td class="hdlist2">
+<p>Tanzania</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>UGA</code>
+</td>
+<td class="hdlist2">
+<p>Uganda</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>UKR</code>
+</td>
+<td class="hdlist2">
+<p>Ukraine</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>UMI</code>
+</td>
+<td class="hdlist2">
+<p>United States Minor Outlying Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>URY</code>
+</td>
+<td class="hdlist2">
+<p>Uruguay</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>USA</code>
+</td>
+<td class="hdlist2">
+<p>United States</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>UZB</code>
+</td>
+<td class="hdlist2">
+<p>Uzbekistan</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VAT</code>
+</td>
+<td class="hdlist2">
+<p>Holy See</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VCT</code>
+</td>
+<td class="hdlist2">
+<p>Saint Vincent and the Grenadines</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VEN</code>
+</td>
+<td class="hdlist2">
+<p>Venezuela</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VGB</code>
+</td>
+<td class="hdlist2">
+<p>British Virgin Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VIR</code>
+</td>
+<td class="hdlist2">
+<p>US Virgin Islands</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VNM</code>
+</td>
+<td class="hdlist2">
+<p>Vietnam</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>VUT</code>
+</td>
+<td class="hdlist2">
+<p>Vanuatu</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>WLF</code>
+</td>
+<td class="hdlist2">
+<p>Wallis and Futuna</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>WSM</code>
+</td>
+<td class="hdlist2">
+<p>Samoa</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>XKX</code>
+</td>
+<td class="hdlist2">
+<p>Kosovo</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>YEM</code>
+</td>
+<td class="hdlist2">
+<p>Yemen</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ZAF</code>
+</td>
+<td class="hdlist2">
+<p>South Africa</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ZMB</code>
+</td>
+<td class="hdlist2">
+<p>Zambia</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>ZWE</code>
+</td>
+<td class="hdlist2">
+<p>Zimbabwe</p>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../../../_/js/site.js"></script>
+<script async src="../../../../_/js/vendor/highlight.js"></script>
+<script src="../../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
