@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating notice forms :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/latest/guide/notice-forms.html">
+    <meta name="generator" content="Antora 3.1.2">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://docs.ted.europa.eu">
+                <img src="../../../_/img/ted-logo.svg" class="logo" />
+                <span class="navbar-title">TED Developer Documentation</span>
+            </a>
+            <button class="navbar-burger" data-target="topbar-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="https://docs.ted.europa.eu">Home</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Products</a>
+  <div class="navbar-dropdown">
+      <a class="navbar-item" href="../../latest/index.html">eForms SDK</a>
+      <a class="navbar-item" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+      <a class="navbar-item" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+  </div>
+</div>
+
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link" href="#">Resources</a>
+  <div class="navbar-dropdown">
+    <!-- <div class="navbar-item"><b>Publications Ofiice</b></div> -->
+    <a class="navbar-item" href="https://github.com/OP-TED/eForms-SDK">eForms SDK on Github</a>
+    <a class="navbar-item" href="https://simap.ted.europa.eu/web/simap/eforms">eForms on SIMAP</a>
+    <a class="navbar-item" href="https://github.com/eprocurementontology/eprocurementontology">eProcurement
+      Ontology</a>
+    <a class="navbar-item" href="https://github.com/espd/espd-edm">European Single Procurement Document</a>
+    <a class="navbar-item" href="https://op.europa.eu/en/web/eu-vocabularies/e-procurement/tables">eProcurement in
+      EU Vocabularies</a>
+    <hr class="navbar-divider">
+    <!-- <div class="navbar-item"><b>DG GROW</b></div>-->
+    <a class="navbar-item" href="https://ec.europa.eu/growth/single-market/public-procurement/digital/eforms_en">About
+      eForms</a>
+    <!-- <a class="navbar-item" href="https://github.com/eForms/eForms">eForms 2nd consultation</a> -->
+  </div>
+</div>
+
+<a class="navbar-item" href="https://simap.ted.europa.eu/contact">Helpdesk</a>
+
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="eforms" data-version="1.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/FAQ/index.html">Frequently Asked Questions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/preview/index.html">Preview Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/active-versions/index.html">Active SDK Versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/versioning/index.html">SDK Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.12</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../schema/index.html">eForms Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Elements</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.12</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../codelists/index.html">Codelists</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-types/index.html">Notice Types</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../viewer-templates/index.html">View Templates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../translations/index.html">Translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schemas/index.html">XML Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schematrons/index.html">Schematron</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../efx/index.html">EFX grammar</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.12</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Start Here</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="understanding-the-sdk.html">Understanding the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="sdk-glossary.html">SDK glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Working with the SDK</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="notice-forms.html">Create the forms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="xml-generation.html">Generate XML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="visualisation.html">Visualise notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="validation.html">Validate notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="implementing-eforms-without-the-sdk.html">Working without the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Java Libraries</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/efx-toolkit/index.html">EFX Toolkit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/eforms-core/index.html">eForms Core Library</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Sample Applications</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/notice-viewer/index.html">Notice Viewer (Java)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/notice-editor/index.html">Notice Editor (Java)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eForms SDK</span>
+          <span class="version">1.12</span>
+      </div>
+  <ul class="components">
+      <li class="component is-current">
+        <a class="title" href="../../latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-current">
+              <a href="../index.html">1.12</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../latest/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../../1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../1.6/index.html">1.6</a>
+            </li>
+            <li class="version">
+              <a href="../../1.5/index.html">1.5</a>
+            </li>
+            <li class="version">
+              <a href="../../1.4/index.html">1.4</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0-rc.2</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li>Working with the SDK</li>
+    <li><a href="notice-forms.html">Create the forms</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.12</button>
+  <div class="version-menu">
+    <a class="version is-current" href="notice-forms.html">1.12</a>
+    <a class="version" href="../../latest/guide/notice-forms.html">1.11.0</a>
+    <a class="version" href="../../1.10/guide/notice-forms.html">1.10</a>
+    <a class="version" href="../../1.9/guide/notice-forms.html">1.9</a>
+    <a class="version" href="../../1.8/guide/notice-forms.html">1.8</a>
+    <a class="version" href="../../1.7/guide/notice-forms.html">1.7</a>
+    <a class="version" href="../../1.6/guide/notice-forms.html">1.6</a>
+    <a class="version" href="../../1.5/guide/notice-forms.html">1.5</a>
+    <a class="version" href="../../1.4/guide/notice-forms.html">1.4</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating notice forms</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>For your end-users to be able to create and publish their notices your application needs to put on their screen the appropriate notice form for them to fill in.</p>
+</div>
+<div class="paragraph">
+<p>The form should be organised in a way that helps the end-user make sense of the notice creation process and most importantly understand what information they should provide in each field.</p>
+</div>
+<div class="paragraph">
+<p>The form should also provide meaningful messages to the end-user so that they are able to correct any mistakes they have made, one by one, until their notice is ready to be submitted for publication.</p>
+</div>
+<div class="paragraph">
+<p>This is not a trivial task. Hoping that developers can reuse and extend the work that the Publications Office has been doing in the context of its own form filling tool (eNotices2), we are sharing in the eForms SDK the notice type definitions that we use in eNotices2.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This page presents a solution for metadata-driven applications using the eForms SDK. If you are developing a traditional application you can still use the solution presented here as a source of inspiration.
+</td>
+</tr>
+</table>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">What is a notice-type-definition file?</dt>
+<dd>
+<p>A notice type definition, (or NTD as we call them internally at the Publications Office), is a text file (in JSON format) which provides the <strong>visual structure</strong> of a notice form as it should appear on a user&#8217;s screen. One such file is provided in the eForms SDK for every notice subtype that can be created by the end-users.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_selecting_the_appropriate_form"><a class="anchor" href="#_selecting_the_appropriate_form"></a>Selecting the appropriate form</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To select the appropriate form for the specific type of notice that your end-user wants to create, you need to present to them all the available choices. The metadata that you need in order to present these choices to your end-users can be found in <a href="https://github.com/OP-TED/eForms-SDK/blob/1.12/notice-types/notice-types.json"><code>notice-types/notice-types.json</code></a> in the eForms SDK.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The choices available to the end-user depend, of course, on the version of the eForms SDK that you are using and are dynamically determined by reading the metadata provided in <code>notice-types.json</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>After the user selects the specific type of notice that they want to create, you will need to put a form on their screen so that they can fill in their notice.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_putting_the_form_on_the_screen"><a class="anchor" href="#_putting_the_form_on_the_screen"></a>Putting the form on the screen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The goal here, of course, is to create the form dynamically instead of coding it by hand. Here is what your algorithm needs to do:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open the notice type definition file for the notice subtype selected by the user. If, for example, the end-user selected the notice subtype 12, then you need to open <code>notice-types/12.json</code>.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Inside that notice type definition file your algorithm will find a hierarchical structure of display elements. Each one of them represents an element that needs to be placed on the end-user&#8217;s screen. These elements are either <code>display-groups</code> or <code>input-fields</code>. Obviously, <code>input-fields</code> represent the active elements on the screen where the user will enter the actual data, whereas <code>display-groups</code> are there to provide a visual structure.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Traverse the hierarchy of display elements in the notice type definition. For each one of them, create a visual element on the end-user&#8217;s screen. Create a visual container for each <code>display-group</code> and a user-input control for each <code>input-field</code>.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As you create these elements on the screen, use the <a href="../../latest/notice-types/index.html" class="xref page">metadata</a> attached to each element to determine its appearance and behaviour. Some elements, for example, are indicated as being <code>repeatable</code>. For these you need to provide a way for your end-users to add more than one of them in the form.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>That&#8217;s it really. After traversing the tree of elements once, you have a form that your end-user can fill in. For a detailed description of the metadata provided in notice type definition files, please <a href="../../latest/notice-types/index.html" class="xref page">follow this link</a>.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can either do this on-the-fly (every time your end-user selects a notice subtype), or you may prefer to "pre-compile" all notice type definitions (to some format that is more suitable for your application), only once (as soon as a new version of the eForms SDK is added to your application).
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+  </div>
+</main>
+</div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<footer class="footer">
+    <div class=columns>
+        <div>
+  <p>The projects documented in this Developer Documentation Portal are developed and managed by the TED & EU Public Procurement Unit of the Publications Office of the European Union
+  <br/>This page was built using a link:https://github.com/OP-TED/antora-eui[fork of the Antora default UI], which is licensed under the terms of the MPL-2.0 license.</p>
+</div>
+        <div>
+            <h3>This website is managed by<h3>
+                    <img src="../../../_/img/op-logo-with-name.svg" class="logo" />
+        </div>
+    </div>
+</footer>  </body>
+</html>
