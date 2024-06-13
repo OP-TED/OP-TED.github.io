@@ -1,0 +1,87 @@
+{
+    "index_name": "ted-docs-idx",
+    "start_urls": [
+      "https://docs.ted.europa.eu/",
+      "https://docs.ted.europa.eu/eforms/(.*?)/reference/"
+    ],
+    "sitemap_urls": [
+      "https://docs.ted.europa.eu/sitemap.xml"
+    ],
+    "sitemap_alternate_links": false,
+    "stop_urls": [
+      ".*/eforms/.*(?<!latest)/reference/",
+      ".*/eforms/.*/reference/business-terms/index.html",
+      ".*/eforms/.*/reference/code-lists/index.html",
+      ".*/eforms/.*/reference/business-rules/",
+      ".*/eforms/.*/schema/all-in-one.html",
+      ".*/_attachments",
+      ".*/ESPD-EDM/3.0.*",
+      ".*/ESPD-EDM/3.1.*",
+      ".*/ESPD-EDM/3.2.*"
+    ],
+    "selectors": {
+      "lvl0": {
+        "selector": "nav.breadcrumbs > ul > li:nth-child(1) > a, .version-menu-toggle",
+        "global": true,
+        "default_value": "Documentation"
+      },
+      "lvl1": ".doc > h1.page",
+      "lvl2": ".doc .sect1 > h2:first-child",
+      "lvl3": ".doc .sect2 > h3:first-child",
+      "lvl4": ".doc .sect3 > h4:first-child",
+      "lvl5": ".doc .sidebarblock > .content > .title",
+      "text": ".doc p, .doc dt, .doc td.content, .doc th.tableblock"
+    },
+    "selectors_exclude": [],
+    "min_indexed_level": 1,
+    "custom_settings": {
+      "attributesForFaceting": [
+        "component",
+        "version"
+      ],
+      "attributesToRetrieve": [
+        "anchor",
+        "content",
+        "hierarchy",
+        "url",
+        "component",
+        "version"
+      ],
+      "attributesToSnippet": [
+        "content:25"
+      ],
+      "camelCaseAttributes": [
+        "hierarchy",
+        "content"
+      ],
+      "searchableAttributes": [
+        "unordered(hierarchy.lvl0)",
+        "unordered(hierarchy.lvl1)",
+        "unordered(hierarchy.lvl2)",
+        "unordered(hierarchy.lvl3)",
+        "unordered(hierarchy.lvl4)",
+        "unordered(hierarchy.lvl5)",
+        "unordered(hierarchy.lvl6)",
+        "content"
+      ],
+      "ranking": [
+        "desc(version)",
+        "asc(component)",
+        "words",
+        "filters",
+        "typo",
+        "attribute",
+        "proximity",
+        "exact",
+        "custom"
+      ],
+      "customRanking": [
+        "desc(weight.page_rank)",
+        "desc(weight.level)",
+        "asc(weight.position)"
+      ],
+      "highlightPreTag": "<mark>",
+      "highlightPostTag": "</mark>"
+    }
+  }
+  
