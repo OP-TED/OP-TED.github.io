@@ -40,7 +40,7 @@ jobs:
 
       - name: Get the content of docsearch-config.json as config
         id: docsearch_config
-        run: echo "docsearch_config=$(cat config/docsearch-config.json | jq -r tostring)" >> ${GITHUB_ENV}
+        run: echo "docsearch_config=$(cat config/docsearch-config-v.3.json | jq -r tostring)" >> ${GITHUB_ENV}
 
       - name: Push indices to Algolia
         uses: signcl/docsearch-scraper-action@master
