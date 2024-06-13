@@ -18,7 +18,7 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Download Algolia CLI
-        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.2.1/algolia_1.2.1_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
+        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.6.11/algolia_1.6.11_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
 
       - name: Create Algolia profile
         run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --admin-api-key ${{ secrets.ALGOLIA_API_KEY }} --default
