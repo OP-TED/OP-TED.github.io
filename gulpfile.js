@@ -40,7 +40,7 @@ if(process.env['NODE_DEBUG']) {
 const playbookFilename = fs.existsSync('antora-playbook-local.yml')  ? 'antora-playbook-local.yml' : 'antora-playbook.yml'
 antoraArgs.push('--playbook', playbookFilename)
 
-const playbook = yaml.safeLoad(fs.readFileSync(playbookFilename, 'utf8'))
+const playbook = yaml.load(fs.readFileSync(playbookFilename, 'utf8'))
 const outputDir = process.env['SITE_DIR'] || (playbook.output || {}).dir || 'build/site'
 antoraArgs.push('--to-dir', outputDir)
 
@@ -54,7 +54,7 @@ const watchPatterns = playbook.content.sources.filter((source) => !source.url.in
 
 function readProperties () {
   if(fs.existsSync('env.yml')) {
-    const env = yaml.safeLoad(fs.readFileSync('env.yml', 'utf8'))
+    const env = yaml.load(fs.readFileSync('env.yml', 'utf8'))
 
     const propsFromFile = Object.assign({}, ...function _flatten(o, path=[]) {
       return []
