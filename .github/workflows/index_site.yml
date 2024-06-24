@@ -42,12 +42,6 @@ jobs:
         id: docsearch_config_v3
         run: echo "docsearch_config=$(cat config/docsearch-config-v.3.json | jq -r tostring)" >> ${GITHUB_ENV}
 
-        uses: algolia/docsearch-scraper-action@v1.16.0
-        env:
-          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ env.docsearch_config_v3 }}
-          
       - name: Run DocSearch Scraper
         run: |
           docker run -e "APPLICATION_ID=${{ secrets.ALGOLIA_APPLICATION_ID }}" \
