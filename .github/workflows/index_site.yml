@@ -39,12 +39,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Get the content of docsearch-config.json as config
-        id: docsearch_config
+        id: docsearch_config_v3
         run: echo "docsearch_config=$(cat config/docsearch-config-v.3.json | jq -r tostring)" >> ${GITHUB_ENV}
 
       - name: Push indices to Algolia
-        uses: algolia/docsearch-scraper-action@v1.0.0
+        uses: algolia/docsearch-scraper-action@v1.16.0
         env:
           APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ env.docsearch_config }}
+          CONFIG: ${{ env.docsearch_config_v3 }}
