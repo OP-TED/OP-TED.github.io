@@ -43,7 +43,7 @@ jobs:
         run: echo "docsearch_config=$(cat config/docsearch-config-v.3.json | jq -r tostring)" >> ${GITHUB_ENV}
 
       - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
+        uses: algolia/docsearch-scraper-action@v1.0.0
         env:
           APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
           API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
