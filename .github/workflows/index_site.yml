@@ -31,27 +31,16 @@ jobs:
               fi;
 
   index_site:
-    name: "Index site using DocSearch Crawler"
+    name: "Index site using Docsearch Crawler"
     needs: delete_site_index
-    runs-on: ubuntu-latest
-
+    runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install algoliasearch
-
       - name: Save docsearch-config.json
         run: |
-          echo '${{ env.docsearch_config }}' > config/docsearch-config.json
+          echo '${{ env.docsearch_config }}' > docsearch-config.json
 
       - name: Get the content of docsearch-config.json as config
         id: docsearch_config
@@ -59,4 +48,4 @@ jobs:
 
       - name: Run DocSearch Scraper
         run: |
-          python -c 'import json from algoliasearch.search_client import SearchClient config = json.loads("""${{ env.docsearch_config }}""") client = SearchClient.create("${{ secrets.ALGOLIA_APPLICATION_ID }}", "${{ secrets.ALGOLIA_API_KEY }}") index = client.init_index(config["index_name"])
+          docker run -e "APPLICATION_ID=${{ secrets.ALGOLIA_APPLICATION_ID }}" -e "API_KEY=${{ secrets.ALGOLIA_API_KEY }}" -e "CONFIG=${{ env.docsearch_config }}" algolia/docsearch-scraper
