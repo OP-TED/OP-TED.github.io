@@ -48,14 +48,12 @@ jobs:
   delete_site_index:
     name: "Delete existing site index"
     runs-on: [ubuntu-latest]
-    needs: check_if_should_index
-    if: needs.check_if_should_index.outputs.shouldIndex == 'true'
     steps:
       - name: Download Algolia CLI
-        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.2.1/algolia_1.2.1_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
+        run: 'mkdir -p algolia-cli; curl -L "https://github.com/algolia/cli/releases/download/v1.6.11/algolia_1.6.11_linux_386.tar.gz"|tar xpz -C algolia-cli --strip-components=1'
 
       - name: Create Algolia profile
-        run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --admin-api-key ${{ secrets.ALGOLIA_API_KEY }} --default
+        run: ./algolia-cli/algolia profile add --name ted-profile --app-id ${{ secrets.ALGOLIA_APPLICATION_ID }} --api-key ${{ secrets.ALGOLIA_API_KEY }} --default
 
       - name: Delete index ${{ secrets.ALGOLIA_INDEX_NAME }}
         run:  |
@@ -76,9 +74,6 @@ jobs:
         id: docsearch_config
         run: echo "docsearch_config=$(cat config/docsearch-config.json | jq -r tostring)" >> ${GITHUB_ENV}
 
-      - name: Push indices to Algolia
-        uses: signcl/docsearch-scraper-action@master
-        env:
-          APPLICATION_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
-          CONFIG: ${{ env.docsearch_config }}
+      - name: Run DocSearch Scraper
+        run: |
+          docker run -e "APPLICATION_ID=${{ secrets.ALGOLIA_APPLICATION_ID }}" -e "API_KEY=${{ secrets.ALGOLIA_API_KEY }}" -e "CONFIG=$( cat config/docsearch-config.json | jq -r tostring )" algolia/docsearch-scraper
