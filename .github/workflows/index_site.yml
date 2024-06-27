@@ -47,6 +47,8 @@ jobs:
 
   delete_site_index:
     name: "Delete existing site index"
+    needs: check_if_should_index
+    if: needs.check_if_should_index.outputs.shouldIndex == 'true'
     runs-on: [ubuntu-latest]
     steps:
       - name: Download Algolia CLI
