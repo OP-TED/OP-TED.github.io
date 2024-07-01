@@ -46,6 +46,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '403':
+          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: Notice or notice report was not found.
           content:
@@ -56,7 +62,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -81,7 +86,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EsentoolNoticeDto'
+                $ref: '#/components/schemas/Notice'
         '400':
           description: Missing Authorization header in request
           content:
@@ -98,6 +103,7 @@ paths:
           description: |-
             Possible issues:
             - Notice publication cannot be stopped
+            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -112,7 +118,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -135,7 +140,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/XmlNoticeSubmissionDto'
+                $ref: '#/components/schemas/CVSReport'
         '400':
           description: |-
             Possible issues:
@@ -152,6 +157,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '403':
+          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '404':
           description: |-
             Possible issues:
@@ -164,7 +175,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -229,14 +239,14 @@ paths:
           in: query
           required: true
           schema:
-            $ref: '#/components/schemas/SearchNoticesEsentool'
+            $ref: '#/components/schemas/SearchNotice'
       responses:
         '200':
           description: All notices based on filters. Even if 0 results.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EsentoolPageDtoEsentoolNoticeDto'
+                $ref: '#/components/schemas/SearchNoticeResult'
         '400':
           description: Missing Authorization header in request
           content:
@@ -249,11 +259,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '403':
+          description: No Enotices2 account found for the EU login account identified by provided TED API key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
               schema:
@@ -294,7 +309,6 @@ paths:
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
-            - No Enotices2 account found for the EU login account identified by provided TED API key.
 components:
   schemas:
     ExceptionBody:
@@ -308,7 +322,8 @@ components:
           type: string
           description: the exception message.
           example: No notice found
-    EsentoolNoticeDto:
+      description: The information related to the Exception that occurred.
+    Notice:
       type: object
       properties:
         id:
@@ -329,12 +344,15 @@ components:
           $ref: '#/components/schemas/NoticeStatus'
         updatedAt:
           type: string
-          description: the notice updated date/time.
+          description: >-
+            The exact moment of the latest update of the notice by either user
+            or system.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         submittedAt:
           type: string
-          description: the notice submitted date/time.
+          description: The user performed the latest update of the notice (can be system).
+          format: date-time
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         publicationId:
@@ -358,8 +376,14 @@ components:
             description: the notice languages.
         noticeAuthor:
           type: string
-          description: the notice author.
+          description: >-
+            The email is used to identify the person responsible for the notice,
+            i.e. the Contracting Authority.
           example: minimal@email.eu
+        expectedPublicationDate:
+          type: string
+          description: The notice expected publication date.
+          format: date
     NoticeStatus:
       type: string
       description: the notice status.
@@ -378,13 +402,30 @@ components:
       properties:
         noticeAuthorEmail:
           type: string
-          description: the notice author email.
+          description: >-
+            The email is used to identify the person responsible for the notice,
+            i.e. the Contracting Authority.
           example: john@doe.com
         noticeAuthorLocale:
           type: string
-          description: the notice author locale.
+          description: >-
+            The EU official language in which the Contracting Authority wishes
+            to be notified by the Publications Office.
           example: en
-    XmlNoticeSubmissionDto:
+    MetadataAndNotice:
+      required:
+        - metadata
+        - notice
+      type: object
+      properties:
+        metadata:
+          $ref: '#/components/schemas/Metadata'
+        notice:
+          type: string
+          description: The notice XML content.
+          format: binary
+      description: The metadata and notice used during the submission of the notice.
+    CVSReport:
       type: object
       properties:
         validationReportUrl:
@@ -393,7 +434,8 @@ components:
         success:
           type: boolean
           description: the status of the submission. True if success, otherwise false.
-    SearchNoticesEsentool:
+      description: The CVS report details after the notice xml submission.
+    SearchNotice:
       type: object
       properties:
         id:
@@ -427,10 +469,28 @@ components:
           example: '2022-12-01T23:00:00Z'
         statuses:
           type: array
-          description: the list of status to include in the search
+            description: |-
+              The list of status to include in the search: 
+               * DRAFT - The notice is being drafted. 
+               * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
+               * STOPPED - Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted. 
+               * PUBLISHED - The notice is published online on TED. 
+               * PUBLISHING - Publication process in progress, i.e. the notice has been added to the daily export for TED. 
+               * DELETED - The notice has been deleted by front-end user. 
+               * NOT_PUBLISHED - The notice was received but not published on TED. 
+               * ARCHIVED - The notice has been archived by front-end user.
           items:
             type: string
-            description: the list of status to include in the search
+            description: |-
+              The list of status to include in the search: 
+               * DRAFT - The notice is being drafted. 
+               * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
+               * STOPPED - Publication of the notice was stopped by the buyer/ eSender before publication and the request was accepted. 
+               * PUBLISHED - The notice is published online on TED. 
+               * PUBLISHING - Publication process in progress, i.e. the notice has been added to the daily export for TED. 
+               * DELETED - The notice has been deleted by front-end user. 
+               * NOT_PUBLISHED - The notice was received but not published on TED. 
+               * ARCHIVED - The notice has been archived by front-end user.
             enum:
               - DRAFT
               - SUBMITTED
@@ -445,7 +505,8 @@ components:
           type: string
           description: the notice author
           example: minimal@email.eu
-    EsentoolPageDtoEsentoolNoticeDto:
+      description: The information used in a notice search.
+    SearchNoticeResult:
       type: object
       properties:
         totalSize:
@@ -457,7 +518,8 @@ components:
           type: array
           description: the content of entities found.
           items:
-            $ref: '#/components/schemas/EsentoolNoticeDto'
+            $ref: '#/components/schemas/Notice'
+      description: The information returned after a notice search.
   securitySchemes:
     esenders-token:
       type: http
