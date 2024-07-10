@@ -21,7 +21,7 @@ paths:
       parameters:
         - name: businessId
           in: path
-          description: the notice business identifier (notice identifier - version)
+          description: The notice business identifier (notice identifier - version)
           required: true
           schema:
             type: string
@@ -35,7 +35,10 @@ paths:
                 type: string
                 format: binary
         '400':
-          description: Missing Authorization header in request
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Invalid business id.
           content:
             application/json:
               schema:
@@ -75,7 +78,7 @@ paths:
       parameters:
         - name: businessId
           in: path
-          description: the notice business identifier (notice identifier - version)
+          description: The notice business identifier (notice identifier - version)
           required: true
           schema:
             type: string
@@ -88,7 +91,10 @@ paths:
               schema:
                 $ref: '#/components/schemas/Notice'
         '400':
-          description: Missing Authorization header in request
+          description: |-
+            Possible issues:
+            - Missing Authorization header in request
+            - Invalid business id.
           content:
             application/json:
               schema:
@@ -102,7 +108,7 @@ paths:
         '403': 
           description: |-
             Possible issues:
-            - Notice publication cannot be stopped
+            - Notice publication cannot be stopped because it is not in SUBMITTED status.
             - No Enotices2 account found for the EU login account identified by provided TED API key.
           content:
             application/json:
@@ -114,10 +120,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionBody'
+        '423':
+          description: Cannot acquire lock because notice is already locked.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
+            - Internal error while updating notice status.
           content:
             application/json:
               schema:
@@ -145,8 +158,16 @@ paths:
           description: |-
             Possible issues:
             - Missing Authorization header in request
+            - Missing metadata 
+            - Missing notice 
+            - Missing noticeAuthorEmail
+            - Missing noticeAuthorLocale
             - Notice with the same noticeId and versionId already exists.
-            - Notice cannot be created (parsing errors)
+            - noticeAuthorEmaill is not valid.
+            - Notice parameter cannot be empty.
+            - Notice cannot be parsed, it is not valid.
+            - Could not find given procedure and cannot create new one for this type of notice.
+            - Missing procedure id in the notice.
           content:
             application/json:
               schema:
@@ -170,11 +191,21 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ExceptionBody'    
+                $ref: '#/components/schemas/ExceptionBody'
+        '409':
+          description: |-
+            Possible issues: 
+            - Multiple objects are created/updated at the same time.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionBody'
         '500':
           description: |-
             Possible issues:
             - The provided TED API key cannot be currently validated.
+            - The CVS service is not available to validate the notice.
+            - The CVS could not execute the validation.
           content:
             application/json:
               schema:
@@ -187,9 +218,8 @@ paths:
       operationId: searchProceduresEsentool
       parameters:
         - name: page
-          description: Sequence number of the page from the search results list.
           in: query
-          description: the current page of results
+          description: Indicates the page number of the paginated result list
           required: false
           schema:
             minimum: 0
@@ -197,9 +227,8 @@ paths:
             format: int32
             default: 0
         - name: size
-          description: Maximum number of search results per page.
           in: query
-          description: the size of the page
+          description: Indicates the size of the paginated result list
           required: false
           schema:
             minimum: 1
@@ -207,9 +236,8 @@ paths:
             format: int32
             default: 20
         - name: sortProperty
-          description: Property to use to sort the search results.
           in: query
-          description: the property to use to sort the results
+          description: The property to use to sort the results
           required: false
           schema:
             type: string
@@ -225,10 +253,10 @@ paths:
               - noticeType
               - legalBasis
               - noticeAuthor
+              - expectedPublicationDate
         - name: sortDirection
-          description: Ascending or descending order, in case sortProperty is set.
           in: query
-          description: the sort direction, ascending (ASC) or descending (DESC)
+          description: The sort direction, ascending (ASC) or descending (DESC)
           required: false
           schema:
             type: string
@@ -351,13 +379,13 @@ components:
           example: '2022-01-01T13:15:55.89Z'
         submittedAt:
           type: string
-          description: The user performed the latest update of the notice (can be system).
-          format: date-time
+          description: The notice submission date/time.
           format: date-time
           example: '2022-01-01T13:15:55.89Z'
         publicationId:
           type: string
           description: the notice publication identifier.
+          example: 8164123-2024
         publicationDate:
           type: string
           description: the notice publication date.
@@ -365,15 +393,21 @@ components:
         noticeType:
           type: string
           description: the notice notice type.
+          example: '2'
         legalBasis:
           type: string
           description: the notice legal basis code.
+          example: 32014L0025
         languages:
           type: array
           description: the notice languages.
+          example: '["ENG","DEU"]'
           items:
             type: string
-            description: the notice languages.
+            description: the notice language.
+            example:
+            - ENG
+            - DEU
         noticeAuthor:
           type: string
           description: >-
@@ -387,6 +421,7 @@ components:
     NoticeStatus:
       type: string
       description: the notice status.
+      example: STOPPED
       enum:
         - DRAFT
         - SUBMITTED
@@ -398,6 +433,9 @@ components:
         - ARCHIVED
         - VALIDATION_FAILED
     Metadata:
+      required:
+        - noticeAuthorEmail
+        - noticeAuthorLocale
       type: object
       properties:
         noticeAuthorEmail:
@@ -412,6 +450,7 @@ components:
             The EU official language in which the Contracting Authority wishes
             to be notified by the Publications Office.
           example: en
+      description: The metadata that is used to identify the original author of the notice.
     MetadataAndNotice:
       required:
         - metadata
@@ -469,7 +508,7 @@ components:
           example: '2022-12-01T23:00:00Z'
         statuses:
           type: array
-            description: |-
+          description: |-
               The list of status to include in the search: 
                * DRAFT - The notice is being drafted. 
                * SUBMITTED - The notice is successfully received, validated and sent to OP (received by TED-Monitor-2022). 
