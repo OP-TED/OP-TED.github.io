@@ -70,7 +70,7 @@
     </nav>
 </div><div class="body">
 <script src="../../../../_/js/07-scrollable-header-nav.js"></script>
-<div class="nav-container" data-component="eforms" data-version="1.11">
+<div class="nav-container" data-component="eforms" data-version="1.12">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -95,7 +95,7 @@
     <a class="nav-link" href="../../../../eforms-common/versioning/index.html">SDK Versioning</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.11</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.12</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -176,7 +176,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.11</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.12</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -221,7 +221,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.11</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.12</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../guide/index.html">Start Here</a>
@@ -279,17 +279,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.11.0</span>
+          <span class="version">1.12</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../../index.html">eForms SDK</a>
         <ul class="versions">
-            <li class="version">
-              <a href="../../../1.12/index.html">1.12</a>
-            </li>
             <li class="version is-current is-latest">
-              <a href="../../index.html">1.11.0</a>
+              <a href="../../index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.11/index.html">1.11.0</a>
             </li>
             <li class="version">
               <a href="../../../1.10/index.html">1.10</a>
@@ -378,10 +378,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.11.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.12</button>
   <div class="version-menu">
-    <a class="version is-missing" href="../../../1.12/index.html">1.12</a>
-    <a class="version is-current" href="notice-subtype-12.html">1.11.0</a>
+    <a class="version is-current" href="notice-subtype-12.html">1.12</a>
+    <a class="version" href="../../../1.11/reference/business-rules/notice-subtype-12.html">1.11.0</a>
     <a class="version" href="../../../1.10/reference/business-rules/notice-subtype-12.html">1.10</a>
     <a class="version" href="../../../1.9/reference/business-rules/notice-subtype-12.html">1.9</a>
     <a class="version" href="../../../1.8/reference/business-rules/notice-subtype-12.html">1.8</a>
@@ -875,6 +875,20 @@
 <div class="title">Condition in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-67(a)-Procedure is not present</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00067-0118</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-67(a)-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong> The notice has not been identified as a Source for Exclusion Grounds.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-806-Procedure == 'epo-notice')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -3646,34 +3660,6 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00512-0222</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-512-Organization-Company</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Organisation country (BT-514-Organization-Company) is not a country with post codes.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-514-Organization-Company not in (postcode-country)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00512-0264</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-512-Organization-TouchPoint</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> TouchPoint country (BT-514-Organization-TouchPoint) is not a country with post codes.</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-514-Organization-TouchPoint not in (postcode-country)</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00513-0120</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-513-UBO</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -3881,12 +3867,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00541-0217</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-541-LotsGroup-WeightNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-LotsGroup) is not present.</p>
+<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-LotsGroup) is not present or Award Criteria Complicated (BT-543-LotsGroup) is present.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-540-LotsGroup is not present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-540-LotsGroup is not present) or (BT-543-LotsGroup is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -3895,12 +3881,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00541-0267</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-541-Lot-WeightNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-Lot) is not present.</p>
+<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-Lot) is not present or Award Criteria Complicated (BT-543-Lot) is present.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-540-Lot is not present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-540-Lot is not present) or (BT-543-Lot is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -3909,12 +3895,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00541-0417</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-541-LotsGroup-FixedNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-LotsGroup) is not present.</p>
+<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-LotsGroup) is not present or Award Criteria Complicated (BT-543-LotsGroup) is present.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-540-LotsGroup is not present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-540-LotsGroup is not present) or (BT-543-LotsGroup is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -3923,12 +3909,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00541-0467</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-541-Lot-FixedNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-Lot) is not present.</p>
+<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-Lot) is not present or Award Criteria Complicated (BT-543-Lot) is present.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-540-Lot is not present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-540-Lot is not present) or (BT-543-Lot is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -3937,12 +3923,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00541-0617</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-541-LotsGroup-ThresholdNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-LotsGroup) is not present.</p>
+<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-LotsGroup) is not present or Award Criteria Complicated (BT-543-LotsGroup) is present.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-540-LotsGroup is not present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-540-LotsGroup is not present) or (BT-543-LotsGroup is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -3951,12 +3937,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00541-0667</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-541-Lot-ThresholdNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-Lot) is not present.</p>
+<p><strong>Forbidden if</strong> Award Criterion Description (BT-540-Lot) is not present or Award Criteria Complicated (BT-543-Lot) is present.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-540-Lot is not present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-540-Lot is not present) or (BT-543-Lot is present)</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -4110,6 +4096,14 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure == 'open' or BT-105-Procedure == 'oth-single' or BT-105-Procedure == 'neg-wo-call'</code></pre>
 </div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00682-0068</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-682-Tender</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 12.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -4482,6 +4476,20 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00750-0060</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-750-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong> BT-809-Lot is not present.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-809-Lot is not present</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00752-0018</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-752-Lot-WeightNumber</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -4843,6 +4851,20 @@
 <div class="title">Condition in EFX</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-803(d)-notice is not present</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00809-0018</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-809-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong> The notice has not been identified as a Source for Selection Criteria.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-821-Lot == 'epo-notice')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -6241,6 +6263,14 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00067-0018</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-67(a)-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type 12.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00071-0068</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-71-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -6368,7 +6398,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00512-0018</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-512-Organization-Company</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 12.</p>
+<p><strong>Mandatory if</strong> Organisation country (BT-514-Organization-Company) is a country with post codes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-514-Organization-Company in (postcode-country)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6376,7 +6412,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00512-0069</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-512-Organization-TouchPoint</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 12.</p>
+<p><strong>Mandatory if</strong> TouchPoint country (BT-514-Organization-TouchPoint) is a country with post codes.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-514-Organization-TouchPoint in (postcode-country)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6511,8 +6553,8 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00747-0018</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-747-Lot</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00750-0018</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-750-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always mandatory</strong> in notice sub-type 12.</p>
 </div></div></td>
@@ -6559,6 +6601,30 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00803-0018</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-803(t)-notice</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type 12.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00806-0018</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-806-Procedure</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type 12.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00809-0068</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-809-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type 12.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00821-0018</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-821-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always mandatory</strong> in notice sub-type 12.</p>
 </div></div></td>
@@ -6784,6 +6850,15 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock">Field</p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock">Details</p></th>
 <th class="tableblock halign-right valign-top"><p class="tableblock">Severity</p></th>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00001-0221</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-01-notice</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Codelist: <code>legal-basis-12</code>
+<strong>Always applies</strong> in notice sub-type 12.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00105-0131</code></p></th>
