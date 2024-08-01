@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>eSubmissions Ontology Requirements Specification Document (ORSD) :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/EPO/latest/stories_eSubmissions.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/styles/optional/custom.css" media="screen"/>
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div><div class="body">
+<script src="../../_/js/07-scrollable-header-nav.js"></script>
+<div class="nav-container" data-component="EPO" data-version="4.1">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="business.html">Business Overview</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../../epo-home/stories.html">User Stories and Natural Language Statements</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../epo-home/stories_eAccess.html">eAccess (ESPD Request)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../../epo-home/stories_eSubmission.html">eSubmission (ESPD Response)</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="conceptual.html">Conceptual Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="glossaries.html">Glossaries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reference Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/references.html">Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/methodology2024.html">Methodology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-home/versioning.html">ePO Versioning Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Working Group Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/wider.html">Quarterly Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/cumulative.html">Cumulative Reports (by year)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/indiv.html">Individual Meeting Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eProcurement Ontology</span>
+          <span class="version">4.1.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.11/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../4.2/index.html">4.2.0-rc.1</a>
+            </li>
+            <li class="version is-current is-latest">
+              <a href="index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">eProcurement Ontology</a></li>
+    <li><a href="stories_eSubmissions.html">eSubmissions Ontology Requirements Specification Document (ORSD)</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">4.1.0</button>
+  <div class="version-menu">
+    <a class="version" href="../4.2/stories_eSubmissions.html">4.2.0-rc.1</a>
+    <a class="version is-current" href="stories_eSubmissions.html">4.1.0</a>
+    <a class="version is-missing" href="../4/index.html">4.0.0</a>
+    <a class="version is-missing" href="../3.1/index.html">3.1.0</a>
+    <a class="version is-missing" href="../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../2.0.1/index.html">2.0.1</a>
+    <a class="version is-missing" href="../2.0.0/index.html">2.0.0</a>
+    <a class="version is-missing" href="../1.0.0/index.html">1.0.0</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">eSubmissions Ontology Requirements Specification Document (ORSD)</h1>
+<div class="sect1">
+<h2 id="_resources"><a class="anchor" href="#_resources"></a>Resources</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>ESPD-EDM GitHub repository:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/">The ESPD GitHub Repository</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation page:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.ted.europa.eu/ESPD-EDM/latest/_attachments/ESPD_CM_html/index.html">The ESPD Documentation</a></p>
+</li>
+<li>
+<p><a href="https://docs.ted.europa.eu/ESPD-EDM/latest/xml_technical_handbook.html">The ESPD Technical Handbook</a></p>
+</li>
+<li>
+<p><a href="https://wiki.ds.unipi.gr/display/ESPDInt/BIS+41+-+ESPD+V2.0.2">ESPDint - Interopable ESPD and VCD Services</a></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_espd_response_transaction"><a class="anchor" href="#_the_espd_response_transaction"></a>The ESPD response transaction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A structured electronic business document for providing qualification information in a simplified way through an European Single Procurement Document (ESPD) when responding to a Call for Tender.</p>
+</div>
+<div class="sect2">
+<h3 id="_roles_involved"><a class="anchor" href="#_roles_involved"></a>Roles involved</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Platform Provider</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Procurement Service Provider or Buyer that provides an ESPD service</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Economic Operator</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Tenderer or Candidate that provides the data in the ESPD Response</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Buyer</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Reviews the data from the ESPD Response</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_activity_description"><a class="anchor" href="#_activity_description"></a>Activity description</h3>
+<div class="paragraph">
+<p>The ESPD Response uses the ESPD Request as a template.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The Economic Operator provides the answers in the ESPD Response.</p>
+</li>
+<li>
+<p>The Buyer reviews the data provided in the ESPD Response.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_use_cases"><a class="anchor" href="#_use_cases"></a>Use cases</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 28.5714%;">
+<col style="width: 28.5714%;">
+<col style="width: 14.2857%;">
+<col style="width: 28.5715%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Use case</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Actors</th>
+<th class="tableblock halign-left valign-top">Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Providing answers in the ESPD Response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Candidate/Tenderer provides answers in the ESPD Response to demonstrate that he is eligible and capable to participate in a Procurement Procedure defined by the Exclusion Grounds and Selection Criteria from an ESPD Request.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Candidate/Tenderer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Candidate/Tenderer provides answers in the ESPD Response on an ESPD platform.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Reviewing the ESPD Response</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Buyer reviews the ESPD Response to understand whether the Candidate/Tenderer is eligible to participate in the Procurement Procedure.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Buyer reviews the ESPD Response.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>An <strong>Exclusion Ground</strong> is a Criterion that describes a legal requirement to be met by the Economic Operator to be a Candidate in the Procurement.</p>
+</div>
+<div class="paragraph">
+<p>A <strong>Selection Criterion</strong> is a Criterion that describes a capacity Requirement that the Economic Operator needs to fulfill to participate in the procurement.</p>
+</div>
+<div class="paragraph">
+<p>Selection criteria may relate to:</p>
+</div>
+<div class="paragraph">
+<p>(a) suitability to pursue the professional activity;</p>
+</div>
+<div class="paragraph">
+<p>(b) economic and financial standing;</p>
+</div>
+<div class="paragraph">
+<p>(c) technical and professional ability.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_user_stories"><a class="anchor" href="#_user_stories"></a>User Stories</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are legitimate user stories. However, how they would be implemented in real life would depend on each Buyer’s individual information system.</p>
+</div>
+<div class="paragraph">
+<p>If all the data concepts represented in the eSubmission module were instantiated in a triple store, what information would a Buyer want to receive from this data?</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Code</th>
+<th class="tableblock halign-left valign-top">Role</th>
+<th class="tableblock halign-left valign-top">User Story</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tenderer/ Candidate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Tenderer/Candidate, I want to prove that I substantiate the non-existence of the Exclusion Grounds and fulfil all qualitative Selection Criteria (including National Criteria), so that I can be selected for a specific Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to be able to consult the responses given for a specific Procedure for Selection Criteria, Exclusion Ground and National Criterion, so that I can evaluate if the Tenderer/Candidate is eligible to take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to be able to compare the general yearly turnover for a given Tenderer/Candidate across different Procedures, so I can evaluate if the Tenderer/Candidate is reliable.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know if the Tenderer/Candidate relies upon other entities and consult the evidence supplied for this criterion, so I can evaluate if the Tenderer/Candidate is eligible to take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to consult the information on an entity that the Tenderer/Candidate relies upon, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to consult the information on potential subcontractors of the Tenderer/Candidate, so I can evaluate whether I can accept the Subcontractor within the Offer.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know if the Tenderer/Candidate fulfils the minimum required amount of the general yearly turnover for the required number of fiscal years, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know if the Tenderer/Candidate fulfils the minimum required amount of the general average turnover for the required number of fiscal years, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know if the Tenderer/Candidate fulfils the minimum required amount of the specific average turnover for the required number of fiscal years, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-10</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know if the Tenderer/Candidate fulfils the minimum required amount of the specific yearly turnover for the required number of fiscal years, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-11</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know the value for the different financial ratios provided by the Tenderer/Candidate, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-12</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know if the Tenderer/Candidate fulfils the minimum insured amount in its professional risk indemnity insurance, so I can evaluate if the Tenderer/Candidate can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-13</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates were convicted for participating in a criminal organisation, the reason and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-14</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates were convicted for corruption, the reason and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-15</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates were convicted for terrorist offences or offences linked to terrorist activities, the reason and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S-SUB-16</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates were convicted for money laundering or terrorist financing, the reason and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-17</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates were convicted for fraud, the reason and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S-SUB-18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates were convicted for child labour and other forms of trafficking in human beings, the reason and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-19</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates breached the obligations relating to the payment of taxes, the amount concerned and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-20</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates breached the obligations relating to the payment of social security contributions, the amount concerned and the period, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S-SUB-21</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates breached the obligations in the fields of environmental law, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S-SUB-22</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates breached the obligations in the fields of social law, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates breached the obligations in the fields of labour law, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S-SUB-24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are bankrupt and the reason for being nevertheless to perform the contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">S-SUB-25</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are the subject of insolvency or winding-up and the reason for being nevertheless to perform the contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-26</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are in arrangement with creditors and the reason for being nevertheless to perform the contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-27</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are in any analogous situation like bankruptcy arising from a similar procedure under national laws and regulations and the reason for being nevertheless to perform the contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-28</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates have their assets being administered by a liquidator or by the court and the reason for being nevertheless to perform the contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-29</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates have their business activities suspended and the reason for being nevertheless to perform the contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-30</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are guilty of grave professional misconduct, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-31</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates have entered into agreements with other Tenderers/Candidatess aimed at distorting competition, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-32</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are aware of any conflict of interest, as indicated in national law, the relevant notice or in the ESPD, the relevant notice or due to their participation in the procurement procedure, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-33</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates or an undertaking related to them advised the contracting authority or contracting entity or otherwise been involved in the preparation of the procurement procedure, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-34</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates experienced that a prior public contract, a prior contract with a contracting entity or a prior concession contract was terminated early, or that damages or other comparable sanctions were imposed in connection with that prior contract, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">US-SUB-35</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to see if any Tenderers/Candidates are guilty of misrepresentation, withheld information, unable to provide required documents and obtained confidential information of this procedure, so I can evaluate which Tenderers/Candidates can take part in the Procurement Procedure.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_natural_language_statements"><a class="anchor" href="#_natural_language_statements"></a>Natural Language Statements</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An ESPD Response has an identifier.</p>
+</li>
+<li>
+<p>An ESPD Response has an universally unique identifier (UUID).</p>
+</li>
+<li>
+<p>An ESPD Response has a date and time of issuance.</p>
+</li>
+<li>
+<p>An ESPD Response has a document version identifier.</p>
+</li>
+<li>
+<p>An ESPD Response can refer to a previous modification of its content.</p>
+</li>
+<li>
+<p>An ESPD Response must refer to only one ESPD Request.</p>
+</li>
+<li>
+<p>An ESPD Response can refer to one or many additional documents.</p>
+</li>
+<li>
+<p>An ESPD Response must refer to only one Lot.</p>
+</li>
+<li>
+<p>An ESPD Response must concern a Procedure.</p>
+</li>
+<li>
+<p>An ESPD Response must refer to a Buyer.</p>
+</li>
+<li>
+<p>The Buyer must have a postal address.</p>
+</li>
+<li>
+<p>The Buyer must have a contact point.</p>
+</li>
+<li>
+<p>An ESPD Response may refer to a Service Provider to offer a platform that can be used by both the Buyer and the Tenderer/Candidate.</p>
+</li>
+<li>
+<p>The Service Provider must have a postal address.</p>
+</li>
+<li>
+<p>The Service Provider must have a contact point.</p>
+</li>
+<li>
+<p>An ESPD Response must refer to a Tenderer or a Candidate.</p>
+</li>
+<li>
+<p>The Tenderer/Candidate must have a postal address.</p>
+</li>
+<li>
+<p>The Tenderer/Candidate must have a contact point.</p>
+</li>
+<li>
+<p>The Tenderer/Candidate must provide the distinctive features or characteristics that qualifies it to be a party in a tendering process.</p>
+</li>
+<li>
+<p>The Organisation may have one or more legal representatives playing the Tenderer/Candidate role in the Organisation&#8217;s name.</p>
+</li>
+<li>
+<p>The Legal Representative must have Power of Attorney or a Mandate signed by the Organisation.</p>
+</li>
+<li>
+<p>The Legal Representative must have a residence address.</p>
+</li>
+<li>
+<p>The Legal Representative must have a contact point.</p>
+</li>
+<li>
+<p>An ESPD Response must specify at least one Response.</p>
+</li>
+<li>
+<p>The Response must be related to a Criterion specified in the ESPD Request.</p>
+</li>
+<li>
+<p>Response may have a code the specifies the confidentiality level.</p>
+</li>
+<li>
+<p>Response may have a cross-reference to the criterion properties which is validated through this response expressed as an identifier.</p>
+</li>
+<li>
+<p>The Response may have an applicable period.</p>
+</li>
+<li>
+<p>Response may have multiple response values.</p>
+</li>
+<li>
+<p>The response value may have a code the specifies the financial ratio type.</p>
+</li>
+<li>
+<p>An ESPD Response may have multiple Evidence.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<style type="text/css">
+    @import url('/documents/d/global/custom');
+</style>
+
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+            <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/languages-our-websites_en">Languages on our website</a>
+                </li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/privacy-policy-european-union-website_en">Privacy
+                        Policy</a></li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/legal-notice_en">Legal notice</a></li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/cookies_en">Cookies</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">EU institutions</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://www.europarl.europa.eu/portal/en">European Parliament</a></li>
+                <li class="li-footer institutions"><a href="https://www.consilium.europa.eu/en/european-council/">European
+                        Council</a></li>
+                <li class="li-footer institutions"><a href="https://www.consilium.europa.eu/en/">Council of the European Union</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://commission.europa.eu/index_en">European Commission</a></li>
+                <li class="li-footer institutions"><a href="https://curia.europa.eu/jcms/jcms/j_6/en/">Court of Justice of the
+                        European Union (CJEU)</a></li>
+                <li class="li-footer institutions"><a href="https://www.ecb.europa.eu/home/html/index.en.html">European Central Bank
+                        (ECB)</a></li>
+                <li class="li-footer institutions"><a href="http://www.eca.europa.eu/en">European Court of Auditors (ECA)</a></li>
+                <li class="li-footer institutions"><a href="https://www.eeas.europa.eu/_en">European External Action Services
+                        (EEAS)</a></li>
+                <li class="li-footer institutions"><a href="https://www.eesc.europa.eu/en">European Economic and Social Committee
+                        (EESC)</a></li>
+                <li class="li-footer institutions"><a href="https://cor.europa.eu/en/">European Committee of the Regions (CoR)</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://www.eib.org/en/index.htm">European Investment Bank (EIB)</a></li>
+                <li class="li-footer institutions"><a href="https://www.ombudsman.europa.eu/en/home">European Ombudsman</a></li>
+                <li class="li-footer institutions"><a href="https://edps.europa.eu/_en?lang=en">European Data Protection Supervisor
+                        (EDPS)</a></li>
+                <li class="li-footer institutions"><a href="https://edpb.europa.eu/edpb_en">European Data protection Board</a></li>
+                <li class="li-footer institutions"><a href="https://eu-careers.europa.eu/en">European Personnel Selection Office</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://op.europa.eu/en/home">Publications Office of the European
+                        Union</a></li>
+                <li class="li-footer institutions"><a
+                        href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en?f%5B0%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_DEC&f%5B1%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_EXEC&f%5B2%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/EU_JU">Agencies</a>
+                </li>
+                <li class="li-footer search-institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search for EU institutions</a></li>
+            </ul>
+        </div>
+
+        <script>
+            ECL.autoInit();
+        </script>
+    </div>
+</div>  </body>
+</html>
