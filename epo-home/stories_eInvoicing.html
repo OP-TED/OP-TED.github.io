@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>ePO History and Planned Developments :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/epo-home/history.html">
+    <title>eInvoicing – Ontology Requirements Specification Document (ORSD) :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/epo-home/stories_eInvoicing.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../_/css/site.css">
     <link rel="stylesheet" href="../_/css/custom.css">
@@ -98,7 +98,7 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="stories_eSubmission.html">eSubmission (ESPD Response)</a>
   </li>
-  <li class="nav-item" data-depth="2">
+  <li class="nav-item is-current-page" data-depth="2">
     <a class="nav-link" href="stories_eInvoicing.html">eInvoicing</a>
   </li>
 </ul>
@@ -118,7 +118,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="references.html">Reference Documents</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="history.html">History and Planned Developments</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -245,7 +245,8 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">eProcurement Ontology</a></li>
-    <li><a href="history.html">History and Planned Developments</a></li>
+    <li><a href="stories.html">User Stories and Natural Language Statements</a></li>
+    <li><a href="stories_eInvoicing.html">eInvoicing</a></li>
   </ul>
 </nav>
 </div>
@@ -254,94 +255,306 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">ePO History and Planned Developments</h1>
+<h1 class="page"><strong>eInvoicing – Ontology Requirements Specification Document (ORSD)</strong></h1>
 <div class="sect1">
-<h2 id="_eprocurement_ontology_overview"><a class="anchor" href="#_eprocurement_ontology_overview"></a><strong>eProcurement Ontology overview</strong></h2>
+<h2 id="_resources"><a class="anchor" href="#_resources"></a><strong>Resources</strong></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Several initiatives around eProcurement in the EU had been launched prior to 2016, driven by the public sector, industry, and academia. Some had grown organically, while others were the result of standardisation work.</p>
-</div>
-<div class="paragraph">
-<p>The vocabularies and the semantics that they introduced, the phases of public procurement that they covered, and the technologies they used, differed greatly. These differences hampered data interoperability and reuse.</p>
-</div>
-<div class="paragraph">
-<p>The situation created a need for a common representation of the knowledge around eProcurement as it is practiced in the European Union. This meant that a common vocabulary, and both common axioms and rules were needed.</p>
-</div>
-<div class="paragraph">
-<p>In 2016 the Publications Office of the European Union (Publications Office or OP) initiated a project to manage and support the development of an electronic Procurement Ontology (ePO), funded by the <a href="https://ec.europa.eu/isa2/home_en/">ISA<sup>2</sup> Programme</a>. The aim of the project was to develop an eProcurement Ontology based on the open-source <a href="https://www.w3.org/OWL/">OWL</a> (Web Ontology Language) standard, and make it available to EU member states. Since 2021, the project has been funded by the <a href="https://digital-strategy.ec.europa.eu/en/activities/digital-programme">Digital Europe Project</a> (DEP).</p>
-</div>
-<div class="paragraph">
-<p>This project was in conjunction with a parallel project to develop the associated eForms.</p>
-</div>
-<div class="paragraph">
-<p>The ultimate objective of the ePO was (and still is) to conceptualise and formally encode eProcurement data, and to make it available in an open, structured, and machine-readable format. This data would cover the process from end-to-end, i.e., from notification, through tendering, awarding, ordering, invoicing, and finally to payment.</p>
-</div>
-<div class="paragraph">
-<p>To achieve this, the EU Publications Office (OP) engaged a working group of experts (WG) with the mission of building consensus on the analysis, results, and deliverables developed by the OP teams. The working group continues to work with the OP on the ePO.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>eInvoicing semantic data model (SR EN 16931)</p>
+</li>
+<li>
+<p><a href="https://docs.peppol.eu/poacc/billing/3.0/bis/">https://docs.peppol.eu/poacc/billing/3.0/bis/</a></p>
+</li>
+</ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_timeline"><a class="anchor" href="#_timeline"></a><strong>Timeline</strong></h2>
+<h2 id="_einvocing"><a class="anchor" href="#_einvocing"></a><strong>eInvocing</strong>  <br></h2>
 <div class="sectionbody">
-<div class="sect2">
-<h3 id="_2017_2023"><a class="anchor" href="#_2017_2023"></a>2017 - 2023</h3>
 <div class="paragraph">
-<p><span class="image"><img src="_images/2017-2023.png" alt="2017 2023"></span></p>
-</div>
+<p>In the procurement domain, eInvoicing (electronic invoicing) refers to the digital exchange of invoice documents between a Buyer and a Seller. Unlike traditional paper invoices, eInvoices are generated, transmitted, and received in a structured digital format (typically using XML), thus enabling faster and more accurate processing, reducing errors and enhancing compliance with tax regulations.  <br>
+eInvoicing improves efficiency, enables real-time tracking, and supports better financial management by streamlining the entire invoicing workflow.  In the context of eProcurement Ontology (ePO), eInvoicing plays a crucial role in understanding the actual public spending. Modelling the concepts from the eInvoicing in the eProcurement Ontology will enable the creation of data sets containing invoicing information. Such data sets are foreseen in solutions like the PPDS thehttps://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/public-procurement-data-space-ppds_en[<a href="https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/public-procurement-data-space-ppds_en"> </a>]<a href="https://single-market-economy.ec.europa.eu/single-market/public-procurement/digital-procurement/public-procurement-data-space-ppds_en">Public Procurement Data Space</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_2024_2025"><a class="anchor" href="#_2024_2025"></a>2024 - 2025</h3>
-<div class="paragraph">
-<p><span class="image"><img src="_images/2024-2025.png" alt="2024 2025"></span></p>
+<h3 id="_roles_involved"><a class="anchor" href="#_roles_involved"></a><strong>Roles involved</strong></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Buyer</p>
+</li>
+<li>
+<p>Seller</p>
+</li>
+<li>
+<p>Payee (if it is different than the Seller)</p>
+</li>
+<li>
+<p>Seller Tax representative
+The model does not explicitly show who the service provider is, nor are any checks made on who the service provider is.</p>
+</li>
+</ul>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_activity_description"><a class="anchor" href="#_activity_description"></a><strong>Activity description</strong></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The Seller generates an invoice and the additional supporting documents.</p>
+</li>
+<li>
+<p>The Seller sends the invoice to the Buyer.</p>
+</li>
+<li>
+<p>The Buyer receives and processes the invoice.</p>
+</li>
+<li>
+<p>The Buyer pays the Seller/Payee the amount of the invoice before the due date.
+*Other administrative flows to be covered (for example penalties, cancelled invoice etc.)</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_case"><a class="anchor" href="#_use_case"></a><strong>Use case</strong></h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 40%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Date Published</th>
-<th class="tableblock halign-left valign-top">Version</th>
-<th class="tableblock halign-left valign-top">Notes</th>
+<th class="tableblock halign-left valign-top"><strong>Use case</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Actors</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Flow</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Mid-2017</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ePO version 1.0.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Materials made public and accessible through the ISA<sup>2</sup> Joinup platform, including Working Group discussions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Generating the Invoice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Seller generates an invoice with the amount the Buyer needs to pay for the received goods, services or supplies.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Seller generates an invoice.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">January 2018</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ePO version 2.0.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improved and extended version 1.0.0. Version 2.0.1, released later that year.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Sending the Invoice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Invoice sender sends the invoice to the Buyer to be reviewed and processed by the Buyer.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Seller sends the invoice to the Buyer.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">August 2022</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ePO version 3.0.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">eNotice module released in v3.0.1 and eOrdering module released in v3.1.0. Going forward, the ePO project funded by the <a href="https://digital-strategy.ec.europa.eu/en/activities/digital-programme">Digital Europe Project</a> (DEP).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3. Receiving and processing the Invoice</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Buyer receives and processes the Invoice so he can pay for the received goods, services or supplies.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Buyer receives and processes the Invoice.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">July 2023 and December 2023</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ePO version 4.0.0</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">eFulfilment and eContract modules released in v4.0.0</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">March 2024</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">ePO version 4.1.0-rc.1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">eAccess &amp; eSubmission modules released in v4.1.0-rc.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4. Invoice payment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Buyer pays the Seller the amount of the invoice before the due date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Buyer pays the Seller the amount of the Invoice.</p></td>
 </tr>
 </tbody>
 </table>
-<hr>
 <div class="paragraph">
-<p>Any comments on the documentation?</p>
+<p><strong>User Stories</strong></p>
 </div>
-<div class="paragraph">
-<p><a href="https://github.com/OP-TED/epo-docs/issues/new/choose">Click here to let us know</a></p>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Role</strong></th>
+<th class="tableblock halign-left valign-top"><strong>User Story</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know the Seller&#8217;s identification information at the invoice (document) level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer, I want to know the Payee identification information at invoice (document) level, if different from the Seller.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer I want to know the information about payment at invoice (document) level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Seller</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Seller, I want to know the Buyer&#8217;s financial account information.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer I want to know the information to trace back to the related order at the invoice (document) level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer I want to know the information to trace back to the related order line at the invoice line level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-7</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer I want to know the information to trace back to the related contract from the invoice (document) level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-8</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer I want to know the information to trace back to the related despatch advice from the invoice (document) level.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">INV-9</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">As a Buyer I want to know the information to trace back to the related receipt advice from the invoice (document) level.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_natural_language_statements"><a class="anchor" href="#_natural_language_statements"></a><strong>Natural Language Statements</strong></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>An invoice has an unique identifier.</p>
+</li>
+<li>
+<p>An invoice has a date of issuance.</p>
+</li>
+<li>
+<p>An invoice can have a payment due date.</p>
+</li>
+<li>
+<p>An invoice must have a currency of all the amounts (except for the total VAT amount in accounting currency).</p>
+</li>
+<li>
+<p>An invoice can refer to the procurement project.</p>
+</li>
+<li>
+<p>An invoice can refer to the contract.</p>
+</li>
+<li>
+<p>An invoice can refer to an order.</p>
+</li>
+<li>
+<p>An invoice can refer to a despatch advice.</p>
+</li>
+<li>
+<p>An invoice can refer to a receipt advice.</p>
+</li>
+<li>
+<p>An invoice can refer to a lot.</p>
+</li>
+<li>
+<p>An invoice can have a textual note.</p>
+</li>
+<li>
+<p>An invoice can have payment terms.</p>
+</li>
+<li>
+<p>An invoice can refer to previous invoices.</p>
+</li>
+<li>
+<p>An invoice has to specify information about the Seller.</p>
+</li>
+<li>
+<p>An invoice has to specify information about the address of the Seller.</p>
+</li>
+<li>
+<p>An invoice can specify the contact point information of the Seller.</p>
+</li>
+<li>
+<p>An invoice has to specify information about the Buyer.</p>
+</li>
+<li>
+<p>An invoice has to specify information about the address of the Buyer.</p>
+</li>
+<li>
+<p>An invoice can specify the contact point information of the Buyer.</p>
+</li>
+<li>
+<p>An invoice can specify information about the Payee, if different than the Seller.</p>
+</li>
+<li>
+<p>An invoice can specify information about the Seller&#8217;s tax representative.</p>
+</li>
+<li>
+<p>An invoice can specify information about where and when the goods and services invoiced are delivered.</p>
+</li>
+<li>
+<p>An invoice can specify information about it&#8217;s delivery period.</p>
+</li>
+<li>
+<p>An invoice can specify information about the address to which goods and services invoiced were or are delivered.</p>
+</li>
+<li>
+<p>An invoice can specify the payment instructions.</p>
+</li>
+<li>
+<p>An invoice can specify the credit transfer payments.</p>
+</li>
+<li>
+<p>An invoice can specify information about a card used for payment contemporaneous with invoice issuance.</p>
+</li>
+<li>
+<p>An invoice can specify a direct debit.</p>
+</li>
+<li>
+<p>An invoice can specify information about allowances applicable to the Invoice as a whole.</p>
+</li>
+<li>
+<p>An invoice can specify information about charges and taxes other than VAT, applicable to the invoice as a whole.</p>
+</li>
+<li>
+<p>An invoice has to specify the monetary totals for the invoice.</p>
+</li>
+<li>
+<p>An invoice has to specify information about VAT breakdown by different categories, rates and exemption reasons.</p>
+</li>
+<li>
+<p>An invoice may refer to one or many additional supporting documents.</p>
+</li>
+<li>
+<p>An invoice has to refer to one or many invoice lines.</p>
+</li>
+<li>
+<p>An invoice line may specify information about it&#8217;s delivery period.</p>
+</li>
+<li>
+<p>An invoice line may specify information about allowances applicable to the Invoice as a whole.</p>
+</li>
+<li>
+<p>An invoice line may specify information about charges and taxes other than VAT, applicable to the invoice as a whole.</p>
+</li>
+<li>
+<p>An invoice line has to specify information about the price applied for the goods and services invoiced on the invoice line.</p>
+</li>
+<li>
+<p>An invoice line has to specify information about the VAT applicable for the goods and services invoiced on the invoice line.</p>
+</li>
+<li>
+<p>An invoice line has to specify information about the goods and services invoiced on the invoice line.</p>
+</li>
+<li>
+<p>An invoice line may provide information about properties of the goods and services invoiced.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
