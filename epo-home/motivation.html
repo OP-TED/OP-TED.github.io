@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Motivation for the eProcurement Ontology Methodology :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/epo-home/motivation.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/custom.css">
+    <link rel="stylesheet" href="../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/styles/optional/custom.css" media="screen"/>
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <script>var uiRootPath = '../_'</script>
+  </head>
+  <body class="article">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div><div class="body">
+<script src="../_/js/07-scrollable-header-nav.js"></script>
+<div class="nav-container" data-component="epo-home" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="guide.html">User Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../EPO/latest/conceptual.html">Conceptual Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../EPO/latest/glossaries.html">Glossaries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../EPO/latest/release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="showcase/index.html">The ePO in Other Projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reference Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="methodology2024.html">Methodology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="versioning.html">ePO Versioning Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="stories.html">User Stories and Natural Language Statements</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="stories_eAccess.html">eAccess (ESPD Request)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="stories_eSubmission.html">eSubmission (ESPD Response)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="stories_eInvoicing.html">eInvoicing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="REFreferences.html">Other Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Working Group Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-wgm/wider.html">Quarterly Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-wgm/cumulative.html">Cumulative Reports (by year)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-wgm/indiv.html">Individual Meeting Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../eforms/latest/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.11/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../EPO/4.2/index.html">4.2.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../EPO/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">eProcurement Ontology</a></li>
+    <li><a href="motivation.html">Motivation for the eProcurement Ontology Methodology</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Motivation for the eProcurement Ontology Methodology</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Public procurement represents around the 20% of GDP in Europe. This big buying volume offers a high economic potential to enhance efficiency of European procurement.</p>
+</div>
+<div class="paragraph">
+<p>The EU is investing significantly in the digitalisation of the public procurement process (referred to as eProcurement). Digitising public procurement goes beyond simply moving to electronic tools; it rethinks various pre-award and post-award phases with the aim of making them simpler for businesses to participate in, and for the public sector to manage. It also allows for the integration of data-based approaches at various stages of the procurement process.</p>
+</div>
+<div class="paragraph">
+<p>With eProcurement, public spending should become more transparent, evidence-oriented, optimised, streamlined and integrated with market conditions. More specifically, eProcurement offers a range of benefits such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>significant savings for all parties, both businesses and the public sector;</p>
+</li>
+<li>
+<p>simplified and shortened processes;</p>
+</li>
+<li>
+<p>reductions in red-tape and administrative burdens;</p>
+</li>
+<li>
+<p>increased transparency;</p>
+</li>
+<li>
+<p>greater innovation;</p>
+</li>
+<li>
+<p>new business opportunities by improving the access of all enterprises, including small and medium-sized enterprises (SMEs), to public procurement markets.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To deliver the aforementioned benefits, eProcurement relies heavily on the exchange of data between the different systems supporting the procurement processes i.e., achieving end-to-end interoperability of public procurement processes and underlying systems, and on the availability and dissemination of procurement data to the wider public i.e., improving transparency and stimulating innovation and new business opportunities.</p>
+</div>
+<div class="paragraph">
+<p>As stated in the Commission Regulation 2015/1986 (EU), contracting authorities in the EU are legally required to publish notices above certain capital thresholds. Article 6 of that Regulation states that either the online eNotices application or the TED eSender systems should be used for electronic transmition of notices to the Publications Office of the European Union. From a different angle, the implementation of the/ a revised PSI directive across the EU is calling for open, unobstructed access to public data to improve transparency, and to boost innovation, via the reuse of public data. Procurement data has been identified as data with a high-reuse potential. Making this data available in machine-readable formats, following on from the "data as a service" paradigm, is required to maximise its reuse.</p>
+</div>
+<div class="paragraph">
+<p>Data exchange, access, and reuse are key requirements for efficient and transparent end-to-end public procurement. Because of this, a shift in focus is taking place from the definition of procurement process standards for system-to-system exchange, to the development of data standards for publishing e-Procurement data in open, machine-readable formats.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_challenges"><a class="anchor" href="#_the_challenges"></a>The Challenges</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main challenge is that procurement data exists in different systems across the European Union:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the relations between the different concepts in the procurement chain and data flow are not fully documented, therefore data and data relationships cannot be reused directly in a flexible and comparable manner;</p>
+</li>
+<li>
+<p>some data has inherited formats from its paper origins leading to illogical business processes and incorrect conceptual models;</p>
+</li>
+<li>
+<p>different systems use different data formats therefore reuse of information is not always efficient; and</p>
+</li>
+<li>
+<p>taxonomies like the <a href="https://ted.europa.eu/en/simap/cpv">CPV</a> are often not used correctly which creates serious problems e.g., making it very difficult for SMEs to find suitable business opportunities.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given the increasing importance of data standards for e-Procurement, a number of initiatives driven by the public sector, industry, and academia have been initiated in recent years. Some have grown organically, while others are the result of standardisation work. The vocabularies and the semantics that they introduce, the phases of public procurement that they cover, and the technologies that they use all differ. These differences hamper data interoperability and reuse. This creates the need for a common data standard for publishing procurement data, hence allowing data from different sources to be easily accessed and linked, and consequently reused. The e-Procurement ontology (henceforth referred to as the ePO) introduced by this study attempts to address this.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_solution"><a class="anchor" href="#_the_solution"></a>The Solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The ultimate objective of the ePO is to deliver a common and agreed (machine readable) <a href="https://www.w3.org/OWL/">OWL ontology</a> that will conceptualise, formally encode, and make available in an open, structured, and machine-readable format, data about public procurement. The ontology will cover the public procurement process from end to end, i.e. from notification, through tendering to awarding, ordering, invoicing and finally payment.</p>
+</div>
+<div class="paragraph">
+<p>The ePO does not reinvent or redefine existing terms or processes, but uses other existing ontologies and standards, thus facilitating the seamless exchange, access, and reuse of data.</p>
+</div>
+<div class="paragraph">
+<p>Process, Methodology and Technology discuss in detail the open process and methodology that will be followed for developing the ePO.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_target_audience_and_use_cases"><a class="anchor" href="#_the_target_audience_and_use_cases"></a>The Target Audience and Use Cases</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_the_target_audience"><a class="anchor" href="#_the_target_audience"></a>The Target Audience</h3>
+<div class="paragraph">
+<p>The target audience of the ePO is made up of the following groups of stakeholders:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Contracting authorities and entities, i.e. buyers, such as public administrations in the EU Member States or EU institutions;</p>
+</li>
+<li>
+<p>Economic operators, i.e. suppliers of goods and services such as businesses, entrepreneurs and financial institutions;</p>
+</li>
+<li>
+<p>Academia and researchers;</p>
+</li>
+<li>
+<p>Media and journalists;</p>
+</li>
+<li>
+<p>Auditors and regulators;</p>
+</li>
+<li>
+<p>Members of parliaments at regional, national and EU level;</p>
+</li>
+<li>
+<p>Standardisation organisations;</p>
+</li>
+<li>
+<p>NGOs; and</p>
+</li>
+<li>
+<p>Citizens</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_use_cases"><a class="anchor" href="#_use_cases"></a>Use Cases</h3>
+<div class="paragraph">
+<p>The ePO is designed to meet specific needs of the aforementioned stakeholders. These needs are described in the use cases below. The use cases are organised around the following categories:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Transparency and monitoring</p>
+</li>
+<li>
+<p>Innovation &amp; value added services</p>
+</li>
+<li>
+<p>Interconnection of public procurement systems</p>
+</li>
+</ol>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. :</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">1</th>
+<th class="tableblock halign-left valign-top">Transparency and monitoring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Public Understandability</p>
+<p class="tableblock"><em>To facilitate the understandability of the public procurement process, the parties involved in procurement processes, as well as citizens, journalists, and regulators, should be able to access procurement data easily in a structured and machine-readable format. Many stakeholders aim at gaining a quick understanding of the  information provided rather than performing an in-depth analysis of the published documentation. Currently, two main challenges exists. Firstly, data coming from different e-Procurement systems are often fragmented, reflecting the compatibility challenges between  source systems. Second, the data is available in different formats and representations, which are not always consistent and interoperable, and are therefore hard to connect and interlink. By providing a common view over e-Procurement data, the ePO will allow providers of procurement data to link their data and make it available in ways which will be easier for the non-technical consumer to interpret and reuse, in order to create a complete view of the public procurement process.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">A watchdog would like to understand how a public administration purchases goods and services. Their main goal is to understand the procedure and gain visibility of all the procedural steps. Procurement procedures often consist of complicated documents and processes, which are scattered on different platforms and websites, and are not always understood by the wide public. As all procurement data is now represented and made available using the ePO, the watchdog can easily combine data from different sources, thereby providing the context for understanding the information.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case it is required that:</p>
+<p class="tableblock">* the ePO can model all documents that result from any phase of the procurement process;
+* the ePO can model all metadata about elements of the procurement process, such as participating entities.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data journalism</strong></p>
+<p class="tableblock"><em>The ever increasing amount of digitised information leads to new ways of producing and disseminating knowledge in society. Data journalism helps journalists to:</em>
+* <em>identify information;</em>
+* <em>understand complex information;</em>
+* <em>identify complex data deriving from different sources; and</em>
+* <em>create compelling stories (e.g. through data visualisation techniques) which can be easily communicated and understood by the wider public.</em>
+<em>By providing a common way to describe e-Procurement resources and data, the ePO will enable data journalists to identify, extract integrate and analyse relevant information coming from different sources.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">A journalist in France is writing an article about the total number and volume (in Euro) of tenders in the domain of transportation by looking at different data sources in the country, and also by comparing the French data with data from neighbouring countries, such as Belgium and Spain. As all data has been modelled using the ePO, it is easy for the journalist to identify all the data that is related to procurement procedures and the resulting invoices. The journalist is then able to integrate and analyse the data related to transportation, and produce data visualisations based on the organisation and location data of the tenders.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case, it is required that:
+* the ePO can model data about economic operators, such as businesses (names, locations, contact details etc.);
+* The ePO can model calls for tenders;
+* The ePO can model invoices, moreover, it requires core, not private or sensitive data, about invoices to be available as open data;
+* data from the ePO can be linked with procurement data from other countries' procurement systems.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Monitor the money flow</strong></p>
+<p class="tableblock"><em>To obtain an exhaustive and unified view of the flow of public money, from tax collection and budget through to procurement and spending, e-Procurement data should be integrated with other datasets such as budget, spending and location data. A common ontology such as the ePO is necessary in order to interlink such datasets, and help with the creation of a unified view of the flow of public money.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">A procurement watchdog is analysing the flow of public money over an interval of two years. Using the ePO as the common model for representing data allows the watchdog to find their way through the different sources that have to be consulted, e.g. budget dataset, calls for tender and procurement notices, and to interlink the data in order to identify the trails. Examples of the data to be interlinked by the watchdog, in order to  discover the flow of money could be:
+* the value of the contract;
+* the name of the awarded tender;
+* the location of the awarded tender; and
+* the department of the public administration that awarded the tender.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case it would be required that:
+* the ePO can model all procurement process data e.g. calls for tenders, notices etc.;
+* the ePO can model economic operator data e.g. name, location etc.;
+* the ePO can model contract data e.g. contract value;
+* the ePO can model exclusion criteria etc.;
+* the ePO can link to other datasets e.g. budget datasets, spending datasets, tax information datasets.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Detect fraud and compliance with procurement criteria</strong></p>
+<p class="tableblock"><em>For assuring efficiency and transparency, and for detecting fraud and corruption in public administrations, EU institutions, and contracting authorities, rigorous audits of procurement need to take place. In order to improve and further automate the audit process, different data should be made available in structured, machine-readable formats so that different data sources can be referenced and integrated. The creation of the ePO will be a first step towards achieving such integration.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">While auditing the evidence submitted by the tenderer who was awarded the contract, the auditor noticed that the supplier did not comply with the location criteria that were agreed during the signing of the contract. The collated payment evidence proved that by disregarding the initial agreement, the supplier had leased services from outside of the European Union to reduce the cost of the works. Publishing e-Procurement data in a structured, linked, and machine-readable format, allows the interconnection of data on transactions, criteria, contracts, and evidences from different sources, e.g. including BRIS and ECRIS, thus facilitating cross-checking and automated fraud detection.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case it would be required that:
+* the ePO can model the evidence, the contract, the procurement criteria, including the location criteria;
+* the ePO can link its data to data in other datasets, such as procurement systems of different countries or the BRIS or ECRIS.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.5</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Audit procurement process</strong></p>
+<p class="tableblock"><em>To monitor the correct use of funds it is necessary to cross-check data from different sources. In the case of public procurement, when the payment and invoice data is represented as linked data through the ePO, it is possible to link it with budget data. In this way one can check if the amounts resulting from the invoices do correspond to the initially budgeted amounts.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">A governing body wants to make sure that no payment through public procurement on any specific category exceeds the agreed amount. For this, the government body can easily organise all the invoice data of all procurements by category, combine it with budget data, and cross-check if the numbers add up correctly.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case it would be required that:</p>
+<p class="tableblock">* the ePO can model payments, contract terms;
+* the ePO can link this data with budget data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1.6</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Cross-validate data from different parts of the procurement process</strong></p>
+<p class="tableblock"><em>Representing all phases of procurement in a linked data format can allow for better cross-validation of the data of any part of the process.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">After a contract has been awarded to a specific tenderer a watchdog would like to check if the criteria for the awarding of the contract have been met. By having all parts of the process linked, the watchdog can by identifying the specific contract and immediately identify the tenderer and the criteria of the contract. Through linking this data with data about the tenderer from other sources, such as their financial data, they can double check if the tenderer does actually fulfil the requirements.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this example it would be required that:
+* the ePO can model the contract awarded, the criteria of the contract, the details of the supplier;
+* the ePO can link is data to data in other databases such as those containing financial data about businesses.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. :</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2. Innovation &amp; value added services</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Automated matchmaking of procured services and products with businesses</strong></p>
+<p class="tableblock"><em>Automated matchmaking of procured services and products with businesses</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">An economic operator requires more information in order to find and decide on a trade partner. The economic operator is able to identify the ideal candidates by displaying the names of winners in different products or services against the value/cost of said products or services. Representing e-Procurement data following an ontology and making it available in a machine-readable format facilitates the automated mapping between the provided data about the economic operators and that about the economic activities.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case it would be required that:</p>
+<p class="tableblock">* the ePO can model economic operator&#8217;s details such as names, locations, contact details etc.;
+* the ePO can model procurement criteria;
+* the ePO can link the data of the ePO to data of other sources including material costs, labour costs etc.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Automated validation of procurement criteria</strong></p>
+<p class="tableblock"><em>Economic operators that submit a tender are required to fulfil several criteria. In order for a contracting authority to automatically validate whether the criteria are met by an economic operator, data, both from the contracting authority&#8217;s and the economic operator’s side, should be cross-checked. In order to automate this process, both the data and the evaluation criteria should be made available in machine-readable formats.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">An economic operator submits a tender to DG Informatics of the European Commission. The offer is written based on the criteria defined by the contracting authority in the tender specifications. Through the semi-automated validation of the tender, the economic operator is notified whether the tender meets the procurement requirements in terms of evidence required to check against financial and other exclusion criteria. if not, the tenderer is provided with a list of further evidence required to fulfil said criteria, and only after this submission does the process move on to the manual evaluation of technical requirements. Such preliminary automation allows for gains in speed and efficiency.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this example it would be required that:</p>
+<p class="tableblock">* the ePO can model tenders, notices, offers by tenderers, procurement criteria, evidence;</p>
+<p class="tableblock">* the ePO can model the relationship between offers and procurement criteria.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alerting services</strong></p>
+<p class="tableblock"><em>Contracting authorities announce and publish calls for tender to economic operators, citizens, and third parties. Through the use of alerting services, economic operators can be informed about published calls for tenders that match their profile. In order to automate alerting services, e-Procurement data such as tenders and information about economic operators should be machine processable, so they can be integrated, matched, and the right data delivered to the right person (depending on their subscription to the alerting services).</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">A Spanish public administration procures stationery and textbooks for the forthcoming year. The public administration publishes the call for tenders on an online platform. Since the call for tenders is published in a machine-readable format, following the structure of the ePO, third-party applications can process the call for tender and send alerts to interested parties in their client bases. Usually, such third party applications offer their clients the ability to define criteria they want to be automatically alerted on.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this example it would be required that:
+* the ePO can model the calls for tenders and the tender details.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2.4</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Data analytics on public procurement data</strong></p>
+<p class="tableblock"><em>Although data is available in vast amounts, businesses and public administrations often fail to manage these data efficiently and extract useful and qualitative information from them. Applying e-Procurement data analytics could be advantageous for economic operators, contacting authorities, and external parties such as journalists and watchdogs. Applying data analysis techniques to e-Procurement data allows stakeholders not only to understand public procurement better, but also to take better informed, evidence-based decisions. In order to fully exploit the potential data analytics in e-Procurement, data should be published in machine-readable formats, in which the ePO plays a major role, and (preferably) linked open data. Linked Data allows for flexible data integration over the Web; this helps to increase data quality and fosters the development of new services.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">The European Commission aims to leverage its decision-making capability during a call for tenders in telecommunications by analysing all the data available about the potential suppliers and forecasting a fair market price. The European Commission aims at ensuring that the contract will be awarded to the supplier that provides the best services at the best price. In order for the European Commission to conduct its analysis, e-Procurement data should be integrated with a large amount of data coming from different sources, such as data about fees and pricing, qualifications, technical specifications, and cost of materials.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this example it would be required that:
+* the ePO can model economic operators and procurement criteria;
+* the ePO can link its data with that of other sources that provide data on fees, pricing, cost of materials etc.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. :</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3. Interconnection of public procurement systems</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Increase cross-domain interoperability among Member States</strong></p>
+<p class="tableblock"><em>The European Union aims at providing a competitive economic environment for economic operators from different Member States. In order to achieve such a competitive environment, economic operators, public administrations, researchers, and academia should be able to access and exchange procurement information coming from different sources around Europe, allowing them to participate in calls for tenders from procurers from different Member States. Similarly, contracting authorities should be able to access information about economic operators, which are based in different Member States, and submit tenders for procured services. Making e-Procurement data available in common well-structured and machine-readable formats enhances cross-domain and trans-European competiveness by allowing economic operators from any Member State to participate in public procurement in any other Member State.</em></p>
+<p class="tableblock"><strong>Example:</strong></p>
+<p class="tableblock">The VAT authority of a Member state wants to monitor the activity of a certain economic operator. By having all procurement data in all Member States published in a common and machine readable format, this data can be integrated into the systems of the VAT authority. This way it can instantly gain access to all data about any business conducted for public administrations by that economic operator in any other Member State.</p>
+<p class="tableblock"><strong>Information requirements:</strong></p>
+<p class="tableblock">In this case it would be required that:</p>
+<p class="tableblock">* the ePO can model the whole procurement process and the details of each phase;
+* the ePO uses unique identifiers for the economic operators and contracting authorities and uses common reference data wherever required, such as NALs, NACE codes, CPV, common codes for products etc.;</p>
+<p class="tableblock">*the ePO can link its data to a dataset containing information about economic operators.
+In this example the VAT authority would simply have to gain access to the systems hosting procurement data of each Member State and it will instantly acquire all needed data.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3.2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Introduce automated classification systems in public procurement systems
+<em>During the procurement procedure, especially upon the receipt of offers, procurers receive many documents from different sources. Improved and automated classification of these documents would facilitate, and make more efficient, their processing and archiving. The ePO will set the grounds for common ways and rules for classifying such documents.</em></p>
+<p class="tableblock"><strong>Example:</strong>
+A contracting authority procuring agricultural products is receiving different types of documents and evidences from potential suppliers via its electronic submission platform. When uploading documents, suppliers are asked to complete core metadata coming from the ePO. For example, implementing the ePO facilitates the provision of the specifications of their products, the financial state and the contact details of the suppliers in a commonly agreed and structured way. The platform of the procurer can then automatically classify all received documentation, using machine learning techniques, based on different dimensions including, among others, the following:
+* The price of the tender;
+* The category of the tenderer&#8217;s business; and
+* The extent to which the tenderer complies with specific criteria.</p>
+<p class="tableblock"><strong>Information requirements:</strong>
+In this case it would be required:
+* Of the ePO to model all documents and evidences regarding tender offers;
+* Of the ePO to model procurement criteria;
+* Of the ePO to model details about the economic operators;
+* Of the ePO to model product categories.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Table 5, Relevant actors for each use case, below summarises the relationships between the identified actors and the uses cases.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. : Relevant actors for each use case</caption>
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Use cases/Actors</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contracting authorities</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Economic  operators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Academia</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Media/ journalists</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auditors/ regulators</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Parliament</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Standardisation organisations</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NGOs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Citizens</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.1: Increase transparency and public understandability</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.2: Data journalism</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.3: Monitor the money flow</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.4: Detect fraud and compliance with procurement criteria</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.5: Audit procurement process</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1.6: Cross-validate data from different parts of the procurement process</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.1: Automated matchmaking of procured services, products and businesses</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.2: Automated validation of procurement criteria</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.3: Alerting services</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2.4: Data analytics on public procurement data</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3.1: Increase cross-domain interoperability among Member States</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>3.2: Introduce automated classification systems in public procurement systems</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">x</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<style type="text/css">
+    @import url('/documents/d/global/custom');
+</style>
+
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+            <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/languages-our-websites_en">Languages on our website</a>
+                </li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/privacy-policy-european-union-website_en">Privacy
+                        Policy</a></li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/legal-notice_en">Legal notice</a></li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/cookies_en">Cookies</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">EU institutions</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://www.europarl.europa.eu/portal/en">European Parliament</a></li>
+                <li class="li-footer institutions"><a href="https://www.consilium.europa.eu/en/european-council/">European
+                        Council</a></li>
+                <li class="li-footer institutions"><a href="https://www.consilium.europa.eu/en/">Council of the European Union</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://commission.europa.eu/index_en">European Commission</a></li>
+                <li class="li-footer institutions"><a href="https://curia.europa.eu/jcms/jcms/j_6/en/">Court of Justice of the
+                        European Union (CJEU)</a></li>
+                <li class="li-footer institutions"><a href="https://www.ecb.europa.eu/home/html/index.en.html">European Central Bank
+                        (ECB)</a></li>
+                <li class="li-footer institutions"><a href="http://www.eca.europa.eu/en">European Court of Auditors (ECA)</a></li>
+                <li class="li-footer institutions"><a href="https://www.eeas.europa.eu/_en">European External Action Services
+                        (EEAS)</a></li>
+                <li class="li-footer institutions"><a href="https://www.eesc.europa.eu/en">European Economic and Social Committee
+                        (EESC)</a></li>
+                <li class="li-footer institutions"><a href="https://cor.europa.eu/en/">European Committee of the Regions (CoR)</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://www.eib.org/en/index.htm">European Investment Bank (EIB)</a></li>
+                <li class="li-footer institutions"><a href="https://www.ombudsman.europa.eu/en/home">European Ombudsman</a></li>
+                <li class="li-footer institutions"><a href="https://edps.europa.eu/_en?lang=en">European Data Protection Supervisor
+                        (EDPS)</a></li>
+                <li class="li-footer institutions"><a href="https://edpb.europa.eu/edpb_en">European Data protection Board</a></li>
+                <li class="li-footer institutions"><a href="https://eu-careers.europa.eu/en">European Personnel Selection Office</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://op.europa.eu/en/home">Publications Office of the European
+                        Union</a></li>
+                <li class="li-footer institutions"><a
+                        href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en?f%5B0%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_DEC&f%5B1%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_EXEC&f%5B2%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/EU_JU">Agencies</a>
+                </li>
+                <li class="li-footer search-institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search for EU institutions</a></li>
+            </ul>
+        </div>
+
+        <script>
+            ECL.autoInit();
+        </script>
+    </div>
+</div>  </body>
+</html>

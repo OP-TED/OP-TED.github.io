@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Guide to the ePO Conceptual Model :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/epo-home/guides/conceptualModelGuide.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/styles/optional/custom.css" media="screen"/>
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div><div class="body">
+<script src="../../_/js/07-scrollable-header-nav.js"></script>
+<div class="nav-container" data-component="epo-home" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eProcurement Ontology</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../guide.html">User Guides</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/conceptual.html">Conceptual Models</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/glossaries.html">Glossaries</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../EPO/latest/release-notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../showcase/index.html">The ePO in Other Projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Reference Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../methodology2024.html">Methodology</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../versioning.html">ePO Versioning Rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../stories.html">User Stories and Natural Language Statements</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../stories_eAccess.html">eAccess (ESPD Request)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../stories_eSubmission.html">eSubmission (ESPD Response)</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../stories_eInvoicing.html">eInvoicing</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../REFreferences.html">Other Reference Documents</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Working Group Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/wider.html">Quarterly Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/cumulative.html">Cumulative Reports (by year)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../epo-wgm/indiv.html">Individual Meeting Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.11/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../EPO/4.2/index.html">4.2.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ESPD-EDM/latest/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.1.0/index.html">2.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eProcurement Ontology</a></li>
+    <li><a href="conceptualModelGuide.html">Guide to the ePO Conceptual Model</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Guide to the ePO Conceptual Model</h1>
+<h1>Guide to the ePO Conceptual Model</h1>
+<div id="preamble">
+<div class="sectionbody">
+<!-- toc disabled -->
+</div>
+<div id="toc" class="toc">
+<div id="toctitle">Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_uml_diagrams">1. UML diagrams</a>
+<ul class="sectlevel2">
+<li><a href="#_understanding_uml">1.1. Understanding  UML</a></li>
+<li><a href="#_classes_and_attributes">1.2. Classes and Attributes:</a>
+<ul class="sectlevel3">
+<li><a href="#_data_types">1.2.1. Data types</a></li>
+</ul>
+</li>
+<li><a href="#_associations_predicates_object_properties_class_generalisations_and_dependency_relationships">1.3. Associations: Predicates (Object properties), Class generalisations and dependency relationships</a>
+<ul class="sectlevel3">
+<li><a href="#_controlled_vocabularies">1.3.1. Controlled vocabularies</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_conceptual_model_usage_html">2. Conceptual model usage (HTML)</a>
+<ul class="sectlevel2">
+<li><a href="#_diagrams_of_note_in_epo_core">2.1. Diagrams of note in ePO core</a>
+<ul class="sectlevel3">
+<li><a href="#_μain_objects_over_time_and_phase_oriented_diagrams">2.1.1. Μain objects over time and phase oriented diagrams</a></li>
+<li><a href="#_agent_hierarchy_and_agent_relations_diagrams">2.1.2. Agent hierarchy and agent relations  diagrams</a></li>
+</ul>
+</li>
+<li><a href="#_browsing_classes_on_the_conceptual_model">2.2. Browsing Classes on the conceptual model</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uml_diagrams"><a class="anchor" href="#_uml_diagrams"></a>1. UML diagrams</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this Guide, we describe the UML diagrams that represent the conceptual model of the Ontology.</p>
+</div>
+<div class="sect2">
+<h3 id="_understanding_uml"><a class="anchor" href="#_understanding_uml"></a>1.1. Understanding  UML</h3>
+<div class="paragraph">
+<p>Unified Modelling Language (UML) is a standardised visual language used to describe, specify, design, and document
+the structure, relationships, and behaviors within a knowledge domain. Although originally designed to model software,
+It can also be used for business modelling, and for our purposes, Ontology modelling.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_classes_and_attributes"><a class="anchor" href="#_classes_and_attributes"></a>1.2. Classes and Attributes:</h3>
+<div class="paragraph">
+<p>Figure 1 below depicts  a Class in the Ontology.<br>
+A class represents a category or a type of entities within a domain. It is a collection of objects that share common
+characteristics or properties. A Class can be thought of as blueprint  with specifications that an individual
+must cover in order to be a member of that Class. Individuals that uphold these specifications.
+are called <em>Instances</em>.</p>
+</div>
+<div class="paragraph">
+<p>Figure 1 represents the class epo:ReviewRequest. The prefix <em>epo</em> specifies the actual ontology that this
+Class was created from. In this particular case, <em>epo</em> signifies that ReviewRequest is a member of the ePO core module.</p>
+</div>
+<div class="paragraph">
+<p>Underneath the Class, one can see its  <em>Datatype properties</em>, commonly referred to as <em>Attributes</em>.
+Each Attribute Specifies a  constant, which indicates the data type of the value that an object can hold (for example a
+type of number, a type of text, a representation of time, wether a statement is true or false,etc). Each Attribute
+also has a prefix, a definition describing it (not seen in the picture), and a cardinality. A cardinality
+specifies the minimum and maximum number of values that an attribute can have.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Attribute <em>epo:hasNumberOfReviewRequests</em> is a constant of type integer (it can take the value of any integer number).</p>
+</li>
+<li>
+<p>Attribute <em>epo:isWithdrawn</em> is of type boolean (It can only take the values of <em>true</em> or <em>false</em>), and has a cardinality
+of [0..1] (this attribute can only have a value of 1 or 0).</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure1.png" alt="figure1">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 1: UML visual notation for Class epo:ReviewRequest
+</em></p>
+</div>
+<div class="sect3">
+<h4 id="_data_types"><a class="anchor" href="#_data_types"></a>1.2.1. Data types<a id="datatypes"></a></h4>
+<div class="paragraph">
+<p>The datatypes that are currently used in EPO (EPO 4.1.0) are the following:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure2.png" alt="figure2">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 2: UML visual notation for Datatypes of the Ontology.
+</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The prefix XSD (XML Schema Definition) specifies how to describe the elements formally in an Extensible Markup Language
+document (XML). The ePO makes use of the data types that are shown in Figure 2.</p>
+</li>
+<li>
+<p>Plain Literals represent text and can also include a language tag which indicates the language of that specific text.</p>
+</li>
+<li>
+<p>URI (short for Uniform Resource Identifier) is a character sequence that identifies a logical or physical resource
+that usually connected to the internet. URLs (web addresses) are the most common URIs.</p>
+</li>
+<li>
+<p>Decimals are numbers that consist of a whole and a fractional part, while integers represent whole numbers.</p>
+</li>
+<li>
+<p>Date is used to represent a certain date, while dateTime is used to represent a certain time point during a day.</p>
+</li>
+<li>
+<p>Boolean is used to represent 2 possible values, usually "true" and "false".</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_associations_predicates_object_properties_class_generalisations_and_dependency_relationships"><a class="anchor" href="#_associations_predicates_object_properties_class_generalisations_and_dependency_relationships"></a>1.3. Associations: Predicates (Object properties), Class generalisations and dependency relationships<a id="arrows"></a></h3>
+<div class="paragraph">
+<p>There are 3 types of associations between the various concepts of ePO:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Predicates (or object Properties) drawn in UML as arrows are used to represent relations between 2 classes. Like attributes, predicates also have cardinalities.
+For example, Figure 3 depicts predicate epo:playedBy, that connects classes epo:AgentInRole and foaf:Agent. This specific
+predicate should be read as: "AgentInRole playedBy Agent". Also note that The cardinality of epo:playedBy is 1. This means
+that each instance of epo:AgentInRole must be played by exactly 1 instance of foaf:Agent.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure3.png" alt="figure3">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 3: Object Property epo:playedBy
+</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Class generalisations / specialisations drawn in UML as arrows with a triangle on top, are similar to the Inheritance
+concept of object-oriented programming (OOP). Class generalisations are used to define classes that represent similar
+concepts with other existing classes, with the only difference being a number of extra attributes or predicates.
+Each class can have many specialisations (incoming arrows) but only one generalisation (outgoing arrow). For example,
+in Figure 4, org:Organization is a specialisation of foaf:Agent, and foaf:Agent is a generalisation of org:Organization.
+org:Organization inherits all attributes and predicates of foaf:Agent (such as dct:title), and on top of that, has a number
+of predicates that are unique to that class, such as attribute epo:hasMainActivityDescription.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure5.png" alt="figure5">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 4: foaf:Agent is the generalisation of org:Organization
+</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Predicate generalisations / specialisations drawn in UML similarly to Class generalisations / specialisations, are concepts equivalent  to Class generalisations / specialisations, with the difference that they apply to predicates. For example, in Figure 5,  predicate epo:isResponsibilityOfBuyer is a specialisation of epo:involvesBuyer. This can be used to represent the idea that a Procedure that is the responsibility of a Buyer should also involve the Buyer in some fashion.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure4.png" alt="figure4">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 5: epo:isResponsibilityOfBuyer is a specialisation of epo:involvesBuyer.
+</em></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Dependency relationships, drawn in UML as dashed lines, are predicates that connect a Class with an enumeration. For
+example, in figure 6, vocabulary at-voc:country is connected to Class person:Person by dependencies epo:hasNationality
+and epo:hasCountryOfBirth. The distinction between predicates and dependencies exists for 2 reasons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Unlike a class, an enumeration cannot exist alone in an Ontology, but requires a connection to a Class.</p>
+</li>
+<li>
+<p>Enumerations contain vocabularies that exist outside of the Ontology and are not maintained by EPO.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure6.png" alt="figure6">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 6: foaf:Agent is the generalisation of org:Organization
+</em></p>
+</div>
+<div class="sect3">
+<h4 id="_controlled_vocabularies"><a class="anchor" href="#_controlled_vocabularies"></a>1.3.1. Controlled vocabularies</h4>
+<div class="paragraph">
+<p>Controlled Vocabularies, also known as taxonomies, are controlled lists of terms used by the ontology. All controlled
+vocabularies in the ontology, use the prefix <em> at:voc </em> .
+For example, a Controlled vocabulary could be a list of countries (at:voc:country) or  a set of time periods (at-voc:timeperiod).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_conceptual_model_usage_html"><a class="anchor" href="#_conceptual_model_usage_html"></a>2. Conceptual model usage (HTML)</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The conceptual model of the eProcurement Ontology can be found <a href="https://docs.ted.europa.eu/EPO/latest/conceptual.html">here</a></p>
+</li>
+<li>
+<p>As of EPO version 4.1.0,  The Conceptual model can be viewed either as an HTML page, or in its original form in an
+Enterprise Architect file (*.EA).</p>
+</li>
+<li>
+<p>As seen in Figure 7, the conceptual model consists of modules, where each module represents a specific part of the procurement process.</p>
+</li>
+<li>
+<p>In this guide, we are going to focus on the main part of the ontology, <em>ePO core</em> .</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure7.png" alt="figure7">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 7: The Conceptual model website. Note the version selector on the top right.
+</em></p>
+</div>
+<div class="paragraph">
+<p>In figure 8, we see the ePO core HTML conceptual model menu .</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>On the right, there is a collection of diagrams that can provide an
+overview of the Ontology, such as the diagrams for the different procurement phases and diagrams about monetary values.</p>
+</li>
+<li>
+<p>On the left, the file structure of the conceptual model can be browsed. The following files and folders are provided:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>ePO overview diagram that offers an outline of the ontology.</p>
+</li>
+<li>
+<p>The diagrams folder that contains all diagrams in a hierarchical structure.</p>
+</li>
+<li>
+<p>The classes folder that contains a list of all the classes in the module.</p>
+</li>
+<li>
+<p>The empirical types folder that contains utility classes that the ontology uses as well as a diagram depicting them.</p>
+</li>
+<li>
+<p>The controlled vocabularies folder containing all the vocabularies used in the module.</p>
+</li>
+<li>
+<p>The datatype folder that contains all datatypes that the ontology uses, also described in the <a href="#Data types">[Data types]</a> section of the guide.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure8.png" alt="figure8">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 8: The Conceptual model menu.
+</em></p>
+</div>
+<div class="sect2">
+<h3 id="_diagrams_of_note_in_epo_core"><a class="anchor" href="#_diagrams_of_note_in_epo_core"></a>2.1. Diagrams of note in ePO core</h3>
+<div class="sect3">
+<h4 id="_μain_objects_over_time_and_phase_oriented_diagrams"><a class="anchor" href="#_μain_objects_over_time_and_phase_oriented_diagrams"></a>2.1.1. Μain objects over time and phase oriented diagrams</h4>
+<div class="paragraph">
+<p>The Μain objects over time diagram (fig. 9) depicts the most important classes of each procurement phase and their relations.
+The diagrams under the "phase oriented" directory (fig. 10) offer a more detailed view for each phase.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/conceptualModelDiagrams/mainObjects.png" alt="mainObjects">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 9: The Μain objects over time diagram.
+</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure10.png" alt="figure10">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 10: The Planning diagram under the "phase oriented" directory.
+</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_agent_hierarchy_and_agent_relations_diagrams"><a class="anchor" href="#_agent_hierarchy_and_agent_relations_diagrams"></a>2.1.2. Agent hierarchy and agent relations  diagrams</h4>
+<div class="paragraph">
+<p>As seen in figure 11, An epo:Agent can either be a person (foaf:Person) an organisation (org:Organization) or a system (epo:system). Classes foaf:Person and org:Organization are themselves generalisations of more specific concepts. The prefixes foaf and org signify that these classes were reused from other ontologies and taxonomies by the ePO.
+Also, on the left of the diagram, we see the directory tree containing the other diagrams of the ontology. Each directory more or less follows the same format. There is one or more key concepts for that directory, "agent", for example, and for each concept there is a hierarchy diagram depicting the hierarchy of the concept, and a relations diagram depicting the concept&#8217;s relationship with other classes, or vocabularies.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure11.png" alt="figure11">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 11: The agent hierarchy diagram
+</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_browsing_classes_on_the_conceptual_model"><a class="anchor" href="#_browsing_classes_on_the_conceptual_model"></a>2.2. Browsing Classes on the conceptual model</h3>
+<div class="paragraph">
+<p>All classes of a conceptual model are located under the "classes" directory. Figure 11, depicting class cv:Channel offers an example of what a class looks like on the model. As seen on the figure, besides the description of the class, there is a number of tabs where each tab provides information on concepts related to that class. For example, the "Attributes" tab lists all attributes of cv:Channel.</p>
+</div>
+<div class="paragraph">
+<p>A very useful feature of the conceptual model is that each class lists all diagrams that it appears on. To access that list, press "+" next to the "advanced" indicator under the Class title. For example, we see that in figure 12, there are links for the "role relations", "agent relations", and "communication means" diagrams. There is no link for the Order invoicee diagram, as it is part of the eOrdering conceptual model and not the ePO core model.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/docUpdateGuideImages/UML/figure12.png" alt="figure12">
+</div>
+</div>
+<div class="paragraph">
+<p><em> Figure 12 The cv:Channel class on the conceptual model. All diagrams containing it  can be found under the "advanced" text.
+</em></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<style type="text/css">
+    @import url('/documents/d/global/custom');
+</style>
+
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+            <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/languages-our-websites_en">Languages on our website</a>
+                </li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/privacy-policy-european-union-website_en">Privacy
+                        Policy</a></li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/legal-notice_en">Legal notice</a></li>
+                <li class="li-footer"><a aria-labelledby="section-title-op"
+                        href="https://european-union.europa.eu/cookies_en">Cookies</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">EU institutions</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://www.europarl.europa.eu/portal/en">European Parliament</a></li>
+                <li class="li-footer institutions"><a href="https://www.consilium.europa.eu/en/european-council/">European
+                        Council</a></li>
+                <li class="li-footer institutions"><a href="https://www.consilium.europa.eu/en/">Council of the European Union</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://commission.europa.eu/index_en">European Commission</a></li>
+                <li class="li-footer institutions"><a href="https://curia.europa.eu/jcms/jcms/j_6/en/">Court of Justice of the
+                        European Union (CJEU)</a></li>
+                <li class="li-footer institutions"><a href="https://www.ecb.europa.eu/home/html/index.en.html">European Central Bank
+                        (ECB)</a></li>
+                <li class="li-footer institutions"><a href="http://www.eca.europa.eu/en">European Court of Auditors (ECA)</a></li>
+                <li class="li-footer institutions"><a href="https://www.eeas.europa.eu/_en">European External Action Services
+                        (EEAS)</a></li>
+                <li class="li-footer institutions"><a href="https://www.eesc.europa.eu/en">European Economic and Social Committee
+                        (EESC)</a></li>
+                <li class="li-footer institutions"><a href="https://cor.europa.eu/en/">European Committee of the Regions (CoR)</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://www.eib.org/en/index.htm">European Investment Bank (EIB)</a></li>
+                <li class="li-footer institutions"><a href="https://www.ombudsman.europa.eu/en/home">European Ombudsman</a></li>
+                <li class="li-footer institutions"><a href="https://edps.europa.eu/_en?lang=en">European Data Protection Supervisor
+                        (EDPS)</a></li>
+                <li class="li-footer institutions"><a href="https://edpb.europa.eu/edpb_en">European Data protection Board</a></li>
+                <li class="li-footer institutions"><a href="https://eu-careers.europa.eu/en">European Personnel Selection Office</a>
+                </li>
+                <li class="li-footer institutions"><a href="https://op.europa.eu/en/home">Publications Office of the European
+                        Union</a></li>
+                <li class="li-footer institutions"><a
+                        href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en?f%5B0%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_DEC&f%5B1%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/AGENCY_EXEC&f%5B2%5D=oe_organisation_eu_type%3Ahttp%3A//publications.europa.eu/resource/authority/corporate-body-classification/EU_JU">Agencies</a>
+                </li>
+                <li class="li-footer search-institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search for EU institutions</a></li>
+            </ul>
+        </div>
+
+        <script>
+            ECL.autoInit();
+        </script>
+    </div>
+</div>  </body>
+</html>

@@ -2967,7 +2967,7 @@ more)</em></p></td>
 <td class="tableblock halign-center valign-middle"><p class="tableblock">&#8201;&#8212;&#8201;</p></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:SelectionCriteria&#8203;/cbc:CriterionTypeCode</code></pre>
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:SelectionCriteria&#8203;/cbc:TendererRequirementTypeCode</code></pre>
 </div>
 </div></div></td>
 </tr>
@@ -4570,7 +4570,7 @@ each BG-614.</p>
 There are different selection criteria (BT-809) which are identified using a value of the
 <a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/selection-criterion">selection-criterion</a>
 codelist.
-This information is marked using the "<em>cbc:CriterionTypeCode</em>" element.</p>
+This information is marked using the "<em>cbc:TendererRequirementTypeCode</em>" element, child of the "<em>efac:SelectionCriteria</em>" aggregate element.</p>
 </div>
 <div class="paragraph">
 <p>The information source for Selection Criteria (BT-821-Lot) may be:</p>
@@ -4663,7 +4663,35 @@ information may/shall be reported.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">    &lt;cac:TendererQualificationRequest&gt;
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml"> 	&lt;efac:SelectionCriteria&gt;
+        &lt;!-- Selection Criteria (BT-809) --&gt;
+		&lt;cbc:TendererRequirementTypeCode listName="selection-criterion"&gt;slc-suit-reg-prof&lt;/cbc:TendererRequirementTypeCode&gt;
+        &lt;!-- Selection Criteria Description (BT-750) --&gt;
+		&lt;cbc:Description languageID="ENG"&gt;Bidders will be required to state if any of the exclusion grounds as ...&lt;/cbc:Description&gt;
+		&lt;cbc:Description languageID="FRA"&gt;Les soumissionaires devront indiquer toute ...&lt;/cbc:Description&gt;
+        &lt;!--  Selection Criteria Second Stage Invite (BT-40) --&gt;
+        &lt;efbc:SecondStageIndicator&gt;true&lt;/efbc:SecondStageIndicator&gt;
+        &lt;efac:CriterionParameter&gt;
+            &lt;!-- Selection Criteria Second Stage Invite Number Threshold (BT-7532) --&gt;
+            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-score&lt;/efbc:ParameterCode&gt;
+            &lt;!--  Selection Criteria Second Stage Invite Number (BT-752)--&gt;
+            &lt;efbc:ParameterNumeric&gt;2&lt;/efbc:ParameterNumeric&gt;
+        &lt;/efac:CriterionParameter&gt;
+    &lt;/efac:SelectionCriteria&gt;
+	&lt;efac:SelectionCriteria&gt;
+		&lt;cbc:TendererRequirementTypeCode listName="selection-criterion"&gt;slc-abil-staff-tech-work&lt;/cbc:TendererRequirementTypeCode&gt;
+		&lt;cbc:Description languageID="ENG"&gt;Bidders will be required to provide examples that demonstrate that they have the relevant experience ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les soumissionaires devront fournir des exemples qui démontrent ...&lt;/cbc:Description&gt;
+        &lt;efbc:SecondStageIndicator&gt;true&lt;/efbc:SecondStageIndicator&gt;
+        &lt;efac:CriterionParameter&gt;
+            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-score&lt;/efbc:ParameterCode&gt;
+            &lt;efbc:ParameterNumeric&gt;5&lt;/efbc:ParameterNumeric&gt;
+        &lt;/efac:CriterionParameter&gt;
+	&lt;/efac:SelectionCriteria&gt;
+
+    &lt;!-- interrupted mark-up --&gt;
+
+    &lt;cac:TendererQualificationRequest&gt;
         &lt;!-- Selection Criteria Source (BT-821) --&gt;
         &lt;cac:SpecificTendererRequirement&gt;
             &lt;cbc:TendererRequirementTypeCode listName="selection-criteria-source"&gt;epo-procurement-document&lt;/cbc:TendererRequirementTypeCode&gt;
@@ -4671,30 +4699,7 @@ information may/shall be reported.</p>
         &lt;cac:SpecificTendererRequirement&gt;
             &lt;cbc:TendererRequirementTypeCode listName="selection-criteria-source"&gt;epo-notice&lt;/cbc:TendererRequirementTypeCode&gt;
         &lt;/cac:SpecificTendererRequirement&gt;
-    &lt;/cac:TendererQualificationRequest&gt;
-
-    &lt;!-- interrupted mark-up --&gt;
-
-    &lt;efac:SelectionCriteria&gt;
-        &lt;cbc:CriterionTypeCode listName="selection-criterion"&gt;slc-stand-to-avg&lt;/cbc:CriterionTypeCode&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Turnover over contract value rate&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Rapport Chiffre d'affaire sur valeur du contrat.&lt;/cbc:Description&gt;
-        &lt;efbc:SecondStageIndicator&gt;true&lt;/efbc:SecondStageIndicator&gt;
-        &lt;efac:CriterionParameter&gt;
-            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-score&lt;/efbc:ParameterCode&gt;
-            &lt;efbc:ParameterNumeric&gt;2&lt;/efbc:ParameterNumeric&gt;
-        &lt;/efac:CriterionParameter&gt;
-    &lt;/efac:SelectionCriteria&gt;
-    &lt;efac:SelectionCriteria&gt;
-        &lt;cbc:CriterionTypeCode listName="selection-criterion"&gt;slc-abil-facil-res&lt;/cbc:CriterionTypeCode&gt;
-        &lt;cbc:Description languageID="ENG"&gt;Minimum number of years of experience on similar projects&lt;/cbc:Description&gt;
-        &lt;cbc:Description languageID="FRA"&gt;Nombre minimal d'années d'expérience avec des projets similaires&lt;/cbc:Description&gt;
-        &lt;efbc:SecondStageIndicator&gt;true&lt;/efbc:SecondStageIndicator&gt;
-        &lt;efac:CriterionParameter&gt;
-            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-score&lt;/efbc:ParameterCode&gt;
-            &lt;efbc:ParameterNumeric&gt;5&lt;/efbc:ParameterNumeric&gt;
-        &lt;/efac:CriterionParameter&gt;
-    &lt;/efac:SelectionCriteria&gt;</code></pre>
+    &lt;/cac:TendererQualificationRequest&gt;</code></pre>
 </div>
 </div>
 </div>
