@@ -191,9 +191,10 @@
 <div class="sect1 text-center">
 <h2 id="_iii_the_espdresponse_xml_document"><a class="anchor" href="#_iii_the_espdresponse_xml_document"></a>III. The ESPDResponse XML document</h2>
 <div class="sectionbody">
-<div class="sect2 text-left">
+<div class="sect2">
 <h3 id="_data_model_overview"><a class="anchor" href="#_data_model_overview"></a>Data Model overview</h3>
 <div class="paragraph">
+<div class="title">text-left]</div>
 <p>The UML Diagram below provides a simplified view of the ESPDResponse document. Notice that the classes herein represented belong to different data-packages.
 Hence each class name is preceded by different prefixes representing their corresponding namespaces: "espd::", "ccv::", "cev::", "cac::" (see ''
 Table 1. Schemas, namespaces and prefixes used by the ESPDResponse''). <sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
@@ -286,7 +287,7 @@ the list and the values and descriptions of each code.</p>
 </div>
 <div class="paragraph">
 <p>The ESPD Service uses <a href="http://www.schematron.com/spec.html">Schematron</a> and the <a href="https://www.oasis-open.org/committees/codelist/">OASIS Genericode 1.0</a> specification for the validation
-of externalised codes. If you need the Genericode files you can download them altogether, jointly with the code lists PDF files, from this <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/code_lists.zip">zip volume</a>.</p>
+of externalised codes. If you need the Genericode files you can download them altogether, jointly with the code lists PDF files, from this <a href="{url-blob}/code_lists/code_lists.zip">zip volume</a>.</p>
 </div>
 </td>
 </tr>
@@ -351,7 +352,7 @@ transaction:biitrns092:ver3.0
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OPTIONAL (0..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code defined by the CEN/BII Workshop-3 (<em>BiiCoreTrdm092 ESPD</em>). See <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/CustomizationID.pdf">Code List</a>.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code defined by the CEN/BII Workshop-3 (<em>BiiCoreTrdm092 ESPD</em>). See <a href="{url-blob}/code_lists/pdf/CustomizationID.pdf">Code List</a>.</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:CopyIndicator</strong></p></td>
@@ -646,8 +647,11 @@ document type and still have their documents be validated by the standard UBL sc
 </ol>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_contracting_party"><a class="anchor" href="#_contracting_party"></a>Contracting Party</h3>
+</div>
+</div>
+<div class="sect1 text-left">
+<h2 id="_contracting_party"><a class="anchor" href="#_contracting_party"></a>Contracting Party</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The class <code>cac:ContractingParty</code> was defined in UBL-2.1 (hence the prefix <code>cac:</code>).
 This UBL class is a specialisation of the very rich UBL-2.1 aggregate component <code>cac:Party</code>.
@@ -662,8 +666,8 @@ the details about the <code>cac:Party</code> Common Aggregate Component.</p>
 </div>
 <div class="title">Figure 3. ContractingParty XSD diagram details</div>
 </div>
-<div class="sect3 text-left">
-<h4 id="_class_caccontractingparty"><a class="anchor" href="#_class_caccontractingparty"></a>Class cac:ContractingParty</h4>
+<div class="sect2 text-left">
+<h3 id="_class_caccontractingparty"><a class="anchor" href="#_class_caccontractingparty"></a>Class cac:ContractingParty</h3>
 <div class="paragraph">
 <p>The table below lists the attributes and associated classes expected in an XML conformant
 to the ESPD Service.</p>
@@ -732,7 +736,7 @@ services or public works using a tendering procedure as described in the applica
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> - (Although in the XSD Schema the cardinality is 0..n)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: The country of the contracting body MUST always be specified. Compulsory use of the
-code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/CountryCodeIdentifier.pdf">CountryCodeIdentifier</a></code></p></td>
+code list <a href="{url-blob}/code_lists/pdf/CountryCodeIdentifier.pdf">CountryCodeIdentifier</a></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -772,8 +776,10 @@ Service follows:</p>
 </div>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_economic_operator"><a class="anchor" href="#_economic_operator"></a>Economic Operator</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_economic_operator"><a class="anchor" href="#_economic_operator"></a>Economic Operator</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The ESPDResponse was explicitly designed to hold data about one single Economic Operator.
 Thus, the ESPDResponse Exchange Data Model associates a class <code>EconomicOperatorParty</code> as
@@ -805,8 +811,8 @@ to the epsd::EconomicOperatorParty class is restricted to 1. This element is the
 </div>
 <div class="title">Figure 5. Class EconomicOperatorParty UML diagram details</div>
 </div>
-<div class="sect3 text-left">
-<h4 id="_economicoperatorparty"><a class="anchor" href="#_economicoperatorparty"></a>EconomicOperatorParty</h4>
+<div class="sect2 text-left">
+<h3 id="_economicoperatorparty"><a class="anchor" href="#_economicoperatorparty"></a>EconomicOperatorParty</h3>
 <div class="paragraph">
 <p>The table below lists the attributes and associated classes expected in an XML conformant to the ESPD Service.
 Beware that this class associates the very rich UBL-2.1 aggregate component <code>cac:Party</code>.
@@ -852,7 +858,7 @@ EconomicOperatorRoleCode&gt;</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OPTIONAL (0..1) - Currently not used in the ESPD Service</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/TendererRole.pdf">TendererRole</a>.</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="{url-blob}/code_lists/pdf/TendererRole.pdf">TendererRole</a>.</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>espd-cbc:
@@ -917,8 +923,10 @@ SMEIndicator</strong></p></td>
 </table>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_representativenaturalperson"><a class="anchor" href="#_representativenaturalperson"></a>RepresentativeNaturalPerson</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_representativenaturalperson"><a class="anchor" href="#_representativenaturalperson"></a>RepresentativeNaturalPerson</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>UBL-2.1 defines a component <em>PowerOfAttorney</em> with that is a good container for the main data about a representativefootnote[cac:PowerOfAttorney also aggregates
 the cac:AgentParty, where many data about the person can be provided.]. However the ESPD stakeholders
@@ -991,8 +999,8 @@ NaturalPersonRegistrationCountryCode</strong></p></td>
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="_power_of_attorney"><a class="anchor" href="#_power_of_attorney"></a>Power of attorney</h4>
+<div class="sect2">
+<h3 id="_power_of_attorney"><a class="anchor" href="#_power_of_attorney"></a>Power of attorney</h3>
 <div class="paragraph">
 <p>The ESPD reuses only a small part of the class cac:PowerOfAttorney defined in UBL-2.1, only the component <em>AgentParty</em> and within it the subcomponent <em>Person</em>:</p>
 </div>
@@ -1035,8 +1043,10 @@ representative, as shown in this example:</p>
 </div>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_the_party_component_of_the_economic_operator"><a class="anchor" href="#_the_party_component_of_the_economic_operator"></a>The Party component of the Economic Operator</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_the_party_component_of_the_economic_operator"><a class="anchor" href="#_the_party_component_of_the_economic_operator"></a>The Party component of the Economic Operator</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>For the Economic Operator (EO) it is the UBL class cac:Party that holds the more important part of the data.</p>
 </div>
@@ -1131,7 +1141,7 @@ EO in case of conflicting EOs names)</code></p></td>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> - (Although in the XSD Schema the cardinality is 0..1)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">`<strong>Rule</strong>: The country code MUST always be specified. Compulsory use of the
-code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/CountryCodeIdentifier.pdf">CountryCodeIdentifier</a></p></td>
+code list <a href="{url-blob}/code_lists/pdf/CountryCodeIdentifier.pdf">CountryCodeIdentifier</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:Contact</strong></p></td>
@@ -1197,8 +1207,10 @@ possible values are: <code>VAT_Number</code> and <code>National_Number</code>.</
 </div>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_procurement_project_lot"><a class="anchor" href="#_procurement_project_lot"></a>Procurement Project Lot</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_procurement_project_lot"><a class="anchor" href="#_procurement_project_lot"></a>Procurement Project Lot</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The class <code>cac:ProcurementProjectLot</code> was defined in UBL-2.1 to refer to the
 possible lots into which a procurement project has been subdivided (see complete
@@ -1255,8 +1267,10 @@ to award different lots to different economic operators under different contract
 </table>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_criterion"><a class="anchor" href="#_criterion"></a>Criterion</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_criterion"><a class="anchor" href="#_criterion"></a>Criterion</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Criteria are at the core of the ESPD. The two main groups of Criteria relevant for the ESPD are the ones
 required in the Directive, Exclusion and Selection criteria. This section gives a detailed view on how
@@ -1267,8 +1281,8 @@ establishing the standard form for the European Single Procurement Document.</p>
 <p>Additionally to the Exclusion and Selection Criteria, the ESPD EDM treat some data related to the
 Economic Operator also as criteria. This is covered further on under Section "Other Criteria".</p>
 </div>
-<div class="sect3 text-left">
-<h4 id="_core_criterion_and_core_evidence_data_models_and_vocabularies"><a class="anchor" href="#_core_criterion_and_core_evidence_data_models_and_vocabularies"></a>Core Criterion and Core Evidence Data Models and Vocabularies</h4>
+<div class="sect2 text-left">
+<h3 id="_core_criterion_and_core_evidence_data_models_and_vocabularies"><a class="anchor" href="#_core_criterion_and_core_evidence_data_models_and_vocabularies"></a>Core Criterion and Core Evidence Data Models and Vocabularies</h3>
 <div class="paragraph">
 <p>This document differentiates between <em>Data Model</em> (referring to the UML conceptual diagrams) and
 <em>Vocabulary</em> (referring to the XSD schemas). Thus the CCV and CEV abbreviations refer to the
@@ -1436,7 +1450,7 @@ schemeVersionID="1.0"&gt;
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the UUIDs from the table <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the UUIDs from the table <a href="{url-blob}/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ccv-cbc:
@@ -1469,7 +1483,7 @@ PARTICIPATION_IN_CRIMINAL_ORGANISATION
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/CriteriaTypeCode.pdf">CriteriaTypeCode</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="{url-blob}/code_lists/pdf/CriteriaTypeCode.pdf">CriteriaTypeCode</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Name</strong></p></td>
@@ -1483,7 +1497,7 @@ of trafficking in human beings
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Comment</strong>: The names of the criteria can be obtained from the table <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Comment</strong>: The names of the criteria can be obtained from the table <a href="{url-blob}/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Description</strong></p></td>
@@ -1499,7 +1513,7 @@ management or supervisory body ...
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Comment</strong>: The descriptions of the criteria can be obtained from the table <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Comment</strong>: The descriptions of the criteria can be obtained from the table <a href="{url-blob}/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="5"><p class="tableblock"><strong>Associated classes</strong></p></td>
@@ -1520,14 +1534,16 @@ management or supervisory body ...
 requirements that are applied at the national or sub-national level; e.g. a
 very specific national professional misconduct criterion that is more specific
 than the ones defined in the
-<a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/xls/CriteriaTaxonomy.xlsx">EU Exclusion Criteria</a></code></p></td>
+<a href="{url-blob}/code_lists/xls/CriteriaTaxonomy.xlsx">EU Exclusion Criteria</a></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_legislation_reference"><a class="anchor" href="#_legislation_reference"></a>Legislation Reference</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_legislation_reference"><a class="anchor" href="#_legislation_reference"></a>Legislation Reference</h2>
+<div class="sectionbody">
 <div id="LegislationReference" class="imageblock text-center">
 <div class="content">
 <img src="_images/LegislationReference.png" alt="UML_representation" width="1200" height="1000">
@@ -1615,7 +1631,7 @@ JurisdictionLevelCode</strong></p></td>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> (0..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/CriterionJurisdictionLevel.pdf">CriterionJurisdictionLevel</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="{url-blob}/code_lists/pdf/CriterionJurisdictionLevel.pdf">CriterionJurisdictionLevel</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ccv-cbc:Article</strong></p></td>
@@ -1649,8 +1665,10 @@ EUR-LEX web-page; e.g. <a href="http://eur-lex.europa.eu/legal-content/EN/TXT/?u
 </tbody>
 </table>
 </div>
-<div class="sect2 text-left">
-<h3 id="_requirement_group"><a class="anchor" href="#_requirement_group"></a>Requirement Group</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_requirement_group"><a class="anchor" href="#_requirement_group"></a>Requirement Group</h2>
+<div class="sectionbody">
 <div id="RequirementGroup" class="imageblock text-center">
 <div class="content">
 <img src="_images/RequirementGroup.png" alt="UML_representation" width="1000" height="600">
@@ -1698,7 +1716,7 @@ schemeVersionID="1.0"&gt;
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>MANDATORY</strong> (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the UUIDs from the table <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the UUIDs from the table <a href="{url-blob}/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Name</strong></p></td>
@@ -1757,8 +1775,10 @@ complex decision structures and capture faithfully the data represented in highl
 </table>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_requirement"><a class="anchor" href="#_requirement"></a>Requirement</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_requirement"><a class="anchor" href="#_requirement"></a>Requirement</h2>
+<div class="sectionbody">
 <div id="Requirement_XSD" class="imageblock text-center text-center">
 <div class="content">
 <img src="_images/Requirement_XSD.png" alt="EO details, UML" width="1000" height="900">
@@ -1793,7 +1813,7 @@ complex decision structures and capture faithfully the data represented in highl
 <td class="tableblock halign-left valign-top"><p class="tableblock">Type of response expected for this requirement; e.g. Indicator, Date, Description, etc.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MANDATORY (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the code list <a href="{url-blob}/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-center valign-top" colspan="5"><p class="tableblock">Properties</p></td>
@@ -1807,13 +1827,15 @@ complex decision structures and capture faithfully the data represented in highl
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MANDATORY (1..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the UUIDs from the table <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: Compulsory use of the UUIDs from the table <a href="{url-blob}/code_lists/xls/CriteriaTaxonomy.xlsx">Criteria</a></code></p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="sect2 text-left">
-<h3 id="_response"><a class="anchor" href="#_response"></a>Response</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_response"><a class="anchor" href="#_response"></a>Response</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The <code>ccv:Response</code> class is used by the economic operator to answer a specific Requirement issued by
 the contracting body.</p>
@@ -1831,7 +1853,7 @@ the contracting body.</p>
 only one response data MUST be provided. And the data provided in the response MUST match the one specified in the attribute of the class ccv:Requirement.</p>
 </div>
 <div class="paragraph">
-<p>The economic operator MUST use the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a> and make sure that the data provided is of the same type that the
+<p>The economic operator MUST use the code list <a href="{url-blob}/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a> and make sure that the data provided is of the same type that the
 one expected by the contracting authority (See the column ''Type of value expected by the
 current version of the ESPD Service'').</p>
 </div>
@@ -1923,7 +1945,7 @@ responseDataType="AMOUNT"&gt;
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OPTIONAL (0..1)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: The currencyID attribute is MANDATORY (e.g. "EUR"). Compulsory use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/CountryCodeIdentifier.pdf">CountryCodeIdentifier</a>. BEWARE that amounts can use decimal separators (e.g. 14134,95 but not hundred or thousand separators)</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Rule</strong>: The currencyID attribute is MANDATORY (e.g. "EUR"). Compulsory use of the code list <a href="{url-blob}/code_lists/pdf/CountryCodeIdentifier.pdf">CountryCodeIdentifier</a>. BEWARE that amounts can use decimal separators (e.g. 14134,95 but not hundred or thousand separators)</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>ccv-cbc:Code</strong></p></td>
@@ -2015,7 +2037,7 @@ responseDataType="QUANTITY_YEAR"&gt;
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">OPTIONAL (0..1)</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>Comment</strong>: BEWARE that different types of Quantities can be required, some of them with a special attribute. See the column "Type of value expected by the
-current version of the ESPD Service" of the code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a>. See also the note
+current version of the ESPD Service" of the code list <a href="{url-blob}/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a>. See also the note
 below about "Quantities"</code></p></td>
 </tr>
 <tr>
@@ -2089,7 +2111,7 @@ specified (e.g. number of workers); (2) QUANTITY_YEAR, a non-negative integer
 </div>
 <div class="paragraph">
 <p>Beware that in the case of QUANTITY_INTEGER and QUANTITY_YEAR the attribute <strong><em>unitCode</em></strong> MUST be always
-specified (See code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2/docs/src/main/asciidoc/modules/ROOT/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a>).</p>
+specified (See code list <a href="{url-blob}/code_lists/pdf/ResponseDataType.pdf">ResponseDataType</a>).</p>
 </div>
 <div id="About_Quantities" class="imageblock">
 <div class="content">
@@ -2102,8 +2124,10 @@ specified (See code list <a href="https://github.com/OP-TED/ESPD-EDM/blob/v1.0.2
 </table>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_evidence"><a class="anchor" href="#_evidence"></a>Evidence</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_evidence"><a class="anchor" href="#_evidence"></a>Evidence</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The <code>ccv:Evidence</code> class is used by the economic operator to refer to a trusted source of proofs that
 supports the stated response to a criterion requirement.</p>
@@ -2192,22 +2216,23 @@ solutions could need it (e.g. the e-Sens Virtual Company Dossier, VCD). The UBL-
 </div>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_service_provider"><a class="anchor" href="#_service_provider"></a>Service Provider</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_service_provider"><a class="anchor" href="#_service_provider"></a>Service Provider</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The Service Provider refers to the party who provided the data included in the ESPDRequest XML document. For this purpose the ESPD EDM reuses
 the UBL-2.1 class <code>cac:ServiceProvider</code>, which ''is a'' <code>cac:Party</code> class.  (see the <a href="http://docs.oasis-open.org/ubl/UBL-2.1.html">UBL-2.1 specification</a> for details about this class).</p>
 </div>
-</div>
-<div class="sect2 text-left">
-<h3 id="_signature"><a class="anchor" href="#_signature"></a>Signature</h3>
 <div class="paragraph">
 <p>Similarly to the ''Service Provider'' the ESPD EDM defines a Signature that reuses the UBL-2.1 <code>cac:Signature</code> class to hold an
 electronic signature. For the time being the ESPD does not use this UBL component neither.</p>
 </div>
 </div>
-<div class="sect2 text-left">
-<h3 id="_additional_document_reference"><a class="anchor" href="#_additional_document_reference"></a>Additional Document Reference</h3>
+</div>
+<div class="sect1 text-left">
+<h2 id="_additional_document_reference"><a class="anchor" href="#_additional_document_reference"></a>Additional Document Reference</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>The ESPD EDM reuses this UBL-2.1 component to allow both the contracting body (in the ESPDRequest) and the economic operator (in the ESPDResponse)
 to include references to documents that they might consider relevant including in the XML instances of both types of documents.</p>
@@ -2323,6 +2348,10 @@ and <strong>MUST</strong> follow the scheme defined by the Publications Office: 
 </td>
 </tr>
 </table>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>////</pre>
 </div>
 </div>
 </div>
