@@ -73,7 +73,33 @@
 <div class="nav-container" data-component="ESPD-EDM" data-version="2.0.2">
   <aside class="nav">
     <div class="panels">
-<div class="nav-panel-explore is-active" data-panel="explore">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">ESPD EDM</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="xml_guide.html">ESPD Exchange Data Model Implementation Guide V2.0.2</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://github.com/OP-TED/ESPD-EDM/tree/v2.0.2/docs/src/main/asciidoc/modules/ROOT/dist">All resources in the distribution package</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="https://docs.ted.europa.eu/ESPD-EDM/2.0.2/release_notes.html">v2.0.2 Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-wgm/index.html">Open User Community Documents</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">ESPD EDM</span>
           <span class="version">2.0.2</span>
@@ -191,7 +217,7 @@
 <div class="sect1 text-center">
 <h2 id="_annex_i_xml_validation"><a class="anchor" href="#_annex_i_xml_validation"></a>Annex I: XML Validation</h2>
 <div class="sectionbody">
-<div class="sect2 text-left text-left">
+<div class="sect2 text-left">
 <h3 id="_introduction_to_iso_schematron"><a class="anchor" href="#_introduction_to_iso_schematron"></a>Introduction to ISO Schematron</h3>
 <div class="paragraph">
 <p><a href="http://www.schematron.com/">Schematron</a> is a rule-based validation language to specify validation processes against XML documents. ISO Schematron is an ISO (ISO/IEC 19757-3:2006) and open standard. Please visit the ISO Schematron web-site for the technical specification and details.</p>
@@ -199,7 +225,7 @@
 <div class="sect3">
 <h4 id="_espd_business_rules"><a class="anchor" href="#_espd_business_rules"></a>ESPD Business Rules</h4>
 <div class="paragraph">
-<p>The ESPD-EDM uses Schematron to validate business rules identified in <a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.0.2/docs/src/main/asciidoc/modules/ROOT/dist/doc">ESPD_TestCases_v10.docx and ESPD_TestCases_mapping_v10.docx documents</a>. The input for these business rules is the e-Sens <a href="http://wiki.ds.unipi.gr/display/ESPDInt">ESPDint Business Document</a>.</p>
+<p>The ESPD-EDM uses Schematron to validate business rules identified in <a href="{url-tree}/dist/doc">ESPD_TestCases_v10.docx and ESPD_TestCases_mapping_v10.docx documents</a>. The input for these business rules is the e-Sens <a href="http://wiki.ds.unipi.gr/display/ESPDInt">ESPDint Business Document</a>.</p>
 </div>
 <div class="paragraph">
 <p>These business rules can be typified as:</p>
@@ -234,82 +260,6 @@
 </div>
 </div>
 <div class="sect2 text-left">
-<h3 id="_schematron_architecture"><a class="anchor" href="#_schematron_architecture"></a>Schematron Architecture</h3>
-<div class="paragraph">
-<p>ISO Schematron executes the validations in two stages:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Design and implementation of the SCH files</strong>.
-SCH stands for Schematron Schema and contains the set of rules to be validated within the XML document.</p>
-</li>
-<li>
-<p><strong>Execution of the implemented validations</strong> in the SCH files:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Transformation of SCH files into XSLT files in order to be able to execute the validations against the XML.</p>
-</li>
-<li>
-<p>Execution of the validations using the XSLT files to get the final report.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="_images/A2_Architecture_N-CL.png" alt="Architecture for non-code list validation">
-</div>
-</div>
-<div class="sect3">
-<h4 id="_what_does_sch_files_contain"><a class="anchor" href="#_what_does_sch_files_contain"></a>What does SCH files contain?</h4>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Set of rules</strong> specifying the context (the element(s) and/or attribute(s) which the assertions affect);</p>
-</li>
-<li>
-<p>Each rule have a <strong>set of assertions</strong> with the tests that must be evaluated in the context.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="_images/A2_Architecture_SCH.png" alt="SCH file example">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_execution"><a class="anchor" href="#_execution"></a>Execution</h4>
-<div class="paragraph">
-<p>As a basis of the implementation, it has been taken into account:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Schematron "skeleton" implementation in <a href="https://github.com/SCHEMATRON">XSLT</a>.</p>
-</li>
-</ol>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="_images/A3_AS_IS.png" alt="Execution files">
-</div>
-</div>
-<div class="paragraph">
-<p>This example describes the execution of the validation process using the <a href="http://saxon.sourceforge.net/">Saxon library</a> to execute XSLT files and the XSLT provided as a basis:</p>
-</div>
-<div class="imageblock text-center">
-<div class="content">
-<img src="_images/A3_Batch.png" alt="Execution of the validation process">
-</div>
-</div>
-</div>
-</div>
-<div class="sect2 text-left">
 <h3 id="_code_list_validation_architecture"><a class="anchor" href="#_code_list_validation_architecture"></a>Code list validation Architecture</h3>
 <div class="paragraph">
 <p>Business rules related to code list validates:</p>
@@ -331,7 +281,7 @@ SCH stands for Schematron Schema and contains the set of rules to be validated w
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>GC files are found in the <a href="https://github.com/OP-TED/ESPD-EDM/tree/v2.0.2/docs/src/main/asciidoc/modules/ROOT/dist/cl/gc">Validation folder</a>.</p>
+<p>GC files are found in the <a href="{url-tree}/dist/cl/gc">Validation folder</a>.</p>
 </li>
 </ol>
 </div>
@@ -361,7 +311,7 @@ SCH stands for Schematron Schema and contains the set of rules to be validated w
 </div>
 </div>
 <div class="sect3">
-<h4 id="_what_does_sch_files_contain_2"><a class="anchor" href="#_what_does_sch_files_contain_2"></a>What does SCH files contain?</h4>
+<h4 id="_what_does_sch_files_contain"><a class="anchor" href="#_what_does_sch_files_contain"></a>What does SCH files contain?</h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -382,7 +332,7 @@ SCH stands for Schematron Schema and contains the set of rules to be validated w
 </div>
 </div>
 <div class="sect3">
-<h4 id="_execution_2"><a class="anchor" href="#_execution_2"></a>Execution</h4>
+<h4 id="_execution"><a class="anchor" href="#_execution"></a>Execution</h4>
 <div class="paragraph">
 <p>As a basis of the implementation, it has been taken into account:</p>
 </div>
@@ -405,6 +355,32 @@ SCH stands for Schematron Schema and contains the set of rules to be validated w
 <div class="content">
 <img src="_images/A3_Batch_CL.png" alt="Execution of the validation process in code lists">
 </div>
+</div>
+</div>
+</div>
+<div class="sect2 text-left">
+<h3 id="_i_3_execution"><a class="anchor" href="#_i_3_execution"></a>I.3 Execution</h3>
+<div class="paragraph">
+<p>As a basis of the implementation, it has been taken into account:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Schematron implementation of CVA files for validation from <a href="http://www.cranesoftwrights.com/resources/ubl/">CRANE SOFTWRIGHTS LTD</a>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/A3_AS_IS.png" alt="Execution files">
+</div>
+</div>
+<div class="paragraph">
+<p>The following image shows the libraries, XSL files and the process to be able to execute the validation:</p>
+</div>
+<div class="imageblock text-center">
+<div class="content">
+<img src="_images/A3_Batch.png" alt="Execution of the validation process">
 </div>
 </div>
 </div>
