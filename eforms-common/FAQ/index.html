@@ -519,6 +519,8 @@ notice (as published in the OJ S) must be entered in the previous publication fi
 <div class="paragraph">
 <p>OPP-090 should be used exclusively to point to a TED XML notice if it may not be covered by other fields, i.e.:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -532,20 +534,23 @@ notice (as published in the OJ S) must be entered in the previous publication fi
 </li>
 <li>
 <p>Framework Notice Identifier (OPT-100).</p>
-<div class="paragraph">
-<p>Any referenced notice must have been already published. Referring to a TED XML notice, the format may only be ‘XXXXXX-YYYY’, i.e. Notice Publication ID.</p>
-</div>
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="paragraph">
-<p>To link from an eForms Notice to a published TED XML notice:</p>
+<p>Any referenced notice must have been already published. Referring to a TED XML notice, the format may only be ‘XXXXXX-YYYY’, i.e. Notice Publication ID.</p>
+</div>
+<div class="paragraph">
+<p>To link from an eForms Notice to a published TED XML notice:
+* When modifying one or more Contracts, use a Contract Modification Notice, with BT-1501 Modification Previous Notice Identifier holding the Publication ID of the original Contract Award Notice.</p>
+</div>
+<div class="paragraph">
+<p>+</p>
 </div>
 <div class="ulist">
 <ul>
-<li>
-<p>When modifying one or more Contracts, use a Contract Modification Notice, with BT-1501 Modification Previous Notice Identifier holding the Publication ID of the original Contract Award Notice.</p>
-</li>
 <li>
 <p>When changing any Notice, or the procurement documents associated with a Notice, publish a Change Notice with BT-758 holding the Publication ID of the previous Change notice, or if this is the first Change notice, the original notice.</p>
 </li>
@@ -781,6 +786,8 @@ has multiple winners, as a modification on the lot will affect all the associate
 <div class="paragraph">
 <p>While the Contract Modification section is repeatable, each occurrence should:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -801,6 +808,11 @@ has multiple winners, as a modification on the lot will affect all the associate
 </li>
 <li>
 <p>identify the notice on which it is based (BT-1501(n)-Contract).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="paragraph">
 <p>All data not pertaining to the modified contract(s) must be removed from the contract modification notice
 i.e. all lots, groups of lots, Tenders, Tendering parties, Contracts, Organizations not related to any modified contract(s).</p>
@@ -814,12 +826,11 @@ whose names start with “can-modif…”.</p>
 and no concurrent Contract Modification Notices may be submitted.</p>
 </div>
 </li>
-</ul>
-</div>
-</li>
 <li>
 <p><em>What is the notice status of an eForms notice through its lifecycle?</em></p>
 <p>A user working on the user interface of eNotices2 will be able to see the following notice status:</p>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -847,6 +858,8 @@ and no concurrent Contract Modification Notices may be submitted.</p>
 <p>Publishing: Publication process in progress, i.e. the notice has been added to the daily export for TED.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>The following notice statuses can be queried via the API for eSenders:
@@ -1303,6 +1316,8 @@ eSenders need to log in once to pair their key and perform at least one valid AP
 <div class="paragraph">
 <p>The time spent validating and submitting a notice does depend on the number of lots and the number of organisations, but those are not the only factors. Other factors are:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1313,17 +1328,19 @@ eSenders need to log in once to pair their key and perform at least one valid AP
 </li>
 <li>
 <p>The number of references to entities: we check that the identifier in each reference corresponds to an entity in the notice.</p>
-<div class="paragraph">
-<p>We are constantly working on reducing the time required to process notices, which then allows us to process bigger notices before the timeout. This includes improvements in our applications, and changes in the content of the eForms SDK. For example, the restructuring of the Schematron files in SDK 1.10.0 significantly reduces the time needed to validate large notices.</p>
-</div>
-<div class="paragraph">
-<p>Validation is several times faster in later SDK versions, with particular improvements with versions 1.10 and 1.13. If you intend to submit very big notices, we recommend upgrading to a later SDK version.</p>
-</div>
-<div class="paragraph">
-<p>For larger Result notices, OP’s recommendation is still to break them up into smaller notices; this may reduce the possibility of a timeout and also make the notice more legible for readers and end users.</p>
-</div>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>We are constantly working on reducing the time required to process notices, which then allows us to process bigger notices before the timeout. This includes improvements in our applications, and changes in the content of the eForms SDK.</p>
+</div>
+<div class="paragraph">
+<p>Validation of large notices can be several times faster in later SDK versions, with particular improvements with versions 1.10 and 1.13. If you intend to submit very big notices, we recommend upgrading to a later SDK version.</p>
+</div>
+<div class="paragraph">
+<p>For large Result notices, we recommend breaking them up into smaller notices; this will reduce the possibility of a timeout and also make the notice more legible for readers and end users.</p>
 </div>
 </li>
 <li>
@@ -1951,6 +1968,8 @@ regular expression patterns associated with the relevant fields, within "pattern
 <li>
 <p><em>With eForms, is the Publications Office validating the dispatch date of notices?</em></p>
 <p>Regarding dispatch dates, also referred to across the directives as ‘transmitted’, ‘sent’ or ‘dispatched’, there are two business terms:</p>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1960,6 +1979,8 @@ regular expression patterns associated with the relevant fields, within "pattern
 <p>(since November 2022 amendment) eSender dispatch date (BT-803) – when the notice is sent by the eSender via the API; it is optional, but it could be mandatory in the future.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>There shouldn’t be any time discrepancies when it comes to the dispatch date (i.e. it cannot be 1 day before the day of submission or after the current time, etc.),
