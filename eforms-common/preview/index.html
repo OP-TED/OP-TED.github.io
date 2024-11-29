@@ -458,7 +458,7 @@ Please be aware that the interface and the notice forms still need further work 
 Application version
 </td>
 <td class="hdlist2">
-<p>1.16.3</p>
+<p>1.16.4</p>
 </td>
 </tr>
 <tr>
@@ -472,7 +472,7 @@ SDK versions
 </table>
 </div>
 <div class="paragraph">
-<p>In this version, the application is expected to allow users to create the 40 eForms notice types plus the 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest.</p>
+<p>In this version, the application is expected to allow users to create the 40 eForms notice types, 6 voluntary forms, and 5 other notice types which include the 2 transport regulation notices, the European economic interest grouping and European company/cooperative registration forms, and the call for expression of interest.</p>
 </div>
 <div class="paragraph">
 <p>In the codelist fields, prefilling of values is supported.</p>
@@ -498,7 +498,7 @@ SDK versions
 <div class="ulist">
 <ul>
 <li>
-<p>Optional fields can be set to mandatory or hidden, however; please see the application <a href="https://enotices2.preview.ted.europa.eu/help">Help</a> page for more information: “I want to submit a notice but I have too many validation errors. What can I do?”</p>
+<p>The option to hide optional fields in the forms settings should NOT be used, as the live validations are not taken into account.</p>
 </li>
 <li>
 <p>Confidential fields can be set to be always confidential or non-confidential.</p>
@@ -510,9 +510,46 @@ SDK versions
 </div>
 </div>
 <div class="sect3">
-<h4 id="_improvements_as_of_application_version_1_15"><a class="anchor" href="#_improvements_as_of_application_version_1_15"></a>Improvements as of application version 1.15</h4>
+<h4 id="_improvements_as_of_application_version_1_16"><a class="anchor" href="#_improvements_as_of_application_version_1_16"></a>Improvements as of application version 1.16</h4>
 <div class="paragraph">
-<p>Notices submitted through the eNotices2 user interface now have an extra organisation (ORG-0000) to identify the eSender service provider. This organisation is not visible in the form-filling tool and is automatically filled in with the details of the EU Publications Office when the notice is submitted for publication on TED.</p>
+<p><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32023R2884">Commission Implementing Regulation (EU) 2023/2884 of 20 December 2023</a>.</p>
+</div>
+<div class="paragraph">
+<p>The implementation can be seen in changes in almost all SDK components: schemas, fields, codelists, schematrons, notice-types, view-templates, translations and examples.</p>
+</div>
+<div class="paragraph">
+<p>The following fields and forms have been added:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>International Procurement Instrument (IPI) in Result notices</p>
+</li>
+<li>
+<p>Energy Efficiency Directive (EED) in Competition and Result notices</p>
+</li>
+<li>
+<p>E1 Pre-Market Consultation, with new <em>consultation</em> form type and <em>pmc</em> notice-type</p>
+</li>
+<li>
+<p>E2 voluntary Planning</p>
+</li>
+<li>
+<p>E3 voluntary Competition</p>
+</li>
+<li>
+<p>E4 voluntary Result</p>
+</li>
+<li>
+<p>E5 Contract Completion, new <em>completion</em> form type and <em>compl</em> notice-type, including new Review section, also added to all Result notices (subtypes 29-37, E4, E5)</p>
+</li>
+<li>
+<p>E6 Contract Modification for defence directive 2009/81/EC</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The European Commission has published <a href="https://code.europa.eu/eproc/eforms/docs/-/tree/main/guides">policy guides for IPI, EED and Review</a>.</p>
 </div>
 </div>
 <div class="sect3">
@@ -539,9 +576,6 @@ SDK versions
 <div class="ulist">
 <ul>
 <li>
-<p>Some use cases and features are still in the process of being implemented.</p>
-</li>
-<li>
 <p>Some validation errors are currently displayed as a pop-up window, without pointing to the error location. Please set a default currency to avoid validation errors in the notices created in the user interface that can lead to a message that the: “notice is probably incomplete”.</p>
 </li>
 <li>
@@ -555,48 +589,6 @@ SDK versions
 </li>
 <li>
 <p>Feature “Add a new language” and using the automatic translation service to prefill your new notice linguistic version will lock the notice while the notice is being processed for eTranslation. If there is no language version added, it means translation has failed.</p>
-</li>
-<li>
-<p>OPP-080-Tender field cannot be used in T02. This issue is resolved in Preview as of 24 July 2024 and will be resolved in Production with the next release (as of SDK 1.12).</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following issues have been identified as of application version 1.12.3:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>If you have procurement documents, then OPT-140-lot must always be filled in.</p>
-</li>
-<li>
-<p>If you have a prize, then BT-44-lot must always be filled in.</p>
-</li>
-<li>
-<p>If you have selection or award criteria, please make sure that there is a weight and a number.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following issue has been identified as of SDK 1.11:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>With the implementation of the new rules, both fields BT-759-LotResult and BT-760-LotResult, Received Submissions Count and Received Submissions Type, have become mandatory in Result notices. In order to avoid a validation error both must be completed.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The following issues have been identified as of application version 1.15.2:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>BT-1375-Procedure: lot distribution for the group will show an error in the live validation even if there are 2 or more different lots correctly referenced. The user can ignore this and validate on CVS. If valid, the notice can be submitted.</p>
-</li>
-<li>
-<p>Procedure section and lot: The type of procedure must be chosen before entering the lot sections. Since many fields are procedure type dependent, this is to ensure that the form filling tool will respond correctly with the live validations.</p>
 </li>
 </ul>
 </div>
@@ -761,7 +753,7 @@ In Production (live environment), the actual export to TED happens on workdays a
 Indicative planning
 </td>
 <td class="hdlist2">
-<p>November 2024</p>
+<p>January 2025</p>
 </td>
 </tr>
 <tr>
@@ -769,7 +761,7 @@ Indicative planning
 Application version
 </td>
 <td class="hdlist2">
-<p>1.16</p>
+<p>1.17</p>
 </td>
 </tr>
 <tr>
@@ -792,7 +784,7 @@ SDK version
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Current application version in Production as of 31 October 2024.
+Current application version in Production as of 5 December 2024.
 </td>
 </tr>
 </table>
