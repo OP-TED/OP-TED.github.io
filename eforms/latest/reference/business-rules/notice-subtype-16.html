@@ -70,7 +70,7 @@
     </nav>
 </div><div class="body">
 <script src="../../../../_/js/07-scrollable-header-nav.js"></script>
-<div class="nav-container" data-component="eforms" data-version="1.12">
+<div class="nav-container" data-component="eforms" data-version="1.13">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -95,7 +95,7 @@
     <a class="nav-link" href="../../../../eforms-common/versioning/index.html">SDK Versioning</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.12</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.13</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -176,7 +176,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.12</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.13</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -221,7 +221,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.12</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.13</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../guide/index.html">Start Here</a>
@@ -279,14 +279,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.12</span>
+          <span class="version">1.13.0</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../../index.html">eForms SDK</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../../index.html">1.12</a>
+              <a href="../../index.html">1.13.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.12/index.html">1.12</a>
             </li>
             <li class="version">
               <a href="../../../1.11/index.html">1.11.0</a>
@@ -366,6 +369,14 @@
             </li>
         </ul>
       </li>
+      <li class="component">
+        <a class="title" href="../../../../M2O/latest/index.html">model2owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../../M2O/latest/index.html">2.2.0</a>
+            </li>
+        </ul>
+      </li>
   </ul>
 </div>    </div>
   </aside>
@@ -381,9 +392,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.12</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.13.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="notice-subtype-16.html">1.12</a>
+    <a class="version is-current" href="notice-subtype-16.html">1.13.0</a>
+    <a class="version" href="../../../1.12/reference/business-rules/notice-subtype-16.html">1.12</a>
     <a class="version" href="../../../1.11/reference/business-rules/notice-subtype-16.html">1.11.0</a>
     <a class="version" href="../../../1.10/reference/business-rules/notice-subtype-16.html">1.10</a>
     <a class="version" href="../../../1.9/reference/business-rules/notice-subtype-16.html">1.9</a>
@@ -740,12 +752,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00040-0052</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-40-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Successive Reduction (BT-52-Lot) is not 'true' or Procedure Type (BT-105-Procedure) is not "Competitive dialogue", "Innovation partnership", "Negotiated with prior publication of a call for competition / competitive with negotiation", "Other multiple stage procedure" or "Restricted".</p>
+<p><strong>Forbidden if</strong> Selection Criteria (BT-809-Lot) does not exist or Successive Reduction (BT-52-Lot) is not 'true' or Procedure Type (BT-105-Procedure) is not "Competitive dialogue", "Innovation partnership", "Negotiated with prior publication of a call for competition / competitive with negotiation", "Other multiple stage procedure" or "Restricted".</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-52-Lot == TRUE) or BT-105-Procedure not in ('comp-dial','innovation','neg-w-call','oth-mult','restricted')</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-809-Lot is not present) or not(BT-52-Lot == TRUE) or BT-105-Procedure not in ('comp-dial','innovation','neg-w-call','oth-mult','restricted')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -964,12 +976,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00098-0052</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-98-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> the value chosen for BT-105-Lot is not equal to 'Open'.</p>
+<p><strong>Forbidden if</strong> Procedure Type (BT-105) value is not equal to ("Open" or "Other single stage procedure").</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-105-Procedure == 'open')</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure not in ('open','oth-single')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -1124,12 +1136,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00130-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-130-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> the value chosen for BT-105-Lot is equal to 'Open'.</p>
+<p><strong>Forbidden if</strong> Procedure Type (BT-105) value is equal to "Open", "Negotiated without prior call for competition" or "Other single stage procedure".</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure == 'open'</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure in ('open','oth-single','neg-wo-call')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -1138,12 +1150,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00131-0105</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-131(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Deadline receipt Requests date (BT-1311(d)-Lot) is present.</p>
+<p><strong>Forbidden if</strong> Procedure Type (BT-105) value is not equal to ("Open" or "Other single stage procedure").</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-1311(d)-Lot is present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure not in ('open','oth-single')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -1166,7 +1178,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00132-0105</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-132(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> the value chosen for BT-105-Lot is not equal to 'Open'.</p>
+<p><strong>Forbidden if</strong> the value chosen for BT-105-Procedure is not equal to 'Open'.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
@@ -1180,7 +1192,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00132-0107</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-132(t)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> the value chosen for BT-105-Lot is not equal to 'Open'.</p>
+<p><strong>Forbidden if</strong> the value chosen for BT-105-Procedure is not equal to 'Open'.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
@@ -1194,7 +1206,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00133-0054</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-133-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> the value chosen for BT-105-Lot is not equal to 'Open'.</p>
+<p><strong>Forbidden if</strong> the value chosen for BT-105-Procedure is not equal to 'Open'.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
@@ -1208,7 +1220,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00134-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-134-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> the value chosen for BT-105-Lot is not equal to 'Open'.</p>
+<p><strong>Forbidden if</strong> the value chosen for BT-105-Procedure is not equal to 'Open'.</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
@@ -4159,6 +4171,46 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00684-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-684-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00685-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-685-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00686-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-686-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00687-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-687-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00688-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-688-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00706-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-706-UBO</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -4907,6 +4959,30 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00804-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-804-Review</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00807-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-807-Review</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00808-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-808-Review</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00809-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-809-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -4917,6 +4993,82 @@
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-821-Lot == 'epo-notice')</code></pre>
 </div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00811-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-811(a)-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong>  Energy Efficiency Directive (EED) (BT-810) is not true.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-810-Lot == 'true')</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00811-0073</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-811(a)-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00811-0222</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-811(b)-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Forbidden if</strong>  Energy Efficiency Directive (EED) (BT-810) is not true.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-810-Lot == 'true')</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00811-0273</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-811(b)-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00812-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-812-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00813-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-813-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00814-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-814-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00815-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-815-LotResult</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -4962,12 +5114,12 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-01311-0105</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-1311(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Forbidden if</strong> Deadline receipt Tenders date (BT-131(d)-Lot) is present.</p>
+<p><strong>Forbidden if</strong> Procedure Type (BT-105) value is not equal to ("restricted", "Negotiated with Call for Competition", "Competitive dialog", "innovative partnership" or "Other multi stage procedure").</p>
 </div>
 <div class="listingblock">
 <div class="title">Condition in EFX</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-131(d)-Lot is present</code></pre>
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure not in ('restricted','neg-w-call','comp-dial','innovation','oth-mult')</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
@@ -5777,24 +5929,16 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00091-0022</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-091-ReviewReq</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00080-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-080-LotResult</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type 16.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00092-0022</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-092-ReviewBody</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00092-0074</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-092-ReviewReq</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00081-0022</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-081-LotResult</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type 16.</p>
 </div></div></td>
@@ -6057,22 +6201,6 @@
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00301-0679</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-301-Part-Mediator</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00301-1256</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-301-ReviewBody</code></p></th>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always forbidden</strong> in notice sub-type 16.</p>
-</div></div></td>
-<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
-</tr>
-<tr>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00301-1307</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-301-ReviewReq</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type 16.</p>
 </div></div></td>
@@ -6483,7 +6611,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00098-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-98-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 16.</p>
+<p><strong>Mandatory if</strong> the value chosen for BT-105-Procedure is equal to 'Open'.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure == 'open'</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6553,13 +6687,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00131-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-131(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Mandatory if</strong> (Procedure Type (BT-105) value is equal to "Open") or (Procedure Type (BT-105) value is equal to "Other single stage procedure").</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-105-Procedure == 'open' or (BT-105-Procedure == 'oth-single')</code></pre>
-</div>
+<p><strong>Always mandatory</strong> in notice sub-type 16.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6924,6 +7052,14 @@
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
 <tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00811-0313</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-811(b)-Lot</code></p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Always mandatory</strong> in notice sub-type 16.</p>
+</div></div></td>
+<td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
+</tr>
+<tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00821-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-821-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
@@ -6935,13 +7071,7 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-01311-0022</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-1311(d)-Lot</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Mandatory if</strong> Procedure Type (BT-105) value is equal to "Other multiple stage procedure".</p>
-</div>
-<div class="listingblock">
-<div class="title">Condition in EFX</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">(BT-105-Procedure == 'oth-mult')</code></pre>
-</div>
+<p><strong>Always mandatory</strong> in notice sub-type 16.</p>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>

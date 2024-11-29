@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Implementing eForms without the eForms SDK :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/latest/guide/implementing-eforms-without-the-sdk.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/styles/optional/custom.css" media="screen"/>
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div><div class="body">
+<script src="../../../_/js/07-scrollable-header-nav.js"></script>
+<div class="nav-container" data-component="eforms" data-version="1.12">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/FAQ/index.html">Frequently Asked Questions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/preview/index.html">Preview Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/roadmap/index.html">SDK Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/active-versions/index.html">Active SDK Versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/versioning/index.html">SDK Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.12</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../schema/index.html">eForms Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Elements</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../schema/parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../schema/other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/index.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-terms/index.html">Business Terms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-rules/index.html">Business Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/code-lists/index.html">Codelists</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.12</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../codelists/index.html">Codelists</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-types/index.html">Notice Types</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../viewer-templates/index.html">View Templates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../translations/index.html">Translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schemas/index.html">XML Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schematrons/index.html">Schematron</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../efx/index.html">EFX grammar</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.12</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Start Here</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="understanding-the-sdk.html">Understanding the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="sdk-glossary.html">SDK glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Working with the SDK</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="notice-forms.html">Create the forms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="xml-generation.html">Generate XML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="visualisation.html">Visualise notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="validation.html">Validate notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="implementing-eforms-without-the-sdk.html">Working without the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Java Libraries</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/efx-toolkit/index.html">EFX Toolkit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/eforms-core/index.html">eForms Core Library</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Sample Applications</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/notice-viewer/index.html">Notice Viewer (Java)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/notice-editor/index.html">Notice Editor (Java)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eForms SDK</span>
+          <span class="version">1.12</span>
+      </div>
+  <ul class="components">
+      <li class="component is-current">
+        <a class="title" href="../../latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../latest/index.html">1.13.0</a>
+            </li>
+            <li class="version is-current">
+              <a href="../index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../1.11/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../../1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../M2O/latest/index.html">model2owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../M2O/latest/index.html">2.2.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li><a href="implementing-eforms-without-the-sdk.html">Working without the SDK</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.12</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/guide/implementing-eforms-without-the-sdk.html">1.13.0</a>
+    <a class="version is-current" href="implementing-eforms-without-the-sdk.html">1.12</a>
+    <a class="version" href="../../1.11/guide/implementing-eforms-without-the-sdk.html">1.11.0</a>
+    <a class="version" href="../../1.10/guide/implementing-eforms-without-the-sdk.html">1.10</a>
+    <a class="version" href="../../1.9/guide/implementing-eforms-without-the-sdk.html">1.9</a>
+    <a class="version" href="../../1.8/guide/implementing-eforms-without-the-sdk.html">1.8</a>
+    <a class="version" href="../../1.7/guide/implementing-eforms-without-the-sdk.html">1.7</a>
+    <a class="version" href="../../1.6/guide/implementing-eforms-without-the-sdk.html">1.6</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Implementing eForms without the eForms SDK</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This page provides guidance and resources for developers that may decide to implement eForms in a traditional application that does not rely on the eForms SDK.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Important clarification</dt>
+<dd>
+<p>You are using the eForms SDK <strong>if and only if</strong> you are creating a <strong>metadata-driven application</strong> that drives itself with the metadata provided in the SDK. If not, the you are developing a "traditional application".</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>You will notice that in many of the topics we cover in this page, we mostly focus on discussing the  challenges, rather than suggesting specific solutions for traditional application developers. Our suggested approach for taking-on all these issues, is based on the idea of using a metadata-driven architecture that allows the propagation of changes declaratively. Having rejected this idea, by definition, you chose to design your own solutions for these issues.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you are still considering a metadata-driven approach, but facing specific difficulties with the SDK, then consider suggesting to us (through <a href="https://github.com/OP-TED/eForms-SDK/discussions/categories/ideas">GitHub discussions</a>) any improvements in the SDK that will allow you to base your implementation on it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_least_impact"><a class="anchor" href="#_least_impact"></a>Least impact</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although you decided not to use the SDK as the basis of developing your applications, there is one thing closely tied to the SDK which you cannot avoid: <strong><mark>the SDK version number</mark></strong>.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Why is the SDK version number so important?</div>
+<div class="paragraph">
+<p>Your goal is to create and submit valid notices. Notice validation is done by the TED Central Validation Service (TED CVS). To validate a given notice, TED CVS, reads the value of the <code>CustomizationID</code> element from the notice XML, and uses it to identify the appropriate set of validation rules for validating the specific notice.</p>
+</div>
+<div class="paragraph">
+<p>This is necessary because, as our business domain evolves, the business rules, as well as the schema and other related elements like authority tables, will inevitably change over time. The exact combination of validation rules, schema, and codelists that define what a valid notice should look like, is always bundled in a release of the eForms SDK and it is identified by the <a href="../../../eforms-common/versioning/index.html" class="xref page">version number</a> of that release.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Your application always needs to be aware of the <code>CustomizationID</code> it uses, (as well as the the exact specification that it represents), in order to be able to create a notice that will successfully pass TED CVS validation.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+Keep in mind that this is crucial for creating a valid notice.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In other words, whatever you do, you will need to have a way of figuring out which versions of the XML schema, business rules, and controlled vocabularies, need to be combined in order to put together a notice XML that can be accepted for publication by TED CVS.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The easiest way of doing this, is by obtaining these elements directly from the eForms SDK.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_where_to_start"><a class="anchor" href="#_where_to_start"></a>Where to start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Start by studying the <a href="../schema/index.html" class="xref page">eForms Specification</a>. You will find definitions and descriptions of all the concepts used in the eForms schemas and eForms implementation of the Publications Office. You can find a consolidated version of the schema in the eForms SDK. Further information on <a href="https://docs.oasis-open.org/ubl/UBL-2.3.html">UBL 2.3</a> is available by OASIS Open.</p>
+</div>
+<div class="paragraph">
+<p>The most fundamental problems that you will have to find solutions for, include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to create a form for collecting notice data</p>
+</li>
+<li>
+<p>How to validate a notice, especially during data entry</p>
+</li>
+<li>
+<p>How to save the notice in a valid UBL/XML file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Other, less common, but equally challenging topics that may interest you are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>How to edit an notice created with an older version of the eForms Specification.</p>
+</li>
+<li>
+<p>How to visualise a notice.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Guidelines on how you can approach these issues without relying on the eForms SDK, follow in the subsequent sections of this page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_business_rules"><a class="anchor" href="#_business_rules"></a>Business Rules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can find all the Business Rules used to validate eForms notices, in plain english, in the <a href="../reference/index.html" class="xref page">eForms Metadata Reference</a> section. As there are thousands of Business Rules listed there, you will find the task challenging. Attacking the problem of coding all the business rules using brute force is impractical, and therefore, you will have to resort to a combination of  compromises and workarounds.</p>
+</div>
+<div class="paragraph">
+<p>Coding and maintaining thousands of business rules manually is quite a challenge by itself, however, you will find that there is an even bigger challenge hiding behind the scenes for developers that do not use the eForms SDK or a similar concept. For more on this see the section on "<a href="#_coping_with_change_in_eforms_specifications">Coping with change in eForms specifications</a>" below.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The Business Rules are also formally expressed in EFX (the eForms Expression Language). However, since you are not using the SDK, you will not find this formal definition very helpful.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_form_to_fill_in_a_notice"><a class="anchor" href="#_creating_a_form_to_fill_in_a_notice"></a>Creating a form to fill-in a notice</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There is no suggested solution to this problem for eSenders that do not use the SDK. You will need to make your own decisions on how to code this functionality of your application by studying the <a href="../schema/index.html" class="xref page">eForms Specification</a> and the eForms schemas.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the Publications Office, we use the <a href="../../latest/notice-types/index.html" class="xref page">notice type definitions</a> provided in the eForms SDK to define the different forms that end-users can fill in our eNotices2 application. The notice type definitions however, depend on other metadata included the SDK, and therefore cannot be reused independently.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to find out how we address these issues in the SDK <a href="notice-forms.html" class="xref page">follow this link</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_notice_xml_file"><a class="anchor" href="#_creating_a_notice_xml_file"></a>Creating a notice XML file</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For creating a notice XML file your best friend is again the <a href="../schema/index.html" class="xref page">eForms Specification</a> as well as the eForms schema. You will find there all the information you need to create a valid notice XML.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the Publications Office, we use a conceptual model of a notice which is encoded in the <a href="../../latest/fields/index.html" class="xref page">field metadata</a> provided with the eForms SDK. This abstracts away from our application the specifics the eForms/UBL XSDs and allows it to keep creating valid notices even if the schemas or business rules change.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want to find out how we address these issues in the eForms SDK <a href="xml-generation.html" class="xref page">follow this link</a>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_validating_notices"><a class="anchor" href="#_validating_notices"></a>Validating Notices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There are two main reasons why validation is important:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>One obvious reason is of course to make sure that a notice which is about to be submitted, will not be rejected by the TED Central Validation Service.</p>
+</li>
+<li>
+<p>Even more importantly, you want to help the end-user fill-in the notice.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Guiding the user, (by pointing out which fields they need to fill-in and what prevents their notice from being validated), is especially important in eForms as the notice forms are often big and complicated.</p>
+</div>
+<div class="paragraph">
+<p>Obviously, providing client-side validation is the most user friendly solution that you would want to consider. However, client-side validation is application specific and will definitely require considerable effort to be developed especially if the entire validation logic provided in the SDK has to be manually recoded instead of being directly reused.</p>
+</div>
+<div class="sect2">
+<h3 id="_server_side_validation"><a class="anchor" href="#_server_side_validation"></a>Server-side validation</h3>
+<div class="paragraph">
+<p>The best solution for validating notices would be to validate them through the <a href="#api::endpoints/cvs-ted-europa-eu.adoc" class="xref unresolved">TED Validation API</a>.</p>
+</div>
+<div class="paragraph">
+<p>This will allow you to verify the validity of notices as you create them without having to code and maintain thousands of business rules manually. There are several drawbacks of course to this approach:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>you will need to do a round-trip to the TED Validation API endpoint every time you need to validate the notice.</p>
+</li>
+<li>
+<p>your application will not be able to validate notices when it is offline.</p>
+</li>
+<li>
+<p>you need to send a full notice to TED API in order to perform validation.</p>
+</li>
+<li>
+<p>matching the validation report returned by TED API to individual controls in your form will not be straight forward since you are not using the SDK. You may find it more feasible to resort in displaying the entire validation report to your end-user and letting them figure out validation issues as best they can.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can also consider using the Schematron validation rules that are included in the eForms SDK. However, apart from saving a round-trip to the TED API, this will not solve any of the other issues mentioned above.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+In the Publications Office we use this type of validation only at the point when a notice is to be submitted for publication. We rely on client-side validation to help the user while filling-in the form.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_client_side_a_k_a_live_validation"><a class="anchor" href="#_client_side_a_k_a_live_validation"></a>Client-side (a.k.a. live) validation</h3>
+<div class="paragraph">
+<p>There is no suggested solution for client-side validation for developers that do not use the SDK.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Business rules, formally expressed in EFX (a platform independent language) are attached as constraints to the field metadata included in the SDK. However, without using the SDK in a metadata-driven application you will be unable to reuse this encoding.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+At the Publications Office, we use a custom EFX interpreter to translate the Business Rules from EFX to Java. We then use a round-trip to the backend of our web application to perform live validation.<br>
+<br>
+You could use the EFX Toolkit to kick-start a similar solution that works for your target language (Javascript, PHP etc.). However, without the SDK, you will need to implement your own solution for this or possibly even abandon the idea of client-side validation.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_visualising_notices"><a class="anchor" href="#_visualising_notices"></a>Visualising notices</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For visualising notices you can use the <a href="#api::endpoints/viewer-ted-europa-eu.adoc" class="xref unresolved">TED Visualisation API</a>. This will render the notice as HTML or PDF for you.</p>
+</div>
+<div class="paragraph">
+<p>An obvious drawback for this solution is  that it is not available when your application is offline. However, this is not a concern for applications that do not have a requirement to "work offline".</p>
+</div>
+<div class="paragraph">
+<p>Other compromises associated with this solution are associated with latency (because of the necessary round-trip to the TED API), as well as with the limitation in the available visualisation options (only PDF and HTML are provided).</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you want better integration with your application <a href="../../latest/guide/visualisation.html#_creating_your_own_viewer" class="xref page">follow this link</a> to see how you can reuse the EFX templates provided in the SDK and create your own notice viewer.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_internationalisation"><a class="anchor" href="#_internationalisation"></a>Internationalisation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the eForms SDK we provide translations of all procurement labels. Using these translations in metadata-driven applications is very straight forward. For other applications however, it really depends on how you design them. You may be able to use the labels of fields for example. However, will your application even have the notion of fields? It all depends on you and your design choices.</p>
+</div>
+<div class="paragraph">
+<p>Certainly you can use the translations for validation messages as the label identifiers for these messages are contained in the validation report returned by TED CVS.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authority_tables"><a class="anchor" href="#_authority_tables"></a>Authority tables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Authority tables (codelists) play an important role in the validity of an eForms notice as they control the possible values that certain XML elements are allowed to take.</p>
+</div>
+<div class="paragraph">
+<p>Authority tables, however, are shared among several standards across business domains. That is their "raison d&#8217;être" after all. They have therefore a lifecycle of their own and, inevitably, each one of them controls its own evolution. As the eForms specification evolves in parallel with the evolution of controlled vocabularies, developers are faced with the challenge of using the appropriate version of each codelist for each notice (depending of the version of the eForms specification that was used to create the notice).</p>
+</div>
+<div class="paragraph">
+<p>There is nothing wrong with managing the controlled vocabularies yourself. Typically you can retrieve them from <a href="https://op.europa.eu/en/web/eu-vocabularies/authority-tables">EU vocabularies</a> where all their versions are available in several different file formats. However, if you prefer to use this approach, you will also need to find a way of figuring out which version of each codelist contains the appropriate set of codes that are valid from the perspective of a specific version of eForms.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The eForms SDK addresses this problem by bundling the correct version of each codelist together with all the other elements that define a specific version of eForms. Developers using the SDK can simply take the correct codelist directly from the SDK without worrying about its version and contents.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_coping_with_change_in_eforms_specifications"><a class="anchor" href="#_coping_with_change_in_eforms_specifications"></a>Coping with change in eForms specifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main reason we advocate in favour of creating metadata-driven applications using the SDK, is to mitigate the risks and moderate the effort associated with change. This is because we recognise that change is inevitable.</p>
+</div>
+<div class="paragraph">
+<p>Causes of change can include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>changes in the eForms regulation</p>
+</li>
+<li>
+<p>the need to fix mistakes</p>
+</li>
+<li>
+<p>the need to address security or privacy concerns</p>
+</li>
+<li>
+<p>general evolution of existing information systems</p>
+</li>
+<li>
+<p>general evolution of our business domain</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The types of change that will concern you, are all types of change that will affect your application&#8217;s code. With the eForms SDK we are trying to minimise and manage the types of change that can affect our applications. The idea is that although we cannot control the amount of changes that will occur over a period of time, we can certainly control the types of changes that can affect our applications and consequently control the overall impact of these changes.</p>
+</div>
+<div class="paragraph">
+<p>Without using the SDK, it is clear that you cannot benefit from this approach. You will however have to face the same amount of changes as anyone else in our business domain (including of course the Publications Office itself). This section tries to address certain types of changes that you will have to cope with now that you decided not to use the SDK as the basis of your implementation of eForms.</p>
+</div>
+<div class="sect2">
+<h3 id="_what_may_change"><a class="anchor" href="#_what_may_change"></a>What may change</h3>
+<div class="paragraph">
+<p>First, let&#8217;s look at the main components that can change:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">The eForms schema</dt>
+<dd>
+<p>New XML elements maybe added, or old elements may be removed. The type or cardinality of XML elements may change.</p>
+</dd>
+<dt class="hdlist1">The business rules</dt>
+<dd>
+<p>Old rules may be removed while new rules may be added or existing rules may be modified. Changes in the rules may also be needed as a result of changes in the schema.</p>
+</dd>
+<dt class="hdlist1">The authority tables</dt>
+<dd>
+<p>Codelists may be added or removed or their content (codes) may change.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_affected_functionalities"><a class="anchor" href="#_affected_functionalities"></a>Affected functionalities</h3>
+<div class="paragraph">
+<p>Now, let&#8217;s look at application functionalities that are sensitive to these changes:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Filling-in a new notice</dt>
+<dd>
+<p>If a new XML element is added in the eForms schema, one or more forms will have to change to accommodate the new element. The removal of an XML element will also have a similar impact. Likewise, the revision of one or more forms will also be required, if the cardinality or type of an XML element is modified in the schema.<br>
+<br>
+If we assume that your application only creates new notices that comply with the latest implemented eForms specification at any given time, then this type of impact can be acceptable for any application that is not metadata-driven.</p>
+</dd>
+<dt class="hdlist1">Editing an existing notice</dt>
+<dd>
+<p>If your application allows the user to edit an existing notice, then a problem that you will have to address is that the notice may have been created with an older version of eForms and may require fields that may have been deleted in later versions. Likewise, some fields that may have been added later should not be present a notice complying with a previous version of the eForms specification.<br>
+<br>
+Regardless of how good and detailed the documentation we provide is, it will be challenging for you to maintain several versions of each form in an application that is not metadata-driven. You may be faced with the dilemma of either giving up on the editing functionality for older notices, or finding a way to convert older notices to the latest specification (to the extent of course this is possible).<br></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you need to edit existing notices reconsider your approach and go for a <a href="../../latest/metadata-driven-applications.html" class="xref page">metadata-driven application that uses the eForms SDK</a>.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Validating a notice</dt>
+<dd>
+<p>Validation can be impacted not only by changes in the business rules but also by changes in the schema. If you are trying to edit an existing notice then you also need to validate it against the set of rules and the schema to which it should comply. <br></p>
+<div class="paragraph">
+<p>So, an additional challenge for an application that is not metadata-driven will be to maintain the proper "versions" of the business rules and schema to perform validation for different versions of the eForms specifications.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To minimize the impact of this type of change on your traditional application, use the <a href="#api::endpoints/cvs-ted-europa-eu.adoc" class="xref unresolved">TED Validation API</a> to validate notices.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Saving a notice XML</dt>
+<dd>
+<p>The same challenges mentioned in the previous two cases, also extend to this functionality of your application. In practice an application that is not metadata-driven will not be able to cope with several versions of the eForms specification in parallel.<br>
+<br>
+Maybe the only mitigation for all these issues for traditional applications is to give up on any functionality that requires multiple "versions" of the  eForms specification to be coded and maintained in parallel.<br></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+If you need to edit existing notices without converting them to the latest eForms specification, reconsider your approach and go for a metadata-driven application that uses the eForms SDK.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+<dt class="hdlist1">Visualising a notice</dt>
+<dd>
+<p>Unless you use the TED Visualisation API you will need to maintain different "versions" of your notice visualisation templates in order to correctly visualise notices on demand.<br></p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+To minimize the impact of this type of change on your traditional application, use the <a href="#api::endpoints/viewer-ted-europa-eu.adoc" class="xref unresolved">TED Visualisation API</a> to visualise notices.
+</td>
+</tr>
+</table>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<style type="text/css">
+    @import url('/documents/d/global/custom');
+</style>
+
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+
+        <script>
+            ECL.autoInit();
+        </script>
+    </div>
+</div>  </body>
+</html>

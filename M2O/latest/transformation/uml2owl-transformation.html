@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Transformation of the UML model into derivative artefacts :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/M2O/latest/transformation/uml2owl-transformation.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/styles/optional/custom.css" media="screen"/>
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div><div class="body">
+<script src="../../../_/js/07-scrollable-header-nav.js"></script>
+<div class="nav-container" data-component="M2O" data-version="2.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-context.html">Context: model2owl and eProcurement ontology </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../uml/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conceptual-model-conventions.html">UML Model Conventions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-general.html">General Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-classes.html">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-attributes.html">Class Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conv-connectors.html">Connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-association.html">Association</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-dependency.html">Dependency</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-generalization.html">Generalization</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-realization.html">Realization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-datatypes.html">Data Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-enumerations.html">Enumerations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-objects.html">Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-packages.html">Packages</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../checkers/model2owl-checkers.html">UML convention checking rules</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="uml2owl-transformation.html">Transformation Rules</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules1.html">Rules for UML Classes and Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules2.html">Rules for UML Connectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules3.html">Rules for UML Datatypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules4.html">Rules for UML Descriptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references.html">References</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">model2owl Documentation</span>
+          <span class="version">2.2.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../index.html">model2owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-current is-latest">
+              <a href="../index.html">2.2.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="uml2owl-transformation.html">Transformation Rules</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Transformation of the UML model into derivative artefacts</h1>
+<div class="sect1">
+<h2 id="sec:introduction"><a class="anchor" href="#sec:introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Publications Office of the European Union set off to build an eProcurement ontology well motivated in [<a href="../references.html#ref:costetchi2020a" class="xref page">costetchi2020a, p.5-9</a>]. The ultimate objective of the project is to put forth a commonly agreed ontology that will conceptualise, formally encode and make available in an open, structured and machine-readable format data about public procurement, covering end-to-end procurement, i.e. from notification, through tendering to awarding, ordering, invoicing and payment .</p>
+</div>
+<div class="paragraph">
+<p>The process and the methodology adopted involve modelling the conceptual model in Unified Modelling Language (UML) [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] and then, by abiding a set of conventions and recommendations, transform that model into a formal ontology expressed in Web Ontology Language (OWL) .</p>
+</div>
+<div class="paragraph">
+<p>This document provides a working definition of the transformation rules from the UML conceptual model into the formal ontology and validation data shapes. These rules are organised in accordance with the eProcurement ontology architecture [<a href="../references.html#ref:costetchi2020a" class="xref page">costetchi2020a, p.21-27</a>].</p>
+</div>
+<div class="sect2">
+<h3 id="_state_of_the_art"><a class="anchor" href="#_state_of_the_art"></a>State of the art</h3>
+<div class="paragraph">
+<p>Much has been written about correspondences and between and transformation from UML to OWL and vice versa [<a href="../references.html#ref:sadowska2019" class="xref page">sadowska2019</a>]. The most significant literature on this topic was published between 2006 and 2019 comprising three book chapters, nine journal papers and multiple conference papers.</p>
+</div>
+<div class="paragraph">
+<p>The work presented in [<a href="../references.html#ref:khan2015" class="xref page">khan2015</a>] transforms into OWL some selected elements of UML models containing multiple UML class, object and state-chart diagrams in order to analyse consistency of the models. A similar approach is presented in [<a href="../references.html#ref:khan2013" class="xref page">khan2013</a>], which is focused on detecting inconsistency in models containing UML class and state-chart diagrams.</p>
+</div>
+<div class="paragraph">
+<p>The papers [<a href="../references.html#ref:hajjamy2016" class="xref page">hajjamy2016</a>], [<a href="../references.html#ref:zedlitz2012" class="xref page">zedlitz2012</a>], [<a href="../references.html#ref:zedlitz2014" class="xref page">zedlitz2014</a>] investigate the differences and similarities between UML and OWL in order to present transformations of selected (and identified as useful) elements of UML class diagram. In [<a href="../references.html#ref:zedlitz2014conceptual" class="xref page">zedlitz2014conceptual</a>], the need for UML–OWL transformation is additionally motivated by not repeating the modelling independently in both languages.</p>
+</div>
+<div class="paragraph">
+<p>The paper [<a href="../references.html#ref:kiko2008" class="xref page">kiko2008</a>] compares OWL abstract syntax elements to the equivalent UML features and appropriate OCL statements. The analysis is conducted in the direction from OWL to UML. For every OWL construct its UML interpretation is proposed.</p>
+</div>
+<div class="paragraph">
+<p>The works presented in [<a href="../references.html#ref:xu2012" class="xref page">xu2012</a>], [<a href="../references.html#ref:xu2009" class="xref page">xu2009</a>], [<a href="../references.html#ref:na2006" class="xref page">na2006</a>] are focused on extracting ontological knowledge from UML class diagrams and describe some UML–OWL mappings with the aim to reuse the existing UML models and stream the building of OWL domain ontologies.</p>
+</div>
+<div class="paragraph">
+<p>In [<a href="../references.html#ref:sadowska2019" class="xref page">sadowska2019</a>] is presented a comprehensive review of the related work. We use it as a guideline for ensuring the necessary coverage of the transformation rules specified in this report. It is important to note here that all the UML elements are treated here, but only the ones employed in the eProcurement conceptual model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_to_read_this_document"><a class="anchor" href="#_how_to_read_this_document"></a>How to read this document</h3>
+<div class="paragraph">
+<p>The reminder of this document comprises four sections covering major UML aspects. Section <a href="transf-rules1.html#sec:tran-rules" class="xref page">Transformation of UML classes and attributes</a> treats classes and attributes. Following section deals with the main connector types employed in the eProcurement model, namely: associations, dependencies and generalisations. Section #sec:tran-rules3<a id="sec:tran-rules3"></a> explains how the datatypes and enumerations should be transformed and, finally, Section #sec:tran-rules4<a id="sec:tran-rules4"></a> provides a few transformation rules that are applicable to all UML elements and are concerned with comments, labels and notes.</p>
+</div>
+<div class="paragraph">
+<p>Each section provides a table with overview of the transformation rule set comprised within. The table provides three columns, one for every layer of the ontology architecture comprising rules: (a) , (b) , and (c) .</p>
+</div>
+<div class="paragraph">
+<p>Transformation rules are specified in a normative language and are aided by prototypical UML diagram fragments (usually preceding the rule) along with representation of the corresponding OWL fragment depicted in Graffoo visual notation [<a href="../references.html#ref:graffoo" class="xref page">graffoo</a>]. The diagrams are provided side to side in order to increase comprehension, with UML fragment on the left constituting the source of the transformation and the OWL fragment on the right representing the final result of the transformation.</p>
+</div>
+<div class="paragraph">
+<p>Each transformation rule is accompanied by the formal OWL representation, in Turtle [<a href="../references.html#ref:turtle" class="xref page">turtle</a>] and RDF/XML syntaxes [<a href="../references.html#ref:rdf-xml-syntax-spec" class="xref page">rdf-xml-syntax-spec</a>] [<a href="../references.html#ref:rdf1.1-xml-syntax" class="xref page">rdf1.1-xml-syntax</a>], corresponding to the depicted UML fragment from the preceding figure. RDF/XML is a syntax to express RDF graphs as an XML document. Turtle is a textual syntax for RDF that is compact and resembles a natural text form with abbreviations for common usage patterns and datatypes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uml_visual_notation"><a class="anchor" href="#_uml_visual_notation"></a>UML visual notation</h3>
+<div class="paragraph">
+<p>This section provides the main UML elements employed in this document. A detailed description can be consulted in the standard specifications [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] and in the UML user guide [<a href="../references.html#ref:uml-userguide" class="xref page">uml-userguide</a>].</p>
+</div>
+<div id="fig:uml-classes" class="imageblock">
+<div class="content">
+<img src="../_images/f1.png" alt="1">
+</div>
+<div class="title">Figure 1. UML visual notation for classes and attributes</div>
+</div>
+<div id="fig:uml-datatypes" class="imageblock">
+<div class="content">
+<img src="../_images/f2.png" alt="2">
+</div>
+<div class="title">Figure 2. UML visual notation for datatypes and enumerations</div>
+</div>
+<div id="fig:uml-associations" class="imageblock">
+<div class="content">
+<img src="../_images/f3.png" alt="3">
+</div>
+<div class="title">Figure 3. UML visual notation for association, generalisation, and dependency</div>
+</div>
+<div class="paragraph">
+<p><a href="#fig:uml-classes">UML visual notation for classes and attributes</a> depicts simple, abstract and regular classes with and without attribute specifications. Note that no class methods are ever employed as this document as the transformations aim at data structures only.</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig:uml-datatypes">UML visual notation for datatypes and enumerations</a> depicts a primitive datatype and an enumeration. No complex datatypes are depicted as they are treated in the same manner as classes are.</p>
+</div>
+<div class="paragraph">
+<p><a href="#fig:uml-associations">UML visual notation for association, generalisation, and dependency</a> depicts association, generalisation and dependency connectors as the only ones necessary to model the eProcurement conceptual model.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_graffoo_visual_notation"><a class="anchor" href="#_graffoo_visual_notation"></a>Graffoo visual notation</h3>
+<div class="paragraph">
+<p>This section provides the main Graffoo elements employed in this document. A detailed description can be consulted in the OWL standard specifications [<a href="../references.html#ref:owl2" class="xref page">owl2</a>] and in the Graffoo user guide [<a href="../references.html#ref:graffoo" class="xref page">graffoo</a>].</p>
+</div>
+<div id="fig:graffoo-classes" class="imageblock">
+<div class="content">
+<img src="../_images/f4.png" alt="4">
+</div>
+<div class="title">Figure 4. Graffoo visual notation for classes, instances and datatypes</div>
+</div>
+<div id="fig:graffoo-predicates" class="imageblock">
+<div class="content">
+<img src="../_images/f5.png" alt="5">
+</div>
+<div class="title">Figure 5. Graffoo visual notation for object and data properties and generic links</div>
+</div>
+<div class="paragraph">
+<p>A yellow rectangle with solid black border is used to declare classes. Solid black and labelled arrows are used to declare class axioms. A green rhomboid with solid black border is used to declare datatypes. Solid black and labelled arrows are used to declare class axioms.</p>
+</div>
+<div class="paragraph">
+<p>A pink circle with solid black border is used to declare individuals. Solid black and labelled arrows are used to declare axioms and assertions among individuals.</p>
+</div>
+<div class="paragraph">
+<p>A green solid line is used to declare data properties, where the empty circle at the beginning identifies the property domain while the empty arrow at the end indicates the property range. A blue solid line is used to declare object properties, where the solid circle at the beginning identifies the property domain while the solid arrow at the end indicates the property range.</p>
+</div>
+<div class="paragraph">
+<p>The following sections present the transformation rules necessary for converting the UML eProcurement conceptual model into a formal OWL ontology.</p>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<style type="text/css">
+    @import url('/documents/d/global/custom');
+</style>
+
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+
+        <script>
+            ECL.autoInit();
+        </script>
+    </div>
+</div>  </body>
+</html>

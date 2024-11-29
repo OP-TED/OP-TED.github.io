@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/M2O/latest/transformation/transf-rules4.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="manifest" href="../../../_/img/icons/site.webmanifest">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="/styles/optional/custom.css" media="screen"/>
+    <meta name="google-site-verification" content="9zNtA8Mxo6eMk-CIvQQbCvXFWjOoAHT6phYIK3saIV4" />
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="/">TED Developer Docs</a>
+            </div>
+ <div class="text-eu-subtext-label">
+                <a href="/">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div><div class="body">
+<script src="../../../_/js/07-scrollable-header-nav.js"></script>
+<div class="nav-container" data-component="M2O" data-version="2.2.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-context.html">Context: model2owl and eProcurement ontology </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../uml/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conceptual-model-conventions.html">UML Model Conventions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-general.html">General Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-classes.html">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-attributes.html">Class Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conv-connectors.html">Connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-association.html">Association</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-dependency.html">Dependency</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-generalization.html">Generalization</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-realization.html">Realization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-datatypes.html">Data Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-enumerations.html">Enumerations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-objects.html">Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-packages.html">Packages</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../checkers/model2owl-checkers.html">UML convention checking rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="uml2owl-transformation.html">Transformation Rules</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules1.html">Rules for UML Classes and Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules2.html">Rules for UML Connectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="transf-rules3.html">Rules for UML Datatypes</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="transf-rules4.html">Rules for UML Descriptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references.html">References</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">model2owl Documentation</span>
+          <span class="version">2.2.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0-rc.1</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../index.html">model2owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-current is-latest">
+              <a href="../index.html">2.2.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="uml2owl-transformation.html">Transformation Rules</a></li>
+    <li><a href="transf-rules4.html">Rules for UML Descriptors</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<div class="sect1">
+<h2 id="sec:tran-rules4"><a class="anchor" href="#sec:tran-rules4"></a>Transformation of UML descriptors and tags</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this section are specified transformation rules for UML descriptive elements. <a href="#tab:descriptiors-overview">Overview of transformation rules for UML descriptors and tags</a> provides an overview of the section coverage.</p>
+</div>
+<table id="tab:descriptiors-overview" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Overview of transformation rules for UML descriptors and tags</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">UML element</th>
+<th class="tableblock halign-left valign-top">Rules in core ontology layer</th>
+<th class="tableblock halign-left valign-top">Rules in data shape layer</th>
+<th class="tableblock halign-left valign-top">Rules in reasoning layer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-label-core">Example T.01</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-label-ds">Example T.02</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Note</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-definition-core">Example T.03</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-definition-ds">Example T.04</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Comment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-external-comment-core">Example T.05</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-external-comment-ds">Example T.06</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tag</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-tag-core">Example T.07</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Source</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-source-core">Example T.08</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:element-source-ds">Example T.09</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="_name"><a class="anchor" href="#_name"></a>Name</h3>
+<div class="paragraph">
+<p>Most of the UML elements are named. The <a href="../uml/conceptual-model-conventions.html" class="xref page">UML conventions</a> dedicate an extensive section to the naming conventions and how to deterministically generate a URI and a label from the UML element name. By default, we recommend the use of the SKOS lexicalization (<code>skos:prefLabel</code>) in the core ontology layer. In the future, this could be controlled by a flag in the configuration of the transformation tool. With such a flag one could enable RDFS lexicalization (<code>rdfs:label</code>) instead of, or in addition to, the SKOS lexicalization.</p>
+</div>
+<div id="rule:element-label-core" class="exampleblock">
+<div class="title">Example T.01. Label&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a label for the OWL entity based on the name of the UML element.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Labels in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ResourceName
+  skos:prefLabel "Resource name"@en ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Labels in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ResourceName"&gt;
+    &lt;skos:prefLabel xml:lang="en"&gt;Resource name&lt;/skos:prefLabel&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:element-label-ds" class="exampleblock">
+<div class="title">Example T.02. Label&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a label for the SHACL shape, based on the name of the UML element.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Label declaration for NodeShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+shape:ClassName
+  rdfs:label "Class name" ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Label declaration for NodeShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName"&gt;
+    &lt;rdfs:label&gt;Class name&lt;/rdfs:label&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Label declaration for PropertyShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+
+shape:ClassName-PropertyName
+  sh:name "Property name" ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Label declaration for PropertyShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName-PropertyName"&gt;
+    &lt;sh:name&gt;Property name&lt;/sh:name&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_note"><a class="anchor" href="#_note"></a>Note</h3>
+<div class="paragraph">
+<p>Most of the UML element foresee provisions of descriptions and notes. They should be transformed into <code>rdfs:comment</code> and <code>skos:definition</code>.
+By default, we recommend the use of the SKOS lexicalization (<code>skos:definition</code>) in the core ontology layer. In the future this could be controlled by a flag in the configuration of the transformation tool. With such a flag one could enable RDFS lexicalization (<code>rdfs:comment</code>) instead of, or in addition to, the SKOS lexicalization.</p>
+</div>
+<div id="rule:element-definition-core" class="exampleblock">
+<div class="title">Example T.03. Description&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a description for the OWL entity based on the note on the UML element.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Description in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ResourceName
+  skos:definition "Description of the resource meaning"@en ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Description in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ResourceName"&gt;
+    &lt;skos:definition xml:lang="en"&gt;Description of the resource meaning&lt;/skos:definition&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:element-definition-ds" class="exampleblock">
+<div class="title">Example T.04. Description&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify an annotation (comment or description) for the SHACL shape based on the note on the UML element.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for NodeShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+shape:ClassName
+  rdfs:comment "Description of the meaning of the class" ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for NodeShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName"&gt;
+    &lt;rdfs:comment&gt;Description of the meaning of the class&lt;/rdfs:comment&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for PropertyShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+
+shape:ClassName-PropertyName
+  sh:description "Description of the meaning of the property" ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for PropertyShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName-PropertyName"&gt;
+    &lt;sh:description&gt;Description of the meaning of the property&lt;/sh:description&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_comment"><a class="anchor" href="#_comment"></a>Comment</h3>
+<div class="paragraph">
+<p>In accordance with [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>], every kind of UML Element may own Comments (see <a href="#fig:comment-visual">Visual representation of a UML comment (on the left) and an OWL comment (on the right)</a>). They add no semantics but may represent information useful to the reader. In OWL it is possible to define the annotation axiom for OWL Class, Datatype, ObjectProperty, DataProperty, AnnotationProperty and NamedIndividual. The textual explanation added to UML Class is identified as useful for conceptual modelling , therefore the Comments that are connected to UML Classes are taken into consideration in the transformation.</p>
+</div>
+<div id="fig:comment-visual" class="imageblock">
+<div class="content">
+<img src="../_images/f19.png" alt="19">
+</div>
+<div class="title">Figure 1. Visual representation of a UML comment (on the left) and an OWL comment (on the right)</div>
+</div>
+<div class="paragraph">
+<p>As UML Comments add no semantics, they are not used in any method of semantic validation. In OWL the AnnotationAssertion axiom [<a href="../references.html#ref:owl2" class="xref page">owl2</a>] does not add any semantics either, and it only improves readability.</p>
+</div>
+<div class="paragraph">
+<p>By default, we recommend the use of the SKOS lexicalization (<code>skos:editorialNote</code>) in the core ontology layer. In the future this could be controlled by a flag in the configuration of the transformation tool. With such a flag one could enable RDFS lexicalization (<code>rdfs:comment</code>) instead of, or in addition to, the SKOS lexicalization.</p>
+</div>
+<div id="rule:element-external-comment-core" class="exampleblock">
+<div class="title">Example T.05. Comment&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify an annotation axiom (comment or editorial note) on the OWL entity for the UML Comment associated to a UML element.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Comment in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
+  skos:editorialNote "This is an additional comment on ClassName"@en ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Comment in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+    &lt;skos:editorialNote xml:lang="en"&gt;This is an additional comment on ClassName&lt;/skos:editorialNote&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:element-external-comment-ds" class="exampleblock">
+<div class="title">Example T.06. Comment&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify an annotation axiom (comment or description) on the SHACL shape for the UML Comment associated to a UML element.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for NodeShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+shape:ClassName
+  rdfs:comment "This is an additional comment on ClassName" ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for NodeShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName"&gt;
+    &lt;rdfs:comment&gt;This is an additional comment on ClassName&lt;/rdfs:comment&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for PropertyShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+shape:ClassName-PropertyName
+  sh:description "This is an additional comment on PropertyName" ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Note declaration for PropertyShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName-PropertyName"&gt;
+    &lt;sh:description&gt;This is an additional comment on PropertyName&lt;/sh:description&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_tags"><a class="anchor" href="#_tags"></a>Tags</h3>
+<div class="paragraph">
+<p>Any UML element can have additional information provided by means of tags, represented by UML Tag elements. Such tags should be transformed into annotation on the RDF resource representing the UML element (e.g. Class, Attribute, Connector). The language tags that are provided on the tag, can be used to generate multilingual ontologies/specifications. For example, the highlighted elements in <a href="#fig:transf-tag-marked">Example depicting the specification of UML tags</a> would be transformed in the following Turtle statement <code>epo:Procedure skos:definition "this is the definition in French"@fr .</code></p>
+</div>
+<div id="fig:transf-tag-marked" class="imageblock">
+<div class="content">
+<img src="../_images/transf-tags-marked.png" alt="20">
+</div>
+<div class="title">Figure 2. Example depicting the specification of UML tags</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The generation of annotations from tags could be controlled by a flag in the configuration of the transformation tool.
+</td>
+</tr>
+</table>
+</div>
+<div id="rule:element-tag-core" class="exampleblock">
+<div class="title">Example T.07. Tag&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify an annotation axiom on the OWL entity for each UML Tag associated to a UML element. If a tag has an associated language tag, it should be attached to the value.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Tags in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
+  tagName "tag value"@langTag ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Tags in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+    &lt;tagName xml:lang="langTag"&gt;tag value&lt;/tagName&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_source"><a class="anchor" href="#_source"></a>Source</h3>
+<div class="paragraph">
+<p>It is a good practice to annotate all concepts in an ontology with the IRI of the ontology where these concepts are defined. RDFS provides a dedicated property for purpose, called <code>rdfs:isDefinedBy</code>, which we will use.</p>
+</div>
+<div id="rule:element-source-core" class="exampleblock">
+<div class="title">Example T.08. Source specification&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Annotate all locally defined OWL concepts with the name of the (core) ontology that defines them.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Source in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:ResourceName
+  rdfs:isDefinedBy &lt;http://base.onto.uri#core&gt; .</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Source in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ResourceName"&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://base.onto.uri#core" /&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:element-source-ds" class="exampleblock">
+<div class="title">Example T.09. Source specification&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="content">
+<div class="paragraph">
+<p>For all SHACL shapes specify the source ontology defining the shape.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Source declaration for NodeShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+shape:ClassName
+  rdfs:isDefinedBy &lt;http://base.shape.uri/#core-shapes&gt; .</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Source declaration for NodeShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName"&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://base.shape.uri/#core-shapes" /&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Source declaration for PropertyShape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+
+shape:ClassName-PropertyName
+  rdfs:isDefinedBy &lt;http://base.shape.uri/#core-shapes&gt; .</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Source declaration for PropertyShape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName-PropertyName"&gt;
+    &lt;rdfs:isDefinedBy rdf:resource="http://base.shape.uri/#core-shapes" /&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<style type="text/css">
+    @import url('/documents/d/global/custom');
+</style>
+
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+
+        <script>
+            ECL.autoInit();
+        </script>
+    </div>
+</div>  </body>
+</html>
