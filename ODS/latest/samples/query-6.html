@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>How many contract winners are SMEs for a specific country and chosen date? :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query5.html">
+    <title>List competition notices, buyers and their countries on a chosen date :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query-6.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -135,10 +135,40 @@
     <span class="nav-text">Example Query Library</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="index.html">Home</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Common Queries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-1.html">Query 1: Notices published on a specific date</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-2.html">Query 2: Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-3.html">Query 3: Tender amounts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-4.html">Query 4: Winners</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-5.html">Query 5: Notices published by buyers</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="query-6.html">Query 6: Competition notices</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="query0_epo4.html">Query 1: notices per procurement type per country</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-1.html">Advanced 1: Named graphs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-2.html">Advanced 2: RDF of a notice</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -369,7 +399,9 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">TED Open Data</a></li>
-    <li><a href="query5.html">How many contract winners are SMEs for a specific country and chosen date?</a></li>
+    <li>Example Query Library</li>
+    <li>Common Queries</li>
+    <li><a href="query-6.html">Query 6: Competition notices</a></li>
   </ul>
 </nav>
 </div>
@@ -378,87 +410,173 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">How many contract winners are SMEs for a specific country and chosen date?</h1>
-<div class="sect1">
-<h2 id="_the_scenario"><a class="anchor" href="#_the_scenario"></a>The Scenario</h2>
+<h1 class="page">List competition notices, buyers and their countries on a chosen date</h1>
+<div id="preamble">
 <div class="sectionbody">
+<div class="paragraph">
+<p>This query retrieves a list of publications, procedure types for competition notices published on November 4, 2024.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_output"><a class="anchor" href="#_output"></a>Output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The query produces the following details for each competition notice:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Presentation of the scenario</p>
+<p>Publication Number: The unique identifier for the competition notice.</p>
 </li>
 <li>
-<p>A short discussion of the the extent to which the current data offering can assist/ Understanding data limitations</p>
+<p>Legal Name: The name of the buying organisation.</p>
 </li>
 <li>
-<p>Refining the question</p>
+<p>Procedure Type: The specific type of procurement procedure.</p>
+</li>
+<li>
+<p>Country: The country of the buying organisation.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_information"><a class="anchor" href="#_the_information"></a>The information</h2>
+<h2 id="_filters_applied"><a class="anchor" href="#_filters_applied"></a>Filters Applied</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>The query restricts results to:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Identifying the information to be returned</p>
+<p>Publication Date: Filters results to notices published on 2024-11-04.</p>
 </li>
 <li>
-<p>Using the eProcurement ontology (glossary and conceptual model) to identify the classes and class relationships that can be used to find the information</p>
+<p>Form Type: Restricts results to competition notices.</p>
 </li>
 <li>
-<p>Constructing the query</p>
+<p>Procedure Type language: Only retrieves procedure type names in English.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_query"><a class="anchor" href="#_the_query"></a>The Query</h2>
+<h2 id="_query"><a class="anchor" href="#_query"></a>Query</h2>
 <div class="sectionbody">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Use the copy icon on the top right of the source block to copy the query to the clipboard
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>The complete query in SPARQL is as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-SELECT
-(COUNT(DISTINCT ?Notice) as ?NrOfNotices)
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT DISTINCT ?publicationNumber ?legalName ?procedureType ?country
 WHERE {
-    VALUES (?NoticePublicationDate ?CountryCode ?BusinessSize) {
-            ("20230905"
-            &lt;http://publications.europa.eu/resource/authority/country/DEU&gt;
-            &lt;http://publications.europa.eu/resource/authority/economic-operator-size/sme&gt;)
+	FILTER (?publicationDate = "2024-11-04"^^xsd:date)
+	FILTER (?formType = &lt;http://publications.europa.eu/resource/authority/form-type/competition&gt;)
+
+  GRAPH ?g {
+    ?notice
+        epo:hasPublicationDate ?publicationDate ;
+        epo:refersToProcedure [
+            epo:hasProcedureType ?procedureTypeUri ;
+            a epo:Procedure
+        ] ;
+        epo:hasNoticePublicationNumber ?publicationNumber ;
+        epo:hasFormType ?formType ;
+        epo:announcesRole [
+            a epo:Buyer ;
+            epo:playedBy [
+                epo:hasLegalName ?legalName ;
+                cccev:registeredAddress [
+                    epo:hasCountryCode ?countryUri
+                ]
+            ]
+        ]
     }
-    ?Notice epo:hasPublicationDate ?NoticePublicationDate .
-    ?Notice epo:announcesRole ?Buyer .
-    ?Buyer epo:playedBy ?Organization .
-    ?Organization epo:hasBusinessSize ?BusinessSize .
-    ?Organization cccev:registeredAddress / epo:hasCountryCode ?CountryCode .
+    ?procedureTypeUri a skos:Concept ;
+        skos:prefLabel ?procedureType.
+    FILTER (lang(?procedureType) = "en")
+
+    ?countryUri dc:identifier ?country.
 }</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Running the Query</p>
-</li>
-<li>
-<p>Examining and refining the query results</p>
+<p><a href="https://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&amp;query=PREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+epo%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fa4g%2Fontology%23%3E%0D%0APREFIX+cccev%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fm8g%2F%3E%0D%0APREFIX+org%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Forg%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FpublicationNumber+%3FlegalName+%3FprocedureType+%3Fcountry%0D%0AWHERE+%7B%0D%0A%09FILTER+%28%3FpublicationDate+%3D+%222024-11-04%22%5E%5Exsd%3Adate%29%0D%0A%09FILTER+%28%3FformType+%3D+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fform-type%2Fcompetition%3E%29%0D%0A%0D%0AGRAPH+%3Fg+%7B%0D%0A%3Fnotice%0D%0Aepo%3AhasPublicationDate+%3FpublicationDate+%3B%0D%0Aepo%3ArefersToProcedure+%5B%0D%0A+epo%3AhasProcedureType+%3FprocedureTypeUri+%3B%0D%0Aa+epo%3AProcedure%0D%0A++%5D+%3B%0D%0A++epo%3AhasNoticePublicationNumber+%3FpublicationNumber+%3B%0D%0A++epo%3AhasFormType+%3FformType+%3B%0D%0A++epo%3AannouncesRole+%5B%0D%0Aa+epo%3ABuyer+%3B%0D%0Aepo%3AplayedBy+%5B%0D%0Aepo%3AhasLegalName%3FlegalName+%3B%0D%0A+cccev%3AregisteredAddress+%5B%0D%0A++epo%3AhasCountryCode+%3FcountryUri%0D%0A%5D%0D%0A%5D%0D%0A%5D%0D%0A%7D%0D%0A%3FprocedureTypeUri+a+skos%3AConcept+%3B%0D%0Askos%3AprefLabel%3FprocedureType.%0D%0A+FILTER+%28lang%28%3FprocedureType%29+%3D+%22en%22%29%0D%0A%0D%0A%3FcountryUri+dc%3Aidentifier%3Fcountry.%0D%0A%7D%0D%0A&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on&amp;run=Run+Query">Run the query online</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structures_applied"><a class="anchor" href="#_structures_applied"></a>Structures Applied</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_competition_notice_identification"><a class="anchor" href="#_competition_notice_identification"></a>Competition Notice Identification</h3>
+<div class="paragraph">
+<p>The query specifically targets competition notices, which have a specific form type URI.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">FILTER (?formType = &lt;http://publications.europa.eu/resource/authority/form-type/competition&gt;)
+
+?notice
+    epo:hasFormType ?formType ;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_buyer_organisation_details"><a class="anchor" href="#_buyer_organisation_details"></a>Buyer Organisation Details</h3>
+<div class="paragraph">
+<p>The query extracts the legal name and country about organisations that play the epo:Buyer role.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?notice
+    epo:announcesRole [
+        a epo:Buyer ;
+        epo:playedBy [
+            epo:hasLegalName ?legalName ;
+            cccev:registeredAddress [
+                epo:hasCountryCode ?countryUri
+            ]
+        ]
+    ]
+
+ ?countryUri dc:identifier ?country.</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_procedure_type_labeling"><a class="anchor" href="#_procedure_type_labeling"></a>Procedure Type Labeling</h3>
+<div class="paragraph">
+<p>Procedure types are retrieved with English-language labels:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?notice
+    epo:refersToProcedure [
+        epo:hasProcedureType ?procedureTypeUri ;
+        a epo:Procedure
+    ]
+
+?procedureTypeUri a skos:Concept ;
+    skos:prefLabel ?procedureType.
+FILTER (lang(?procedureType) = "en")</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This query provides a list of buyers and their associated procurement procedure types for competition notices published on a specified date.</p>
 </div>
 <hr>
 <div class="paragraph">

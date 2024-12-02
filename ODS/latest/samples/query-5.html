@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Find the highest value contract award published on a particular date :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query1.html">
+    <title>Retrieving Buyers for a Specific Date :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query-5.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -135,10 +135,40 @@
     <span class="nav-text">Example Query Library</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="index.html">Home</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Common Queries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-1.html">Query 1: Notices published on a specific date</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-2.html">Query 2: Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-3.html">Query 3: Tender amounts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-4.html">Query 4: Winners</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="query-5.html">Query 5: Notices published by buyers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-6.html">Query 6: Competition notices</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="query0_epo4.html">Query 1: notices per procurement type per country</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-1.html">Advanced 1: Named graphs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-2.html">Advanced 2: RDF of a notice</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -369,7 +399,9 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">TED Open Data</a></li>
-    <li><a href="query1.html">Find the highest value contract award published on a particular date</a></li>
+    <li>Example Query Library</li>
+    <li>Common Queries</li>
+    <li><a href="query-5.html">Query 5: Notices published by buyers</a></li>
   </ul>
 </nav>
 </div>
@@ -378,106 +410,123 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">Find the highest value contract award published on a particular date</h1>
+<h1 class="page">Retrieving Buyers for a Specific Date</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This query retrieves buyers of contracts published on November 4, 2024, providing details about the organisations and their countries.</p>
+</div>
+</div>
+</div>
 <div class="sect1">
-<h2 id="_the_scenario"><a class="anchor" href="#_the_scenario"></a>The Scenario</h2>
+<h2 id="_output"><a class="anchor" href="#_output"></a>Output</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>Presentation of the scenario</p>
+<p>Publication Number: The unique identifier for the notice.</p>
 </li>
 <li>
-<p>Business value</p>
+<p>Legal Name: The name of the buying organisation.</p>
 </li>
 <li>
-<p>A short discussion of the the extent to which the current data offering can assist/ Understanding data limitations</p>
-</li>
-<li>
-<p>Refining the question</p>
+<p>Country: The country where the buyer is registered.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_information"><a class="anchor" href="#_the_information"></a>The information</h2>
+<h2 id="_filters_applied"><a class="anchor" href="#_filters_applied"></a>Filters Applied</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Identifying the information to be returned</p>
-</li>
-<li>
-<p>Using the eProcurement ontology (glossary and conceptual model) to identify the classes and class relationships that can be used to find the information</p>
-</li>
-<li>
-<p>Constructing the query</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>Publication Date: Filters results to contracts published on 2024-11-04.
+Country language: Retrieves country names in English.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_the_query"><a class="anchor" href="#_the_query"></a>The Query</h2>
+<h2 id="_query"><a class="anchor" href="#_query"></a>Query</h2>
 <div class="sectionbody">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Use the copy icon on the top right of the source block to copy the query to the clipboard
-</td>
-</tr>
-</table>
+<div class="paragraph">
+<p>The complete query in SPARQL is as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-SELECT
-?LotURI
-?WinnerLegalName
-?WinnerCountryCode
-?LotAwardedValue
-?LotAwardedValueCurrency
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT DISTINCT ?publicationNumber ?legalName ?country
 WHERE {
-    VALUES ?NoticePublicationDate {
-        "20230921"
-    }
-    FILTER(LANG(?WinnerLegalName) = 'en')
-    ?Notice epo:hasPublicationDate ?NoticePublicationDate ;
-            epo:refersToLot ?LotURI .
-    ?LotAwardOutcome epo:describesLot ?LotURI ;
-                     epo:hasAwardedValue ?MonetaryValue ;
-                     epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
-    ?TenderAwardOutcome a epo:TenderAwardOutcome;
-                        epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
-    ?Winner a org:Organization;
-            epo:hasLegalName ?WinnerLegalName .
-    OPTIONAL {
-        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
-    }
-    ?MonetaryValue a epo:MonetaryValue;
-                   epo:hasAmountValue ?LotAwardedValue;
-                   epo:hasCurrency ?LotAwardedValueCurrency .
-}
-ORDER BY DESC(?LotAwardedValue)
-LIMIT 1</code></pre>
+  FILTER (?publicationDate = "2024-11-04"^^xsd:date)
+  GRAPH ?g {
+    ?notice a epo:Notice ;
+            epo:hasPublicationDate ?publicationDate ;
+            epo:hasNoticePublicationNumber ?publicationNumber ;
+            epo:announcesRole [
+         a epo:Buyer ;
+         epo:playedBy [
+           epo:hasLegalName ?legalName ;
+           cccev:registeredAddress [
+             epo:hasCountryCode ?countryUri
+           ]
+         ]
+       ] .
+  }
+  ?countryUri a skos:Concept ;
+              skos:prefLabel ?country .
+  FILTER (lang(?country) = "en")
+}</code></pre>
 </div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Running the Query (link to EndPoint)</p>
-</li>
-<li>
-<p>Examining and refining the query results</p>
+<p><a href="https://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&amp;query=PREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+epo%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fa4g%2Fontology%23%3E%0D%0APREFIX+cccev%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fm8g%2F%3E%0D%0APREFIX+org%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Forg%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FpublicationNumber+%3FlegalName+%3Fcountry%0D%0AWHERE+%7B%0D%0AFILTER+%28%3FpublicationDate+%3D+%222024-11-04%22%5E%5Exsd%3Adate%29%0D%0AGRAPH+%3Fg+%7B%0D%0A+%3Fnotice+a+epo%3ANotice+%3B%0D%0Aepo%3AhasPublicationDate+%3FpublicationDate+%3B%0D%0Aepo%3AhasNoticePublicationNumber+%3FpublicationNumber+%3B%0D%0Aepo%3AannouncesRole+%5B%0D%0Aa+epo%3ABuyer+%3B%0D%0Aepo%3AplayedBy+%5B%0D%0Aepo%3AhasLegalName+%3FlegalName+%3B%0D%0Acccev%3AregisteredAddress+%5B%0D%0A+epo%3AhasCountryCode+%3FcountryUri%0D%0A%5D%0D%0A%5D%0D%0A%5D+.%0D%0A%7D%0D%0A%3FcountryUri+a+skos%3AConcept+%3B%0D%0Askos%3AprefLabel+%3Fcountry+.%0D%0AFILTER+%28lang%28%3Fcountry%29+%3D+%22en%22%29%0D%0A%7D%0D%0A&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on&amp;run=Run+Query">Run the query online</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structures_applied"><a class="anchor" href="#_structures_applied"></a>Structures Applied</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_notice_and_buyer_relationships"><a class="anchor" href="#_notice_and_buyer_relationships"></a>Notice and Buyer Relationships</h3>
+<div class="paragraph">
+<p>The query identifies organisations specifically playing the role of a buyer in contract notices. This is achieved through the epo:Buyer role, which captures organisations responsible for purchasing goods or services.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">epo:announcesRole [
+    a epo:Buyer ;
+    epo:playedBy [
+        epo:hasLegalName ?legalName ;
+            cccev:registeredAddress [
+                epo:hasCountryCode ?countryUri
+            ]
+        ]
+]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_country_identification"><a class="anchor" href="#_country_identification"></a>Country Identification</h3>
+<div class="paragraph">
+<p>Countries are retrieved using their concept labels in English:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?countryUri a skos:Concept ;
+skos:prefLabel ?country .
+FILTER (lang(?country) = "en")</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This query retrieves information about buyers of contracts published on a specific date. The results include the publication number, the legal name of the buying organisation, and the country where the organisation is registered.</p>
 </div>
 <hr>
 <div class="paragraph">

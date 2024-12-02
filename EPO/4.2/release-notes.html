@@ -293,7 +293,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The release v4.2.0 and its corresponding technical files can be found <a href="https://github.com/OP-TED/ePO/tree/v4.2.0-rc.1">here</a>.</p>
+<p>The release v4.2.0 and its corresponding technical files can be found <a href="https://github.com/OP-TED/ePO/tree/v4.2.0">here</a>.</p>
 </div>
 </div>
 </div>
@@ -301,7 +301,7 @@
 <h2 id="_release_notes"><a class="anchor" href="#_release_notes"></a>Release notes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>30 July 2024</strong></p>
+<p><strong>2 December 2024</strong></p>
 </div>
 <div class="ulist">
 <ul>
@@ -335,6 +335,40 @@
 </li>
 <li>
 <p>The (closed) github issues justifying these updates can be found <a href="https://github.com/OP-TED/ePO/milestone/10">here</a></p>
+</li>
+<li>
+<p>The following Modifications were done in all modules:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Conventions used for both internal and external concepts:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>skos:historyNote: Contains the date that the concept was approved by the Working Group as a rdf:plainLiteral datatype using the following notation: “WG Approval DD/MM/YYYY”. For example, “WG Approval 28/04/20.”</p>
+</li>
+<li>
+<p>skos:editorialNote: Contains the business term used by a specific data model that can be mapped to the concept. Its value is a rdf:plainLiteral datatype using the following notation: “Used by X BT/BG-Y, Z BT/BG-H..” where X and Z are the data models, and Y and H the number of the Business Term (BT) or Business Group (BG) that this concept represents. For example, “Used by eForms BT-724".</p>
+</li>
+<li>
+<p>dct:source: Contains the reference from where this definition was taken.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Conventions used for external concepts.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The definition of each external concept, contains a hyperlink to a human-readable website that provides the original definition of the concept.
+These definitions appear in the <a href="https://docs.ted.europa.eu/EPO/4.2/glossaries.html">glossaries</a> and <a href="https://docs.ted.europa.eu/EPO/4.2/conceptual.html">the Conceptual Model</a> of the Ontology.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -386,7 +420,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -439,18 +473,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:foreseesSubcontractor</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:Tender &#8594; epo:Subcontractor [0..*]</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo:concernsLot</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cccev:InformationRequirement &#8594; epo:Lot [0..*]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo:concernsLotGroup</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cccev:InformationRequirement &#8594; epo:LotGroup [0..*]</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo:concernsProcedure</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cccev:InformationRequirement &#8594; epo:Procedure [0..1]</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -498,10 +520,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubcontractingPercentageKnown</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubcontractingEstimate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">rdf:PlainLiteral [0..1]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">xsd:boolean [0..1]</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">po:isSubcontractingValueKnown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">epo:isSubcontractingValueKnown</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo:SubcontractingEstimate</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">xsd:boolean [0..1]</p></td>
 </tr>
@@ -550,7 +572,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -682,7 +704,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -796,7 +818,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -893,11 +915,6 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>New Domain, Range and cardinality</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo-ful:refersToOrderLine</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo-ful:DespatchLine &#8594; epo-ord:OrderLine [0..1]</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo-ful:DespatchLine &#8594; epo-ord:OrderLine [1]</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo-ful:containsGoodsItem</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo-ful:Package &#8594; epo-ful:GoodsItem [1..*]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">epo-ful:Package &#8594; epo-ful:GoodsItem [0..*]</p></td>
@@ -947,7 +964,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -994,7 +1011,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -1175,7 +1192,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>
@@ -1222,26 +1239,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">dct:issued</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-18</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2024-07-23</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_added_object_properties_5"><a class="anchor" href="#_added_object_properties_5"></a>Added Object Properties</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>property</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Domain, Range and cardinality</strong></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo-sub:refersToOtherESPDResponse</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">epo-sub:ESPD &#8594; epo-sub:ESPD [0..*]</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2024-12-02</p></td>
 </tr>
 </tbody>
 </table>

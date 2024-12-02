@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Return publication number, buyer, procedure type, and country :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query0_epo4.html">
+    <title>Notices published on a specific date :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query-1.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -135,10 +135,40 @@
     <span class="nav-text">Example Query Library</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="index.html">Home</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Common Queries</span>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="query-1.html">Query 1: Notices published on a specific date</a>
   </li>
-  <li class="nav-item is-current-page" data-depth="2">
-    <a class="nav-link" href="query0_epo4.html">Query 1: notices per procurement type per country</a>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-2.html">Query 2: Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-3.html">Query 3: Tender amounts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-4.html">Query 4: Winners</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-5.html">Query 5: Notices published by buyers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-6.html">Query 6: Competition notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-1.html">Advanced 1: Named graphs</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-2.html">Advanced 2: RDF of a notice</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -370,7 +400,8 @@
   <ul>
     <li><a href="../index.html">TED Open Data</a></li>
     <li>Example Query Library</li>
-    <li><a href="query0_epo4.html">Query 1: notices per procurement type per country</a></li>
+    <li>Common Queries</li>
+    <li><a href="query-1.html">Query 1: Notices published on a specific date</a></li>
   </ul>
 </nav>
 </div>
@@ -379,95 +410,168 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">Return publication number, buyer, procedure type, and country</h1>
-<div class="sect1">
-<h2 id="_the_query"><a class="anchor" href="#_the_query"></a>The Query</h2>
+<h1 class="page">Notices published on a specific date</h1>
+<div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>This query returns data on</p>
+<p>This query retrieves all procurement notices that were published on a specific date.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_output"><a class="anchor" href="#_output"></a>Output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The results include key details about each notice:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Publication number (notice number)</p>
+<p><strong>Publication Number</strong>: A unique identifier for each notice.</p>
 </li>
 <li>
-<p>The buyer&#8217;s legal name</p>
+<p><strong>Notice Type</strong>: The category of notice (e.g., contract notice, prior information notice).</p>
 </li>
 <li>
-<p>The procedure type (open/ negotiated)</p>
+<p><strong>Form Type</strong>: The document or form used in the procurement process.</p>
 </li>
 <li>
-<p>The procedure type URI</p>
-</li>
-<li>
-<p>The buyer&#8217;s country</p>
+<p><strong>Procedure Type</strong>: The classification of the procurement procedure.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>The query enables the results to be pasted into an Excel spread sheet where they can be <a href="../connecting/excel.html" class="xref page">manipulated further in pivot tables</a>. This enables the data to be displayed in different ways:</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_filters_applied"><a class="anchor" href="#_filters_applied"></a>Filters Applied</h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>notices per procurement type per country</p>
-</li>
-<li>
-<p>percentage of notices per procurement type per country</p>
-</li>
-<li>
-<p>percentage of notices per procurement type within a country</p>
-</li>
-<li>
-<p>list of buyers per procurement type per country</p>
+<p><strong>Publication Date</strong>: Limits results to notices published on <code>2024-11-04</code>.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_query"><a class="anchor" href="#_query"></a>Query</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>This query interrogates eForms data against v4 of the eProcurement Ontology.</p>
+<p>The complete query written in SPARQL is as follows:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-SPARQL hljs" data-lang="SPARQL">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
-PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
-
-SELECT DISTINCT ?publicationNumber ?legalName ?procedureType ?country ?procedureTypeUri
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT ?publicationNumber ?procedureType ?noticeType ?formType
 WHERE {
-  FILTER (?publicationDate = "2024-11-04"^^xsd:date)
-
+  FILTER (?publicationDate = "2024-11-06"^^xsd:date)
   GRAPH ?g {
-    ?notice
-      		epo:hasPublicationDate ?publicationDate ;
-      		epo:refersToProcedure [
-        		epo:hasProcedureType ?procedureTypeUri ;
-          		a epo:Procedure
-    		];
+    ?notice a epo:Notice ;
+            epo:hasPublicationDate ?publicationDate ;
             epo:hasNoticePublicationNumber ?publicationNumber ;
-            epo:hasFormType &lt;http://publications.europa.eu/resource/authority/form-type/competition&gt; ;
-            epo:announcesRole [
-              epo:playedBy [
-               epo:hasLegalName ?legalName ;
-               cccev:registeredAddress [
-                 epo:hasCountryCode ?countryUri
-               ]
-             ]
-      ]
-    }
-    ?procedureTypeUri a skos:Concept ;
-    	skos:prefLabel ?procedureType .
-    FILTER (lang(?procedureType) = "en")
+            epo:hasNoticeType ?noticeTypeUri ;
+            epo:hasFormType ?formTypeUri ;
+            epo:refersToProcedure [
+                 a epo:Procedure ;
+                 epo:hasProcedureType ?procedureTypeUri
+           ] .
+  }
 
-  ?countryUri dc:identifier ?country .
+  # Retrieve the label in english for noticeTypeUri
+  ?noticeTypeUri a skos:Concept ;
+                 skos:prefLabel ?noticeType .
+  FILTER (lang(?noticeType) = "en")
+
+  # Retrieve the label in english for formTypeUri
+  ?formTypeUri a skos:Concept ;
+               skos:prefLabel ?formType .
+  FILTER (lang(?formType) = "en")
+
+  # Retrieve the label in english for procedureTypeUri
+  ?procedureTypeUri a skos:Concept ;
+                    skos:prefLabel ?procedureType .
+  FILTER (lang(?procedureType) = "en")
 }</code></pre>
 </div>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&amp;query=PREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+epo%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fa4g%2Fontology%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0A%0D%0ASELECT+%3FpublicationNumber+%3FprocedureType+%3FnoticeType+%3FformType%0D%0AWHERE+%7B%0D%0AFILTER+%28%3FpublicationDate+%3D+%222024-11-06%22%5E%5Exsd%3Adate%29%0D%0AGRAPH+%3Fg+%7B%0D%0A+%3Fnotice+a+epo%3ANotice+%3B%0D%0Aepo%3AhasPublicationDate+%3FpublicationDate+%3B%0D%0Aepo%3AhasNoticePublicationNumber+%3FpublicationNumber+%3B%0D%0Aepo%3AhasNoticeType+%3FnoticeTypeUri+%3B%0D%0Aepo%3AhasFormType+%3FformTypeUri+%3B%0D%0Aepo%3ArefersToProcedure+%5B%0D%0Aa+epo%3AProcedure+%3B%0D%0Aepo%3AhasProcedureType+%3FprocedureTypeUri%0D%0A%5D+.%0D%0A%7D%0D%0A%0D%0A%23+Retrieve+the+label+in+english+for+noticeTypeUri%0D%0A%3FnoticeTypeUri+a+skos%3AConcept+%3B%0D%0A++skos%3AprefLabel+%3FnoticeType+.%0D%0A++FILTER+%28lang%28%3FnoticeType%29+%3D+%22en%22%29%0D%0A%0D%0A++%23+Retrieve+the+label+in+english+for+formTypeUri%0D%0A++%3FformTypeUri+a+skos%3AConcept+%3B%0D%0Askos%3AprefLabel+%3FformType+.%0D%0AFILTER+%28lang%28%3FformType%29+%3D+%22en%22%29%0D%0A%0D%0A%23+Retrieve+the+label+in+english+for+procedureTypeUri%0D%0A%3FprocedureTypeUri+a+skos%3AConcept+%3B%0D%0Askos%3AprefLabel+%3FprocedureType+.%0D%0A+FILTER%28lang%28%3FprocedureType%29+%3D+%22en%22%29%0D%0A%7D%0D%0A&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on&amp;run=Run+Query">Run the query online</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_structures_applied"><a class="anchor" href="#_structures_applied"></a>Structures Applied</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_notice_metadata"><a class="anchor" href="#_notice_metadata"></a>Notice Metadata</h3>
 <div class="paragraph">
-<p>Copy the query and run it in the <a href="https://publications.europa.eu/webapi/rdf/sparql">public procurement SPARQL End Point</a></p>
+<p>The query extracts key metadata for each notice as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">    ?notice a epo:Notice ;
+            epo:hasPublicationDate ?publicationDate ;
+            epo:hasNoticePublicationNumber ?publicationNumber ;
+            epo:hasNoticeType ?noticeTypeUri ;
+            epo:hasFormType ?formTypeUri ;
+            epo:refersToProcedure [
+                 a epo:Procedure ;
+                 epo:hasProcedureType ?procedureTypeUri
+           ] .</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The extracted metadata includes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Publication Number</strong>: A unique identifier for the notice.</p>
+</li>
+<li>
+<p><strong>Notice Type</strong>: The category of notice (e.g., contract notice, prior information notice).</p>
+</li>
+<li>
+<p><strong>Form Type</strong>: The specific document or form used in the procurement process.</p>
+</li>
+<li>
+<p><strong>Procedure Type</strong>: The classification of the procurement procedure.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_label_extraction"><a class="anchor" href="#_label_extraction"></a>Label Extraction</h3>
+<div class="paragraph">
+<p>The metadata values are identified by URIs, which are then translated into human-readable labels, leveraging multilingual descriptions provided by the <a href="https://op.europa.eu/en/web/eu-vocabularies/authority-tables">EU Vocabularies</a>.</p>
+</div>
+<div class="paragraph">
+<p>For example, the structure to get the labels of a procedure type in english is as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">  ?procedureTypeUri a skos:Concept ;
+                    skos:prefLabel ?procedureType .
+  FILTER (lang(?procedureType) = "en")</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This method is applied to other metadata fields, including the notice type and form type.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This query retrieves procurement notices published on a specific date (e.g., <strong>November 4, 2024</strong>).
+It filters results based on the publication date and extracts key metadata, including the publication number, notice type, form type, and procedure type.
+The query also uses multilingual labels from the EU Vocabularies to make metadata more accessible.</p>
 </div>
 <hr>
 <div class="paragraph">

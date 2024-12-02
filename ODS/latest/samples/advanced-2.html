@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>List the contract winners on a chosen date? :: TED Developer Documentation</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query8.html">
+    <title>Retrieve the RDF of a chosen notice :: TED Developer Documentation</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/advanced-2.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -135,10 +135,40 @@
     <span class="nav-text">Example Query Library</span>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="index.html">Home</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Common Queries</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-1.html">Query 1: Notices published on a specific date</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-2.html">Query 2: Contracts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-3.html">Query 3: Tender amounts</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-4.html">Query 4: Winners</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-5.html">Query 5: Notices published by buyers</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="query-6.html">Query 6: Competition notices</a>
+  </li>
+</ul>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="query0_epo4.html">Query 1: notices per procurement type per country</a>
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Advanced</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="advanced-1.html">Advanced 1: Named graphs</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="3">
+    <a class="nav-link" href="advanced-2.html">Advanced 2: RDF of a notice</a>
+  </li>
+</ul>
   </li>
 </ul>
   </li>
@@ -369,7 +399,9 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">TED Open Data</a></li>
-    <li><a href="query8.html">List the contract winners on a chosen date?</a></li>
+    <li>Example Query Library</li>
+    <li>Advanced</li>
+    <li><a href="advanced-2.html">Advanced 2: RDF of a notice</a></li>
   </ul>
 </nav>
 </div>
@@ -378,116 +410,23 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">List the contract winners on a chosen date?</h1>
-<div class="sect1">
-<h2 id="_the_scenario"><a class="anchor" href="#_the_scenario"></a>The Scenario</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Presentation of the scenario</p>
-</li>
-<li>
-<p>A short discussion of the the extent to which the current data offering can assist/ Understanding data limitations</p>
-</li>
-<li>
-<p>Refining the question</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_information"><a class="anchor" href="#_the_information"></a>The information</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Identifying the information to be returned</p>
-</li>
-<li>
-<p>Using the eProcurement ontology (glossary and conceptual model) to identify the classes and class relationships that can be used to find the information</p>
-</li>
-<li>
-<p>Constructing the query</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_the_query"><a class="anchor" href="#_the_query"></a>The Query</h2>
-<div class="sectionbody">
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Use the copy icon on the top right of the source block to copy the query to the clipboard
-</td>
-</tr>
-</table>
-</div>
+<h1 class="page">Retrieve the RDF of a chosen notice</h1>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-SELECT DISTINCT
-?NoticeID
-?NoticePublicationDate
-?ProcedureNr
-?LotNr
-?WinnerLegalName
-?WinnerCountryCode
-?LotAwardedValue
-?LotAwardedValueCurrency
-?LotURI
-?NoticeURI
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">CONSTRUCT {
+  ?s ?p ?o .
+}
 WHERE {
-    VALUES ?NoticePublicationDate {
-        "20230831"
-    }
-    FILTER(LANG(?WinnerLegalName) = 'en')
-    ?NoticeURI a epo:ResultNotice;
-               epo:hasPublicationDate ?NoticePublicationDate;
-               epo:hasID / epo:hasIdentifierValue ?NoticeID ;
-                           epo:refersToLot ?LotURI.
-    ?LotURI a epo:Lot.
-    ?LotAwardOutcome epo:describesLot ?LotURI;
-                     a epo:LotAwardOutcome;
-                     epo:hasAwardedValue ?LotAwardedValueURI ;
-                     epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
-    ?TenderAwardOutcome a epo:TenderAwardOutcome;
-                        epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
-    ?Winner a org:Organization;
-            epo:hasLegalName ?WinnerLegalName .
-    OPTIONAL {
-        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
-    }
-    ?LotAwardedValueURI a epo:MonetaryValue;
-                        epo:hasAmountValue ?LotAwardedValue;
-                        epo:hasCurrency ?LotAwardedValueCurrency.
-    OPTIONAL {
-        ?LotURI epo:hasID / epo:hasIdentifierValue ?LotNr .
-    }
-    ?ProcedureURI epo:hasProcurementScopeDividedIntoLot ?LotURI;
-                  a epo:Procedure ;
-                  epo:hasID / epo:hasIdentifierValue ?ProcedureNr .
+  FILTER (?publicationNumber = "00665936-2024")
+  GRAPH ?g {
+    ?Notice a epo:Notice ;
+            epo:hasNoticePublicationNumber ?publicationNumber .
+  }
+  GRAPH ?g {
+    ?s ?p ?o .
+  }
 }</code></pre>
 </div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Running the Query</p>
-</li>
-<li>
-<p>Examining and refining the query results</p>
-</li>
-</ul>
 </div>
 <hr>
 <div class="paragraph">
@@ -495,8 +434,6 @@ WHERE {
 </div>
 <div class="paragraph">
 <p><a href="https://github.com/OP-TED/ted-rdf-docs/issues/new/choose">Click here to let us know</a></p>
-</div>
-</div>
 </div>
 </article>
     <div id="widgetContainer">
