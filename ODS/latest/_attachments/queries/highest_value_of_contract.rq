@@ -1,0 +1,34 @@
+# Which is the highest value published for a contract award for a given date?
+
+PREFIX epo: <http://data.europa.eu/a4g/ontology#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX cccev: <http://data.europa.eu/m8g/>
+SELECT
+?LotURI
+?WinnerLegalName
+?WinnerCountryCode
+?LotAwardedValue
+?LotAwardedValueCurrency
+WHERE {
+    VALUES (?NoticePublicationDate ?LotAwardedValueCurrency) {
+        ("20230905" <http://publications.europa.eu/resource/authority/currency/EUR>)
+    }
+    FILTER(LANG(?WinnerLegalName) = 'en')
+    ?Notice epo:hasPublicationDate ?NoticePublicationDate ;
+            epo:refersToLot ?LotURI .
+    ?LotAwardOutcome epo:describesLot ?LotURI ;
+                     epo:hasAwardedValue ?MonetaryValue ;
+                     epo:comprisesTenderAwardOutcome ?TenderAwardOutcome.
+    ?TenderAwardOutcome a epo:TenderAwardOutcome;
+                        epo:indicatesAwardOfLotToWinner / epo:playedBy ?Winner.
+    ?Winner a org:Organization;
+            epo:hasLegalName ?WinnerLegalName .
+    OPTIONAL {
+        ?Winner cccev:registeredAddress / epo:hasCountryCode ?WinnerCountryCode.
+    }
+    ?MonetaryValue a epo:MonetaryValue;
+                   epo:hasAmountValue ?LotAwardedValue;
+                   epo:hasCurrency ?LotAwardedValueCurrency .
+}
+ORDER BY DESC(?LotAwardedValue)
+LIMIT 1
