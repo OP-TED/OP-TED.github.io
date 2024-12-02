@@ -413,7 +413,11 @@
 <h1 class="page">List the named graphs published on a specified period</h1>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT ?date ?journalNumber ?metsNamedGraph ?noticeNamedGraph ?accessUrl ?xmlSource
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX cdm: &lt;http://publications.europa.eu/ontology/cdm#&gt;
+
+SELECT ?date ?journalNumber ?metsNamedGraph ?noticeNamedGraph ?accessUrl ?xmlSource
 WHERE {
 
   FILTER (?date &gt;= "2024-11-04T00:00:00"^^xsd:dateTime &amp;&amp;

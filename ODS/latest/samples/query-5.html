@@ -453,7 +453,14 @@ Country language: Retrieves country names in English.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT DISTINCT ?publicationNumber ?legalName ?country
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
+PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+SELECT DISTINCT ?publicationNumber ?legalName ?country
 WHERE {
   FILTER (?publicationDate = "2024-11-04"^^xsd:date)
   GRAPH ?g {

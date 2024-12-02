@@ -462,7 +462,11 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT ?publicationNumber ?procedureType ?noticeType ?formType
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+SELECT ?publicationNumber ?procedureType ?noticeType ?formType
 WHERE {
   FILTER (?publicationDate = "2024-11-06"^^xsd:date)
   GRAPH ?g {

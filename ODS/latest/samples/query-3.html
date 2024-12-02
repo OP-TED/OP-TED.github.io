@@ -462,7 +462,16 @@ It focuses on extracting metadata such as the publication number, associated lot
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">SELECT ?publicationNumber ?lotUri ?legalName ?amount
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
+PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
+PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+SELECT ?publicationNumber ?lotUri ?legalName ?amount
 WHERE {
   FILTER (?publicationDate = "2024-11-04"^^xsd:date)
   FILTER (?currencyUri = &lt;http://publications.europa.eu/resource/authority/currency/EUR&gt;)
