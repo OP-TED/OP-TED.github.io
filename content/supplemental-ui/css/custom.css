@@ -89,3 +89,124 @@ div.qanda > ol > li {
 .doc table.fixed-layout {
     table-layout: fixed;
 }
+
+/* Cookie Banner Styling */
+#cookie-banner
+{
+    font-family: Arial, sans-serif;
+    background-color: #ebebeb;
+    line-height: 30px;
+    font-size: 16px;
+    padding: 24px;
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    color: #444;
+    display: flex;
+    align-items: top;
+    justify-content: space-between;
+    flex-grow: 2;
+}
+
+.cookie-wrapper
+{
+    margin: 0 auto;
+    max-width: 1170px;
+    display: flex
+}
+
+#cookie-banner .info
+{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex: 1;
+    margin-right: 12px;
+}
+
+#cookie-banner .info .icon
+{
+    color: #0e47cb;
+    fill: currentColor;
+    flex-shrink: 0;
+    margin-right: 12px;
+    font-size: 16px;
+    align-items: top;
+}
+
+#cookie-banner .text a
+{
+    color: #0e47cb;
+    text-decoration: underline;
+}
+
+#cookie-banner .text
+{
+    padding-right: 16px;
+    margin-right: auto;
+    /* Ensures the text doesn’t crowd the buttons */
+}
+
+/* #cookie-banner button {
+    background-color: var(--wt-c-p);
+    border: 0 solid var(--wt-c-p);
+    color: #fff;
+    padding: calc(var(--wt-s-xs)) calc(var(--wt-s-m));
+    border-radius: 4px;
+    margin-left: 12px;
+    cursor: pointer;
+  } */
+
+#cookie-banner .actions
+{
+    display: flex;
+    gap: 12px;
+
+    align-items: top;
+}
+
+.actions
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+}
+
+#cookie-banner .actions button
+{
+    background-color: #0e47cb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    min-height: 44px;
+    min-width: 44px;
+    transition: background-color 0.2s;
+}
+
+#cookie-banner .actions button:hover
+{
+    background-color: #3e6cd5;
+}
+
+/* Responsive Styles */
+@media (max-width: 770px)
+{
+    #cookie-banner, .cookie-wrapper
+    {
+        flex-direction: column;
+    }
+
+    #cookie-banner .actions
+    {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+}

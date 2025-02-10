@@ -1,0 +1,81 @@
+ <!-- Cookie Banner -->
+   <div id="cookie-banner">
+    <div class="cookie-wrapper">
+    <div class="info">
+      <div class="icon">
+      <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false" xmlns="xmlns=&quot;http://www.w3.org/2000/svg" class="icon wt-icon--l wt-icon--primary" width="32" height="32" fill="currentColor">
+      <path fill-rule="evenodd" d="M42 3H6C4.35 3 3 4.35 3 6v36c0 1.65 1.35 3 3 3h36c1.65 0 3-1.35 3-3V6c0-1.65-1.35-3-3-3M21.93 13.38a2.31 2.31 0 0 1 2.1-1.41c.6 0 1.17.24 1.59.66s.66.99.66 1.59c0 .45-.12.87-.39 1.26-.24.36-.6.66-1.02.84s-.87.21-1.29.12c-.45-.09-.84-.3-1.14-.63-.3-.3-.54-.72-.63-1.14s-.03-.9.12-1.29M30 36H18v-3h4.5v-9h-3v-3h6v12H30z" clip-rule="evenodd"></path>
+      
+      </svg>
+      </div>
+      <div class="text">
+        This site uses cookies. Visit our <a href="https://ted.europa.eu/en/cookie-choice">cookies policy page</a> or click the link in any footer for more information and to change your preferences.
+      </div>
+    </div>
+    <div class="actions">
+      <button onclick="acceptCookies('all')">Accept all cookies</button>
+      <button onclick="acceptCookies('essential')">Accept only essential cookies</button>
+    </div>
+    </div>
+  </div>
+
+   <!-- JavaScript to handle cookie banner -->
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const isAccepted = localStorage.getItem('cookiesAccepted');
+    if (!isAccepted) {
+      document.getElementById('cookie-banner').style.display = 'flex';
+    } else {
+      applyConsentSettings(isAccepted);
+    }
+  });
+
+  function acceptCookies(type) {
+    localStorage.setItem('cookiesAccepted', type);
+    document.getElementById('cookie-banner').style.display = 'none';
+    applyConsentSettings(type);
+  }
+
+  function applyConsentSettings(type) {
+    if (type === 'all') {
+      // User accepts all cookies
+      var consentAccepted = { consents: { analytics: { status: 1 } } };
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) {});
+    } else if (type === 'essential') {
+      // User accepts only essential cookies
+      var consentRejected = { consents: { analytics: { status: 0 } } };
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) {});
+    }
+  }
+</script>
+<!-- Piwik PRO Tracking Code -->
+<script type="text/javascript">
+  (function (window, document, dataLayerName, id) {
+    window[dataLayerName] = window[dataLayerName] || [];
+    window[dataLayerName].push({ start: new Date().getTime(), event: "stg.start" });
+    var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+    function stgCreateCookie(a, b, c) {
+      var d = ""; 
+      if (c) { 
+        var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString();
+      }
+      document.cookie = a + "=" + b + d + "; path=/";
+    }
+    var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug");
+    stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+    var qP = [];
+    dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug");
+    var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+    tags.async = true, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+    !function (a, n, i) {
+      a[n] = a[n] || {};
+      for (var c = 0; c < i.length; c++)!function (i) {
+        a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {
+          var a = [].slice.call(arguments, 0); 
+          "string" == typeof a[0] && window[dataLayerName].push({ event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1) })
+        }
+      }(i[c])
+    }(window, "ppms", ["tm", "cm"]);
+  })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+</script>
+
