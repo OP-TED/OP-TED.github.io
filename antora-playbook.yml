@@ -3,17 +3,16 @@ site:
   url: https://docs.ted.europa.eu
   start_page: home::index.adoc
 
-
 antora:
   extensions:
-    - id: render-apidocs
-      require: ./lib/apidoc/apidoc-antora-extension
-      openapi-generator:
-        config: config/openapi-generator/asciidoc.yaml
-        templates: templates/openapi-generator/asciidoc
-    - id: lunr-search
-      require: ./lib/lunr/lunr-antora-extension
-      enabled: false
+  - id: render-apidocs
+    require: ./lib/apidoc/apidoc-antora-extension
+    openapi-generator:
+      config: config/openapi-generator/asciidoc.yaml
+      templates: templates/openapi-generator/asciidoc
+  - id: lunr-search
+    require: ./lib/lunr/lunr-antora-extension
+    enabled: false
 
 asciidoc:
   attributes:
@@ -46,13 +45,13 @@ content:
   - url: .
     start_path: content
     branches: HEAD
-  
+
   ### eForms SDK
   - url: https://github.com/OP-TED/eforms-docs.git
     start_path: /
     branches: 1.13.x, 1.13.x-generated, 1.12.x, 1.12.x-generated, 1.11.x, 1.11.x-generated, 1.10.x, 1.10.x-generated, 1.9.x, 1.9.x-generated, 1.8.x, 1.8.x-generated, 1.7.x, 1.7.x-generated, 1.6.x, 1.6.x-generated, main # The "main" branch contains the eForms FAQ and RoadMap
 
- ### ePO Documentation
+  ### ePO Documentation
   - url: https://github.com/OP-TED/epo-docs.git
     start_path: /
     branches: main, v*, wg-meetings
@@ -63,23 +62,17 @@ content:
     branches: main, v1.0.x, v2.0.x, v2.1.x, v3.0.x, v3.1.x, v3.2.x, v3.3.x, v4.0.x, wgm-reports
     #tags:
     #- 2.1.0
-    
-  ### TED API
+
+    ### TED API
   - url: https://github.com/OP-TED/tedapi-docs.git
     start_path: /
-    branches: main # The "main" branch contains unversioned content.
+    branches: v2.0 # The "main" branch contains unversioned content.
 
   ### TED Semantic Web Service
   - url: https://github.com/OP-TED/ted-rdf-docs
-    start_path: docs/antora 
+    start_path: docs/antora
     branches: main
-
-  ### TED Data for Reusers
-  - url: https://github.com/OP-TED/ted-reuse-docs.git
-    start_path: /
-    branches: main
-
-  ### model2owl
+    ### model2owl
   - url: https://github.com/OP-TED/ted-model2owl-docs
     start_path: /
     branches: main
