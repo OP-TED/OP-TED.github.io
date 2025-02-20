@@ -1,0 +1,27 @@
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
