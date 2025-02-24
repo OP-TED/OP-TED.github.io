@@ -1,0 +1,13 @@
+<script src="{{{uiRootPath}}}/js/site.js"></script>
+<script async src="{{{uiRootPath}}}/js/vendor/highlight.js"></script>
+{{#if env.SEARCH_ENABLED}}
+{{#if (eq env.SEARCH_ENGINE 'lunr')}}
+<script src="{{{uiRootPath}}}/js/vendor/lunr.js"></script>
+<script src="{{{uiRootPath}}}/js/vendor/search-lunr.js" id="search-script" data-base-path="{{or siteRootPath (or site.url siteRootUrl)}}" data-page-path="{{@root.page.url}}"></script>
+<script async src="{{uiRootPath}}/../search-index.js"></script>
+{{else if (eq env.SEARCH_ENGINE 'algolia')}}
+<script src="{{{uiRootPath}}}/js/vendor/docsearch-2.6.3.js"></script>
+<script src="{{{uiRootPath}}}/js/vendor/search-algolia.js" id="search-script" data-api-key="{{env.ALGOLIA_API_KEY}}" data-api-id="{{env.ALGOLIA_API_ID}}" data-index-name="{{env.ALGOLIA_INDEX_NAME}}"></script>
+{{/if}}
+{{/if}}
+{{>cookie-consent-kit}}

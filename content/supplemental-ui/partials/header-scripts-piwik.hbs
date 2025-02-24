@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  {{> head defaultPageTitle='Untitled'}}
-  <script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>
-
-</head>
-
-<body class="article{{#with (or page.attributes.role page.role)}} {{{this}}}{{/with}}">
-
-  <!-- Piwik PRO Tracking Code -->
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
   <script type="text/javascript">
-
     (function (window, document, dataLayerName, id) {
       window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
       var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
@@ -22,40 +12,3 @@
       !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
     })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
   </script>
-  {{> header}}
-  {{> body}}
-  {{> footer}}
-
-  <!-- Cookie Consent Kit -->
-  <script type="application/json">
-    {
-      "utility" : "cck",
-      "url": {
-        "en": "https://ted.europa.eu/en/cookie-choice",
-        "fr": "https://ted.europa.eu/fr/cookie-choice"
-      },
-      "appendix": {
-        "en": "We use cookies to improve your experience and analyze our traffic.",
-        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
-      },
-      "target": true
-    }
-    </script>
-    
-  <!-- Cookie Consent Kit -->
-  <script>
-    var initialConsent = {consents: ['analytics']};
-    ppms.cm.api('setInitialComplianceSettings', initialConsent, function (initialConsent) { });
-
-    window.addEventListener("cck_all_accepted", function () {
-      var consentAccepted = {consents: {analytics: {status: 1}}};
-      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
-    });
-    window.addEventListener("cck_technical_accepted", function () {
-      var consentRejected = {consents: {analytics: {status: 0}}};
-      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
-    });
-  </script>
-</body>
-
-</html>
