@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Validation :: TED Developer Docs</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/latest/technical/tech_validation.html">
+    <title>Economic Operator Requirements :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/latest/technical/tbr92_reqs.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -283,14 +283,14 @@
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="../index.html">ESPD EDM</a></li>
-    <li><a href="tech_validation.html">Validation</a></li>
+    <li><a href="tbr92_reqs.html">Economic Operator Requirements</a></li>
   </ul>
 </nav>
 <div class="page-versions">
   <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="tech_validation.html">4.0.0</a>
-    <a class="version" href="../../3.3.0/technical/tech_validation.html">3.3.0</a>
+    <a class="version is-current" href="tbr92_reqs.html">4.0.0</a>
+    <a class="version" href="../../3.3.0/technical/tbr92_reqs.html">3.3.0</a>
     <a class="version is-missing" href="../../3.2.0/index.html">3.2.0</a>
     <a class="version is-missing" href="../../3.1.0/index.html">3.1.0</a>
     <a class="version is-missing" href="../../3.0.1/index.html">3.0.1</a>
@@ -305,504 +305,351 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">Validation</h1>
+<h1 class="page">Economic Operator Requirements</h1>
 <div class="sect1">
-<h2 id="_iso_schematron"><a class="anchor" href="#_iso_schematron"></a>ISO Schematron</h2>
+<h2 id="eo"><a class="anchor" href="#eo"></a>Economic Operator</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Schematron is a rule-based validation language that specifies validation processes against XML documents. ISO Schematron is an ISO (ISO/IEC 19757-3:2006) and open standard. Please visit the <a href="http://www.schematron.com/">ISO Schematron</a> web-site for the technical specification and details.</p>
-</div>
-<div class="sect2">
-<h3 id="_espd_business_rules"><a class="anchor" href="#_espd_business_rules"></a>ESPD Business Rules</h3>
-<div class="paragraph">
-<p>The ESPD-EDM uses Schematron to validate business rules, the business requirements taken as input for these rules are specified in the <mark><a href="http://wiki.ds.unipi.gr/display/ESPDInt">ESPDint Business Document</a></mark>.</p>
-</div>
-<div class="paragraph">
-<p>These business rules can be typified as:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Semantic validations</strong>: e.g. The "cac:TenderingCriterionResponse" in a Response document MUST match one, and only one, of the "cac:TenderingCriterionProperty" elements in the XML instance of the corresponding ESPD-Request;</p>
-</li>
-<li>
-<p><strong>Assertions</strong> about the presence or absence of patterns in XML documents: e.g. all business rules that apply to identifier nodes: mandatory attributes, structure of the identifier, etc.;</p>
-</li>
-<li>
-<p><strong>Code lists</strong> validations: e.g. values and attributes for each code list element;</p>
-</li>
-<li>
-<p><strong>Other validations</strong> that an XSD cannot do: e.g. Validates that one of the nodes has at least 1 child.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The following image shows different examples of validations:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Non-codelist_business_rules.jpg" alt="Non-code list business rules" width="591" height="329"></span></p>
-</div>
-<div class="paragraph">
-<p>The validation of code lists is explained in sections below.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_schematron_architecture"><a class="anchor" href="#_schematron_architecture"></a>Schematron Architecture</h3>
-<div class="paragraph">
-<p>ISO Schematron executes the validations in two stages:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Design and implementation of the SCH files</strong>. SCH stands for Schematron Schema and contains the set of rules to be validated within the XML document.</p>
-</li>
-<li>
-<p><strong>Execution of the implemented validations</strong> in the SCH files:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Transformation of SCH files into XSLT files in order to be able to execute the validations against the XML.</p>
-</li>
-<li>
-<p>Execution of the validations using the XSLT files to get the final report.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Architecture_non-codelist_validation.jpg" alt="Architecture for non-code list validation" width="567" height="284"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_what_does_the_sch_file_contain"><a class="anchor" href="#_what_does_the_sch_file_contain"></a>What does the SCH file contain?</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Set of rules</strong> specifying the context (the element(s) and/or attribute(s) which the assertions affect);</p>
-</li>
-<li>
-<p>Each rule have a <strong>set of assertions</strong> with the tests that must be evaluated in the context.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/SCH_file_example.jpg" alt="SCH file example" width="617" height="194"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_execution"><a class="anchor" href="#_execution"></a>Execution</h3>
-<div class="paragraph">
-<p>As a basis of the implementation, it has been taken into account:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Schematron "skeleton" implementation in <a href="https://github.com/SCHEMATRON">XSLT</a>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Execution_files.jpg" alt="Execution files" width="568" height="140"></span></p>
-</div>
-<div class="paragraph">
-<p>This example describes the execution of the validation process using the <a href="http://saxon.sourceforge.net/">Saxon library</a> to execute XSLT files and the XSLT provided as a basis:</p>
-</div>
-<div class="paragraph">
-<p><span class="image unresolved"><img src="Execution_validation_process.jpg" alt="Execution of the validation process" width="528" height="284"></span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_code_list_validation_architecture"><a class="anchor" href="#_code_list_validation_architecture"></a>Code list validation Architecture</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Business rules related to code list validates:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Codelist_business_rules.jpg" alt="Code list business rules" width="600" height="325"></span></p>
-</div>
-<div class="sect2">
-<h3 id="_architecture_for_code_list_validation"><a class="anchor" href="#_architecture_for_code_list_validation"></a>Architecture for Code List validation</h3>
-<div class="paragraph">
-<p>The validation of the code lists needs an extra step on the process before executing the Schematron process. This is because it needs <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist">Genericode</a> (GC) as input files.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The first step is the <strong>generation of Genericode (GC) files</strong>. These files contains information about the values and identifiers of each code list.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>GC files are found in the <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/">/codelists/gc folder</a>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Design and implementation of the CVA files</strong>. <a href="http://docs.oasis-open.org/codelist/ns/ContextValueAssociation/1.0/">CVA</a> stands for Context and Value Association:</p>
-</li>
-<li>
-<p><strong>Execution of the implemented validations</strong> in the CVA files:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Transformation of CVA files into SCH files.</p>
-</li>
-<li>
-<p>Continue with the Schematron execution process: (1) transformation of SCH files into XSLT and execution of the validations using the XSLT files to get the final report.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Architecture_codelist_validation.jpg" alt="Architecture for code list validation" width="750" height="350"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_what_does_the_sch_file_contain_2"><a class="anchor" href="#_what_does_the_sch_file_contain_2"></a>What does the SCH file contain?</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Association between one or more elements of the XML and one or more code list (specified in the Genericodes).</p>
-</li>
-<li>
-<p>The declaration of which attributes of the XML identify information of the Genericode.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The implementation of the CVA file has the following structure:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/CVA_example.jpg" alt="CVA example" width="600" height="258"></span></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_execution_2"><a class="anchor" href="#_execution_2"></a>Execution</h3>
-<div class="paragraph">
-<p>As a basis of the implementation, it has been taken into account:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Schematron implementation of CVA files for validation from <a href="https://cranesoftwrights.github.io/resources/ubl/index.htm#cva2sch">CRANE SOFTWRIGHT LTD</a></p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/CodeList_Validation_Execution_files.jpg" alt="Code List Validation Execution files" width="600" height="210"></span></p>
-</div>
-<div class="paragraph">
-<p>This example describes the execution of the validation process using the <a href="http://saxon.sourceforge.net/">Saxon library</a> to execute XSLT files and the XSLT provided as a basis:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Execution%20_validation%20process_codelists.jpg" alt="Execution of the validation process in code lists" width="600" height="279"></span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_espd_validation_architecture"><a class="anchor" href="#_espd_validation_architecture"></a>ESPD Validation Architecture</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The validation of a ESPD XML has the following life-cycle:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/ESPD_Schematron_life-cycle.jpg" alt="ESPD Schematron life-cycle" width="370" height="436"></span></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The validation of the XML starts by ensuring that the input XML follows the <strong>structure defined by the XSD</strong>: QualificationApplicationRequest.xsd XSD Schema or QualificationApplicationResponse.xsd XSD Schema. These schemas can be found under the folder ubl-2.3/xsdrt/maindoc (or the equivalent documented xsd folder).</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If the validation of the structure is not successful, the process stops and sends the report with the list of errors.</p>
-</li>
-<li>
-<p>If the validation of the structure is successful, the process continues with the code list validations and business rules. All errors found (if any) are listed in the report.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Depending on the type of application (ESPD Request or ESPD Response), different types of validations are executed:</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Validation_Process.jpg" alt="Validation Process" width="600" height="416"></span></p>
-</div>
-<div class="sect2">
-<h3 id="_espd_request"><a class="anchor" href="#_espd_request"></a>ESPD Request</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>XSD Validation</strong> against QualificationApplicationRequest-2.3.xsd</p>
-</li>
-<li>
-<p><strong>Code list validations</strong>. These are common for both, Request and Response:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Validation of the code list values: 01 ESPD-codelist-values.cva</p>
-</li>
-<li>
-<p>Validation of the identification of the code list: 01 ESPD Common CL Attributes.sch</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Business rules related to the <strong>cardinality</strong> of the schema, that cannot be controlled using the XSD: 02 ESPD Req Cardinality BR.sch</p>
-</li>
-<li>
-<p>Business rules used to validate the <strong>criteria data structure</strong>:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Validations common for Request and Response: 03 ESPD Common Criterion BR.sch</p>
-</li>
-<li>
-<p>Validations specific for Request applications: 03 ESPD Req Criterion BR.sch</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Other</strong> business rules:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Other validations which are common to Request and Response applications, such as the mandatory use of the attribute schemeAgencyID for identifiers: 04 ESPD Common Other BR.sch</p>
-</li>
-<li>
-<p>Specific business rules for Request applications, in this case, the validation of the correct value for cbc:CustomisationID element: 04 ESPD Req Other BR.sch</p>
-</li>
-<li>
-<p>Business rules related to the procurer: 05 ESPD Req Procurer BR.sch</p>
-</li>
-<li>
-<p>Specific business rules: 05 ESPD Req Specific BR.sch</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_espd_response"><a class="anchor" href="#_espd_response"></a>ESPD Response</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>XSD Validation</strong> against UBL-QualificationApplicationResponse-2.3.xsd</p>
-</li>
-<li>
-<p><strong>Code list validations</strong>. These are common for both, Request and Response:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Validation of the code list values: 01 ESPD-codelist-values.cva</p>
-</li>
-<li>
-<p>Validation of the identification of the code list: 01 ESPD Common CL Attributes.sch</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Business rules related to the <strong>cardinality</strong> of the schema, that cannot be controlled using the XSD: 02 ESPD Resp Cardinality BR.sch.sch</p>
-</li>
-<li>
-<p>Business rules used to validate the <strong>criteria data structure</strong>:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Validations common for Request and Response: 03 ESPD Common Criterion BR.sch</p>
-</li>
-<li>
-<p>Validations specific for Response applications: 03 ESPD Resp Criterion BR.sch</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p><strong>Other</strong> business rules:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Other validations which are common to Request and Response applications, such as the mandatory use of the attribute schemeAgencyID for identifiers: 04 ESPD Common Other BR.sch</p>
-</li>
-<li>
-<p>Specific business rules for Response applications, in this case, the validation of the correct value for cbc:CustomisationID element: 04 ESPD Resp Other BR.sch</p>
-</li>
-<li>
-<p>Business rules related to the economic operator: 05 ESPD Resp EO BR.sch</p>
-</li>
-<li>
-<p>Response Specific business rules: 05 ESPD Resp Specific BR.sch</p>
-</li>
-<li>
-<p>Specific business rules for economic operators registered in a pre-qualification system: 05 ESPD Resp Qualification BR.sch</p>
-</li>
-<li>
-<p>Specific business rules depending on the role: 05 ESPD Resp Role BR.sch</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_uuid_criterion_validation"><a class="anchor" href="#_uuid_criterion_validation"></a>UUID Criterion Validation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Each Criterion is defined in e-Certis and must use the <strong>Universally Unique Identifier (UUID)</strong> supplied by e-Certis:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>These UUIDs are 'constant', meaning that they are maintained by DG GROW and need to be used compulsory as they were issued by DG GROW.</p>
-</li>
-<li>
-<p>The value of each UUID are defined in the spreadsheets:</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/ESPD-criterion.xlsx">ESPD-criterion</a></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The UUIDs defined in the ESPDRequest or ESPDResponse are fixed for the following elements:</p>
-</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
+<col style="width: 20%;">
+<col style="width: 80%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top"><strong>Spreadsheet row</strong></th>
-<th class="tableblock halign-left valign-top"><strong>XSD Path</strong></th>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">{CRITERION</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cac:TenderingCriterion/cbc:ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-001</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to include all information necessary for identification: Party Name, Party Identification, endpoint id.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">{QUESTION_GROUP or {REQUIREMENT_GROUP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cac:TenderingCriterion/cac:TenderingCriterionPropertyGroup/cbc:ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-002</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to include contact information: Postal address, telephone number, fax number, e-mail address, contact person(s), Internet address.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">{QUESTION_SUBGROUP or {REQUIREMENT_SUBGROUP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cac:SubsidiaryTenderingCriterionPropertyGroup/cbc:ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-003</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to define his country of registration. The country of registration is needed to identify relevant evidences and the legal domain of evidence provision.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">{LEGISLATION</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">cac:TenderingCriterion/cac:Legislation/cbc:ID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-004</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to indicate, whether he is a micro, a small or a medium-sized enterprise (SME).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-005</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In case of reserved procurement, the economic operator must be able to indicate that he is in a sheltered program (e.g. sheltered workshop, social business, etc.). If so, he must be able to indicate the corresponding percentage of disabled or disadvantaged workers and details on whether the employees concerned belong to a specific category.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-006</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the economic operator is registered on an official list of approved economic operators or is in possession of an equivalent certificate (e.g. under a national (pre)qualification system), he must be able to provide:
+  a) the relevant registration or certification number,
+  b) in case the certificate is available electronically: the web address, issuing body, and precise reference of the documentation;
+  c) the references on which the registration or certification is based, as well as the classification obtained in the official list;
+  d) whether the registration or certification covers all the required exclusion grounds and selection criteria.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-007</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If the call for tender demands a certificate with regard to the payment of social security contributions and taxes, the economic operator must be able to indicate if he can provide such a certificate. And if so, in the case the certificate can be retrieved free of charge electronically: the web address, issuing body, and precise reference of the documentation.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-008</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to indicate if he is participating together with others (e.g. with subcontractors or with other partners). If so, he must be able to provide:
+  a) the role of the economic operator in the group (leader, responsible for specific tasks, etc.);
+  b) the identification of the other economic operators participating in the procurement procedure;
+  c) (where applicable) name of the participating group.</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p>Every QUESTION_GROUP or QUESTION_SUBGROUP that has the same structure (meaning QUESTION or QUESTION_SUBGROUP), share the same UUID, as they are the same.</p>
-</div>
-<div class="sect2">
-<h3 id="_tendering_criterion"><a class="anchor" href="#_tendering_criterion"></a>Tendering Criterion</h3>
-<div class="paragraph">
-<p>The validation of each criterion (cac:TenderingCriterion element) has the aims to check:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>cbc:ID, cbc:CriterionTypeCode, cbc:Name and cbc:Description are mandatory;</p>
-</li>
-<li>
-<p>cbc:ID values match with the ones supplied by e-Certis;</p>
-</li>
-<li>
-<p>cac:TenderingCriterionPropertyGroup structure matches with the QUESTION_GROUP or REQUIREMENT_GROUP (see Tendering Criterion Property Group and Subgroup section below).</p>
-</li>
-</ol>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_tendering_criterion_property_group_and_subgroup"><a class="anchor" href="#_tendering_criterion_property_group_and_subgroup"></a>Tendering Criterion Property Group and Subgroup</h3>
-<div class="paragraph">
-<p>The same validations are executed for the first level group of properties and sub-groups of properties. The rules applied are:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The cbc:ID and cbc:PropertyGroupTypeCode are mandatory elements in the corresponding cbc:TenderingCriterion;</p>
-</li>
-<li>
-<p>cac:SubsidiaryTenderingCriterionPropertyGroup matches with QUESTION_SUBGROUP or REQUIREMENT_SUBGROUP (for each property group, the same validations are applied);</p>
-</li>
-<li>
-<p>cac:TenderingCriterionProperty structure matches with QUESTION or REQUIREMENT or CAPTION (see Tendering Criterion Property section below).</p>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tendering_criterion_property"><a class="anchor" href="#_tendering_criterion_property"></a>Tendering Criterion Property</h3>
-<div class="paragraph">
-<p>The validation of Tendering Criterion Property (cac:TenderingCriterionProperty element) is checked as follows:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>cbc:TypeCode and cbc:ValueDataTypeCode are mandatory elements;</p>
-</li>
-<li>
-<p>cbc:ID and cbc:Description elements are mandatory, although their values are not validated;</p>
-</li>
-<li>
-<p>If cbc:TypeCode value is "CAPTION", cbc:ValueDataTypeCode value must be "NONE".</p>
-</li>
-</ol>
+<div class="sect1">
+<h2 id="reps_eo"><a class="anchor" href="#reps_eo"></a>Representative of the Economic Operator</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-009</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to name a natural person that is acting as the representative of the economic operator and to include the personal information necessary for identifying this natural person (e.g. Identifier, name, nationality, address, place of birth, date of birth).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-010</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must also be able to specify the position (acting capacity) the natural person takes in the company in the qualification/tendering phase. If needed, the economic operator shall be able to provide detailed information on the representation (its forms, extent, purpose, etc.).</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_note_replacement_of_uuid_by_xml_path_like_id"><a class="anchor" href="#_note_replacement_of_uuid_by_xml_path_like_id"></a>Note. Replacement of UUID by XML Path Like ID</h3>
-<div class="paragraph">
-<p>From ESPD v4.0.0, UUIDs are replaced by XML Path Like IDs in the data structure, except for the top level Exclusion Grounds and Selection Criteria elements.</p>
+<div class="sect1">
+<h2 id="ca"><a class="anchor" href="#ca"></a>Contracting Authority</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-011</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The contracting authority must be identified, hence information about the party are required, such as party name, country, identification, endpoint id.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-012</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD should contain contact information of the contracting authority: Postal address, telephone number, fax number, e-mail address, contact person(s).</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_interoperability_testbed"><a class="anchor" href="#_interoperability_testbed"></a>Interoperability testbed</h3>
-<div class="paragraph">
-<p>The European Commission (EC) <a href="https://ec.europa.eu/isa2/awards_en">ISA2 Programme</a> provides an <a href="https://joinup.ec.europa.eu/asset/itb/description">Interoperability Testbed</a> where Stakeholders can freely test these validation artefacts.</p>
+<div class="sect1">
+<h2 id="call_tender_refs"><a class="anchor" href="#call_tender_refs"></a>Call for Tender Reference</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-013</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD must contain a reference to the call for tenders, i.e. the procurement project ID, which defines the requirements (i.e. criteria) for which this document is created and submitted by the economic operator.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="paragraph">
-<p>All the ESPD-EDM artefacts necessary to perform the validation are set up in the testbed. Thus developers and integrators can test the validity of the ESPD-Request and ESPD-Response XML instances by uploading the instances in the testbed and launching the validation.</p>
 </div>
-<div class="paragraph">
-<p>Use this URL to upload and execute the validations: <a href="https://www.itb.ec.europa.eu/espd/upload">Upload</a>.</p>
+<div class="sect1">
+<h2 id="lots"><a class="anchor" href="#lots"></a>Procurement Lots</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-014</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Where the call for tender is divided into lots, the economic operator must be able to indicate, which lot he is tendering.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<hr>
-<div class="paragraph">
-<p>Any comments on the documentation?</p>
 </div>
-<div class="paragraph">
-<p><a href="https://github.com/OP-TED/espd-docs/issues/new/choose">Click here to let us know</a></p>
+<div class="sect1">
+<h2 id="crit_list"><a class="anchor" href="#crit_list"></a>List of Criteria</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-015</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD must contain corresponding information about the (non)existence of exclusion grounds as set out in the call for tender or ESPD template (cf. tbr70-009). The information shall contain a legal reference (EU level, contracting authority national level, economic operator national level). Furthermore it must contain the name of criterion and criterion group to which it belongs (according to names of Art. 57 of 2014/24/EC and referred to in Art. 80 of 2014/25/EC) as well as indications of (non)existence of each single exclusion ground contained and details and explanations as requested according to Art. 57 of directive 2014/25/EU and the ESPD form agreed among the Member State. Where demanded and if available electronically, the ESPD shall provide the following information to relevant documentation: the web address, issuing body, and precise reference of the documentation. The ESPD shall also accommodate information of self-cleaning measures and reliability explanations in cases, where an exclusion ground exists.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-016</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD must contain corresponding information about the fulfilment of selection criteria as set out in the call for tender or ESPD template (cf. tbr70-010). The information shall contain a legal reference (EU level, contracting authority national level, economic operator national level). Furthermore it must contain the name of criterion and criterion group to which it belongs (according to names of Art. 58 of 2014/24/EC and referred to in Art. 80 of 2014/25/EC) as well as indications of fulfilment of selection criteria contained as well as details and explanations as requested according to Art. 58 of directive 2014/25/EU and the ESPD form agreed among the Member State. Where demanded and if available electronically, the ESPD shall provide the following information to relevant documentation: the web address, issuing body, and precise reference of the documentation.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+<div class="sect1">
+<h2 id="evidence_link"><a class="anchor" href="#evidence_link"></a>Link to Evidences</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-017</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to add the internet address of a national database (including any identification data and, where applicable, the necessary declaration of consent cf. Art. 59 of 2014/24/EC) from which a contracting authority can directly retrieve any evidence documents and certificates or supporting documents which prove the EO’s compliance to the requested criteria defined in the call for tender and stated in the ESPD.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="eval_crit"><a class="anchor" href="#eval_crit"></a>Evaluation of Criteria</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-018</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD shall contain structured information describing the fulfilment of selection criteria and non-existence of exclusion grounds. This is essential for automatic evaluation of criteria.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="date_time"><a class="anchor" href="#date_time"></a>Issuing Date and Time</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-019</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD shall have an ID and reflect the date and time when it has been issued.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="versioning"><a class="anchor" href="#versioning"></a>Versioning</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-020</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD should allow to include a VersionID to the ESPD. The VersionID helps to identify the status of subsystems that have supported the creation of the ESPD. It is needed to trace changes that have occurred.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="service_provider"><a class="anchor" href="#service_provider"></a>ESPD Service Provider</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">tbr92-021</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The ESPD may reflect information about the issuing service that was used to create the ESPD itself.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="additional_info"><a class="anchor" href="#additional_info"></a>Additional Documentation</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-022</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator should be able to include any additional documents that are not classified as evidentiary information that prove specific exclusion grounds or selection criteria.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="signature"><a class="anchor" href="#signature"></a>Date, Place of Issuance and Signature</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">ID</th>
+<th class="tableblock halign-left valign-top">Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tbr92-023</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The economic operator must be able to indicate date and place where the ESPD has been compiled. Where required, he must be able to digitally sign the ESPD.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </article>
