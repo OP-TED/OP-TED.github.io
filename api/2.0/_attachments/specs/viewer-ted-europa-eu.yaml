@@ -1,0 +1,104 @@
+openapi: 3.0.1
+info:
+  title: Visualisation API
+  description: 'This API provides operation to get HTML or PDF rendering of a notice'
+  termsOfService: https://ted.europa.eu/TED/misc/legalNotice.do
+  contact:
+    name: TED
+    url: 'https://ted.europa.eu/TED/main/HomePage.do '
+  license:
+    name: Contact
+    url: https://ted.europa.eu/TED/misc/contact.do
+externalDocs:
+  description: Legal notice
+  url: https://ted.europa.eu/TED/misc/legalNotice.do
+servers:
+  - url: https://viewer.ted.europa.eu
+paths:
+  /v1/render:
+    post:
+      tags:
+        - notice-render-controller
+      summary: Get HTML or PDF rendering of a notice sent in the request body.
+      operationId: renderNotice
+      parameters:
+        - name: X-API-Key
+          description: TED API key identifying the author of the request
+          in: header
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoticeRenderRequestDto'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            text/html:
+              schema:
+                type: string
+            application/pdf:
+              schema:
+                type: string
+        '400':
+          description: Bad Request
+components:
+  schemas:
+    NoticeRenderRequestDto:
+      required:
+        - file
+        - format
+        - language
+      type: object
+      properties:
+        file:
+          type: string
+          description: XML notice encoded in base 64
+        language:
+          type: string
+          description: |-
+            Language used to render the notice
+             * Notice labels: use the specified 
+             * Notice content: use the specified language when it exists in the XML notice otherwise use the first notice original language
+          enum:
+            - bg
+            - cs
+            - da
+            - de
+            - el
+            - en
+            - es
+            - et
+            - fi
+            - fr
+            - ga
+            - hu
+            - it
+            - lt
+            - lv
+            - mt
+            - nl
+            - pl
+            - pt
+            - ro
+            - sk
+            - sl
+            - sv
+            - hr
+        format:
+          type: string
+          description: Output format
+          enum:
+            - PDF
+            - HTML
+        textToHighlight:
+          type: string
+          description: Highlight specific text in the notice rendering
+        summary:
+          type: boolean
+          description: Render notice by displaying only the specific elements
+      description: Notice Render Request
