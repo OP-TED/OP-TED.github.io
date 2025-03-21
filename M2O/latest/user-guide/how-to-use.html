@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>How to Use model2owl :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/M2O/latest/user-guide/how-to-use.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-context.html">Context: model2owl and eProcurement ontology </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../uml/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conceptual-model-conventions.html">UML Model Conventions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-general.html">General Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-classes.html">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-attributes.html">Class Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conv-connectors.html">Connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-association.html">Association</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-dependency.html">Dependency</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-generalization.html">Generalization</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-realization.html">Realization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-datatypes.html">Data Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-enumerations.html">Enumerations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-objects.html">Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-packages.html">Packages</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../checkers/model2owl-checkers.html">UML convention checking rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../transformation/uml2owl-transformation.html">Transformation Rules</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules1.html">Rules for UML Classes and Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules2.html">Rules for UML Connectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules3.html">Rules for UML Datatypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules4.html">Rules for UML Descriptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references.html">References</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-current is-latest">
+              <a href="../index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
+    <li><a href="about.html">User guide</a></li>
+    <li><a href="how-to-use.html">How to use</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">How to Use model2owl</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>model2owl can be used in two ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Locally</strong> – Running the transformations on your own machine.</p>
+</li>
+<li>
+<p><strong>Online</strong> – Using the <a href="https://github.com/OP-TED/model2owl-boilerplate">model2owl-boilerplate</a> repository for automated execution.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_model2owl_locally"><a class="anchor" href="#_using_model2owl_locally"></a>Using model2owl Locally</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_makefile"><a class="anchor" href="#_makefile"></a>Makefile</h3>
+<div class="paragraph">
+<p>The <code>Makefile</code> automates various tasks such as running transformations, generating documentation, and executing tests. All commands are executed using the <code>make</code> build automation tool, which must be installed if not already available on your system.</p>
+</div>
+<div class="paragraph">
+<p>Some <code>make</code> targets allow optional parameters. The project provides default values for parameters where applicable.</p>
+</div>
+<div class="paragraph">
+<p>Example usage:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs"># Without parameters
+
+make install
+
+# With parameters
+
+make owl-core XMI_INPUT_FILE_PATH=/home/mypc/work/model2owl/file1.xml OUTPUT_FOLDER_PATH=./my-folder</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setting_up_commands"><a class="anchor" href="#_setting_up_commands"></a>Setting Up Commands</h3>
+<div class="paragraph">
+<p>The following commands are available for setting up dependencies:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>get-saxon</code> – Installs Saxon inside the project folder.</p>
+</li>
+<li>
+<p><code>get-rdflib</code> – Installs the RDFLib library.</p>
+</li>
+<li>
+<p><code>get-widoco</code> – Installs Widoco inside the project folder.</p>
+</li>
+<li>
+<p><code>install</code> – Executes all the above installation steps automatically.</p>
+</li>
+<li>
+<p><code>create-virtual-env</code> – Creates a Python virtual environment for the project.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_functional_commands"><a class="anchor" href="#_functional_commands"></a>Functional Commands</h3>
+<div class="paragraph">
+<p>These commands execute transformations and generate outputs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>generate-glossary</code> – Generates a glossary from the UML export (XML/XMI).</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>XMI_INPUT_FILE_PATH</code> – Path to the XMI file.</p>
+</li>
+<li>
+<p><code>OUTPUT_GLOSSARY_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>generate-convention-report</code> – Generates a compliance report from the UML export in HTML format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>XMI_INPUT_FILE_PATH</code> – Path to the XMI file.</p>
+</li>
+<li>
+<p><code>OUTPUT_CONVENTION_REPORT_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>generate-convention-SVRL-report</code> – Generates a compliance report from the UML export in SVRL format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>XMI_INPUT_FILE_PATH</code> – Path to the XMI file.</p>
+</li>
+<li>
+<p><code>OUTPUT_CONVENTION_REPORT_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>owl-core</code> – Generates a lightweight ontology from the UML export.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>XMI_INPUT_FILE_PATH</code> – Path to the XMI file.</p>
+</li>
+<li>
+<p><code>OUTPUT_FOLDER_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>owl-restrictions</code> – Generates a heavyweight ontology with additional axioms for reasoning.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>XMI_INPUT_FILE_PATH</code> – Path to the XMI file.</p>
+</li>
+<li>
+<p><code>OUTPUT_FOLDER_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>shacl</code> – Generates SHACL data shapes suitable for validation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>XMI_INPUT_FILE_PATH</code> – Path to the XMI file.</p>
+</li>
+<li>
+<p><code>OUTPUT_FOLDER_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>generate-html-docs-from-rdf</code> – Generates HTML documentation using Widoco from an RDF file.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>WIDOCO_RDF_INPUT_FILE_PATH</code> – Path to the RDF file.</p>
+</li>
+<li>
+<p><code>OUTPUT_FOLDER_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>merge-xmi</code> – Merges XMI files from a specified folder.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FIRST_XMI_TO_BE_MERGED_FILE_PATH</code> – Path to the first XMI file.</p>
+</li>
+<li>
+<p><code>XMI_MERGED_OUTPUT_FOLDER_PATH</code> – Path to the output folder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>convert-to-turtle</code> – Converts RDF files to Turtle format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ONTOLOGY_FOLDER_PATH</code> – Path to the folder containing RDF files.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>convert-to-rdf</code> – Converts Turtle files to RDF format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Parameters:</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ONTOLOGY_FOLDER_PATH</code> – Path to the folder containing Turtle files.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation"><a class="anchor" href="#_installation"></a>Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_prerequisites"><a class="anchor" href="#_prerequisites"></a>Prerequisites</h3>
+<div class="paragraph">
+<p>Ensure the following are installed on your system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>make</code></p>
+</li>
+<li>
+<p><code>Python 3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installation_steps"><a class="anchor" href="#_installation_steps"></a>Installation Steps</h3>
+<div class="paragraph">
+<p>1.Clone model2owl repository:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">git clone https://github.com/example/model2owl.git</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>2.Run the installation command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">make install</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> If you do not have a virtual environment set up, create one using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">make create-virtual-env
+
+# Then activate it:
+
+source model2owl-venv/bin/activate</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The model2owl configuration consists of four files, which should be placed in a single folder:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config-parameters.xsl</code> – Defines main configuration variables.</p>
+</li>
+<li>
+<p><code>namespaces.xml</code> – Lists namespaces used in the UML model.</p>
+</li>
+<li>
+<p><code>umlToXsdDataTypes.xml</code> – Maps UML data types to XSD.</p>
+</li>
+<li>
+<p><code>xsdAndRdfDataTypes.xml</code> – Defines data types used.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To set up, copy the default configuration files from the <code>ePO-default-config</code> folder to your new configuration folder.</p>
+</div>
+<div class="paragraph">
+<p>All configuration files should be stored in one folder. Once the configuration is set, update <code>config-proxy.xsl</code> to point
+to the new configuration folder.
+The <code>config-proxy.xsl</code> file serves as a central link to the main configuration file for model2owl.
+It allows the tool to reference and apply the configuration stored at a specified location.
+By modifying this file, users can switch between different configuration sets.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs"># Update the path in config-proxy.xsl:
+&lt;xsl:import href="my-pc/user/my-config-folder/config-parameters.xsl"/&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_configuration_parameters"><a class="anchor" href="#_configuration_parameters"></a>Configuration Parameters</h3>
+<div class="paragraph">
+<p>To adjust configuration settings, edit the <code>config-parameters.xsl</code> file.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important notes:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Do not modify the <code>namespacePrefixes</code>, <code>umlDataTypesMapping</code>, or <code>xsdAndRdfDataTypes</code> variables.</p>
+</li>
+<li>
+<p>Ensure any modified variable retains its original datatype (boolean, string, list).</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Example of correct and incorrect datatype modification:</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml"># Correct
+&lt;xsl:variable name="defaultNamespaceInterpretation" select="fn:true()"/&gt;
+
+# Incorrect (datatype mismatch)
+&lt;xsl:variable name="defaultNamespaceInterpretation" select="'new-value'"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For more details about available variables and how they work, please visit
+the <a href="configuration-file.html">configuration parameters page</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_namespaces_configuration"><a class="anchor" href="#_namespaces_configuration"></a>Namespaces Configuration</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_namespaces_configuration_2"><a class="anchor" href="#_namespaces_configuration_2"></a>Namespaces Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To add namespaces, edit <code>namespaces.xml</code>. There are two key tasks you can perform:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Defining a Namespace Prefix and URI</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Add a prefix and its corresponding URI in the <code>namespaces.xml</code> file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;prefix name="foaf" value="http://xmlns.com/foaf/0.1/"/&gt;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Including an import statement in the output</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For a namespace to appear as an import statement in the final output, add the
+importURI attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;prefix name="dct" value="http://purl.org/dc/terms/" importURI="http://purl.org/dc/terms/"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This will result in the following OWL import statement in the output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;owl:imports rdf:resource="http://purl.org/dc/terms/"/&gt;</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xsd_and_rdf_data_types"><a class="anchor" href="#_xsd_and_rdf_data_types"></a>XSD and RDF Data Types</h3>
+<div class="paragraph">
+<p>To define datatypes used in the UML model, edit xsdAndRdfDataTypes.xml:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;datatype namespace="xsd" qname="xsd:date"/&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_uml_to_xsd_mappings"><a class="anchor" href="#_uml_to_xsd_mappings"></a>UML to XSD Mappings</h3>
+<div class="paragraph">
+<p>If the UML model uses custom datatypes, map them in umlToXsdDataTypes.xml:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">&lt;mapping&gt;
+    &lt;from qname="epo:Date"/&gt;
+    &lt;to qname="xsd:date"/&gt;
+&lt;/mapping&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_running_transformations"><a class="anchor" href="#_running_transformations"></a>Running Transformations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once installed and configured, you can run different transformations using <code>make</code> commands.
+Each command generates specific artefacts that correspond to different key capabilities of
+model2owl.</p>
+</div>
+<div class="sect2">
+<h3 id="_commands_and_generated_files"><a class="anchor" href="#_commands_and_generated_files"></a>Commands and Generated Files</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>make owl-core</code> – Generates a lightweight ontology from the UML model.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated File:
+<strong><code>&lt;input-file&gt;.rdf</code></strong> – Lightweight OWL Core ontology in RDF format.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>make owl-restrictions</code> – Generates heavyweight ontology with additional axioms suitable for reasoning purposes.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated File:
+<strong><code>&lt;input-file&gt;_restrictions.rdf</code></strong> – OWL Restrictions ontology.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>make shacl</code> – Generates SHACL shapes for data validation.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated File:
+<strong><code>&lt;input-file&gt;_shapes.rdf</code></strong> – SHACL shapes in RDF format.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>make generate-glossary</code> – Generates an HTML glossary of terms extracted from the UML model.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated File:
+<strong><code>&lt;input-file&gt;_glossary.html</code></strong> – Glossary in HTML format.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>make generate-convention-report</code> – Generates a compliance report from the UML model in HTML format, validating it against the conventions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated File:
+<strong><code>&lt;input-file&gt;_convention_report.html</code></strong> – HTML compliance report.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>make generate-convention-SVRL-report</code> – Generates a compliance report in SVRL format.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Generated File:
+<strong><code>&lt;input-file&gt;_convention_svrl_report.xml</code></strong> – SVRL compliance report.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Notes</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>&lt;input-file&gt;</code> will be replaced with the name of the input XMI file (e.g., <code>file1.rdf</code> if the input is <code>file1.xml</code>).</p>
+</li>
+<li>
+<p>These commands provide flexibility in generating individual artefacts or multiple artefacts based on your needs.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example of transformation command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-none hljs">make owl-core XMI_INPUT_FILE_PATH=/home/mypc/work/model2owl/file1.xml OUTPUT_FOLDER_PATH=./my-folder</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>

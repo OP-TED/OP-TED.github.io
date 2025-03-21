@@ -81,12 +81,12 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="M2O" data-version="2.3.0">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -167,6 +167,18 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user-guide/about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../references.html">References</a>
   </li>
 </ul>
@@ -176,8 +188,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
-          <span class="title">model2owl Documentation</span>
-          <span class="version">2.3.0</span>
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -268,10 +280,10 @@
         </ul>
       </li>
       <li class="component is-current">
-        <a class="title" href="../index.html">model2owl Documentation</a>
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">2.3.0</a>
+              <a href="../index.html">3.0.0</a>
             </li>
         </ul>
       </li>
@@ -304,7 +316,7 @@
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
     <li><a href="conceptual-model-conventions.html">UML Model Conventions</a></li>
     <li><a href="conv-general.html">General Conventions</a></li>
   </ul>
@@ -779,14 +791,127 @@ All elements must have a definition providing a concise but complete description
 <div class="paragraph">
 <p><strong>See also:</strong> SEMIC Style Guide Rule [<a href="https://semiceu.github.io/style-guide/1.0.0/gc-general-conventions.html#sec:gc-r5">GC-R5</a>], which provides more recommendations to be followed here.</p>
 </div>
+<table id="rule:comments-gen" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Comments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:comments-gen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+Generation of annotation axioms for comments is configurable.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+By default, we recommend a use of the SKOS lexicalization (<code>skos:editorialNote</code>) for representing comments in the core ontology layer.
+However, a different property can be used for that purpose. For example <code>rdfs:comment</code> to apply RDFS lexicalization instead of SKOS lexicalization.</p>
+</div>
+<div class="paragraph">
+<p>The property used in an RDF statement to describe a comment can be configured by <code>commentProperty</code> configuration property. In addition, generation of RDF statements for comments can be disabled by using <code>commmentsGeneration</code> configuration parameter (enabled by default).
+Specification of these configuration parameters can be found in the User guide.</p>
+</div>
+<table id="rule:comments-uml-elems" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> UML types supported by comment generation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:comments-uml-elems</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+UML comment can be defined for all UML elements except for UML attribute and generalization.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+The following UML types are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>elements: class, enumeration, datatype</p>
+</li>
+<li>
+<p>connectors: association, dependency</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Comments in the form of floating notes attached to attributes unsupported as they are neither practical nor readable. Tags can be used instead to store notes for attributes.</p>
+</div>
+<div class="paragraph">
+<p>Generalization is not supported due to a technical limitation. There is no subject to associate a comment with when constructing an RDF statement.</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="sec:controlled-lists"><a class="anchor" href="#sec:controlled-lists"></a>Controlled lists</h3>
 <div class="paragraph">
-<p>The controlled list is a carefully selected list of words and phrases and is often employed in the modelling practices. The controlled list has a name, and a set of terms. For example, the list of grammatical genders can be named "Gender" and comprise the terms "masculine", "feminine", "neuter" and "utrum".</p>
+<p>The controlled list (also referred to as a controlled vocabulary) is a carefully selected list of words and phrases and is often employed in the modelling practices. The controlled list has a name, and a set of terms. For example, the list of grammatical genders can be named "Gender" and comprise the terms "masculine", "feminine", "neuter" and "utrum".</p>
 </div>
 <div class="paragraph">
 <p>As a rule of thumb, but not always, the relationship between the controlled list as a whole and its comprising elements can be informally conceptualised as a class-instance, class-subclass, set-item, or part-whole.</p>
+</div>
+<table id="rule:incorporation-of-controlled-list" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Incorporation of controlled lists</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:incorporation-of-controlled-list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong></p>
+<p class="tableblock">Controlled list should be defined externally and referenced in the UML conceptual model</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong></p>
+</div>
+<div class="paragraph">
+<p>There are two possible use cases for incorporating a controlled list in the conceptual model:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>referencing case: An externally defined controlled list is referenced in the model by its URI.</p>
+</li>
+<li>
+<p>defining case: A controlled list is defined within the model together with its items.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The use cases are properly represented in the UML conceptual model by using an UML Enumeration element as described in <a href="../transformation/transf-rules3.html#sec:enumeration" class="xref page">enumerations</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Referencing case</strong></p>
+</div>
+<div class="paragraph">
+<p>Controlled lists play an essential role in establishing interoperability standards. Management and publication of controlled lists should happen as a separate process, and are not addressed here. Such controlled lists are developed, published and maintained independently following their own lifecycle, so that they can be reused in other models.
+References to controlled lists shall be done via uml:Enumeration elements without defined items.</p>
+</div>
+<div class="paragraph">
+<p><strong>Defining case</strong></p>
+</div>
+<div class="paragraph">
+<p>The expectation is that the designed controlled lists are published in accordance with best practices and represented with the SKOS model using persistent identifiers. In such an approach, a controlled list is expressed as a <code>skos:ConceptScheme</code> and the specific values as <code>skos:Concept</code>(s).
+In that setup, a UML Enumeration element contains one or more enumeration items.</p>
 </div>
 <table id="rule:gen-controlled-list" class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -807,13 +932,8 @@ shall be represented as uml:Enumeration element.</p></td>
 </tbody>
 </table>
 <div class="paragraph">
-<p><strong>Description:</strong></p>
-</div>
-<div class="paragraph">
-<p>Controlled lists play an essential role in establishing interoperability standards. Management and publication of controlled lists should happen as a separate process, and are not addressed here. References to controlled lists shall be done via uml:Enumeration elements.</p>
-</div>
-<div class="paragraph">
-<p>The expectation is that the controlled lists are published in accordance with best practices and represented with the SKOS model using persistent identifiers. In such an approach, the controlled list is expressed as a <code>skos:ConceptScheme</code> and the specific values as <code>skos:Concept</code>(s). Also, such controlled lists are often developed, published and maintained independently following their own lifecycle, so that they can be reused in other models.</p>
+<p><strong>Description:</strong>
+When a modelled property is foreseen to have a discrete set of values, the range of this property should be described using a reference to appropriate code list defining these values.</p>
 </div>
 <div class="paragraph">
 <p>Two use-cases can be identified in practice: (a) when the code list is known and is explicitly referred to as the range of a property, and (b) when a property is modelled but no code list reference is provided as its range.</p>
@@ -988,20 +1108,182 @@ Stereotypes have no semantics and hence shall be avoided. Exceptionally, some se
 <div class="paragraph">
 <p><strong>See also:</strong> SEMIC Style Guide Rule [<a href="https://semiceu.github.io/style-guide/1.0.0/gc-conceptual-model-conventions.html#sec:cmc-r17">CMC-R17</a>]</p>
 </div>
+<table id="rule:tags-use-cases" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Use of tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:tags-use-cases</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+UML tags is used to either provide additional description of the element or control generation of the element RDF representation.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+UML tags can be specified for UML elements and connectors. Tags can be used to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Control what and how is generated in RDF artefacts in the context of the associated UML element.</p>
+</li>
+<li>
+<p>Provide additional information about the associated UML element (primary use case).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>There are two groups of tags addressing the above use cases, respectively:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>control tags: use predefined, reserved keys</p>
+</li>
+<li>
+<p>descriptive tags: any tag that does not use a reserved key</p>
+</li>
+</ol>
+</div>
+<table id="rule:descriptive-tags" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Descriptive tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:descriptive-tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+Descriptive tags are used to provide additional information of the element.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+Descriptive tag should provide additional information to an element (classes, enumerations, datatypes, connectors, attributes, connector roles). In particular, tags could be used to assign metadata to an element.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong> Tags should not be used as the sole (or primary) source of concept identifier generation, i.e. every UML element that has tags attached, should, in the first place, have a proper name provided, according to the conventions in the [<a href="#sec:names">Naming Conventions</a>] section.</p>
+</div>
+<table id="rule:control-tags" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Control tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:control-tags</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+Control tags are used to configure artefact generation process in the context of the UML elements they describe.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+A control tag uses a special, predefined key that is interpreted by the tool and used to configure whether and how the related UML element is generated in artefact(s). Such a tag relates to a known feature served by the tool and its use needs to conform to the feature specification. In particular, a tag value is constrained and needs to be a one that is understandable by the tool.</p>
+</div>
+<div class="paragraph">
+<p>An index of control tags and related features can be found in the User guide.</p>
+</div>
+<div class="paragraph">
+<p>Due to the nature of the control tag, it is not materialized (unless a specific feature specification states otherwise).</p>
+</div>
+<table id="rule:tags-uml-elems" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> UML types supported by tag value generation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:tags-uml-elems</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+UML tag can be defined for all UML elements except for UML generalization.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+The following UML types are supported:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>elements: class, enumeration, datatype</p>
+</li>
+<li>
+<p>attributes</p>
+</li>
+<li>
+<p>connectors: association, dependency</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <a href="#fig:element-tag">Example depicting a tag for UML class</a>, <a href="#fig:attribute-tag">Example depicting a tag for UML attribute</a> and <a href="#fig:dependency-tag">Example depicting a tag for UML dependency connector</a> demonstrate tags set for example UML elements from each of the above groups.</p>
+</div>
+<div id="fig:element-tag" class="imageblock">
+<div class="content">
+<img src="../_images/class-tag.png" alt="element-tag">
+</div>
+<div class="title">Figure 1. Example depicting a tag for UML class</div>
+</div>
+<div id="fig:attribute-tag" class="imageblock">
+<div class="content">
+<img src="../_images/attribute-tag.png" alt="attribute-tag">
+</div>
+<div class="title">Figure 2. Example depicting a tag for UML attribute</div>
+</div>
+<div id="fig:dependency-tag" class="imageblock">
+<div class="content">
+<img src="../_images/dependency-tag.png" alt="dependency-tag">
+</div>
+<div class="title">Figure 3. Example depicting a tag for UML dependency connector</div>
+</div>
+<div class="paragraph">
+<p>Although technically possible, the convention for UML association connector is to set tags for association roles (either source or target) rather than the association itself, as presented in <a href="#fig:association-role-tag">Example depicting a tag for UML association connector</a>.</p>
+</div>
+<div id="fig:association-role-tag" class="imageblock">
+<div class="content">
+<img src="../_images/association-role-tag.png" alt="association-role-tag">
+</div>
+<div class="title">Figure 4. Example depicting a tag for UML association connector</div>
+</div>
+<div class="paragraph">
+<p>UML generalization is not supported due to a technical limitation. There is no subject to associate a tag value with when constructing an RDF statement.</p>
+</div>
 <table id="rule:gen-tags" class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Tags</p></td>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Tags format</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:gen-tags</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
-UML tags shall be used to provide additional descriptions of the element in a consistent and structure manner.</p></td>
+UML tags shall be used in a consistent and structured manner.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1014,15 +1296,52 @@ UML tags shall be used to provide additional descriptions of the element in a co
 <div class="ulist">
 <ul>
 <li>
-<p>The tag name should be provided and should be either a short URI or short URI with a language tag (e.g. @en).</p>
+<p>The tag name is provided and is based on a compact URI representing a property of choice</p>
 </li>
 <li>
-<p>There should be a value associated to each tag that appears on an element.</p>
+<p>There is a value associated to each tag that appears on an element</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Note:</strong> Tags should not be used as the sole (or primary) source of concept identifier generation, i.e. every UML element that has tags attached, should, in the first place, have a proper name provided, according to the conventions in the [<a href="#sec:names">Naming Conventions</a>] section.</p>
+<p>By default, a tag value is treated as a plain text literal.
+However, there are three kinds of supported suffixes (additional segments at the end of a key) that changnes the way the value is interpreted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@LANG</code> language suffix: informs that the value is a language-tagged string. <em>LANG</em> is a placeholder for a language code compliant with ISO 639 format</p>
+</li>
+<li>
+<p><code>^^DATATYPE</code> datatype suffix: informs that the value is a typed literal. <em>DATATYPE</em> is a placeholder for a datatype compact URI; XSD types should be used whenever possible</p>
+</li>
+<li>
+<p><code>&lt;&gt;</code> URI suffix: informs that the value is a URI</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples of valid tags (<code>key: value</code>):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>skos:prefLabel</code>: <code>Value without a language tag</code></p>
+</li>
+<li>
+<p><code>skos:prefLabel@en</code>: <code>The value of the label</code></p>
+</li>
+<li>
+<p><code>dct:issued^^xsd:date</code>: <code>1990-08-27</code></p>
+</li>
+<li>
+<p><code>owl:sameAs&lt;&gt;</code>: <code><a href="http://some.url.com" class="bare">http://some.url.com</a></code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong>
+The suffixes are inspired by Turtle syntax used to represent the corresponding information. The decision to append the suffixes to a key rather than a value was made for practical reasons.</p>
 </div>
 </div>
 </div>

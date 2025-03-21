@@ -81,12 +81,12 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="M2O" data-version="2.3.0">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -167,6 +167,18 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user-guide/about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../references.html">References</a>
   </li>
 </ul>
@@ -176,8 +188,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
-          <span class="title">model2owl Documentation</span>
-          <span class="version">2.3.0</span>
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -268,10 +280,10 @@
         </ul>
       </li>
       <li class="component is-current">
-        <a class="title" href="../index.html">model2owl Documentation</a>
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">2.3.0</a>
+              <a href="../index.html">3.0.0</a>
             </li>
         </ul>
       </li>
@@ -304,7 +316,7 @@
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
     <li><a href="uml2owl-transformation.html">Transformation Rules</a></li>
     <li><a href="transf-rules2.html">Rules for UML Connectors</a></li>
   </ul>
@@ -1047,7 +1059,20 @@ In OWL we want to state only that the range of a Dependency connector is a <code
 <div class="title">Example R.13. Dependency range shape&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
-<p>Within the SHACL PropertyShape corresponding to a dependency relation linked to a given source UML Class, specify property constraints indicating the range class.</p>
+<p>Within the SHACL PropertyShape corresponding to a dependency relation linked to a given source UML Class, constraint the range of the dependency.</p>
+</div>
+<div class="paragraph">
+<p>Specify the suitable constraint based on the <em>constraint level</em> set for the UML Enumeration (as defined in <a href="../uml/conv-enumerations.html#rule:enumeration-constraint-level" class="xref page">rule:enumeration-constraint-level</a>):</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><em>permissive</em>: set <code>skos:Concept</code> as the expected type of an enumeration item</p>
+</li>
+<li>
+<p><em>restrictive</em>: refer to a NodeShape for an enumeration item that further restricts allowed values (see the <a href="transf-rules3.html#rule:enumeration-item-ds" class="xref page">transformation rule for enumeration item</a>).</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1059,22 +1084,49 @@ In OWL we want to state only that the range of a Dependency connector is a <code
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Property class constraint in Turtle syntax</div>
+<div class="title">Permissive shape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix : &lt;http://base.onto.uri/&gt; .
+@prefix shape: &lt;http://base.shape.uri/&gt; .
+@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+
+shape:ClassName-relationName a sh:PropertyShape ;
+    sh:path :relationName;
+    sh:class skos:Concept .</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Permissive shape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName-relationName"&gt;
+  &lt;rdf:type rdf:resource = "http://...shacl#PropertyShape"/&gt;
+  &lt;sh:path rdf:resource = "http://base.onto.uri/relationName"/&gt;
+  &lt;sh:class rdf:resource = "http://...skos/core#Concept"/&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Restrictive shape in Turtle syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix : &lt;http://base.onto.uri/&gt; .
 @prefix shape: &lt;http://base.shape.uri/&gt; .
 @prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
 
-shape:ClassName-relationName
-  sh:class :EnumerationName ;
-.</code></pre>
+shape:ClassName-relationName a sh:PropertyShape ;
+    sh:path :relationName;
+    sh:node shape:EnumName-itemShape .</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Property class constraint in RDF/XML syntax</div>
+<div class="title">Restrictive shape in RDF/XML syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/ClassName-relationName"&gt;
-    &lt;sh:class rdf:resource = "http://base.onto.uri/EnumerationName"/&gt;
+  &lt;rdf:type rdf:resource = "http://...shacl#PropertyShape"/&gt;
+  &lt;sh:path rdf:resource = "http://base.onto.uri/relationName"/&gt;
+  &lt;sh:node rdf:resource = "http://base.shape.uri/EnumName-itemShape"/&gt;
 &lt;/rdf:Description&gt;</code></pre>
 </div>
 </div></div></td>
@@ -1149,7 +1201,8 @@ Sibling classes will be declared disjoint with one another in the reasoning laye
 <div class="title">Example R.15. Property generalisation&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
-<p>Specify sub-property axiom for the generalisation between UML association/dependency connectors.</p>
+<p>Specify a sub-property axiom representing the generalisation between named roles of UML associations. Properties on the subject and object positions correspond to the association roles belonging to the same side of the association ends.
+Such a sub-property axiom is specified for the target side of association ends (for unidirectional associations) or for both source and target sides of the association ends (for bidirectional associations).</p>
 </div>
 </div>
 </div>

@@ -81,12 +81,12 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="M2O" data-version="2.3.0">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -167,6 +167,18 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user-guide/about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../references.html">References</a>
   </li>
 </ul>
@@ -176,8 +188,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
-          <span class="title">model2owl Documentation</span>
-          <span class="version">2.3.0</span>
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -268,10 +280,10 @@
         </ul>
       </li>
       <li class="component is-current">
-        <a class="title" href="../index.html">model2owl Documentation</a>
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">2.3.0</a>
+              <a href="../index.html">3.0.0</a>
             </li>
         </ul>
       </li>
@@ -304,7 +316,7 @@
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
     <li><a href="conceptual-model-conventions.html">UML Model Conventions</a></li>
     <li><a href="conv-enumerations.html">Enumerations</a></li>
   </ul>
@@ -354,6 +366,57 @@
 </div>
 <div class="paragraph">
 <p>It is possible to employ the enumerations for class properties by drawing a dependency (uml:Dependency) relation from the class to the enumeration and provide a relation target role. However, the enumeration should not connect to other elements.</p>
+</div>
+<table id="rule:enumeration-constraint-level" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> uml:Enumeration constraint level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:enumeration-constraint-level</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+An uml:Enumeration items are restricted according to one of two constraint levels set for their uml:Enumeration element.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong></p>
+</div>
+<div class="paragraph">
+<p>Formal specification of a controlled list is important for enabling validation of data described with the model. Particularly, this is required for the purpose of validating values of properties expecting a controlled list values (as described in <a href="../transformation/transf-rules2.html#rule:dependency-uni-range-ds" class="xref page">rule:dependency-uni-range-ds</a>).</p>
+</div>
+<div class="paragraph">
+<p>However, providing such a formal specification (incorporated into the conceptual model as described in <a href="conv-general.html#rule:incorporation-of-controlled-list" class="xref page">rule:incorporation-of-controlled-list</a>) for validation purposes is not always possible or desirable. For example, a SKOS specification of the controlled list may not exist. Therefore, SHACL shapes for corresponding enumerations, that implements constraints for validation purposes, accomodate for both <em>referencing</em> and <em>defining</em> usage cases.
+It is done by introducing a concept of a <em>constraint level</em> that is used to specify restrictiveness of a NodeShape for an enumeration. Every UML Enumeration element is expected to specify the constraint level. There are two constraint levels that are suitable for the use cases:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>permissive</code>: Suitable when a controlled list specification is not available. Causes generation of a permissive shape for items of the corresponding enumeration. The generated constraint makes no assumptions about the corresponding controlled list and sets <code>skos:Concept</code> as the expected type for an item.</p>
+</li>
+<li>
+<p><code>restrictive</code>: Suitable when a controlled list specification is available. Causes generation of a restrictive shape for items of the corresponding enumeration. The generated constraints assume that an item belongs to a concept scheme (<code>skos:ConceptScheme</code>) identified by the URI used as the name of the corresponding UML Enumeration element.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Every UML Enumeration element have to specify the constraint level as a tag, using a datatype property of choice for that purpose (set in configuration). The following example use a hypothetical <code>ex:constraintLevel</code> property to set <em>restrictive</em> level for <code>at-voc:applicability</code> enumeration.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../_images/conv-enum-constr-level.png" alt="constraint level set for an enum">
+</div>
+</div>
+<div class="paragraph">
+<p>Details on how to configure model2owl can be found in the <a href="../user-guide/configuration-file.html#controlled-vocabulary-parameters">User Guide section</a>.</p>
+</div>
+<div class="paragraph">
+<p>A tag with the specified key is not materialized in model2owl artefacts. It is used only to control what SHACL shapes should be generated.</p>
 </div>
 </div>
 </div>

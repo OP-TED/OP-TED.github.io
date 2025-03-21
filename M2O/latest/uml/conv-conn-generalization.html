@@ -81,12 +81,12 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="M2O" data-version="2.3.0">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -167,6 +167,18 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user-guide/about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../references.html">References</a>
   </li>
 </ul>
@@ -176,8 +188,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
-          <span class="title">model2owl Documentation</span>
-          <span class="version">2.3.0</span>
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -268,10 +280,10 @@
         </ul>
       </li>
       <li class="component is-current">
-        <a class="title" href="../index.html">model2owl Documentation</a>
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">2.3.0</a>
+              <a href="../index.html">3.0.0</a>
             </li>
         </ul>
       </li>
@@ -304,7 +316,7 @@
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
     <li><a href="conceptual-model-conventions.html">UML Model Conventions</a></li>
     <li><a href="conv-connectors.html">Connectors</a></li>
     <li><a href="conv-conn-generalization.html">Generalization</a></li>
@@ -466,6 +478,108 @@ Equivalent classes can be represented by using stereotypes on the uml:Generaliza
 </div>
 <div class="paragraph">
 <p>In case two classes are equivalent, then the \(&lt;&lt;equivalent&gt;&gt;\) or \(&lt;&lt;complete&gt;&gt;\) stereotype should be used as a marker.</p>
+</div>
+<table id="rule:generalization-btw-connectors-and-allowed-targets" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Connector generalization and allowed targets for involved connector ends</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:generalization-btw-connectors-and-allowed-targets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+ Ends of the same side (either source or target) of two connectors connected with a generalization relation
+can be attached to the same class or two different ones connected with a generalization relation.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+For a pair of connectors with a generalization relation linking them, each of the sides of their ends can be attached to the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>same class or</p>
+</li>
+<li>
+<p>two classes connected with a generalization relation</p>
+</li>
+</ul>
+</div>
+<table id="rule:generalization-btw-connectors-and-class-generalization-for-distinct-connector-targets" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Connector generalization and required class generalization for involved distinct connector targets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:generalization-btw-connectors-and-class-generalization-for-distinct-connector-targets</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+uml:Class elements linked to the same side ends of two connectors having generalization relation between them must also be connected with a generalization connector.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong></p>
+</div>
+<div class="paragraph">
+<p>In case the ends of the same side (either source or target) of two connectors connected with a generalization relation refer to two different classes (see rule [<a href="#rule:generalization-btw-connectors-and-allowed-targets">rule:generalization-btw-connectors-and-allowed-targets</a>]), these classes must be also linked with a generalization relation.</p>
+</div>
+<table id="rule:generalization-connectors-direction-and-roles" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Connector generalization and direction and roles of related connectors</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:generalization-connectors-direction-and-roles</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+The connectors linked by the generalization connector must have the same direction and roles defined</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong>
+Unidirectional connectors linked with a generalization connector must have the same direction. In addition, role names have to be provided for the proper ends. The second requirement applies also to bidirectional connectors.</p>
+</div>
+<table id="rule:direction-of-generalization-btw-connectors-and-classes-match" class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #a8c6f7;"><p class="tableblock"> <strong>Title:</strong> Direction of connector generalization and linked classes generalization relations is the same.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Identifier:</strong> rule:direction-of-generalization-btw-connectors-and-classes-match</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top" style="background-color:  #f5f8fc;"><p class="tableblock"><strong>Statement:</strong>
+Direction of a generalization relation between connectors follows the direction of generalization relation between the relevant classes (if the latter one exists).</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Description:</strong></p>
+</div>
+<div class="paragraph">
+<p>In case the ends (either source or target) of two connectors are associated with different classes (see rules [<a href="#rule:generalization-btw-connectors-and-allowed-targets">rule:generalization-btw-connectors-and-allowed-targets</a>], [<a href="#rule:generalization-btw-connectors-and-class-generalization-for-distinct-connector-targets">rule:generalization-btw-connectors-and-class-generalization-for-distinct-connector-targets</a>]), the directions of the connector generalization and class generalization relations must match.</p>
+</div>
+<div class="paragraph">
+<p>This applies to target connector ends (for unidirectional connectors) or to the both sides of connector ends (for bidirectional connectors).</p>
 </div>
 </div>
 </div>

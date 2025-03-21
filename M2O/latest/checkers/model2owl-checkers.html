@@ -81,12 +81,12 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="M2O" data-version="2.3.0">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -167,6 +167,18 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user-guide/about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../references.html">References</a>
   </li>
 </ul>
@@ -176,8 +188,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
-          <span class="title">model2owl Documentation</span>
-          <span class="version">2.3.0</span>
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -268,10 +280,10 @@
         </ul>
       </li>
       <li class="component is-current">
-        <a class="title" href="../index.html">model2owl Documentation</a>
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">2.3.0</a>
+              <a href="../index.html">3.0.0</a>
             </li>
         </ul>
       </li>
@@ -304,7 +316,7 @@
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
     <li><a href="model2owl-checkers.html">UML convention checking rules</a></li>
   </ul>
 </nav>
@@ -507,8 +519,8 @@ We provide separate tables for each category of checkers. The columns in these t
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>common-tag-13</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">error</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalid tag name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The tag $tagName$ of element $elementName$ must be an URI.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">For all tags of an element (classes, enumerations, datatypes, connectors, attributes, connector roles) select the tag name and check that it is a short URI or short URI with a language tag (e.g. @en).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tag $tagName$ of element $elementName$ must be one of the following formats: 1) namespace:localName 2) namespace:localName@en 3) namespace:localName^^xsd:integer 4) namespace:localName&lt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For all tags of an element (classes, enumerations, datatypes, connectors, attributes, connector roles) select the tag name and ensure that its format adheres to one of the four supported formats: plain literal, literal with a language tag, typed value, or URI.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>common-tag-14</code></p></td>
@@ -771,6 +783,13 @@ We provide separate tables for each category of checkers. The columns in these t
 <td class="tableblock halign-left valign-top"><p class="tableblock">enumeration connected to other elements</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The enumeration $value should not connect to other elements. An Enumeration stands for a controlled list and can only be referred to.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">check if there are outgoing connectors from an enumeration and error about that</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enumeration-constraint-level-4</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">warning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enumeration constraint level incorrect or not set</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The enumeration $value$ does not have a correct constraint level (either <code>permissive</code> or <code>restrictive</code>) set as a tag with the $cvConstraintLevelProperty$ key. The permissive level will be used as a fallback value.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check if there is a tag with a key $cvConstraintLevelProperty$ and if its value is either <code>permissive</code> or <code>restrictive</code>. If not, use the <code>permissive</code> as a fallback value and warn about that.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1038,8 +1057,8 @@ We provide separate tables for each category of checkers. The columns in these t
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector-tag-12</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">error</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalid tag name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The tag $tagName$ of element $connector$ must be an URI.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">For all tags of an element (classes, enumerations, datatypes, connectors, attributes, connector roles) select the tag name and check that it is a short URI or short URI with a language tag (e.g. @en).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The tag $tagName$ of connector (role) $connector$ must be one of the following formats: 1) namespace:localName 2) namespace:localName@en 3) namespace:localName^^xsd:integer 4) namespace:localName&lt;&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">For all tags of a connector role (association) or connector (dependency) select the tag name and ensure that its format adheres to one of the four supported formats: plain literal, literal with a language tag, typed value, or URI.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector-tag-prefix-13</code></p></td>
@@ -1080,8 +1099,8 @@ We provide separate tables for each category of checkers. The columns in these t
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector-tag-18</code></p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">warning</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">connector with tags</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The connector $connectorName$ has tag annotations. The connector is not transformed into a property and therefore any tag will be ignored.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">check if connector has tags, raise a warning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The connector $connectorName$ has tag annotations. The connector is not transformed into a property and therefore any tag will be ignored. The tag(s) should be set for its target/source role(s) instead</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">check if the connector is not of dependency type and has tags, raise a warning</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>connector-name-19</code></p></td>
@@ -1365,6 +1384,29 @@ We provide separate tables for each category of checkers. The columns in these t
 <td class="tableblock halign-left valign-top"><p class="tableblock">only generalisations of classes and properties are allowed</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Generalisations can be provided only between classes or between connectors.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">check that generalisations are provided only between Classes or between connectors (ProxyConnector). ONLY: Class &#8594; Class or ProxyConnector &#8594; ProxyConnector</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generalisation-connector-unidirectional-connector-direction-8</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">direction of connectors associated with the generalisation connector doesn&#8217;t match</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The unidirectional connectors $connector1$ and $connector2$ associated with the generalisation connector have opposite directions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">for two associations $connector1$ and $connector2$ associated with the generalization connector:
+1) form a set of classes containing the sources and targets of both associations, and count the number of unique classes.
+2) if size of the set is 2, then check that the source of the first association is the same as the source of the second association</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generalisation-connector-and-missing-class-generalisation-9</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">warning</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">missing class generalisation for two distinct classes related to the connector generalisation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The connectors  $connector1$ and $connector2$ associated with the generalisation connector have two different classes $class1$ and $class2$ on one of the connector ends side, but the classes are not in a generalisation relationship</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">perform the two actions for target side of the two connectors and additionally for source side only if the connectors are bidirectional: 1) get a pair of classes linked to a connector end of the considered side (either source or target) for the first and second connectors; 2) check that either both references point out to the same class or a generalisation connector between the two classes exists</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generalisation-connector-and-class-inheritance-direction-10</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">connector generalisation and class generalisation relationship direction mismatch</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The connectors $connector1$ and $connector2$ associated with the generalisation connector have two different classes $class1$ and $class2$ on one of the connector ends side, but direction of the generalisation relation between these classes doesn&#8217;t match the connector generalisation direction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">perform the three actions for target side of the two connectors and additionally for source side only if the connectors are bidirectional: 1) get a pair of classes linked to a connector end of the considered side (either source or target) for the generalization source and target connectors; 2) select the generalization connector between the two classes 3) compare the connector generalisation and class generalisation: check that the connector generalisation source [source connector] is associated with the class generalization source and the connector generalisation target [target connector] is associated with the class generalization target</p></td>
 </tr>
 </tbody>
 </table>

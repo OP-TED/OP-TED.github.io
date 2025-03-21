@@ -81,12 +81,12 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="M2O" data-version="2.3.0">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
   <nav class="nav-menu">
-    <h3 class="title"><a href="../index.html">model2owl Documentation</a></h3>
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
@@ -167,6 +167,18 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../user-guide/about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../references.html">References</a>
   </li>
 </ul>
@@ -176,8 +188,8 @@
 </div>
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
-          <span class="title">model2owl Documentation</span>
-          <span class="version">2.3.0</span>
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -268,10 +280,10 @@
         </ul>
       </li>
       <li class="component is-current">
-        <a class="title" href="../index.html">model2owl Documentation</a>
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../index.html">2.3.0</a>
+              <a href="../index.html">3.0.0</a>
             </li>
         </ul>
       </li>
@@ -304,7 +316,7 @@
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
-    <li><a href="../index.html">model2owl Documentation</a></li>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
     <li><a href="uml2owl-transformation.html">Transformation Rules</a></li>
     <li><a href="transf-rules3.html">Rules for UML Datatypes</a></li>
   </ul>
@@ -359,7 +371,7 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumeration item</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-item-core">Example D.05</a></p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-item-ds">Example D.06</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -543,21 +555,40 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 </div>
 </div>
 <div class="sect2">
-<h3 id="_enumeration"><a class="anchor" href="#_enumeration"></a>Enumeration</h3>
+<h3 id="sec:enumeration"><a class="anchor" href="#sec:enumeration"></a>Enumeration</h3>
 <div class="paragraph">
-<p>UML Enumerations [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] are kinds of datatypes, whose values correspond to one of user-defined literals. They should be transformed into SKOS [<a href="../references.html#ref:skos-spec" class="xref page">skos-spec</a>] concept schemes comprising the concepts corresponding to enumerated items.</p>
+<p>UML Enumerations [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] are kinds of datatypes, having zero or more values that correspond to one of user-defined literals. They are transformed into SKOS [<a href="../references.html#ref:skos-spec" class="xref page">skos-spec</a>] concept schemes comprising enumeration values represented as SKOS concepts.</p>
 </div>
-<div id="fig:enumeration-uml-visual" class="imageblock">
+<div class="paragraph">
+<p>Two possible cases of UML enumerations can be identified:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>enumeration without items: such an enumeration is used as a reference to an externally defined controlled list.</p>
+</li>
+<li>
+<p>enumeration with items: such an enumeration serves as a complete representation of a controlled list defined within the UML model.</p>
+</li>
+</ol>
+</div>
+<div id="fig:enumeration-uml-visual-wo-items" class="imageblock">
+<div class="content">
+<img src="../_images/f20.png" alt="20">
+</div>
+<div class="title">Figure 2. Visual representation of a UML Enumeration without items</div>
+</div>
+<div id="fig:enumeration-uml-with-items" class="imageblock">
 <div class="content">
 <img src="../_images/f17.png" alt="17">
 </div>
-<div class="title">Figure 2. Visual representation of a UML Enumeration</div>
+<div class="title">Figure 3. Visual representation of a UML Enumeration with items</div>
 </div>
 <div id="fig:enumeration-owl-visual" class="imageblock">
 <div class="content">
 <img src="../_images/f18.png" alt="18">
 </div>
-<div class="title">Figure 3. Visual representation of a SKOS concept scheme with concepts</div>
+<div class="title">Figure 4. Visual representation of a SKOS concept scheme with concepts</div>
 </div>
 <div class="admonitionblock important">
 <table>
@@ -566,7 +597,7 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 <i class="fa icon-important" title="Important"></i>
 </td>
 <td class="content">
-Normally, the controlled list represented by UML Enumerations will be defined externally. In order to be ale to validate some data against the generate SHACL shapes, these controlled lists need to be imported into the SHACL shapes. Moreover, the restriction module should be also imported into the SHACL module, alongside the OWL core module.
+Normally, the controlled list represented by UML Enumerations will be defined externally and represented as an enumeration without items in the UML model. In order to be able to validate some data against the generated SHACL shapes, these controlled lists need to be imported. Moreover, the restriction module should be also imported into the SHACL module, alongside the OWL core module.
 </td>
 </tr>
 </table>
@@ -614,6 +645,18 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 </tr>
 </tbody>
 </table>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The tool does not generate SHACL shapes for concept schemes (<code>skos:ConceptScheme</code>) used to represent controlled lists. It is recommended to download the SHACL shapes for SKOS [<a href="../references.html#ref:skos-shapes" class="xref page">skos-shacl</a>] and use these for validation purposes.
+</td>
+</tr>
+</table>
+</div>
 <div id="rule:enumeration-rc" class="exampleblock">
 <div class="title">Example D.04. Enumeration&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
@@ -709,6 +752,53 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 &lt;skos:Concept rdf:about = "http://base.onto.uri/itemB"&gt;
     &lt;skos:inScheme rdf:resource = "http://base.onto.uri/EnumerationName"/&gt;
 &lt;/skos:Concept&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:enumeration-item-ds" class="exampleblock">
+<div class="title">Example D.06. Enumeration item&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a <em>restrictive</em> SHACL NodeShape for items of an enumeration for each UML Enumeration in the <em>defining</em> mode (based on the <em>constraint level</em> set for the UML Enumeration as defined in <a href="../uml/conv-enumerations.html#rule:enumeration-constraint-level" class="xref page">rule:enumeration-constraint-level</a>). The URIs of the node shape is deterministically generated from the UML Enumeration name.
+Set a constraint for the enumeration item belonging to a concept scheme represented by the enumeration URI.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Restrictive shape in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">@prefix sh: &lt;http://www.w3.org/ns/shacl#&gt; .
+@prefix skos: &lt;http://www.w3.org/2004/02/skos/core#&gt; .
+
+@prefix : &lt;http://base.onto.uri/&gt; .
+@prefix shape: &lt;http://base.shape.uri/&gt; .
+
+shape:EnumName-itemShape a sh:NodeShape ;
+    sh:property [
+        sh:path skos:inScheme ;
+        sh:hasValue :EnumName ;
+    ] .</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Restrictive shape in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.shape.uri/EnumName-itemShape"&gt;
+  &lt;rdf:type rdf:resource = "http://...shacl#NodeShape"/&gt;
+  &lt;sh:property rdf:parseType = "Resource"&gt;
+    &lt;sh:path rdf:resource = "http://...skos/core#inScheme"/&gt;
+    &lt;sh:hasValue rdf:resource = "http://base.onto.uri/EnumName"/&gt;
+  &lt;/sh:property&gt;
+&lt;/rdf:Description&gt;</code></pre>
 </div>
 </div></div></td>
 </tr>

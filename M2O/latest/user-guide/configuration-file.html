@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Configuration Parameters :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/M2O/latest/user-guide/configuration-file.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-context.html">Context: model2owl and eProcurement ontology </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../uml/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conceptual-model-conventions.html">UML Model Conventions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-general.html">General Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-classes.html">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-attributes.html">Class Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conv-connectors.html">Connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-association.html">Association</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-dependency.html">Dependency</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-generalization.html">Generalization</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-realization.html">Realization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-datatypes.html">Data Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-enumerations.html">Enumerations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-objects.html">Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-packages.html">Packages</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../checkers/model2owl-checkers.html">UML convention checking rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../transformation/uml2owl-transformation.html">Transformation Rules</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules1.html">Rules for UML Classes and Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules2.html">Rules for UML Connectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules3.html">Rules for UML Datatypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules4.html">Rules for UML Descriptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="configuration-file.html">Configuration parameters</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references.html">References</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-current is-latest">
+              <a href="../index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
+    <li><a href="about.html">User guide</a></li>
+    <li><a href="configuration-file.html">Configuration parameters</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Configuration Parameters</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The configuration parameters in model2owl define various aspects of how the transformation processes work.
+These parameters control namespace handling, ontology URIs, stereotype validations, reused concepts generation control,
+tags/comments generation, controlled vocabulary generation and constraints, metadata generation, status filtering.</p>
+</div>
+<div class="paragraph">
+<p>Understanding these parameters allows users to fine-tune the output of the transformation, ensuring it aligns
+with their requirements. Parameters are primarily stored in <code>config-parameters.xsl</code> and linked XML files such as
+<code>namespaces.xml</code>, <code>umlToXsdDataTypes.xml</code>, and <code>xsdAndRdfDataTypes.xml</code>.</p>
+</div>
+<div class="paragraph">
+<p>The configuration file used in model2owl is not an ordinary XML file. It is an <strong>XSLT-based configuration</strong>,
+meaning that specific syntax and structure must be followed for it to work correctly.
+Parameters are defined as XSLT variables (<code>&lt;xsl:variable&gt;</code>), and their values directly affect the transformation
+process.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>When modifying this file, ensure that the <a href="https://www.w3.org/TR/xslt-30/#variables-and-parameters">XSLT specification</a> is strictly followed. Improper syntax or unsupported XSLT elements can cause errors during the transformation process.</p>
+</li>
+<li>
+<p>It is highly recommended to review the existing configuration examples first and understand that each parameter has a specific data type that must be respected.</p>
+</li>
+<li>
+<p>Do not delete variables, as they are essential to the transformation process. Removing them will result in errors.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_list_of_configuration_parameters"><a class="anchor" href="#_list_of_configuration_parameters"></a>List of Configuration Parameters</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_core_parameter_mappings"><a class="anchor" href="#_core_parameter_mappings"></a>Core parameter mappings</h3>
+<div class="paragraph">
+<p>These parameters ensure that the system retrieves and applies predefined namespace prefixes, UML-to-XSD datatype mappings,
+and XSD-to-RDF datatype definitions from their respective configuration files.</p>
+</div>
+<div class="paragraph">
+<p>They act as references to external XML documents that are part of the configuration, storing them in variables for use
+within the transformation process. This approach enhances modularity, allowing datatype mappings and namespace definitions
+to be updated independently without modifying the core configuration.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong></p>
+</div>
+<div class="paragraph">
+<p>It is not recommended to modify these parameters unless absolutely necessary. Changing them may break the link between
+the main configuration file (config-parameters.xsl) and the supporting configuration files
+(namespaces.xml, umlToXsdDataTypes.xml, xsdAndRdfDataTypes.xml).
+This could result in errors or inconsistent behaviour during the transformation process.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>namespacePrefixes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML Document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the prefixes and base URIs for namespaces.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(<code>namespaces.xml</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>umlDataTypesMapping</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML Document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Maps UML atomic types to XSD datatypes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(<code>umlToXsdDataTypes.xml</code>)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xsdAndRdfDataTypes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">XML Document</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines XSD datatypes that conform to OWL2.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(<code>xsdAndRdfDataTypes.xml</code>)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_general_parameters"><a class="anchor" href="#_general_parameters"></a>General parameters</h3>
+<div class="paragraph">
+<p>This section defines general configuration settings that control how model2owl processes data.
+These parameters specify namespace handling, base URIs, object property types, type of attributes that take values from a controlled list,
+allowed characters for normalised strings, default delimiter in URIs, etc.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>defaultNamespaceInterpretation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">If <code>true</code>, local segments without a prefix will be transformed into <code>:localSegment</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>base-ontology-uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The base URI for the ontology.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://data&#8230;&#8203;eu/a4g/ontology" class="bare">http://data&#8230;&#8203;eu/a4g/ontology</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>base-shape-uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The base URI for SHACL shapes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://data&#8230;&#8203;eu/a4g/data-shape" class="bare">http://data&#8230;&#8203;eu/a4g/data-shape</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>base-restriction-uri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The base URI for OWL restrictions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://data&#8230;&#8203;eu/a4g/ontology" class="bare">http://data&#8230;&#8203;eu/a4g/ontology</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>defaultDelimiter</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The default delimiter to use when a namespace lacks one.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>#</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>acceptableTypesForObjectProperties</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines types that can produce object properties.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('epo:Identifier', 'rdfs:Literal')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>controlledListType</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of attributes that take values from a controlled list.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>epo:Code</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>allowedStrings</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String (Regex)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines allowed characters for normalised strings.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>^[\w\d-_:]+$</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>supportedUmlVersions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lists the UML versions supported by model2owl.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('http://www.omg&#8230;&#8203;/UML/20131001', 'https://www.omg&#8230;&#8203;/UML/20131001', 'http://www.omg&#8230;&#8203;/UML/20161101', 'https://www.omg&#8230;&#8203;/UML/20161101')</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_stereotypes_parameters"><a class="anchor" href="#_stereotypes_parameters"></a>Stereotypes parameters</h3>
+<div class="paragraph">
+<p>This section defines the valid stereotypes that can be applied to different UML elements, such as attributes, objects,
+generalisations, associations, dependencies, and classes. For more details about stereotypes, please refer to
+<a href="../uml/conv-general.html#sec:stereotypes-tags">UML Modelling Conventions – Stereotypes and Tags</a>.</p>
+</div>
+<div class="paragraph">
+<p>Certain stereotypes, like "Abstract", classify a class as abstract, while others, such as "Disjoint" and "Equivalent",
+define relationships between generalisations. These settings ensure correct interpretation of UML models during
+transformation.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong>
+Changing these parameters may affect how UML models are processed and how elements are classified in the generated
+ontology.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnAttributes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines acceptable stereotypes on attributes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnObjects</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines acceptable stereotypes on objects.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnGeneralisations</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for generalisations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('Disjoint', 'Equivalent', 'Complete')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnAssociations</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for associations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnDependencies</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for dependencies.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('Disjoint', 'disjoint', 'join')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnClasses</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for classes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('Abstract')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnDatatypes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for data types.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnEnumerations</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for enumerations.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stereotypeValidOnPackages</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines valid stereotypes for packages.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>()</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>abstractClassesStereotypes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines which stereotypes classify a class as abstract.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('Abstract', 'abstract class', 'abstract')</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="controlled-vocabulary-parameters"><a class="anchor" href="#controlled-vocabulary-parameters"></a>Controlled vocabulary parameters</h3>
+<div class="paragraph">
+<p>This section defines settings for handling controlled vocabularies in model2owl. These parameters determine whether
+enumeration items are converted into SKOS concepts and whether entire enumerations are structured as SKOS concept schemes.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, constraint levels can be applied to UML enumeration objects to specify how SHACL shapes should be generated
+for controlled vocabularies. This allows for fine-grained control over validation and enforcement in different vocabularies.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enableGenerationOfSkosConcept</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the transformation of enumeration items into SKOS concepts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>enableGenerationOfConceptSchemes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the transformation of enumerations into SKOS schemes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>false</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cvConstraintLevelProperty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Property used for constraint levels in controlled vocabularies (compact URI).</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>epo:constraintLevel</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect3">
+<h4 id="_cv_constraint_level"><a class="anchor" href="#_cv_constraint_level"></a>CV Constraint Level</h4>
+<div class="paragraph">
+<p>Due to the diversity of controlled vocabularies (CVs) that a project may use, it is necessary to have precise control
+over the type of SHACL shapes generated for each CV. This information will be stored within the
+UML model itself by using a tag with a key defined in the configuration (cvConstraintLevelProperty).</p>
+</div>
+<div class="paragraph">
+<p>There are two possible <a href="../uml/conv-enumerations.html#rule:enumeration-constraint-level">constraint levels</a> that determine the type of SHACL shape generated:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>permissive – Generates a permissive SHACL shape for the related UML enumeration.</p>
+</li>
+<li>
+<p>restrictive – Generates a restrictive SHACL shape for the related UML enumeration.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong></p>
+</div>
+<div class="paragraph">
+<p>A tag with a key specified in <strong><code>cvConstraintLevelProperty</code></strong> is <strong>not included</strong> in model2owl artefacts;
+it is used solely to determine the type of SHACL shapes to be generated.</p>
+</div>
+<div class="paragraph">
+<p>If a controlled vocabulary does <strong>not</strong> have a constraint level defined in the model,
+it will <strong>default to a permissive</strong> SHACL shape.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reused_concepts_parameters"><a class="anchor" href="#_reused_concepts_parameters"></a>Reused concepts parameters</h3>
+<div class="paragraph">
+<p>This section defines parameters that control the <strong>generation of reused concepts</strong> in different
+artefacts. Reused concepts are elements considered <strong>external</strong> but included in certain
+outputs to maintain consistency across the ontology.</p>
+</div>
+<div class="paragraph">
+<p>To provide <strong>granular control</strong>, individual configuration variables allow users to specify
+whether reused concepts should be <strong>included or excluded</strong> for each type of artefact:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>SHACL artefacts</strong></p>
+</li>
+<li>
+<p><strong>OWL Core ontology</strong></p>
+</li>
+<li>
+<p><strong>OWL Restrictions</strong></p>
+</li>
+<li>
+<p><strong>Glossary</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Additionally, a dedicated prefix list ensures that <strong>certain concepts are always treated as
+internal</strong>, preventing them from being excluded even if they would otherwise be classified as
+"reused."</p>
+</div>
+<div class="paragraph">
+<p>With these parameters (<code>generateReusedConceptsSHACL</code>, <code>generateReusedConceptsOWLcore</code>, <code>generateReusedConceptsOWLrestrictions</code>,
+<code>generateReusedConceptsGlossary</code>), <strong>users have full control</strong> over which artefacts generate reused concepts.</p>
+</div>
+<div class="paragraph">
+<p>Each of these variables acts as a <strong>toggle</strong> for its respective artefact type:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>true</code></strong> → The artefact will include reused concepts.</p>
+</li>
+<li>
+<p><strong><code>false</code></strong> → The artefact will exclude reused concepts.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <strong><code>includedPrefixesList</code></strong> parameter ensures that certain prefixes (e.g., <code>epo</code>, <code>epo-not</code>, <code>epo-ord</code>)
+are always treated as <strong>internal</strong>. This means that <strong>concepts with these prefixes will always be included</strong>,
+even if they would sometimes be classified as reused.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>includedPrefixesList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines prefixes for concepts that should be included in generated artefacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('epo', 'epo-not', 'epo-ord', 'epo-cat', 'epo-con', 'epo-ful')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generateReusedConceptsSHACL</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the inclusion of reused concepts in SHACL artefacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generateReusedConceptsOWLcore</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the inclusion of reused concepts in OWL core artefacts.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generateReusedConceptsOWLrestrictions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the inclusion of reused concepts in OWL restrictions.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>generateReusedConceptsGlossary</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the inclusion of reused concepts in the glossary.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_status_filtering_parameters"><a class="anchor" href="#_status_filtering_parameters"></a>Status filtering parameters</h3>
+<div class="paragraph">
+<p>This section defines parameters that control <strong> status-based filtering</strong> in model2owl.</p>
+</div>
+<div class="paragraph">
+<p>Status filtering is a <strong>flexible mechanism</strong> that allows users to specify which UML elements should be <strong>included or excluded</strong>
+based on predefined status values. Since model2owl does not assume logical correctness of the statuses assigned to UML elements,
+it is the <strong>modeller’s responsibility</strong> to ensure that statuses are set correctly to maintain a consistent RDF representation.</p>
+</div>
+<div class="sect3">
+<h4 id="_status_filtering"><a class="anchor" href="#_status_filtering"></a><strong>Status Filtering</strong></h4>
+<div class="paragraph">
+<p>Status filtering in model2owl is fully configurable, allowing users to define <strong>custom status
+values</strong> for UML elements. model2owl does not impose fixed status values; instead, users must
+establish a list of valid statuses for their specific project.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_status_filtering_guidelines"><a class="anchor" href="#_status_filtering_guidelines"></a><strong>Status Filtering Guidelines</strong></h4>
+<div class="paragraph">
+<p>The modeller must ensure that statuses are applied correctly to maintain consistency.
+The following cases require special attention:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Classes linked by a connector</strong> → If one or both classes are filtered out, the connector
+should also be filtered out.</p>
+</li>
+<li>
+<p><strong>Classes with attributes</strong> → If a class is filtered out, all its attributes should also be
+filtered out.</p>
+</li>
+<li>
+<p><strong>Class inheritance</strong> → If a superclass is filtered out, all its subclasses and related UML
+elements should also be filtered out.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Filtering out</strong> means that a UML element is assigned a status that prevents it from being
+included in the generated artefacts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_defining_statuses_in_uml_models"><a class="anchor" href="#_defining_statuses_in_uml_models"></a><strong>Defining Statuses in UML Models</strong></h4>
+<div class="paragraph">
+<p>Statuses should be assigned to UML elements using <strong>UML tags (tagged values)</strong>. A <strong>compact URI</strong>
+representing the status property should be chosen and applied as a tag to elements where status-based
+filtering is needed.</p>
+</div>
+<div class="paragraph">
+<p>Additionally, elements <strong>without a status tag</strong> will be assigned a <strong>default status</strong> defined
+in the configuration (<code>unspecifiedStatusInterpretation</code>). This ensures that even elements
+missing an explicit status can be processed consistently.</p>
+</div>
+<div class="sect4">
+<h5 id="_model2owl_status_configuration_parameters"><a class="anchor" href="#_model2owl_status_configuration_parameters"></a><strong>Model2owl status configuration parameters</strong></h5>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>statusProperty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the property used to indicate an element&#8217;s status.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>epo:status</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>validStatusesList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the list of valid statuses for elements.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('proposed', 'approved', 'implemented')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>excludedElementStatusesList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines statuses that should be excluded from the output.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>('proposed', 'approved')</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>unspecifiedStatusInterpretation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the default status for elements without an explicitly set status.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>implemented</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_example_status_filtering_in_action"><a class="anchor" href="#_example_status_filtering_in_action"></a><strong>Example: Status Filtering in Action</strong></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">UML Element</th>
+<th class="tableblock halign-left valign-top"><code>epo:status</code> Tag</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>proposed</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>approved</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>implemented</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>not set</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>aproved</code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><strong>Model2owl configuration</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;xsl:variable name="statusProperty" select="'epo:status'"/&gt;
+&lt;xsl:variable name="validStatusesList" select="('proposed', 'approved', 'implemented')"/&gt;
+&lt;xsl:variable name="excludedElementStatusesList" select="('proposed', 'approved')"/&gt;
+&lt;xsl:variable name="unspecifiedStatusInterpretation" select="'implemented'"/&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Outcome: Included and Excluded Terms</strong></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">UML Element</th>
+<th class="tableblock halign-left valign-top">Included in Generated Artefacts?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Excluded</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term2</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Excluded</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term3</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Included</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term4</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Included as it defaults to implemented</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>:term5</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Error (The value contains a typo and it is not a valid status)</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_key_takeaways"><a class="anchor" href="#_key_takeaways"></a><strong>Key Takeaways</strong></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Elements with a status in <code>excludedElementStatusesList</code> are not generated.</p>
+</li>
+<li>
+<p>Elements without a status use the default value set in <code>unspecifiedStatusInterpretation</code>.</p>
+</li>
+<li>
+<p>If a status value is not listed in <code>validStatusesList</code>, an error is triggered.</p>
+</li>
+<li>
+<p><strong>The <code>statusProperty</code> tells model2owl which property is used in UML tags to express the status
+of an element.</strong> Model2owl interprets these tags to determine element status.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments_generation"><a class="anchor" href="#_comments_generation"></a><strong>Comments generation</strong></h3>
+<div class="paragraph">
+<p>This section defines parameters that control <strong>how comments are handled</strong> in the generated
+artefacts. Comments can be included to <strong>provide additional explanations, annotations, or
+editorial notes</strong> within OWL or SHACL outputs.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>commentsGeneration</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Boolean</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Enables or disables the generation of comments in the output.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>true</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>commentProperty</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Specifies the property used for comments in the output.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>skos:editorialNote</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_tags"><a class="anchor" href="#_tags"></a><strong>Tags</strong></h3>
+<div class="paragraph">
+<p>Model2owl uses tags found in the UML model in two distinct ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>To generate corresponding RDF statements that express metadata about concepts, following the <a href="../transformation/transf-rules4.html#rule:element-tag-core">transformation rules for tags</a>.</p>
+</li>
+<li>
+<p>To control the generation process at the UML element level by using specific tags that describe an element&#8217;s status or constraint level (control tags).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Control tags influence the generation process by altering how elements are transformed into semantic artefacts.
+These tags modify or control specific behaviours during the transformation process, such as filtering elements
+based on their status or applying constraints.</p>
+</div>
+<div class="paragraph">
+<p>Model2owl relies on certain tags to define properties such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Status of elements (statusProperty)</p>
+</li>
+<li>
+<p>Constraint level of controlled vocabularies (cvConstraintLevelProperty)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since these tags are only required internally for processing and filtering, they are not included in the generated OWL and SHACL artefacts.</p>
+</div>
+<div class="paragraph">
+<p>The <strong><code>excludedTagNamesList</code></strong> variable ensures that these tags are <strong>filtered out</strong>, preventing them from appearing in the output while still allowing them to control how elements are processed.</p>
+</div>
+<div class="paragraph">
+<p><strong>Note:</strong></p>
+</div>
+<div class="paragraph">
+<p>This exclusion only affects the <strong>representation</strong> of the tags in the final artefacts—<strong>it does not impact their functionality</strong> in filtering or validation.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>excludedTagNamesList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines tag names that should be excluded from the output.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>($statusProperty, $cvConstraintLevelProperty)</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_convention_report_parameters"><a class="anchor" href="#_convention_report_parameters"></a>Convention report parameters</h3>
+<div class="paragraph">
+<p>This section defines parameters used in the <strong>generation of the convention report</strong>. The convention report provides a
+structured evaluation of the UML model, ensuring it adheres to predefined rules and best practices. These parameters
+allow users to <strong>customise report metadata</strong>, such as the copyright statement, author details, and the UML model name
+included in the report.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conventionReportCopyrightText</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the copyright text for the convention report.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Publications Office of the European Union, 2023</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conventionReportAuthor</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the author of the convention report.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Publications Office of the European Union</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conventionReportAuthorLocation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the location of the report&#8217;s author.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Luxembourg</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conventionReportAuthorWebsite</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the website of the report&#8217;s author.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://op.europa.eu" class="bare">https://op.europa.eu</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>conventionReportUMLModelName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the name of the UML model in the report.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>eProcurement</code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_metadata_parameters"><a class="anchor" href="#_metadata_parameters"></a>Metadata parameters</h3>
+<div class="paragraph">
+<p>This section defines metadata parameters used in the generation of <strong>OWL Core, OWL Restrictions, and SHACL Shapes</strong> artefacts.
+Metadata plays a crucial role in <strong>identifying, describing, and managing ontology components</strong>,
+ensuring that each generated artefact contains the necessary information.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter Name</th>
+<th class="tableblock halign-left valign-top">Data Type</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>moduleReference</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the module reference identifier.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>core</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyTitleCore</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the title for the OWL Core ontology. (dct:title)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ePO Core core</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyTitleRestrictions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the title for the OWL Restrictions ontology. (dct:title)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ePO Core restrictions</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyTitleShapes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the title for the SHACL Shapes ontology. (dct:title)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ePO Core shapes</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyDescriptionCore</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides a detailed description of the eProcurement Ontology Core. (dct:description)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Some text</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyDescriptionRestrictions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides a detailed description of the eProcurement Ontology Restrictions. (dct:description)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Some text</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyDescriptionShapes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Provides a detailed description of the eProcurement Ontology Shapes. (dct:description)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Some text</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyLabelCore</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the label for the OWL Core ontology. (rdfs:label)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Some text</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyLabelRestrictions</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the label for the OWL Restrictions ontology. (rdfs:label)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Some text</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyLabelShapes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the label for the SHACL Shapes ontology. (rdfs:label)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Some text</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>issuedDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the ontology&#8217;s issuance date. (dct:issued)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Automatically set to current date</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>createdDate</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the ontology&#8217;s creation date. (dct:created)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Automatically set to current date</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ontologyStatus</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the status of the ontology. (bibo:status)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Semantic Specification Release</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>versionInfo</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the ontology version. (owl:versionInfo)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.1.0</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>priorVersion</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the prior version of the ontology. (owl:priorVersion)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>3.0.1</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preferredNamespaceUri</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the preferred namespace URI. (vann:preferredNamespaceUri)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://data&#8230;&#8203;/a4g/ontology#" class="bare">http://data&#8230;&#8203;/a4g/ontology#</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>preferredNamespacePrefix</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the preferred namespace prefix. (vann:preferredNamespacePrefix)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>epo</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>licenseLiteral</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the licensing terms for the ontology. (dct:license)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>Creative Commons Attribution 4.0 International (CC BY 4.0)</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>publisher</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">String</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Defines the publisher&#8217;s URI. (dct:publisher)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://publications&#8230;&#8203;authority/corporate-body/PUBL" class="bare">http://publications&#8230;&#8203;authority/corporate-body/PUBL</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>
