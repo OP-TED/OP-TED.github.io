@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/espd-wgm/2023_annual_seminar_report.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../_/css/site.css">
+    <link rel="stylesheet" href="../_/css/custom.css">
+    <link rel="stylesheet" href="../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="espd-wgm" data-version="">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">ESPD EDM</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../espd-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Release Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ESPD-EDM/3.3.0/release_notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/ESPD_CM_html/index.html">Conceptual Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../espd-home/demo.html">ESPD Demo Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Information for Business Users</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ESPD-EDM/3.3.0/business/index.html">Business Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ESPD-EDM/3.3.0/business/service.html">What is an ESPD Service?</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ESPD-EDM/3.3.0/business/using.html">The Structure of an ESPD Service</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Technical Implementation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../ESPD-EDM/3.3.0/technical/index.html">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../espd-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../espd-home/external.html">External Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../espd-home/supporting.html">Supporting and related projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../espd-home/laws.html">Laws and Directives</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Open User Community Documents</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Upcoming Meeting Dates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="monthly.html">Regular Meetings</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="annual.html">Annual Seminars</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title dim">Select a product/version</span>
+          <span class="version">&nbsp;</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../EPO/latest/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../ESPD-EDM/latest/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../M2O/latest/index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<div class="paragraph">
+<p>TED ESPD Annual Seminar Report</p>
+</div>
+<div class="paragraph">
+<p>Publications Office – ESPD EDM</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 46%;">
+<col style="width: 54%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Seminar Date/Time:</th>
+<th class="tableblock halign-left valign-top">2023-11-30, 9.30 - 12.30</th>
+</tr>
+</thead>
+</table>
+<div class="paragraph">
+<p>1. Summary of Seminar Objectives</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Present the ESPD-EDM evolution during 2023</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Present the implementation of version 3 carried out by interproc
+consortium</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Show the evolution of the Procurement Ontology and eCertis</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Introduce next steps, in particular the candidate ESPD-EDM release
+scheduled for Q2 2024</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>2. Seminar Agenda</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Introduction</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>ESPD-EDM v3 – from Q4 2022 to Q3 2023</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>ESPD-EDM v3.3.0 implementation</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>ESPD-EDM v4.0.0 – 2024</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>eProcurement Ontology eAccess – ESPD Request</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>What&#8217;s up, eCertis? An Outlook</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Questions and answers (Q&amp;A)</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>3. Seminar Report</p>
+</div>
+<div class="paragraph">
+<p>3.1. Introduction</p>
+</div>
+<div class="paragraph">
+<p>The main milestones since December 2022 were presented. These steps
+cover three minor versions of the ESPD-EDM (v3.1.0, v3.2.0, v3.3.0), as
+well as the candidate mayor (v4.0.0-rc) that is planned to be released
+in the second quarter of 2024.</p>
+</div>
+<div class="paragraph">
+<p>Updated statistics (form mid-2023) about the versions of the ESPD-EDM
+used across Europe are presented.</p>
+</div>
+<div class="paragraph">
+<p>A summary of the involvement and participation of the Open User
+Community through both the Open User Community meetings and the GitHub
+was provided.</p>
+</div>
+<div class="paragraph">
+<p>3.2. ESPD-EDM v3 – from Q4 2022 to Q3 2023</p>
+</div>
+<div class="paragraph">
+<p>The main updates included in the minor releases of the ESPD-EDM (v3.1.0
+– December 2022, v3.2.0 – May 2023 and v3.3.0 – July 2023) were briefly
+presented together with the related GitHub issues:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Occupation code list (ESCO):</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The current technical code list is replaced by
+the https://op.europa.eu/en/web/eu-vocabularies/dataset/-/resource?uri=http://publications.europa.eu/resource/dataset/occupation[<span class="underline">Occupation
+code list</span>] published in EU Vocabularies (20220615-0) with the updated
+values from ESCO
+(<a href="https://esco.ec.europa.eu/" class="bare">https://esco.ec.europa.eu/</a><span class="[.underline">Multilingualclassification of
+European Skills&#44; Competences&#44; Qualifications and Occupations</span>])</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The ESPD-EDM v3.1.0 includes the gc generated and published on June 2022
+by EU Vocabularies and maintains the metadata on the repository; the
+validation rules have been updated accordingly</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Removal of the option “Other occupations” from the data structure and
+documentation, since this code list does not include the code "0000.0“ -
+other occupations, which was a customisation in the technical code list</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Corrections in code lists:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Data Type: date format in code list Criterion</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Financial ratio type: inconsistency between the language label and the
+actual language</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Corrections in the data structure:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Data misplacement in several lines in Criteria 35, 52 and 53</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Incorrect or missing cardinalities</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Incorrect use of the UUID</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>New requirement within a requirement group to show the number of fiscal
+years to be covered and the threshold</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Schematron rules</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Incorrect validation related to the ProfileID version, rule deletion</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>SubCriterion</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Documentation update to show how it should be used</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Short Tag Name and Implicit Numbering</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Documentation update and new section added with two figures</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>ESPD Test Cases Mapping Documentation:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>For ESPD-EDM v2, the document “ESPD Test Cases Mapping” was provided
+with detailed information regarding business rules</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>In <a href="https://github.com/OP-TED/ESPD-EDM/issues/331"><span class="underline">GitHub
+issue #331</span></a> it was reported that this document was a helpful tool for
+technical implementation (as it contained detailesd information
+regarding business rules) and was requested a similar document for v3</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>A simplified version of the ESPD Test Cases Mapping Documentation was
+elaborated and provided in Annex IV in the Technical Handbook for
+ESPD-EDM v3.1.0. The link to the
+<a href="https://docs.ted.europa.eu/ESPD-EDM/latest/xml_technical_handbook.html#business-rules-guide">Annex
+IV</a> Businnes Rules Guide was provided</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Corrections to the data structure:</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Typos</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>UUDs</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Update of mockups</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Update of cardinalities</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Removal of CustomizationID and ProfileID elements from ESPD artefacts</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Re-introduction of the element ProcedureCode in the UML conceptual mode</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Correction of date and time formats</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Correction of several listId values and code lists updates</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Percentage translation in ESPD XML files</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The link to the
+lats https://github.com/OP-TED/ESPD-EDM/releases/tag/v3.3.0[<span class="underline">release
+tag</span>] which includes all changes and to the
+<a href="https://docs.ted.europa.eu/ESPD-EDM/3.3.0/index.html">documentation</a> were
+provided.</p>
+</div>
+<div class="paragraph">
+<p>3.3. ESPD-EDM v3.3.0 implementation – Interproc consortium</p>
+</div>
+<div class="paragraph">
+<p>Interproc consortium, started the implementation of the ESPD-EDM version
+3.3.0 during 2023. The consortium has created several artifacts and
+supported the implementation of the ESPD in several systems. Interproc
+has been going during this year through the whole process of eTendering,
+not only the ESPD implementation and they have been concertrated into
+adapting to and implementing the eForms.</p>
+</div>
+<div class="paragraph">
+<p>The consortium colleagues kindly shared their implementation of version
+3 and its subversions in their ESPD platfoms during a live presentation
+with the Open User Community durin this Annual seminar. The demo
+includes the creation of a Request and of a Response using two diferent
+ESPD services, one by the contracting authority and a second one by the
+economic operator.</p>
+</div>
+<div class="paragraph">
+<p>Also some expectations of what version 4.0.0 should cover were provided:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Move on with the xml path for the UUID logic to allow reuse of ESPD
+responses between tenders without mixin answers. This has been discussed
+during 2023 with the OUC</p>
+</li>
+<li>
+<p>Support of distinct requirements under the same criteria when using
+lots.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In paralell the pending enhancements on eCertis side should be available
+to support multiple purely national exclusion grounds.</p>
+</div>
+<div class="paragraph">
+<p>For a complete overview the
+<a href="https://www.youtube-nocookie.com/embed/gox6hMfZZXU">video</a> can be watched
+(chapter 1:00:29)</p>
+</div>
+<div class="paragraph">
+<p>It is under consideration and discussion to publish the code as open
+source.</p>
+</div>
+<div class="paragraph">
+<p>3.4. ESPD-EDM v4.0.0 (2024)</p>
+</div>
+<div class="paragraph">
+<p>After the break the main updates that will be included in the major
+release v4.0.0, scheduled for Q2 2024, were presented, together with the
+related GitHub issues:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Different requirements for different lots:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Correction of an issue so different requirements can be set for
+different lots within a selection criterion (the current technical
+implementation in ESPD-EDM v3 does not allow multiple and different
+requirement per lot)</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Purely National Exclusion Grounds:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Creation of an xml file test that includes question subgroup with
+multiple cardinality "1..n" replicated twice, allowing to provide more
+than one Purely National Exclusion Ground criterion</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Update of the Data Structure, aimed at a more natural (semantic) way of
+providing evidences, the whole Criteria Excel file (not only Purely
+National Exclusion Grounds)</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Update of the current UUID for repeatable subgroups:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Update excel criterion files and generation of xml samples files</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>XSLT updates: transformation from Excel to XML ESPD</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Corrections in code lists:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Revision of description texts to ensure consistency between eCertis and
+the Taxonomy</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Correction of a duplicated code in the occupations codelist and other
+possible ESCO updates</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Validation rules:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Create validation rules for mandatory fields</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Create validation rules for all ESPD code lists</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>UUIDs replacement by XML Path Like ID as discussed during 2023:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The <strong>problem statement</strong>: Currently, questions in criteria need to be
+instantiated for each procurement procedure instead of reusing criteria
+from earlier procurement procedures</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The <strong>business requirements</strong>:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Ensure the connection for each criterion between ESPD Request and
+Response</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Ensure reusability of criteria both in the Request and the Response
+across procurement procedures</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Facilitate traceability and The Once-Only Principle (TOOP).</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The <strong>proposed solution</strong>: Reduce the randomness on the ESPD by no longer
+using dynamic UUIDs and defining fixed identifiers for requirements and
+questions (identifiers are already fixed for criteria):</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>UUIDs will be replaced by a pre-defined short tag name for each element
+and a numbering according to the position within the tree structure,
+providing a path to a target criterion element. The new pattern focuses
+on the alignment of <strong>tags, syntax readability and indexing</strong> separation:</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><span class="image unresolved"><img src="vertopal_e2fa55fb00e54dcbaed3478b1b383650/media/image1.png" alt="Interfaz de usuario gráfica" width="305" height="49"></span></p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The mapping between the criterion element short tag name proposed, the
+criterion element, and the UBL element, was provided. Several examples
+for the management of questions and the management of requirements were
+provided for a better understanding.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Only the UUID of the criteria, which is a fixed UUID, will be preserved
+as a link to eCertis, while UUIDs for question groups and subgroups,
+requirements and questions, will be replaced.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The VBA Scripts used for the generation the xml path like ids and XSLT
+updates were presented.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The link to resulting criterion files is provided
+<a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0-uuid/criterion" class="bare">https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0-uuid/criterion</a></p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>A summary of the implications of implementing this solution was
+provided, as well as the main expected benefits:</p>
+</div>
+</blockquote>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The link between an ESPD Request and its related ESPD Responses (one or
+several) will be consistent</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Same structures will use the same identifier</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>There will no ambiguity when addressing structures represented by the
+same identifier</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>It will be possible to reuse the same data structure in different
+procedures</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>It will be possible to easily read and mapp ESPD Responses</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>It will be possible to reuse content of the ESPD when requirements are
+compatible</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is mentioned that the new mayor release 4.0.0 will be a candidate
+release for which users can provide comments during a period of time to
+be aggreed before it becomes a final release. Some users requested a
+comment’s period of six months, this will discussed during 2024.</p>
+</div>
+<div class="paragraph">
+<p><strong>Questions and answers</strong></p>
+</div>
+<div class="paragraph">
+<p>Q: Will we have a pilot implementation for v 4? One of the main issues
+during v3 is that there is a template standard but there is no refernece
+implementation since v 1 wg-hre users can see how the implementation
+should work and to confirm that the standard really works.</p>
+</div>
+<div class="paragraph">
+<p>A: For the time being there is no room for the ESPD Team to implement a
+pilot service. GROW and the Publications Office will check the
+possibilities available to avoid that users start development for v4
+from scratch.</p>
+</div>
+<div class="paragraph">
+<p>3.5. eProcurement Ontology eAccess – ESPD Request</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The eProcurement Ontology (ePO) and the ESPD-EDM teams meet every
+Tuesday with other users starting at 14:30 to create the eAccess model
+following the ESPD.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The main goal of the Ontology is explained: to provide a commonn
+understanding , which enables the correct input of data in procurement
+systems. the understanding of exchaged data, data quality.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The diagrams created during the last months are presented. The process
+includes the analisys of the already existing concepts in both, Ontology
+and ESPD models.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The Request can refer to a Notice and it also concerns a Procedure and
+from there the diagrams go the the Buyer and the ServiceProvider. It
+also can go to the Econoic Operator but its diagrams will be included in
+teh Request part (eSubmission)</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The Legislation diagrams are also presented: Legislation is related to a
+Criterion. The ELI implementation has been chosen for the concepts of
+the procurement domain. The elements needed for the ESPD Request are
+presented</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The ePO alignment to Core Criterion and Core Evidence Vocabulary (CCCEV)
+is presented. This vocabulary has already been implemented in the past
+in the ePO Core module, these concepts will be attcahed to the modules
+that concern the ESPD</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>The Requirements and Questions diagrams for eAccess are presented.</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>ESPD implementers were invited to contact the ePO or ESPD OP teams to
+clarify some questions related to the need of using certain elements.</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>3.6. What’s up, eCertis? An Outlook</p>
+</div>
+<div class="paragraph">
+<p>The release planning for eCertis was presented:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>2024.01 – planned for February 2024</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>2024.02 – planned for November 2024</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>2024.03 – planned for December 2024 (mantenance release)</p>
+</div>
+</blockquote>
+</div>
+</li>
+<li>
+<p></p>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>During the summer ecertis will get in touch with the ecertis com to see
+how the implementation could go and how to better aligned to eForms and
+espd</p>
+</div>
+</blockquote>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The way of connecting eCertis, ESPD, eForms (2023) and national systems
+was presented. Currently they live somehow on their on and the goal is
+to connect them. The artifact to connect these differnet elements and
+tools is already available in EU-Vocabularies: Criterion code list.</p>
+</div>
+<div class="paragraph">
+<p>A high level view of how the four elements (eCertis, ESPD, eForms and
+national systems) can work together is shown in relation to the stages
+Planning, Competition and Result.</p>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+<script src="../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>
