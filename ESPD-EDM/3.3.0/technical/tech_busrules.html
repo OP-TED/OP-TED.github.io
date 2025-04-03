@@ -9905,6 +9905,29 @@ RELIES_ON_OTHER_CAPACITIES</em></p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">XSD Business Rule Schematron</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Information about all subcontractors MUST be provided</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Severity: ERROR</p>
+</div>
+<div class="paragraph">
+<p>At least one /cac:TenderingCriterionResponse<br>
+/cbc:ValidatedCriterionPropertyID must match<br>
+an IDs criterion within /cac:TenderingCriterion/cbc:ID<br>
+which /cac:TenderingCriterion/cbc:CriterionTypeCode is<br>
+<em>CRITERION.OTHER.EO_DATA.<br>
+SUBCONTRACTS_WITH_THIRD_PARTIES</em></p>
+</div>
+<div class="paragraph">
+<p>If the response cac:TenderingCriterionResponse<br>
+/cac:ResponseValue/cbc:ResponseIndicator is true;<br>
+each of the criterion subgroups identified within:<br>
+/cac:TenderingCriterion /cac:TenderingCriterionPropertyGroup<br>
+/cac:SubsidiaryTenderingCriterionPropertyGroup/ + cac:TenderingCriterionProperty, must be answered</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -11307,6 +11330,47 @@ Response</em></p>
 </ol>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Groups codified as ONFALSE must be processed if response is False</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="paragraph">
+<p>Severity: ERROR</p>
+</div>
+</li>
+<li>
+<p></p>
+<div class="paragraph">
+<p>If /cac:TenderingCriterionResponse /cac:ResponseValue /cbc:ResponseIndicator = false and /cac:TenderingCriterionResponse /cbc:ValidatedCriterionPropertyID matches one of the IDs within /cac:TenderingCriterionGroupPropertyGroup /cbc:ID, and its /cbc:PropertyGroupTypeCode = ONFALSE</p>
+</div>
+<div class="paragraph">
+<p>Then, its /cac: SubsidiaryTenderingCriterionPropertyGroup /cbc:ID must exist within /cac:TenderingCriterionResponse /cbc:ValidatedCriterionPropertyID</p>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p></p>
+<div class="paragraph">
+<p>Severity: ERROR</p>
+</div>
+</li>
+<li>
+<p></p>
+<div class="paragraph">
+<p>If /cac:TenderingCriterionResponse /cac:ResponseValue /cbc:ResponseIndicator = true and /cac:TenderingCriterionResponse /cbc:ValidatedCriterionPropertyID matches one of the IDs within /cac:TenderingCriterionGroupPropertyGroup /cbc:ID, and its /cbc:PropertyGroupTypeCode = ONFALSE</p>
+</div>
+<div class="paragraph">
+<p>Then, its /cac: SubsidiaryTenderingCriterionPropertyGroup /cbc:ID cannot exist within /cac:TenderingCriterionResponse /cbc:ValidatedCriterionPropertyID</p>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
