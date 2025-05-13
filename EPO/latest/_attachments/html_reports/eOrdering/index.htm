@@ -5,58 +5,62 @@
 <title>Ordering</title>
 <link href="css/ea.css" rel="stylesheet" type="text/css" />
 <script>
-const guid_look = new Map([['B2290C27-263F-4B18-8490-9BE57A4A1486', 'EA1/EA1.htm'],
-['151E333E-CEC7-4C28-B222-35A41469D7C5', 'EA1/EA2.htm'],
-['4CD6F72F-C895-4F45-A897-6A3BE5805EC3', 'EA1/EA3.htm'],
-['BF2913A1-0BAC-4346-887E-3D02A662D444', 'EA1/EA4.htm'],
-['2692AC99-7B59-4A2A-9D1B-6ECD3CC99499', 'EA1/EA5.htm'],
-['E0599226-EFA4-4C8A-96BB-7D8056C06CA6', 'EA1/EA6.htm'],
-['1AD77EB4-5340-44EE-A64D-3BE812813AE5', 'EA1/EA7.htm'],
-['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1/EA8.htm'],
-['08CC4DDD-61A7-4AC7-8591-C19830AD66DB', 'EA1/EA1/EA10.htm'],
-['C451B2CC-DD71-461F-8B8E-B08F284A9D7E', 'EA1/EA1/EA12.htm'],
-['55A5D1C5-EBDB-4CE5-AF0C-4249812776D9', 'EA1/EA1/EA14.htm'],
-['000A8819-EDF3-4CB3-9B22-BB629B0F2EBD', 'EA1/EA1/EA16.htm'],
-['E459BBE2-E929-4CB0-B4F7-6ABD198FEF62', 'EA1/EA1/EA18.htm'],
-['10A1F3B5-0417-4962-B616-A04C2DECC0B9', 'EA1/EA1/EA20.htm'],
-['FC3EFF3F-9A22-4A45-83B7-8A32BC22CFBE', 'EA1/EA1/EA22.htm'],
-['04F29F40-7172-4127-9D37-0EBF552EA455', 'EA1/EA1/EA24.htm'],
-['E0599226-EFA4-4C8A-96BB-7D8056C06CA6', 'EA1/EA1/EA26.htm'],
-['1AD77EB4-5340-44EE-A64D-3BE812813AE5', 'EA1/EA2/EA27.htm'],
-['DB9BDB18-C14B-4262-AAE5-65D2B64C35E1', 'EA1/EA2/EA28.htm'],
-['78B51DD4-EC1F-4397-98C3-93AE6677F8CA', 'EA1/EA2/EA29.htm'],
-['CCACD9C3-0F25-4839-844D-DCAF96861695', 'EA1/EA2/EA30.htm'],
-['1D470B74-66C6-4E95-82A9-28C6309EBB94', 'EA1/EA2/EA31.htm'],
-['EA36CA1F-5963-4FF6-86BE-1ACC9D34E843', 'EA1/EA2/EA32.htm'],
-['EC6C81E1-D9F9-49C8-A889-D9AA2A5B456A', 'EA1/EA2/EA33.htm'],
-['E79A87A0-F565-4E88-B82D-D1167BEF6A0C', 'EA1/EA2/EA34.htm'],
-['D0A4903C-A7BD-44AC-960F-C4C98C40706A', 'EA1/EA2/EA35.htm'],
-['B5D7CA6E-3FB4-423E-B50E-A7C6B28E280E', 'EA1/EA2/EA36.htm'],
-['D862AE4B-9219-4F8E-9EF6-4DA5A1D61809', 'EA1/EA2/EA37.htm'],
-['90D05E22-266C-43A6-B8B3-4DB83EC94A01', 'EA1/EA2/EA38.htm'],
-['BE2F0699-0589-4CBC-B1E8-3925D69F40D4', 'EA1/EA2/EA39.htm'],
-['44147FFC-CE0D-4CB8-94F5-0B4C7BAF6127', 'EA2/EA40.htm'],
-['D7E32546-10E8-48F1-BCFD-D9808F73B52B', 'EA2/EA41.htm'],
-['D950EE07-7E67-4747-8F72-468DEC9BC99F', 'EA2/EA42.htm'],
-['5C58823B-0930-4554-BE02-BE68921D16F6', 'EA2/EA43.htm'],
-['EFF61A4B-0031-4BE2-B52D-777F17DEC952', 'EA2/EA44.htm'],
-['201DD477-AEE9-4497-8193-049F4E8303A5', 'EA2/EA1/EA45.htm'],
-['D950EE07-7E67-4747-8F72-468DEC9BC99F', 'EA2/EA1/EA47.htm'],
-['5C58823B-0930-4554-BE02-BE68921D16F6', 'EA2/EA2/EA48.htm'],
-['96EED922-55C7-4A0C-BE58-68CD6D875556', 'EA2/EA2/EA49.htm'],
-['109E936B-4B55-43D3-98A8-802C2264F5DB', 'EA2/EA2/EA50.htm'],
-['F655321A-F106-46F3-933E-53ADDFD9113B', 'EA2/EA2/EA51.htm'],
-['EFF61A4B-0031-4BE2-B52D-777F17DEC952', 'EA2/EA3/EA52.htm'],
-['1E0B8798-161F-491D-ADC5-9FD206CC6125', 'EA2/EA3/EA53.htm'],
-['53A61934-F119-4692-8CC3-BFE2B530A2C4', 'EA3/EA54.htm'],
-['DC89455D-7112-440B-86BC-EA47E188896D', 'EA3/EA56.htm'],
-['D42FB6E9-F89B-4355-977D-7F730AC71F80', 'EA3/EA57.htm'],
-['BED37B79-C2FD-4AE2-9D60-1BBC5BCC1595', 'EA3/EA58.htm'],
-['CC6F873E-58BA-4341-AB3C-08A88C45196D', 'EA3/EA59.htm'],
-['C1426210-D360-4E20-B65B-C5CA2EBA5BD6', 'EA3/EA60.htm'],
-['036B7029-80AD-4AC5-A37D-1C3DB65E379A', 'EA3/EA61.htm'],
-['DB4F942D-139A-410A-A71D-05C954F91125', 'EA3/EA62.htm'],
-['DD30645A-3A1A-40AB-BAE1-A2CE1366635F', 'EA3/EA63.htm'],
+const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm'],
+['08CC4DDD-61A7-4AC7-8591-C19830AD66DB', 'EA1/EA3.htm'],
+['C451B2CC-DD71-461F-8B8E-B08F284A9D7E', 'EA1/EA5.htm'],
+['55A5D1C5-EBDB-4CE5-AF0C-4249812776D9', 'EA1/EA7.htm'],
+['000A8819-EDF3-4CB3-9B22-BB629B0F2EBD', 'EA1/EA9.htm'],
+['E459BBE2-E929-4CB0-B4F7-6ABD198FEF62', 'EA1/EA11.htm'],
+['10A1F3B5-0417-4962-B616-A04C2DECC0B9', 'EA1/EA13.htm'],
+['04F29F40-7172-4127-9D37-0EBF552EA455', 'EA1/EA15.htm'],
+['B2290C27-263F-4B18-8490-9BE57A4A1486', 'EA1/EA17.htm'],
+['7A59C8C8-335A-406A-9039-CBF37C8ED96B', 'EA1/EA18.htm'],
+['151E333E-CEC7-4C28-B222-35A41469D7C5', 'EA1/EA19.htm'],
+['4CD6F72F-C895-4F45-A897-6A3BE5805EC3', 'EA1/EA20.htm'],
+['BF2913A1-0BAC-4346-887E-3D02A662D444', 'EA1/EA21.htm'],
+['DB9BDB18-C14B-4262-AAE5-65D2B64C35E1', 'EA1/EA22.htm'],
+['78B51DD4-EC1F-4397-98C3-93AE6677F8CA', 'EA1/EA23.htm'],
+['CCACD9C3-0F25-4839-844D-DCAF96861695', 'EA1/EA24.htm'],
+['1D470B74-66C6-4E95-82A9-28C6309EBB94', 'EA1/EA25.htm'],
+['EA36CA1F-5963-4FF6-86BE-1ACC9D34E843', 'EA1/EA26.htm'],
+['EC6C81E1-D9F9-49C8-A889-D9AA2A5B456A', 'EA1/EA27.htm'],
+['E79A87A0-F565-4E88-B82D-D1167BEF6A0C', 'EA1/EA28.htm'],
+['D0A4903C-A7BD-44AC-960F-C4C98C40706A', 'EA1/EA29.htm'],
+['B5D7CA6E-3FB4-423E-B50E-A7C6B28E280E', 'EA1/EA30.htm'],
+['D862AE4B-9219-4F8E-9EF6-4DA5A1D61809', 'EA1/EA31.htm'],
+['90D05E22-266C-43A6-B8B3-4DB83EC94A01', 'EA1/EA32.htm'],
+['BE2F0699-0589-4CBC-B1E8-3925D69F40D4', 'EA1/EA33.htm'],
+['201DD477-AEE9-4497-8193-049F4E8303A5', 'EA2/EA34.htm'],
+['44147FFC-CE0D-4CB8-94F5-0B4C7BAF6127', 'EA2/EA36.htm'],
+['D7E32546-10E8-48F1-BCFD-D9808F73B52B', 'EA2/EA37.htm'],
+['1E0B8798-161F-491D-ADC5-9FD206CC6125', 'EA2/EA38.htm'],
+['96EED922-55C7-4A0C-BE58-68CD6D875556', 'EA2/EA39.htm'],
+['109E936B-4B55-43D3-98A8-802C2264F5DB', 'EA2/EA40.htm'],
+['F655321A-F106-46F3-933E-53ADDFD9113B', 'EA2/EA41.htm'],
+['AC02C5CA-F87B-47E8-BE23-B2EF93286DE8', 'EA3/EA42.htm'],
+['F7BBFB1F-68AE-4799-A669-02E0D563176C', 'EA3/EA44.htm'],
+['6F547967-C131-4722-9A48-A10F5BE40024', 'EA3/EA45.htm'],
+['1765BB54-A159-47B8-8832-38C5632A1FF6', 'EA3/EA46.htm'],
+['0937E03F-449B-4E90-A877-CDB2F83BBC32', 'EA3/EA47.htm'],
+['FA85398E-708F-4F47-9B61-F425A0C4038C', 'EA3/EA48.htm'],
+['4FD485A2-6523-427B-8591-A3FF56DB2A2A', 'EA4/EA49.htm'],
+['D9FB2587-6937-4DED-9876-B7CE30638814', 'EA4/EA51.htm'],
+['C8CC878A-923D-4F45-92F4-1467F288CD1A', 'EA4/EA52.htm'],
+['CE88E590-0696-4C5D-8DC2-866AC3920872', 'EA4/EA53.htm'],
+['84B561D3-3378-4987-9427-05A697BEBD2B', 'EA4/EA54.htm'],
+['0622C27F-CB25-4AD8-8F0C-B6D5450B6E09', 'EA5/EA55.htm'],
+['3A1409F2-EB30-4AE8-8F97-5251F3EB2D9D', 'EA5/EA57.htm'],
+['9632654E-1F98-4387-93C1-B910912D8D8A', 'EA5/EA58.htm'],
+['0F9A844A-9048-4A5E-A83B-E49EC1F7BD91', 'EA5/EA59.htm'],
+['53A61934-F119-4692-8CC3-BFE2B530A2C4', 'EA6/EA60.htm'],
+['DC89455D-7112-440B-86BC-EA47E188896D', 'EA6/EA62.htm'],
+['D42FB6E9-F89B-4355-977D-7F730AC71F80', 'EA6/EA63.htm'],
+['BED37B79-C2FD-4AE2-9D60-1BBC5BCC1595', 'EA6/EA64.htm'],
+['CC6F873E-58BA-4341-AB3C-08A88C45196D', 'EA6/EA65.htm'],
+['C1426210-D360-4E20-B65B-C5CA2EBA5BD6', 'EA6/EA66.htm'],
+['036B7029-80AD-4AC5-A37D-1C3DB65E379A', 'EA6/EA67.htm'],
+['DB4F942D-139A-410A-A71D-05C954F91125', 'EA6/EA68.htm'],
+['DD30645A-3A1A-40AB-BAE1-A2CE1366635F', 'EA6/EA69.htm'],
 ]);
 
 		function switchProjectProperties()
@@ -161,9 +165,12 @@ const guid_look = new Map([['B2290C27-263F-4B18-8490-9BE57A4A1486', 'EA1/EA1.htm
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA1.htm">order only</a></li>
-<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA40.htm">order response</a></li>
-<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA3/EA56.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA4/EA51.htm">order cancellation</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA5/EA57.htm">order agreement</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA3/EA44.htm">order change</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA6/EA62.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA36.htm">order response</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA17.htm">order only</a></li>
 </ul>
 
 					</td>
@@ -174,20 +181,20 @@ const guid_look = new Map([['B2290C27-263F-4B18-8490-9BE57A4A1486', 'EA1/EA1.htm
 						</div>
 						<div class="PageBody">
 	<div class="diagram_image"> 
-<img src="./EARoot/EA1/EA1/EA9.png" usemap="#EA9" border="0" />
+<img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
 
-<MAP NAME="EA9">
-<area shape="rect" coords="1825,1286,1996,1356" href="./EARoot/EA1/EA2/EA32.htm" target="_self">
-<area shape="rect" coords="10,368,326,452" href="./EARoot/EA1/EA5.htm" target="_self">
-<area shape="rect" coords="1176,1047,1314,1126" href="./EARoot/EA1/EA2/EA37.htm" target="_self">
-<area shape="rect" coords="1187,920,1304,985" href="./EARoot/EA1/EA2/EA36.htm" target="_self">
-<area shape="rect" coords="555,806,729,851" href="./EARoot/EA1/EA2/EA38.htm" target="_self">
-<area shape="rect" coords="1356,1256,1582,1384" href="./EARoot/EA1/EA2/EA33.htm" target="_self">
-<area shape="rect" coords="863,822,1102,949" href="./EARoot/EA1/EA2/EA34.htm" target="_self">
-<area shape="rect" coords="1803,358,2103,428" href="./EARoot/EA1/EA2/EA28.htm" target="_self">
-<area shape="rect" coords="1380,842,1564,929" href="./EARoot/EA1/EA2/EA35.htm" target="_self">
-<area shape="rect" coords="1118,1419,1223,1462" href="./EARoot/EA1/EA2/EA30.htm" target="_self">
-<area shape="rect" coords="1361,463,1503,517" href="./EARoot/EA1/EA2/EA29.htm" target="_self">
+<MAP NAME="EA2">
+<area shape="rect" coords="265,888,355,929" href="./EARoot/EA1/EA18.htm" target="_self">
+<area shape="rect" coords="1487,1195,1751,1283" href="./EARoot/EA1/EA26.htm" target="_self">
+<area shape="rect" coords="837,973,975,1052" href="./EARoot/EA1/EA31.htm" target="_self">
+<area shape="rect" coords="848,846,965,911" href="./EARoot/EA1/EA30.htm" target="_self">
+<area shape="rect" coords="216,732,390,777" href="./EARoot/EA1/EA32.htm" target="_self">
+<area shape="rect" coords="998,1178,1262,1299" href="./EARoot/EA1/EA27.htm" target="_self">
+<area shape="rect" coords="524,748,763,875" href="./EARoot/EA1/EA28.htm" target="_self">
+<area shape="rect" coords="1463,300,1763,398" href="./EARoot/EA1/EA22.htm" target="_self">
+<area shape="rect" coords="1019,769,1241,856" href="./EARoot/EA1/EA29.htm" target="_self">
+<area shape="rect" coords="743,1269,848,1312" href="./EARoot/EA1/EA24.htm" target="_self">
+<area shape="rect" coords="1019,471,1161,525" href="./EARoot/EA1/EA23.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">order : Class diagram</div>
@@ -198,7 +205,7 @@ const guid_look = new Map([['B2290C27-263F-4B18-8490-9BE57A4A1486', 'EA1/EA1.htm
 		</tr>
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">11/11/2024 1:14:52 PM</td>
+			<td width="85%" class="ObjectDetailsValue">5/1/2025 11:26:08 AM</td>
 		</tr>
 		<tr style="padding-top: 10px;">
 			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>

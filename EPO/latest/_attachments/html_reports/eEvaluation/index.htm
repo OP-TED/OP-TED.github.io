@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Evaluation</title>
+<link href="css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+const guid_look = new Map([['E9EB208B-57B0-4D54-A2C7-C5A17C830188', 'EA1/EA1.htm'],
+['66E9B771-3336-44B2-902D-1065B2F37BE6', 'EA1/EA3.htm'],
+['A74D076D-5223-4C27-BBAC-DD734ACC95A3', 'EA1/EA5.htm'],
+['65BA4619-ABD0-4102-8053-E50366874082', 'EA1/EA7.htm'],
+['7FEE04C1-1354-4B3B-AE28-5A33349587DA', 'EA1/EA9.htm'],
+['F5873263-EB75-4ADF-A5B2-7554868CAF02', 'EA1/EA10.htm'],
+['C342B56D-F8A8-4668-8F8B-22D187B05872', 'EA1/EA11.htm'],
+['E5655DF5-3810-4B1C-AB76-11B662015729', 'EA1/EA12.htm'],
+['A46ABE23-E66D-4C7A-A98B-11A90F5EC52A', 'EA1/EA13.htm'],
+['E50861B2-AB0C-4E4F-AB69-A66F970EE2DA', 'EA1/EA14.htm'],
+['F11BD59C-AA64-47F2-89FC-FCAA78104C30', 'EA1/EA15.htm'],
+['EB2AEA70-E35A-49C0-8E73-E6EFF63C42D5', 'EA1/EA16.htm'],
+['2B587D34-E88E-45E6-870D-031A4121B4BC', 'EA1/EA17.htm'],
+['84875E44-862C-2DC7-BBFA-8032FA3CFE07', 'EA2/EA18.htm'],
+['B942C2EA-1053-3C7F-97E5-E77035D8D889', 'EA2/EA20.htm'],
+['878342E1-045A-B156-B66D-AB5C01BC1C6A', 'EA2/EA21.htm'],
+['B2EE43D2-4C02-66C8-92F9-030FD2EFE92E', 'EA2/EA22.htm'],
+['BE699DA1-3520-63BD-B990-93D5A9D43A69', 'EA2/EA23.htm'],
+['886D61CE-716E-B9F4-A7A7-01532265D8D2', 'EA2/EA24.htm'],
+['8D07F9B6-5E07-2116-A251-888D22CC5C24', 'EA2/EA25.htm'],
+['9C6DC045-D124-3765-A015-E004182F0955', 'EA2/EA26.htm'],
+['BD8BACB9-5D3A-83DC-BBF5-0DA8B835C187', 'EA2/EA27.htm'],
+]);
+
+		function switchProjectProperties()
+		{
+			if (document.getElementById("proj00").style.display == "none")
+			{
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+		}
+
+		function switchAdvancedProperties()
+		{
+
+			if (document.getElementById("adv00").style.display == "none")
+			{
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+
+		function initPage()
+        {
+			const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const guidlink = urlParams.get('guid');
+
+            if (guidlink != null)
+            {
+                var link = guidlink.toUpperCase();
+                var pageredir = guid_look.get(link);
+
+                if (pageredir != null)
+				{
+                    window.location.replace("EARoot/" + pageredir);
+                    return;
+                }
+            }
+
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++)
+			{
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Evaluation </h1>
+			<img class="header_image" src="images/ea-banner.png" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p></p>
+		</div>
+		
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA20.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA9.htm">evaluation</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell">	
+						<div class="welcome_message">
+						<h2>Welcome to your model</h2>
+						<p>To get started navigate through the model via the index on the left</p> 
+						</div>
+						<div class="PageBody">
+	<div class="diagram_image"> 
+<img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
+
+<MAP NAME="EA2">
+<area shape="rect" coords="1189,552,1304,623" href="./EARoot/EA1/EA10.htm" target="_self">
+<area shape="rect" coords="755,907,933,942" href="./EARoot/EA1/EA17.htm" target="_self">
+<area shape="rect" coords="351,907,491,942" href="./EARoot/EA1/EA16.htm" target="_self">
+<area shape="rect" coords="529,480,810,529" href="./EARoot/EA1/EA12.htm" target="_self">
+<area shape="rect" coords="1480,486,1570,521" href="./EARoot/EA1/EA13.htm" target="_self">
+<area shape="rect" coords="1024,477,1164,532" href="./EARoot/EA1/EA15.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">evaluation : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">12/23/2021 3:30:20 PM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">5/5/2025 4:17:05 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">lps</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="./images//plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{E9EB208B-57B0-4d54-A2C7-C5A17C830188}</td>
+		</tr>
+	</table>
+	
+</div>
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+</div>
+</body>
+</html>
