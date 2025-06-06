@@ -1393,10 +1393,7 @@ _&lt;!-- ... elements omitted for brevity --&gt;_
 </ul>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="_images/Contributions_criterion_data_structure.jpg" alt="Contributions' criterion data structure" width="566" height="308"></span></p>
-</div>
-<div class="paragraph">
-<p><em>Figure 8. 'Contributions' criterion data structure</em></p>
+<p>To view the an example of the data structure, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "EG-Convictions", and others.</p>
 </div>
 <div class="paragraph">
 <p>We could say that the 'data structures' represented in the spread-sheets define a kind of 'meta-language' (or 'controlled vocabulary') that helps 'map' the structure of an ESPD-EDM criterion and the UBL-2.3 criterion data structure. The table below 'maps' both vocabularies. Please compare any of the data structures provided in this document with both the UBL-2.3 XSD Schemas and the XML examples provided herein.</p>
@@ -1579,13 +1576,7 @@ _&lt;!-- ... elements omitted for brevity --&gt;_
 <p>These codes are used for a software application modules to know whether it has to process a concrete GROUP or SUBGROUP. If the objective of the module is, for example, to build dynamically the Graphic User Interface (GUI) - based on the ESPD-Request or an ESPD-Response XML instance-, then a GROUP or SUBGROUP marked as ONTRUE implies that the GROUP or SUBGROUP content is to be shown, whilst the one marked as ONFALSE needs to be hidden. GROUPS and SUBGROUPS marked as ON* imply that has to be always shown. You can see this mechanism as a way of implementing ''choices'' or ''switch/cases'' inside a Criterion Data Structure.</p>
 </div>
 <div class="paragraph">
-<p>The figure below illustrates how the ONTRUE and ONFALSE SUBGROUPS of a Criterion of type "Contributions (exclusion grounds)" relate to each of its ''closer QUESTION'' of type INDICATOR (see boxes and lines coloured in blue):</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/ONTRUE_ONFALSE_choice_control.jpg" alt="ONTRUE/ONFALSE choice control" width="557" height="230"></span></p>
-</div>
-<div class="paragraph">
-<p><em>Figure 9. GROUP and SUBGROUP control via the ONTRUE/ONFALSE codes</em></p>
+<p>The <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a> illustrates how the ONTRUE and ONFALSE SUBGROUPS of a Criterion of type "Contributions (exclusion grounds)" relate to each of its ''closer QUESTION'' of type INDICATOR. See the "element code" column.</p>
 </div>
 <div class="paragraph">
 <p>The screen-captures below illustrate how the European Commission&#8217;s ESPD Service processed the GUI for the Exclusion Criterion ''Contributions'' based on this mechanism. Note that these are examples on how the GUI is processed and its behaviour taking into account the PropertyGroupType, the actual content can be outdated:</p>
@@ -1620,13 +1611,7 @@ _&lt;!-- ... elements omitted for brevity --&gt;_
 <h2 id="_radio_button_and_check_box_controls"><a class="anchor" href="#_radio_button_and_check_box_controls"></a>Radio-Button and Check-box controls</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In version 2.1.0 a new code list named <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/BooleanGUIControlType.gc">BooleanGUIControlType</a> was added to help software application process REQUIREMENT(s) issued by the buyer when drafting ESPD documents. For the time being this need is only present in one Criterion of ESPD: 'Other economic or financial requirements' (finan-requ). The figure below shows the data structure for that Criterion:</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Use_code_list_BooleanGUIControlType.jpg" alt="Use of the code list BooleanGUIControlType" width="574" height="336"></span></p>
-</div>
-<div class="paragraph">
-<p><em>Figure 14. Use of the code list <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/BooleanGUIControlType.gc">BooleanGUIControlType</a></em></p>
+<p>The <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>, e.g., in criterion 36, demonstrates an example of the radio button class in use.</p>
 </div>
 <div class="paragraph">
 <p>Notice that:</p>
@@ -2193,13 +2178,7 @@ The source code can be copied from the code block below the callout section
 <p>In future versions, the ESPD-EDM should get rid of these codes and mechanisms that couple the eProcurement Data Model to the dynamic building-up of the Graphic User Interfaces (GUIs) or to other processing needs. One possible solution could be to separate the particular software applications needs from the business data model by means of ''annotations'' that can be linked to each data element that needs it, at integration data time (i.e. when acquiring the data; e.g. just after the reception of an eBusiness Document from another system).</p>
 </div>
 <div class="paragraph">
-<p>For this, imagine that each element of the Criteria Taxonomy data structures could contain (or be preceded by) one or more instructions addressed to the software application for one particular purpose, as illustrated in the figure below (elements starting with an <strong>@</strong> symbol):</p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Use_CAPTION.jpg" alt="Annotation with processing instructions of one Criterion Data Structures" width="583" height="316"></span></p>
-</div>
-<div class="paragraph">
-<p><em>Figure 15. Annotation with processing instructions of one Criterion Data Structures</em></p>
+<p>For this, imagine that each element of the Criteria Taxonomy data structures could contain (or be preceded by) one or more instructions addressed to the software application for one particular purpose (elements starting with an <strong>@</strong> symbol).</p>
 </div>
 </div>
 </div>
@@ -2337,16 +2316,7 @@ The source code can be copied from the code block below the callout section
 <p>The following images are illustrating the use of both "short tag name" and "numbering" on ESPD Criterion samples.</p>
 </div>
 <div class="paragraph">
-<p><span class="image"><img src="_images/Short_Tag_Name_and_Numbering_for_Criterion_C1_EG_crime-org.jpg" alt="Short Tag Name and Numbering for Criterion C1 EG crime-org" width="566" height="308"></span></p>
-</div>
-<div class="paragraph">
-<p><em>Figure 16. Short Tag Name and Numbering for Criterion C1 EG crime-org</em></p>
-</div>
-<div class="paragraph">
-<p><span class="image"><img src="_images/Short_Tag_Name_and_Numbering_for_Criterion_C32_SC_spec-year-to.jpg" alt="Short Tag Name and Numbering for Criterion C32 SC spec-year-to" width="566" height="308"></span></p>
-</div>
-<div class="paragraph">
-<p><em>Figure 17. Short Tag Name and Numbering for Criterion C32 SC spec-year-to</em></p>
+<p>Criterion 1 and 32 illustrate Short Tag Name_and_Numbering</p>
 </div>
 </div>
 </div>
