@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Invoicing</title>
+<link href="css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+const guid_look = new Map([['EEE10088-C223-461B-A805-B285A184A625', 'EA1/EA1.htm'],
+['3B4E619D-0450-4807-99D0-954BEE5E834E', 'EA1/EA3.htm'],
+['B528E476-666E-4B0B-AFF7-2AAF33C97767', 'EA1/EA5.htm'],
+['A82D85E1-D9F2-4D28-AB86-F4B343BCEB7D', 'EA1/EA7.htm'],
+['C18F1E83-B9ED-474A-8118-10C3448D34F8', 'EA1/EA9.htm'],
+['F47DCEA4-48E2-4ACA-B41C-421D570CE41D', 'EA1/EA11.htm'],
+['2B64BA6D-2881-4974-8AEE-2099B1EB359E', 'EA1/EA13.htm'],
+['AA5E4159-940D-4CC4-B630-9E091E626852', 'EA1/EA15.htm'],
+['88552016-78CC-428A-9DCF-518285F01AEB', 'EA1/EA17.htm'],
+['4262A8F2-C836-431E-93B1-11A72B7D363B', 'EA1/EA19.htm'],
+['F6DE73A8-A504-40B6-8920-6C702CB1228E', 'EA1/EA20.htm'],
+['2C4871BB-2DFB-424C-B8C0-041EEF1D803D', 'EA1/EA21.htm'],
+['3A12EBB2-25C7-4DB8-87BC-F597669AADF3', 'EA1/EA22.htm'],
+['346C4D44-A35F-47F9-8527-38068914A67D', 'EA1/EA23.htm'],
+['9B4DBA8E-59B3-4141-97A1-6AE83FE02D1C', 'EA1/EA24.htm'],
+['D35F0B1D-07E6-483B-A105-B62A84FC828A', 'EA1/EA25.htm'],
+['08C029B6-D4CA-4B3F-932A-FE0341103DDA', 'EA1/EA26.htm'],
+['666DA030-1385-4C0A-BDEA-7E543A745220', 'EA1/EA27.htm'],
+['A4229EE1-B41E-465F-8F97-80EFAD74A54D', 'EA1/EA28.htm'],
+['1CD63756-49D3-460C-8DDF-82EB3F869963', 'EA1/EA29.htm'],
+['4A472A70-BC06-4C78-BBE0-0475CA9DB28A', 'EA1/EA30.htm'],
+['CA3B8B0A-6937-4E26-99FB-D084CA7BE4B2', 'EA1/EA31.htm'],
+['6161E37F-B166-4ECF-A645-92E7667F0CC8', 'EA1/EA32.htm'],
+['D2275688-DA87-4409-B1D5-7AAEA8D7B844', 'EA1/EA33.htm'],
+['A4C45D5B-3E8F-4416-A69C-3735046D0F48', 'EA1/EA34.htm'],
+['8335C0F2-1EB0-4DCB-94E3-EFE2E0DF3118', 'EA1/EA35.htm'],
+['BE27BBA5-3E46-4B8B-96B2-9B6152688E23', 'EA1/EA36.htm'],
+['90ECE48B-7614-4EFA-B90D-F964CC48D88F', 'EA1/EA37.htm'],
+['119CC125-3338-4D92-B1AC-9656FAB69479', 'EA1/EA38.htm'],
+['08EC91F8-DB57-4285-9B0C-79300E9E4E11', 'EA2/EA39.htm'],
+['BD141F2B-B3A1-4079-99FB-B1548747E3A9', 'EA2/EA41.htm'],
+['7E687EAB-543A-41D0-8F94-00EC9DF8B207', 'EA2/EA42.htm'],
+['5E50EE4A-45CD-49B0-88C5-E6D1A1B31A48', 'EA2/EA43.htm'],
+['B011F488-70E3-4F4A-973C-8B35E69DA361', 'EA2/EA44.htm'],
+['1D7FE0CE-4B79-4C43-9264-D59F4A8A43EB', 'EA2/EA45.htm'],
+['7F47096D-17ED-4EF0-B702-8BBE941201A9', 'EA2/EA46.htm'],
+['875F3C98-F2EB-4CA2-B02D-E00B66FC5EF3', 'EA2/EA47.htm'],
+['904AAE3B-BDAD-4438-85D8-650CBD717EFA', 'EA2/EA48.htm'],
+]);
+
+		function switchProjectProperties()
+		{
+			if (document.getElementById("proj00").style.display == "none")
+			{
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+		}
+
+		function switchAdvancedProperties()
+		{
+
+			if (document.getElementById("adv00").style.display == "none")
+			{
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+
+		function initPage()
+        {
+			const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const guidlink = urlParams.get('guid');
+
+            if (guidlink != null)
+            {
+                var link = guidlink.toUpperCase();
+                var pageredir = guid_look.get(link);
+
+                if (pageredir != null)
+				{
+                    window.location.replace("EARoot/" + pageredir);
+                    return;
+                }
+            }
+
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++)
+			{
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Invoicing </h1>
+			<img class="header_image" src="images/ea-banner.png" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p></p>
+		</div>
+		
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA41.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA19.htm">invoicing</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell">	
+						<div class="welcome_message">
+						<h2>Welcome to your model</h2>
+						<p>To get started navigate through the model via the index on the left</p> 
+						</div>
+						<div class="PageBody">
+	<div class="diagram_image"> 
+<img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
+
+<MAP NAME="EA2">
+<area shape="rect" coords="889,912,1174,982" href="./EARoot/EA1/EA33.htm" target="_self">
+<area shape="rect" coords="457,717,547,776" href="./EARoot/EA1/EA22.htm" target="_self">
+<area shape="rect" coords="388,630,616,679" href="./EARoot/EA1/EA31.htm" target="_self">
+<area shape="rect" coords="18,1165,400,1223" href="./EARoot/EA1/EA21.htm" target="_self">
+<area shape="rect" coords="582,362,669,407" href="./EARoot/EA1/EA20.htm" target="_self">
+<area shape="rect" coords="621,1025,873,1095" href="./EARoot/EA1/EA28.htm" target="_self">
+<area shape="rect" coords="362,787,452,847" href="./EARoot/EA1/EA23.htm" target="_self">
+<area shape="rect" coords="604,762,889,873" href="./EARoot/EA1/EA34.htm" target="_self">
+<area shape="rect" coords="367,545,457,589" href="./EARoot/EA1/EA24.htm" target="_self">
+<area shape="rect" coords="614,519,879,615" href="./EARoot/EA1/EA29.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">invoicing : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">5/23/2024 1:49:12 PM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">5/1/2025 3:24:42 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">andreea</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="./images//plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{EEE10088-C223-461b-A805-B285A184A625}</td>
+		</tr>
+	</table>
+	
+</div>
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+</div>
+</body>
+</html>

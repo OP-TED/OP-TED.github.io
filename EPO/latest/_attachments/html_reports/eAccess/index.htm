@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Access</title>
+<link href="css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+const guid_look = new Map([['398308FF-9B97-44DA-AA6D-8D59A066CA4A', 'EA1/EA1.htm'],
+['4EFE5F0B-EC4D-4C8B-959D-BEBC0AF790D1', 'EA1/EA3.htm'],
+['0C92219A-FEEE-409C-835C-E39228FEC769', 'EA1/EA5.htm'],
+['64A4F7DE-E728-471B-B05F-6E9C608D689B', 'EA1/EA7.htm'],
+['F6DB02CC-2D4E-4A02-B1E9-538EB3E24ED2', 'EA1/EA8.htm'],
+['2DD34400-B85D-489B-967F-8B532B71DCD2', 'EA1/EA9.htm'],
+['57E0D640-269C-4419-86DA-FB2573C10969', 'EA1/EA10.htm'],
+['A6490FDD-CA64-44D2-A9E8-4030CFD2A87F', 'EA1/EA11.htm'],
+['609AC59C-F0F1-4EC2-A89D-289F17022CE9', 'EA1/EA12.htm'],
+['A8D775E4-EEB9-4502-B8A1-C1DD5D555864', 'EA1/EA13.htm'],
+['3124967E-D23F-4C3B-9B72-E02C23A08D68', 'EA1/EA14.htm'],
+['8374872A-B283-4698-9E00-72FD255BAFCB', 'EA1/EA15.htm'],
+['D7D6EB20-18A6-4B80-8B0F-73E4C1852FB7', 'EA1/EA16.htm'],
+['905EBE80-E994-48EC-B0A6-4F3CEC5EEDC0', 'EA1/EA17.htm'],
+['C22D5D37-4AD1-4D60-A579-C78C5935F277', 'EA1/EA18.htm'],
+['04D934CA-1928-476F-BE9C-C9CD1456AEBB', 'EA1/EA19.htm'],
+['FBAEFE81-BDD9-4CF1-BBB5-EC6BE02F8DBD', 'EA1/EA20.htm'],
+['E58666CF-445F-4DA3-97FA-8DD2F8F1AD20', 'EA1/EA21.htm'],
+['A83127C7-BC27-4269-962F-2ACF2FABD599', 'EA1/EA22.htm'],
+['6876A19C-66D7-48BD-AB58-21E5FB903810', 'EA1/EA23.htm'],
+['320B6227-81D6-4298-A6FF-8A52D29676FC', 'EA2/EA24.htm'],
+['EE8F598C-BD65-41BD-8B66-4ABE69744607', 'EA2/EA26.htm'],
+['99605448-E356-45E0-A3EE-584921FF6C2B', 'EA2/EA27.htm'],
+['1E91837F-A057-44B2-B212-FDA6A3666CC1', 'EA2/EA28.htm'],
+['7B20AB8F-A9D7-4C65-94F8-D9D8E7CD468E', 'EA2/EA29.htm'],
+['38E7D5E7-15E6-4EC7-B154-CBCEC47520EB', 'EA2/EA30.htm'],
+['7CB842CE-8BBF-415F-AF1E-C1062F4066E9', 'EA2/EA31.htm'],
+['64E55850-8165-4B37-A94F-BD79B9ECD6D2', 'EA2/EA32.htm'],
+['3F3B24F6-9679-4FD7-B052-F09042D782C9', 'EA2/EA33.htm'],
+]);
+
+		function switchProjectProperties()
+		{
+			if (document.getElementById("proj00").style.display == "none")
+			{
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+		}
+
+		function switchAdvancedProperties()
+		{
+
+			if (document.getElementById("adv00").style.display == "none")
+			{
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+
+		function initPage()
+        {
+			const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const guidlink = urlParams.get('guid');
+
+            if (guidlink != null)
+            {
+                var link = guidlink.toUpperCase();
+                var pageredir = guid_look.get(link);
+
+                if (pageredir != null)
+				{
+                    window.location.replace("EARoot/" + pageredir);
+                    return;
+                }
+            }
+
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++)
+			{
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+            if (document.getElementById('TableGroup') != null)
+            {
+                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+            }
+
+        }
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> Access </h1>
+			<img class="header_image" src="images/ea-banner.png" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p></p>
+		</div>
+		
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA26.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA7.htm">access</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell">	
+						<div class="welcome_message">
+						<h2>Welcome to your model</h2>
+						<p>To get started navigate through the model via the index on the left</p> 
+						</div>
+						<div class="PageBody">
+	<div class="diagram_image"> 
+<img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
+
+<MAP NAME="EA2">
+<area shape="rect" coords="266,338,381,435" href="./EARoot/EA1/EA9.htm" target="_self">
+<area shape="rect" coords="852,651,1031,709" href="./EARoot/EA1/EA8.htm" target="_self">
+<area shape="rect" coords="107,245,254,308" href="./EARoot/EA1/EA19.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">access : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">7/31/2023 5:06:57 PM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">5/1/2025 2:53:44 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">andreea</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="./images//plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{398308FF-9B97-44da-AA6D-8D59A066CA4A}</td>
+		</tr>
+	</table>
+	
+</div>
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+</div>
+</body>
+</html>
