@@ -109,23 +109,33 @@ const guid_look = new Map([['F9772628-760B-4FC2-93CE-AA8849709931', 'EA1/EA1.htm
 			}
 		}
 
+		function getAnchor() {
+			var currentUrl = document.URL,
+			urlParts   = currentUrl.split('#');
+			return (urlParts.length > 1) ? urlParts[1] : null;
+		}
+
 		function initPage()
-        {
+		{
 			const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const guidlink = urlParams.get('guid');
+			const urlParams = new URLSearchParams(queryString);
+			const guidlink = urlParams.get('guid');
 
-            if (guidlink != null)
-            {
-                var link = guidlink.toUpperCase();
-                var pageredir = guid_look.get(link);
+			if (guidlink != null)
+			{
+				var link = guidlink.toUpperCase();
+				var page = guid_look.get(link);
 
-                if (pageredir != null)
+				if (page != null)
 				{
-                    window.location.replace("EARoot/" + pageredir);
-                    return;
-                }
-            }
+					var pageredir = page;
+					const anchor = getAnchor();
+					if (anchor != null)
+						pageredir += "#" + anchor;
+					window.location.replace("EARoot/" + pageredir);
+					return;
+				}
+			}
 
 			var divs = document.getElementsByClassName("ObjectDetailsNotes");
 			for (var j = 0; j < divs.length; j++)
@@ -140,12 +150,12 @@ const guid_look = new Map([['F9772628-760B-4FC2-93CE-AA8849709931', 'EA1/EA1.htm
 				divs[j].innerHTML = tmpStr;
 			}
 
-            if (document.getElementById('TableGroup') != null)
-            {
-                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
-            }
+			if (document.getElementById('TableGroup') != null)
+			{
+				toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+			}
 
-        }
+		}
 </script>
 <style>
 
@@ -180,7 +190,7 @@ const guid_look = new Map([['F9772628-760B-4FC2-93CE-AA8849709931', 'EA1/EA1.htm
 </ul>
 
 					</td>
-					<td class="contentcell">	
+					<td class="contentcell">
 						<div class="welcome_message">
 						<h2>Welcome to your model</h2>
 						<p>To get started navigate through the model via the index on the left</p> 
@@ -190,22 +200,22 @@ const guid_look = new Map([['F9772628-760B-4FC2-93CE-AA8849709931', 'EA1/EA1.htm
 <img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
 
 <MAP NAME="EA2">
-<area shape="rect" coords="1175,671,1265,711" href="./EARoot/EA1/EA41.htm" target="_self">
-<area shape="rect" coords="280,492,559,562" href="./EARoot/EA1/EA24.htm" target="_self">
-<area shape="rect" coords="613,249,703,309" href="./EARoot/EA1/EA42.htm" target="_self">
-<area shape="rect" coords="1265,383,1511,615" href="./EARoot/EA1/EA40.htm" target="_self">
-<area shape="rect" coords="1703,469,1793,529" href="./EARoot/EA1/EA50.htm" target="_self">
-<area shape="rect" coords="940,383,1030,443" href="./EARoot/EA1/EA52.htm" target="_self">
-<area shape="rect" coords="801,383,891,443" href="./EARoot/EA1/EA53.htm" target="_self">
-<area shape="rect" coords="1343,757,1473,827" href="./EARoot/EA1/EA23.htm" target="_self">
-<area shape="rect" coords="1703,553,1793,613" href="./EARoot/EA1/EA49.htm" target="_self">
-<area shape="rect" coords="1570,675,1720,715" href="./EARoot/EA1/EA48.htm" target="_self">
-<area shape="rect" coords="140,827,255,889" href="./EARoot/EA1/EA36.htm" target="_self">
-<area shape="rect" coords="1576,213,1799,288" href="./EARoot/EA1/EA39.htm" target="_self">
-<area shape="rect" coords="391,312,559,364" href="./EARoot/EA1/EA37.htm" target="_self">
-<area shape="rect" coords="759,517,1067,641" href="./EARoot/EA1/EA38.htm" target="_self">
-<area shape="rect" coords="1338,106,1493,146" href="./EARoot/EA1/EA35.htm" target="_self">
-<area shape="rect" coords="1196,757,1326,827" href="./EARoot/EA1/EA30.htm" target="_self">
+<area shape="rect" coords="1763,1014,1898,1074" href="./EARoot/EA1/EA41.htm" target="_self">
+<area shape="rect" coords="420,746,839,851" href="./EARoot/EA1/EA24.htm" target="_self">
+<area shape="rect" coords="920,381,1055,471" href="./EARoot/EA1/EA42.htm" target="_self">
+<area shape="rect" coords="1898,582,2267,930" href="./EARoot/EA1/EA40.htm" target="_self">
+<area shape="rect" coords="2555,711,2690,801" href="./EARoot/EA1/EA50.htm" target="_self">
+<area shape="rect" coords="1410,582,1545,672" href="./EARoot/EA1/EA52.htm" target="_self">
+<area shape="rect" coords="1202,582,1337,672" href="./EARoot/EA1/EA53.htm" target="_self">
+<area shape="rect" coords="2015,1143,2210,1248" href="./EARoot/EA1/EA23.htm" target="_self">
+<area shape="rect" coords="2555,837,2690,927" href="./EARoot/EA1/EA49.htm" target="_self">
+<area shape="rect" coords="2355,1020,2580,1080" href="./EARoot/EA1/EA48.htm" target="_self">
+<area shape="rect" coords="210,1248,383,1341" href="./EARoot/EA1/EA36.htm" target="_self">
+<area shape="rect" coords="2364,327,2699,440" href="./EARoot/EA1/EA39.htm" target="_self">
+<area shape="rect" coords="587,476,839,554" href="./EARoot/EA1/EA37.htm" target="_self">
+<area shape="rect" coords="1139,783,1601,969" href="./EARoot/EA1/EA38.htm" target="_self">
+<area shape="rect" coords="2007,167,2240,227" href="./EARoot/EA1/EA35.htm" target="_self">
+<area shape="rect" coords="1794,1143,1989,1248" href="./EARoot/EA1/EA30.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">catalogue : Class diagram</div>
@@ -216,7 +226,7 @@ const guid_look = new Map([['F9772628-760B-4FC2-93CE-AA8849709931', 'EA1/EA1.htm
 		</tr>
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">5/1/2025 4:23:30 PM</td>
+			<td width="85%" class="ObjectDetailsValue">5/23/2025 4:33:36 PM</td>
 		</tr>
 		<tr style="padding-top: 10px;">
 			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>

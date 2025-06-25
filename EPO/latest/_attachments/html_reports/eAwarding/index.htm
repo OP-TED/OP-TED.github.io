@@ -58,23 +58,33 @@ const guid_look = new Map([['545522EB-D2D2-4862-A3A1-F9587F558AF4', 'EA1/EA1.htm
 			}
 		}
 
+		function getAnchor() {
+			var currentUrl = document.URL,
+			urlParts   = currentUrl.split('#');
+			return (urlParts.length > 1) ? urlParts[1] : null;
+		}
+
 		function initPage()
-        {
+		{
 			const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const guidlink = urlParams.get('guid');
+			const urlParams = new URLSearchParams(queryString);
+			const guidlink = urlParams.get('guid');
 
-            if (guidlink != null)
-            {
-                var link = guidlink.toUpperCase();
-                var pageredir = guid_look.get(link);
+			if (guidlink != null)
+			{
+				var link = guidlink.toUpperCase();
+				var page = guid_look.get(link);
 
-                if (pageredir != null)
+				if (page != null)
 				{
-                    window.location.replace("EARoot/" + pageredir);
-                    return;
-                }
-            }
+					var pageredir = page;
+					const anchor = getAnchor();
+					if (anchor != null)
+						pageredir += "#" + anchor;
+					window.location.replace("EARoot/" + pageredir);
+					return;
+				}
+			}
 
 			var divs = document.getElementsByClassName("ObjectDetailsNotes");
 			for (var j = 0; j < divs.length; j++)
@@ -89,12 +99,12 @@ const guid_look = new Map([['545522EB-D2D2-4862-A3A1-F9587F558AF4', 'EA1/EA1.htm
 				divs[j].innerHTML = tmpStr;
 			}
 
-            if (document.getElementById('TableGroup') != null)
-            {
-                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
-            }
+			if (document.getElementById('TableGroup') != null)
+			{
+				toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+			}
 
-        }
+		}
 </script>
 <style>
 
@@ -128,7 +138,7 @@ const guid_look = new Map([['545522EB-D2D2-4862-A3A1-F9587F558AF4', 'EA1/EA1.htm
 </ul>
 
 					</td>
-					<td class="contentcell">	
+					<td class="contentcell">
 						<div class="welcome_message">
 						<h2>Welcome to your model</h2>
 						<p>To get started navigate through the model via the index on the left</p> 
@@ -138,7 +148,7 @@ const guid_look = new Map([['545522EB-D2D2-4862-A3A1-F9587F558AF4', 'EA1/EA1.htm
 <img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
 
 <MAP NAME="EA2">
-<area shape="rect" coords="176,394,413,443" href="./EARoot/EA1/EA6.htm" target="_self">
+<area shape="rect" coords="378,594,734,668" href="./EARoot/EA1/EA6.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">award decision notification : Class diagram</div>
@@ -149,7 +159,7 @@ const guid_look = new Map([['545522EB-D2D2-4862-A3A1-F9587F558AF4', 'EA1/EA1.htm
 		</tr>
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">5/1/2025 3:44:39 PM</td>
+			<td width="85%" class="ObjectDetailsValue">5/28/2025 1:36:45 PM</td>
 		</tr>
 		<tr style="padding-top: 10px;">
 			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>

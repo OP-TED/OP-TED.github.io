@@ -73,23 +73,33 @@ const guid_look = new Map([['398308FF-9B97-44DA-AA6D-8D59A066CA4A', 'EA1/EA1.htm
 			}
 		}
 
+		function getAnchor() {
+			var currentUrl = document.URL,
+			urlParts   = currentUrl.split('#');
+			return (urlParts.length > 1) ? urlParts[1] : null;
+		}
+
 		function initPage()
-        {
+		{
 			const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const guidlink = urlParams.get('guid');
+			const urlParams = new URLSearchParams(queryString);
+			const guidlink = urlParams.get('guid');
 
-            if (guidlink != null)
-            {
-                var link = guidlink.toUpperCase();
-                var pageredir = guid_look.get(link);
+			if (guidlink != null)
+			{
+				var link = guidlink.toUpperCase();
+				var page = guid_look.get(link);
 
-                if (pageredir != null)
+				if (page != null)
 				{
-                    window.location.replace("EARoot/" + pageredir);
-                    return;
-                }
-            }
+					var pageredir = page;
+					const anchor = getAnchor();
+					if (anchor != null)
+						pageredir += "#" + anchor;
+					window.location.replace("EARoot/" + pageredir);
+					return;
+				}
+			}
 
 			var divs = document.getElementsByClassName("ObjectDetailsNotes");
 			for (var j = 0; j < divs.length; j++)
@@ -104,12 +114,12 @@ const guid_look = new Map([['398308FF-9B97-44DA-AA6D-8D59A066CA4A', 'EA1/EA1.htm
 				divs[j].innerHTML = tmpStr;
 			}
 
-            if (document.getElementById('TableGroup') != null)
-            {
-                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
-            }
+			if (document.getElementById('TableGroup') != null)
+			{
+				toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+			}
 
-        }
+		}
 </script>
 <style>
 
@@ -143,7 +153,7 @@ const guid_look = new Map([['398308FF-9B97-44DA-AA6D-8D59A066CA4A', 'EA1/EA1.htm
 </ul>
 
 					</td>
-					<td class="contentcell">	
+					<td class="contentcell">
 						<div class="welcome_message">
 						<h2>Welcome to your model</h2>
 						<p>To get started navigate through the model via the index on the left</p> 
@@ -153,9 +163,9 @@ const guid_look = new Map([['398308FF-9B97-44DA-AA6D-8D59A066CA4A', 'EA1/EA1.htm
 <img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
 
 <MAP NAME="EA2">
-<area shape="rect" coords="266,338,381,435" href="./EARoot/EA1/EA9.htm" target="_self">
-<area shape="rect" coords="852,651,1031,709" href="./EARoot/EA1/EA8.htm" target="_self">
-<area shape="rect" coords="107,245,254,308" href="./EARoot/EA1/EA19.htm" target="_self">
+<area shape="rect" coords="561,524,734,669" href="./EARoot/EA1/EA9.htm" target="_self">
+<area shape="rect" coords="1440,993,1709,1080" href="./EARoot/EA1/EA8.htm" target="_self">
+<area shape="rect" coords="323,384,543,479" href="./EARoot/EA1/EA19.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">access : Class diagram</div>

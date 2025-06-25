@@ -15,18 +15,18 @@ const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm
 ['04F29F40-7172-4127-9D37-0EBF552EA455', 'EA1/EA15.htm'],
 ['B2290C27-263F-4B18-8490-9BE57A4A1486', 'EA1/EA17.htm'],
 ['7A59C8C8-335A-406A-9039-CBF37C8ED96B', 'EA1/EA18.htm'],
-['151E333E-CEC7-4C28-B222-35A41469D7C5', 'EA1/EA19.htm'],
-['4CD6F72F-C895-4F45-A897-6A3BE5805EC3', 'EA1/EA20.htm'],
-['BF2913A1-0BAC-4346-887E-3D02A662D444', 'EA1/EA21.htm'],
-['DB9BDB18-C14B-4262-AAE5-65D2B64C35E1', 'EA1/EA22.htm'],
-['78B51DD4-EC1F-4397-98C3-93AE6677F8CA', 'EA1/EA23.htm'],
-['CCACD9C3-0F25-4839-844D-DCAF96861695', 'EA1/EA24.htm'],
-['1D470B74-66C6-4E95-82A9-28C6309EBB94', 'EA1/EA25.htm'],
-['EA36CA1F-5963-4FF6-86BE-1ACC9D34E843', 'EA1/EA26.htm'],
-['EC6C81E1-D9F9-49C8-A889-D9AA2A5B456A', 'EA1/EA27.htm'],
-['E79A87A0-F565-4E88-B82D-D1167BEF6A0C', 'EA1/EA28.htm'],
-['D0A4903C-A7BD-44AC-960F-C4C98C40706A', 'EA1/EA29.htm'],
-['B5D7CA6E-3FB4-423E-B50E-A7C6B28E280E', 'EA1/EA30.htm'],
+['EDBDACA0-B647-48D5-BAB3-82CFCB656655', 'EA1/EA19.htm'],
+['151E333E-CEC7-4C28-B222-35A41469D7C5', 'EA1/EA20.htm'],
+['4CD6F72F-C895-4F45-A897-6A3BE5805EC3', 'EA1/EA21.htm'],
+['BF2913A1-0BAC-4346-887E-3D02A662D444', 'EA1/EA22.htm'],
+['DB9BDB18-C14B-4262-AAE5-65D2B64C35E1', 'EA1/EA23.htm'],
+['78B51DD4-EC1F-4397-98C3-93AE6677F8CA', 'EA1/EA24.htm'],
+['CCACD9C3-0F25-4839-844D-DCAF96861695', 'EA1/EA25.htm'],
+['1D470B74-66C6-4E95-82A9-28C6309EBB94', 'EA1/EA26.htm'],
+['EA36CA1F-5963-4FF6-86BE-1ACC9D34E843', 'EA1/EA27.htm'],
+['EC6C81E1-D9F9-49C8-A889-D9AA2A5B456A', 'EA1/EA28.htm'],
+['E79A87A0-F565-4E88-B82D-D1167BEF6A0C', 'EA1/EA29.htm'],
+['D0A4903C-A7BD-44AC-960F-C4C98C40706A', 'EA1/EA30.htm'],
 ['D862AE4B-9219-4F8E-9EF6-4DA5A1D61809', 'EA1/EA31.htm'],
 ['90D05E22-266C-43A6-B8B3-4DB83EC94A01', 'EA1/EA32.htm'],
 ['BE2F0699-0589-4CBC-B1E8-3925D69F40D4', 'EA1/EA33.htm'],
@@ -100,23 +100,33 @@ const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm
 			}
 		}
 
+		function getAnchor() {
+			var currentUrl = document.URL,
+			urlParts   = currentUrl.split('#');
+			return (urlParts.length > 1) ? urlParts[1] : null;
+		}
+
 		function initPage()
-        {
+		{
 			const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            const guidlink = urlParams.get('guid');
+			const urlParams = new URLSearchParams(queryString);
+			const guidlink = urlParams.get('guid');
 
-            if (guidlink != null)
-            {
-                var link = guidlink.toUpperCase();
-                var pageredir = guid_look.get(link);
+			if (guidlink != null)
+			{
+				var link = guidlink.toUpperCase();
+				var page = guid_look.get(link);
 
-                if (pageredir != null)
+				if (page != null)
 				{
-                    window.location.replace("EARoot/" + pageredir);
-                    return;
-                }
-            }
+					var pageredir = page;
+					const anchor = getAnchor();
+					if (anchor != null)
+						pageredir += "#" + anchor;
+					window.location.replace("EARoot/" + pageredir);
+					return;
+				}
+			}
 
 			var divs = document.getElementsByClassName("ObjectDetailsNotes");
 			for (var j = 0; j < divs.length; j++)
@@ -131,12 +141,12 @@ const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm
 				divs[j].innerHTML = tmpStr;
 			}
 
-            if (document.getElementById('TableGroup') != null)
-            {
-                toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
-            }
+			if (document.getElementById('TableGroup') != null)
+			{
+				toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+			}
 
-        }
+		}
 </script>
 <style>
 
@@ -165,16 +175,16 @@ const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm
 					<td class="indexcell">
 						<div class="projectBrowserTitle">Project: </div>
 						<ul>
-<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA17.htm">order only</a></li>
-<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA36.htm">order response</a></li>
-<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA3/EA44.htm">order change</a></li>
 <li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA4/EA51.htm">order cancellation</a></li>
 <li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA5/EA57.htm">order agreement</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA3/EA44.htm">order change</a></li>
 <li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA6/EA62.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA36.htm">order response</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA17.htm">order only</a></li>
 </ul>
 
 					</td>
-					<td class="contentcell">	
+					<td class="contentcell">
 						<div class="welcome_message">
 						<h2>Welcome to your model</h2>
 						<p>To get started navigate through the model via the index on the left</p> 
@@ -184,17 +194,17 @@ const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm
 <img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
 
 <MAP NAME="EA2">
-<area shape="rect" coords="265,888,355,929" href="./EARoot/EA1/EA18.htm" target="_self">
-<area shape="rect" coords="1487,1195,1751,1283" href="./EARoot/EA1/EA26.htm" target="_self">
-<area shape="rect" coords="837,973,975,1052" href="./EARoot/EA1/EA31.htm" target="_self">
-<area shape="rect" coords="848,846,965,911" href="./EARoot/EA1/EA30.htm" target="_self">
-<area shape="rect" coords="216,732,390,777" href="./EARoot/EA1/EA32.htm" target="_self">
-<area shape="rect" coords="998,1178,1262,1299" href="./EARoot/EA1/EA27.htm" target="_self">
-<area shape="rect" coords="524,748,763,875" href="./EARoot/EA1/EA28.htm" target="_self">
-<area shape="rect" coords="1463,300,1763,398" href="./EARoot/EA1/EA22.htm" target="_self">
-<area shape="rect" coords="1019,769,1241,856" href="./EARoot/EA1/EA29.htm" target="_self">
-<area shape="rect" coords="743,1269,848,1312" href="./EARoot/EA1/EA24.htm" target="_self">
-<area shape="rect" coords="1019,471,1161,525" href="./EARoot/EA1/EA23.htm" target="_self">
+<area shape="rect" coords="1292,1274,1427,1379" href="./EARoot/EA1/EA19.htm" target="_self">
+<area shape="rect" coords="398,1349,533,1410" href="./EARoot/EA1/EA18.htm" target="_self">
+<area shape="rect" coords="2231,1806,2627,1938" href="./EARoot/EA1/EA27.htm" target="_self">
+<area shape="rect" coords="1256,1476,1463,1595" href="./EARoot/EA1/EA31.htm" target="_self">
+<area shape="rect" coords="324,1115,585,1182" href="./EARoot/EA1/EA32.htm" target="_self">
+<area shape="rect" coords="1497,1782,1893,1964" href="./EARoot/EA1/EA28.htm" target="_self">
+<area shape="rect" coords="786,1139,1145,1329" href="./EARoot/EA1/EA29.htm" target="_self">
+<area shape="rect" coords="2195,467,2645,614" href="./EARoot/EA1/EA23.htm" target="_self">
+<area shape="rect" coords="1529,1170,1862,1301" href="./EARoot/EA1/EA30.htm" target="_self">
+<area shape="rect" coords="1115,1920,1272,1985" href="./EARoot/EA1/EA25.htm" target="_self">
+<area shape="rect" coords="1529,723,1742,804" href="./EARoot/EA1/EA24.htm" target="_self">
 </MAP>
  </div>
 	<div class="ObjectTitle">order : Class diagram</div>
@@ -205,7 +215,7 @@ const guid_look = new Map([['22250BDC-AC99-495D-9AAD-3A4E9486D937', 'EA1/EA1.htm
 		</tr>
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
-			<td width="85%" class="ObjectDetailsValue">5/1/2025 11:26:08 AM</td>
+			<td width="85%" class="ObjectDetailsValue">5/29/2025 1:18:27 PM</td>
 		</tr>
 		<tr style="padding-top: 10px;">
 			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>

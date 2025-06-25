@@ -328,7 +328,7 @@
                   <tr>
                      <td>epo-inv:hasPaymentInstructionsInformation</td>
                      <td></td>
-                     <td>epo-inv:Invoice -&gt; epo-inv:PaymentInstructionsInformation [0..1]</td>
+                     <td>epo-inv:Invoice -&gt; epo-inv:PaymentInstructionsInformation [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:hasPaymentMeansType</td>
@@ -385,8 +385,8 @@
                   </tr>
                   <tr>
                      <td>epo-inv:refersToInvoice</td>
-                     <td></td>
-                     <td>epo-inv:CreditNote -&gt; epo-inv:Invoice [0..1]</td>
+                     <td> </td>
+                     <td>epo-inv:CreditNote -&gt; epo-inv:Invoice [0..1]<br>epo-pay:RemittanceAdviceLine -&gt; epo-inv:Invoice [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToOrderLine</td>
@@ -400,8 +400,8 @@
                   </tr>
                   <tr>
                      <td>epo-inv:specifiesPayee</td>
-                     <td></td>
-                     <td>epo-inv:Invoice -&gt; epo-inv:Payee [0..1]</td>
+                     <td> </td>
+                     <td>epo-inv:Invoice -&gt; epo-inv:Payee [0..1]<br>epo-pay:RemittanceAdvice -&gt; epo-inv:Payee [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-inv:specifiesSellerTaxRepresentative</td>
@@ -462,6 +462,11 @@
                      <td>epo-ord:specifiesDeliveryInformation</td>
                      <td></td>
                      <td>epo-inv:Invoice -&gt; epo-ord:DeliveryInformation [0..1]</td>
+                  </tr>
+                  <tr>
+                     <td>epo-pay:hasPaymentMeansInformation</td>
+                     <td></td>
+                     <td>epo-pay:PaymentInformation -&gt; epo-inv:PaymentInstructionsInformation [1]</td>
                   </tr>
                </tbody>
             </table>
