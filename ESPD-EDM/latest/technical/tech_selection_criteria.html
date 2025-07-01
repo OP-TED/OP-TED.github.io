@@ -321,10 +321,10 @@
 <p>'<em>The contracting body shall provide the exclusion grounds and selection criteria for its tendering process as structured information - via ESPD template or structured list of criteria set out in a call for tender.</em>"</p>
 </div>
 <div class="paragraph">
-<p>This chapter on selection criteria provides details on how to implement the formal requirements set in the <a href="bis41.html" class="xref page">eSens ESPD BIS 41 - Single European Document</a> (Version 2.0.0) document. See specifically these global requirements related to selection criteria: <strong><em>br41-002</em></strong>, <strong><em>tbr070-010</em></strong>, <strong><em>tbr070-013</em></strong>, <strong><em>tbr070-018</em></strong>.</p>
+<p>This topic, selection criteria, provides information on how to implement the formal requirements set in the <a href="bis41.html" class="xref page">eSens ESPD BIS 41 - Single European Document</a> (Version 2.0.0) document. See specifically these global requirements related to selection criteria: <strong><em>br41-002</em></strong>, <strong><em>tbr070-010</em></strong>, <strong><em>tbr070-013</em></strong>, <strong><em>tbr070-018</em></strong>.</p>
 </div>
 <div class="paragraph">
-<p>As with the exclusion criteria (and following requirement <a href="tbr70_reqs.html#list_of_criteria" class="xref page">tbr70-013</a>, we have grouped the selection criteria under different categories. The figure below is intended to identify and list these categories for the selection criteria (branches in text boxes), and specific subgroups within each category.</p>
+<p>As with the exclusion criteria and following requirement <a href="tbr70_reqs.html#list_of_criteria" class="xref page">tbr70-013</a>, we have grouped the selection criteria under different categories. The figure below is intended to identify and list these categories for the selection criteria (branches in text boxes), and specific subgroups within each category.</p>
 </div>
 <div class="paragraph">
 <p>Each branch in this 'criteria classification' corresponds to one data structure that is identical for all the leaves under that branch (e.g. compare the names of the boxes with the tabs and ElementType column of the spreadsheets containing <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/ESPD-criterion.xlsx">ESPD-criterion data structures</a>).</p>
@@ -353,22 +353,24 @@
 <p><em>Figure 2. cac:TenderingCriterion/cac:ProcurementProjectLotReference</em></p>
 </div>
 <div class="paragraph">
-<p>The ESPD 3.0.0 allows different lots for different Selection Criteria, whereas the ESPD 4.0.0 allows in addition different lots (or set of lots) for different requirements.</p>
+<p>The ESPD 3.0.0 allows different lots for different Selection Criteria, whereas the ESPD 4.0.0 allows, in addition, different lots (or set of lots) for different requirements.</p>
 </div>
 <div class="paragraph">
 <p>See also section "<a href="tech_request.html#lot_management" class="xref page">Lot Management in ESPD Request</a>".</p>
 </div>
 </div>
 </div>
-<h1 id="_initial_question_for_the_eo_to_fulfil_or_not_the_criteria" class="sect0"><a class="anchor" href="#_initial_question_for_the_eo_to_fulfil_or_not_the_criteria"></a>Initial question for the EO to fulfil or not the criteria</h1>
-<div class="paragraph">
-<p>In this version of ESPD, a new data structure has been added to the selection criteria to get more information about the EO and the fulfilment of the selection criteria. The UUID identifying the group is 0e50931d-4d39-4f1d-9fdc-b2cf16c0807a. It is a common structured reused over selection criteria.</p>
-</div>
 <div class="sect1">
-<h2 id="_data_structure"><a class="anchor" href="#_data_structure"></a>Data structure</h2>
+<h2 id="_initial_question_for_the_eo"><a class="anchor" href="#_initial_question_for_the_eo"></a>Initial question for the EO</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Suitability-I".</p>
+<p>In this version of ESPD, a new data structure has been added to the selection criteria to collect more information about the EO and their fulfilment of the selection criteria. The UUID identifying the group is 0e50931d-4d39-4f1d-9fdc-b2cf16c0807a. It is a common structured reused over selection criteria.</p>
+</div>
+<div class="sect2">
+<h3 id="_data_structure"><a class="anchor" href="#_data_structure"></a>Data structure</h3>
+<div class="paragraph">
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Suitability-I".</p>
+</div>
 </div>
 </div>
 </div>
@@ -384,7 +386,9 @@
 <div class="sect2">
 <h3 id="_suitability_enrolments"><a class="anchor" href="#_suitability_enrolments"></a>Suitability (enrolments)</h3>
 <div class="paragraph">
-<p>For each criteria regarding suitability, the buyer should be able to provide: the register type (Occupations code list, see ESPD-CodeLists.xlsx) in case of criterion "Enrolment in a relevant professional register", and the name and its URL and for other criteria related to registries.</p>
+<p>For each criteria regarding suitability, the buyer should be able to provide the following:
+* the register type (Occupations code list, see ESPD-CodeLists.xlsx) in case of criterion "Enrolment in a relevant professional register" and,
+* the name and its URL and for other criteria related to registries.</p>
 </div>
 </div>
 <div class="sect2">
@@ -398,15 +402,15 @@
 <p>It allows the definition of multiple national sub-criteria (to be retrieved from e-Certis): cardinality "0..n" of the SUBCRITERION group;</p>
 </li>
 <li>
-<p>It also allows the buyer to speciy multiple groups of REQUIREMENT(s) (in this case to specify which registers the economic operator should be registered in).</p>
+<p>It also allows the buyer to specify multiple groups of REQUIREMENT(s) (in this case to specify which registers the economic operator should be registered in).</p>
 </li>
 <li>
-<p>Regarding the groups of questions, notice that the main question is addressed to get the confirmation from the economic operator that it fulfills the criterion (if "Yes" the economic operator is registered). In case of answering "No" a sub-group of one QUESTION must be shown (the one asking the economic operator to provide the reason why it is not registered in the register specified by the buyer).</p>
+<p>Regarding the groups of questions, notice that the main question is addressed to get the confirmation from the economic operator that it fulfils the criterion (if "Yes" the economic operator is registered). In case of answering "No" a sub-group of one QUESTION must be shown (the one asking the economic operator to provide the reason why it is not registered in the register specified by the buyer).</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Suitability-I".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx#SC-Suitability-I">Criterion File</a>. This specific criterion can be found on the tab "SC-Suitability-I".</p>
 </div>
 <div class="sect3">
 <h4 id="_xml_example"><a class="anchor" href="#_xml_example"></a>XML Example</h4>
@@ -584,7 +588,7 @@
 <div class="sect2">
 <h3 id="_data_structure_service_contracts"><a class="anchor" href="#_data_structure_service_contracts"></a>Data Structure (service contracts)</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Suitability-II".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Suitability-II".</p>
 </div>
 </div>
 <div class="sect2">
@@ -1102,7 +1106,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_3"><a class="anchor" href="#_data_structure_3"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-General_Yearly_Turnover".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-General_Yearly_Turnover".</p>
 </div>
 </div>
 <div class="sect2">
@@ -1334,7 +1338,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_4"><a class="anchor" href="#_data_structure_4"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-General_Average_Y_Turnover".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-General_Average_Y_Turnover".</p>
 </div>
 </div>
 <div class="sect2">
@@ -1605,7 +1609,7 @@ The source code can be copied from the code block below the callout section
 </ol>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Specific_Yearly_Turnover".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Specific_Yearly_Turnover".</p>
 </div>
 </div>
 <div class="sect2">
@@ -1827,7 +1831,7 @@ The source code can be copied from the code block below the callout section
 <p>Notice that this  <strong>specific average turnover</strong> structure is <strong>'practically identical'</strong> to the data structure of the <strong>specific yearly turnover</strong> criterion. The only difference is that the <strong>cardinality of the amount is 1</strong> (instead of 1..n).</p>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Specific_Average_Y_Turnover".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Specific_Average_Y_Turnover".</p>
 </div>
 </div>
 <div class="sect2">
@@ -2086,7 +2090,7 @@ The source code can be copied from the code block below the callout section
 </table>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Financial_ratios".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Financial_ratios".</p>
 </div>
 </div>
 <div class="sect2">
@@ -2527,7 +2531,7 @@ The source code can be copied from the code block below the callout section
 <p>The XML example below illustrates this.</p>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Professional_risk_insurance".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Professional_risk_insurance".</p>
 </div>
 </div>
 <div class="sect2">
@@ -2786,7 +2790,7 @@ The source code can be copied from the code block below the callout section
 </ol>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Other_economic_or_financial".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Other_economic_or_financial".</p>
 </div>
 </div>
 <div class="sect2">
@@ -3108,7 +3112,7 @@ The source code can be copied from the code block below the callout section
 </ol>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-References".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-References".</p>
 </div>
 </div>
 <div class="sect2">
@@ -3675,7 +3679,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_11"><a class="anchor" href="#_data_structure_11"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Abilities_1 (Persons)".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Abilities_1 (Persons)".</p>
 </div>
 </div>
 <div class="sect2">
@@ -3920,7 +3924,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_12"><a class="anchor" href="#_data_structure_12"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC_Abilities_2 (Facilities,&#8230;&#8203;)".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC_Abilities_2 (Facilities,&#8230;&#8203;)".</p>
 </div>
 </div>
 <div class="sect2">
@@ -4079,7 +4083,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_13"><a class="anchor" href="#_data_structure_13"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC_Abilities_3 (Education)".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC_Abilities_3 (Education)".</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -4376,7 +4380,7 @@ The source code can be copied from the code block below the callout section
 </ol>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC_Abilities_4 (Checks)".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC_Abilities_4 (Checks)".</p>
 </div>
 </div>
 <div class="sect2">
@@ -4523,7 +4527,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_15"><a class="anchor" href="#_data_structure_15"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC_Abilities_5 (Staff)".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC_Abilities_5 (Staff)".</p>
 </div>
 </div>
 <div class="sect2">
@@ -4729,7 +4733,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_16"><a class="anchor" href="#_data_structure_16"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Subcontracting_proportion".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Subcontracting_proportion".</p>
 </div>
 </div>
 <div class="sect2">
@@ -4911,7 +4915,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_17"><a class="anchor" href="#_data_structure_17"></a>Data Structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Samples_certificates".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Samples_certificates".</p>
 </div>
 </div>
 <div class="sect2">
@@ -5096,7 +5100,7 @@ The source code can be copied from the code block below the callout section
 </ol>
 </div>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "SC-Quality_assurance".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "SC-Quality_assurance".</p>
 </div>
 </div>
 <div class="sect2">
@@ -5276,7 +5280,7 @@ The source code can be copied from the code block below the callout section
 <div class="sect2">
 <h3 id="_data_structure_19"><a class="anchor" href="#_data_structure_19"></a>Data structure</h3>
 <div class="paragraph">
-<p>To view the criterion, consult the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. The information will be visible in the tab "OTHER.EO-REDUCTION-CANDIDATES".</p>
+<p>The data structure can be viewed in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/v4.0.0/criterion/ESPD-criterion.xlsx">Criterion File</a>. This specific criterion can be found on the tab "OTHER.EO-REDUCTION-CANDIDATES".</p>
 </div>
 </div>
 <div class="sect2">
