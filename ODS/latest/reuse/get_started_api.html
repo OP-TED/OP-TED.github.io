@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Retrieving Buyers for a Specific Date :: TED Developer Docs</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query-5.html">
+    <title>Untitled :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/reuse/get_started_api.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -147,7 +147,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../reuse/index.html">Reusing TED XML data</a>
+    <a class="nav-link" href="index.html">Reusing TED XML data</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="https://ted.europa.eu/en/simap/developers-corner-for-reusers#search-retrieve-data">Search and retrieve data via the search API</a>
@@ -165,10 +165,10 @@
     <a class="nav-link" href="https://data.europa.eu/data/datasets/ted-csv?locale=en">TED subsets in CSV format</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../reuse/ftp.html">TED xml schema data archive</a>
+    <a class="nav-link" href="ftp.html">TED xml schema data archive</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../reuse/field-list.html">List of search fields</a>
+    <a class="nav-link" href="field-list.html">List of search fields</a>
   </li>
 </ul>
   </li>
@@ -372,10 +372,6 @@
 <button class="nav-toggle"></button>
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="../index.html">TED Open Data</a></li>
-    <li><a href="query-5.html">Retrieving Buyers for a Specific Date</a></li>
-  </ul>
 </nav>
 </div>
   <div class="content">
@@ -383,139 +379,8 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">Retrieving Buyers for a Specific Date</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>This query retrieves buyers of contracts published on November 4, 2024, providing details about the organisations and their countries.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_output"><a class="anchor" href="#_output"></a>Output</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Publication Number: The unique identifier for the notice.</p>
-</li>
-<li>
-<p>Legal Name: The name of the buying organisation.</p>
-</li>
-<li>
-<p>Country: The country where the buyer is registered.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_filters_applied"><a class="anchor" href="#_filters_applied"></a>Filters Applied</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Publication Date: Filters results to contracts published on 2024-11-04.
-Country language: Retrieves country names in English.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_query"><a class="anchor" href="#_query"></a>Query</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The complete query in SPARQL is as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
-PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-PREFIX org: &lt;http://www.w3.org/ns/org#&gt;
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
-
-SELECT DISTINCT ?publicationNumber ?legalName ?country
-WHERE {
-  FILTER (?publicationDate = "2024-11-04"^^xsd:date)
-  GRAPH ?g {
-    ?notice a epo:Notice ;
-            epo:hasPublicationDate ?publicationDate ;
-            epo:hasNoticePublicationNumber ?publicationNumber ;
-            epo:announcesRole [
-         a epo:Buyer ;
-         epo:playedBy [
-           epo:hasLegalName ?legalName ;
-           cccev:registeredAddress [
-             epo:hasCountryCode ?countryUri
-           ]
-         ]
-       ] .
-  }
-  ?countryUri a skos:Concept ;
-              skos:prefLabel ?country .
-  FILTER (lang(?country) = "en")
-}</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&amp;query=PREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+epo%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fa4g%2Fontology%23%3E%0D%0APREFIX+cccev%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fm8g%2F%3E%0D%0APREFIX+org%3A+%3Chttp%3A%2F%2Fwww.w3.org%2Fns%2Forg%23%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FpublicationNumber+%3FlegalName+%3Fcountry%0D%0AWHERE+%7B%0D%0AFILTER+%28%3FpublicationDate+%3D+%222024-11-04%22%5E%5Exsd%3Adate%29%0D%0AGRAPH+%3Fg+%7B%0D%0A+%3Fnotice+a+epo%3ANotice+%3B%0D%0Aepo%3AhasPublicationDate+%3FpublicationDate+%3B%0D%0Aepo%3AhasNoticePublicationNumber+%3FpublicationNumber+%3B%0D%0Aepo%3AannouncesRole+%5B%0D%0Aa+epo%3ABuyer+%3B%0D%0Aepo%3AplayedBy+%5B%0D%0Aepo%3AhasLegalName+%3FlegalName+%3B%0D%0Acccev%3AregisteredAddress+%5B%0D%0A+epo%3AhasCountryCode+%3FcountryUri%0D%0A%5D%0D%0A%5D%0D%0A%5D+.%0D%0A%7D%0D%0A%3FcountryUri+a+skos%3AConcept+%3B%0D%0Askos%3AprefLabel+%3Fcountry+.%0D%0AFILTER+%28lang%28%3Fcountry%29+%3D+%22en%22%29%0D%0A%7D%0D%0A&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on&amp;run=Run+Query">Run the query online</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_structures_applied"><a class="anchor" href="#_structures_applied"></a>Structures Applied</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_notice_and_buyer_relationships"><a class="anchor" href="#_notice_and_buyer_relationships"></a>Notice and Buyer Relationships</h3>
-<div class="paragraph">
-<p>The query identifies organisations specifically playing the role of a buyer in contract notices. This is achieved through the epo:Buyer role, which captures organisations responsible for purchasing goods or services.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">epo:announcesRole [
-    a epo:Buyer ;
-    epo:playedBy [
-        epo:hasLegalName ?legalName ;
-            cccev:registeredAddress [
-                epo:hasCountryCode ?countryUri
-            ]
-        ]
-]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_country_identification"><a class="anchor" href="#_country_identification"></a>Country Identification</h3>
-<div class="paragraph">
-<p>Countries are retrieved using their concept labels in English:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?countryUri a skos:Concept ;
-skos:prefLabel ?country .
-FILTER (lang(?country) = "en")</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This query retrieves information about buyers of contracts published on a specific date. The results include the publication number, the legal name of the buying organisation, and the country where the organisation is registered.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p>Any comments on the documentation?</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OP-TED/ted-rdf-docs/issues/new/choose">Click here to let us know</a></p>
-</div>
-</div>
+<p>getting started</p>
 </div>
 </article>
     <div id="widgetContainer">

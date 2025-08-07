@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>List the awarded tender amounts :: TED Developer Docs</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query-3.html">
+    <title>Untitled :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/reuse/tips_api.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -147,7 +147,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../reuse/index.html">Reusing TED XML data</a>
+    <a class="nav-link" href="index.html">Reusing TED XML data</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="https://ted.europa.eu/en/simap/developers-corner-for-reusers#search-retrieve-data">Search and retrieve data via the search API</a>
@@ -165,10 +165,10 @@
     <a class="nav-link" href="https://data.europa.eu/data/datasets/ted-csv?locale=en">TED subsets in CSV format</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../reuse/ftp.html">TED xml schema data archive</a>
+    <a class="nav-link" href="ftp.html">TED xml schema data archive</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../reuse/field-list.html">List of search fields</a>
+    <a class="nav-link" href="field-list.html">List of search fields</a>
   </li>
 </ul>
   </li>
@@ -372,10 +372,6 @@
 <button class="nav-toggle"></button>
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="../index.html">TED Open Data</a></li>
-    <li><a href="query-3.html">List the awarded tender amounts</a></li>
-  </ul>
 </nav>
 </div>
   <div class="content">
@@ -383,206 +379,8 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">List the awarded tender amounts</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>This query retrieves information about awarded tenders from procurement notices published on a specific date.
-It focuses on extracting metadata such as the publication number, associated lots, tenderer details, and financial information.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_output"><a class="anchor" href="#_output"></a>Output</h3>
-<div class="paragraph">
-<p>The query extracts the following details:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Publication Number</strong>: A unique identifier for the notice.</p>
-</li>
-<li>
-<p><strong>Lot URI</strong>: Identifies the lot associated with the award outcome.</p>
-</li>
-<li>
-<p><strong>Legal Name</strong>: The name of the tenderer who was awarded the lot.</p>
-</li>
-<li>
-<p><strong>Amount</strong>: The financial value of the awarded tender.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_filters_applied"><a class="anchor" href="#_filters_applied"></a>Filters Applied</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Publication Date</strong>: Limits results to notices published on <code>2024-11-04</code>.</p>
-</li>
-<li>
-<p><strong>Currency</strong>: Restricts results to tenders with a specific currency (not defined in this example query).</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_query"><a class="anchor" href="#_query"></a>Query</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The complete SPARQL query is as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
-
-SELECT ?publicationNumber ?lotUri ?legalName ?amount
-WHERE {
-  FILTER (?publicationDate = "2024-11-04"^^xsd:date)
-  FILTER (?currencyUri = &lt;http://publications.europa.eu/resource/authority/currency/EUR&gt;)
-  ?noticeUri a epo:Notice ;
-             epo:hasPublicationDate ?publicationDate ;
-             epo:hasNoticePublicationNumber ?publicationNumber ;
-             epo:announcesAwardDecision [
-       a epo:AwardDecision ;
-       epo:comprisesAwardOutcome [
-         a epo:LotAwardOutcome ;
-         epo:hasAwardStatus &lt;http://publications.europa.eu/resource/authority/winner-selection-status/selec-w&gt; ;
-         epo:concernsLot ?lotUri ;
-         epo:comprisesTenderAwardOutcome [
-           a epo:TenderAwardOutcome ;
-           epo:concernsTender [
-             a epo:Tender ;
-             epo:isSubmitedBy [
-               a epo:Tenderer ;
-               epo:playedBy [
-                 epo:hasLegalName ?legalName
-               ]
-             ] ;
-             epo:hasFinancialOfferValue [
-               a epo:MonetaryValue ;
-               epo:hasAmountValue ?amount ;
-               epo:hasCurrency ?currencyUri
-             ]
-           ]
-         ]
-       ]
-     ] .
-}
-ORDER BY DESC(?amount)</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&amp;query=PREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+epo%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fa4g%2Fontology%23%3E%0D%0APREFIX+cccev%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fm8g%2F%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0A%0D%0ASELECT+%3FpublicationNumber+%3FlotUri+%3FlegalName+%3Famount%0D%0AWHERE+%7B%0D%0AFILTER+%28%3FpublicationDate+%3D+%222024-11-04%22%5E%5Exsd%3Adate%29%0D%0AFILTER+%28%3FcurrencyUri+%3D+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fcurrency%2FEUR%3E%29%0D%0A%3FnoticeUri+a+epo%3ANotice+%3B%0D%0A++epo%3AhasPublicationDate+%3FpublicationDate+%3B%0D%0A+epo%3AhasNoticePublicationNumber+%3FpublicationNumber+%3B%0D%0A+epo%3AannouncesAwardDecision+%5B%0D%0A+a+epo%3AAwardDecision+%3B%0D%0A+epo%3AcomprisesAwardOutcome+%5B%0D%0Aa+epo%3ALotAwardOutcome+%3B%0D%0Aepo%3AhasAwardStatus+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fwinner-selection-status%2Fselec-w%3E+%3B%0D%0Aepo%3AconcernsLot+%3FlotUri+%3B%0D%0Aepo%3AcomprisesTenderAwardOutcome+%5B%0D%0Aa+epo%3ATenderAwardOutcome+%3B%0D%0Aepo%3AconcernsTender+%5B%0D%0A+a+epo%3ATender+%3B%0D%0A+epo%3AisSubmitedBy+%5B%0D%0Aa+epo%3ATenderer+%3B%0D%0Aepo%3AplayedBy+%5B%0D%0Aepo%3AhasLegalName+%3FlegalName%0D%0A%5D%0D%0A%5D+%3B%0D%0Aepo%3AhasFinancialOfferValue%5B%0D%0Aa+epo%3AMonetaryValue+%3B%0D%0Aepo%3AhasAmountValue+%3Famount+%3B%0D%0Aepo%3AhasCurrency+%3FcurrencyUri%0D%0A+%5D%0D%0A%5D%0D%0A%5D%0D%0A%5D%0D%0A%5D.%0D%0A%7D%0D%0AORDER+BY+DESC%28%3Famount%29%0D%0A&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on&amp;run=Run+Query">Run the query online</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_structures_applied"><a class="anchor" href="#_structures_applied"></a>Structures applied</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_notice_and_award_metadata_extraction"><a class="anchor" href="#_notice_and_award_metadata_extraction"></a>Notice and Award Metadata Extraction</h3>
-<div class="paragraph">
-<p>The query identifies notices and their corresponding award decisions and outcomes.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_notices_and_awards"><a class="anchor" href="#_notices_and_awards"></a>Notices and Awards</h3>
-<div class="paragraph">
-<p>Notices are connected to award decisions through the following structure:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?noticeUri epo:announcesAwardDecision [
-         a epo:AwardDecision ;
-         epo:comprisesAwardOutcome ?awardOutcome .
-    ]</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_awards_and_lots"><a class="anchor" href="#_awards_and_lots"></a>Awards and Lots</h3>
-<div class="paragraph">
-<p>Each award decision includes outcomes related to specific lots, structured as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?awardOutcome a epo:LotAwardOutcome ;
-              epo:concernsLot ?lotUri ;</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tenderers_tenders_and_financial_details"><a class="anchor" href="#_tenderers_tenders_and_financial_details"></a>Tenderers, Tenders, and Financial Details</h3>
-<div class="paragraph">
-<p>Awarded lots are associated with tenders, which provide detailed information about the tenderer and their financial offer.</p>
-</div>
-<div class="sect3">
-<h4 id="_connecting_tenders_to_awards"><a class="anchor" href="#_connecting_tenders_to_awards"></a>Connecting Tenders to Awards</h4>
-<div class="paragraph">
-<p>The connection between <code>tenderUri</code> and the award decision is established as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?awardOutcome epo:comprisesTenderAwardOutcome [
-  a epo:TenderAwardOutcome ;
-  epo:concernsTender ?tenderUri .
-] .</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_tenderer_and_financial_offer_details"><a class="anchor" href="#_tenderer_and_financial_offer_details"></a>Tenderer and Financial Offer Details</h4>
-<div class="paragraph">
-<p>For each tender, the query retrieves information about the submitting tenderer and the financial offer:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?tenderUri a epo:Tender ;
-           epo:isSubmitedBy [
-             a epo:Tenderer ;
-             epo:playedBy [
-               epo:hasLegalName ?legalName
-             ]
-           ] ;
-           epo:hasFinancialOfferValue [
-             a epo:MonetaryValue ;
-             epo:hasAmountValue ?amount ;
-             epo:hasCurrency ?currencyUri
-           ] .</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This query highlights the relationships between procurement notices, awarded tenders, and financial details.
-By navigating through the structure of award decisions and outcomes, the query links notices to the awarded tenders and provides a comprehensive view of tenderer details and awarded amounts.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p>Any comments on the documentation?</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OP-TED/ted-rdf-docs/issues/new/choose">Click here to let us know</a></p>
-</div>
-</div>
+<p>tips api</p>
 </div>
 </article>
     <div id="widgetContainer">

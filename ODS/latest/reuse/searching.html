@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Retrieving Contracts for a Specific Date :: TED Developer Docs</title>
-    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/samples/query-2.html">
+    <title>Untitled :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ODS/latest/reuse/searching.html">
     <meta name="generator" content="Antora 3.1.7">
     <link rel="stylesheet" href="../../../_/css/site.css">
     <link rel="stylesheet" href="../../../_/css/custom.css">
@@ -147,7 +147,7 @@
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
-    <a class="nav-link" href="../reuse/index.html">Reusing TED XML data</a>
+    <a class="nav-link" href="index.html">Reusing TED XML data</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="https://ted.europa.eu/en/simap/developers-corner-for-reusers#search-retrieve-data">Search and retrieve data via the search API</a>
@@ -165,10 +165,10 @@
     <a class="nav-link" href="https://data.europa.eu/data/datasets/ted-csv?locale=en">TED subsets in CSV format</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../reuse/ftp.html">TED xml schema data archive</a>
+    <a class="nav-link" href="ftp.html">TED xml schema data archive</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../reuse/field-list.html">List of search fields</a>
+    <a class="nav-link" href="field-list.html">List of search fields</a>
   </li>
 </ul>
   </li>
@@ -372,10 +372,6 @@
 <button class="nav-toggle"></button>
   <a href="../../../home/index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
-  <ul>
-    <li><a href="../index.html">TED Open Data</a></li>
-    <li><a href="query-2.html">Retrieving Contracts for a Specific Date</a></li>
-  </ul>
 </nav>
 </div>
   <div class="content">
@@ -383,217 +379,8 @@
   <div class="toc-menu"></div>
 </aside>
     <article class="doc">
-<h1 class="page">Retrieving Contracts for a Specific Date</h1>
-<div id="preamble">
-<div class="sectionbody">
 <div class="paragraph">
-<p>This query retrieves contracts published on <strong>November 4, 2024</strong>, filtered and sorted to meet specific criteria.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_output"><a class="anchor" href="#_output"></a>Output</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Contract Title</strong>: The title of the contract.</p>
-</li>
-<li>
-<p><strong>Conclusion Date</strong>: The date when the contract was finalized.</p>
-</li>
-<li>
-<p><strong>Lot Information</strong>: The associated lots for each contract.</p>
-</li>
-<li>
-<p><strong>Financial Information</strong>: The contract amount and its corresponding currency.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_filters_applied"><a class="anchor" href="#_filters_applied"></a>Filters Applied</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Publication Date</strong>: Filters results to contracts published on <code>2024-11-04</code>.</p>
-</li>
-<li>
-<p><strong>Currency</strong>: Restricts the results to contracts involving transactions in Euros (EUR).</p>
-</li>
-<li>
-<p><strong>Sorting</strong>: Orders the results by contract amount in descending order.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_query"><a class="anchor" href="#_query"></a>Query</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The complete query in SPARQL is as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">PREFIX dct: &lt;http://purl.org/dc/terms/&gt;
-PREFIX dc: &lt;http://purl.org/dc/elements/1.1/&gt;
-PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-PREFIX epo: &lt;http://data.europa.eu/a4g/ontology#&gt;
-PREFIX cccev: &lt;http://data.europa.eu/m8g/&gt;
-PREFIX dcterms: &lt;http://purl.org/dc/terms/&gt;
-PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
-PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
-
-SELECT ?contractTitle ?conclusionDate ?lotUri ?amount ?currency
-WHERE {
-  FILTER (?publicationDate = "2024-11-04"^^xsd:date)
-  FILTER (?currencyUri = &lt;http://publications.europa.eu/resource/authority/currency/EUR&gt;)
-  ?noticeUri a epo:Notice ;
-             epo:refersToLot ?lotUri ;
-             epo:hasPublicationDate ?publicationDate ;
-             epo:hasNoticePublicationNumber ?publicationNumber .
-  ?contractUri a epo:Contract ;
-               dct:title ?contractTitle ;
-               epo:hasContractConclusionDate ?conclusionDate ;
-               epo:includesTender [
-       a epo:Tender ;
-       epo:isSubmittedForLot ?lotUri ;
-       epo:hasFinancialOfferValue [
-         a epo:MonetaryValue ;
-         epo:hasAmountValue ?amount ;
-         epo:hasCurrency ?currencyUri
-       ]
-     ] .
-  ?currencyUri dc:identifier ?currency .
-}
-ORDER BY DESC(?amount)</code></pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://publications.europa.eu/webapi/rdf/sparql?default-graph-uri=&amp;query=PREFIX+dct%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+dc%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%0D%0APREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+epo%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fa4g%2Fontology%23%3E%0D%0APREFIX+cccev%3A+%3Chttp%3A%2F%2Fdata.europa.eu%2Fm8g%2F%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+xsd%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%0D%0APREFIX+skos%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2004%2F02%2Fskos%2Fcore%23%3E%0D%0A%0D%0ASELECT+%3FcontractTitle+%3FconclusionDate+%3FlotUri+%3Famount+%3Fcurrency%0D%0AWHERE+%7B%0D%0AFILTER+%28%3FpublicationDate+%3D+%222024-11-04%22%5E%5Exsd%3Adate%29%0D%0AFILTER+%28%3FcurrencyUri+%3D+%3Chttp%3A%2F%2Fpublications.europa.eu%2Fresource%2Fauthority%2Fcurrency%2FEUR%3E%29%0D%0A%3FnoticeUri+a+epo%3ANotice+%3B%0D%0A++epo%3ArefersToLot+%3FlotUri+%3B%0D%0A+epo%3AhasPublicationDate+%3FpublicationDate+%3B%0D%0A+epo%3AhasNoticePublicationNumber+%3FpublicationNumber+.%0D%0A++%3FcontractUri+a+epo%3AContract+%3B%0D%0Adct%3Atitle+%3FcontractTitle+%3B%0D%0Aepo%3AhasContractConclusionDate+%3FconclusionDate+%3B%0D%0Aepo%3AincludesTender+%5B%0D%0Aa+epo%3ATender%3B%0D%0Aepo%3AisSubmittedForLot%3FlotUri+%3B%0D%0Aepo%3AhasFinancialOfferValue%5B%0D%0Aa+epo%3AMonetaryValue+%3B%0D%0Aepo%3AhasAmountValue+%3Famount+%3B%0D%0Aepo%3AhasCurrency+%3FcurrencyUri%0D%0A+%5D%0D%0A%5D+.%0D%0A%3FcurrencyUri+dc%3Aidentifier+%3Fcurrency+.%0D%0A%7D%0D%0AORDER+BY+DESC%28%3Famount%29%0D%0A&amp;format=text%2Fhtml&amp;timeout=0&amp;debug=on&amp;run=Run+Query">Run the query online</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_structures_applied"><a class="anchor" href="#_structures_applied"></a>Structures Applied</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_notices_and_lots"><a class="anchor" href="#_notices_and_lots"></a>Notices and Lots</h3>
-<div class="paragraph">
-<p>Notices are linked to specific lots using the property <code>epo:refersToLot</code>.
-This relationship associates each notice with its corresponding lot(s) as shown below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?noticeUri epo:refersToLot ?lotUri .</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_contracts_and_lots"><a class="anchor" href="#_contracts_and_lots"></a>Contracts and Lots</h3>
-<div class="paragraph">
-<p>Contracts are tied to lots and include details such as contract title, conclusion date, and financial offer values.
-The structure is as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?contractUri a epo:Contract ;
-             dct:title ?contractTitle ;
-             epo:hasContractConclusionDate ?conclusionDate ;
-             epo:includesTender [
-  a epo:Tender ;
-  epo:isSubmittedForLot ?lotUri ;
-  epo:hasFinancialOfferValue [
-    a epo:MonetaryValue ;
-    epo:hasAmountValue ?amount ;
-    epo:hasCurrency ?currencyUri
-  ]
-] .</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_award_decision_and_outcomes"><a class="anchor" href="#_award_decision_and_outcomes"></a>Award Decision and Outcomes</h3>
-<div class="paragraph">
-<p>Notices may also announce award decisions linked to specific lots, as seen in the following structure:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?noticeUri epo:announcesAwardDecision [
-         a epo:AwardDecision ;
-         epo:comprisesAwardOutcome ?awardOutcome .
-    ]</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Award outcomes are linked to lots, as shown below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?awardOutcome a epo:LotAwardOutcome ;
-              epo:concernsLot ?lotUri ;</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_tenderers_tenders_and_financial_information"><a class="anchor" href="#_tenderers_tenders_and_financial_information"></a>Tenderers, Tenders, and Financial Information</h3>
-<div class="paragraph">
-<p>Each lot is associated with tenders containing information about the tenderer, their financial offers, and the link to the award decision.
-The relationship is shown below:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?awardOutcome epo:comprisesTenderAwardOutcome [
-  a epo:TenderAwardOutcome ;
-  epo:concernsTender ?tenderUri .
-] .</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Tenderers and financial details are linked through the following structure:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">?tenderUri a epo:Tender ;
-           epo:isSubmitedBy [
-             a epo:Tenderer ;
-             epo:playedBy [
-               epo:hasLegalName ?legalName
-             ]
-           ] ;
-           epo:hasFinancialOfferValue [
-             a epo:MonetaryValue ;
-             epo:hasAmountValue ?amount ;
-             epo:hasCurrency ?currencyUri
-           ] .</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_summary"><a class="anchor" href="#_summary"></a>Summary</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This query efficiently retrieves contract information for a specific publication date.
-The results include details such as contract title, conclusion date, financial amounts, and currencies.</p>
-</div>
-<hr>
-<div class="paragraph">
-<p>Any comments on the documentation?</p>
-</div>
-<div class="paragraph">
-<p><a href="https://github.com/OP-TED/ted-rdf-docs/issues/new/choose">Click here to let us know</a></p>
-</div>
-</div>
+<p>searching</p>
 </div>
 </article>
     <div id="widgetContainer">
