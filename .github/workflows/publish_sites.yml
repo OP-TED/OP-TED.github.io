@@ -1,0 +1,56 @@
+name: Build and publish TED Developer Docs
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  publish_site:
+    name: "Build and publish site with Antora"
+    runs-on: [ubuntu-latest]
+    env:
+      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+      NODE_OPTIONS: '--max-old-space-size=8192'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js for use with actions
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Corepack
+        run: npm install --prefix .node corepack
+
+      - name: Install Yarn
+        run: .node/node_modules/.bin/corepack enable --install-directory .node
+
+      - name: Install packages
+        run: .node/yarn install
+
+      - name: Generate site
+        run: yarn run build
+
+      - name: Deploy production (master branch)
+        if: github.ref == 'refs/heads/master'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: "${{ github.token }}"
+          folder: build/site
+          branch: gh-pages
+          commit-message: "[CI] Publish Documentation for ${{ github.sha }}"
+
+      - name: Deploy staging (develop branch)
+        if: github.ref == 'refs/heads/develop'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: "${{ secrets.STAGING_TOKEN }}"
+          repository-name: OP-TED/docs-staging
+          folder: build/site
+          branch: gh-pages
+          commit-message: "[CI] Publish STAGING Docs for ${{ github.sha }}"
