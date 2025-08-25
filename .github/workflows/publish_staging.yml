@@ -1,10 +1,9 @@
-name: Build and publish TED Developer Docs
+name: Build and publish TED Developer Docs on staging
 
 on:
   workflow_dispatch:
   push:
     branches:
-      - master
       - develop
 
 jobs:
@@ -36,21 +35,21 @@ jobs:
       - name: Generate site
         run: yarn run build
 
-      - name: Deploy production (master branch)
-        if: github.ref == 'refs/heads/master'
-        uses: JamesIves/github-pages-deploy-action@v4
+      # Authenticate with GitHub App
+      - name: Generate GitHub App token
+        id: app-token
+        uses: tibdex/github-app-token@v2
         with:
-          token: "${{ github.token }}"
-          folder: build/site
-          branch: gh-pages
-          commit-message: "[CI] Publish Documentation for ${{ github.sha }}"
-
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          installation_id: ${{ secrets.INSTALLATION_ID }}
+          
       - name: Deploy staging (develop branch)
         if: github.ref == 'refs/heads/develop'
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: "${{ secrets.STAGING_TOKEN }}"
           repository-name: OP-TED/docs-staging
           folder: build/site
           branch: gh-pages
+          token: ${{ steps.app-token.outputs.token }}
           commit-message: "[CI] Publish STAGING Docs for ${{ github.sha }}"
