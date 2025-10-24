@@ -42,15 +42,15 @@
                <tbody>
                   <tr>
                      <td>epo-pay:PaymentInformation</td>
-                     <td></td>
+                     <td>Information about a remittance.</td>
                   </tr>
                   <tr>
                      <td>epo-pay:RemittanceAdvice</td>
-                     <td></td>
+                     <td>Document sent by the Buyer to the Seller, informing about the payment made.</td>
                   </tr>
                   <tr>
                      <td>epo-pay:RemittanceAdviceLine</td>
-                     <td></td>
+                     <td>Details concerning a given Invoice from the Remittance Advice.</td>
                   </tr>
                </tbody>
             </table>
@@ -68,19 +68,19 @@
                   <tr>
                      <td>epo-pay:RemittanceAdvice</td>
                      <td>epo-pay:hasPayerReference</td>
-                     <td></td>
+                     <td>Reference to the Payer.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:PaymentInformation</td>
                      <td>epo-pay:hasPaymentDate</td>
-                     <td></td>
+                     <td>The date of the Payment.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:RemittanceAdvice</td>
                      <td>epo-pay:hasPaymentOrderReference</td>
-                     <td></td>
+                     <td>Reference to the Payment Order.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                </tbody>
@@ -97,72 +97,72 @@
                <tbody>
                   <tr>
                      <td>epo:specifiesBuyer</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Buyer.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo:Buyer [1]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesSeller</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Seller.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo-ord:Seller [1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToInvoice</td>
-                     <td></td>
+                     <td>Reference to an Invoice.</td>
                      <td>epo-pay:RemittanceAdviceLine -&gt; epo-inv:Invoice [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:specifiesPayee</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Payee.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo-inv:Payee [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:comprisesRemittanceAdviceLine</td>
-                     <td></td>
+                     <td>Incorporates Remittance Advice Line.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo-pay:RemittanceAdviceLine [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasBalanceAmount</td>
-                     <td></td>
+                     <td>Relation indicating the outstanding amount that remains unpaid or unsettled.</td>
                      <td>epo-pay:RemittanceAdviceLine -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasCreditAmount</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value that reduces the amount owed.</td>
                      <td>epo-pay:RemittanceAdviceLine -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasDebitAmount</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value that increases the amount owed.</td>
                      <td>epo-pay:RemittanceAdviceLine -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasPaymentIdentifier</td>
-                     <td></td>
+                     <td>Relation indicating the Identifier of the Payment.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasPaymentInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Payment Information.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo-pay:PaymentInformation [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasPaymentMeansInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Payment Instruction Information.</td>
                      <td>epo-pay:PaymentInformation -&gt; epo-inv:PaymentInstructionsInformation [1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasTotalCreditAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value that reduces the amount owed.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasTotalDebitAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value that increases the amount owed.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasTotalPaymentAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall paid Monetary Value.</td>
                      <td>epo-pay:RemittanceAdvice -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                </tbody>

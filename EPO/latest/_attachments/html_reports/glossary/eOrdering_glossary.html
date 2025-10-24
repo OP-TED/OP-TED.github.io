@@ -99,39 +99,45 @@
                   </tr>
                   <tr>
                      <td>epo-ord:OrderAgreement</td>
-                     <td></td>
+                     <td>A Document sent from the Seller to Buyer specifying the goods, services or works to
+                        be delivered concerning a specific Order.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderAgreementLine</td>
-                     <td></td>
+                     <td>Details concerning a given unit of goods, services or works mentioned in the Order
+                        Agreement.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderCancellation</td>
-                     <td></td>
+                     <td>A Document providing information on the formal response from the Buyer to the Seller
+                        to cancel a previous Order or Order Change.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderCancellationConfirmation</td>
-                     <td></td>
+                     <td>A Document providing information on the acknowledgment of the Order Cancellation.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderCancellationRejection</td>
-                     <td></td>
+                     <td>A Document providing information on the non-acceptance of the Order Cancellation.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderChange</td>
-                     <td></td>
+                     <td>A Document providing information on the formal request from the Buyer to the Seller
+                        specifying the requested change in goods, services or works to be delivered in respect
+                        to a previous Order.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderChangeConfirmation</td>
-                     <td></td>
+                     <td>A Document providing information on the acknowledgment of the Order Change.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderChangeLine</td>
-                     <td></td>
+                     <td>Details concerning a given unit of goods, services or works requested in the Order
+                        Change.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderChangeRejection</td>
-                     <td></td>
+                     <td>A Document providing information on the non-acceptance of the Order Change.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderLine</td>
@@ -155,7 +161,7 @@
                   </tr>
                   <tr>
                      <td>epo-ord:OrderResponseInformation</td>
-                     <td></td>
+                     <td>Information about an Order Response.</td>
                   </tr>
                   <tr>
                      <td>epo-ord:OrderResponseLine</td>
@@ -223,13 +229,13 @@
                   <tr>
                      <td>epo-ord:AllowanceChargeInformation</td>
                      <td>epo-ful:hasAllowanceChargeReasonDescription</td>
-                     <td></td>
+                     <td>Explanatory text about the motive of the Allowance Charge.</td>
                      <td>rdf:PlainLiteral [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:DeliveryInformation</td>
                      <td>epo-inv:hasActualDeliveryDate</td>
-                     <td></td>
+                     <td>The date when the Delivery occured.</td>
                      <td>xsd:dateTime [0..1]</td>
                   </tr>
                   <tr>
@@ -243,7 +249,7 @@
                   <tr>
                      <td>epo-ord:DeliveryInformation</td>
                      <td>epo-ord:hasDeliveryDeadline</td>
-                     <td></td>
+                     <td>The final accepted date for Delivery.</td>
                      <td>xsd:dateTime [0..1]</td>
                   </tr>
                   <tr>
@@ -262,19 +268,19 @@
                   <tr>
                      <td>epo-ord:DeliveryAgreement</td>
                      <td>epo-ord:hasGeneralDeliveryTerm</td>
-                     <td></td>
+                     <td>Terms and conditions related to the delivery of goods.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:Order</td>
                      <td>epo-ord:hasPaymentTerm</td>
-                     <td></td>
+                     <td>Condition and stipulation of the Payment.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:DeliveryAgreement</td>
                      <td>epo-ord:hasRequestedShippingPriority</td>
-                     <td></td>
+                     <td>The level of importance or sequence assigned to the delivery.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
@@ -292,13 +298,13 @@
                   <tr>
                      <td>epo-ord:AllowanceChargeInformation</td>
                      <td>epo-ord:hasVATExemptionReason</td>
-                     <td></td>
+                     <td>Explanation on why the instance of the concept is not subject to value-added tax.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:AllowanceChargeInformation</td>
                      <td>epo-ord:hasVATExemptionReasonDescription</td>
-                     <td></td>
+                     <td>Explanatory text about the VAT Exemption Reason.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
@@ -335,22 +341,23 @@
                   </tr>
                   <tr>
                      <td>epo:refersToProject</td>
-                     <td></td>
+                     <td>Reference to a Project.
+                        </td>
                      <td>epo-ord:Order -&gt; epo:Project [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesBuyer</td>
-                     <td>     </td>
+                     <td>Relation indicating that the instance of the concept involves the Buyer. Relation indicating that the instance of the concept involves the Buyer. Relation indicating that the instance of the concept involves the Buyer. Relation indicating that the instance of the concept involves the Buyer. Relation indicating that the instance of the concept involves the Buyer. Relation indicating that the instance of the concept involves the Buyer.</td>
                      <td>epo-ord:Order -&gt; epo:Buyer [1]<br>epo-ord:OrderChangeConfirmation -&gt; epo:Buyer [1]<br>epo-ord:OrderChangeRejection -&gt; epo:Buyer [1]<br>epo-ord:OrderCancellation -&gt; epo:Buyer [1]<br>epo-ord:OrderCancellationConfirmation -&gt; epo:Buyer [1]<br>epo-ord:OrderCancellationRejection -&gt; epo:Buyer [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo:specifiesInvoicee</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Invoicee.</td>
                      <td>epo-ord:Order -&gt; epo-ord:Invoicee [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesSeller</td>
-                     <td>         </td>
+                     <td>Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller. Relation indicating that the instance of the concept involves the Seller.</td>
                      <td>epo-ord:Order -&gt; epo-ord:Seller [1]<br>epo-cat:Catalogue -&gt; epo-ord:Seller [0..*]<br>epo-ord:OrderCancellationConfirmation -&gt; epo-ord:Seller [1]<br>epo-ord:OrderCancellationRejection -&gt; epo-ord:Seller [1]<br>epo-ful:ReceiptAdvice -&gt; epo-ord:Seller [0..1]<br>epo-ord:OrderCancellation -&gt; epo-ord:Seller [1]<br>epo-ord:OrderChangeRejection -&gt; epo-ord:Seller [1]<br>epo-inv:Invoice -&gt; epo-ord:Seller [1]<br>epo-ord:OrderChangeConfirmation -&gt; epo-ord:Seller [1]<br>epo-pay:RemittanceAdvice -&gt; epo-ord:Seller [1]<br></td>
                   </tr>
                   <tr>
@@ -362,22 +369,22 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasPrice</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has a Price.</td>
                      <td>epo-ord:OrderLine -&gt; epo-cat:Price [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasQuantity</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has a Quantity.</td>
                      <td>epo-ord:OrderLine -&gt; epo:Quantity [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasTaxCategory</td>
-                     <td></td>
+                     <td>Relation indicating the Tax Category.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasTaxScheme</td>
-                     <td></td>
+                     <td>Relation indicating the Tax Scheme.</td>
                      <td></td>
                   </tr>
                   <tr>
@@ -391,7 +398,8 @@
                   </tr>
                   <tr>
                      <td>epo-cat:specifiesChargeInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Charge Information.
+                        </td>
                      <td>epo-ord:Order -&gt; epo-cat:ChargeInformation [0..*]</td>
                   </tr>
                   <tr>
@@ -408,7 +416,7 @@
                   </tr>
                   <tr>
                      <td>epo-ful:hasTrackingID</td>
-                     <td></td>
+                     <td>Relation indicating that thedelivery has an identifier for traceability purposes.</td>
                      <td></td>
                   </tr>
                   <tr>
@@ -419,7 +427,7 @@
                   </tr>
                   <tr>
                      <td>epo-ful:refersToOrder</td>
-                     <td>Reference to an Order. </td>
+                     <td>Reference to an Order. Reference to an Order.</td>
                      <td>epo-ful:DespatchAdvice -&gt; epo-ord:Order [0..1]<br>epo-inv:Invoice -&gt; epo-ord:Order [0..1]<br></td>
                   </tr>
                   <tr>
@@ -445,97 +453,99 @@
                   </tr>
                   <tr>
                      <td>epo-inv:isSpecificToInvoiceLine</td>
-                     <td></td>
+                     <td>Information that is particular to an Invoice Line.</td>
                      <td>epo-ord:AllowanceInformation -&gt; epo-inv:InvoiceLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToOrderLine</td>
-                     <td></td>
+                     <td>Reference to an Order Line.</td>
                      <td>epo-inv:InvoiceLine -&gt; epo-ord:OrderLine [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:comprisesOrderAgreementLine</td>
-                     <td></td>
+                     <td>Incorporates Order Agreement Line.</td>
                      <td>epo-ord:OrderAgreement -&gt; epo-ord:OrderAgreementLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:comprisesOrderChangeLine</td>
-                     <td></td>
+                     <td>Incorporates Order Change Line.</td>
                      <td>epo-ord:OrderChange -&gt; epo-ord:OrderChangeLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:comprisesOrderLine</td>
-                     <td></td>
+                     <td>Incorporates Order Line.</td>
                      <td>epo-ord:Order -&gt; epo-ord:OrderLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:comprisesOrderResponseLine</td>
-                     <td></td>
+                     <td>Incorporates Order Response Line.</td>
                      <td>epo-ord:OrderResponse -&gt; epo-ord:OrderResponseLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:concernsConsignee</td>
-                     <td></td>
+                     <td>Relates to Consignee.</td>
                      <td>epo-ord:DeliveryInformation -&gt; epo-ord:Consignee [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:concernsContract</td>
-                     <td></td>
+                     <td>Relates to Contractor.</td>
                      <td>epo-ord:ContractInformation -&gt; epo:Contract [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:concernsOriginator</td>
-                     <td></td>
+                     <td>Relates to Originator.</td>
                      <td>epo-ord:OriginatorInformation -&gt; epo-ord:Originator [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:concernsOriginatorRequest</td>
-                     <td></td>
+                     <td>Relates to Originator Request.</td>
                      <td>epo-ord:OriginatorInformation -&gt; epo:OriginatorRequest [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasAcceptanceStatus</td>
-                     <td> </td>
+                     <td>Relation indicating the acceptance status. Relation indicating the acceptance status.
+                        </td>
                      <td>epo-ful:ReceiptAdviceInformation -&gt; at-voc-new:ResponseStatus [0..1]<br>epo-ful:AbstractContainer -&gt; at-voc-new:ResponseStatus [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasAmountDueForPayment</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value that has to be paid.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasBackorderQuantity</td>
-                     <td></td>
+                     <td>Relation indicating the number of Items that cannot be fulfilled immediately.</td>
                      <td>epo-ord:OrderResponseLine -&gt; epo:Quantity [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasDeliveryPeriod</td>
-                     <td></td>
+                     <td>Relation indicating the time range for the delivery.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasPrepaidAmount</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value that is paid in advance.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasPriceDiscountInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Allowance Information applied on the Price.</td>
                      <td>epo-cat:Price -&gt; epo-ord:AllowanceInformation [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasRequestedDeliveryPeriod</td>
-                     <td></td>
+                     <td>Relation indicating the sought time range for the delivery.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasResponseStatus</td>
-                     <td></td>
+                     <td>Relation indicating the response status.</td>
                      <td>epo-cat:CatalogueResponseInformation -&gt; at-voc-new:ResponseStatus [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasRoundingAmount</td>
-                     <td></td>
+                     <td>Relation indicating the adjustment Monetary Value applied to bring calculated total
+                        to a convenient value.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
@@ -549,37 +559,42 @@
                   </tr>
                   <tr>
                      <td>epo-ord:hasStatus</td>
-                     <td> </td>
+                     <td>Relation indicating the status. Relation indicating the status.</td>
                      <td>epo-ord:OrderResponseInformation -&gt; at-voc-new:ResponseStatus [1]<br>epo-ord:OrderChangeLine -&gt; at-voc-new:ResponseStatus [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTaxInformation</td>
-                     <td>     </td>
+                     <td>Relation indicating the Tax Information. Relation indicating the Tax Information.
+                         Relation indicating the Tax Information.
+                         Relation indicating the Tax Information.
+                         Relation indicating the Tax Information.
+                         Relation indicating the Tax Information.
+                        </td>
                      <td>epo-ord:AllowanceChargeInformation -&gt; epo-ord:TaxInformation [0..1]<br>epo-cat:AbstractItem -&gt; epo-ord:TaxInformation [0..*]<br>epo-inv:InvoiceLine -&gt; epo-ord:TaxInformation [1]<br>epo-inv:TaxBreakdownInformation -&gt; epo-ord:TaxInformation [1]<br>epo-inv:Invoice -&gt; epo-ord:TaxInformation [1]<br>epo:Contract -&gt; epo-ord:TaxInformation [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalAllowanceAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Allowance.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalChargeAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Charge.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalLineAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Line.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalTaxExclusiveAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value without Tax.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalTaxInclusiveAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value with Tax.</td>
                      <td>epo-ord:Order -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
@@ -592,22 +607,26 @@
                   </tr>
                   <tr>
                      <td>epo-ord:isSpecificToOrderResponseLine</td>
-                     <td></td>
+                     <td>Information that is particular to an Order Response Line.</td>
                      <td>epo-ord:OrderResponseInformation -&gt; epo-ord:OrderResponseLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:isSpecificToRequestForOfferLine</td>
-                     <td></td>
+                     <td>Information that is particular to a Request For Offer Line.</td>
                      <td>epo-ord:DeliveryInformation -&gt; epo-req:RequestForOfferLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:isSubmittedForOrder</td>
-                     <td>  </td>
+                     <td>Relation indicating that the instance of the concept is sent for a specific Order. Relation indicating that the instance of the concept is sent for a specific Order. Relation indicating that the instance of the concept is sent for a specific Order.</td>
                      <td>epo-ord:OrderCancellation -&gt; epo-ord:Order [1]<br>epo-ord:OrderChange -&gt; epo-ord:Order [1]<br>epo-ord:OrderResponse -&gt; epo-ord:Order [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:isSubmittedForOrderLine</td>
-                     <td> </td>
+                     <td>Relation indicating that the instance of the concept is sent for a specific Order
+                        Line.
+                         Relation indicating that the instance of the concept is sent for a specific Order
+                        Line.
+                        </td>
                      <td>epo-ord:OrderChangeLine -&gt; epo-ord:OrderLine [1]<br>epo-ord:OrderResponseLine -&gt; epo-ord:OrderLine [1]<br></td>
                   </tr>
                   <tr>
@@ -620,53 +639,54 @@
                   </tr>
                   <tr>
                      <td>epo-ord:respondsToOrderCancellation</td>
-                     <td> </td>
+                     <td>Takes action in reaction to an Order Cancellation. Takes action in reaction to an Order Cancellation.</td>
                      <td>epo-ord:OrderCancellationConfirmation -&gt; epo-ord:OrderCancellation [0..1]<br>epo-ord:OrderCancellationRejection -&gt; epo-ord:OrderCancellation [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:respondsToOrderChange</td>
-                     <td> </td>
+                     <td>Takes action in reaction to an Order Change. Takes action in reaction to an Order Change.</td>
                      <td>epo-ord:OrderChangeRejection -&gt; epo-ord:OrderChange [1]<br>epo-ord:OrderChangeConfirmation -&gt; epo-ord:OrderChange [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesAllowanceInformation</td>
-                     <td> </td>
+                     <td>Relation indicating the Allowance Information.
+                         Relation indicating the Allowance Information.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo-ord:AllowanceInformation [0..*]<br>epo-ord:Order -&gt; epo-ord:AllowanceInformation [0..*]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesContractInformation</td>
-                     <td>
-                        </td>
+                     <td>Relation indicating the Contract Information.</td>
                      <td>epo-ord:Order -&gt; epo-ord:ContractInformation [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesDeliveryAgreement</td>
-                     <td></td>
+                     <td>Relation indicating the Delivery Agreement.</td>
                      <td>epo-ord:DeliveryInformation -&gt; epo-ord:DeliveryAgreement [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesDeliveryAgreementLocation</td>
-                     <td></td>
+                     <td>Relation indicating the Location from the Delivery Agreement.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesDeliveryInformation</td>
-                     <td>  </td>
+                     <td>Relation indicating the Delivery Information. Relation indicating the Delivery Information. Relation indicating the Delivery Information.</td>
                      <td>epo-req:RequestForOffer -&gt; epo-ord:DeliveryInformation [0..*]<br>epo-inv:Invoice -&gt; epo-ord:DeliveryInformation [0..1]<br>epo-ord:Order -&gt; epo-ord:DeliveryInformation [0..*]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesOrderResponseInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Order Response Information.</td>
                      <td>epo-ord:OrderResponse -&gt; epo-ord:OrderResponseInformation [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesOriginatorInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Originator Information.</td>
                      <td>epo-ord:Order -&gt; epo-ord:OriginatorInformation [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesPlaceOfDelivery</td>
-                     <td></td>
+                     <td>Relation indicating the Location of the despatch.</td>
                      <td></td>
                   </tr>
                </tbody>

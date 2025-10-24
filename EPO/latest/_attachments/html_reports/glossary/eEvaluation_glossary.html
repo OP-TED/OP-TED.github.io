@@ -48,23 +48,29 @@
                   </tr>
                   <tr>
                      <td>epo-eva:EvaluationCriterion</td>
-                     <td></td>
+                     <td>A Criterion used by the Buyer to assess and compare Tenders in order to determine
+                        which Offer best meets the objectives of the Procurement Procedure.</td>
                   </tr>
                   <tr>
                      <td>epo-eva:EvaluationReport</td>
-                     <td></td>
+                     <td>Summary of the Evaluation.</td>
                   </tr>
                   <tr>
                      <td>epo-eva:Evaluator</td>
-                     <td></td>
+                     <td>A Role of an Agent that asses the Tender submitted for a Lot.</td>
                   </tr>
                   <tr>
                      <td>epo-eva:ExcludedCandidateList</td>
-                     <td></td>
+                     <td>Record of Candidates prevented from participating in a Procurement because one or
+                        more Exclusion Grounds apply.</td>
                   </tr>
                   <tr>
                      <td>epo-eva:TenderClarification</td>
-                     <td></td>
+                     <td>A Document sent by the Tenderer to the Buyer in response to the Tender Clarification
+                        Request.
+                        
+                        Additional Information:  
+                        The Tender Clarification may not alter the Tender.</td>
                   </tr>
                   <tr>
                      <td>epo-eva:TenderClarificationRequest</td>
@@ -89,25 +95,25 @@
                   <tr>
                      <td>epo-eva:EvaluationCriterion</td>
                      <td>epo-eva:fulfillsProcurementCriterion</td>
-                     <td></td>
+                     <td>Indicates whether the Procurement Criterion is satisfied.</td>
                      <td>xsd:boolean [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:EvaluationReport</td>
                      <td>epo-eva:hasAwardCriteriaEvaluationScore</td>
-                     <td></td>
+                     <td>The total number of points obtained while assessing the Award Criteria.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:EvaluationCriterion</td>
                      <td>epo-eva:hasEvaluationJustification</td>
-                     <td></td>
+                     <td>The motivation behind the Evaluation result.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:EvaluationCriterion</td>
                      <td>epo-eva:hasScorePoint</td>
-                     <td></td>
+                     <td>The grade value assigned to a Procurement Criterion.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                </tbody>
@@ -129,32 +135,34 @@
                   </tr>
                   <tr>
                      <td>epo:isAssignedForEvaluationOf</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept is selected for Evaluation.</td>
                      <td>epo-eva:EvaluationBoard -&gt; epo:Lot [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo:playedBy</td>
-                     <td></td>
+                     <td>Relation indicating the Agent that fulfills the function of the instance of the concept.
+                        </td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo:specifiesEconomicOperator</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Economic Operator.
+                        </td>
                      <td>epo-eva:TenderClarificationRequest -&gt; epo:OfferingParty [1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:concernsEvaluationReport</td>
-                     <td></td>
+                     <td>Relates to Evaluation Report.</td>
                      <td>epo-eva:TenderClarificationRequest -&gt; epo-eva:EvaluationReport [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:evaluatesProcurementCriterion</td>
-                     <td></td>
+                     <td>Assesses Procurement Criterion.</td>
                      <td>epo-eva:EvaluationCriterion -&gt; epo:ProcurementCriterion [1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:hasEvaluator</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has an Evaluator.</td>
                      <td>epo-eva:EvaluationBoard -&gt; epo-eva:Evaluator [0..*]</td>
                   </tr>
                   <tr>
@@ -164,37 +172,37 @@
                   </tr>
                   <tr>
                      <td>epo-eva:isAppointedBy</td>
-                     <td></td>
+                     <td>Relation indicating that by whom the instance of the concept is formally assigned.</td>
                      <td>epo-eva:EvaluationBoard -&gt; epo:UniqueResponsibleOfTheProcurement [1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:providesRankToTender</td>
-                     <td></td>
+                     <td>Makes available the assigned position for the Tender.</td>
                      <td>epo-eva:EvaluationReport -&gt; epo:TenderAwardOutcome [1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:refersToTenderClarificationRequest</td>
-                     <td></td>
+                     <td>Reference to a Tender Clarification Request.</td>
                      <td>epo-eva:TenderClarification -&gt; epo-eva:TenderClarificationRequest [1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:reportsEvaluationCriterion</td>
-                     <td></td>
+                     <td>Provides an Evaluation Criterion.</td>
                      <td>epo-eva:EvaluationReport -&gt; epo-eva:EvaluationCriterion [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:requestsClarification</td>
-                     <td></td>
+                     <td>Asks for more information.</td>
                      <td>epo-eva:EvaluationBoard -&gt; epo-eva:TenderClarificationRequest [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:usesEvaluationFormula</td>
-                     <td></td>
+                     <td>Applies systematic method for assessment.</td>
                      <td>epo-eva:EvaluationReport -&gt; epo:AwardEvaluationTerm [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-eva:writesEvaluationReport</td>
-                     <td></td>
+                     <td>Authors an Evaluation Report.</td>
                      <td>epo-eva:EvaluationBoard -&gt; epo-eva:EvaluationReport [1..*]</td>
                   </tr>
                </tbody>

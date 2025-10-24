@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>ePayment</title>
+<link href="css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+const guid_look = new Map([['A0DAEA8C-7986-4462-AA78-EBFB37FA7E1A', 'EA1/EA1.htm'],
+['3A01D95F-2704-4A24-8B92-E934893E1C32', 'EA1/EA3.htm'],
+['026765A5-0BE0-423D-8A52-28AA0ED45286', 'EA1/EA5.htm'],
+['5600BCA2-AD7A-42BC-AA19-0E7AA064C96D', 'EA1/EA6.htm'],
+['6505D7E6-5F89-4DF9-8775-9715C01034FC', 'EA1/EA7.htm'],
+['82680EB9-5476-4EE8-897A-F4690901D46D', 'EA1/EA8.htm'],
+['419BCA06-2B74-49A9-9405-287F94E7B8D7', 'EA1/EA9.htm'],
+['3FBB5455-176D-4AA9-8DF8-2B3B00E37ECD', 'EA1/EA10.htm'],
+['A047DDC0-EC63-D057-89E0-4FD12D7FBDAE', 'EA2/EA11.htm'],
+['8A86BFA1-FEAF-40FE-A41A-4A198D710226', 'EA2/EA13.htm'],
+['89FDF6F2-FB64-B999-9E3A-4F11ACC0C262', 'EA2/EA14.htm'],
+['B819C721-D763-78D3-9780-B8612551F21F', 'EA2/EA15.htm'],
+['BF06B728-2B31-204D-B599-DF43B219E770', 'EA2/EA16.htm'],
+['AD31F19C-DF57-B9EF-BD31-ABF1E1303E9F', 'EA2/EA17.htm'],
+['BD5EA85D-C357-88A7-A947-0D9C6F10DECF', 'EA2/EA18.htm'],
+['9A23AE0C-C5DA-D414-BA22-2C65E675F4EB', 'EA2/EA19.htm'],
+['9E65B3F2-762C-5603-9E2C-C7724786799D', 'EA2/EA20.htm'],
+]);
+
+		function switchProjectProperties()
+		{
+			if (document.getElementById("proj00").style.display == "none")
+			{
+				document.getElementById("proj00").style.display = "revert";
+				document.getElementById("proj01").style.display = "revert";
+				document.getElementById("proj02").style.display = "revert";
+				document.getElementById("proj03").style.display = "revert";
+				document.getElementById("proj04").style.display = "revert";
+				document.getElementById("proj05").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("proj00").style.display = "none";
+				document.getElementById("proj01").style.display = "none";
+				document.getElementById("proj02").style.display = "none";
+				document.getElementById("proj03").style.display = "none";
+				document.getElementById("proj04").style.display = "none";
+				document.getElementById("proj05").style.display = "none";
+			}
+		}
+
+		function switchAdvancedProperties()
+		{
+
+			if (document.getElementById("adv00").style.display == "none")
+			{
+				document.getElementById("adv00").style.display = "revert";
+				document.getElementById("adv01").style.display = "revert";
+			}
+			else
+			{
+				document.getElementById("adv00").style.display = "none";
+				document.getElementById("adv01").style.display = "none";
+			}
+		}
+
+		function getAnchor() {
+			var currentUrl = document.URL,
+			urlParts   = currentUrl.split('#');
+			return (urlParts.length > 1) ? urlParts[1] : null;
+		}
+
+		function initPage()
+		{
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const guidlink = urlParams.get('guid');
+
+			if (guidlink != null)
+			{
+				var link = guidlink.toUpperCase();
+				var page = guid_look.get(link);
+
+				if (page != null)
+				{
+					var pageredir = page;
+					const anchor = getAnchor();
+					if (anchor != null)
+						pageredir += "#" + anchor;
+					window.location.replace("EARoot/" + pageredir);
+					return;
+				}
+			}
+
+			var divs = document.getElementsByClassName("ObjectDetailsNotes");
+			for (var j = 0; j < divs.length; j++)
+			{
+				var tmpStr = divs[j].innerHTML;
+				tmpStr = tmpStr.replace(/&gt;/g, ">");
+				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
+
+				divs[j].innerHTML = tmpStr;
+			}
+
+			if (document.getElementById('TableGroup') != null)
+			{
+				toggleItem(document.getElementById('TableGroup').getElementsByTagName('li')[0].id.replace("Title", ""));
+			}
+
+		}
+</script>
+<style>
+
+</style>
+</head>
+<body onload="initPage();">
+<div class="section group" >
+
+		<div class="col span_2_of_2 header_frame">
+			<h1> ePayment </h1>
+			<img class="header_image" src="images/ea-banner.png" align="right" alt="Header Image" />
+		</div>
+		<div class="col span_2_of_2 breadcrumb_frame">
+			<p></p>
+		</div>
+		
+		<table class="contentmaintable">
+			<!-- <tfoot>
+				<tr>
+					<td>foot1</td>
+					<td>foot2</td>
+				</tr>
+			</tfoot> -->
+			<tbody>
+				<tr>
+					<td class="indexcell">
+						<div class="projectBrowserTitle">Project: </div>
+						<ul>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA2/EA13.htm">datatype</a></li>
+<li><img src="images/31.png" alt="Package"/> <a href="./EARoot/EA1/EA5.htm">payment</a></li>
+</ul>
+
+					</td>
+					<td class="contentcell">
+						<div class="welcome_message">
+						<h2>Welcome to your model</h2>
+						<p>To get started navigate through the model via the index on the left</p> 
+						</div>
+						<div class="PageBody">
+	<div class="diagram_image"> 
+<img src="./EARoot/EA1/EA2.png" usemap="#EA2" border="0" />
+
+<MAP NAME="EA2">
+<area shape="rect" coords="659,15,831,98" href="./EARoot/EA1/EA7.htm" target="_self">
+<area shape="rect" coords="1209,15,1382,98" href="./EARoot/EA1/EA6.htm" target="_self">
+<area shape="rect" coords="123,1322,450,1410" href="./EARoot/EA1/EA8.htm" target="_self">
+<area shape="rect" coords="1473,839,1806,944" href="./EARoot/EA1/EA10.htm" target="_self">
+<area shape="rect" coords="789,839,1182,944" href="./EARoot/EA1/EA9.htm" target="_self">
+</MAP>
+ </div>
+	<div class="ObjectTitle">remittance advice : Class diagram</div>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">5/8/2025 3:27:55 PM</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Modified:</td>
+			<td width="85%" class="ObjectDetailsValue">5/29/2025 1:37:52 PM</td>
+		</tr>
+		<tr style="padding-top: 10px;">
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchProjectProperties()"><img src="./images//plus03.gif" align="absmiddle" id="proj" /></button>Project:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td width="85%" class="ObjectDetailsValue">nicol</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td width="85%" class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic"><button onclick="switchAdvancedProperties()"><img src="./images//plus03.gif" align="absmiddle" id="adv" /></button>Advanced:</td>
+			<td width="85%" class="ObjectDetailsValue"></td>			
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td width="15%" class="ObjectDetailsTopic" style="padding-left: 18px;">ID:</td>
+			<td width="85%" class="ObjectDetailsValue">{A0DAEA8C-7986-4462-AA78-EBFB37FA7E1A}</td>
+		</tr>
+	</table>
+	
+</div>
+
+
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+</div>
+</body>
+</html>

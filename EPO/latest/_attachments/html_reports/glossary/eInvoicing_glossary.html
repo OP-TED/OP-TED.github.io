@@ -42,11 +42,13 @@
                <tbody>
                   <tr>
                      <td>epo-inv:CreditNote</td>
-                     <td></td>
+                     <td>A Document sent by the Seller to the Buyer to reduce or cancel all or part of the
+                        amount previously invoiced.</td>
                   </tr>
                   <tr>
                      <td>epo-inv:CreditNoteLine</td>
-                     <td></td>
+                     <td>Details concerning a given unit of goods, services or works mentioned in the Credit
+                        Note.</td>
                   </tr>
                   <tr>
                      <td>epo-inv:CreditTransferInformation</td>
@@ -139,7 +141,7 @@
                   <tr>
                      <td>epo-inv:Invoice</td>
                      <td>epo-inv:hasPaymentDueDate</td>
-                     <td></td>
+                     <td>Final date until which the Payment can be made.</td>
                      <td>xsd:date [0..1]</td>
                   </tr>
                   <tr>
@@ -181,7 +183,7 @@
                   <tr>
                      <td>epo-inv:Invoice</td>
                      <td>epo-ord:hasPaymentTerm</td>
-                     <td></td>
+                     <td>Condition and stipulation of the Payment.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                </tbody>
@@ -198,57 +200,61 @@
                <tbody>
                   <tr>
                      <td>epo:hasLotReference</td>
-                     <td></td>
+                     <td>Relation indicating the instance of the concept refers to a Lot.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo:Lot [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo:refersToContract</td>
-                     <td></td>
+                     <td>Reference to a Contract.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo:Contract [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo:refersToProject</td>
-                     <td></td>
+                     <td>Reference to a Project.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo:Project [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesBuyer</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Buyer.</td>
                      <td>epo-inv:Invoice -&gt; epo:Buyer [1]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesSeller</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Seller.</td>
                      <td>epo-inv:Invoice -&gt; epo-ord:Seller [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasPrice</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has a Price.</td>
                      <td>epo-inv:InvoiceLine -&gt; epo-cat:Price [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasQuantity</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has a Quantity.</td>
                      <td>epo-inv:InvoiceLine -&gt; epo:Quantity [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:specifiesChargeInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Charge Information.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo-cat:ChargeInformation [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ful:refersToOrder</td>
-                     <td></td>
+                     <td>Reference to an Order.</td>
                      <td>epo-inv:Invoice -&gt; epo-ord:Order [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:comprisesCreditNoteLine</td>
-                     <td></td>
+                     <td>Incorporates Credit Note Line.</td>
                      <td>epo-inv:CreditNote -&gt; epo-inv:CreditNoteLine [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:comprisesInvoiceLine</td>
-                     <td></td>
+                     <td>Incorporates Invoice Line.</td>
                      <td>epo-inv:Invoice -&gt; epo-inv:InvoiceLine [1..*]</td>
                   </tr>
                   <tr>
@@ -260,7 +266,7 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasCreditTransferInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Credit Transfer Information.</td>
                      <td>epo-inv:PaymentInstructionsInformation -&gt; epo-inv:CreditTransferInformation [0..*]</td>
                   </tr>
                   <tr>
@@ -285,7 +291,7 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasInvoiceLinePeriod</td>
-                     <td></td>
+                     <td>Relation indicating the time range of the Invoice Line.</td>
                      <td></td>
                   </tr>
                   <tr>
@@ -295,12 +301,12 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasInvoiceNoteSubject</td>
-                     <td></td>
+                     <td>Relation indicating the Invoice Note Subject Code.</td>
                      <td>epo-inv:InvoiceNote -&gt; at-voc-new:invoice-note-subject-code [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:hasInvoicingPeriod</td>
-                     <td></td>
+                     <td>Relation indicating the time range for creating, sending, and managing Invoices.</td>
                      <td></td>
                   </tr>
                   <tr>
@@ -310,7 +316,8 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasNetAmount</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value exclusive of taxes and after substracting price
+                        discounts.</td>
                      <td>epo-inv:InvoiceLine -&gt; epo:MonetaryValue [1]</td>
                   </tr>
                   <tr>
@@ -322,12 +329,12 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasPaymentCardInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Payment Card Information.</td>
                      <td>epo-inv:PaymentInstructionsInformation -&gt; epo-inv:PaymentCardInformation [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:hasPaymentInstructionsInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Payment Instruction Information.</td>
                      <td>epo-inv:Invoice -&gt; epo-inv:PaymentInstructionsInformation [0..*]</td>
                   </tr>
                   <tr>
@@ -344,7 +351,7 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasTaxBreakdownInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Tax Breakdown Information.</td>
                      <td>epo-inv:Invoice -&gt; epo-inv:TaxBreakdownInformation [1..*]</td>
                   </tr>
                   <tr>
@@ -355,117 +362,125 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasTaxPointDateCode</td>
-                     <td></td>
+                     <td>Relation indicating the a Tax Date.</td>
                      <td>epo-inv:Invoice -&gt; at-voc-new:tax-date [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:hasTotalAccountingCurrencyTaxAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Tax applied on the currency
+                        in which the financial transactions are recorded at the company level.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:hasTotalTaxAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Tax applied.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:isSpecificToInvoiceLine</td>
-                     <td> </td>
+                     <td>Information that is particular to an Invoice Line. Information that is particular to an Invoice Line.</td>
                      <td>epo-cat:ChargeInformation -&gt; epo-inv:InvoiceLine [0..*]<br>epo-ord:AllowanceInformation -&gt; epo-inv:InvoiceLine [0..*]<br></td>
                   </tr>
                   <tr>
                      <td>epo-inv:isSubmittedForInvoiceLine</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept is sent for a specific Invoice
+                        Line.</td>
                      <td>epo-inv:CreditNoteLine -&gt; epo-inv:InvoiceLine [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToDespatchAdvice</td>
-                     <td></td>
+                     <td>Reference to a Despatch Advice.</td>
                      <td>epo-inv:Invoice -&gt; epo-ful:DespatchAdvice [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToInvoice</td>
-                     <td> </td>
+                     <td>Reference to an Invoice.
+                         Reference to an Invoice.</td>
                      <td>epo-inv:CreditNote -&gt; epo-inv:Invoice [0..1]<br>epo-pay:RemittanceAdviceLine -&gt; epo-inv:Invoice [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToOrderLine</td>
-                     <td></td>
+                     <td>Reference to an Order Line.</td>
                      <td>epo-inv:InvoiceLine -&gt; epo-ord:OrderLine [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:refersToReceiptAdvice</td>
-                     <td></td>
+                     <td>Reference to a Receipt Advice.</td>
                      <td>epo-inv:Invoice -&gt; epo-ful:ReceiptAdvice [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-inv:specifiesPayee</td>
-                     <td> </td>
+                     <td>Relation indicating that the instance of the concept involves the Payee. Relation indicating that the instance of the concept involves the Payee.</td>
                      <td>epo-inv:Invoice -&gt; epo-inv:Payee [0..1]<br>epo-pay:RemittanceAdvice -&gt; epo-inv:Payee [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-inv:specifiesSellerTaxRepresentative</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Seller Tax Representative.</td>
                      <td>epo-inv:Invoice -&gt; epo-inv:SellerTaxRepresentative [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasAmountDueForPayment</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value that has to be paid.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasPrepaidAmount</td>
-                     <td></td>
+                     <td>Relation indicating the Monetary Value that is paid in advance.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasRoundingAmount</td>
-                     <td></td>
+                     <td>Relation indicating the adjustment Monetary Value applied to bring calculated total
+                        to a convenient value.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTaxInformation</td>
-                     <td>  </td>
+                     <td>Relation indicating the Tax Information.
+                         Relation indicating the Tax Information.
+                         Relation indicating the Tax Information.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo-ord:TaxInformation [1]<br>epo-inv:InvoiceLine -&gt; epo-ord:TaxInformation [1]<br>epo-inv:TaxBreakdownInformation -&gt; epo-ord:TaxInformation [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalAllowanceAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Allowance.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalChargeAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Charge.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalLineAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value of the Line.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalTaxExclusiveAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value without Tax.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTotalTaxInclusiveAmount</td>
-                     <td></td>
+                     <td>Relation indicating the overall Monetary Value with Tax.</td>
                      <td>epo-inv:Invoice -&gt; epo:MonetaryValue [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesAllowanceInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Allowance Information.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo-ord:AllowanceInformation [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesDeliveryInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Delivery Information.</td>
                      <td>epo-inv:Invoice -&gt; epo-ord:DeliveryInformation [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-pay:hasPaymentMeansInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Payment Instruction Information.</td>
                      <td>epo-pay:PaymentInformation -&gt; epo-inv:PaymentInstructionsInformation [1]</td>
                   </tr>
                </tbody>

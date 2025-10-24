@@ -42,11 +42,13 @@
                <tbody>
                   <tr>
                      <td>epo-req:RequestForOffer</td>
-                     <td></td>
+                     <td>A Document sent by the Buyer to the Economic Operator, requesting the submission of
+                        a commercial proposal to supply goods, services, or works under specified conditions.</td>
                   </tr>
                   <tr>
                      <td>epo-req:RequestForOfferLine</td>
-                     <td></td>
+                     <td>Details concerning a given unit of goods, services or works mentioned in the Request
+                        For Offer.</td>
                   </tr>
                </tbody>
             </table>
@@ -64,13 +66,13 @@
                   <tr>
                      <td>epo-req:RequestForOffer</td>
                      <td>epo-req:hasSubmissionDueDate</td>
-                     <td></td>
+                     <td>Final date until the Submission is allowed.</td>
                      <td>xsd:dateTime [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-req:RequestForOfferLine</td>
                      <td>epo-req:isOptional</td>
-                     <td></td>
+                     <td>Indicates whether the instance of the concept is not required.</td>
                      <td>xsd:boolean [0..1]</td>
                   </tr>
                </tbody>
@@ -87,22 +89,23 @@
                <tbody>
                   <tr>
                      <td>epo:hasDestinationCountryCode</td>
-                     <td></td>
+                     <td>Relation indicating the Country code of the destination.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo:refersToContract</td>
-                     <td></td>
+                     <td>Reference to a Contract.
+                        </td>
                      <td>epo-req:RequestForOffer -&gt; epo:Contract [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesBuyer</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Buyer.</td>
                      <td>epo-req:RequestForOffer -&gt; epo:Buyer [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesContractor</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Contractor.</td>
                      <td>epo-req:RequestForOffer -&gt; epo:Contractor [1]</td>
                   </tr>
                   <tr>
@@ -117,27 +120,27 @@
                   </tr>
                   <tr>
                      <td>epo-ord:isSpecificToRequestForOfferLine</td>
-                     <td></td>
+                     <td>Information that is particular to a Request For Offer Line.</td>
                      <td>epo-ord:DeliveryInformation -&gt; epo-req:RequestForOfferLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:specifiesDeliveryInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Delivery Information.</td>
                      <td>epo-req:RequestForOffer -&gt; epo-ord:DeliveryInformation [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-req:comprisesRequestForOfferLine</td>
-                     <td></td>
+                     <td>Incorporates Request For Offer Line.</td>
                      <td>epo-req:RequestForOffer -&gt; epo-req:RequestForOfferLine [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-req:specifiesOfferCurrency</td>
-                     <td></td>
+                     <td>Relation indicating the Currency for the Offer.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-req:specifiesOfferValidityPeriod</td>
-                     <td></td>
+                     <td>Relation indicating the time range in which an Offer is valid.</td>
                      <td></td>
                   </tr>
                </tbody>

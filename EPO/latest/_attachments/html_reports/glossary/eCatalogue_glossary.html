@@ -42,17 +42,14 @@
                <tbody>
                   <tr>
                      <td>epo-cat:AbstractItem</td>
-                     <td>A product, work, service or any combination of them.
+                     <td>Gathering class for the Items, Item Requests and Deliverables.
                         
-                        Additional Information:
-                        An Item can be an atomic Thing or a composition of things that together are seen as
-                        a unit, e.g. a tetrabrik of milk or an indivisible package of six tetrabriks.
-                        
-                        No distinction is provided between services, goods and works to leave room for innovation.</td>
+                        Additional information:
+                        The subclasses have in common that they are related to a procurement need.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:Batch</td>
-                     <td>A production Lot in which the Item instances were produced. 
+                     <td>A production lot in which the Item instances were produced. 
                         </td>
                   </tr>
                   <tr>
@@ -101,7 +98,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:CatalogueResponseInformation</td>
-                     <td></td>
+                     <td>Information about a Catalogue Response.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:CatalogueResponseLine</td>
@@ -124,11 +121,13 @@
                   </tr>
                   <tr>
                      <td>epo-cat:DimensionInformation</td>
-                     <td></td>
+                     <td>Information about the physical or measurable attributes of the instance of the concept
+                        described.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:EnvironmentalEmissionInformation</td>
-                     <td></td>
+                     <td>Information about the emissions related to a product, work or service that are released
+                        into the environment.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:InformationHub</td>
@@ -140,7 +139,15 @@
                   </tr>
                   <tr>
                      <td>epo-cat:Item</td>
-                     <td></td>
+                     <td>A product, work, service or any combination of them.
+                        
+                        Additional Information:
+                        An Item can be an atomic Thing or a composition of things that together are seen as
+                        a unit, e.g. a tetrabrik of milk or an indivisible package of six tetrabriks.
+                        
+                        No distinction is provided between services, goods and works to leave room for innovation.
+                        
+                        An Item is used to fulfill a need which is described in an Item Request.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:ItemAccessoryRelation</td>
@@ -207,7 +214,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:Line</td>
-                     <td></td>
+                     <td>Component of a document providing specific information.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:Manufacturer</td>
@@ -235,7 +242,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:PostAwardDocument</td>
-                     <td></td>
+                     <td>Document created after the award of a Contract during a Procurement Procedure.</td>
                   </tr>
                   <tr>
                      <td>epo-cat:Price</td>
@@ -299,7 +306,7 @@
                   <tr>
                      <td>epo-cat:ItemProperty</td>
                      <td>epo-cat:hasClassificationCode</td>
-                     <td></td>
+                     <td>The categorization of the instance of the concept expressed as a code.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
@@ -336,7 +343,7 @@
                   <tr>
                      <td>epo-cat:ItemProperty</td>
                      <td>epo-cat:hasImportanceCode</td>
-                     <td></td>
+                     <td>The significance of the instance of the concept expressed as a code.</td>
                      <td>xsd:integer [0..1]</td>
                   </tr>
                   <tr>
@@ -467,7 +474,7 @@
                   </tr>
                   <tr>
                      <td>epo:hasDocumentType</td>
-                     <td></td>
+                     <td>Relation indicating the Document Type.</td>
                      <td>epo:Document -&gt; at-voc-new:document-type [0..1]</td>
                   </tr>
                   <tr>
@@ -492,7 +499,7 @@
                   </tr>
                   <tr>
                      <td>epo:hasPriceSurchargeInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Charge Information applied on the Price.</td>
                      <td>epo-cat:Price -&gt; epo-cat:ChargeInformation [0..1]</td>
                   </tr>
                   <tr>
@@ -520,47 +527,51 @@
                   </tr>
                   <tr>
                      <td>epo:specifiesBuyer</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Buyer.</td>
                      <td>epo-cat:Catalogue -&gt; epo:Buyer [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo:specifiesCatalogueProvider</td>
-                     <td> </td>
+                     <td>Relation indicating that the instance of the concept involves the Catalogue Provider.
+                         Relation indicating that the instance of the concept involves the Catalogue Provider.
+                        </td>
                      <td>epo-cat:Catalogue -&gt; epo:CatalogueProvider [0..1]<br>epo-cat:CatalogueResponse -&gt; epo:CatalogueProvider [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo:specifiesCatalogueReceiver</td>
-                     <td> </td>
+                     <td>Relation indicating that the instance of the concept involves the Catalogue Receiver.
+                         Relation indicating that the instance of the concept involves the Catalogue Receiver.
+                        </td>
                      <td>epo-cat:Catalogue -&gt; epo:CatalogueReceiver [0..1]<br>epo-cat:CatalogueResponse -&gt; epo:CatalogueReceiver [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo:specifiesSeller</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept involves the Seller.</td>
                      <td>epo-cat:Catalogue -&gt; epo-ord:Seller [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:comprisesCatalogueLine</td>
-                     <td></td>
+                     <td>Incorporates Catalogue Line.</td>
                      <td>epo-cat:Catalogue -&gt; epo-cat:CatalogueLine [1..*]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:comprisesCatalogueResponseLine</td>
-                     <td></td>
+                     <td>Incorporates Catalogue Response Line.</td>
                      <td>epo-cat:CatalogueResponse -&gt; epo-cat:CatalogueResponseLine [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:concernsItem</td>
-                     <td> </td>
+                     <td>Relates to Item. Relates to Item.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo-cat:AbstractItem [0..1]<br>epo-cat:EnvironmentalEmissionInformation -&gt; epo-cat:AbstractItem [0..1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-cat:describesItem</td>
-                     <td></td>
+                     <td>Characterises Item.</td>
                      <td>epo-cat:ItemProperty -&gt; epo-cat:AbstractItem [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:foreseesPackage</td>
-                     <td></td>
+                     <td>Relation indicating that an instance of the concept plans to have a Package.</td>
                      <td>epo-cat:CatalogueLine -&gt; epo-ful:Package [0..1]</td>
                   </tr>
                   <tr>
@@ -571,7 +582,8 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasActivityCode</td>
-                     <td> </td>
+                     <td>Relation indicating the Activity Code. Relation indicating the Activity Code.
+                        </td>
                      <td>epo-cat:Catalogue -&gt; at-voc-new:activity-code [0..1]<br>epo-cat:CatalogueLine -&gt; at-voc-new:activity-code [0..1]<br></td>
                   </tr>
                   <tr>
@@ -581,7 +593,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasBrand</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has a Brand.</td>
                      <td>epo-cat:AbstractItem -&gt; epo-cat:Brand [0..1]</td>
                   </tr>
                   <tr>
@@ -591,7 +603,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasChargeInformation</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has Charge Information.</td>
                      <td>epo-cat:CatalogueLine -&gt; epo-cat:ChargeInformation [0..*]</td>
                   </tr>
                   <tr>
@@ -615,7 +627,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasDeliveryClassification</td>
-                     <td></td>
+                     <td>Relation indicating the Delivery Item Type.</td>
                      <td>epo-cat:AbstractItem -&gt; at-voc-new:delivery-item-type [0..1]</td>
                   </tr>
                   <tr>
@@ -626,7 +638,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasEnvironmentalEmissionCode</td>
-                     <td></td>
+                     <td>Relation indicating the Environmental Emission Code.</td>
                      <td>epo-cat:EnvironmentalEmissionInformation -&gt; at-voc-new:environmental-emission-code [1]</td>
                   </tr>
                   <tr>
@@ -665,7 +677,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasMaximumMeasure</td>
-                     <td></td>
+                     <td>Relation indicating the upper limit of the measure.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo:Quantity [0..1]</td>
                   </tr>
                   <tr>
@@ -677,22 +689,22 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasMaximumValue</td>
-                     <td></td>
+                     <td>Relation indicating the upper limit of the numerical quantity.</td>
                      <td>epo-cat:ItemProperty -&gt; epo:Quantity [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasMeasure</td>
-                     <td> </td>
+                     <td>Relation indicating the unit used for stating the size. Relation indicating the unit used for stating the size.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo:Quantity [0..1]<br>epo-cat:EnvironmentalEmissionInformation -&gt; epo:Quantity [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasMeasuredAttributeCode</td>
-                     <td></td>
+                     <td>Relation indicating the Measured Attribute Code.</td>
                      <td>epo-cat:DimensionInformation -&gt; at-voc-new:measured-attribute-code [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasMinimumMeasure</td>
-                     <td></td>
+                     <td>Relation indicating the lower limit of the measure.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo:Quantity [0..1]</td>
                   </tr>
                   <tr>
@@ -704,17 +716,17 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasMinimumValue</td>
-                     <td></td>
+                     <td>Relation indicating the lower limit of the numerical quantity.</td>
                      <td>epo-cat:ItemProperty -&gt; epo:Quantity [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasModel</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has an Item Model.</td>
                      <td>epo-cat:AbstractItem -&gt; epo-cat:ItemModel [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasNetMonetaryValue</td>
-                     <td>The price amount of an Item exclusive of taxes and after substracting price discounts.
+                     <td>The price amount of an Item exclusive of taxes and after subtracting price discounts.
                         </td>
                      <td>epo-cat:Price -&gt; epo:MonetaryValue [1]</td>
                   </tr>
@@ -745,12 +757,12 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasPrice</td>
-                     <td>  </td>
+                     <td>Relation indicating that the instance of the concept has a Price. Relation indicating that the instance of the concept has a Price. Relation indicating that the instance of the concept has a Price.</td>
                      <td>epo-inv:InvoiceLine -&gt; epo-cat:Price [1..*]<br>epo-ord:OrderLine -&gt; epo-cat:Price [0..*]<br>epo-cat:CatalogueLine -&gt; epo-cat:Price [0..*]<br></td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasPriceType</td>
-                     <td></td>
+                     <td>Relation indicating the Price Type.</td>
                      <td>epo-cat:Price -&gt; at-voc-new:price-type [0..1]</td>
                   </tr>
                   <tr>
@@ -761,7 +773,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasQualifiedItemRelation</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has an Item Relation.</td>
                      <td>epo-cat:AbstractItem -&gt; epo-cat:ItemRelation [0..*]</td>
                   </tr>
                   <tr>
@@ -780,7 +792,7 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasSpecification</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept has a Product Specification.</td>
                      <td>epo-cat:AbstractItem -&gt; epo-cat:ProductSpecification [0..*]</td>
                   </tr>
                   <tr>
@@ -793,12 +805,12 @@
                   </tr>
                   <tr>
                      <td>epo-cat:hasTaxCategory</td>
-                     <td></td>
+                     <td>Relation indicating the Tax Category.</td>
                      <td>epo-ord:TaxInformation -&gt; at-voc-new:tax-category [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:hasTaxScheme</td>
-                     <td></td>
+                     <td>Relation indicating the Tax Scheme.</td>
                      <td>epo-ord:TaxInformation -&gt; at-voc-new:tax-scheme [1]</td>
                   </tr>
                   <tr>
@@ -810,27 +822,27 @@
                   </tr>
                   <tr>
                      <td>epo-cat:isProductionOf</td>
-                     <td></td>
+                     <td>Relation indicating the Item that is manufactured.</td>
                      <td>epo-cat:Batch -&gt; epo-cat:AbstractItem [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:isRelatedToItem</td>
-                     <td></td>
+                     <td>Relation indicating the association with an Item.</td>
                      <td>epo-cat:ItemRelation -&gt; epo-cat:AbstractItem [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:isSpecificToCatalogueResponseLine</td>
-                     <td></td>
+                     <td>Information that is particular to a Catalogue Response Line.</td>
                      <td>epo-cat:CatalogueResponseInformation -&gt; epo-cat:CatalogueResponseLine [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:isSpecificToLine</td>
-                     <td></td>
+                     <td>Information that is particular to a Line.</td>
                      <td>epo-cat:InformationHub -&gt; epo-cat:Line [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:isSubordinatedToContract</td>
-                     <td></td>
+                     <td>Relation indicating that the instance of the concept is governed by a specific Contract.</td>
                      <td>epo-cat:PostAwardCatalogue -&gt; epo:Contract [0..1]</td>
                   </tr>
                   <tr>
@@ -844,42 +856,44 @@
                   </tr>
                   <tr>
                      <td>epo-cat:refersToCatalogueLine</td>
-                     <td></td>
+                     <td>Reference to a Catalogue Line.</td>
                      <td>epo-cat:CatalogueResponseLine -&gt; epo-cat:CatalogueLine [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:specifiesCatalogueResponseInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Catalogue Response Information. </td>
                      <td>epo-cat:CatalogueResponse -&gt; epo-cat:CatalogueResponseInformation [1]</td>
                   </tr>
                   <tr>
                      <td>epo-cat:specifiesChargeInformation</td>
-                     <td> </td>
+                     <td>Relation indicating the Charge Information.
+                         Relation indicating the Charge Information.
+                        </td>
                      <td>epo-inv:Invoice -&gt; epo-cat:ChargeInformation [0..*]<br>epo-ord:Order -&gt; epo-cat:ChargeInformation [0..*]<br></td>
                   </tr>
                   <tr>
                      <td>epo-cat:specifiesItem</td>
-                     <td></td>
+                     <td>Relation indicating the Item.</td>
                      <td>epo-cat:Line -&gt; epo-cat:AbstractItem [1]</td>
                   </tr>
                   <tr>
                      <td>epo-ful:concernsGoodsItem</td>
-                     <td></td>
+                     <td>Relates to Goods Item.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo-ful:GoodsItem [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ful:concernsPackage</td>
-                     <td></td>
+                     <td>Relates to Package.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo-ful:Package [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ful:concernsTransportEquipment</td>
-                     <td></td>
+                     <td>Relates to Transport Equipment.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo-ful:TransportEquipment [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ful:concernsTransportMeans</td>
-                     <td> </td>
+                     <td>Relates to Transport Means. Relates to Transport Means.</td>
                      <td>epo-cat:DimensionInformation -&gt; epo-ful:TransportMeans [0..1]<br>epo-cat:EnvironmentalEmissionInformation -&gt; epo-ful:TransportMeans [0..1]<br></td>
                   </tr>
                   <tr>
@@ -894,12 +908,12 @@
                   </tr>
                   <tr>
                      <td>epo-inv:hasItemClassificationIdentifier</td>
-                     <td></td>
+                     <td>The Identifier of the Item categorisation.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-inv:isSpecificToInvoiceLine</td>
-                     <td></td>
+                     <td>Information that is particular to an Invoice Line.</td>
                      <td>epo-cat:ChargeInformation -&gt; epo-inv:InvoiceLine [0..*]</td>
                   </tr>
                   <tr>
@@ -910,22 +924,23 @@
                   </tr>
                   <tr>
                      <td>epo-ord:hasGrossMonetaryValue</td>
-                     <td></td>
+                     <td>The Monetary Value before any deductions.</td>
                      <td>epo-cat:Price -&gt; epo:MonetaryValue [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasPriceDiscountInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Allowance Information applied on the Price.</td>
                      <td>epo-cat:Price -&gt; epo-ord:AllowanceInformation [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasResponseStatus</td>
-                     <td></td>
+                     <td>Relation indicating the response status.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-ord:hasTaxInformation</td>
-                     <td></td>
+                     <td>Relation indicating the Tax Information.
+                        </td>
                      <td>epo-cat:AbstractItem -&gt; epo-ord:TaxInformation [0..*]</td>
                   </tr>
                   <tr>

@@ -40,11 +40,11 @@
 			var divs = document.getElementsByClassName("ObjectDetailsNotes");
 			for (var j = 0; j < divs.length; j++) {
 				var tmpStr = divs[j].innerHTML;
-				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
-				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
-
 				tmpStr = tmpStr.replace(/&gt;/g, ">");
 				tmpStr = tmpStr.replace(/&lt;/g, "<");
+
+				tmpStr = tmpStr.replace(/#gt;/g, "&gt;");
+				tmpStr = tmpStr.replace(/#lt;/g, "&lt;");
 
 				divs[j].innerHTML = tmpStr;
 			}
@@ -93,11 +93,11 @@
 	<table border="0" class="ObjectDetails">
 		<tr>
 			<td width="15%" class="ObjectDetailsTopic">Created:</td>
-			<td width="85%" class="ObjectDetailsValue">11/19/2024 3:56:56 PM</td>
+			<td width="85%" class="ObjectDetailsValue">19/11/2024 15:56:56</td>
 		</tr>
 		<tr>
 			<td class="ObjectDetailsTopic">Modified:</td>
-			<td class="ObjectDetailsValue">4/29/2025 4:01:59 PM</td>
+			<td class="ObjectDetailsValue">11/09/2025 16:17:03</td>
 		</tr>
 		<tr style="height: 10px"><td colspan="2"></td></tr>
 		<tr>
@@ -146,17 +146,18 @@
 		</tr>
 		<tr id="adv01" style="display: none;">
 			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
-			<td class="ObjectDetailsValue"><a href="EA122.htm">role hierarchy</a>, evaluation, <a href="../EA10/EA291.htm">award decision outcome relations</a>, contract and lot, <a href="../EA10/EA289.htm">award decision</a>, evaluation roles, award decision notification</td>
+			<td class="ObjectDetailsValue"><a href="EA122.htm">role hierarchy</a>, evaluation, <a href="../EA10/EA292.htm">award decision outcome relations</a>, contract and lot, <a href="../EA10/EA290.htm">award decision</a>, evaluation roles, award decision notification</td>
 		</tr>
 	</table>
-	
+	<div class="ObjectDetailsNotes">A Role of an Agent that holds sole responsibility for initiating, managing, and executing a procurement procedure.&lt;br/&gt;</div>
+
 	<div class="TableGroup" id="TableGroup">
 		<ul class="ItemTitle">
-			<li onClick="parent != null ? parent.toggleItem('AssociationsTo') : toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
-			<li onClick="parent != null ? parent.toggleItem('AssociationsFrom') : toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
-			<li onClick="parent != null ? parent.toggleItem('TaggedVal') : toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
-			<li onClick="parent != null ? parent.toggleItem('CustomProperties') : toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
-			<li onClick="parent != null ? parent.toggleItem('Links') : toggleItem('Links');" id="LinksTitle">Other Links</li>
+			<li onClick="toggleItem('AssociationsTo');" id="AssociationsToTitle">Associations To</li>
+			<li onClick="toggleItem('AssociationsFrom');" id="AssociationsFromTitle">Associations From</li>
+			<li onClick="toggleItem('TaggedVal');" id="TaggedValTitle">Tagged Values</li>
+			<li onClick="toggleItem('CustomProperties');" id="CustomPropertiesTitle">Advanced</li>
+			<li onClick="toggleItem('Links');" id="LinksTitle">Other Links</li>
 		</ul>
 		<div class="ItemBody" id="AssociationsToTable">
 			<table class="Table ea_table">
@@ -164,6 +165,30 @@
 					<td width="40%" class="TableHeading">Element</td>
 					<td width="30%" class="TableHeading">Source Role</td>
 					<td width="30%" class="TableHeading">Target Role</td>
+				</tr>
+				<tr>
+					<td width="40%" class="TableRow" valign="top">
+						<a href="../EA12/EA347.htm">epo:AwardDecision</a><br />
+						Class &nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> &nbsp;<br />
+						&nbsp;
+					</td>
+					<td width="30%" class="TableRow" valign="top">
+						<strong>Name:</strong> epo:signsAwardDecision<br />
+						&nbsp;	
+					</td>
+				</tr>
+				<tr>
+					<td class="TableRowBottomDashed"  colspan="3">
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink201" /></button>Details:
+							<div id="detailsDIVLink201" class="DetailsDiv" >
+							<div class="ObjectDetailsNotes">Relation indicating the Award Decision that was signed.&lt;br/&gt;</div>
+
+							</div>
+						</div>
+					</td>
 				</tr>
 				<tr>
 					<td width="40%" class="TableRow" valign="top">
@@ -181,32 +206,10 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink199" /></button>Details:
-							<div id="detailsDIVLink199" class="DetailsDiv" >
-							&nbsp;
-							</div>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td width="40%" class="TableRow" valign="top">
-						<a href="../EA12/EA344.htm">epo:AwardDecision</a><br />
-						Class &nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> &nbsp;<br />
-						&nbsp;
-					</td>
-					<td width="30%" class="TableRow" valign="top">
-						<strong>Name:</strong> epo:signsAwardDecision<br />
-						&nbsp;	
-					</td>
-				</tr>
-				<tr>
-					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink200" /></button>Details:
-							<div id="detailsDIVLink200" class="DetailsDiv" >
-							&nbsp;
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink202" /></button>Details:
+							<div id="detailsDIVLink202" class="DetailsDiv" >
+							<div class="ObjectDetailsNotes">Relation indicating the Agent that fulfills the function of the instance of the concept.&lt;br/&gt;&lt;br/&gt;</div>
+
 							</div>
 						</div>
 					</td>
@@ -237,9 +240,10 @@
 				</tr>
 				<tr>
 					<td class="TableRowBottomDashed"  colspan="3">
-						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink201" /></button>Details:
-							<div id="detailsDIVLink201" class="DetailsDiv" >
-							&nbsp;
+						<div class="DetailsDivParent"><button onclick="switchProjectProperties()"><img src="../../../images/minus03.gif" align="absmiddle" id="DetailsImageLink203" /></button>Details:
+							<div id="detailsDIVLink203" class="DetailsDiv" >
+							<div class="ObjectDetailsNotes">Relation indicating that by whom the instance of the concept is formally assigned.&lt;br/&gt;</div>
+
 							</div>
 						</div>
 					</td>
@@ -256,6 +260,15 @@
 					<tr>
 				<td width="50%" class="TableRow" valign="top">epo:status</td>
 				<td width="50%" class="TableRow" valign="top">implemented</td>
+			</tr>	
+			<tr>
+				<td class="TableRowBottomDashed"  colspan="2">
+					Details:
+						&nbsp;
+				</td>
+			</tr>			<tr>
+				<td width="50%" class="TableRow" valign="top">skos:historyNote</td>
+				<td width="50%" class="TableRow" valign="top">WG approval 11/09/2025</td>
 			</tr>	
 			<tr>
 				<td class="TableRowBottomDashed"  colspan="2">

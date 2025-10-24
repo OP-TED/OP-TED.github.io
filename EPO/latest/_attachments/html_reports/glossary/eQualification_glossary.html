@@ -42,27 +42,30 @@
                <tbody>
                   <tr>
                      <td>epo-qua:EvidenceOutcome</td>
-                     <td></td>
+                     <td>Result concerning the submitted Evidence.</td>
                   </tr>
                   <tr>
                      <td>epo-qua:EvidenceReceipt</td>
-                     <td></td>
+                     <td>A Document sent by the Buyer to the Economic Operator confirming the receival of an
+                        Evidence Submission.</td>
                   </tr>
                   <tr>
                      <td>epo-qua:EvidenceRequest</td>
-                     <td></td>
+                     <td>A Document sent by the Buyer to the Economic Operator asking for the submission of
+                        an Evidence.</td>
                   </tr>
                   <tr>
                      <td>epo-qua:EvidenceSubmission</td>
-                     <td></td>
+                     <td>A Document sent by the Economic Operator to the Buyer which contains an Evidence.</td>
                   </tr>
                   <tr>
                      <td>epo-qua:QualificationDecisionInformation</td>
-                     <td></td>
+                     <td>Information about the aggregated result of the Evidence Outcomes.</td>
                   </tr>
                   <tr>
                      <td>epo-qua:QualificationReponse</td>
-                     <td></td>
+                     <td>A formal reply from the Buyer to the Economic Operator informing the Economic Operator
+                        that it may participate in a procurement.</td>
                   </tr>
                </tbody>
             </table>
@@ -80,25 +83,25 @@
                   <tr>
                      <td>epo-qua:QualificationDecisionInformation</td>
                      <td>epo:hasQualificationDecisionDate</td>
-                     <td></td>
+                     <td>The official date of the Qualification Decision.</td>
                      <td>xsd:dateTime [1..1]</td>
                   </tr>
                   <tr>
                      <td>epo-qua:QualificationDecisionInformation</td>
                      <td>epo:hasRejectionDescription</td>
-                     <td></td>
+                     <td>Explanatory text about the rejection reason.</td>
                      <td>rdf:PlainLiteral [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-qua:QualificationDecisionInformation</td>
                      <td>epo:isQualified</td>
-                     <td></td>
+                     <td>Indicates whether the economic operator is eligible.</td>
                      <td>xsd:boolean [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-qua:EvidenceOutcome</td>
                      <td>epo-qua:fulfillsRequirement</td>
-                     <td></td>
+                     <td>Indicates whether the Requirement is satisfied.</td>
                      <td>xsd:boolean [0..1]</td>
                   </tr>
                </tbody>
@@ -115,52 +118,58 @@
                <tbody>
                   <tr>
                      <td>epo:concernsLot</td>
-                     <td> </td>
+                     <td>Relates to Lot.
+                         Relates to Lot.
+                        </td>
                      <td>epo-qua:EvidenceSubmission -&gt; epo:Lot [1..*]<br>epo-qua:EvidenceRequest -&gt; epo:Lot [1..*]<br></td>
                   </tr>
                   <tr>
                      <td>epo:concernsProcedure</td>
-                     <td> </td>
+                     <td>Relates to Procedure. Relates to Procedure.</td>
                      <td>epo-qua:EvidenceSubmission -&gt; epo:Procedure [1]<br>epo-qua:EvidenceRequest -&gt; epo:Procedure [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo:providesEvidence</td>
-                     <td></td>
+                     <td>Makes available the Evidence.
+                        </td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo:specifiesEconomicOperator</td>
-                     <td> </td>
+                     <td>Relation indicating that the instance of the concept involves the Economic Operator.
+                         Relation indicating that the instance of the concept involves the Economic Operator.</td>
                      <td>epo-qua:EvidenceSubmission -&gt; epo:OfferingParty [1]<br>epo-qua:EvidenceRequest -&gt; epo:OfferingParty [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo:specifiesEvidence</td>
-                     <td></td>
+                     <td>Relation indicating the Evidence.</td>
                      <td></td>
                   </tr>
                   <tr>
                      <td>epo-qua:comprisesEvidenceOutcome</td>
-                     <td></td>
+                     <td>Incorporates Evidence Outcome.</td>
                      <td>epo-qua:QualificationDecisionInformation -&gt; epo-qua:EvidenceOutcome [0..*]</td>
                   </tr>
                   <tr>
                      <td>epo-qua:providesDecisionFor</td>
-                     <td></td>
+                     <td>Makes available the resolution.</td>
                      <td>epo-qua:QualificationDecisionInformation -&gt; epo:Lot [1]</td>
                   </tr>
                   <tr>
                      <td>epo-qua:refersToEvidenceRequest</td>
-                     <td></td>
+                     <td>Reference to an Evidence Request.</td>
                      <td>epo-qua:EvidenceSubmission -&gt; epo-qua:EvidenceRequest [0..1]</td>
                   </tr>
                   <tr>
                      <td>epo-qua:refersToEvidenceSubmission</td>
-                     <td> </td>
+                     <td>Reference to an Evidence Submission.
+                         Reference to an Evidence Submission.
+                        </td>
                      <td>epo-qua:EvidenceReceipt -&gt; epo-qua:EvidenceSubmission [1]<br>epo-qua:QualificationReponse -&gt; epo-qua:EvidenceSubmission [1]<br></td>
                   </tr>
                   <tr>
                      <td>epo-qua:summarisesInformationForQualificationResponse</td>
-                     <td></td>
+                     <td>Relation indicating the Qualification Response that the information refers to.</td>
                      <td>epo-qua:QualificationDecisionInformation -&gt; epo-qua:QualificationReponse [1]</td>
                   </tr>
                </tbody>
