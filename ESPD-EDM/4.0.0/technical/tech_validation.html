@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Validation :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/latest/technical/tech_validation.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="4.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">ESPD EDM</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Release Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release_notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/ESPD_CM_html/index.html">Conceptual Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/demo.html">ESPD Demo Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Information for Business Users</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/index.html">Business Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/implementation.html">An ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/using.html">Using an ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Technical Implementation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/external.html">External Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/supporting.html">Supporting and related projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/laws.html">Laws and Directives</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Open User Community Reports</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/index.html">Upcoming Meeting Dates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/monthly.html">Monthly Reports</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/annual.html">Annual Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">ESPD EDM</span>
+          <span class="version">4.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../eforms/1.14/index.html">1.14</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../../latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../latest/index.html">4.1.0</a>
+            </li>
+            <li class="version is-current">
+              <a href="../index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../M2O/latest/index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">ESPD EDM</a></li>
+    <li><a href="tech_validation.html">Validation</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/technical/tech_validation.html">4.1.0</a>
+    <a class="version is-current" href="tech_validation.html">4.0.0</a>
+    <a class="version" href="../../3.3.0/technical/tech_validation.html">3.3.0</a>
+    <a class="version is-missing" href="../../3.2.0/index.html">3.2.0</a>
+    <a class="version is-missing" href="../../3.1.0/index.html">3.1.0</a>
+    <a class="version is-missing" href="../../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../../2.1.1/index.html">2.1.1</a>
+    <a class="version is-missing" href="../../2.0.2/index.html">2.0.2</a>
+    <a class="version is-missing" href="../../1.0.2/index.html">1.0.2</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Validation</h1>
+<div class="sect1">
+<h2 id="_iso_schematron"><a class="anchor" href="#_iso_schematron"></a>ISO Schematron</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Schematron is a rule-based validation language that specifies validation processes against XML documents. ISO Schematron is an ISO (ISO/IEC 19757-3:2006) and open standard. Please visit the <a href="http://www.schematron.com/">ISO Schematron</a> web-site for the technical specification and details.</p>
+</div>
+<div class="sect2">
+<h3 id="_espd_business_rules"><a class="anchor" href="#_espd_business_rules"></a>ESPD Business Rules</h3>
+<div class="paragraph">
+<p>The ESPD-EDM uses Schematron to validate business rules, the business requirements taken as input for these rules are specified in the <mark><a href="http://wiki.ds.unipi.gr/display/ESPDInt">ESPDint Business Document</a></mark>.</p>
+</div>
+<div class="paragraph">
+<p>These business rules can be typified as:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Semantic validations</strong>: e.g. The "cac:TenderingCriterionResponse" in a Response document MUST match one, and only one, of the "cac:TenderingCriterionProperty" elements in the XML instance of the corresponding ESPD-Request;</p>
+</li>
+<li>
+<p><strong>Assertions</strong> about the presence or absence of patterns in XML documents: e.g. all business rules that apply to identifier nodes: mandatory attributes, structure of the identifier, etc.;</p>
+</li>
+<li>
+<p><strong>Code lists</strong> validations: e.g. values and attributes for each code list element;</p>
+</li>
+<li>
+<p><strong>Other validations</strong> that an XSD cannot do: e.g. Validates that one of the nodes has at least 1 child.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following image shows different examples of validations:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqdVNtu2kAUfPdXHFl5SJrg7C4Y4zSNZC6p8tAQpWn6UKrKlzVsZbzIXgd467f00_olPTbYBoLktKwQsHjnzJmdOScJfABiMBFrgVzGmubQK_DkChI3AHOxAv1exq2BDDhEIlXQz1IR8zSFJIt4qoMnpvh4FIAvI5nAciYUh1BEEZAVuTU7tglLEagZUPPdSYLw7AoUXynQ__z6DWMvElNXCRmDkpClHGSM7wTmMuHAIz7nsUoh4AseByKe4t8g1YwnWA438oPpex2inxlSm2gbDmRFbTboDHDDVdibBR6P5BIcCudw2iKGeUHONKe9S-RpxuHFjTKeQigjfDoFFxauUjyJGwpQgxwv0Nkt4CiVCC9TZZlG0PZxUHMX9D6be6iFDGupFol8EQEPGvG7R_E1x3LLCte-51_dDXUoAVif9bsWAiwFXqixBARyKH624BQtZF4wg55piZjOFOJ4JU7qz5CcM-Wxv74bfqjxbmnfsQcHeJZr8A0gtYuOLb8EmuijL63B-FNr_DDRaxjLbg8ZPYTxShi2Ec4KSpib-mglyd5Rf59BkQvH4uV5Rqh1-QC0w1rMbpuMENKAWGnUJqgRM2uRwkrsy43aNw1yW3y_L22EeeVRJBYYHh0aXnqxjiPSAtHIMfvbGaDDc27WKhKYvDIUmMkQB0EA3jrfrt2mw0OGqfaLVKcwDkPho3Tfvm_W5eft11a5ky9j9_w4jtYgQsgFGUo_y439tF7wYgiJFCb602j4Y3A_0fFYMXuEcrHiK8N32z2r3y2n0ci8pbdD_KUOBOhg_-d5_3n7aGAtwsYgTOQc-vnN4WQaUQO31Ayn5NYOvSomcH2M6FtTUziiNkSvSk0-bZvT0qvSwlhh895OWpDTIw8HMlZbYo2p6R2kZtusXTeb03prlPebtKombe9Voj8-jr82srPdo-wo2af3zJMUvfev_LoVP0p2CBJmEEwFaWSHNA5GDiXVZdxsLNs0J0itP9lCBPsT4tBnTfMCORyI1mdluI_79lii9Dx3czcOXCWTtaH_b9QKuxZZs3IyfwEaPHCr" alt="Non-code list business rules" width="600" height="300">
+</div>
+</div>
+<div class="paragraph">
+<p>The validation of code lists is explained in sections below.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_schematron_architecture"><a class="anchor" href="#_schematron_architecture"></a>Schematron Architecture</h3>
+<div class="paragraph">
+<p>ISO Schematron executes the validations in two stages:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Design and implementation of the SCH files</strong>. SCH stands for Schematron Schema and contains the set of rules to be validated within the XML document.</p>
+</li>
+<li>
+<p><strong>Execution of the implemented validations</strong> in the SCH files:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Transformation of SCH files into XSLT files in order to be able to execute the validations against the XML.</p>
+</li>
+<li>
+<p>Execution of the validations using the XSLT files to get the final report.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqtVV1v2jAUfc-vuIo6CQpEsSHtQNokSkGbRNVp8NCHvYRggqUQI8cZ6X79ru0ESCr6oQ2EhH19zzm-X76S8AV8j_LUWcWRSIRZF7PZxPd9xxmTEaxEATJcA9kX4C4m31zYMh5vFRAvuL6ScOBrtQVqFxbCL8iQTgYT2PAkOcKBE0opDtD76ozpCCIuo4RZ6EBju5e87_UXV-oMoN8QNskzJXb8D1u74D4t5r3lh-AG_6onaOj5yfbibQD45djwjYln_nR8j_AUt8sYt9Bg_7Y7CU8ZHur5Xl9nxh-BYoUCl7hInaxhxWPzs6SrJGcGHtG9FEKlOTLoQcvvYsLbGoJUEN8Xj1AGzW0tmdzxNFRCtl1EaNyhDklPkH0DSSvIp4d59qb7oOFOwxHYmPL0N8_4ChOyFocU-v4n2Eixs5fAk8WlkyR4cbSStIi2bBcqKVIYy2jLFYtULpl7FrULOkkZOoz9bdDFhiGo1tKXVARPKmECUjfQ0oBXdZyqRHR9lRlGlUUH3QpMPUVa0B9bFK2qKqADBLurfTIfpWHgrsvCgFRI3BcbjZk6zh2P70Rh67Ik-6x7tMZBB7Utg3vQwJoQErZRFeDBZMojXV2ARykrtuXpGg9UG1WN92d0RkChtQxtLMNnx5ljzWm9p7gd8HYV7q2vgWOB1zLjZMvCNU9jIDcB7qstSwGNw3PT0D-zkMtOddP74JoqApw7x7aj72y7-antsGimtDlS3foErQ_XV-epSX-AKUiw3Coa6g27pj6nlP4HJjuqakx7yX5zkWfIZzJn5kmgCfvHKYpcx0H6NjJ9Ce04y-lxljyEaR4myTOsWcbjVM_4BqiNtylcjLDH0Ltfef-QImJZBo-52ufqdVdqXAcN19d9-h4rSzgwKV5Ogw-MZqZBbKtaHILh6PaoTqEFuTeXhhDbjO_2CduxVGFjMcDHWEeTZZ4LZ2DIXzUVxdRYSTcfLVuNYhNsMcqHoiZgFaoIxxT6C1zifMJBxwoW5QqFYJb1mUyxfWbEx8x6bfBxSUDiAylVU_lNpXxgWP8CxFZ7nw==" alt="Architecture for non-code list validation" width="600" height="300">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_does_the_sch_file_contain"><a class="anchor" href="#_what_does_the_sch_file_contain"></a>What does the SCH file contain?</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Set of rules</strong> specifying the context (the element(s) and/or attribute(s) which the assertions affect);</p>
+</li>
+<li>
+<p>Each rule have a <strong>set of assertions</strong> with the tests that must be evaluated in the context.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNq9Vl1v2jAUfW5-hZU-0D4kTgTTBgpuC120SZ06rUyaNO3BOA6JcGxkOwVp9L_PCWEqBPeDffgpur733HPPta9zqTSWuiyYk-UJBakQeipWjprnfIElLsBPB4AxlslIyITKSZaTOadKgcDYR5jMZ1KUPBkLJiRYZrmmlb323dimzDgZWyy4fmx5cB4lISZBncmOuYt6GseBWRVKHUu-O1FqMgwKwYVaYEITFJHKdXDa6_Z7VzGKLlYFA_dUqlzwoRv6gQsoJyLJ-Wzofp3E3jv3AkWwjkJ2uLDbjd8bOEUyWuCtP9hux-Hoqj9GJhdXw-3udvN69KYXBMjNtF4MIFyUkvmCMOILOYOJShjcoGopuNuCbgqpoQcrxfbRm9TPZV0ul_6yW6cM-_0-_HZ3AycSc5UKWbj7wU25TwjTtpzsa7XAWlPJ_6dYDXSeWHFHX7zx7SfvdvLhiKIbT1l9ThHYWesITpEFMpIlozayxCShK21lTKZkAD5LkeaMfrz-l6xfHnpH9W5oq_lYKSq1rWZNlb3gSo2z82Gn54cda4tThmdWhBRrzI48HeZkeMFbLwifVbqx15MNdao2_e5SBxSl0qBUFOiMgnvMSroXttV0XYsp0uMaYQIPN2LDyjUauuBshxsYgo7tnNZEvYrMYekUZZTYO-fva9bgwtbFaEQ7921M4OYAIYtqL1hrsIEwg18dI251Z9XBa_0KEn--jryhrdAT3_f_4kSDlTxP8GoNBNg8B694bJtRj5wfziXliflf-QV3ibFn" alt="SCH file example" width="700" height="180">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execution"><a class="anchor" href="#_execution"></a>Execution</h3>
+<div class="paragraph">
+<p>As a basis of the implementation, it has been taken into account:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Schematron "skeleton" implementation in <a href="https://github.com/SCHEMATRON">XSLT</a>.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNq1k0Fu2zAQRfc8xUDIIk5tgZTtuDaahWLEaAB3pS66MGDQFi2xpciAZCAve5YcLSfpUFQcpwVSoEA3AsUR__z3h7qwcAM0zaQmpWk1ITlbgBdHD8nXWjrYJHkB98UmgR13-C71Xj2WwiWgvj86T_Ls5fPnn0_wrVjDQSrhwBvwlmt3MLZZ9B_DhuyNMhbokc2z5WSJG9yH7rATyrSQMxjB5Qg3hjSlAzQzPlcvlp-DLjb5m-D1q-AHuKTpdBjUyBrZlNQCDtY0kI9T0fVjKRuGpnSA5yuD5ydXFxZqwUupK8imU9z3tdCAxey8xD7Ss9K7534rMvpvoniOEG4twr1CdIyY2SDEs-6YkYcNIezUUscHISvkD-OBpMtwZ1TZB-UartSbZwy2sgJttLL0NTqZRyeyqj1gaOFtQ1qJtRRDxeTXLCx6OxA8YOxxgF-Ec7wSo2Jfi4Z7a_TIC9tIzb2x6dGpBKJSG4RWLM4mUCDEy5Sz2eRuNkOQ7D-DYH_Xg8w7kPH4RCKd2boTxdb9EEp4XOBV3yKHZ3_SZO_S5BZx4ky7QSWfUGAhmwdjfRLHHPxA-EHjVekuh-3s48RRvj37FXrZaPaNFFrBXqf-89vr1Yz-AvghLqo=" alt="Execution files" width="600" height="150">
+</div>
+</div>
+<div class="paragraph">
+<p>This example describes the execution of the validation process using the <a href="http://saxon.sourceforge.net/">Saxon library</a> to execute XSLT files and the XSLT provided as a basis:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNrNVF1r2zAUffevuJg-rEstLNnulsAGqTuzjZRBU8Ye9qI4qq3NkYoslvz8Xfkj2FlIA-tgGBvke3Tuufdc6cLAOwgJk8rzMjqDR1kJ8JfpRx9WulpDveFVNfrmutIGVhXPf8JWrm2J26evLwyUQhalBUoiXHlW7Ow5ROGOxfGHtyFwCxn1uDF6C7aUCoL33pzNIJcmd5r8IxSIQxU9EZ2yNE5dCRWuslv34MoekGasL_PbcvGMusIIoU6VeaA3_hd6r_d67xbPdvOGRUkUnZLsZdHLNQC-e1uJMaKcgXNGagjgVXgVkugSM8V9ps_8F_977ftsdTMuDLNOBtmSF23UQWnxuLRuvvlOK_KDG__4UI_1xkR1--5EXfNCBMu8FBtujVaBFWYjFbfakF1d-aeOykhYFpG6Y70XT9rYGXxafoHl1_vFWSSttGuU5s2NwSugnb5HozeOW4HVra9uHh2EjSGuLy1E7SHRcUg8gMRjSNIlivtE3gNKacuinZcrWTTv8Ab6oxWNR8S5xNClB9aTsLNJkkOSBSqppBLd8TV8DTR52nXKKVHbFk-vAvxcIl2hW0Qp-FqqAliS4F9b4lHC0Jt21NoQbazoQzQcxqbh4a4JRANaF-5dnaY3Kb2FvNK1gJXAFq7BOYHy2Sn5zMmfNOUmTb3_l_zfCjYAGw==" alt="Execution of the validation process" width="550" height="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_code_list_validation_architecture"><a class="anchor" href="#_code_list_validation_architecture"></a>Code list validation Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Business rules related to code list validates:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqVls9zmzoQx-_8FTtMD03TUATGxOmPGbDdTi6vM22mp14wyLZSDB6BYzun_gE9vuPrpX_a-0u6AglsNS4mM4mJ0fezu9rVrp5xeAu25bDMSPJtZhgBuYFZvgMeJeCtd2CO84RCyooSwk3BMloUwDcpLUyYsQUuTROI8zTnsF2yksKcpSnYO_u9Nxh5sGVJuQTivXjGEe3cQEl3JZifaBqVLM9gRsstpRkQZCgzUZYAeXUJNKUrmpXFjQnp_QZffDVqQ_aOjJzxYIxfRCU67yEmzbcQELiE51fE8l7aF0bgKmv_f_8Fd0uqgGgqKyOWFZBnFPI5lPjuIUo3tFD_ceEfTVqnXnf5cK374FQ-DA59CMqSs9mmbO2oECHitPoCPSqgWNOYzRlNrL9bJRZ50qoR-JGy-8YEJXVCJxz6KN0yzIm1BUQEBD-v4Ln9EnftwuBssSxRPlPycb7JSr5vIcOJY5OpBvEji1YUiwyqsP1YAcTmBQuaxfvbSUsJbdd1bZ0yayh1Av1EUd5-NTvi8GNdTJX49vPHVuyP3IlDdHHSiOu0-XMl7jZMG61daxeHsX-hvMBC7w5-rruw7BH8ohH7tZgpsWPZrbgpniPxshETIVY1cH_-FrBjQuB_O9yCf6IV7Yr-XhHsUU1Ie0T_TU_96iD14JLh8Ip0bUKqM7Lzw1_p2lxp33VJM33n1o3rd11Fm-vaXXPoX3XZXevafc8Tv9PL9fHsmPfHto1QThwTTvxIl8Qgutuv6allJhSrCIdPNZLk4HFw8MCSipIGIp5rT7KmbxWy_dnW8AI7MI7B0JHuyLaVYIMW3ZjrfDF5XoTYQPER8fiEfw_5-A3i5UCckGkwndYmKnzVlmpigSfECF1pV7aM_uYcYY5lD6xgs1QAI0kkogkcmhrIF5-XOZfns68x92-xHWTsz_2rXMCsq7Rr6X0ijd7TWZRJfMR6uhT1hKcPh5jMImnSOFFEEQyabYN6ImOnUhYSlZ5g2oen54SorQ_e98G4J93yFO9DH95Ad2uoMLd9MN5Jt3zJsyzrj9rqog51564lTPTE853zTzo3UsF-7MO7PnbLGGMBx4zHKcXWY6qOYzltgcZqPMbG2Dlz8Vosds9ajAdcLB6ctxj9jw0j4hzvi3Oer2CMtQ5lDmPXotXO4C315w8Toln-gFfg6uJZXfHVb3vV5zQ5ImGV0wo1ELslWf_9q1gnKAuOV3_D-A0izaAt" alt="Code list business rules" width="650" height="350">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_architecture_for_code_list_validation"><a class="anchor" href="#_architecture_for_code_list_validation"></a>Architecture for Code List validation</h3>
+<div class="paragraph">
+<p>The validation of the code lists needs an extra step on the process before executing the Schematron process. This is because it needs <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=codelist">Genericode</a> (GC) as input files.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The first step is the <strong>generation of Genericode (GC) files</strong>. These files contains information about the values and identifiers of each code list.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>GC files are found in the <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/">/codelists/gc folder</a>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Design and implementation of the CVA files</strong>. <a href="http://docs.oasis-open.org/codelist/ns/ContextValueAssociation/1.0/">CVA</a> stands for Context and Value Association:</p>
+</li>
+<li>
+<p><strong>Execution of the implemented validations</strong> in the CVA files:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Transformation of CVA files into SCH files.</p>
+</li>
+<li>
+<p>Continue with the Schematron execution process: (1) transformation of SCH files into XSLT and execution of the validations using the XSLT files to get the final report.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqtVl1vmzAUfedXXKE9hLVBYCBJJ21SkrXbpEydlmraw14IcYglgiNj1nS_ftfGkEC6pB9rVAm4Puce3y_7jYD34LmE5dYiTXjG9fvu5mbqeZ5ljf13kDCRZBREvAQ_2u7AtqFa6O38KzINp7BiWaZAH9UP36QVC8Hvof_BGpPXEgTvYMF3FVqBpz_GNqwpS9cSfDd6-0bAPVvKNZDq5R_UekNwwBu-Upg1jjrK5tPPL1FWcR8oG7w2ZMNuyMpC8g37Q5c22D_ns_7ds-hGr9Vz1dHznW75eQL4ZVXhGw9d_XDhuT7L8bOJcQ8N1aNzkbGc4qK-5waWNcGqlXQnwfZt9JwtYcFS_V_5XGQl1exI7uYQSxj7bgF96Cl8dIl-HGtCahLyVJKgIvGQwBtGjmqfRsnP2fxoy49KUOjAQWjj_9P0DJJ0kEGN_DK_BZNvu_e9zGjhnKEKO1Tho1R3VGxYHksuzvENOnxRE4-vs-IMdtTCWncTf1ejb_PsAVZc9dSSIs8-LadDhPkdRpc48EYO8pGGb56s6SaWgucwFsmaSZrIUtAnEPthhxlLx5T-SvANLvBxpeQ6v20DMQbSNQTGEHYNoTEMuobIGDBkltX0mupU0yt6AP2yQP1VXdVbskL2UNX9JSqgDlwAwUXOfpXe5L3apekuyLnAj3ylNoMWlRyXmPQ80Ss2SfX0Ind93yWRcThh6YTv_Gq2GIejk9sMzTb1OH7Us6_wGV3JvdcLnVtfOY0azIKuWb7EFfWHenqN1A8kWk3ZpCJ-qLWSllaj34ywtmrSjpwSqPXVGNoVEnWFBDfkxj8WMsN4qfDuS03vUG1QVbCndphyLGMtYE3jJctT8AeKX65pDmhEUMt65R0YTyK7xhezRhjSZsoFT5zPs_2ExfK5Jn7nWLLbx3X7JD95rUByVIjJyLAlazeRcnNNyH_wUp2JLS9bQX8zXhboS-dPTUkSKYdBc1yjr6YjzzOTY2ocutfNMfQ1zss4w7mLE5elubpMdEgPChWj61JEN0n6JnhCiwJuS7kt5Wko0dCwAz2NCbAnqkLWcbcm4TPuAHTfW8TwXOKoGTqWOYFpTkUsGR4POBf0G1MnD_Q-TR0VS1q4NhxyhXVfqfGo9UTPvU5MQpPbiqECf9Sxhxh7nm22Gd3QXGKXU8Br8aNCoiMhg-f2DXIcC_nS8r6IZYKzFuEcX3G24mFEdzQpJarASlNrCkm3hVae0gq1wjtEBgJvg0J2ZA9q2VHl9C9LG5sM" alt="Architecture for code list validation" width="750" height="350">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_what_does_the_sch_file_contain_2"><a class="anchor" href="#_what_does_the_sch_file_contain_2"></a>What does the SCH file contain?</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Association between one or more elements of the XML and one or more code list (specified in the Genericodes).</p>
+</li>
+<li>
+<p>The declaration of which attributes of the XML identify information of the Genericode.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The implementation of the CVA file has the following structure:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/plantuml/svg/eNq1Vt1q2zAUvq6f4pBdZIPFatPSUpOZNqYtgxbCKGMwdqFKJ46oLQVJ6RLKYM-yR9uT7NhJSpZMjbu2ugjO8ZG-7_x8Rz5xnls_KYvI3So95paXILiVcB8B9Lm4za2ZaJmZwlj4PlIeK7uxEu3clluckencaD833BS0iywDLqXSOezS8xW3udL0-CNawZn7W5RRVEPWP1-jaC-GgcWhmqIDMwQ_QvhydQl0QI0L3kDJbxECqzckLklptHFjLlCmPVEBJd1-t394RP_ueJKRC079Z15M8NQ5IxT3yugeq13THqvOSIk50RuiRS2IC-FWXLDAErV30HCF-Lw52D8-OD1Pp2WhXUKsHtAX78_3-qfHWfphzd7PDve7R2lr5P04YUwa4WLDnXIdM0YdG5uTv8RCOc-0Y4FQ2V68y1rrAUcxrSiCJ6-dem1LfU3ikoi5dB25G0P1oir4BWq0qooBhqpA1wi7MfQSGNbSTGVIlAwlu6_k9WyMLQgUaWJVaGscs1ywxQGdjMKqaMS5aK1tWFBlq-33KmVgj9ThlTtg0Y2buP8L2BTx-XiNUJf9QMPPonOhnhBcJNeoaZrRiMwsjVVLmhxYUrD1MyZuRHI2HaPwKKuG2dDpfgyLuJKXZn5X9YbbpoPl6wdGO79__oJPWNTDpVIxcjGCiwy4loGx2ah8V5RFnmO6xqe-ZdKPmtgqCTXnBNr_FlTPiVFSu3SIV0DAjvgJH9RwUKvtvwgN6UJbCTbUdHSVVTfaW7vMl070u_fP1dicQvuJvdWOA1ljG6lfLfWZtRRrOXeJn6afrfNp0dvpS4m2Ya-x4HR61rjYCvvIF8kmk2_RCRWXvtj-AKpiukg=" alt="CVA example" width="600" height="250">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_execution_2"><a class="anchor" href="#_execution_2"></a>Execution</h3>
+<div class="paragraph">
+<p>As a basis of the implementation, it has been taken into account:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Schematron implementation of CVA files for validation from <a href="https://cranesoftwrights.github.io/resources/ubl/index.htm#cva2sch">CRANE SOFTWRIGHT LTD</a></p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNq9VcuO2jAU3fsrrqJZDC1EiZPAgNpFGhW1El0xqrpAQiEY4k6wK9tTWPZb-mn9kl4nMIRXOjMS3USJnXvPOTnnOjcK3oPnUi7IXK4FIbE_AMM2Bpz7nGuYOPEYPo8nDsxSjc9cZMXjnOmBA8X3R21ITHfv__n1G76NR7DgBdNgJBiVCr2QarV7GSYkk4VU4G38Pk3CBBdSY-Fhxgq5htiHDtx2cKHtuV6LxEG9efI1tm0R41_9wn2_t3DruVHbNgvrzcbJp2c2655rRkb4nQouGCyUXEEcuKyk7rt-2_L3Wli-lJbLmxsFOUvnXCyBRhGum5wJwE3qRvVN_86rbTZWHm363mvb2kqT8-wBFdEDRWFNkefePU_QVeS8RkyqFFq296Z0DlPVsqaPSifRJr8NdiXnoroclIUnZfRSGRliGmzuwSkDNZPFfJsavUqL4uBapWypGGpY87nJUUa_ksGXuQH84PZpQtYc91w0BGM48u3Nlg5YDi1ShTnBKWOd7GdKdZYj-r270YUDVfHa1g79ykpLHHnvUk574cdejwzplakjvN5S75fUg-CQ-5IJpngm56yT4GXEtTnVQBs1BP9bQ_dIQyKFxvOOC6PpOMvZKjVKivN2BE9SojNaSKzQkSqIZbrKNFoCYE_oahzKAVAlXwwmfpx17fjaNqrovUP4AV_9kMo4Fh27l-A4034NvP-hO-x5iB00YQfVyXKEHrwEPdih0-gEnQzDa48RvTRGX5jW6ZJ19uZ1DFMrLlIj1amHYWMco2vHMbw4UlzLqX7SMNUPrGAGb_A_PEUVxj_VEjVpwUiEZyIRNsUxekkgwstx_AtlzId1" alt="Code List Validation Execution files" width="650" height="250">
+</div>
+</div>
+<div class="paragraph">
+<p>This example describes the execution of the validation process using the <a href="http://saxon.sourceforge.net/">Saxon library</a> to execute XSLT files and the XSLT provided as a basis:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNq1lF9v2jAUxd_zKa5QH9Z1RIljQ0DaJJou2iaqSQVVe9iLCW6SLTiVYxU-fm_-NukYZB0IgRTuybm_Y_v6QsFHsEwSS8Pw7Sk8xImAgXc_G8AqTdaQbXiSdH6DNEkVrBIe_IZtvNYRvj55f6EgEnEYabBNB58MLXa6j5G1I5R-di3gGnzb4EqlW_SwckcdxRKGn4wZmUIQqyBHG-xxQh3C1H72hHjUy5Mk-OTf5B980o33uO3tkzr0wvtymtDHjTqhSQPGOqHpGUOP6tA_FvMjrKESQh4KvZ-enZHebehv50dX-po4zHEOBTB853TLAT-NbYw1U-abOyNmBkN4Z5nOB_xeGj6tW33jT_z_4Zt2WdGOYtsrbIfNCMNu7GzBaBWsijU-6Za86sU6veop47tUmr-4Guwfrc7C-Lgw9ZWkuBTD-qVB8MRJFkS4PktzlyVHzAoe3zGzyuxWZBkPxXARRGLDtUrli7MWahNLrlPV25g1xnfiMVV6Cl8X32FxfzfvFdLFkMZMKbzHy8F5UOkmx5Wg0_Is5jOUS0hXku9mKZGNxNkvoS0J3S9hLQnrSljFQlsso65kXElYLTGWGKhcFrs6W6s4LL7te_mPPSoHr5iFS2NJag_S24O1PWjbw-ntMS49hghRghhzTJPEUlR3oOJrsNnjrkpvm3Jbj7B9iWZhWpYjwdexDIEwhv_qCIcVS-NydsqSXZyIpmTa7eLEev3aFbR983J9uibetWffQJCkmYCVwE1YQ34iEJ4cgic1vGmxfvzuAf6_0rtvpncO0Y9e6Glx1VT05C307jF65x_pnwHqgeia" alt="Execution of the validation process in code lists" width="650" height="300">
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_espd_validation_architecture"><a class="anchor" href="#_espd_validation_architecture"></a>ESPD Validation Architecture</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The validation of a ESPD XML has the following life-cycle:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/mermaid/svg/eNqlkk1rwkAQhu_7K4aem0PMzUJpkjVioghaSg-9rNkRQ5cd2az0UPrfGzdrYyUExQSGvLPvMx9ht4q-yp0wFl45g-aJX76h3ok9jqGsTKnwEZTYoBrDQ_P-PDlT0pkMHbRE2blSg8IirHBPxjaEA9IB4H3N4U2oSgpbkT4RPOyQLZnPzp81CshATtWfezJQP9aa7HGk-lCWWNcf2tLFeNk1OBpDpo-eDv0Nkqiq2vZtOLplw9lAk2TVUz6_ayce3TJcMdBrjVpeFJ_fNdqio-VGBcdb-v-OMhZDEDxD4mLqIg8ZD5svWBZOT1yctmcjxkdnZzMvi6WTeZtsrRFjPDrzFl5679wnfTOfzU7Zlln8ApglA0Y=" alt="ESPD Schematorn lyfe-cycle" width="450" height="750">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The validation of the XML starts by ensuring that the input XML follows the <strong>structure defined by the XSD</strong>: QualificationApplicationRequest.xsd XSD Schema or QualificationApplicationResponse.xsd XSD Schema. These schemas can be found under the folder ubl-2.3/xsdrt/maindoc (or the equivalent documented xsd folder).</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If the validation of the structure is not successful, the process stops and sends the report with the list of errors.</p>
+</li>
+<li>
+<p>If the validation of the structure is successful, the process continues with the code list validations and business rules. All errors found (if any) are listed in the report.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Depending on the type of application (ESPD Request or ESPD Response), different types of validations are executed:</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNq9mM9zqkgQx-_8FVNuDroqBQNofFV7YEBPqXpZU7u1h3dBJHFqCfgAo--_35lh-DlDEjBrDimkx-5vf6Z7hL5LwB9AUyGOlN_AMU5xhuMIxM_AS5L4DHAEdvgF7OJLkCp33pEs1tUlVGx9943eBYm3B9bxAkbrp0cXbIOfpyDNRuxLfhzGCdAujmUhXQfPOAzJp7W7dA36KQNnvM8OQLd-v0vAIcAvhwxAcq1kwSWTOfQyQOJyv-cDzgJFQV1C0mMcpUEvJcS5ml9xNfQGv_yhnDExqGeuQg3AFIw11bRm2qSpuB6ZLEZtyTb0vwEfJ34YgOyA_X8b_zkUyqQlu5AQFRJSJmE211RjouzjcwSUfNfotxXbaJP558kFf3sh3nt0k0dgNP4LPcz_PJFbz9hnN-3jMeSXHP0cqoZ6SfeTEREgB7lBa8tdMpBUYxPlnFSXWe3qtRpo6sauRKOvoGM6pAy-gin6kCm6mmleHAOhGhzqQJZCbJqzDKZ5amXpxPsAPOA0S8l-kpBkU8D2FJL_Y00HtO7nPlkSkhXzN2ZW_TdvkvdAZ4abDXTcRobjPfEwZnnOiDI1mEyIrehGo6Mb6fJy26yiG6_STMmYJ5GM9Q4ZO8sSvDtlJAI6pTgK0nZA4MSvr-R4dR5qi9XUP_QnRdTxBuvFR1c1CZ_rlVNelsjLXrT7xfGSPY5IhWa_yhAQFGc9qJvRlgfowuKu1_ZmIW-RvliqshkgkHpbSPqoX_bp8ZbpowHpdymk7mT5L8VuYVVUHVq0N52E_Cwm9LFDKD6jWXzVwu0numYNN5q7-oqugfWu-R8yoPyWku65F-rnw0CsRsUoPRgNbCFYq6GhKqnLe0kdDeJAi_VWINBwEHKZ1KeMxOpTHfU9OwSJGNNs1CJf9JlOci3XWS--opOMDzppqHLKayXpIF1rl877EWhhttz3gDKwdYyqYnqrY68C2k6Sud6jaazK_2MS-6fktgDMWlUMFMk46DIOsM3h6Rj49AH53QjVoltiKOtgoEZGAUrOjf590O_4vA4CGtYM3UenrCOQ2BHr7-_wJd6p_XaZ17qgjzCWry7Ld0jlE-e3Kn00uPSlIhkHae0LL-2PSTD_WX9NloZovEjfEoZVFcJVShkR2fu9bnZWxjYOA2kMZrgpBLEiPimO5W1KfgugVk2JJDOhciDIUmlNiNLicC1HRLq6mCjoap9Uam3sRHwqCL-g-KJXe6TTTfqhAPrXHrBNWTxu5FTzOQqdZ0UzqlBNJ-ThirzmkaWTyhGbfDHymsq8eLv4LQA29HNB9MVwpqmGVX5nFxxwtGdjWH6HZcYmmzznl8T7VaQAWylweTy_qgZqiRW2omRqUvMa4XY-f4Uzrb-4fKL3nMSvrBRTkMXsgTYikMZ33pGOdGtrqCmtTGy11b3aElbbC7IRjaiLIuqy289S9HPf9nNf-Fl1-1mJfsjvY8sRvZPmNl2w6aUNCjZY2GiZNWyoiXbajXYqop12o22ubqNFTbTTbrRNP220qIl22o226UdAi0q0SECLSrRIQItKtPQQb9tKtvT0aNnMwsa25D9ratpK" alt="Validation Process" width="600" height="650">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_request"><a class="anchor" href="#_espd_request"></a>ESPD Request</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>XSD Validation</strong> against QualificationApplicationRequest-2.3.xsd</p>
+</li>
+<li>
+<p><strong>Code list validations</strong>. These are common for both, Request and Response:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Validation of the code list values: 01 ESPD-codelist-values.cva</p>
+</li>
+<li>
+<p>Validation of the identification of the code list: 01 ESPD Common CL Attributes.sch</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Business rules related to the <strong>cardinality</strong> of the schema, that cannot be controlled using the XSD: 02 ESPD Req Cardinality BR.sch</p>
+</li>
+<li>
+<p>Business rules used to validate the <strong>criteria data structure</strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Validations common for Request and Response: 03 ESPD Common Criterion BR.sch</p>
+</li>
+<li>
+<p>Validations specific for Request applications: 03 ESPD Req Criterion BR.sch</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Other</strong> business rules:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Other validations which are common to Request and Response applications, such as the mandatory use of the attribute schemeAgencyID for identifiers: 04 ESPD Common Other BR.sch</p>
+</li>
+<li>
+<p>Specific business rules for Request applications, in this case, the validation of the correct value for cbc:CustomisationID element: 04 ESPD Req Other BR.sch</p>
+</li>
+<li>
+<p>Business rules related to the procurer: 05 ESPD Req Procurer BR.sch</p>
+</li>
+<li>
+<p>Specific business rules: 05 ESPD Req Specific BR.sch</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_response"><a class="anchor" href="#_espd_response"></a>ESPD Response</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>XSD Validation</strong> against UBL-QualificationApplicationResponse-2.3.xsd</p>
+</li>
+<li>
+<p><strong>Code list validations</strong>. These are common for both, Request and Response:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Validation of the code list values: 01 ESPD-codelist-values.cva</p>
+</li>
+<li>
+<p>Validation of the identification of the code list: 01 ESPD Common CL Attributes.sch</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Business rules related to the <strong>cardinality</strong> of the schema, that cannot be controlled using the XSD: 02 ESPD Resp Cardinality BR.sch.sch</p>
+</li>
+<li>
+<p>Business rules used to validate the <strong>criteria data structure</strong>:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Validations common for Request and Response: 03 ESPD Common Criterion BR.sch</p>
+</li>
+<li>
+<p>Validations specific for Response applications: 03 ESPD Resp Criterion BR.sch</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><strong>Other</strong> business rules:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Other validations which are common to Request and Response applications, such as the mandatory use of the attribute schemeAgencyID for identifiers: 04 ESPD Common Other BR.sch</p>
+</li>
+<li>
+<p>Specific business rules for Response applications, in this case, the validation of the correct value for cbc:CustomisationID element: 04 ESPD Resp Other BR.sch</p>
+</li>
+<li>
+<p>Business rules related to the economic operator: 05 ESPD Resp EO BR.sch</p>
+</li>
+<li>
+<p>Response Specific business rules: 05 ESPD Resp Specific BR.sch</p>
+</li>
+<li>
+<p>Specific business rules for economic operators registered in a pre-qualification system: 05 ESPD Resp Qualification BR.sch</p>
+</li>
+<li>
+<p>Specific business rules depending on the role: 05 ESPD Resp Role BR.sch</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_uuid_criterion_validation"><a class="anchor" href="#_uuid_criterion_validation"></a>UUID Criterion Validation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each Criterion is defined in e-Certis and must use the <strong>Universally Unique Identifier (UUID)</strong> supplied by e-Certis:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>These UUIDs are 'constant', meaning that they are maintained by DG GROW and need to be used compulsory as they were issued by DG GROW.</p>
+</li>
+<li>
+<p>The value of each UUID are defined in the spreadsheets:</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/ESPD-criterion.xlsx">ESPD-criterion</a></p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The UUIDs defined in the ESPDRequest or ESPDResponse are fixed for the following elements:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Spreadsheet row</strong></th>
+<th class="tableblock halign-left valign-top"><strong>XSD Path</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{CRITERION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:TenderingCriterion/cbc:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{QUESTION_GROUP or {REQUIREMENT_GROUP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:TenderingCriterion/cac:TenderingCriterionPropertyGroup/cbc:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{QUESTION_SUBGROUP or {REQUIREMENT_SUBGROUP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:SubsidiaryTenderingCriterionPropertyGroup/cbc:ID</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{LEGISLATION</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:TenderingCriterion/cac:Legislation/cbc:ID</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Every QUESTION_GROUP or QUESTION_SUBGROUP that has the same structure (meaning QUESTION or QUESTION_SUBGROUP), share the same UUID, as they are the same.</p>
+</div>
+<div class="sect2">
+<h3 id="_tendering_criterion"><a class="anchor" href="#_tendering_criterion"></a>Tendering Criterion</h3>
+<div class="paragraph">
+<p>The validation of each criterion (cac:TenderingCriterion element) has the aims to check:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>cbc:ID, cbc:CriterionTypeCode, cbc:Name and cbc:Description are mandatory;</p>
+</li>
+<li>
+<p>cbc:ID values match with the ones supplied by e-Certis;</p>
+</li>
+<li>
+<p>cac:TenderingCriterionPropertyGroup structure matches with the QUESTION_GROUP or REQUIREMENT_GROUP (see Tendering Criterion Property Group and Subgroup section below).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tendering_criterion_property_group_and_subgroup"><a class="anchor" href="#_tendering_criterion_property_group_and_subgroup"></a>Tendering Criterion Property Group and Subgroup</h3>
+<div class="paragraph">
+<p>The same validations are executed for the first level group of properties and sub-groups of properties. The rules applied are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The cbc:ID and cbc:PropertyGroupTypeCode are mandatory elements in the corresponding cbc:TenderingCriterion;</p>
+</li>
+<li>
+<p>cac:SubsidiaryTenderingCriterionPropertyGroup matches with QUESTION_SUBGROUP or REQUIREMENT_SUBGROUP (for each property group, the same validations are applied);</p>
+</li>
+<li>
+<p>cac:TenderingCriterionProperty structure matches with QUESTION or REQUIREMENT or CAPTION (see Tendering Criterion Property section below).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tendering_criterion_property"><a class="anchor" href="#_tendering_criterion_property"></a>Tendering Criterion Property</h3>
+<div class="paragraph">
+<p>The validation of Tendering Criterion Property (cac:TenderingCriterionProperty element) is checked as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>cbc:TypeCode and cbc:ValueDataTypeCode are mandatory elements;</p>
+</li>
+<li>
+<p>cbc:ID and cbc:Description elements are mandatory, although their values are not validated;</p>
+</li>
+<li>
+<p>If cbc:TypeCode value is "CAPTION", cbc:ValueDataTypeCode value must be "NONE".</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_note_replacement_of_uuid_by_xml_path_like_id"><a class="anchor" href="#_note_replacement_of_uuid_by_xml_path_like_id"></a>Note. Replacement of UUID by XML Path Like ID</h3>
+<div class="paragraph">
+<p>From ESPD v4.0.0, UUIDs are replaced by XML Path Like IDs in the data structure, except for the top level Exclusion Grounds and Selection Criteria elements.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_interoperability_testbed"><a class="anchor" href="#_interoperability_testbed"></a>Interoperability testbed</h3>
+<div class="paragraph">
+<p>The European Commission (EC) <a href="https://ec.europa.eu/isa2/awards_en">ISA2 Programme</a> provides an <a href="https://joinup.ec.europa.eu/asset/itb/description">Interoperability Testbed</a> where Stakeholders can freely test these validation artefacts.</p>
+</div>
+<div class="paragraph">
+<p>All the ESPD-EDM artefacts necessary to perform the validation are set up in the testbed. Thus developers and integrators can test the validity of the ESPD-Request and ESPD-Response XML instances by uploading the instances in the testbed and launching the validation.</p>
+</div>
+<div class="paragraph">
+<p>Use this URL to upload and execute the validations: <a href="https://www.itb.ec.europa.eu/espd/upload">Upload</a>.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Any comments on the documentation?</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OP-TED/espd-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>

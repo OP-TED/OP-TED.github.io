@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ESPD Architecture and Procurement Procedure Steps :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/latest/technical/tech_architecture.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="4.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">ESPD EDM</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Release Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release_notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/ESPD_CM_html/index.html">Conceptual Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/demo.html">ESPD Demo Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Information for Business Users</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/index.html">Business Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/implementation.html">An ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/using.html">Using an ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Technical Implementation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/external.html">External Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/supporting.html">Supporting and related projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/laws.html">Laws and Directives</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Open User Community Reports</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/index.html">Upcoming Meeting Dates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/monthly.html">Monthly Reports</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/annual.html">Annual Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">ESPD EDM</span>
+          <span class="version">4.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../eforms/1.14/index.html">1.14</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../../latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../latest/index.html">4.1.0</a>
+            </li>
+            <li class="version is-current">
+              <a href="../index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../M2O/latest/index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">ESPD EDM</a></li>
+    <li><a href="tech_architecture.html">ESPD Architecture and Procurement Procedure Steps</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/technical/tech_architecture.html">4.1.0</a>
+    <a class="version is-current" href="tech_architecture.html">4.0.0</a>
+    <a class="version is-missing" href="../../3.3.0/index.html">3.3.0</a>
+    <a class="version is-missing" href="../../3.2.0/index.html">3.2.0</a>
+    <a class="version is-missing" href="../../3.1.0/index.html">3.1.0</a>
+    <a class="version is-missing" href="../../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../../2.1.1/index.html">2.1.1</a>
+    <a class="version is-missing" href="../../2.0.2/index.html">2.0.2</a>
+    <a class="version is-missing" href="../../1.0.2/index.html">1.0.2</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">ESPD Architecture and Procurement Procedure Steps</h1>
+<div class="sect1">
+<h2 id="_espd_architecture_overview"><a class="anchor" href="#_espd_architecture_overview"></a>ESPD Architecture Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The purpose of the ESPD Exchange data model (ESPD-EDM) is to assist developers in the creation of an ESPD Service by providing a model. This ensures that the ESPD Request and the ESPD Response files produced across all ESPD Services are consistent, and comply with the relevant legislation.</p>
+</div>
+<div class="paragraph">
+<p>Key components and standards were adopted in alignment with related projects in European public procurement such as EU Vocabularies and eCertis:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>UBL</p>
+</li>
+<li>
+<p>UML</p>
+</li>
+<li>
+<p>A data structure</p>
+</li>
+<li>
+<p>XSL(T)</p>
+</li>
+<li>
+<p>XML</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Below is a high level overview of the ESPD Architecture.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNq1Vu9vokoU_c5fcdPNJpoVOiCsth9eAgNumnTTvto2m7xsGpRR5wXBN6B2__t3h1GXIqD7K34Qr8O5955z7oXLS7gP5wwuczZdJHwaxsXVSyimC45X-VowY5EvY7hZVs69cBnJLoPxvf_ils6_3G2Y2HC2Nf5dzaEz4nMMgkkMkEehfBT2R7uaew3_uOY1TNJXEGEEzuoVLp4-317AhbxND_zP-gPLVmmSMd27e76AaRqnAsireWVRm8KMxzH-ch35wV-5FgqRbkH_63BS_ae51plpHs9Kg3jhNahkPNnwjE9iBlG6TcAi72Em0iW4ppGB5vZ_a3-CzxctXdq_s8uvmpeKiAmFmS94Alse5QtwjeL7AzEcjC2YrAmD6mIXDWVkypKcCU2TxOyKNk3k57hyzUMvaJ595AbvFjp37vhmDE8JR-dkYQzeOuMJyzK4DZP5Gh3ZxSb_Xocxn6FNc54m7moV7y4f2H9rluXGaxY1tTwgrm9_LPgtVeq8LVQdwhKtP1CikuXMGrWvqAPKYDDFMoMP0LF7pAtNgnl1gnlHgnkHwahUg5pVNYph3hGK_fhhHsI4F-tisJsqt-1Bn7a61wmvJpGD-az2fF-km08maYavjuKX8e0jjHjMOpmUB84Gbxp5ZEzOPKZy6jtROv8J6j6eSPir3A1-nbuT5DmSPGoO61qhacRi_gO282w6CM7j7upEwhbuSlka8S1yzF1BXRtvJeDDvBdDOuMiyyUekqVDh_SIMWyefFo3-fRo8ulh8n05-f4nu230Qa48JGXXxGnli626TDcMLOe9RLfa3PrD8GXkfpuW8IklTPApUB6xAj5rxC8JUMavPmGfcaVHxRZHNW4kh-mKiXDCY55_g0fJlseixiwj27OGVo3MHn7hWieG1QPdNIZOFxpF9utE9o9E9vciv6t7fOjEMNFHWiANEFhH-j-hV5_TaThZx6HgkriGjkaUEIIIVY0ZZSLnJ-6TJZlQDCykM1gJtuHpOkO4qrDs_u5noaoaslEqlj9dWHXVPwZ-E9TQ7lNCCyjDqgWrrvEHNke-pb1OLIrG8gY1A4FSjuVL-JSd0bRh1-C-8SpVq0i3DNIDs9tk06DOpsGRTYPDLlIbtXg44BuMtCmaFFPgUOA45GlhXrkDZVBX0crrWhOEXotxGiJTQ0l63wF8I1EA5tVZVWT7MiynhEJVGSosYewSjNp1ZRiqxladxnp2lWxVJSpokjaEQC0Yvf8GgqoOceMconuI3WDXQFi1EIdOyoQcg_h7Tp0yqYEiFavrS12qAP8D5_Bd0g==" alt="ESPD Architecture Overview" width="650" height="450">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1. ESPD Architecture Overview</em></p>
+</div>
+<div class="paragraph">
+<p>The ESPD Architecture components interact with each other to produce the final ESPD UBL XML Request and Response.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The UBL (<a href="https://docs.oasis-open.org/ubl/UBL-2.3.html">Universal Business Language</a>) component</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This describes the UBL language that is used to define the ESPD Request and Response XML elements, and attributes of XML elements.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The UML component</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This describes the Request and the Response model elements and their attributes, relationships between elements, and relationship cardinalities. There is a BOV (Business Oriented View) model and a TOV (Technical Oriented View) model. The TOV describes the UBL layer.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The ESPD Criterion Data Structure component</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This describes each Request and Response criterion and its hierarchical tree structure of descriptive elements. It is maintained in MS Excel format file then transformed (saved) into an ODS (Open Document) file, from which an initial XML file is extracted. From the XML file an ESPD UBL XML file is generated using XSLT transformation rules. This is an internal process that provides standard xml documents for developers to refer to (provided on GetHub). Developers also have the possibility to generate their own xml files using the The ESPD Demo tools which enables them to create custom xml files based on their own scenarios.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The ESPD UBL XML component</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This describes the resulting ESPD UBL XML files for the Request (generated by the Buyer or CA -contracting authority-) and for the Response (generated by the EO -economic operator-). These are generated by XSLT transformations applied to the related Criterion ODS XML file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The ESPD Codelists Data Structure component</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This describes, in MS Excel format, the attribute-value structure of the codes for each code list used in the ESPD project. The MS Excel file is transformed (saved) as an XML Spreadsheet file, from which the ESPD Codelist Generic Code files are generated using XSL transformation rules.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The ESPD Codelists generic code component</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This describes the resulting ESPD Codelists generic code files produced by the XSL transformations applied to the related Codelists XML file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>The ESPD Validation component</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This validates the generated files produced (ESPD Request UBL XML, ESPD Response UBL XML, ESPD Codelists Generic Code) against a UBL schema and a set of ESPD specific rules. This allows the  high level validation of ESPD documents produced by the various ESPD Services implemented by different member states. The validation tool (testbed) can be found <a href="https://www.itb.ec.europa.eu/espd/upload">here online</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_espd_procurement_procedure_steps"><a class="anchor" href="#_espd_procurement_procedure_steps"></a>ESPD Procurement Procedure Steps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The set of tasks for the whole procurement procedure are summarised in the following figures.</p>
+</div>
+<div class="paragraph">
+<p>The Buyer or the Contracting Authority (CA) initiates a procurement procedure.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqNkMFOwzAQRO_5ilFOcHESSITokbQgLigSH2BtjessdezKdSH8PU5KpSonbrO7M29XWxToyGgUUavesSI7K0lB9ZxUPAUt-jhYvA4Ln-Spcyw2791aPp1-dJCdJSc-DwY3z2xSElUpSWAeYho6duY2y6IeI_K5vcqhvPUBW0tqnw3-SyOw6SNK0bDLNi_VCls_ItAHmsOI_MK5BMuxerxr6xY7tjZVdf1w3zapite0SpRnGi1wbz6y0sd_0M5XL9d_T38CRST2n2WBvHbQLwuieKs=" alt="Buyer Planning" width="450" height="50">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 2. Buyer Planning</em></p>
+</div>
+<div class="paragraph">
+<p>The Buyer launches a Request.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqtksFOwzAMhu99CqsSElzaDlqh7Ug7ELeKPUDltG4bSJeROqzw9KSFoWmapk3iZsf2__1xEoaQY0MQMpXtWpaopqhAU7bSRWwNBS13Cp67g75Cjid9uFzlWfFgP8kUL_RuqefgddPA9aNs3DDMokIEMNXht37jeUwDgz-dLnwotdIGhMLyzev0B4GRTcsQBYlce8un2QKEHsBgBclmAH8k7rQgoxqtYh_8DBlhxcZOrneq0TCb36ZxCrVUymVxfH-XJi5jD43RW2cwuvrrTXAuqmRk4iloanvWnfyi6t-54hQ3t0LJvqUKajeGDp4bXTpqR2tXdTFV53n4eYCLNrkdfwQgg3N5bP6MpexL4DGNCy-4rye-AS-A678=" alt="Buyer Request" width="700" height="50">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3. Buyer Request</em></p>
+</div>
+<div class="paragraph">
+<p>Economic Operators (EO) respond to the (officially published) Request.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqtklFrg0AMx9_9FEEYtC9qt8poX60be2pZP4DEM9XbTk_OuMo-_WJZSxmltLC35Eh-__yTC0PYYEkQMqmq0QrNIcrQqUpLxL2joOLawFv9py7T40sXptvNKkvX2Tt1rW06Cj7aEiYvupRWmEWZCiBVtrG1VrBuySFbB5N0PYVjx9TzmAYG_3Ld0gdljSS5QfXp1faLwOmyYoiCWDde-jpbQm4HcFhA3A7CkZFOdFjRDnvDPvgrZIQtu_7g64iNhtniMZknsNPGSDafPz8lsWTsoXN2Lyaih1NtjIu8iEdRvKqa9B2Ll28q_l04vyq87fNaM1MBO-lDUd84q0S2poZhjKm4bYjfo9y1zP34bQAZZM6LgBv2cs7Ai5A7PZ4D8x8f5PjN" alt="Economic Operator (EO) Response" width="900" height="50">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4. Economic Operator (EO) Response</em></p>
+</div>
+<div class="paragraph">
+<p>Finally, the Buyer and the EO interact to conclude the procurement procedure.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqlkE0OgjAQRvecYtJEl6YojQFX2hCXLjzBFKo2FkrqKPX2oiEGcWPicjLve_NDOhCwzfWuPUyxalaQ7zIGlwqthcJZ50FZLM5R5W4avDmeCPhMmDrKt3EGygXwWIJoArC9trog42rWJ3mI07lMJBxMZ-MhSZYLKbqKIvTetRBzPnmzAlNViqcXR-J1i778V6pGUulq8ljQD156PenrvPZkSAMSdPae-dh02MceGE8dMuoB4mB8YA==" alt="Buyer and EO" width="600" height="50">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5. Buyer and EO</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example_xml_request_and_response_files"><a class="anchor" href="#_example_xml_request_and_response_files"></a>Example XML Request and Response files</h2>
+<div class="sectionbody">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Example XML files can be generated using the <a href="https://docs.ted.europa.eu/espd-demo">ESPD Demo Development Tools</a>. This is a useful facility that allows developers to generate different request and response XML files based on individual/ specific scenarios. These can then be used to facilitate understanding of their development task and to test their code.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>

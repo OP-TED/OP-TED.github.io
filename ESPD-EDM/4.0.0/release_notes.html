@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Release Notes :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/latest/release_notes.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <link rel="stylesheet" href="../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="4.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">ESPD EDM</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Release Documentation</strong></span></span>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="release_notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/ESPD_CM_html/index.html">Conceptual Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/demo.html">ESPD Demo Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Information for Business Users</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="business/index.html">Business Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="business/implementation.html">An ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="business/using.html">Using an ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Technical Implementation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="technical/index.html">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/external.html">External Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/supporting.html">Supporting and related projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-home/laws.html">Laws and Directives</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Open User Community Reports</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-wgm/index.html">Upcoming Meeting Dates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-wgm/monthly.html">Monthly Reports</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../espd-wgm/annual.html">Annual Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">ESPD EDM</span>
+          <span class="version">4.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../eforms/1.14/index.html">1.14</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../latest/index.html">4.1.0</a>
+            </li>
+            <li class="version is-current">
+              <a href="index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../M2O/latest/index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">ESPD EDM</a></li>
+    <li><a href="release_notes.html">Release Notes</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../latest/release_notes.html">4.1.0</a>
+    <a class="version is-current" href="release_notes.html">4.0.0</a>
+    <a class="version" href="../3.3.0/release_notes.html">3.3.0</a>
+    <a class="version" href="../3.2.0/release_notes.html">3.2.0</a>
+    <a class="version" href="../3.1.0/release_notes.html">3.1.0</a>
+    <a class="version" href="../3.0.1/release_notes.html">3.0.1</a>
+    <a class="version" href="../2.1.1/release_notes.html">2.1.1</a>
+    <a class="version" href="../2.0.2/release_notes.html">2.0.2</a>
+    <a class="version" href="../1.0.2/release_notes.html">1.0.2</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Release Notes</h1>
+<div class="sect1">
+<h2 id="_v4_0_0_september_2024"><a class="anchor" href="#_v4_0_0_september_2024"></a>1. v4.0.0 (September 2024)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The main change in ESPD-EDM version 4.0.0 is the replacement of dynamic UUIDs with XML Path like IDs. Some other minor errors were fixed in the data structure and the code lists.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>XML Path like IDs for replacing UUIDs in ESPD data structure elements;</p>
+</li>
+<li>
+<p>Extension of the lot management to different requirements (applicable to set of lots);</p>
+</li>
+<li>
+<p>Evidence group misplacement fixed;</p>
+</li>
+<li>
+<p>General data structure updates: Descriptive requirement added to Part IV (Selection criteria), Other economic or financial requirements Part B(6),  Possibility to exclude Pre-qualification system section where it does not apply;</p>
+</li>
+<li>
+<p>Code Lists general updates;</p>
+</li>
+<li>
+<p>Validation and Schematron Rules updates;</p>
+</li>
+<li>
+<p>Conceptual model updates;</p>
+</li>
+<li>
+<p>Github folders updates;</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_github_espd_edm_repository_structure"><a class="anchor" href="#_github_espd_edm_repository_structure"></a>1.1. GitHub ESPD-EDM repository structure</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Updating ESPD-EDM Github folders</strong><sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>codelists</strong> folder updated. This contains the data structure of the code lists used in ESPD and the related genericode files;</p>
+</li>
+<li>
+<p><strong>ESPDTeam</strong> folder contents merge into "codelists" folder and removed;</p>
+</li>
+<li>
+<p><strong>criterion</strong> folder created. This contains the data structure of the ESPD taxonomy criterion Excel files for the Request and the Response. It also contains two examples in Excel format illustrating multiple occurrences: one for the ESPD Request and one for ESPD Response;</p>
+</li>
+<li>
+<p><strong>conceptual-model</strong> folder updated. This contains the UML conceptual model of the ESPD in .eap, .xmi and .dtd format;</p>
+</li>
+<li>
+<p><strong>java-library</strong> folder removed;</p>
+</li>
+<li>
+<p><strong>ubl-2.3</strong> folder. This contains the UBL v2.3 distribution files that are currently used in the ESPD;</p>
+</li>
+<li>
+<p><strong>validation</strong> folder updated. This contains the resulting files of the validation process based on Schematron Rules and generated using ITB (Interoperability Testbed). A script <code>espd-validation.bat</code> is provided for validation of ESPD Request and ESPD Response files;</p>
+</li>
+<li>
+<p><strong>xml-samples</strong> folder updated. This contains UBL XML samples for the ESPD Request and ESPD Response that correspond to the criterion files provided.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/414">#414</a></strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>UBL 2.3 distribution files updated. The folder <strong>ubl-2.3</strong> contains the official distribution files from <strong><a href="https://docs.oasis-open.org/ubl/os-UBL-2.3/UBL-2.3.zip">OASIS - UBL Project</a></strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Creation of <strong><a href="https://github.com/OP-TED/ESPD-EDM/tree/espd-tools">espd-tools branch</a></strong> regrouping all ESPD-EDM internal tools used for ESPD-EDM Criterion and ESPD Code lists processing and transformation. Please find all details in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/espd-tools/README.md">README file</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_demo_site"><a class="anchor" href="#_espd_demo_site"></a>1.2. ESPD Demo site</h3>
+<div class="paragraph">
+<p>Creation of <a href="https://docs.ted.europa.eu/espd-demo/">ESPD Demo</a> site to allow User Community to test and validate latest versions of ESPD before implementing the ESPD Service. This site offers the possibility for our User Community to give feedback on ESPD-EDM. The site is provided as Open Source code and is available on GitHub <a href="https://github.com/OP-TED/espd-demo">GitHub ESPD Demo repository</a>, more details can be found in <a href="https://github.com/OP-TED/espd-demo/blob/main/README.md">README file</a>.</p>
+</div>
+<div class="paragraph">
+<p>The full documentation for v4.0.0 can be found on the <a href="https://docs.ted.europa.eu/ESPD-EDM/4.0.0/index.html">TED Documentation/ ESPD V4.0.0 site</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_conceptual_model"><a class="anchor" href="#_espd_conceptual_model"></a>1.3. ESPD Conceptual Model</h3>
+<div class="paragraph">
+<p>The Conceptual model was aligned with ePO and eForms and a new layout is proposed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Added cbc:MinimumAmount to cac::TenderingCriterionProperty</strong><sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding the cbc:MinimumAmount to reflect the corresponding data type.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/404">#404</a> - ProcurementProjectLot Identifier duplication removed</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Fix of the Enterprise Architect diagrams.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/408">#408</a> - UBL term: cbc:CopyIndicator definition harmonized with the documentation.</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Alignment of cbc:CopyIndicator definition from Enterprise Architect with TED Documentation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/414">#414</a> - cac:ResidenceAddress linked to at-voc::country</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding link to at-voc::country code list for cac:ResidenceAddress.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_edm_criterion_file_data_structure"><a class="anchor" href="#_espd_edm_criterion_file_data_structure"></a>1.4. ESPD-EDM Criterion file - Data Structure</h3>
+<div class="paragraph">
+<p>Introduction of ESPD-EDM example files in Excel format together with the ESPD-EDM criterion file that can be found in the <strong>criterion</strong> folder.<br>
+Several issues have been resolved related to the data structure of the ESPD-EDM Criterion (taxonomy) file.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Replacement of dynamic UUID by XML Path like ID</strong><sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The dynamic UUIDs were replaced with XML Path Like IDs</p>
+</li>
+<li>
+<p>The static UUIDs for Exclusion Grounds and Selection Criteria were kept in order to preserve the integration with eCertis.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Evidence Group or Subgroup misplacement</strong><sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Some of the Evidence Group or Subgroup were not included in the right section.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Update criterion files with codes of EU Vocabularies for v4.0.0</strong><sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In criterion C27, the element code "autorisation" has been replaced with the code "authorisation".</p>
+</li>
+<li>
+<p>In criterion C23, the element code "misinterpr" has been replaced with the code "misrepresent".</p>
+</li>
+<li>
+<p>In criterion C23, the Name contents have been updated as well. "Guilty of misinterpretation" has been replaced by "Guilty of misrepresentation".</p>
+</li>
+<li>
+<p>The worksheet "EG-Misinterpretation" has been renamed "EG-Misrepresentation".</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/368">#368</a> - Typo&#8217;s in taxonomy</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Typo errors such as double spaces and duplicated words, as well as spelling issues, have been fixed.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/388">#388</a> - Other economic or financial requirements</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added new section that allows to specify Descriptive requirement for Contracting Authority and to capture the corresponding answer from the Economic Operator.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/389">#389</a> - Pre qualification systems and classification of EOs</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added new section that allows the Economic Operator to choose the option in the case where the Country of the Contracting Authority does not have a national (pre)qualification system.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>ADDITIONAL_DESCRIPTION_LINE is included in ESPD XML examples</strong><sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Multiple <strong>ADDITIONAL_DESCRIPTION_LINE</strong> (s) are rendered in the ESPD XML example documents</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_espd_edm_tools"><a class="anchor" href="#_espd_edm_tools"></a>1.5. ESPD-EDM tools</h3>
+<div class="paragraph">
+<p>The XSLT files were deprecated and moved to <strong>espd-tools</strong> branch. New tools, based on JavaScript are provided to transform the Excel files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/blob/espd-tools/excel2espd.js">excel2espd.js</a> transforms the Excel Criterion file to ESPD XML examples, both ESPD Request and ESPD Response.</p>
+</li>
+<li>
+<p><a href="https://github.com/OP-TED/ESPD-EDM/blob/espd-tools/codelist.js">codelists.js</a> transforms the Excel Code lists file into genericode files, and downloads the external code lists form EU Vocabularies.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following changes have been performed related to the ESPD-EDM tools files:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>SchemeVersionID value is "4.0.0".</p>
+</li>
+<li>
+<p>ListVersionID value is "4.0.0".</p>
+</li>
+<li>
+<p>The right ESPD version in comments is ESPD-V4.0.0</p>
+</li>
+<li>
+<p>Converting samples from Excel to XML format with the JavaScript excel2espd tool. The XML samples available in the GitHub folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/xml-examples">xml-examples</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_code_lists"><a class="anchor" href="#_code_lists"></a>1.6. Code lists</h3>
+<div class="paragraph">
+<p>ESPD version has been updated in the technical codelists files to match the current version (specific files can be found in the folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc">codelists/gc</a>), for tags: Version, CanonicalURI, CanonicalVersionURI, LocationURI.</p>
+</div>
+<div class="paragraph">
+<p>The label "ESPD-EDMv4.0.0" has been added in the related sheet "ProfileExecutionID" (in the last row of the table) of the Excel file <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/ESPD-CodeLists.xlsx">ESPD-CodeLists.xlsx</a>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>LOT_IDENTIFIER data type added to ResponseDataType codelist</strong><sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
+<div class="ulist">
+<ul>
+<li>
+<p>The LOT_IDENTIFIER is used to identify a LOT with format LOT-#### starting with LOT-0000 and increasing the lot number for each additional lot.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The corresponding genericode files were generated.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_validation_interoperability_testbed"><a class="anchor" href="#_validation_interoperability_testbed"></a>1.7. Validation - Interoperability Testbed</h3>
+<div class="paragraph">
+<p>The ESPD Team provides a new repository to generate Schematron Business Rules and XSL files necessary for validation process: <a href="https://github.com/OP-TED/espd-validation-schematron">ESPD Schematron Validation</a>. This repository allows the processing, transformation, and validation of ESPD XML examples, UBL 2.3 XSD files, genericode code lists, and Schematron business rules files. The resulting XSL files are used for the Interoperability Testbed.</p>
+</div>
+<div class="paragraph">
+<p>Update of Interoperability Testbed <a href="https://www.itb.ec.europa.eu/espd/upload">ESPD validator</a></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Generating the ESPD validator, for the Request and the Response, for v4.0.0 with the latest entry files (genericode files for code lists, xml files for the ESPD Request and the ESPD Response).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_online_documentation_espd_docs_github_repository"><a class="anchor" href="#_online_documentation_espd_docs_github_repository"></a>1.8. Online documentation - espd-docs GitHub Repository</h3>
+<div class="paragraph">
+<p>A new layout of the Documentation site was deployed to enhance the User Experience.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Attribute value for ESPD version has been updated all over the online documentation. Version value for attributes schemeVersionID, listVersionID.</p>
+</li>
+<li>
+<p>Code value or text related to "autorisation" has been updated to "authorisation" all over the online documentation.</p>
+</li>
+<li>
+<p>Code value or text related to "misinterpr" or "misinterpretation" has been updated to "misrepresent" or "misrepresentation" all over the online documentation.</p>
+</li>
+<li>
+<p>Section: ESPD Architecture and Procurement Procedure Steps added</p>
+</li>
+<li>
+<p>Section: ESPD Distribution package added</p>
+</li>
+<li>
+<p>Section: Short tag and implicit numbering updated</p>
+</li>
+<li>
+<p>Sub-section: Evidence (sub)group added to Evidence section</p>
+</li>
+<li>
+<p>Sub-section: Lot Management in ESPD version 4.0.0</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Release Notes</strong></p>
+</div>
+<div class="paragraph">
+<p>Release Notes have been updated for the online documentation.</p>
+</div>
+<div class="paragraph">
+<p><strong>Readme file</strong></p>
+</div>
+<div class="paragraph">
+<p>The Readme file for v4.0.0 has been updated as well.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>Any comments on the documentation?</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OP-TED/espd-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. JIRA TEDSPD-668
+</div>
+<div class="footnote" id="_footnotedef_2">
+<a href="#_footnoteref_2">2</a>. JIRA TEDSPD-378
+</div>
+<div class="footnote" id="_footnotedef_3">
+<a href="#_footnoteref_3">3</a>. JIRA TEDSPD-400, TEDSPD-454
+</div>
+<div class="footnote" id="_footnotedef_4">
+<a href="#_footnoteref_4">4</a>. JIRA TEDSPD-653, TEDSPD-369
+</div>
+<div class="footnote" id="_footnotedef_5">
+<a href="#_footnoteref_5">5</a>. JIRA TEDSPD-488
+</div>
+<div class="footnote" id="_footnotedef_6">
+<a href="#_footnoteref_6">6</a>. JIRA TEDSPD-695
+</div>
+<div class="footnote" id="_footnotedef_7">
+<a href="#_footnoteref_7">7</a>. JIRA TEDSPD-689
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+<script src="../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>

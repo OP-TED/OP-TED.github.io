@@ -81,7 +81,7 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="ESPD-EDM" data-version="4.0.0">
+<div class="nav-container" data-component="ESPD-EDM" data-version="4.1.0">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -96,8 +96,8 @@
   <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>Release Documentation</strong></span></span>
   </li>
-  <li class="nav-item is-current-page" data-depth="1">
-    <a class="nav-link" href="release_notes.html">Release Notes</a>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../4.0.0/release_notes.html">Release Notes</a>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="_attachments/ESPD_CM_html/index.html">Conceptual Model</a>
@@ -109,19 +109,19 @@
     <span class="nav-text"><span class="separated"><strong>Information for Business Users</strong></span></span>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="business/index.html">Business Information</a>
+    <a class="nav-link" href="../4.0.0/business/index.html">Business Information</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="business/implementation.html">An ESPD Implementation</a>
+    <a class="nav-link" href="../4.0.0/business/implementation.html">An ESPD Implementation</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="business/using.html">Using an ESPD Implementation</a>
+    <a class="nav-link" href="../4.0.0/business/using.html">Using an ESPD Implementation</a>
   </li>
   <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>Technical Implementation</strong></span></span>
   </li>
   <li class="nav-item" data-depth="1">
-    <a class="nav-link" href="technical/index.html">Technical Information</a>
+    <a class="nav-link" href="../4.0.0/technical/index.html">Technical Information</a>
   </li>
   <li class="nav-item" data-depth="1">
     <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
@@ -158,7 +158,7 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">ESPD EDM</span>
-          <span class="version">4.0.0</span>
+          <span class="version">4.1.0</span>
       </div>
   <ul class="components">
       <li class="component">
@@ -235,7 +235,10 @@
         <a class="title" href="index.html">ESPD EDM</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="index.html">4.0.0</a>
+              <a href="index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../4.0.0/index.html">4.0.0</a>
             </li>
             <li class="version">
               <a href="../3.3.0/index.html">3.3.0</a>
@@ -302,9 +305,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
+  <button class="version-menu-toggle" title="Show other versions of page">4.1.0</button>
   <div class="version-menu">
-    <a class="version is-current" href="release_notes.html">4.0.0</a>
+    <a class="version is-current" href="release_notes.html">4.1.0</a>
+    <a class="version" href="../4.0.0/release_notes.html">4.0.0</a>
     <a class="version" href="../3.3.0/release_notes.html">3.3.0</a>
     <a class="version" href="../3.2.0/release_notes.html">3.2.0</a>
     <a class="version" href="../3.1.0/release_notes.html">3.1.0</a>
@@ -322,27 +326,66 @@
     <article class="doc">
 <h1 class="page">Release Notes</h1>
 <div class="sect1">
-<h2 id="_v4_0_0_september_2024"><a class="anchor" href="#_v4_0_0_september_2024"></a>1. v4.0.0 (September 2024)</h2>
+<h2 id="_v4_1_0_october_2024"><a class="anchor" href="#_v4_1_0_october_2024"></a>1. v4.1.0 (October 2024)</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The main change in ESPD-EDM version 4.0.0 is the replacement of dynamic UUIDs with XML Path like IDs. Some other minor errors were fixed in the data structure and the code lists.</p>
+<p>The ESPD-EDM version 4.1.0 is a minor release which focuses on the various following changes, listed in order of importance:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>XML Path like IDs for replacing UUIDs in ESPD data structure elements;</p>
-</li>
-<li>
-<p>Extension of the lot management to different requirements (applicable to set of lots);</p>
-</li>
-<li>
 <p>Evidence group misplacement fixed;</p>
 </li>
 <li>
-<p>General data structure updates: Descriptive requirement added to Part IV (Selection criteria), Other economic or financial requirements Part B(6),  Possibility to exclude Pre-qualification system section where it does not apply;</p>
+<p>Simplification of SUBCRITERION;</p>
 </li>
 <li>
-<p>Code Lists general updates;</p>
+<p>Added SUBCRITERION block for criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Purely national exclusion grounds (exclusion ground)</p>
+</li>
+<li>
+<p>Financial ratio (selection criteria)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added REQUIREMENT_GROUP block for criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Subcontracting proportion</p>
+</li>
+<li>
+<p>For supply contracts: samples, descriptions or photographs without certification of authenticity</p>
+</li>
+<li>
+<p>For supply contracts: samples, descriptions or photographs with certification of authenticity</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Added relied on block for selection criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For works contracts: performance of works of the specified type</p>
+</li>
+<li>
+<p>For supply contracts: performance of deliveries of the specified type</p>
+</li>
+<li>
+<p>For service contracts: performance of services of the specified type</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Code lists general updates;</p>
 </li>
 <li>
 <p>Validation and Schematron Rules updates;</p>
@@ -351,278 +394,154 @@
 <p>Conceptual model updates;</p>
 </li>
 <li>
-<p>Github folders updates;</p>
+<p>Online documentation updates;</p>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/425">#425</a></strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Simplification of SUBCRITERION, is modelled as LEGISLATION.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/426">#426</a></strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Selection criteria and national legislation.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/427">#427</a></strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Adding the "Relied upon" block.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 <div class="sect2">
-<h3 id="_github_espd_edm_repository_structure"><a class="anchor" href="#_github_espd_edm_repository_structure"></a>1.1. GitHub ESPD-EDM repository structure</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Updating ESPD-EDM Github folders</strong><sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup></p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>codelists</strong> folder updated. This contains the data structure of the code lists used in ESPD and the related genericode files;</p>
-</li>
-<li>
-<p><strong>ESPDTeam</strong> folder contents merge into "codelists" folder and removed;</p>
-</li>
-<li>
-<p><strong>criterion</strong> folder created. This contains the data structure of the ESPD taxonomy criterion Excel files for the Request and the Response. It also contains two examples in Excel format illustrating multiple occurrences: one for the ESPD Request and one for ESPD Response;</p>
-</li>
-<li>
-<p><strong>conceptual-model</strong> folder updated. This contains the UML conceptual model of the ESPD in .eap, .xmi and .dtd format;</p>
-</li>
-<li>
-<p><strong>java-library</strong> folder removed;</p>
-</li>
-<li>
-<p><strong>ubl-2.3</strong> folder. This contains the UBL v2.3 distribution files that are currently used in the ESPD;</p>
-</li>
-<li>
-<p><strong>validation</strong> folder updated. This contains the resulting files of the validation process based on Schematron Rules and generated using ITB (Interoperability Testbed). A script <code>espd-validation.bat</code> is provided for validation of ESPD Request and ESPD Response files;</p>
-</li>
-<li>
-<p><strong>xml-samples</strong> folder updated. This contains UBL XML samples for the ESPD Request and ESPD Response that correspond to the criterion files provided.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/414">#414</a></strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>UBL 2.3 distribution files updated. The folder <strong>ubl-2.3</strong> contains the official distribution files from <strong><a href="https://docs.oasis-open.org/ubl/os-UBL-2.3/UBL-2.3.zip">OASIS - UBL Project</a></strong>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Creation of <strong><a href="https://github.com/OP-TED/ESPD-EDM/tree/espd-tools">espd-tools branch</a></strong> regrouping all ESPD-EDM internal tools used for ESPD-EDM Criterion and ESPD Code lists processing and transformation. Please find all details in the <a href="https://github.com/OP-TED/ESPD-EDM/blob/espd-tools/README.md">README file</a>.</p>
-</li>
-</ul>
+<h3 id="_espd_demo_site"><a class="anchor" href="#_espd_demo_site"></a>1.1. ESPD Demo site</h3>
+<div class="paragraph">
+<p><a href="https://docs.ted.europa.eu/espd-demo/">ESPD Demo</a> site to allow User Community to test and validate latest versions of ESPD before implementing the ESPD Service. This site offers the possibility for our User Community to give feedback on ESPD-EDM. The site is provided as Open Source code and is available on GitHub <a href="https://github.com/OP-TED/espd-demo">GitHub ESPD Demo repository</a>, more details can be found in <a href="https://github.com/OP-TED/espd-demo/blob/main/README.md">README file</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_espd_demo_site"><a class="anchor" href="#_espd_demo_site"></a>1.2. ESPD Demo site</h3>
+<h3 id="_espd_edm_criterion_files_data_structure"><a class="anchor" href="#_espd_edm_criterion_files_data_structure"></a>1.2. ESPD-EDM Criterion files - Data Structure</h3>
 <div class="paragraph">
-<p>Creation of <a href="https://docs.ted.europa.eu/espd-demo/">ESPD Demo</a> site to allow User Community to test and validate latest versions of ESPD before implementing the ESPD Service. This site offers the possibility for our User Community to give feedback on ESPD-EDM. The site is provided as Open Source code and is available on GitHub <a href="https://github.com/OP-TED/espd-demo">GitHub ESPD Demo repository</a>, more details can be found in <a href="https://github.com/OP-TED/espd-demo/blob/main/README.md">README file</a>.</p>
-</div>
-<div class="paragraph">
-<p>The full documentation for v4.0.0 can be found on the <a href="https://docs.ted.europa.eu/ESPD-EDM/4.0.0/index.html">TED Documentation/ ESPD V4.0.0 site</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_espd_conceptual_model"><a class="anchor" href="#_espd_conceptual_model"></a>1.3. ESPD Conceptual Model</h3>
-<div class="paragraph">
-<p>The Conceptual model was aligned with ePO and eForms and a new layout is proposed.</p>
+<p>Several issues have been resolved related to the data structure of the ESPD-EDM Criterion (taxonomy) file and criterion file can be found in the <strong>criterion</strong> folder.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Added cbc:MinimumAmount to cac::TenderingCriterionProperty</strong><sup class="footnote">[<a id="_footnoteref_2" class="footnote" href="#_footnotedef_2" title="View footnote.">2</a>]</sup></p>
+<p><strong>Evidence Group or Subgroup misplacement</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Adding the cbc:MinimumAmount to reflect the corresponding data type.</p>
+<p>Evidence Group or Subgroup which were moved at top level.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/404">#404</a> - ProcurementProjectLot Identifier duplication removed</strong></p>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/425">#425</a> - SUBCRITERION simplification</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Fix of the Enterprise Architect diagrams.</p>
+<p>SUBCRITERION was modelled like LEGISLATION element.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/408">#408</a> - UBL term: cbc:CopyIndicator definition harmonized with the documentation.</strong></p>
+<p><strong>Fix missing elements</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Alignment of cbc:CopyIndicator definition from Enterprise Architect with TED Documentation.</p>
+<p>Added SUBCRITERION block into the next exclusion ground and selection criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Purely national exclusion grounds</p>
+</li>
+<li>
+<p>Financial ratio</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/414">#414</a> - cac:ResidenceAddress linked to at-voc::country</strong></p>
+<p>Added REQUIREMENT_GROUP block into the next selection criteria:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Adding link to at-voc::country code list for cac:ResidenceAddress.</p>
+<p>Subcontracting proportion</p>
+</li>
+<li>
+<p>For supply contracts: samples, descriptions or photographs without certification of authenticity</p>
+</li>
+<li>
+<p>For supply contracts: samples, descriptions or photographs with certification of authenticity</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_espd_edm_criterion_file_data_structure"><a class="anchor" href="#_espd_edm_criterion_file_data_structure"></a>1.4. ESPD-EDM Criterion file - Data Structure</h3>
-<div class="paragraph">
-<p>Introduction of ESPD-EDM example files in Excel format together with the ESPD-EDM criterion file that can be found in the <strong>criterion</strong> folder.<br>
-Several issues have been resolved related to the data structure of the ESPD-EDM Criterion (taxonomy) file.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Replacement of dynamic UUID by XML Path like ID</strong><sup class="footnote">[<a id="_footnoteref_3" class="footnote" href="#_footnotedef_3" title="View footnote.">3</a>]</sup></p>
-<div class="ulist">
-<ul>
-<li>
-<p>The dynamic UUIDs were replaced with XML Path Like IDs</p>
 </li>
 <li>
-<p>The static UUIDs for Exclusion Grounds and Selection Criteria were kept in order to preserve the integration with eCertis.</p>
+<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/427">#427</a> - Relied upon block</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Added Relied upon block into the next selection criteria:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For works contracts: performance of works of the specified type</p>
+</li>
+<li>
+<p>For supply contracts: performance of deliveries of the specified type</p>
+</li>
+<li>
+<p>For service contracts: performance of services of the specified type</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Evidence Group or Subgroup misplacement</strong><sup class="footnote">[<a id="_footnoteref_4" class="footnote" href="#_footnotedef_4" title="View footnote.">4</a>]</sup></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Some of the Evidence Group or Subgroup were not included in the right section.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Update criterion files with codes of EU Vocabularies for v4.0.0</strong><sup class="footnote">[<a id="_footnoteref_5" class="footnote" href="#_footnotedef_5" title="View footnote.">5</a>]</sup></p>
-<div class="ulist">
-<ul>
-<li>
-<p>In criterion C27, the element code "autorisation" has been replaced with the code "authorisation".</p>
-</li>
-<li>
-<p>In criterion C23, the element code "misinterpr" has been replaced with the code "misrepresent".</p>
-</li>
-<li>
-<p>In criterion C23, the Name contents have been updated as well. "Guilty of misinterpretation" has been replaced by "Guilty of misrepresentation".</p>
-</li>
-<li>
-<p>The worksheet "EG-Misinterpretation" has been renamed "EG-Misrepresentation".</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/368">#368</a> - Typo&#8217;s in taxonomy</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Typo errors such as double spaces and duplicated words, as well as spelling issues, have been fixed.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/388">#388</a> - Other economic or financial requirements</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Added new section that allows to specify Descriptive requirement for Contracting Authority and to capture the corresponding answer from the Economic Operator.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Fix GitHub issue <a href="https://github.com/OP-TED/ESPD-EDM/issues/389">#389</a> - Pre qualification systems and classification of EOs</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Added new section that allows the Economic Operator to choose the option in the case where the Country of the Contracting Authority does not have a national (pre)qualification system.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>ADDITIONAL_DESCRIPTION_LINE is included in ESPD XML examples</strong><sup class="footnote">[<a id="_footnoteref_6" class="footnote" href="#_footnotedef_6" title="View footnote.">6</a>]</sup></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Multiple <strong>ADDITIONAL_DESCRIPTION_LINE</strong> (s) are rendered in the ESPD XML example documents</p>
-</li>
-</ul>
-</div>
+<p><strong>ADDITIONAL_DESCRIPTION_LINE is deprecated</strong></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_espd_edm_tools"><a class="anchor" href="#_espd_edm_tools"></a>1.5. ESPD-EDM tools</h3>
+<h3 id="_code_lists"><a class="anchor" href="#_code_lists"></a>1.3. Code lists</h3>
 <div class="paragraph">
-<p>The XSLT files were deprecated and moved to <strong>espd-tools</strong> branch. New tools, based on JavaScript are provided to transform the Excel files:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/blob/espd-tools/excel2espd.js">excel2espd.js</a> transforms the Excel Criterion file to ESPD XML examples, both ESPD Request and ESPD Response.</p>
-</li>
-<li>
-<p><a href="https://github.com/OP-TED/ESPD-EDM/blob/espd-tools/codelist.js">codelists.js</a> transforms the Excel Code lists file into genericode files, and downloads the external code lists form EU Vocabularies.</p>
-</li>
-</ul>
+<p>Following Code Lists have been updated from EU Vocabularies with the latest release version: AccessRight, Country, Criterion, EconomicOperatorSize, Language, and Occupation.</p>
 </div>
 <div class="paragraph">
-<p>The following changes have been performed related to the ESPD-EDM tools files:</p>
+<p>ESPD version has been updated in the technical code lists files to match the current version (specific files can be found in the folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.1.0/codelists/gc">codelists/gc</a>), for tags: Version, CanonicalURI, CanonicalVersionURI, LocationURI.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>SchemeVersionID value is "4.0.0".</p>
-</li>
-<li>
-<p>ListVersionID value is "4.0.0".</p>
-</li>
-<li>
-<p>The right ESPD version in comments is ESPD-V4.0.0</p>
-</li>
-<li>
-<p>Converting samples from Excel to XML format with the JavaScript excel2espd tool. The XML samples available in the GitHub folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/xml-examples">xml-examples</a>.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The label "ESPD-EDMv4.1.0" has been added in the related sheet "ProfileExecutionID" (in the last row of the table) of the Excel file <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.1.0/codelists/ESPD-CodeLists.xlsx">ESPD-CodeLists.xlsx</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_code_lists"><a class="anchor" href="#_code_lists"></a>1.6. Code lists</h3>
+<h3 id="_validation_interoperability_testbed"><a class="anchor" href="#_validation_interoperability_testbed"></a>1.4. Validation - Interoperability Testbed</h3>
 <div class="paragraph">
-<p>ESPD version has been updated in the technical codelists files to match the current version (specific files can be found in the folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc">codelists/gc</a>), for tags: Version, CanonicalURI, CanonicalVersionURI, LocationURI.</p>
-</div>
-<div class="paragraph">
-<p>The label "ESPD-EDMv4.0.0" has been added in the related sheet "ProfileExecutionID" (in the last row of the table) of the Excel file <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/ESPD-CodeLists.xlsx">ESPD-CodeLists.xlsx</a>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>LOT_IDENTIFIER data type added to ResponseDataType codelist</strong><sup class="footnote">[<a id="_footnoteref_7" class="footnote" href="#_footnotedef_7" title="View footnote.">7</a>]</sup></p>
-<div class="ulist">
-<ul>
-<li>
-<p>The LOT_IDENTIFIER is used to identify a LOT with format LOT-#### starting with LOT-0000 and increasing the lot number for each additional lot.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The corresponding genericode files were generated.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_validation_interoperability_testbed"><a class="anchor" href="#_validation_interoperability_testbed"></a>1.7. Validation - Interoperability Testbed</h3>
-<div class="paragraph">
-<p>The ESPD Team provides a new repository to generate Schematron Business Rules and XSL files necessary for validation process: <a href="https://github.com/OP-TED/espd-validation-schematron">ESPD Schematron Validation</a>. This repository allows the processing, transformation, and validation of ESPD XML examples, UBL 2.3 XSD files, genericode code lists, and Schematron business rules files. The resulting XSL files are used for the Interoperability Testbed.</p>
+<p>The ESPD Team provides a new repository to generate Schematron Business Rules and XSL files necessary for validation process: <a href="https://github.com/OP-TED/espd-validation-schematron">ESPD Schematron Validation</a>. This repository allows the processing, transformation, and validation of ESPD XML examples, UBL 2.3 XSD files, genericode codelists, and Schematron business rules files. The resulting XSL files are used for Interoperability Testbed.</p>
 </div>
 <div class="paragraph">
 <p>Update of Interoperability Testbed <a href="https://www.itb.ec.europa.eu/espd/upload">ESPD validator</a></p>
@@ -630,55 +549,31 @@ Several issues have been resolved related to the data structure of the ESPD-EDM 
 <div class="ulist">
 <ul>
 <li>
-<p>Generating the ESPD validator, for the Request and the Response, for v4.0.0 with the latest entry files (genericode files for code lists, xml files for the ESPD Request and the ESPD Response).</p>
+<p>Generating the ESPD validator, for the Request and the Response, for v4.1.0 with the latest entry files (genericode files for code lists, xml files for the ESPD Request and the ESPD Response).</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_online_documentation_espd_docs_github_repository"><a class="anchor" href="#_online_documentation_espd_docs_github_repository"></a>1.8. Online documentation - espd-docs GitHub Repository</h3>
-<div class="paragraph">
-<p>A new layout of the Documentation site was deployed to enhance the User Experience.</p>
-</div>
+<h3 id="_online_documentation"><a class="anchor" href="#_online_documentation"></a>1.5. Online documentation</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Attribute value for ESPD version has been updated all over the online documentation. Version value for attributes schemeVersionID, listVersionID.</p>
+<p>Replacement of images with diagrams by images created by code</p>
 </li>
 <li>
-<p>Code value or text related to "autorisation" has been updated to "authorisation" all over the online documentation.</p>
+<p>Replacement of images (snapshoots of Excel criteria) by links to the Criterion file</p>
 </li>
 <li>
-<p>Code value or text related to "misinterpr" or "misinterpretation" has been updated to "misrepresent" or "misrepresentation" all over the online documentation.</p>
-</li>
-<li>
-<p>Section: ESPD Architecture and Procurement Procedure Steps added</p>
-</li>
-<li>
-<p>Section: ESPD Distribution package added</p>
-</li>
-<li>
-<p>Section: Short tag and implicit numbering updated</p>
-</li>
-<li>
-<p>Sub-section: Evidence (sub)group added to Evidence section</p>
-</li>
-<li>
-<p>Sub-section: Lot Management in ESPD version 4.0.0</p>
+<p>Update XML code snippets</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p><strong>Release Notes</strong></p>
-</div>
-<div class="paragraph">
-<p>Release Notes have been updated for the online documentation.</p>
 </div>
 <div class="paragraph">
 <p><strong>Readme file</strong></p>
 </div>
 <div class="paragraph">
-<p>The Readme file for v4.0.0 has been updated as well.</p>
+<p>The Readme file for v4.1.0 has been updated as well.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -688,30 +583,6 @@ Several issues have been resolved related to the data structure of the ESPD-EDM 
 <p><a href="https://github.com/OP-TED/espd-docs/issues/new/choose">Click here to let us know</a></p>
 </div>
 </div>
-</div>
-</div>
-<div id="footnotes">
-<hr>
-<div class="footnote" id="_footnotedef_1">
-<a href="#_footnoteref_1">1</a>. JIRA TEDSPD-668
-</div>
-<div class="footnote" id="_footnotedef_2">
-<a href="#_footnoteref_2">2</a>. JIRA TEDSPD-378
-</div>
-<div class="footnote" id="_footnotedef_3">
-<a href="#_footnoteref_3">3</a>. JIRA TEDSPD-400, TEDSPD-454
-</div>
-<div class="footnote" id="_footnotedef_4">
-<a href="#_footnoteref_4">4</a>. JIRA TEDSPD-653, TEDSPD-369
-</div>
-<div class="footnote" id="_footnotedef_5">
-<a href="#_footnoteref_5">5</a>. JIRA TEDSPD-488
-</div>
-<div class="footnote" id="_footnotedef_6">
-<a href="#_footnoteref_6">6</a>. JIRA TEDSPD-695
-</div>
-<div class="footnote" id="_footnotedef_7">
-<a href="#_footnoteref_7">7</a>. JIRA TEDSPD-689
 </div>
 </div>
 </article>

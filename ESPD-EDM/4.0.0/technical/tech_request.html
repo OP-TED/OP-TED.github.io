@@ -1,0 +1,2195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>The ESPD Request Document :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/ESPD-EDM/latest/technical/tech_request.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="ESPD-EDM" data-version="4.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">ESPD EDM</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/index.html">Home</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Release Documentation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../release_notes.html">Release Notes</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="_attachments/ESPD_CM_html/index.html">Conceptual Model</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/demo.html">ESPD Demo Site</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Information for Business Users</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/index.html">Business Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/implementation.html">An ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../business/using.html">Using an ESPD Implementation</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Technical Implementation</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="index.html">Technical Information</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/history.html">History and Planned Developments</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/external.html">External Resources</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/supporting.html">Supporting and related projects</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-home/laws.html">Laws and Directives</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Open User Community Reports</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/index.html">Upcoming Meeting Dates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/monthly.html">Monthly Reports</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../espd-wgm/annual.html">Annual Reports</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">ESPD EDM</span>
+          <span class="version">4.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version">
+              <a href="../../../eforms/1.14/index.html">1.14</a>
+            </li>
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../../latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../latest/index.html">4.1.0</a>
+            </li>
+            <li class="version is-current">
+              <a href="../index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../M2O/latest/index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">ESPD EDM</a></li>
+    <li><a href="tech_request.html">The ESPD Request Document</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">4.0.0</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/technical/tech_request.html">4.1.0</a>
+    <a class="version is-current" href="tech_request.html">4.0.0</a>
+    <a class="version" href="../../3.3.0/technical/tech_request.html">3.3.0</a>
+    <a class="version is-missing" href="../../3.2.0/index.html">3.2.0</a>
+    <a class="version is-missing" href="../../3.1.0/index.html">3.1.0</a>
+    <a class="version is-missing" href="../../3.0.1/index.html">3.0.1</a>
+    <a class="version is-missing" href="../../2.1.1/index.html">2.1.1</a>
+    <a class="version is-missing" href="../../2.0.2/index.html">2.0.2</a>
+    <a class="version is-missing" href="../../1.0.2/index.html">1.0.2</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">The ESPD Request Document</h1>
+<div class="sect1">
+<h2 id="_espd_request_business_requirements"><a class="anchor" href="#_espd_request_business_requirements"></a>ESPD Request Business Requirements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The ESPD-EDM models the business and information requirements in alignment with the works developed by e-Sens, which uses the identifier <strong>Trdm070</strong> to refer to the business requirements regarding the ESPD Request transaction. See formal information requirements related to the ESPD Request transaction in the document <a href="bis41.html" class="xref page"><em>Business Requirements: ESPD request transaction (Trdm070)</em></a>, by e-Sens.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_espd_request_xsd_schema"><a class="anchor" href="#_espd_request_xsd_schema"></a>ESPD Request XSD Schema</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The ESPD-EDM uses the UBL-2.3 document named QualificationApplicationRequest.xsd XSD Schema. This schema can be found under the GitHub folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/master/ubl-2.3/xsdrt/maindoc">ubl-2.3/xsdrt/maindoc</a> (or the equivalent documented xsd folder).</p>
+</div>
+<div class="paragraph">
+<p>The figure below shows a diagram representing the UBL-2.3 XSD Schema. Only the first level components of the schema are shown. The inner sub-elements and sub-classes are covered in detail in the following sub-sections of this document.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrtVttuEzEQfd-vGC0vILm5tJWoWoFUcpEilRJ6gYeqihx7suvitRfbW5JWfecr-Di-BHujTRPa9EaEQOrb7JmZ4_HojGeHUrMvXNAELqN6Hfo0Qag7ZKkSjMrSGhj8WqB1tdRlEnrZbyEDERBb_1hQKUYeckKrwW6ey8o-mOavrdc2amd5Ai-7IikMQrO5DQtZc0lzOZBRoQAlZqicrb0KdR6iA5tTBRk6I8YRQPk5-Ca4S-ENbG7tzLAURZI6DzbXS5DjiBbSDUba04kLDJ7N4IkSo4scLtDowdS8jCKmpTY-JH7RaXS7u6_jnSiK76n6aJJjDGtvIcax2z5-t9cZO1TWB9iYQMyGLICf0ASo166wVmGdzsRFSXUN940eCYk3gM4YWbEYOsel80lP8VCXNrNDj-cDlDOUua6WHI3H4YSLcFGlFZ4-4orzZPs0wwUiApIOUYb-NWq1n99_xI-l7llbYJs6nN0xAEciC8AUudHIvsFzoQt7i0Mz5F57Lc1nhMvKCXWUcX_Smc-l-A6ZNkIl79GlmntBJZN97VbdqelR_piVFL7qAum1SnyJfWrcZBl982n0HaaVHx_2IUcTVH_nGU-8QhCQl094ibx5hsw9vcm30u1pV-rSO49Q-cn0zWoZ4byhVeXZ5VwETirbPj9kH-AIDSqGVcihSBR1nvveBkT_0yNFbnlvyD_zUJAHzDxZNqxkbu7IkoEhdymdLJUo-Xtqi66iaj9Pd7HTXnkcLan2LpxTWSAI6_fx1gPn5cSmNA-LeqjHBKolv7HeILCwxU93ntX8rOZVvp2V8PzvoGfki_prNLzgrn4B_a3fDg==" alt="QualificationApplicationRequest-2.3" width="550" height="1000">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1. QualificationApplicationRequest-2.3 main elements</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_espd_request_cardinalities"><a class="anchor" href="#_espd_request_cardinalities"></a>ESPD Request cardinalities</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The UBL-2.3 Schema is quite flexible as, except for in a few cases, all the elements are optional.</p>
+</div>
+<div class="paragraph">
+<p>The ESPD-EDM model, however, adds a few more restrictions regarding the cardinalities of some elements. These can be seen in the diagram below, which presents the ESPD-EDM structure for the ESPD Request with its cardinality restrictions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqNlUFP4zAQhe_5FVbEAcpi4jQpbKU9pO2uhIRWLAt7QRzcZEKNUrtrOxT-PePGLaRNgV6a2s_fex5P3ANNfpCIxkIGQTYkd4VayoDgZ6qeSXicT_Ph7ejyH2gjlLyY3LH7kFSPtbF-8kqrUlTw8xny2nZLWkOlsETIJ2E2JkthZ0QuCbfkfPFMJFElqbix1CyJ4XPwlLFavFzIQuTcKn0XUbptc3vb4T1W0mqe21-qKkB_IPiNTl3UC2NqmHAL7T10pWfxB_FXnBvRbfJW3o7JKw1PQtXmE5HKoag1jFXxLup9EIyGq5yYL8OwBabNaPN9TJLegSYzEA8znKXNQzBuFoR_al6J0tUbXbPFovKP1_C_BmNDVFWFR4480rMYTR15VRtqnPeIYn9NhqRQmDj0M7KZMRiSeVOS83y4ORQhH664ti_rvfplS78OyAk5jL659j1aHcoobmFcUbAkc5AWHx8ht6euVhMwuRYLt5dPwQMP7rfANyCxmzDdWAuLD5-CGI08KPkiKDx1gt0dXCp7DSVokDmcNm9XuN818a5py3WCUIfcgNamBTczKPbjvnvcoIX7Kx4ktxjza5iY9hsMnnrEPQlBrYZi9Kw3Yu2uirGrcMz_augeDtjMhxFN3ZGdpUeOPPVkvL2cZUjMnFfVmhXRpOfs32jOKFo54Gjz0_dv4-GG5dKFZpvQ03bod0s9tm3RGfgEo7jAbE_gDXq6g5620eugrAma4TtVCQmk1GpOJvgeursd99hnxM5AkgpKS6wirs5BFu9Rn22rY6fud6oZZdvqvlMne9Tp-ZY6ceq0Ux3TaJudOvVgjzrZVg9QHawqzFoXUMZw0dvfUpci7lBQ2muL-ruiaEeU7IqOs6IQ7jLi1a72Q1j6FcfBe9ErDZh0tg==" alt="QualificationApplicationRequest UML diagram" width="600" height="550">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 2. ESPD-EDM 'QualificationApplicationRequest', UML diagram</em></p>
+</div>
+<div class="paragraph">
+<p>Comparing both figures, it can be observed that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The cardinalities of the root common basic components, such as cbc:ID, cbc:UUID, differ in the ESPD from in UBL-2.3;</p>
+</li>
+<li>
+<p>Similarly, the cardinalities of aggregate components like cac:ContractingParty and cac:TenderingCriterion also differ in the ESPD from in UBL-2.3.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The cardinality constraints added by the ESPD are not defined in the XSD Schema. To control these constraints, the ESPD-EDM uses <a href="https://schematron.com/">ISO Schematron</a> assertions. The ESPD-EDM distribution package provides Schematron schemata and CVA files for the validation of the XML instances (folder <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/validation"><em>/validation</em></a>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_root_elements"><a class="anchor" href="#_root_elements"></a>Root elements</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The tables below establish a mapping between the business requirements, the logic layer of the ESPD-EDM, and the UBL-2.3 physical layer. They list the elements that are expected in the ESPD Request and provide details on the cardinalities and usage of those elements.</p>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p><em>A note about the Business Rules identifiers</em></p>
+</div>
+<div class="paragraph">
+<p>From this point in the document, the tables defining classes and its properties refer frequently to business rules. As stated in the <a href="bis41.html" class="xref page">e-Sens BIS document</a>, "[..] business rules are sets of rules that clarify the content of instances by stating mandatory fields, fixed values (like code lists), dependency between fields in the same object, and dependency between different objects".</p>
+</div>
+<div class="paragraph">
+<p>Information requirement:</p>
+</div>
+<div class="paragraph">
+<p>Note that <strong>all these documents share the same business rule identifiers</strong> (e.g. tbrxx-yyy for Business Requirement Identifiers in ESPDInt, and BR-Type-Id#n for the Test Cases technical rules).</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The table below shows the mapping between the business requirements, the logic layer of the ESPD-EDM, and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 5. Class QualificationApplicationRequest, components required by the ESPD-EDM</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Document name:</strong></th>
+<th class="tableblock halign-left valign-top"><strong>QualificationApplicationRequest</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition 1</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>"<em>A structured electronic business document for requesting qualification information through an ESPD (conform to an ESPD template). Directive 2014/24/EU, Art. 59.</em>" (source: <a href="bis41.html" class="xref page">ESPD Request transaction (Trdm070)</a>).</p>
+</div>
+<div class="paragraph">
+<p>Document provided by a buyer defining the exclusion and selection criteria for a given procurement procedure.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Business rule(s)</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/ubl-2.3/xsd/maindoc/">/ubl-2.3/xsd/maindoc/UBL-QualificationApplicationRequest-2.3.xsd</a></p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 35%;">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Components</strong></p></td>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Type</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Card</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Description</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requirements
++</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:UBLVersionID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifies the earliest version of the UBL 2 schema for this document type that defines all of the elements that might be encountered in the current instance.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Use the value "2.3". Use also "OASIS-UBL-TC" for the schemeAgencyID attribute.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-OTH-05, 2.BR-OTH-02)</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ProfileExecutionID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">The identification and version of the ESPD Exchange Data Model used to create the XML instance. The identification may include the exact version of the specification.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Compulsory use of the CodeList ProfileExecutionID. Use the value "OP" for th SchemeAgencyID attribute.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-OTH-01, BR-OTH-01#13, BR-OTH-03)</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">An identifier for this document, normally generated by the system that creates the ESPD document, or the organisation responsible for the document (e.g. the buyer, e.g. a buyer, or the supplier, e.g. an economic operator). The identifier enables referencing the document instance for various purposes including referencing between transactions that are part of the same process.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Compulsory use of schemeAgencyID attribute. Use it to identify the organisation responsible for the document.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-OTH-02)</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:CopyIndicator</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Indicator</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Indicates whether this document is a copy (true) or not (false).<br>
+ESPD definition: this component indicates if the document is an original or a copy, i.e., has or has not been generated or sent previously. <br>
+Additional comments: copies of an ESPD document should be identified with same UUIDs.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: It is a good practice to use the CopyIndicator component if the same document is forwarded several times to the same or to different destinations. Use it in combination with the UUID identifier: copies of an ESPD document should be identified with same UUIDs.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:UUID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">A universally unique identifier that can be used to reference this ESPD document instance.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: This UUID will be used to link the ESPD Response to its corresponding ESPD Request (thus it being compulsory). Copies of a document must be identified with a different UUID. Compulsory use of schemeAgencyID attribute.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: BR-OTH-02</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ContractFolderID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">An identifier that is specified by the buyer and used as a reference number for all documents in the procurement process. It is also known as procurement project identifier, procurement reference number or contract folder identifier. A reference to the procurement procedure to which a Qualification request document and the delivered response documents are associated.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Try always to use the reference number issued by the buyer. This information will be provided in eForms using the same cbc:ContractFolderID, therefore the ESPD should include the same identifier in order to link both models, and shall be globally unique.</p>
+</div>
+<div class="paragraph">
+<p>This number in combination with a registered buyer ID (e.g. the VAT number) results in a <strong>universally unique identifier of the procurement procedure</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: BR-SC-10</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:IssueDate</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Date</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Date when the document was issued by the buyer.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Format "YYYY-MM-DD".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:IssueTime</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Time</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Time when the document was issued by the buyer.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#general" class="xref page">tbr70-002</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Format "hh:mm:ss".</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:VersionID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">The version identifying the content of this document.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#versioning" class="xref page">tbr70-014</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Changes in content should entail the modification of the version identifier and a reference to the previous version.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:PreviousVersionID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">The version identifying the previous modification of the content of this document.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#versioning" class="xref page">tbr70-014</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ProcedureCode</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Code</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">The type of the procurement administrative procedure according to the EU Directives.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: For the ESPD, this information will be linked to eForms. And ESPD should include the same procedure code as the one stated in eForms notices.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:ContractingParty</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">The buyer or contracting entity who is buying supplies, services or public works using a tendering procedure as described in the applicable directive (Directives 2014/24/EU, 2014/25/EU).</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-001</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: UBL-2.3 defines multiple cardinality ContractingParties presumably to allow <strong>joint procurements</strong>. However the ESPD only expects data about one buyer. The decision was made that in case of joint procurement the data collected in the ESPD would be about <strong>the leader</strong> of the joint procurement procedure.</p>
+</div>
+<div class="paragraph">
+<p>In ESPD the contracting party information will come from eForms. Which also uses cac:ContractingParty to specify the information about buyer.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:ProcurementProject/</p>
+<p class="tableblock">cbc:Description</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Text</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Text describing this procurement project.</p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This element is required in the ESPD, however it should be identical to that provided in eForms. In general the corresponding eForm should feed the corresponding ESPD with the corresponding data.</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:TenderingCriterion</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">1..n</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">A tendering criterion describes a rule or a condition that is used by the contracting body to evaluate and compare tenders by economic operators and which will be used for the exclusion and the selection of candidates to the award decision.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#list_of_criteria" class="xref page">tbr70-003</a>, <a href="tbr70_reqs.html#list_of_criteria" class="xref page">tbr70-009</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: (see examples further below in this document)</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:TenderingCriterion/</p>
+<p class="tableblock">cac:ProcurementProject
+LotReference/cbc:ID</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">0..n</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">One or more of the procurement project lots Identifier to which this criterion can be related to.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: (see section <a href="#lot_management">Lot Management</a>)</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: This element is mandatory for all Selection Criteria with cardinality 1..n because different Selection Criteria can be associated with different procurement lots. This element is not necessary for exclusion grounds because exclusion grounds are applied to all procurements.</p>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:AdditionalDocument
+Reference</strong></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">Associated class</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">0..n</p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock">A reference to an additional document associated with this document.</p></th>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: <strong>For procurement procedures above the threshold it is compulsory to make reference to the Contract Notice of the procedure published in TED</strong>. See section "Reference to the Contract Notice" for a complete example.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="lot_management"><a class="anchor" href="#lot_management"></a>Lot Management</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The ESPD includes a change as to how lots are managed. This is an outcome of the alignment with eForms.</p>
+</div>
+<div class="paragraph">
+<p>In this version the ESPD has the following logic:</p>
+</div>
+<div class="paragraph">
+<p>There is one ESPD request stating the Exclusion Criteria and the Selection Criteria, but with differences with respect to version 2.1.1. The figure below shows the logic:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/pikchr/svg/eNqtVMtu2zAQvOsrFooPsdMopBTGSIBcGqS9pAjQXnwrKImW2TCkS1KxP7-kXpZsWcihJ0Mecmc4uzszDY-AopjLQHDJdjyvv0kQfH1d_cYPoD6oAC4_uOGpYMEKPUCFRAau4PIaRQn5giJM5oFlewshhmtY_XiBn-xvyYwNIVUih0wJpSEVNHsDausKQUC1VrsGQ3tC79OcQK52EvBipmGt1TusENgNk6B5sbEw05WuuNEVPu8zURquJBRalTI3cPnNFaNCgFDW-Ktg6DubhyD-lMYeXgJrbqcUxBGZ1pC0Gn4xwTLrNWSaW6Y5nSSrKlYFnIUVlaMZlD_SU7HdtmwvygIOJ0oL6pj92ba8a9FiSBEvxklIS_LUPAQwUJlDfMxXt_r01Eibyfl3H8saF3XXf_kZJQ00Qn_3v7xZnvEm-ZQ3yai4ZRBc5F6cH9OUF1BLdQMtC_D7aKqt7FvH_NbhyO3cHAoFuJ7SDaO5v3PfDKpD0BA5ALj_N07IOBDH5BOlhkC87NPfDu9kQhlvkNvMztemNQf_6haQriXltgoj993kEToJpCZ1okh2wWO2Sho2kTzozOJ3PmNUxxvy0TbvRdJpDOA2I8OWGLZMw_Nr1Xc_mO73Ruk2E8LvLqi2oNYec3F1SDB_vsuS8cD6B1sEy7c=" alt="Overview of new lot management approach." width="900" height="250">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3. Overview of new lot management approach</em></p>
+</div>
+<div class="paragraph">
+<p>The ESPD request includes exclusion grounds that are general for all the Lots into which the procedure is divided. However, for Selection Criteria, it is different since in the procedure it is possible to have Lots with different selection criteria. Therefore, in the ESPD request the different Selection Criteria has to include the reference to the lots which applies. It will be done using the UBL 2.3 cac:ProcurementProjectLotReference that includes cbc:TenderingCriterion.</p>
+</div>
+<div class="paragraph">
+<p>The following XML example shows how it is done:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!--- Root elements eliminated for the sake of brevity --&gt;
+
+&lt;cac:TenderingCriterion&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;499efc97-2ac1-4af2-9e84-323c2ca67747&lt;/cbc:ID&gt;
+&lt;cbc:CriterionTypeCode listID="http://publications.europa.eu/resource/authority/criterion" listAgencyID="OP" listVersionID="20230315-0"&gt;gen-year-to&lt;/cbc:CriterionTypeCode&gt;
+&lt;cbc:Name&gt;General yearly turnover&lt;/cbc:Name&gt;
+&lt;cbc:Description&gt;Its general yearly turnover for the number of financial years required in the relevant notice, the in the ESPD, the relevant notice or the ESPD is as follows:&lt;/cbc:Description&gt;
+&lt;cac:ProcurementProjectLotReference&gt;
+&lt;cbc:ID schemeID="Criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;LOT-00000&lt;/cbc:ID&gt;
+&lt;/cac:ProcurementProjectLotReference&gt;
+&lt;cac:ProcurementProjectLotReference&gt;
+&lt;cbc:ID schemeID="Criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;LOT-00001&lt;/cbc:ID&gt;
+&lt;/cac:ProcurementProjectLotReference&gt;
+&lt;cac:SubTenderingCriterion&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;e6b21867-95b5-4549-8180-f4673219b179&lt;/cbc:ID&gt;
+&lt;cbc:Name&gt;[Name of the National Criterion]&lt;/cbc:Name&gt;
+&lt;cbc:Description&gt;[Description of the National Criterion ]&lt;/cbc:Description&gt;
+&lt;cac:TenderingCriterionPropertyGroup&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;8c39b505-8abe-44fa-a3e0-f2d78b9d8224&lt;/cbc:ID&gt;
+&lt;cbc:PropertyGroupTypeCode listID="property-group-type" listAgencyID="OP" listVersionID="3.3.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+&lt;cac:TenderingCriterionProperty&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;ed2a13ed-cf3d-478e-888d-cb9b89f55020&lt;/cbc:ID&gt;
+&lt;cbc:Description&gt;[Additional information; e.g. no evidences online]&lt;/cbc:Description&gt;
+&lt;cbc:TypeCode listID="criterion-element-type" listAgencyID="OP" listVersionID="3.3.0"&gt;CAPTION&lt;/cbc:TypeCode&gt;
+&lt;cbc:ValueDataTypeCode listID="response-data-type" listAgencyID="OP" listVersionID="3.3.0"&gt;NONE&lt;/cbc:ValueDataTypeCode&gt;
+&lt;/cac:TenderingCriterionProperty&gt;
+&lt;cac:TenderingCriterionProperty&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;b21ab072-e5b6-495c-ad6e-4ead6993ede5&lt;/cbc:ID&gt;
+&lt;cbc:Description&gt;Your Answer&lt;/cbc:Description&gt;
+&lt;cbc:TypeCode listID="criterion-element-type" listAgencyID="OP" listVersionID="3.3.0"&gt;QUESTION&lt;/cbc:TypeCode&gt;
+&lt;cbc:ValueDataTypeCode listID="response-data-type" listAgencyID="OP" listVersionID="3.3.0"&gt;INDICATOR&lt;/cbc:ValueDataTypeCode&gt;
+&lt;/cac:TenderingCriterionProperty&gt;
+&lt;/cac:TenderingCriterionPropertyGroup&gt;
+&lt;/cac:SubTenderingCriterion&gt;
+&lt;cac:Legislation&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;635a537c-57bf-4beb-8b69-d97d49382e1f&lt;/cbc:ID&gt;
+&lt;cbc:Title&gt;[Legislation title]&lt;/cbc:Title&gt;
+&lt;cbc:Description&gt;[Legislation description]&lt;/cbc:Description&gt;
+&lt;cbc:JurisdictionLevel&gt;EU&lt;/cbc:JurisdictionLevel&gt;
+&lt;cbc:Article&gt;[Article, e.g. Article 2.I.a]&lt;/cbc:Article&gt;
+&lt;cbc:URI&gt;http://eur-lex.europa.eu/&lt;/cbc:URI&gt;
+&lt;cac:Language&gt;
+&lt;cbc:LocaleCode listID="http://publications.europa.eu/resource/authority/language" listAgencyName="OP" listVersionID="20220928-0"&gt;ENG&lt;/cbc:LocaleCode&gt;
+&lt;/cac:Language&gt;
+&lt;/cac:Legislation&gt;
+&lt;cac:TenderingCriterionPropertyGroup&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;5ca58d66-3ef1-4145-957c-45d5b18a837f&lt;/cbc:ID&gt;
+&lt;cbc:PropertyGroupTypeCode listID="property-group-type" listAgencyID="OP" listVersionID="3.3.0"&gt;ON*&lt;/cbc:PropertyGroupTypeCode&gt;
+&lt;cac:TenderingCriterionProperty&gt;
+&lt;cbc:ID schemeID="criterion" schemeAgencyID="OP" schemeVersionID="3.3.0"&gt;42824f1f-3574-4e53-80ca-501d22e85ef8&lt;/cbc:ID&gt;
+&lt;cbc:Description&gt;Minimum requirement&lt;/cbc:Description&gt;
+&lt;cbc:TypeCode listID="criterion-element-type" listAgencyID="OP" listVersionID="3.3.0"&gt;REQUIREMENT&lt;/cbc:TypeCode&gt;
+&lt;cbc:ValueDataTypeCode listID="response-data-type" listAgencyID="OP" listVersionID="3.3.0"&gt;AMOUNT&lt;/cbc:ValueDataTypeCode&gt;
+&lt;!-- No answer is expected here from the economic operator, as this is a REQUIREMENT issued by the buyer. Hence the element 'cbc:ValueDataTypeCode' contains the type of value of the requirement issued by the buyer --&gt;
+&lt;cbc:ExpectedAmount currencyID="EUR"&gt;100000&lt;/cbc:ExpectedAmount&gt;
+&lt;/cac:TenderingCriterionProperty&gt;
+
+&lt;!--- Rest of the elements of the criterion have been eliminated for the sake of brevity --&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>From the Economic Operator&#8217;s side it is different. As in the image above there will be as many ESPD Responses as Lots, or Group of Lots, the EO wishes to tender for. If the EO wishes to participate in three Lots, they will need to fill in 3 ESPD Responses. For more details on this, please see the section on the ESPD Response.</p>
+</div>
+<div class="sect2">
+<h3 id="_lot_identifiers"><a class="anchor" href="#_lot_identifiers"></a>Lot identifiers</h3>
+<div class="paragraph">
+<p>This version of the ESPD changes the form to identify Lots and Groups of Lots, taking the eForms format. This change is done with the aim of improving the interoperability of both models.</p>
+</div>
+<div class="paragraph">
+<p>Up to version 2.1.1, the lots were identified with the following structure, "Lot1, Lot2, Lot3". With the new approach (eForms), the Lots identifiers will be as follows:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scheme</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group of Lots</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GLO-XXX</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lot</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">LOT-XXXX</p></td>
+</tr>
+</tbody>
+</table></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Comment</p>
+</div>
+<div class="paragraph">
+<p>XXXX: set of 4 digits. By default, the numbering should be increased by 1 from one object to the following one of the same category and a leading 0 should be used to satisfy the 4 digit format if required</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_eu_and_notice_publications"><a class="anchor" href="#_eu_and_notice_publications"></a>EU and notice publications</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>REQUIREMENT</strong> <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>The Buyer must be able to provide information about official journals or gazettes where the procurement procedure is announced. For procurement projects above the threshold it is compulsory to refer to the Contract Notice published in <a href="https://ted.europa.eu/TED/">TED</a>.</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Software applications that conform to the ESPD will have to provide the means for the user to supply references to EU and notice publications about the procurement procedure, especially about Notices to which the ESPD is related.</p>
+</div>
+<div class="sect2">
+<h3 id="_mock_up"><a class="anchor" href="#_mock_up"></a>Mock-up</h3>
+<div class="paragraph">
+<p>The Figure below is a mock-up of how to collect the data expected to reference publications on official gazettes or journals. This mechanism can, of course, also be used for contracts below the <a href="https://single-market-economy.ec.europa.eu/single-market/public-procurement/legal-rules-and-implementation/thresholds_en">threshold</a>.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/Publications_mock-up.jpg" alt="Publications mock-up" width="500" height="459"></span></p>
+</div>
+<div class="paragraph">
+<p><em>Figure 4. Publications, mock-up</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xsd_schema"><a class="anchor" href="#_xsd_schema"></a>XSD Schema</h3>
+<div class="paragraph">
+<p>The ESPD EDM uses the UBL component cac:AdditionalDocumentReference to allow the inclusion of references to documents that might be considered relevant, amongst them the reference to the Contract Notice on the TED (for above-the-threshold contracts), and to possible Notices on national journals and boards.</p>
+</div>
+<div class="paragraph">
+<p>The class used for this, cac:AdditionalDocumentReference ''is a'' cac:DocumentReference class defined in the UBL-2.3 Common Aggregate Components library).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrtVdtqGzEQffZ-xaBSaGFjr51AUocWkrgLhkDd3AiEYOTVeFeNVtpK2tZOyHu_oh_XL6m09q5zoUkoKXmpH4x8NHPmojPjiVDJBeM0haug04ERTRE6FpNM8oSK6jTW-LVEY9uZzQUM8zsmY-4R00loMlBJmaO0BzhFjTLB8enh4HUv8vya5u0vRQpvYp6WGqHb7cPnkgo-dSyWK7lTFGJ5PFgEXOu11yGnXAIK9Lym_dYneYgWTEEl5Gg1nwUA1c_xd85sBu9hY2u7wTLkaWYd2O1VIMMpLYUdT5Wj45fobzb8TZBqVRZwiVqNF8erIEiUUNqZkFcfozje2STbQUAIrH0A4srt7zDGfb5U3KucwBnj3lUqiSEIOkHhiaJ2-9ePn-Q8eJzAR8GZ7R_v7n-cWZTGGRoSutCTpD8c1Kc9VcyHkvnWKV2Dx8crg6ExJQ6oxVvAEc8boA5-NC9wTzEkT8zurm_NdzqiNnumDni-BmK10VBa1M7JuWs0TVf2qUxLp8ZV8fvKaXRR1BI5Qe07uTKpOQ8ttaWpTG-mfv4XzRigSTQvvP1ztcEbWUuTzF9WqTvkxM2Pc5yPUHPFarR6Xz2i2s5r6ACNU_2nqSu-Gbg7VS4HYMq1sc0EtMi9fKqHhjOT0cJPjzOUDNlEzUKoB7C3GYXGzoW_Z9RkyEJYjdJuN457XXK-HbRasMIngiYXZAFap_uVQxxH7kOq-V1-6uiCS7yF34q6IKu-XmqSwsemJHwhiYd_Vmz4b-QWtK6D66Be4AutWOXUx9CE9WKGb1SUCNy4hb3ld20jNPcnkivJbqgsCqFZ773I6ekJS_lB2b67ybhRMf6XzUvL5uE3W6-e6fo3WpjlRw==" alt="cac:DocumentReference XSD diagram" width="600" height="750">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5. cac:DocumentReference, XSD diagram</em></p>
+</div>
+<div class="paragraph">
+<p>The class cac:AdditionalDocumentReference aggregates a subclass cac:Attachment that is used by ESPD to place the URI, the name of the document, and the descriptions.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrlVdtuEzEQfd79CmsREkhLbir0JpBS2hWVKKBeJCRURY492XXrtYPtQNIq73wFH8eXMN50N7dt06dKiDys7OPxXI7PZPpSs2suaEpuw2aTfKEpkKYDlinBqCxWPQPfR2BdI3O5JMf5iklPeMQ2u9ZqJqgD3mOSWvu802KUHY0dGEXlKQzAgGLQ-3p2iEc-pKF542qYkheJSEcGSPtNg8y9kMILQR97a05igl7InY-XPvEzcMQOqSI5OCPGISHFtvdTcJeRt2RrZ7_CMhBp5hBsdwqQw4COpOsNtHJW3IA_2SpOwtTo0ZDcgNG92fI2DJmW2qBN9OyolSTd7Wg_DKOIvHpHIp9sl3PhhMZ0DzUb5aBclXZEvnHhryqtsAZJ-yC9o1aj8efX7-gS_Wz0UIVxjrLMHy55rXwsHPsrMHZ7FwcfPZPKom8bxeinj9zmfeAceBnqQChqJp_7V8DcfTYFXvcutanUWNVmRMpwF6fH5bKM-IHarMT8uitTbYTL8hNwmeZVouOhMJNDlM8yci7yCjnB9XvNq32iTU7dInKkmOZCpYvY-4wayrAQFNrSbSHhE81XK3-o8KIusMyIoX_lzaKYKW8gjHWVCoNKhX1J2TVqMHDI6FybSdLCn8dtRode01Io8Fs3kX7LkUbgCAQBCj1YVU0YhMEsmAWmFZ9HDqK52flk6EsvQ6CJQp309TgmZee1t1vxcsyYzNM8aCdJpx1d3uWxXpVH76vMn61UV0D1FfrvU_VBiOFmhLlMmEXygmjN-jEk7j6axHtYfJDGOh7ribxjspbKf7uB4_XODH2d0xA__jsNp-WkmT2L09izHGxcThDyg8oREGFxsuz4mVC9KY6qHJto_qCdVkyqOdRp4dM93V_0Q0Lr7Ba5bBpD8doQiv8HQWzg7rXnbvoX3IX6fg==" alt="Associated class cac:ExternalReference XSD diagram" width="850" height="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 6. Associated class cac:ExternalReference, XSD diagram</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expected_elements"><a class="anchor" href="#_expected_elements"></a>Expected elements</h3>
+<div class="paragraph">
+<p>As can be seen from the XSD Schema, the cac:DocumentReference class has a rich data structure. However, to refer to publications such as the TED and national publications, the ESPD expects, at least, the following data:</p>
+</div>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM, and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 6. Reference to additional documents, expected elements</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Class name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:AdditionalDocumentReference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to an additional document associated with this document.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Business rule(s)</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common (BR-COM-10)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest/cac:AdditionalDocumentReference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Context of Use</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">In this case this reference points at a document published on the Supplement of the European Official Journal or on a national journal.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Components</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Card</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Requirements</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The identifier for the referenced document, generally issued by the entity responsible for the document.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: If the document referenced is a Contract Notice published on TED, the ID must follow the scheme defined by the Publications Office: [][][][]/S [][][]-[][][][][][] (e.g. 2015/S 252-461137). If, at the time of drafting the ESPD document, the Publication Office has not yet published the Contract Notice, the value 0000/S 000-000000 value must be used to indicate that a temporary identifier is being used.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-COM-10#1, BR-OTH-02)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:UUID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A universally unique identifier that can be used to reference this ESPD document instance.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr92_reqs.html#call_tender_refs" class="xref page">tbr92-013</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: If the referenced document has a UUID to identify its particular instance, refer to that UUID here.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:DocumentTypeCode</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of document being referenced, expressed as a code.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: For the ESPD-EDM it is compulsory to use the Code List "docref-content-type". See the example below on how to specify the OJS Contract Notice. If, for other documents, the type of document is not available in this list, provide the code "Other" and describe the content in the element DocumentType.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-OTH-01, BR-OTH-01#3, BR-OTH-03)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:DocumentType</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The type of document being referenced, expressed as text.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: The attribute "languageID" may be used optionally to indicate the language of the text. Use the Code List "Language" for the value of the languageID attribute.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-OTH-01, BR-OTH-01#4, BR-OTH-03)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:IssueDate</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Date when the document was issued by the buyer.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr92_reqs.html#call_tender_refs" class="xref page">tbr92-013</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Format "YYYY-MM-DD". If the data of publication by the buyer is available in the referenced document, place it here.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:IssueTime</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Time when the document was issued by the buyer.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr92_reqs.html#call_tender_refs" class="xref page">tbr92-013</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: If the time of publication by the buyer is available in the referenced document, place it here.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Beware that the ESPD document does not embed the content of referenced documents, instead it makes a reference to its source. Thus the class 'DocumentReference' aggregates a 'cac:Attachment' class that allows for embedding the content or making reference to an external source of the content. This is the preferred way in the ESPD (see the XSD schema above):</p>
+</div>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM, and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 7. External Reference</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Component name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:ExternalReference</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A reference to the authentic source of content of this document.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest
+/cac:AdditionalDocumentReference
+/cac:Attachment/cac:ExternalReference</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Components</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Card</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirements</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:URI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The Uniform Resource Identifier (URI) that identifies where the document is located.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:FileName</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The title of the document.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Originally this field was the placeholder for the name of the file (e.g. PLACE-ContractNotice-2017-12452.xml). However, as the UBL component does not have a placeholder for a name or title, ESPD documents use it for a short descriptive title of the document being referenced.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..n</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Short description of the document.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#call_for_tender" class="xref page">tbr70-007</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: If the document being referenced is a Notice being published on TED, use two description lines. Use the second description line to for the temporary number received from TED. See example and comments below.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-COM-10#2, BR-COM-10-S10, BR-COM-10-S20, BR-COM-10-S30)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_xml_example"><a class="anchor" href="#_xml_example"></a>XML Example</h3>
+<div class="paragraph">
+<p>The XML snippet below illustrates how to use the cac:AdditionalDocumentReference in the ESPDRequest XML document to refer to a Contract Notice published in TED and on a national procurement board:</p>
+</div>
+<div class="sect3">
+<h4 id="_code_with_callouts"><a class="anchor" href="#_code_with_callouts"></a>Code with callouts</h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The source code can be copied from the code block below the callout section
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;!--- Root elements eliminated for the sake of brevity --&gt;
+
+&lt;!-- Reference to the Contract Notice published on TED --&gt;
+
+&lt;cac:AdditionalDocumentReference&gt;
+
+&lt;cbc:ID schemeAgencyID="OP"&gt;2017/S 142-293520&lt;/cbc:ID&gt;
+
+&lt;cbc:DocumentTypeCode listID="http://publications.europa.eu/resource/authority/docrefcontent-type" listAgencyID="OP" listVersionID="20220928-0"&gt;TED_CN&lt;/cbc:DocumentTypeCode&gt;
+
+&lt;cac:Attachment&gt;
+
+&lt;cac:ExternalReference&gt;
+
+&lt;!-- Beware XML URI fields may require encoded URLs --&gt;
+
+&lt;cbc:URI schemeAgencyID="OP"&gt;http://ted.europa.eu/udl?uri%3DTED:NOTICE:293520-2017:TEXT:EN:HTML%026src%3D0&lt;/cbc:URI&gt;
+
+&lt;cbc:FileName&gt;Spain-Zamora: Repair and maintenance services&lt;/cbc:FileName&gt;
+
+&lt;cbc:Description&gt;Repair and maintenance services. Real estate services.&lt;/cbc:Description&gt;
+
+&lt;cbc:Description&gt;293520-2017&lt;/cbc:Description&gt;
+
+&lt;/cac:ExternalReference&gt;
+
+&lt;/cac:Attachment&gt;
+
+&lt;/cac:AdditionalDocumentReference&gt;
+
+&lt;!-- Reference to the Contract Notice published on the Spanish Central Government eTendering Platform --&gt;
+
+&lt;cac:AdditionalDocumentReference&gt;
+
+&lt;!-- Contract Notice published on the Spanish Central eTendering Platform "PLACE" Plataforma de Contratación del Sector Público --&gt;
+
+&lt;cbc:ID schemeAgencyID="PLACE"&gt;3.17/20830.0160&lt;/cbc:ID&gt;
+
+&lt;!-- Contract Notice (CN) published on a National Government Official Journal --&gt;
+
+&lt;cbc:DocumentTypeCode listID="http://publications.europa.eu/resource/authority/docrefcontent-type" listAgencyID="OP" listVersionID="20220928-0"&gt;NOJCN&lt;/cbc:DocumentTypeCode&gt;
+
+&lt;cac:Attachment&gt;
+
+&lt;cac:ExternalReference&gt;
+
+&lt;!-- Beware XML URI fields may require encoded URLs --&gt;
+
+&lt;cbc:URI schemeAgencyID="PLACE"&gt;https://contrataciondelestado.es/wps/portal/!ut/p/b1/pY_LDoIwEEW_hQ8wM5S2wJKH5REUVEDbjenCGI3Axvj9gmFrMXF2Nzkncy8okDahHD2XMAYnUL1-3a76eRt6_Ziy4me6LqNIpAS9gxMjKeKm4ekUyQhIA5AQo5-w2WdORNu8rfghSxCzVMRFY7NR57_5-OUC_K-_t9j_CMqMkBkwTfwAhg3bdOguIEfMPQfthedkvoNluB8f5dWmrhJiI3KoQYbhEkYnLA-hUw8hhJ_dqV7pwLLeHJySpA!!/&lt;/cbc:URI&gt;
+
+&lt;cbc:FileName&gt;Suministro y transporte de balasto&lt;/cbc:FileName&gt;
+
+&lt;cbc:Description&gt;Suministro y transporte de balasto para el tramo Zamora — Pedralba de la Línea de Alta Velocidad Olmedo — Lubián — Ourense. Subtramo 8.&lt;/cbc:Description&gt;
+
+&lt;/cac:ExternalReference&gt;
+
+&lt;/cac:Attachment&gt;
+
+&lt;/cac:AdditionalDocumentReference&gt;
+
+&lt;/QualificationApplicationRequest&gt;</pre>
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For TED Notices, the Publications Office Official Journal Supplement number must be used in its original format [][][][]/S [][][]-[][][][][][], e.g. 2017/S 142-293520. Notice that the schemeAgencyID is OP (OP standing for 'Publications Office').</p>
+</li>
+<li>
+<p>The jurisdiction scope of this document is typified in the Code List docref-content-type (see file <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/DocRefContentType.gc">/codelists/gc/DocRefContentType.gc</a> in the distribution package). <strong>Beware that the name and content of this Code List has changed from the previous ESPD-EDM version 2.1.1</strong>.</p>
+</li>
+<li>
+<p>The actual content is never embedded in the ESPD documents. Rather the content is always referenced from its original source (alignment with the Once-Only-Principle).</p>
+</li>
+<li>
+<p>The title of the CN must be placed in the FileName field of the attachment. UBL does not provide a placeholder for the title of the document.</p>
+</li>
+<li>
+<p>If notice publication on TED happens at the same time the ESPD Request is prepared, the procurer will not yet have an OJS number. They can receive a temporary CN identifier (Received Notice Number). To save this number in the DocumentReference component, two cbc:Description elements must be created, and the second one used for the Received Notice Number. If you do not have a description for the CN then use dummy content for the first description, e.g. &lt;cbc:Description&gt;_&lt;/cbc:/Description&gt;.</p>
+</li>
+<li>
+<p>schemeAgencyID is used in this example to specify that the national Agency that created this reference to the national publication (e.g., "PLACE" to refer to the ID of the national electronic board where the CN was published). The pattern of the ID is the one created by the Spanish buyer.</p>
+</li>
+<li>
+<p>In this case, the code NOJCN means 'Contract Notice (CN) published on a National Government Official Journal' (see file <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/DocRefContentType.gc">/codelists/gc/DocRefContentType.gc</a> in the distribution package).</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_copy_the_code_block"><a class="anchor" href="#_copy_the_code_block"></a>Copy the code block</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;!--- Root elements eliminated for the sake of brevity --&gt;
+
+&lt;!-- Reference to the Contract Notice published on TED --&gt;
+
+&lt;cac:AdditionalDocumentReference&gt;
+
+&lt;cbc:ID schemeAgencyID="OP"&gt;2017/S 142-293520&lt;/cbc:ID&gt;
+
+&lt;cbc:DocumentTypeCode listID="http://publications.europa.eu/resource/authority/docrefcontent-type" listAgencyID="OP" listVersionID="20220928-0"&gt;TED_CN&lt;/cbc:DocumentTypeCode&gt;
+
+&lt;cac:Attachment&gt;
+
+&lt;cac:ExternalReference&gt;
+
+&lt;!-- Beware XML URI fields may require encoded URLs --&gt;
+
+&lt;cbc:URI schemeAgencyID="OP"&gt;http://ted.europa.eu/udl?uri%3DTED:NOTICE:293520-2017:TEXT:EN:HTML%026src%3D0&lt;/cbc:URI&gt;
+
+&lt;cbc:FileName&gt;Spain-Zamora: Repair and maintenance services&lt;/cbc:FileName&gt;
+
+&lt;cbc:Description&gt;Repair and maintenance services. Real estate services.&lt;/cbc:Description&gt;
+
+&lt;cbc:Description&gt;293520-2017&lt;/cbc:Description&gt;
+
+&lt;/cac:ExternalReference&gt;
+
+&lt;/cac:Attachment&gt;
+
+&lt;/cac:AdditionalDocumentReference&gt;
+
+&lt;!-- Reference to the Contract Notice published on the Spanish Central Government eTendering Platform --&gt;
+
+&lt;cac:AdditionalDocumentReference&gt;
+
+&lt;!-- Contract Notice published on the Spanish Central eTendering Platform "PLACE" Plataforma de Contratación del Sector Público --&gt;
+
+&lt;cbc:ID schemeAgencyID="PLACE"&gt;3.17/20830.0160&lt;/cbc:ID&gt;
+
+&lt;!-- Contract Notice (CN) published on a National Government Official Journal --&gt;
+
+&lt;cbc:DocumentTypeCode listID="http://publications.europa.eu/resource/authority/docrefcontent-type" listAgencyID="OP" listVersionID="20220928-0"&gt;NOJCN&lt;/cbc:DocumentTypeCode&gt;
+
+&lt;cac:Attachment&gt;
+
+&lt;cac:ExternalReference&gt;
+
+&lt;!-- Beware XML URI fields may require encoded URLs --&gt;
+
+&lt;cbc:URI schemeAgencyID="PLACE"&gt;https://contrataciondelestado.es/wps/portal/!ut/p/b1/pY_LDoIwEEW_hQ8wM5S2wJKH5REUVEDbjenCGI3Axvj9gmFrMXF2Nzkncy8okDahHD2XMAYnUL1-3a76eRt6_Ziy4me6LqNIpAS9gxMjKeKm4ekUyQhIA5AQo5-w2WdORNu8rfghSxCzVMRFY7NR57_5-OUC_K-_t9j_CMqMkBkwTfwAhg3bdOguIEfMPQfthedkvoNluB8f5dWmrhJiI3KoQYbhEkYnLA-hUw8hhJ_dqV7pwLLeHJySpA!!/&lt;/cbc:URI&gt;
+
+&lt;cbc:FileName&gt;Suministro y transporte de balasto&lt;/cbc:FileName&gt;
+
+&lt;cbc:Description&gt;Suministro y transporte de balasto para el tramo Zamora — Pedralba de la Línea de Alta Velocidad Olmedo — Lubián — Ourense. Subtramo 8.&lt;/cbc:Description&gt;
+
+&lt;/cac:ExternalReference&gt;
+
+&lt;/cac:Attachment&gt;
+
+&lt;/cac:AdditionalDocumentReference&gt;
+
+&lt;/QualificationApplicationRequest&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contracting_body"><a class="anchor" href="#_contracting_body"></a>Contracting Body</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_related_information_requirements"><a class="anchor" href="#_related_information_requirements"></a>Related information requirements</h3>
+<div class="paragraph">
+<p>See formal requirements related to the contracting authorities in the e-Sens site: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-001</a>*</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_mock_up_2"><a class="anchor" href="#_mock_up_2"></a>Mock-up</h3>
+<div class="paragraph">
+<p>In principle, the ESPD-EDM asks for a few data about the procurer (i.e. the buyer, body or entity). The essential (compulsory) data for the contracting body are namely the one aimed to identify it, i.e. its official name and the country. The figure below represents a possible GUI interface for these two data. However the UBL specification provides many other data elements some of which may be interesting to include in the ESPD, notably data about the means to contact the contracting body (see below the list of elements possible in the ESPD).</p>
+</div>
+<div class="paragraph">
+<p>Therefore software applications may make use of the richness of UBL-2.3 to collect data about the buyer contact, end-point, and other possible data in the ESPD.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="_images/Procurer_identification_mockup.jpg" alt="Procurer identification" width="600" height="100"></span></p>
+</div>
+<div class="paragraph">
+<p><em>Figure 7. Data about the procurer, mock-up</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xsd_schema_2"><a class="anchor" href="#_xsd_schema_2"></a>XSD Schema</h3>
+<div class="paragraph">
+<p>The UBL-2.3 model provides a component that fits the purpose of holding data about the procurer: the common aggregate component cac:ContractingParty.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrNU9Fu0zAUfc9XXJkXkEyaVJNWOoG0wiJN4qFamTQJTZFj3yYGxw62U5pNe-cr-Di-ZE5CV1SxCXjixbKP7_E9xz4ulOGfhWQl3EaTCSxZiTDxyCstOVPDLLf4pUXn48rXCs7rg5Jc9oibcMbfGu0t417qcsms7_Kr1bt8xSusWV4qUzCVb6STRsefmhKeZ7JsLUI6iyGQ54dsCGwY2RRGOoz0F73UFXpwDdNQo7dyGwEMy_yrFL6C13A0O3nAKpRl5QOYTgdQ4Jq1yufr0NLJG-x3jk6iqLSmbeAGrcnH6W0UkUNdH7oGCXx0FWt6YqjTAkVhthR2vdNXCXW-U_2-YK5CQYEbZWxYk2eLNMumKbkODffgWZJlp8ckYITAyzdAcOvnl4v3Z1uPujftCAXCCz5ftB3apTVrqfDy4jxIEbI_QxuN1zv27y70p_B9NQXFClR9_ySOf3z7Th7jn4ZxI333j_QLbCw61J754GTQQceiQdiBhejPvdMnnNLHXdC_VhjdRbvQjY_sTVAr0NFdmGDDVIsgXQjZrL-Hh4SE71UbLX6JR0JhH8kkBOE_dPx0wqfHvey7e7eja0Q=" alt="cac:ContractingParty XSD Schema" width="500" height="300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 8. cac:ContractingParty XSD Schema, global vision</em></p>
+</div>
+<div class="paragraph">
+<p>The cac:ContractingParty class is a specialisation of cac:Party. Hence, the main data about the procurer is in this associated cac:Party component:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrtld1q2zAUx-_9FMJjsIGWLwrtWjZI0wQCaVealg1GMYp0YmtVpEyS0zil93uKPdyeZEfOnDYtbQjbzaB39vn86_jno5Ey_EpIlpKbqF4npywFUvfAMy05U-VTYuF7Ds7XMj9RpD95EJLIYHF1zvgps75IvgyPkiHPYMKSVJkRU69bjZl00ujat2lK3vRkmlsgzfc1gjn7ZRLBJLJMomSZRZY5b4OsIXjipkyTCXgr5xEh5WtyLYXPyAeys3ewsmUg08yjsdkqjQLGLFc-GRvtnVxA8OwcRFFqTT4lC7AmWT7eRFFcijkvphCTry5j0xCNTi1AjMyckqphs9Wgzhcq-AVzGQhKuFHG4nv86rDZ67Wa8SV2uTN2G71eezdGWxyTdx9JDHO_f3E46M496HBSF1MS8xHfP2b2qsMs9LXACXtj7zvaHsM9hj_yfoaRkx4uzvqVZWBScwZjsKA59I8qc1eLqZHa31mwVu68LTqKOSfHoS526BgR5iBkOIA2Gi4r6avv1hdBTJVQlqtcJ2yynk2JYiNQYRiNWu3Xj5_xWr0B02mOJK2KGOeZagthwbmVMStcoG5g_nR8Xt45m5dQwZqyAaRMdVG3L7YR2EGAGPfPtATrHkjaULKd4vhKTU9XHYKdSQ6n1sykALuMXs3oGuynMTJhrIZi7ZTt3GfGysXjOW0Q1ZOaaS5x9pwj-s8cGD-ODNWZQvaGyF4lYGhC_jHgYkHdY6k2k4B16f_yT9At_gD6N3TTrVim65zSNSrpI-Lov-SLPsEO3Z6UKLqNqqW_3LfeIDYCHK2WOZkxlQORDhfxXiBytayxzsRocW9TNyi5uxIauJNfIHuBbMP13toNoNz-BsH-BnY=" alt="cac:Party XSD Schema global vision" width="400" height="950">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 9. cac:Party XSD Schema, global vision</em></p>
+</div>
+<div class="paragraph">
+<p>The cac:Party class in turn associates a very rich class that holds the data about the Party address, including the country (see the UBL-2.3 specification for the complete list of fields):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrtVc1u00AQPnufYuVeQDKOE4FatQKpTWupUoGKFAlRVdbGO7GX2t6wuy5Jq9x5Ch6OJ2HWThyndVoBR_DB8vx5xt_3rWecyfiaC5bQO9Lr0XOWAO0ZiNNCxCyrniIFX0vQxk9NntHT_F5KJKxH92IWn0ttWHbIuQKtvejT6DgaxSnkzP8yTeizUCSlAjoIfIrJ-5vZFLNpnf3cTjICQ_WUFTQHo8SMUFqZ0TfBTUpf05d7B40vBZGkBp39QeXkMGFlZqKJLIwWt2AjL6sISZQsp_QWlIzqxztCYplJhTnuzkkQhoe77gEhrktfvKFuNSdTZu7SSy5sUiELuMJ4K9Iktj-ou2Azwxb6vu96WD-O998ydX1oDBRGyKLtHDIFK_s8k-aU25wJwt_OHAozH5VjLm6ERvc7lkM71LbrOT7jZE2GLAujbL19NX7VFv9Q8qbmAySt9sdCI1GxWdkXIodb7PB-MtFg7sGxBY0ax6XnTOB47TKPZmwMmWUq8P2f33-4T7xoOfzv9D6TNahDKRUXBTNPj0A2e1lSYWb2Px6dncyQTMuFpitUNqlro1nxQ5YCnQilTaNQp1HoOGPxNerTMdhirdswDPCyfp2yqdV7huBZ08wza3KmU-DocBw8BE4HBMQhTt1PQywL3jSntsReD4ewkW2D2Ni9YSpX90D2_s8cBe-hzL1NwXpbxUgQq5oZkwq1ZgkRdJfVF_OpFe0KfEwoOPCxnHl09fPs7wbeJhPemt6do34YDvruVcWO0038o8x3Ud_N_ZJ8y_6fnxlbviBWpXhfkMVqfdRfaySeXA64YZZrgd6wrAQqNK6LPfujb6DCPZij9Nc4DQKPNstlECAilUjpZbOFKt96F3hdm-C_ph_XtPcX5D-u88Ery8_iF8100Do=" alt="cac:PostalAddress" width="800" height="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 10. cac:PostalAddress, XSD Schema</em></p>
+</div>
+<div class="paragraph">
+<p>Notice also that the class associated to cac:Party to place the data about how to contact the contracting body:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrVVNtq20AQfdZ-xaC-tKDasggkOLTQxBak9BKwC4USxEoaS9ustKp23doJfu9X9OP6JZ2VLPmStPStVE87Zw5zOTOjWKrkNhU8g3s2HMI1zxCGBpO8FAmXzSuq8csStRnkppBwVRxRImERPUx4cqlKwxMTfZxNolmSY8EHn6sMnoYiW9YIwWgAxBpvaR4QD1reM5t8hgZ0xUso0NRixQAaM_omUpPDCzg5O--xHEWWGwJHQQOmuOBLaaIFxdbiDq3npPGwrFbLCu6wVlH7vGcsUVLVxHGfTP0wfHXqnjPmuvD8Jbi2wmtem7ULn1JhSaUq8Yb8e56OuG3lUWrvs2RcmfGHizfTlcFSC1Vq16MIcTK-mnSvd7zA7v1axXNhZG9PsKLEBZamQ-Yoscop3T6w4KvOnEpMTK1oRm-5kEcFPqyvKUCZNho535sc60tVFEs7ZUMVH4TwQPIYpVXQHwx-fv_hUtetugtRa9Mr7fRKx5Int6SzY0iLnf5h6NNncZ3zys5NihKtadbSminXOaYEOA4N0zkonTnMaTNpTFSZ7tJasrulzdcVUvVdfKKUKaaxWnnQrdbo1PcOE3qwq_FiFIbByL2hfbJx7fewLev5XWvWd9ReAz3eYlP7v14Y7692glk5NszZsE13wa2kRtGepKi97jLhK5dLBKHpYs_srfXzoL9PQbPbDSPwPejvO_BJ9r3T8w4Pz_tflPrz_gUnts3NL0kRt4w=" alt="cac:Contact" width="800" height="500">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 11. cac:Contact, XSD Schema</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expected_elements_2"><a class="anchor" href="#_expected_elements_2"></a>Expected elements</h3>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 8. Contracting body, expected elements</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Class name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:ContractingParty</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The buyer or contracting entity who is buying supplies, services or public works using a tendering procedure as described in the applicable directive (e.g. Directives 2014/24/EU, 2014/25/EU).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Business rule(s)</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Common (BR-REQ-20#1)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest/cac:ContractingParty</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Components</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Card</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirements</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:BuyerProfileURI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">URL of the web section, in the contracting body web site, that contains information about the contracting body, the norms applied when contracting, published calls for tenders, Prior Information Notices and Contract Notices as well as the related procurement documents, contract award notices, etc.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Notices published at national level shall not contain information other than that contained in the notices dispatched to the Publications Office of the European Union or published on a buyer profile, but shall indicate the date of dispatch of the notice to the Publications Office of the European Union or its publication on the buyer profile (Directive <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32014L0024&amp;from=ES">2014/24/EU, Art. 52.2</a>).</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 9. Contracting body party, expected elements</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Class name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:Party</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Main data placeholder structure for, in this case, the contracting body.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest/cac:ContractingParty/cac:Party</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Components</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Card</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirements</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:PartyIdentification/cbc:ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The national identifier of a contracting body as it is legally registered (e.g. VAT identification).</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-001</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: When possible, use the VAT identification of the contracting body (see the <a href="https://ec.europa.eu/taxation_customs/vies/">VIES</a> platform for a EU cross-border national VAT number verification system). When not possible, a different identifier may be used. The code list <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/EOIDType.gc">EOIDType</a> may be used to indicate the type of identifier used as a value of the schemeID attribute, e.g. schemeID="VAT").</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-REQ-20#4, BR-OTH-02)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:WebsiteURI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The website of the contracting body.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: For online services (e.g. Web Services, REST services, etc. use the component cac:EndPointID.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:EndPointID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Electronic address of the contracting body.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-001</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Use it for online services (e.g. Web Services, REST services, Delivery ID, ftp, etc. For the official web site of the Party use always the cac:Party/cbc:WebsiteURI). An end-point identifier MUST have a scheme identifier attribute (e.g.eSENSParty Identifier Scheme). Should be considered for all actors (buyer, service provider, economic operator) as an eDeliveryID.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:PartyName/cbc:Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the contracting body as it is registered.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-001</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Mandatory. Use the official name of the contracting body. The PartyName class has an associated basic element "cbc:Name". See XML example below.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-REQ-20#2)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 10. Contracting body postal address, expected elements</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Class name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:PostalAddress</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Contracting body address information.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Business rule(s)</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest/
+cac:ContractingParty/cac:Party/cac:PostalAddress</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Components</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Card</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirements</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:StreetName</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The main address line in an address. Usually the street name and number or post office box.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:CityName</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The common name of a city where the address is located.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:PostalZone</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The identifier for an addressable group of properties according to the relevant postal service, such as a ZIP code or Post Code.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:Country/cbc:
+IdentificationCode</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A code that identifies the country.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: The country of the contracting body must always be specified. Compulsory use of the code list Country from EU Vocabularies).</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-REQ-20#3, BR-OTH-01, BR-OTH-01#5, BR-OTH-03)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:Country/cbc:Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the country.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 11. Contact of the contracting body, expected elements</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Class name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:Contact</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Used to provide contacting information for a party in general or a person.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest/
+cac:ContractingParty/cac:Party/cac:Contact</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 5.2631%;">
+<col style="width: 57.8947%;">
+<col style="width: 15.7894%;">
+<col style="width: 15.7894%;">
+<col style="width: 5.2634%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Components</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Type</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Card</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Description</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Requirements</strong></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the contact point.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Telephone</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A phone number for the contact point.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:Telefax</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A fax number for the contact point.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:ElectronicMail</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An e-mail address for the contact point.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#contracting_body" class="xref page">tbr70-006</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: None.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_service_provider"><a class="anchor" href="#_service_provider"></a>Service Provider</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>REQUIREMENT</strong> <a href="tbr70_reqs.html#service_provider" class="xref page">tbr70-011</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>The ESPD request may contain information of identification regarding an ESPD service provider: Name, Party Identification, Endpoint ID.</strong></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Service providers are officially recognised organisations that can supply ESPD Request documents (on behalf of the contracting body) with pre-filled information about the contracting body and additional information (e.g. liability statements, see <a href="tbr70_reqs.html#additional_documentation" class="xref page">tbr70-012</a>)</p>
+</div>
+<div class="paragraph">
+<p>The ESPD allows the provision of data about the service provider who produced the ESPD Request document (and equally for the ESPD Response document, on behalf of the economic operator).</p>
+</div>
+<div class="paragraph">
+<p>Since the 2.1.1 does not include the cac:ServiceProvider as a 'document root component'. Instead, it uses the UBL-2.3 cac:ContractingParty/cac:Party associated class cac:ServiceProviderParty.</p>
+</div>
+<div class="sect2">
+<h3 id="_xsd_schema_3"><a class="anchor" href="#_xsd_schema_3"></a>XSD Schema</h3>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrVWd1u4kYUvsZPceTetNLUARppo0StRDZBitSLSKRSpc0KGfuAp2vGrmfIz65y36fow_VJesYeG_wDZAUCwwXYZ87MfGfm_DMJI--Lz90ZfLPOzuDenSGcKfQCwT03TJ_GCf69QKmcQM1DuJtXWMZcU-SZ53ojTJ64h_dJ9MR9TMZ_jm7GIy_Auev8Fc_gxyGfLRKEft8B4r6ssAOxQ8b-k8YyQgUydgXMUSX8xQJIX8fP3FcB_ArnF1cFLUA-CxQRe_2U6OPUXYRqPI2Ekvwr6pHzdMSaJdEihq-YROPs8ZtleVEYJcRj_3DbHQ4HH-wry7Jt-Pk3sDXQezdRrzZ88rlmEpHAz7XhRzEYXd_dwkfaMXE9xcUM0gEHzPhDgOCtjMaaDFxJDKfOo-jVp9a_CYRUryEWMKxVgDkgvRCtU0W8njMHbwAXVA05TuiCk9cUOhFhSielAi4z_AS86zg9g9FMrP5WUV81w77HREaihJpB6E4w1FdD2_z3z7_25w1TK2IURIjTJ3CljDzuKvThmZMOVcUQ-VFn7KWfd8owmKFQjfqykbmCfDmQK8_AqMtzEAGdqCRZgEzD1YwbryRdarsirRGnYqJ1wd57QU0LVYQ2LFD4g4rocUrXxuGCNLwq2pfgLQKozwxf1OUf17_fvigUkkdCNqlT2zHrbVK3wQXtrLUUizH9Sk5bZLsh-JG3mNPiNQ_XRkm9iXd5d3MCV5IBfRTXev_mjR2482kFPuWYEAgBvHhdOpYcR2ymphB6a1ZcWdBxnJO5ULPfw2uMHyMfTxX3lsvO6ZodNL8D2Swd65UmRtPqdfuMDDdOUEqKnDrwkFXTRAPTrHiiV_2OaFae8B3n68ADObzvOlpFE_JkpLrFiZxvHvzhFPxjATYHse5eV5L4KgwdvgyQNI9f4xW3J_NtPaERhiEmG6qKtmPedrkZ89hwVwqgcuGDzbGwIRg2OcTV3Jgdvnq0TPU75YlURfnbKcrfSeh6X6j47Wg3tCyKh8MufTRdBm6spQkpo9OvRjjflQH6ROh0qMLulIpQdtBKk5VKSXaw6pDVyj92_BqPbSjiWNvqMqtjdTKNlEga4C_VUyuV3QQ0C8eDTZZ9g1R9hFklEtINa2Q-Si_hEyS8mQSrdkXjxrBzYSQDufACug1j0cYGCJ6gAD6JXhgUPalul8GyGaXfyjbCYGlW173hsN-zqQQFLaL-1C1Rj6yzRj1WsciU1GyV6THW60q2r8KNFXURa0fhwZrzeta6tLmOqIF0zLyTldI6duy8iTWlJaxNcd_S9vxmdd6st7yVnbkIMhpBSkA-xbSo4ckNFwik6r3-he4qF_7F5-6c_ODSufRXfUu_S36jnk1sjIP16LQuNDS6ibJ1bzerZrWpJpOb3Gn_vCzl4ZrsBpQtIqXlyAH9Uvfvtf8OcsSH662vA3v-frCHaaDvAeiRe-Z7kKBVrfAd5dlby3cNjnI-dbH2WNvR5txdiHb18vYqz5H7ZjvKcuw-0e7wW9MQ2UmUt_8B6bsZIA==" alt="cac:ServiceProvider XSD Schema" width="750" height="950">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 12. cac:ServiceProvider XSD Schema</em></p>
+</div>
+<div class="paragraph">
+<p><strong>Notice that</strong>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The cac:Party class aggregates the class cac:ServiceProviderParty; and</p>
+</li>
+<li>
+<p>The cac:ServiceProviderParty class 'is a' Party. Hence it aggregates a cac:Party class too, and uses it to place the main data about the service provider (like name, address, end-point, etc.).</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNq9U8GO0zAQPddfMTIXkEKahkq7tAKJXTbSShwqLZzQqnLiaWLWjYPtlHZXvfMVfBxfgp007basggQSPlj2m5k3ozczqVTZHRcshwcyHMKM5QhDi1lRiozJ5jXX-LVGY8PCLiVcL09c5sIjZpix7Ab1SmQ402olOOrwS5XD80TktUaI4xCcy-TE54XPeoMWTMVKWKLVYk0Amu_8m-C2gDcwPp_usQJFXlgHjuIG5LhgtbTzhSqtEffoLePGQnKt6gruUat5-3wgJFNSaedDn11FSfLujE4JoRRevgX6RHUzpu2GwmcufEypSgxAshSlZ4jC8Of3H_SW9ER6XlzbyaeLD1dri6URqjQ0cMnSbHL9vnvtgj9uKrxUHI8y_pH_hOBfy_XW9ht0mkiJ-tLpyzJ7UtpO44XQxu5FHtCn2He1mYJVvknOt-TIU7UOoOtzfBYFxm6kt3NmCuQBHBp2MUqSeERvp2QwgAOeSpbd0Ra0TutDQJJE7tBmGHanyy5FiUf4UdaWrLn-pnu_w52UPbqSwZZsSbcNrSJWOZk5mqCbclgxWSMI46b_3M_tXk63wktV8kdaRgHsdyWOnGp9A97bldePqcYN1f9Spb-yV00x21-IroX6" alt="cac:ServiceProvider" width="700" height="350">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 13. cac:ServiceProvider</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="https://kroki.io/blockdiag/svg/eNrVVNtO3DAQfV5_xSh9ASlkL4UWQalEgZVWoi0Cqj5QFHnj2cTFa6e2Q3dBvPcr-nH9ktrJJnsBqpa-tHlYrc94LmdmfIZCJVeM0xRuSbsNJzRFaFtMMskTKsp_scYvBRobZXYsYDBeuRJzj5h2QpMz1Nc8wTjX6poz1PEJ1XYao8AxSmuiz3kKa32eFhqh9zwC57Iz8zmZufgwO6Ub1G6AkxwTiwxGSoPNEEzlA3WedV_6GVowOZUwRqv5hACUx_grZzaDPdjc3m2wDHmaWQd2eyXIcEQLYeORcvn4DXrLZmkhqVZFDjeoVVz9vSUkUcJVsgfBs6NOv7__MtglJAhg4zUETfnVMYqiIHToMNl5S_XVAdU4kMz1zSq9aNi31lHlSt6zfsSh4RY_nA5q5Fil6hRHqFEmODis4SPJcsWlnSMuVmGsnh4Iagwf-bguw4FiGMAF456BVBIvyWrVzXHAfFW1Zxm3Nr2j4-UwIQg6ROHb0omiH9--Bw8HPqYyLdzGNNGUsVTsM6bRmAbMpsZv17Gapf7Ngs_p5CzJ8AmluUlBQMgDJcGrDQjW3ksxLZcvUYV0TQW-1JtPMnF9BT7f1nVXgrFT4ZeJUZMhu9wl5NHeVjz81A5XyJLVptc3743A3a12dMS1sc2-toIHEp5Pc-9sMpr7Ct1VyZAN1SSE-sX0up1wmUEI89V_0-33e93AkWq1YI4PBU2uggq0OLFzh36_476gfFazr84uuMQlfClrFaz8qTtEWnekNSNrMFGSrbL1zfmPOZaz9Szvam2rKrbKTZqhCWvNgmsqinLxur1tr0INXafqY9eYBa6dEBrl63Ucq1qfyuWHi0YqS9sTV36WXSqLC6m3FnO_cIeafvU-7ymqL2D-Qv9FCQ3_QCfDv5G-8BF9--Vab_kR3v0EwtZ-KQ==" alt="service provider&#8217;s Party elements" width="750" height="680">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 14. cac:ServiceProvider/cac:Party elements expected for the service provider</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_expected_elements_3"><a class="anchor" href="#_expected_elements_3"></a>Expected elements</h3>
+<div class="paragraph">
+<p>The mapping between the business requirements, the logic layer of the ESPD-EDM and the UBL-2.3 physical layer:</p>
+</div>
+<div class="paragraph">
+<p><em>Table 12. Service provider, expected elements</em></p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Class name</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cac:Party</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Definition</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Main information about the service provider.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Business rule(s)</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">None</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>File</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ubl-2.3/xsdrt/common/UBL-CommonAggregateComponents-2.3.xsd</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Path</strong>:</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/QualificationApplicationRequest/
+cac:ContractingParty/cac:Party/cac:ServiceProviderParty/
+cac:Party</p></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 11.1111%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Components</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Type</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Card</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Description</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Requirements</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:WebsiteURI</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The website of the service provider.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#service_provider" class="xref page">tbr70-011</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Use it for the official web site of the service provider. Reserve the EndPointID for online services (e.g. web, REST, ftp services, etc.)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cbc:EndpointID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0..1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Electronic address of the service provider.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#service_provider" class="xref page">tbr70-011</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: Use it for online services (e.g. Web Services, REST services, Delivery ID, ftp, etc. For the official web site of the Party use always the cac:Party/cbc:WebsiteURI). An end-point identifier MUST have a scheme identifier attribute (e.g.eSENSParty Identifier Scheme). Should be considered for all actors (buyer, service provider, economic operator) as an eDeliveryID.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:PartyIdentification/cbc:ID</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The national identifier of a service provider as it is legally registered (e.g. VAT identification).</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#service_provider" class="xref page">tbr70-011</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: An identifier for the service provider must always be provided. Compulsory use of the attribute SchemeAgencyID. When possible use the VAT identification of the service provider (see the VIES platform for a EU cross-border national VAT number verification system). See XML example below. The code list <a href="https://github.com/OP-TED/ESPD-EDM/tree/v4.0.0/codelists/gc/EOIDType.gc">EOIDType</a> may be used to indicate the type of identifier used as a value of the schemeID attribute, e.g. schemeID="VAT").</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-REQ-20#5, BR-OTH-02")</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:PartyName/cbc:Name</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Text</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The name of the service provider.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#service_provider" class="xref page">tbr70-011</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: The name of the service provider must always be specified. Supply the official registered name of the service provider.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: Common (BR-REQ-20#6)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>cac:PostalAddress/
+cac:Country/cbc:
+IdentificationCode</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Code</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The code that identifies the country of the service provider.</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Information Requirement</strong>: <a href="tbr70_reqs.html#service_provider" class="xref page">tbr70-011</a>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule</strong>: The country of the service provider must always be specified. Compulsory use of the code list "Country" from EU Vocabulary, which includes 3-character codes and it is based on ISO.</p>
+</div>
+<div class="paragraph">
+<p><strong>Rule scope</strong>: BR-REQ-20#7, BR-OTH-01, BR-OTH-01#5, BR-OTH-03</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_xml_example_2"><a class="anchor" href="#_xml_example_2"></a>XML example</h3>
+<div class="paragraph">
+<p>The XML snippet below shows how an example of how to supply the expected data for the service provider.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">...
+
+_&lt;!--- Root elements eliminated for the sake of brevity --&gt;_
+
+&lt;cac:ContractingParty&gt;
+
+&lt;cac:Party&gt;
+
+&lt;cac:PartyIdentification&gt;&lt;cbc:ID schemeAgencyID="VIES"&gt;B82387770&lt;/cbc:ID&gt; &lt;/cac:PartyIdentification&gt;
+
+&lt;cac:PartyName&gt;&lt;cbc:Name&gt;Ministerio de Defensa&lt;/cbc:Name&gt;&lt;/cac:PartyName&gt;
+
+&lt;cac:PostalAddress&gt;&lt;cac:Country&gt;&lt;cbc:IdentificationCode listID="http://publications.europa.eu/resource/authority/country" listAgencyID="OP" listVersionID="20220928-0"&gt;ES&lt;/cbc:IdentificationCode&gt;&lt;/cac:Country&gt;&lt;/cac:PostalAddress&gt;
+
+&lt;cac:ServiceProviderParty&gt;
+
+&lt;cac:Party&gt;
+
+&lt;cbc:WebsiteURI&gt;http://www.minhafp.gob.es/es-ES/Areas%20Tematicas/Patrimonio%20del%20Estado/Contratacion%20del%20Sector%20Publico/Paginas/ROLECE.aspx&lt;/cbc:WebsiteURI&gt;
+
+&lt;cbc:EndpointID&gt;http://www.minhafp.gob.es/ESPD/endpoint&lt;/cbc:EndpointID&gt;
+
+&lt;cac:PartyIdentification&gt;
+
+&lt;cbc:ID schemeAgencyID="AEAT"&gt;B36699932&lt;/cbc:ID&gt;
+
+&lt;/cac:PartyIdentification&gt;
+
+&lt;cac:PartyName&gt;
+
+&lt;cbc:Name&gt;Registro Oficial de Licitadores y Empresas Clasificadas (ROLECE)&lt;/cbc:Name&gt;&lt;/cac:PartyName&gt;
+
+&lt;cac:PostalAddress&gt;
+
+&lt;cac:Country&gt;&lt;cbc:IdentificationCode listID="http://publications.europa.eu/resource/authority/country" listAgencyID="OP" listVersionID="20220928-0"&gt;ESP&lt;/cbc:IdentificationCode&gt;&lt;/cac:Country&gt;
+
+&lt;/cac:PostalAddress&gt;
+
+&lt;/cac:Party&gt;
+
+&lt;/cac:ServiceProviderParty&gt;
+
+&lt;/cac:Party&gt;
+
+&lt;/cac:ContractingParty&gt;
+
+...</code></pre>
+</div>
+</div>
+<hr>
+<div class="paragraph">
+<p>Any comments on the documentation?</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/OP-TED/espd-docs/issues/new/choose">Click here to let us know</a></p>
+</div>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>
