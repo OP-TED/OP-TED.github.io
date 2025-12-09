@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Withheld publication of information :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/eforms/latest/schema/withheld-publication.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="eforms" data-version="1.13">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">eForms SDK</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/FAQ/index.html">Frequently Asked Questions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/preview/index.html">Preview Environment</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/roadmap/index.html">SDK Roadmap</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/active-versions/index.html">Active SDK Versions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/versioning/index.html">SDK Versioning</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.13</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">eForms Specification</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="introduction.html">Introduction</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="documents-forms-and-notices.html">Documents, forms &amp; notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="notice-content.html">Notice content</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Elements</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="schemas.html">Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="notices-xml-structure.html">Notices XML structure</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="notice-information.html">Notice information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="procedure-lot-part-information.html">Procedure, Group of Lots, Lot &amp; Part related information</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="competition-results.html">Competition Results</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="parties.html">Parties</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="change-notice.html">Change notice</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="contract-modification-notice.html">Contract Modification Notice</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="withheld-publication.html">Withheld publication of information</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="codelists-and-fields.html">Codelists and Fields</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="identifiers.html">Identifiers</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="acronyms-and-abbreviations.html">Acronyms &amp; abbreviations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="terms-and-definitions.html">Terms &amp; definitions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="other-resources.html">Other Resources</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../reference/index.html">Metadata Reference</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-terms/index.html">Business Terms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/business-rules/index.html">Business Rules</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../reference/code-lists/index.html">Codelists</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.13</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../fields/index.html">Field metadata</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../fields/xml-structure.html">XML Structure</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../codelists/index.html">Codelists</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../notice-types/index.html">Notice Types</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../viewer-templates/index.html">View Templates</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../translations/index.html">Translations</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schemas/index.html">XML Schemas</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../schematrons/index.html">Schematron</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../efx/index.html">EFX grammar</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/expression-syntax.html">EFX expressions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/template-syntax.html">EFX templates</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../efx/transpiling-efx.html">Transpiling EFX</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.13</code></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../guide/index.html">Start Here</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../guide/understanding-the-sdk.html">Understanding the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../guide/sdk-glossary.html">SDK glossary</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <span class="nav-text">Working with the SDK</span>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../guide/notice-forms.html">Create the forms</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../guide/xml-generation.html">Generate XML</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../guide/visualisation.html">Visualise notices</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../guide/validation.html">Validate notices</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../guide/implementing-eforms-without-the-sdk.html">Working without the SDK</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Java Libraries</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/efx-toolkit/index.html">EFX Toolkit</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/eforms-core/index.html">eForms Core Library</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <span class="nav-text"><span class="separated"><strong>Sample Applications</strong></span></span>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/notice-viewer/index.html">Notice Viewer (Java)</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../../../eforms-common/notice-editor/index.html">Notice Editor (Java)</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">eForms SDK</span>
+          <span class="version">1.13</span>
+      </div>
+  <ul class="components">
+      <li class="component is-current">
+        <a class="title" href="../../latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../latest/index.html">1.14</a>
+            </li>
+            <li class="version is-current">
+              <a href="../index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../1.12/index.html">1.12</a>
+            </li>
+            <li class="version">
+              <a href="../../1.11/index.html">1.11</a>
+            </li>
+            <li class="version">
+              <a href="../../1.10/index.html">1.10</a>
+            </li>
+            <li class="version">
+              <a href="../../1.9/index.html">1.9</a>
+            </li>
+            <li class="version">
+              <a href="../../1.8/index.html">1.8</a>
+            </li>
+            <li class="version">
+              <a href="../../1.7/index.html">1.7</a>
+            </li>
+            <li class="version">
+              <a href="../../1.6/index.html">1.6</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/4.0.0/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../M2O/latest/index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../M2O/latest/index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">eForms SDK</a></li>
+    <li><a href="index.html">eForms Specification</a></li>
+    <li><a href="withheld-publication.html">Withheld publication of information</a></li>
+  </ul>
+</nav>
+<div class="page-versions">
+  <button class="version-menu-toggle" title="Show other versions of page">1.13</button>
+  <div class="version-menu">
+    <a class="version" href="../../latest/schema/withheld-publication.html">1.14</a>
+    <a class="version is-current" href="withheld-publication.html">1.13</a>
+    <a class="version" href="../../1.12/schema/withheld-publication.html">1.12</a>
+    <a class="version" href="../../1.11/schema/withheld-publication.html">1.11</a>
+    <a class="version" href="../../1.10/schema/withheld-publication.html">1.10</a>
+    <a class="version" href="../../1.9/schema/withheld-publication.html">1.9</a>
+    <a class="version" href="../../1.8/schema/withheld-publication.html">1.8</a>
+    <a class="version" href="../../1.7/schema/withheld-publication.html">1.7</a>
+    <a class="version" href="../../1.6/schema/withheld-publication.html">1.6</a>
+  </div>
+</div>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">Withheld publication of information</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Some information required by eForms may remain non-public
+("unpublished") for a defined period<sup class="footnote">[<a id="_footnoteref_1" class="footnote" href="#_footnotedef_1" title="View footnote.">1</a>]</sup>.
+This feature may be used for Result, Contract Modification and Contract
+Completion notices only.</p>
+</div>
+<div class="paragraph">
+<p>For some fields, the "unpublish" feature is available independently from
+the directive, while for some others, it is exclusively accessible for
+the sectoral directive (i.e. directive 25).</p>
+</div>
+<div class="paragraph">
+<p>The reason for keeping the information private shall be specified using
+a code from the codelist
+<a href="https://op.europa.eu/web/eu-vocabularies/at-dataset/-/resource/dataset/non-publication-justification">non-publication-justification</a>
+and a description. The field whose information publication shall be
+withheld is identified using a code as specified in the following
+subsections.</p>
+</div>
+<div class="paragraph">
+<p>To activate the mechanism, four business terms have to be used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Unpublished Identifier (BT-195)</p>
+</li>
+<li>
+<p>Unpublished Justification Code (BT-197)</p>
+</li>
+<li>
+<p>Unpublished Justification Description (BT-196)</p>
+</li>
+<li>
+<p>Unpublished Access Date (BT-198)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The information is encoded using dedicated elements:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:FieldsPrivacy&gt;
+    &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;not-val&lt;/efbc:FieldIdentifierCode&gt;
+    &lt;cbc:ReasonCode listName="non-publication-justification"&gt;oth-int&lt;/cbc:ReasonCode&gt;
+    &lt;efbc:ReasonDescription languageID="ENG"&gt;Information delayed publication because of ...&lt;/efbc:ReasonDescription&gt;
+    &lt;efbc:ReasonDescription languageID="FRA"&gt;Publication de l'information ajournée parce que ...&lt;/efbc:ReasonDescription&gt;
+    &lt;efbc:PublicationDate&gt;2025-03-31+01:00&lt;/efbc:PublicationDate&gt;
+&lt;/efac:FieldsPrivacy&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This should be indicated using the extension mechanism, under the direct
+parent of the element containing the information whose publication is
+delayed.</p>
+</div>
+<div class="paragraph">
+<p>"efac:FieldsPrivacy" is sibling to the field to be "unpublished"; it
+appears in an extension when the targeted field is not itself in an
+extension or shares directly the same parent as the field to
+"unpublish".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="allDirectivesSection"><a class="anchor" href="#allDirectivesSection"></a>All directives</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_notice_result_level"><a class="anchor" href="#_notice_result_level"></a>Notice Result level</h3>
+<div class="paragraph">
+<p>This covers the withheld publication of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Notice Value (BT-161),</p>
+</li>
+<li>
+<p>Notice Framework Maximum Value (BT-118),</p>
+</li>
+<li>
+<p>Notice Framework Approximate Value (BT-1118),</p>
+</li>
+<li>
+<p>Group Framework Maximum Value Lot Identifier (BT-556),</p>
+</li>
+<li>
+<p>Group Framework Maximum Value (BT-156),</p>
+</li>
+<li>
+<p>Group Framework Re-estimated Value (BT-1561).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The codes to be used to identify the field and the location where the
+unpublish components are to be found are given in <a href="#codesForUnpublishedFieldsAtNoticeResultLevelTable">Table 1</a>.</p>
+</div>
+<table id="codesForUnpublishedFieldsAtNoticeResultLevelTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Codes for "unpublished" fields at NoticeResult level</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>What is to be covered</strong></th>
+<th class="tableblock halign-center valign-top"><strong>XPATH to "unpublish"
+components</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>not-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice Value (BT-161)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='not-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>not-app-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice Framework Approximate Value (BT-1118)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='not-app-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>not-max-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Notice Framework Maximum Value (BT-118)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='not-max-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>gro-max-ide</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Framework Maximum Value Lot Identifier (BT-556)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:GroupFramework&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='gro-max-ide']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>gro-max-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Framework Maximum Value (BT-156)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:GroupFramework&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='gro-max-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>gro-ree-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group Framework Re-estimated Value (BT-1561)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:GroupFramework&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='gro-ree-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information. Comments are used
+to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ContractAwardNotice&gt;
+    &lt;!-- Interrupted mark-up --&gt;
+    &lt;ext:UBLExtension&gt;
+        &lt;ext:ExtensionContent&gt;
+            &lt;efext:EformsExtension&gt;
+                &lt;efac:NoticeResult&gt;
+                    &lt;efac:FieldsPrivacy&gt;
+                        &lt;!-- # UNPUB-01 : The Notice Value (BT-161) will not be published until March 2nd, 2022 --&gt;
+                        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;not-val&lt;/efbc:FieldIdentifierCode&gt;
+                        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+                        &lt;efbc:ReasonDescription languageID="ENG"&gt;Because ...&lt;/efbc:ReasonDescription&gt;
+                        &lt;efbc:ReasonDescription languageID="FRA"&gt;Parce que ...&lt;/efbc:ReasonDescription&gt;
+                        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                    &lt;/efac:FieldsPrivacy&gt;
+                    &lt;efac:FieldsPrivacy&gt;
+                        &lt;!-- # UNPUB-02 : The Notice Framework Maximum Value (BT-118) will not be published until March 2nd, 2022 --&gt;
+                        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;not-max-val&lt;/efbc:FieldIdentifierCode&gt;
+                        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+                        &lt;efbc:ReasonDescription languageID="ENG"&gt;...&lt;/efbc:ReasonDescription&gt;
+                        &lt;efbc:ReasonDescription languageID="FRA"&gt;...&lt;/efbc:ReasonDescription&gt;
+                        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                    &lt;/efac:FieldsPrivacy&gt;
+                    &lt;!-- # UNPUB-01 : Notice Value (BT-161) publication will be delayed --&gt;
+                    &lt;cbc:TotalAmount currencyID="EUR"&gt;123456.00&lt;/cbc:TotalAmount&gt;
+                    &lt;!-- # UNPUB-02 : The Notice Framework Maximum Value (BT-118) publication will be delayed --&gt;
+                    &lt;efbc:OverallMaximumFrameworkContractsAmount currencyID="EUR"&gt;6000&lt;/efbc:OverallMaximumFrameworkContractsAmount&gt;
+                    &lt;efac:GroupFramework&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-03 : The Group Framework Maximum Value (BT-156) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;gro-max-val&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;The following ...&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;L'information suivante ...&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-04 : The Group Framework Maximum Value Lot Identifier (BT-556) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;gro-max-ide&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;...&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;...&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;!-- # UNPUB-03 : Group Framework Maximum Value (BT-156) publication will be delayed --&gt;
+                        &lt;efbc:GroupFrameworkMaximumValueAmount currencyID="EUR"&gt;1200000&lt;/efbc:GroupFrameworkMaximumValueAmount&gt;
+                        &lt;!-- # UNPUB-04 : Group Framework Maximum Value Lot Identifier (BT-556) publication will be delayed --&gt;
+                        &lt;efac:TenderLot&gt;
+                            &lt;cbc:ID schemeName="LotsGroup"&gt;GLO-0001&lt;/cbc:ID&gt;
+                        &lt;/efac:TenderLot&gt;
+                    &lt;/efac:GroupFramework&gt;
+                    &lt;!-- Interrupted mark-up --&gt;
+                &lt;/efac:NoticeResult&gt;
+            &lt;/efext:EformsExtension&gt;
+        &lt;/ext:ExtensionContent&gt;
+    &lt;/ext:UBLExtension&gt;
+    &lt;!-- Interrupted mark-up --&gt;
+&lt;/ContractAwardNotice&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="lotResultLevelSection"><a class="anchor" href="#lotResultLevelSection"></a>LotResult level</h3>
+<div class="paragraph">
+<p>This covers the withheld publication of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Winner Chosen (BT-142),</p>
+</li>
+<li>
+<p>Not Awarded Reason (BT-144),</p>
+</li>
+<li>
+<p>Framework Re-estimated Value (BT-660),</p>
+</li>
+<li>
+<p>Framework Maximum Value (BT-709),</p>
+</li>
+<li>
+<p>Received Submissions Count (BT-759),</p>
+</li>
+<li>
+<p>Received Submissions Type (BT-760),</p>
+</li>
+<li>
+<p>Tender Value Lowest (BT-710),</p>
+</li>
+<li>
+<p>Tender Value Highest (BT-711),</p>
+</li>
+<li>
+<p>Buyer Review Complainants (BT-712).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The codes to be used to identify the field and the location where the
+unpublish components are to be found are given in <a href="#codesForUnpublishedFieldsAtLotResultLevelTable">Table 2</a>.</p>
+</div>
+<table id="codesForUnpublishedFieldsAtLotResultLevelTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 2. Codes for "unpublished" fields at LotResult level</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>What is to be covered</strong></th>
+<th class="tableblock halign-center valign-top"><strong>XPATH to "unpublish" components</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>win-cho</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Winner Chosen (BT-142)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='win-cho']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>no-awa-rea</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Not Awarded Reason (BT-144)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:DecisionReason/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='no-awa-rea']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>ree-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Framework Re-estimated Value (BT-660)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:FrameworkAgreementValues&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='ree-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>max-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Framework Maximum Value (BT-709)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:FrameworkAgreementValues&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='max-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>rec-sub-cou</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Received Submissions Count (BT-759)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:ReceivedSubmissionsStatistics&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='rec-sub-cou']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>rec-sub-typ</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Received Submissions Type (BT-760)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:ReceivedSubmissionsStatistics&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='rec-sub-typ']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>ten-val-low</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tender Value Lowest (BT-710)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='ten-val-low']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>ten-val-hig</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tender Value Highest (BT-711)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='ten-val-hig']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>rev-req</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer Review Complainants (BT-712)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotResult&#8203;/efac:AppealRequestsStatistics&#8203;[efbc:StatisticsCode/@listName='review-type']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='rev-req']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>buy-rev-cou</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer Review Requests Count (BT-635)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>buy-rev-typ</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Buyer Review Requests Irregularity Type (BT-636)</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information. Comments are used
+to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:LotResult&gt;
+    &lt;efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-10 : Tender Value Highest (BT-711) will not be published until March 2nd, 2022 --&gt;
+        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;ten-val-hig
+        &lt;/efbc:FieldIdentifierCode&gt;
+        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+        &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+    &lt;/efac:FieldsPrivacy&gt;
+    &lt;efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-11 : Tender Value Lowest (BT-710) will not be published until March 2nd, 2022 --&gt;
+        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;ten-val-low&lt;/efbc:FieldIdentifierCode&gt;
+        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+        &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+    &lt;/efac:FieldsPrivacy&gt;
+    &lt;efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-12 : Winner Chosen (BT-142) will not be published until March 2nd, 2022 --&gt;
+        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;win-cho&lt;/efbc:FieldIdentifierCode&gt;
+        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+        &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+    &lt;/efac:FieldsPrivacy&gt;
+    &lt;!-- # UNPUB-10 : Tender Value Highest (BT-711) publication will be delayed --&gt;
+    &lt;cbc:HigherTenderAmount currencyID="EUR"&gt;456&lt;/cbc:HigherTenderAmount&gt;
+    &lt;!-- # UNPUB-11 : Tender Value Lowest (BT-710) publication will be delayed --&gt;
+    &lt;cbc:LowerTenderAmount currencyID="EUR"&gt;123&lt;/cbc:LowerTenderAmount&gt;
+    &lt;!-- # UNPUB-12 : Winner Chosen (BT-142) publication will be delayed --&gt;
+    &lt;cbc:TenderResultCode listName="winner-selection-status"&gt;selec-w&lt;/cbc:TenderResultCode&gt;
+    &lt;cac:FinancingParty&gt;
+        &lt;cac:PartyIdentification&gt;
+            &lt;cbc:ID schemeName="organization"&gt;ORG-0003&lt;/cbc:ID&gt;
+        &lt;/cac:PartyIdentification&gt;
+    &lt;/cac:FinancingParty&gt;
+    &lt;cac:FinancingParty&gt;
+        &lt;cac:PartyIdentification&gt;
+            &lt;cbc:ID schemeName="organization"&gt;ORG-0004&lt;/cbc:ID&gt;
+        &lt;/cac:PartyIdentification&gt;
+    &lt;/cac:FinancingParty&gt;
+    &lt;cac:PayerParty&gt;
+        &lt;cac:PartyIdentification&gt;
+            &lt;cbc:ID schemeName="organization"&gt;ORG-0001&lt;/cbc:ID&gt;
+        &lt;/cac:PartyIdentification&gt;
+    &lt;/cac:PayerParty&gt;
+    &lt;cac:PayerParty&gt;
+        &lt;cac:PartyIdentification&gt;
+            &lt;cbc:ID schemeName="organization"&gt;ORG-0002&lt;/cbc:ID&gt;
+        &lt;/cac:PartyIdentification&gt;
+    &lt;/cac:PayerParty&gt;
+    &lt;efac:AppealRequestsStatistics&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-13 : Buyer Review Complainants (BT-712) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;rev-req&lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efbc:StatisticsCode listName=".."&gt;..&lt;/efbc:StatisticsCode&gt;
+        &lt;!-- # UNPUB-13 : Buyer Review Complainants (BT-712) publication will be delayed --&gt;
+        &lt;efbc:StatisticsNumeric&gt;2&lt;/efbc:StatisticsNumeric&gt;
+    &lt;/efac:AppealRequestsStatistics&gt;
+    &lt;efac:AppealRequestsStatistics&gt;
+        &lt;!-- Interrupted Mark-up --&gt;
+    &lt;/efac:AppealRequestsStatistics&gt;
+    &lt;efac:DecisionReason&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-14 : Not Awarded Reason (BT-144) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;no-awa-rea&lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-14 : Not Awarded Reason (BT-144) publication will be delayed --&gt;
+        &lt;efbc:DecisionReasonCode listName="non-award-justification"&gt;no-rece&lt;/efbc:DecisionReasonCode&gt;
+    &lt;/efac:DecisionReason&gt;
+    &lt;efac:LotTender&gt;
+        &lt;cbc:ID schemeName="tender"&gt;TEN-0001&lt;/cbc:ID&gt;
+    &lt;/efac:LotTender&gt;
+    &lt;efac:LotTender&gt;
+        &lt;cbc:ID schemeName="tender"&gt;TEN-0002&lt;/cbc:ID&gt;
+    &lt;/efac:LotTender&gt;
+    &lt;efac:LotTender&gt;
+        &lt;cbc:ID schemeName="tender"&gt;TEN-0003&lt;/cbc:ID&gt;
+    &lt;/efac:LotTender&gt;
+    &lt;efac:FrameworkAgreementValues&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-15A : Framework Maximum Value (BT-709) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;max-val&lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-15B : Framework Re-estimated Value (BT-660) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;ree-val&lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-15A : Framework Maximum Value (BT-709) publication will be delayed --&gt;
+        &lt;cbc:MaximumValueAmount currencyID="EUR"&gt;12345&lt;/cbc:MaximumValueAmount&gt;
+        &lt;!-- # UNPUB-15B : Framework Re-estimated Value (BT-660) publication will be delayed --&gt;
+        &lt;efbc:ReestimatedValueAmount currencyID="EUR"&gt;123&lt;/efbc:ReestimatedValueAmount&gt;
+    &lt;/efac:FrameworkAgreementValues&gt;
+    &lt;efac:ReceivedSubmissionsStatistics&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-16 : Received Submissions Type (BT-760) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;rec-sub-typ&lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-17 : Received Submissions Count (BT-759) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;rec-sub-cou&lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-16 : Received Submissions Type (BT-760) publication will be delayed --&gt;
+        &lt;efbc:StatisticsCode listName="received-submission-type"&gt;t-sme&lt;/efbc:StatisticsCode&gt;
+        &lt;!-- # UNPUB-17 : Received Submissions Count (BT-759) publication will be delayed --&gt;
+        &lt;efbc:StatisticsNumeric&gt;12&lt;/efbc:StatisticsNumeric&gt;
+    &lt;/efac:ReceivedSubmissionsStatistics&gt;
+    &lt;efac:ReceivedSubmissionsStatistics&gt;
+        &lt;!-- Interrupted Mark-up --&gt;
+    &lt;/efac:ReceivedSubmissionsStatistics&gt;
+    &lt;efac:SettledContract&gt;
+        &lt;cbc:ID schemeName="contract"&gt;CON-0001&lt;/cbc:ID&gt;
+    &lt;/efac:SettledContract&gt;
+    &lt;efac:SettledContract&gt;
+        &lt;cbc:ID schemeName="contract"&gt;CON-0003&lt;/cbc:ID&gt;
+    &lt;/efac:SettledContract&gt;
+    &lt;efac:StrategicProcurementStatistics&gt;
+        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles&lt;/efbc:StatisticsCode&gt;
+        &lt;efbc:StatisticsNumeric&gt;5&lt;/efbc:StatisticsNumeric&gt;
+    &lt;/efac:StrategicProcurementStatistics&gt;
+    &lt;efac:StrategicProcurementStatistics&gt;
+        &lt;efbc:StatisticsCode listName="vehicles"&gt;vehicles-zero-emission&lt;/efbc:StatisticsCode&gt;
+        &lt;efbc:StatisticsNumeric&gt;0&lt;/efbc:StatisticsNumeric&gt;
+    &lt;/efac:StrategicProcurementStatistics&gt;
+    &lt;efac:TenderLot&gt;
+        &lt;cbc:ID schemeName="Lot"&gt;LOT-0001&lt;/cbc:ID&gt;
+    &lt;/efac:TenderLot&gt;
+&lt;/efac:LotResult&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="lotTenderLevelSection"><a class="anchor" href="#lotTenderLevelSection"></a>LotTender level</h3>
+<div class="paragraph">
+<p>This covers the withheld publication of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Concession Revenue User (BT-162),</p>
+</li>
+<li>
+<p>Concession Revenue Buyer (BT-160),</p>
+</li>
+<li>
+<p>Value Concession Description (BT-163),</p>
+</li>
+<li>
+<p>Country Origin (BT-191),</p>
+</li>
+<li>
+<p><em>Winner Organisation Identifier (BT-1701),</em></p>
+</li>
+<li>
+<p>Winning Tender Value (BT-720),</p>
+</li>
+<li>
+<p>Tender Rank (BT-171),</p>
+</li>
+<li>
+<p>Winning Tender Variant (BT-193),</p>
+</li>
+<li>
+<p>Subcontracting Value Known (BT-730),</p>
+</li>
+<li>
+<p>Subcontracting Percentage Known (BT-731),</p>
+</li>
+<li>
+<p>Subcontracting Value (BT-553),</p>
+</li>
+<li>
+<p>Subcontracting Percentage (BT-555),</p>
+</li>
+<li>
+<p>Subcontracting Description (BT-554),</p>
+</li>
+<li>
+<p>Subcontracting (BT-773).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The codes to be used to identify the field and the location where the
+unpublish components are to be found are given in <a href="#codesForUnpublishedFieldsAtLotTenderLevelTable">Table 3</a>.</p>
+</div>
+<table id="codesForUnpublishedFieldsAtLotTenderLevelTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 3. Codes for "unpublished" fields at LotTender level</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>What is to be covered</strong></th>
+<th class="tableblock halign-center valign-top"><strong>XPATH to "unpublish" components</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>con-rev-use</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Concession Revenue User (BT-162)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:ConcessionRevenue&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='con-rev-use']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>con-rev-buy</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Concession Revenue Buyer (BT-160)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:ConcessionRevenue&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='con-rev-buy']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>val-con-des</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Value Concession Description (BT-163)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:ConcessionRevenue&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='val-con-des']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cou-ori</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Country Origin (BT-191)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:Origin&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='cou-ori']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong class="line-through">win-org-ide</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Winner Organisation Identifier (BT-1701)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Remains to be identified!</p></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>win-ten-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Winning Tender Value (BT-720)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='win-ten-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>ten-ran</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tender Rank (BT-171)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='ten-ran']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>win-ten-var</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Winning Tender Variant (BT-193)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='win-ten-var']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>sub-val-kno</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subcontracting Value Known (BT-730)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:SubcontractingTerm&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='sub-val-kno']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>sub-per-kno</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subcontracting Percentage Known (BT-731)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:SubcontractingTerm&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='sub-per-kno']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>sub-val</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subcontracting Value (BT-553)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:SubcontractingTerm&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='sub-val']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>sub-per</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subcontracting Percentage (BT-555)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:SubcontractingTerm&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='sub-per']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>sub-des</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subcontracting Description (BT-554)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:SubcontractingTerm&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='sub-des']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>sub-con</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Subcontracting (BT-773)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:NoticeResult&#8203;/efac:LotTender&#8203;/efac:SubcontractingTerm&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='sub-con']</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information. Comments are used
+to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;efac:LotTender&gt;
+    &lt;efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-20 : Tender Rank (BT-171) will not be published until March 2nd, 2022 --&gt;
+        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;ten-ran
+        &lt;/efbc:FieldIdentifierCode&gt;
+        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+        &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+    &lt;/efac:FieldsPrivacy&gt;
+    &lt;efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-21 : Winning Tender Value (BT-720) will not be published until March 2nd, 2022 --&gt;
+        &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;win-ten-val
+        &lt;/efbc:FieldIdentifierCode&gt;
+        &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+        &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+        &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+    &lt;/efac:FieldsPrivacy&gt;
+    &lt;cbc:ID schemeName="tender"&gt;TEN-0001&lt;/cbc:ID&gt;
+    &lt;!-- # UNPUB-20 : Tender Rank (BT-171) publication will be delayed --&gt;
+    &lt;cbc:RankCode&gt;1&lt;/cbc:RankCode&gt;
+    &lt;efbc:TenderVariantIndicator&gt;true&lt;/efbc:TenderVariantIndicator&gt;
+    &lt;!-- # UNPUB-21 : Winning Tender Value (BT-720) publication will be delayed --&gt;
+    &lt;cac:LegalMonetaryTotal&gt;
+        &lt;cbc:PayableAmount currencyID="EUR"&gt;500&lt;/cbc:PayableAmount&gt;
+    &lt;/cac:LegalMonetaryTotal&gt;
+    &lt;efac:AggregatedAmounts&gt;
+        &lt;!-- For Contract completion only --&gt;
+        &lt;cbc:PaidAmount currencyID="EUR"&gt;480&lt;/cbc:PaidAmount&gt;
+        &lt;efbc:PaidAmountDescription languageID="ENG"&gt;An amount of ...&lt;/efbc:PaidAmountDescription&gt;
+        &lt;efbc:PenaltiesAmount currencyID="EUR"&gt;23&lt;/efbc:PenaltiesAmount&gt;
+    &lt;/efac:AggregatedAmounts&gt;
+    &lt;efac:ConcessionRevenue&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-22 : Concession Revenue User (BT-162) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;con-rev-use
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-23 : Concession Revenue Buyer (BT-160) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;con-rev-buy
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-24 : Value Concession Description (BT-163) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;val-con-des
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-23 : Concession Revenue Buyer (BT-160) publication will be delayed --&gt;
+        &lt;efbc:RevenueBuyerAmount currencyID="EUR"&gt;350&lt;/efbc:RevenueBuyerAmount&gt;
+        &lt;!-- # UNPUB-22 : Concession Revenue User (BT-162) publication will be delayed --&gt;
+        &lt;efbc:RevenueUserAmount currencyID="EUR"&gt;350&lt;/efbc:RevenueUserAmount&gt;
+        &lt;!-- # UNPUB-24 : Value Concession Description (BT-163) publication will be delayed --&gt;
+        &lt;efbc:ValueDescription&gt;Bla bla bla ...&lt;/efbc:ValueDescription&gt;
+    &lt;/efac:ConcessionRevenue&gt;
+    &lt;efac:ContractTerm&gt;
+        &lt;!-- For T02 only --&gt;
+        &lt;efbc:TermCode/&gt;
+        &lt;efbc:TermDescription/&gt;
+        &lt;efbc:TermIndicator&gt;true&lt;/efbc:TermIndicator&gt;
+    &lt;/efac:ContractTerm&gt;
+    &lt;efac:ContractTerm&gt;
+        &lt;!-- For T02 only --&gt;
+        &lt;efbc:TermCode/&gt;
+        &lt;efbc:TermDescription/&gt;
+        &lt;efbc:TermIndicator&gt;true&lt;/efbc:TermIndicator&gt;
+    &lt;/efac:ContractTerm&gt;
+    &lt;efac:Origin&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-25 : Country Origin (BT-191) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;cou-ori
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-25 : Country Origin (BT-191) publication will be delayed --&gt;
+        &lt;efbc:AreaCode listName="country"&gt;FRA&lt;/efbc:AreaCode&gt;
+    &lt;/efac:Origin&gt;
+    &lt;efac:Origin&gt;
+        &lt;efbc:AreaCode listName="country"&gt;ITA&lt;/efbc:AreaCode&gt;
+    &lt;/efac:Origin&gt;
+    &lt;!-- Associated tenderer --&gt;
+    &lt;efac:SubcontractingTerm&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-26 : Subcontracting Value Known (BT-730) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;sub-val-kno
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-27 : Subcontracting Percentage Known (BT-731) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;sub-per-kno
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-28 : Subcontracting Value (BT-553) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;sub-val
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-29 : Subcontracting Percentage (BT-555) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;sub-per
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-30 : Subcontracting Description (BT-554) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;sub-des
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;efac:FieldsPrivacy&gt;
+            &lt;!-- # UNPUB-31 : Subcontracting (BT-773) will not be published until March 2nd, 2022 --&gt;
+            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;sub-con
+            &lt;/efbc:FieldIdentifierCode&gt;
+            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;...&lt;/cbc:ReasonCode&gt;
+            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+        &lt;/efac:FieldsPrivacy&gt;
+        &lt;!-- # UNPUB-28 : Subcontracting Value (BT-553) publication will be delayed --&gt;
+        &lt;efbc:TermAmount currencyID="EUR"&gt;5667&lt;/efbc:TermAmount&gt;
+        &lt;!-- # UNPUB-30 : Subcontracting Description (BT-554) publication will be delayed --&gt;
+        &lt;efbc:TermDescription languageID="ENG"&gt;Bla bli bla bli ...&lt;/efbc:TermDescription&gt;
+        &lt;!-- # UNPUB-29 : Subcontracting Percentage (BT-555) publication will be delayed --&gt;
+        &lt;efbc:TermPercent&gt;20&lt;/efbc:TermPercent&gt;
+        &lt;!-- # UNPUB-31 : Subcontracting (BT-773) publication will be delayed --&gt;
+        &lt;efbc:TermCode listName="applicability"&gt;..&lt;/efbc:TermCode&gt;
+        &lt;!-- # UNPUB-27 : Subcontracting Percentage Known (BT-731) publication will be delayed --&gt;
+        &lt;efbc:PercentageKnownIndicator&gt;true&lt;/efbc:PercentageKnownIndicator&gt;
+        &lt;!-- # UNPUB-26 : Subcontracting Value Known (BT-730) publication will be delayed --&gt;
+        &lt;efbc:ValueKnownIndicator&gt;false&lt;/efbc:ValueKnownIndicator&gt;
+    &lt;/efac:SubcontractingTerm&gt;
+    &lt;efac:TenderingParty&gt;
+        &lt;cbc:ID/&gt;
+    &lt;/efac:TenderingParty&gt;
+    &lt;efac:TenderLot&gt;
+        &lt;cbc:ID schemeName="Lot"&gt;LOT-0001&lt;/cbc:ID&gt;
+    &lt;/efac:TenderLot&gt;
+&lt;/efac:LotTender&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sectoralDirectiveOnlySection"><a class="anchor" href="#sectoralDirectiveOnlySection"></a>Sectoral directive only</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="procedureLevelSection"><a class="anchor" href="#procedureLevelSection"></a>Procedure level</h3>
+<div class="paragraph">
+<p>This covers the withheld publication of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Cross Border Law (BT-09),</p>
+</li>
+<li>
+<p>Procedure Type (BT-105),</p>
+</li>
+<li>
+<p>Procedure Features (BT-88),</p>
+</li>
+<li>
+<p>Procedure Accelerated (BT-106),</p>
+</li>
+<li>
+<p>Procedure Accelerated Justification (BT-1351),</p>
+</li>
+<li>
+<p>Direct Award Justification Code (BT-136),</p>
+</li>
+<li>
+<p>Direct Award Justification Previous (BT-1252),</p>
+</li>
+<li>
+<p>Direct Award Justification Text (BT-135).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The codes to be used to identify the field and the location where the
+unpublish components are to be found are given in <a href="#codesForUnpublishedFieldsAtProcedureLevelTable">Table 4</a>.</p>
+</div>
+<table id="codesForUnpublishedFieldsAtProcedureLevelTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 4. Codes for "unpublished" fields at Procedure level</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>What is to be covered</strong></th>
+<th class="tableblock halign-center valign-top"><strong>XPATH to "unpublish" components</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>cro-bor-law</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cross Border Law (BT-09)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingTerms&#8203;/cac:ProcurementLegislationDocumentReference&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='cro-bor-law']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>pro-typ</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procedure Type (BT-105)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='pro-typ']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>pro-fea</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procedure Features (BT-88)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='pro-fea']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>pro-acc</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procedure Accelerated (BT-106)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/cac:ProcessJustification&#8203;[cbc:ProcessReasonCode/@listName='accelerated-procedure-justification']&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='pro-acc']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>pro-acc-jus</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Procedure Accelerated Justification (BT-1351)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/cac:ProcessJustification&#8203;[cbc:ProcessReasonCode/@listName='accelerated-procedure-justification']&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='pro-acc-jus']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>dir-awa-jus</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direct Award Justification Code (BT-136)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/cac:ProcessJustification&#8203;[cbc:ProcessReasonCode/@listName='direct-award-justification']&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='dir-awa-jus']&#8203;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>dir-awa-pre</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direct Award Justification Previous (BT-1252)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/cac:ProcessJustification&#8203;[cbc:ProcessReasonCode/@listName='direct-award-justification']&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='dir-awa-pre']&#8203;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>dir-awa-tex</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Direct Award Justification Text (BT-135)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:TenderingProcess&#8203;/cac:ProcessJustification&#8203;[cbc:ProcessReasonCode/@listName='direct-award-justification']&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='dir-awa-tex']&#8203;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information. Comments are used
+to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;ContractAwardNotice&gt;
+    &lt;!-- interrupted mark-up --&gt;
+    &lt;cac:TenderingTerms&gt;
+        &lt;!-- interrupted mark-up --&gt;
+        &lt;cac:ProcurementLegislationDocumentReference&gt;
+            &lt;ext:UBLExtensions&gt;
+                &lt;ext:UBLExtension&gt;
+                    &lt;ext:ExtensionContent&gt;
+                        &lt;efext:EformsExtension&gt;
+                            &lt;efac:FieldsPrivacy&gt;
+                                &lt;!-- # UNPUB-40 : Cross Border Law (BT-09) will not be published until March 2nd, 2022 --&gt;
+                                &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;cro-bor-law&lt;/efbc:FieldIdentifierCode&gt;
+                                &lt;cbc:ReasonCode listName="non-publication-justification"&gt; ...&lt;/cbc:ReasonCode&gt;
+                                &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                            &lt;/efac:FieldsPrivacy&gt;
+                        &lt;/efext:EformsExtension&gt;
+                    &lt;/ext:ExtensionContent&gt;
+                &lt;/ext:UBLExtension&gt;
+            &lt;/ext:UBLExtensions&gt;
+            &lt;!-- # UNPUB-40 : Cross Border Law (BT-09) publication will be delayed --&gt;
+            &lt;cbc:ID schemeName="abc"&gt;CrossBorderLaw&lt;/cbc:ID&gt;
+            &lt;cbc:DocumentDescription languageID="ENG"&gt;Bilateral agreement ...&lt;/cbc:DocumentDescription&gt;
+            &lt;cbc:DocumentDescription languageID="FRA"&gt;Accord bilatéral ...&lt;/cbc:DocumentDescription&gt;
+        &lt;/cac:ProcurementLegislationDocumentReference&gt;
+        &lt;!-- interrupted mark-up --&gt;
+    &lt;/cac:TenderingTerms&gt;
+    &lt;cac:TenderingProcess&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-41 : Procedure Type (BT-105) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;pro-typ&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-42 : Procedure Features (BT-88) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;pro-fea&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;!-- # UNPUB-42 : Procedure Features (BT-88) publication will be delayed --&gt;
+        &lt;cbc:Description languageID="ENG"&gt;This procedure ....&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Cette procédure ....&lt;/cbc:Description&gt;
+        &lt;!-- # UNPUB-41 : Procedure Type (BT-105) publication will be delayed --&gt;
+        &lt;cbc:ProcedureCode listName="procurement-procedure-type"&gt;open&lt;/cbc:ProcedureCode&gt;
+        &lt;cac:ProcessJustification&gt;
+            &lt;ext:UBLExtensions&gt;
+                &lt;ext:UBLExtension&gt;
+                    &lt;ext:ExtensionContent&gt;
+                        &lt;efext:EformsExtension&gt;
+                            &lt;efac:FieldsPrivacy&gt;
+                                &lt;!-- # UNPUB-43 : Procedure Accelerated (BT-106) will not be published until March 2nd, 2022 --&gt;
+                                &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;pro-acc&lt;/efbc:FieldIdentifierCode&gt;
+                                &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                                &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                            &lt;/efac:FieldsPrivacy&gt;
+                            &lt;efac:FieldsPrivacy&gt;
+                                &lt;!-- # UNPUB-44 : Procedure Accelerated Justification (BT-1351) will not be published until March 2nd, 2022 --&gt;
+                                &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;pro-acc-jus&lt;/efbc:FieldIdentifierCode&gt;
+                                &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                                &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                            &lt;/efac:FieldsPrivacy&gt;
+                        &lt;/efext:EformsExtension&gt;
+                    &lt;/ext:ExtensionContent&gt;
+                &lt;/ext:UBLExtension&gt;
+            &lt;/ext:UBLExtensions&gt;
+            &lt;!-- # UNPUB-43 : Procedure Accelerated (BT-106) publication will be delayed --&gt;
+            &lt;cbc:ProcessReasonCode listName="accelerated-procedure-justification"&gt;..&lt;/cbc:ProcessReasonCode&gt;
+            &lt;!-- # UNPUB-44 : Procedure Accelerated Justification (BT-1351) publication will be delayed --&gt;
+            &lt;cbc:ProcessReason languageID="ENG"&gt;Due to ....&lt;/cbc:ProcessReason&gt;
+            &lt;cbc:ProcessReason languageID="FRA"&gt;Du fait de ....&lt;/cbc:ProcessReason&gt;
+        &lt;/cac:ProcessJustification&gt;
+    &lt;/cac:TenderingProcess&gt;
+    &lt;!-- interrupted mark-up --&gt;
+&lt;/ContractAwardNotice&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information for some DAP related fields.
+ Comments are used to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:TenderingProcess&gt;
+    &lt;cbc:ProcedureCode listName="procurement-procedure-type"&gt;neg-wo-call&lt;/cbc:ProcedureCode&gt;
+    &lt;cac:ProcessJustification&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-60 : Direct Award Justification Code (BT-136) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-jus&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-61 : Direct Award Justification Previous (BT-1252) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-pre&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-62 : Direct Award Justification Text (BT-135) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;dir-awa-tex&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-03-02+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;!-- # UNPUB-60 : Direct Award Justification Code (BT-136) publication will be delayed --&gt;
+        &lt;cbc:ProcessReasonCode listName="direct-award-justification"&gt;ecom-excl&lt;/cbc:ProcessReasonCode&gt;
+        &lt;!-- # UNPUB-62 : Direct Award Justification Text (BT-135) publication will be delayed --&gt;
+        &lt;cbc:ProcessReason languageID="ENG"&gt;Direct award is justified ...&lt;/cbc:ProcessReason&gt;
+        &lt;cbc:ProcessReason languageID="FRA"&gt;L'attribution ...&lt;/cbc:ProcessReason&gt;
+        &lt;!-- # UNPUB-61 : Direct Award Justification Previous (BT-1252) publication will be delayed --&gt;
+        &lt;cbc:Description&gt;123e4567-e89b-12d3-a456-426614174000&lt;/cbc:Description&gt;
+    &lt;/cac:ProcessJustification&gt;
+&lt;/cac:TenderingProcess&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="lotsGroupOfLotsLevelSection"><a class="anchor" href="#lotsGroupOfLotsLevelSection"></a>Lot/Group of lots level</h3>
+<div class="paragraph">
+<p>This covers the withheld publication of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Award Criterion Type (BT-539),</p>
+</li>
+<li>
+<p>Award Criterion Name (BT-734),</p>
+</li>
+<li>
+<p>Award Criterion Description (BT-540),</p>
+</li>
+<li>
+<p>Award Criterion Number Weight (BT-5421),</p>
+</li>
+<li>
+<p>Award Criterion Number Fixed (BT-5422),</p>
+</li>
+<li>
+<p>Award Criterion Number Threshold (BT-5423),</p>
+</li>
+<li>
+<p>Award Criterion Number (BT-541),</p>
+</li>
+<li>
+<p>Award Criteria Complicated (BT-543),</p>
+</li>
+<li>
+<p>Award Criteria Order Justification (BT-733).</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The codes to be used to identify the field and the location where the
+unpublish components are to be found are given in <a href="#codesForUnpublishedFieldsAtLotGroupOfLotsLevelTable">Table 5</a>.</p>
+</div>
+<table id="codesForUnpublishedFieldsAtLotGroupOfLotsLevelTable" class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 5. Codes for "unpublished" fields at Lot/Group of lots level</caption>
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 33.3333%;">
+<col style="width: 50.0001%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Code</strong></th>
+<th class="tableblock halign-left valign-top"><strong>What is to be covered</strong></th>
+<th class="tableblock halign-center valign-top"><strong>XPATH to "unpublish" components</strong>/*</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-typ</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Type (BT-539)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-typ']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-typ']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-nam</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Name (BT-734)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-nam']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-nam']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-des</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Description (BT-540)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-des']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-des']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-wei</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Number Weight (BT-5421)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;[efbc:ParameterCode/@listName='number-weight']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-wei']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;[efbc:ParameterCode/@listName='number-weight']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-wei']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-fix</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Number Fixed (BT-5422)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;[efbc:ParameterCode/@listName='number-fixed']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-fix']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;[efbc:ParameterCode/@listName='number-fixed']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-fix']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-thr</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Number Threshold (BT-5423)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;[efbc:ParameterCode/@listName='number-threshold']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-thr']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;[efbc:ParameterCode/@listName='number-threshold']&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-thr']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-num</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criterion Number (BT-541)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-num']&#8203;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/cac:SubordinateAwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:AwardCriterionParameter&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-num']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-com</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criteria Complicated (BT-543)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-com']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-com']</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><strong>awa-cri-ord</strong></p></th>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Award Criteria Order Justification (BT-733)</p></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='LotsGroup']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-ord']</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xpath hljs" data-lang="xpath">/*/cac:ProcurementProjectLot&#8203;[cbc:ID/@schemeName='Lot']&#8203;/cac:TenderingTerms&#8203;/cac:AwardingTerms&#8203;/cac:AwardingCriterion&#8203;/ext:UBLExtensions&#8203;/ext:UBLExtension&#8203;/ext:ExtensionContent&#8203;/efext:EformsExtension&#8203;/efac:FieldsPrivacy&#8203;[efbc:FieldIdentifierCode/text()='awa-cri-ord']</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>A mark-up sample is provided below to illustrate the use of the
+"unpublish" fields with their targeted information. Comments are used
+to highlight the relation between the "unpublish" and "unpublished"
+fields.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">&lt;cac:AwardingCriterion&gt;
+    &lt;cbc:Description languageID="ENG"&gt;Each criterion is evaluated separately ...&lt;/cbc:Description&gt;
+    &lt;cbc:Description languageID="FRA"&gt;Chaque critère est évalué individuellement ...&lt;/cbc:Description&gt;
+    &lt;cac:SubordinateAwardingCriterion&gt;
+        &lt;ext:UBLExtensions&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-50 : Award Criterion Type (BT-539) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;awa-cri-typ&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-04-01+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-51 : Award Criterion Name (BT-734) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;awa-cri-nam&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-04-01+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                        &lt;efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-52 : Award Criterion Description (BT-540) will not be published until March 2nd, 2022 --&gt;
+                            &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;awa-cri-des&lt;/efbc:FieldIdentifierCode&gt;
+                            &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                            &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                            &lt;efbc:PublicationDate&gt;2022-04-01+01:00&lt;/efbc:PublicationDate&gt;
+                        &lt;/efac:FieldsPrivacy&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+            &lt;ext:UBLExtension&gt;
+                &lt;ext:ExtensionContent&gt;
+                    &lt;efext:EformsExtension&gt;
+                        &lt;efac:AwardCriterionParameter&gt;
+                            &lt;efac:FieldsPrivacy&gt;
+                                &lt;!-- # UNPUB-53 : Award Criterion Number Threshold (BT-5423) will not be published until March 2nd, 2022 --&gt;
+                                &lt;efbc:FieldIdentifierCode listName="non-publication-identifier"&gt;awa-cri-thr&lt;/efbc:FieldIdentifierCode&gt;
+                                &lt;cbc:ReasonCode listName="non-publication-justification"&gt;..&lt;/cbc:ReasonCode&gt;
+                                &lt;efbc:ReasonDescription languageID="ENG"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:ReasonDescription languageID="FRA"&gt;..&lt;/efbc:ReasonDescription&gt;
+                                &lt;efbc:PublicationDate&gt;2022-04-01+01:00&lt;/efbc:PublicationDate&gt;
+                            &lt;/efac:FieldsPrivacy&gt;
+                            &lt;!-- # UNPUB-53 : Award Criterion Number Threshold (BT-5423) publication will be delayed --&gt;
+                            &lt;efbc:ParameterCode listName="number-threshold"&gt;min-score&lt;/efbc:ParameterCode&gt;
+                            &lt;efbc:ParameterNumeric&gt;50&lt;/efbc:ParameterNumeric&gt;
+                        &lt;/efac:AwardCriterionParameter&gt;
+                    &lt;/efext:EformsExtension&gt;
+                &lt;/ext:ExtensionContent&gt;
+            &lt;/ext:UBLExtension&gt;
+        &lt;/ext:UBLExtensions&gt;
+        &lt;!-- # UNPUB-50 : Award Criterion Type (BT-539) publication will be delayed --&gt;
+        &lt;cbc:AwardingCriterionTypeCode listName="award-criterion-type"&gt;price&lt;/cbc:AwardingCriterionTypeCode&gt;
+        &lt;!-- # UNPUB-51 : Award Criterion Name (BT-734) publication will be delayed --&gt;
+        &lt;cbc:Name languageID="ENG"&gt;Fair &amp;amp; realistic price&lt;/cbc:Name&gt;
+        &lt;cbc:Name languageID="FRA"&gt;Prix équitable et réaliste&lt;/cbc:Name&gt;
+        &lt;!-- # UNPUB-52 : Award Criterion Description (BT-540) publication will be delayed --&gt;
+        &lt;cbc:Description languageID="ENG"&gt;Tenders with a price score lower than 50 ...&lt;/cbc:Description&gt;
+        &lt;cbc:Description languageID="FRA"&gt;Les offres avec un score sur les prix inférieur à ...&lt;/cbc:Description&gt;
+    &lt;/cac:SubordinateAwardingCriterion&gt;
+    &lt;!-- Interrupted mark-up --&gt;
+&lt;/cac:AwardingCriterion&gt;</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="#_footnoteref_1">1</a>. as reminded in the "eForms Implementation Handbook" p. 27. Also see Dir 24 Art. 50(4), Dir 25 Art. 70(3),
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://twitter.com/EUTenders"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>
