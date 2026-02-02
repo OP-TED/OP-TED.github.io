@@ -281,6 +281,221 @@
 </div>
 </div>
 <div class="sect1">
+<h2 id="_notice_lifecycle"><a class="anchor" href="#_notice_lifecycle"></a>Notice lifecycle</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the lifecycle of an eForms notice submitted via the Publication API.
+It applies exclusively to <strong>eSenders</strong> (users of the Publication API).</p>
+</div>
+<div class="paragraph">
+<p>A lifecycle describes how a notice progresses through statuses from submission until a final publication outcome.</p>
+</div>
+<div class="paragraph">
+<p>A notice is defined by its <strong>Business ID</strong> (<code>businessID</code>), which consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a <strong>notice ID</strong>, and</p>
+</li>
+<li>
+<p>a <strong>version ID</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For notices submitted via the API, the <strong>Business ID</strong> (<code>businessID</code>) is assigned by the eSender system at submission time.
+It is not generated, altered, or incremented by the Publications Office (OP).</p>
+</div>
+<div class="sect2">
+<h3 id="_core_lifecycle_esenders"><a class="anchor" href="#_core_lifecycle_esenders"></a>Core lifecycle (eSenders)</h3>
+<div class="paragraph">
+<p><strong>At a glance:</strong>
+<strong>Submit notice → CVS validation → Submitted → Publishing → Published / Not published</strong></p>
+</div>
+<div class="paragraph">
+<p>The lifecycle of a notice submitted via the Publication API starts with an API action and progresses through a small number of system-managed statuses, including outcomes resulting from manual checks performed by OP.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Submit notice (API action)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>An eSender submits a notice using the <strong>Submit Notices for Publication</strong> API operation (Submit XML notice).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>CVS validation</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Upon submission, the notice is automatically validated by the <strong>TED Central Validation Service (CVS)</strong>.</p>
+</li>
+<li>
+<p>The CVS endpoint can be called separately at any time before submission to verify validation (both warnings and errors).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Validation outcome</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>If CVS reports errors, validation fails and the notice reaches the final status <strong>VALIDATION_FAILED</strong>.</p>
+</li>
+<li>
+<p>If CVS validation passes (including warnings), the notice reaches status <strong>SUBMITTED</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Submitted</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Once a notice is in status <strong>SUBMITTED</strong>, it is eligible for publication.</p>
+</li>
+<li>
+<p>This is the <strong>only stage</strong> in which the buyer or eSender system can still stop the publication.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+  If the notice contains warnings, it may be checked manually by an OP operator, who will decide whether to accept or reject the notice.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Publishing (point of no return)</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>When the notice is selected for export to the Official Journal, its status changes to <strong>PUBLISHING</strong>.</p>
+</li>
+<li>
+<p>From this point onwards, the notice can no longer be stopped.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Final outcome</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>PUBLISHED</strong> – the notice is published on TED.</p>
+</li>
+<li>
+<p><strong>NOT_PUBLISHED</strong> – the notice is not published on TED, for example following manual checks by OP, workflow errors, or exceptional technical failures.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>A notice may also reach status <strong>NOT_PUBLISHED</strong> due to workflow errors, such as submitting a Change notice that refers to a parent notice which has not been published or providing incorrect references to previous notices.</p>
+</li>
+<li>
+<p>To avoid workflow errors, eSenders should respect the expected lifecycle of notices and ensure correct references to previous notices.</p>
+</li>
+<li>
+<p>See <a href="index.html#_tips_for_esenders" class="xref page">Tips for eSenders</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Submitting a notice is an API action, not a status.</p>
+</li>
+<li>
+<p>All notices submitted via the API go through CVS. A notice reaches status <strong>SUBMITTED</strong> only if CVS validation passes successfully (with no errors). CVS warnings allow notice submission but may trigger manual checks by OP operators.</p>
+</li>
+<li>
+<p>At status <strong>SUBMITTED</strong>, the notice can either be stopped by the buyer or eSender system, or be rejected by OP following a manual check.</p>
+</li>
+<li>
+<p>CVS is available as a separate endpoint so that eSenders can check validation of their notices (warnings and errors) before notice submission.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_business_id_reuse_rules"><a class="anchor" href="#_business_id_reuse_rules"></a>Business ID reuse rules</h3>
+<div class="paragraph">
+<p>Whether a <strong>notice ID</strong> can be reused depends on the status reached in the lifecycle.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If a notice reaches status <strong>SUBMITTED</strong>, <strong>PUBLISHING</strong> or <strong>PUBLISHED</strong>, the notice ID <strong>cannot be reused</strong>.</p>
+</li>
+<li>
+<p>If a notice reaches status <strong>STOPPED</strong>, <strong>VALIDATION_FAILED</strong> or <strong>NOT_PUBLISHED</strong>, the notice ID <strong>may be reused</strong>, provided that the <strong>version ID is increased</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Reusing a notice ID with an increased version ID results in a <strong>new Business ID</strong> (<code>businessID</code>) (notice ID + new version ID).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_diagram_notice_lifecycle"><a class="anchor" href="#_diagram_notice_lifecycle"></a>Diagram – Notice lifecycle</h3>
+<div class="imageblock">
+<div class="content">
+<img src="_images/Notice_lifecycle.png" alt="Notice lifecycle">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_note_on_ui_only_statuses"><a class="anchor" href="#_note_on_ui_only_statuses"></a>Note on UI-only statuses</h3>
+<div class="paragraph">
+<p>Statuses such as <strong>DRAFT</strong>, <strong>DELETED</strong> and <strong>ARCHIVED</strong> exist only in the eNotices2 user interface.
+They can be queried via the API but are not part of the API-managed publication lifecycle described on this page.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_available_operations"><a class="anchor" href="#_available_operations"></a>Available Operations</h2>
 <div class="sectionbody">
 <div class="sect2">
