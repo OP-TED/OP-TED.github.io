@@ -176,6 +176,12 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/respec-documentation.html">ReSpec documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/rdf-diffing.html">RDF diffing documentation</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -333,10 +339,11 @@
 <table id="tab:connectors-overview" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Transformation rules overview for UML connectors</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -344,6 +351,7 @@
 <th class="tableblock halign-left valign-top">Rules in core ontology layer</th>
 <th class="tableblock halign-left valign-top">Rules in data shape layer</th>
 <th class="tableblock halign-left valign-top">Rules in reasoning layer</th>
+<th class="tableblock halign-left valign-top">Rules in JSON-LD context layer</th>
 </tr>
 </thead>
 <tbody>
@@ -352,70 +360,82 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-core">Example R.01</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-ds">Example R.02</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:assoc-dep-ldcontext">Example R.03</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Association domain</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-domain-rc">Example R.03</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-domain-rc">Example R.04</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Association range</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-range-ds">Example R.05</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-range-rc">Example R.04</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-range-ds">Example R.06</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-range-rc">Example R.05</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:assoc-dep-range-ldcontext">Example R.07</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Association multiplicity</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-ds">Example R.08</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-rc">Example R.06</a>, <a href="#rule:association-uni-multiplicity-one-rc">Example R.07</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-ds">Example R.10</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-rc">Example R.08</a>, <a href="#rule:association-uni-multiplicity-one-rc">Example R.09</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:assoc-dep-container-ldcontext">Example R.11</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Association asymmetry</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-asymetry-ds">Example R.10</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-asymetry-rc">Example R.09</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-asymetry-ds">Example R.13</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-asymetry-rc">Example R.12</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Association inverse</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-bi-inverse-rc">Example R.11</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-bi-inverse-rc">Example R.14</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dependency</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-core">Example R.01</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-ds">Example R.02</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:assoc-dep-ldcontext">Example R.03</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dependency domain</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-domain-rc">Example R.03</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-domain-rc">Example R.04</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dependency range</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:dependency-uni-range-ds">Example R.13</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:dependency-uni-range-rc">Example R.12</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:dependency-uni-range-ds">Example R.16</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:dependency-uni-range-rc">Example R.15</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:assoc-dep-range-ldcontext">Example R.07</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dependency multiplicity</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-ds">Example R.08</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-rc">Example R.06</a>, <a href="#rule:association-uni-multiplicity-one-rc">Example R.07</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-ds">Example R.10</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:association-uni-multiplicity-rc">Example R.08</a>, <a href="#rule:association-uni-multiplicity-one-rc">Example R.09</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:assoc-dep-container-ldcontext">Example R.11</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Class generalisation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:generalisation-class-core">Example R.14</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:generalisation-class-core">Example R.17</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Property generalisation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:generalisation-property-core">Example R.15</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:generalisation-property-core">Example R.18</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -423,23 +443,20 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">Class equivalence</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:equivalent-classes-rc">Example R.16</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:equivalent-classes-rc">Example R.19</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Property equivalence</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:equivalent-properties-rc">Example R.17</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Disjoint classes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:equivalent-properties-rc">Example R.20</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:disjoint-classes-rc">Example R.18</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Realisation</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:realisation-class-core">Example R.19</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:realisation-class-core">Example R.21</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -567,11 +584,43 @@ shape:ClassName-relationName a sh:PropertyShape ;
 </tr>
 </tbody>
 </table>
+<div id="rule:assoc-dep-ldcontext" class="exampleblock">
+<div class="title">Example R.03. Association &amp; dependency&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>For each UML association/dependency, specify an object property by creating a property URI mapping with an absolute URI of a target end in a node object. Set the term definition as a top-level entry inside the class’s inner context object. For bidirectional connectors, additionally specify an extended term definition for the source end.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Association/dependency term mapping in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+ "@context": {
+    "relatesTo": {
+      "@id":"http://base.onto.uri/relatesTo"
+    },
+    "dependencyName": {
+      "@id":"http://base.onto.uri/dependencyName"
+    }
+  }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_association_source"><a class="anchor" href="#_association_source"></a>Association source</h3>
 <div id="rule:association-uni-domain-rc" class="exampleblock">
-<div class="title">Example R.03. Association source&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.04. Association source&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify object property domain for the target end of the association/dependency.</p>
@@ -639,7 +688,7 @@ shape:ClassName-relationName a sh:PropertyShape ;
 <div class="sect2">
 <h3 id="_association_target"><a class="anchor" href="#_association_target"></a>Association target</h3>
 <div id="rule:association-uni-range-rc" class="exampleblock">
-<div class="title">Example R.04. Association target&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.05. Association target&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify object property range for the target end of the association.</p>
@@ -704,7 +753,7 @@ shape:ClassName-relationName a sh:PropertyShape ;
 </tbody>
 </table>
 <div id="rule:association-uni-range-ds" class="exampleblock">
-<div class="title">Example R.05. Association range shape&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example R.06. Association range shape&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Within the SHACL PropertyShape corresponding to an association relation linked to a given source UML Class, specify property constraints indicating the range class.</p>
@@ -741,14 +790,46 @@ shape:ClassName-relationName
 </tr>
 </tbody>
 </table>
+<div id="rule:assoc-dep-range-ldcontext" class="exampleblock">
+<div class="title">Example R.07. Association &amp; dependency range&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>For each UML association/dependency, specify the object property range by creating a type coercion entry in a node object. Set the fixed <code>@id</code> keyword as a value to indicate that that the value of the term should be interpreted as an URI. Set the term definition as a top-level entry inside the class’s inner context object. For bidirectional connectors, additionally specify the object property range for the source end.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Type coercion for association &amp; dependency in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+ "@context": {
+    "relatesTo": {
+      "@type":"@id"
+    },
+    "dependencyName": {
+      "@type":"@id"
+    }
+  }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_association_multiplicity"><a class="anchor" href="#_association_multiplicity"></a>Association multiplicity</h3>
 <div id="rule:association-uni-multiplicity-rc" class="exampleblock">
-<div class="title">Example R.06. Association multiplicity&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.08. Association &amp; dependency multiplicity&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
-<p>For the association/dependency target multiplicity, where min and max are different than ``*'' (any) and multiplicity is not [1..1], specify a subclass axiom where the source class specialises an anonymous restriction of properties formulated according to cases provided by <a href="transf-rules1.html#rule:attribute-rc-multiplicity" class="xref page">rule:attribute-rc-multiplicity</a>.</p>
+<p>For the association/dependency target multiplicity, where min and max are different than ``*'' (any) and multiplicity is not [1..1], specify a subclass axiom where the source class specialises an anonymous restriction of properties formulated according to cases provided by <a href="transf-rules1.html#rule:attribute-rc-multiplicity" class="xref page">rule:attribute-rc-multiplicity</a>. For dependency relations, the property range is always defined as skos:Concept.</p>
 </div>
 </div>
 </div>
@@ -760,24 +841,54 @@ shape:ClassName-relationName
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Min cardinality restriction in Turtle syntax</div>
+<div class="title">Min cardinality restriction for association in Turtle syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
   rdfs:subClassOf [ a owl:Restriction ;
-    owl:minCardinality "1"^^xsd:integer;
     owl:onProperty :relationName ;
+    owl:onClass :AnotherClass ;
+    owl:minQualifiedCardinality "2"^^xsd:nonNegativeinteger;
   ] ;
 .</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Min cardinality restriction in RDF/XML syntax</div>
+<div class="title">Min cardinality restriction for association in RDF/XML syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
     &lt;rdfs:subClassOf&gt;
         &lt;owl:Restriction&gt;
             &lt;owl:onProperty rdf:resource = "http://base.onto.uri/relationName"/&gt;
-            &lt;owl:minCardinality rdf:datatype="http://www.w3.org...#integer" &gt;1&lt;/owl:cardinality&gt;
+            &lt;owl:onClass rdf:resource = "http://base.onto.uri/AnotherClass"/&gt;
+            &lt;owl:minQualifiedCardinality rdf:datatype="http://...#nonNegativeinteger" &gt;2&lt;/owl:minQualifiedCardinality&gt;
+        &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Min cardinality restriction for dependency in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
+  rdfs:subClassOf [ a owl:Restriction ;
+    owl:onProperty :relationName ;
+    owl:onClass skos:Concept ;
+    owl:minQualifiedCardinality "2"^^xsd:nonNegativeinteger;
+  ] ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Min cardinality restriction for dependency in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+    &lt;rdfs:subClassOf&gt;
+        &lt;owl:Restriction&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/relationName"/&gt;
+            &lt;owl:onClass rdf:resource = "http://www.../skos/core#Concept"/&gt;
+            &lt;owl:minQualifiedCardinality rdf:datatype="http://...#nonNegativeinteger" &gt;2&lt;/owl:minQualifiedCardinality&gt;
         &lt;/owl:Restriction&gt;
     &lt;/rdfs:subClassOf&gt;
 &lt;/rdf:Description&gt;</code></pre>
@@ -787,7 +898,7 @@ shape:ClassName-relationName
 </tbody>
 </table>
 <div id="rule:association-uni-multiplicity-one-rc" class="exampleblock">
-<div class="title">Example R.07. Association multiplicity "one"&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.09. Association &amp; dependency multiplicity "one"&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>If the association/dependency multiplicity is exactly one, i.e. [1..1], specify a functional property axiom like in <a href="transf-rules1.html#rule:attribute-rc-multiplicity-one" class="xref page">rule:attribute-rc-multiplicity-one</a>.</p>
@@ -819,7 +930,7 @@ shape:ClassName-relationName
 </tbody>
 </table>
 <div id="rule:association-uni-multiplicity-ds" class="exampleblock">
-<div class="title">Example R.08. Association multiplicity&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example R.10. Association &amp; dependency multiplicity&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Within the SHACL PropertyShape corresponding to an association/dependency relation linked to a given source UML Class, specify property constraints indicating minimum and maximum cardinality, according to cases provided by <a href="transf-rules1.html#rule:attribute-ds-multiplicity" class="xref page">rule:attribute-ds-multiplicity</a>.</p>
@@ -856,11 +967,44 @@ shape:ClassName-relationName
 </tr>
 </tbody>
 </table>
+<div id="rule:assoc-dep-container-ldcontext" class="exampleblock">
+<div class="title">Example R.11. Association &amp; dependency container&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a default container type for each UML association/dependency that can accept more than a one value by setting the fixed <code>@set</code> keyword as a value for the <code>@container</code> key.
+Set the container type entry for an association/dependency target end, inside a term definition created as a top-level entry inside the class’s inner context object. For bidirectional connectors, additionally specify the container type for the source end.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Association &amp; dependency container definition in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+  "@context": {
+    "relatesTo": {
+      "@container": "@set"
+    },
+    "dependencyName": {
+      "@container": "@set"
+    }
+  }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="sec:association-self"><a class="anchor" href="#sec:association-self"></a>Recursive association</h3>
 <div class="paragraph">
-<p>In case of recursive associations, that are from one class to itself, (depicted in <a href="#fig:association-self-visual">Visual representation of a UML recursive association (on the left) and OWL recursive properties with cardinality restrictions on domain class (on the right)</a>), the transformation rules must be applied as in the case of regular unidirectional association, which are from <a href="#rule:association-uni-core">Example R.01</a> to <a href="#rule:association-uni-multiplicity-one-rc">Example R.07</a>. In addition, the association must be marked as asymmetric expressed in <a href="#rule:association-uni-asymetry-ds">Example R.10</a> and <a href="#rule:association-uni-asymetry-rc">Example R.09</a>.</p>
+<p>In case of recursive associations, that are from one class to itself, (depicted in <a href="#fig:association-self-visual">Visual representation of a UML recursive association (on the left) and OWL recursive properties with cardinality restrictions on domain class (on the right)</a>), the transformation rules must be applied as in the case of regular unidirectional association, which are from <a href="#rule:association-uni-core">Example R.01</a> to <a href="#rule:association-uni-multiplicity-one-rc">Example R.09</a>. In addition, the association must be marked as asymmetric expressed in <a href="#rule:association-uni-asymetry-ds">Example R.13</a> and <a href="#rule:association-uni-asymetry-rc">Example R.12</a>.</p>
 </div>
 <div id="fig:association-self-visual" class="imageblock">
 <div class="content">
@@ -869,7 +1013,7 @@ shape:ClassName-relationName
 <div class="title">Figure 2. Visual representation of a UML recursive association (on the left) and OWL recursive properties with cardinality restrictions on domain class (on the right)</div>
 </div>
 <div id="rule:association-uni-asymetry-rc" class="exampleblock">
-<div class="title">Example R.09. Association asymmetry&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.12. Association asymmetry&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify an asymmetric object property axiom for each end of a recursive association.</p>
@@ -901,7 +1045,7 @@ shape:ClassName-relationName
 </tbody>
 </table>
 <div id="rule:association-uni-asymetry-ds" class="exampleblock">
-<div class="title">Example R.10. Association asymmetry&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example R.13. Association asymmetry&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Within the SHACL Node Shape corresponding to the UML Class, specify SPARQL constraint selecting instances connected by the object property in a reciprocal manner.</p>
@@ -966,7 +1110,7 @@ shape:ClassName
 <div class="title">Figure 3. Visual representation of a UML bidirectional association (on the left) and OWL properties with cardinality restrictions on domain class (on the right)</div>
 </div>
 <div id="rule:association-bi-inverse-rc" class="exampleblock">
-<div class="title">Example R.11. Association inverse&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.14. Association inverse&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify an inverse object property axiom between the source and target ends of the bidirectional association.</p>
@@ -1007,7 +1151,7 @@ shape:ClassName
 <p>The following two rules, concerning the transformation of dependency targets, are different from the rules for the transformation of  association targets.</p>
 </div>
 <div id="rule:dependency-uni-range-rc" class="exampleblock">
-<div class="title">Example R.12. Dependency target&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.15. Dependency target&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify object property range for the target end of the dependency.</p>
@@ -1053,7 +1197,7 @@ In OWL we want to state only that the range of a Dependency connector is a <code
 </table>
 </div>
 <div id="rule:dependency-uni-range-ds" class="exampleblock">
-<div class="title">Example R.13. Dependency range shape&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example R.16. Dependency range shape&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Within the SHACL PropertyShape corresponding to a dependency relation linked to a given source UML Class, constraint the range of the dependency.</p>
@@ -1143,11 +1287,10 @@ shape:ClassName-relationName a sh:PropertyShape ;
 <div class="title">Figure 4. Visual representation of UML generalisation (on the left) and OWL subclass relation (on the right)</div>
 </div>
 <div class="paragraph">
-<p>UML generalisation set [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] groups generalisations; incomplete and disjoint constraints indicate that the set is not complete and its specific Classes have no common instances. The UML conventions specify that all sibling classes are by default disjoint, therefore even if no generalisation set is provided it is assumed to be implicit.
-Sibling classes will be declared disjoint with one another in the reasoning layer (see <a href="#rule:disjoint-classes-rc">Example R.18</a>).</p>
+<p>A UML generalisation set [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] groups generalisations. Subclasses in a generalization set are, by default, incomplete and can overlap. Generalization set properties are not supported.</p>
 </div>
 <div id="rule:generalisation-class-core" class="exampleblock">
-<div class="title">Example R.14. Class generalisation&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example R.17. Class generalisation&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify subclass axiom for the generalisation between UML Classes.</p>
@@ -1195,7 +1338,7 @@ Sibling classes will be declared disjoint with one another in the reasoning laye
 <div class="title">Figure 5. Visual representation of UML property generalisation (on the left) and OWL sub-property relation (on the right)</div>
 </div>
 <div id="rule:generalisation-property-core" class="exampleblock">
-<div class="title">Example R.15. Property generalisation&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example R.18. Property generalisation&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify a sub-property axiom representing the generalisation between named roles of UML associations. Properties on the subject and object positions correspond to the association roles belonging to the same side of the association ends.
@@ -1241,7 +1384,7 @@ Such a sub-property axiom is specified for the target side of association ends (
 <div class="title">Figure 6. Visual representation of UML class equivalence (on the left) and OWL class equivalence (on the right)</div>
 </div>
 <div id="rule:equivalent-classes-rc" class="exampleblock">
-<div class="title">Example R.16. Equivalent classes&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.19. Equivalent classes&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify equivalent class axiom for the generalisation with <code>&lt;&lt;equivalent&gt;&gt;</code> or <code>&lt;&lt;complete&gt;&gt;</code> stereotype between UML Classes.</p>
@@ -1276,7 +1419,7 @@ Such a sub-property axiom is specified for the target side of association ends (
 <div class="sect2">
 <h3 id="_property_equivalence"><a class="anchor" href="#_property_equivalence"></a>Property equivalence</h3>
 <div id="rule:equivalent-properties-rc" class="exampleblock">
-<div class="title">Example R.17. Equivalent properties&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example R.20. Equivalent properties&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify equivalent property axiom for the generalisation with <code>&lt;&lt;equivalent&gt;&gt;</code> or <code>&lt;&lt;complete&gt;&gt;</code> stereotype between UML properties.</p>
@@ -1313,56 +1456,12 @@ Such a sub-property axiom is specified for the target side of association ends (
 </table>
 </div>
 <div class="sect2">
-<h3 id="_disjoint_classes"><a class="anchor" href="#_disjoint_classes"></a>Disjoint classes</h3>
-<div id="rule:disjoint-classes-rc" class="exampleblock">
-<div class="title">Example R.18. Disjoint classes&#8201;&#8212;&#8201;in reasoning layer</div>
-<div class="content">
-<div class="paragraph">
-<p>Specify a disjoint classes axiom for all "sibling" classes, i.e. for multiple UML Classes that have generalisation connectors to the same UML Class.</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>For the generalisation relations depicted in <a href="#fig:generalisation-visual">Visual representation of UML generalisation (on the left) and OWL subclass relation (on the right)</a>, the generated output should have the following form.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Disjoint classes declaration in Turtle syntax</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">[ a owl:AllDisjointClasses ;
-  owl:members  ( :ClassName :OtherClass )
-] .</code></pre>
-</div>
-</div></div></td>
-<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Disjoint classes declaration in RDF/XML syntax</div>
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description&gt;
-    &lt;rdf:type rdf:resource="http://...owl#AllDisjointClasses"/&gt;
-    &lt;owl:members rdf:parseType="Collection"&gt;
-        &lt;rdf:Description rdf:about="http://base.onto.uri/ClassName"/&gt;
-        &lt;rdf:Description rdf:about="http://base.onto.uri/OtherClass"/&gt;
-    &lt;/owl:members&gt;
-&lt;/rdf:Description&gt;</code></pre>
-</div>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="sec:realisation"><a class="anchor" href="#sec:realisation"></a>Realisation relations</h3>
 <div class="paragraph">
 <p>Realisation defines a relationship between an Object element and a UML Class or Enumeration element. At the moment we only provide transformation rules for UML Realization connectors that connect to UML Classes.</p>
 </div>
 <div id="rule:realisation-class-core" class="exampleblock">
-<div class="title">Example R.19. Class realisation&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example R.21. Class realisation&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Declare an individual with a specified class as its type, for a UML Realization connector between a UML Object and a UML Class.</p>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ReSpec Documentation :: TED Developer Docs</title>
+    <link rel="canonical" href="https://docs.ted.europa.eu/M2O/latest/user-guide/respec-documentation.html">
+    <meta name="generator" content="Antora 3.1.7">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <link rel="stylesheet" href="../../../_/css/vendor/docsearch-2.6.3.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="../../../_/img/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../../_/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../_/img/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="../../../_/img/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="../../../_/img/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="../../../_/img/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../../../_/css/custom.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+<meta name="google-site-verification" content="google8bce9cd167a02a39.html" />
+<script>var uiRootPath = '../../../_'</script>
+<script defer src="https://webtools.europa.eu/load.js" type="text/javascript"></script>  </head>
+  <body class="article">
+ <!-- Piwik PRO Tracking Code -->
+ <!-- followed the istructions bellow -->
+<!-- citnet.tech.ec.europa.eu/CITnet/jira/secure/attachment/3485014/OP_PiwikPRO_TED-docs-installation-CCK-web-analytics_v1.txt -->
+  <script type="text/javascript">
+    (function (window, document, dataLayerName, id) {
+      window[dataLayerName] = window[dataLayerName] || [], window[dataLayerName].push({start: (new Date).getTime(), event: "stg.start"});
+      var scripts = document.getElementsByTagName('script')[0], tags = document.createElement('script');
+      function stgCreateCookie(a, b, c) {var d = ""; if (c) {var e = new Date; e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString(); f = "; SameSite=Strict"} document.cookie = a + "=" + b + d + f + "; path=/"}
+      var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug"); stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+      var qP = []; dataLayerName !== "dataLayer" && qP.push("data_layer_name=" + dataLayerName), isStgDebug && qP.push("stg_debug"); var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+      tags.async = !0, tags.src = "https://analytics.webanalytics.op.europa.eu/containers/" + id + ".js" + qPString, scripts.parentNode.insertBefore(tags, scripts);
+      !function (a, n, i) {a[n] = a[n] || {}; for (var c = 0; c < i.length; c++)!function (i) {a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function () {var a = [].slice.call(arguments, 0); "string" == typeof a[0] && window[dataLayerName].push({event: n + "." + i + ":" + a[0], parameters: [].slice.call(arguments, 1)})}}(i[c])}(window, "ppms", ["tm", "cm"]);
+    })(window, document, 'dataLayer', '363c8269-fce7-42d6-88eb-0abc9e22ea96');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous"></script>
+<script defer src="https://europa.eu/webtools/load.js?globan=1110" type="text/javascript"></script>
+<div class="eu-flag">
+    <nav class="navbar-scrollable">
+        <div class="navbar-brand">
+
+            <div class="eu-emblem" style="display: inline-block;">
+                <!-- flag and logo-->
+                <a href="https://european-union.europa.eu/index_en" target="_blank">
+                    <div class="eu-emblem-std-en"><span></span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+        <div class="sep-frame">
+            <div class="rect-grey"></div>
+        </div>
+    </nav>
+
+</div>
+
+<div class="eu-tenders">
+    <nav class="navbar">
+        <div class="text-eu-tenders">
+            <a href="https://ted.europa.eu/en/" target="_blank">EU tenders</a>
+        </div>
+        <div id="topbar-nav" class="navbar-menu">
+
+            <div class="text-eu-subtext-text">
+                <a href="https://docs.ted.europa.eu">TED Developer Docs</a>
+            </div>
+            <div class="text-eu-subtext-label">
+                <a href="https://docs.ted.europa.eu">Documentation for TED developers and eSenders</a>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item search">
+                    <input id="search-input" type="text" placeholder="Search docs">
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="body">
+<div class="nav-container" data-component="M2O" data-version="3.0.0">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Model2Owl Documentation</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../epo-context.html">Context: model2owl and eProcurement ontology </a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../uml/definitions.html">Definitions</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conceptual-model-conventions.html">UML Model Conventions</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-general.html">General Conventions</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-classes.html">Classes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-attributes.html">Class Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../uml/conv-connectors.html">Connectors</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-association.html">Association</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-dependency.html">Dependency</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-generalization.html">Generalization</a>
+  </li>
+  <li class="nav-item" data-depth="3">
+    <a class="nav-link" href="../uml/conv-conn-realization.html">Realization</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-datatypes.html">Data Types</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-enumerations.html">Enumerations</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-objects.html">Objects</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../uml/conv-packages.html">Packages</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../checkers/model2owl-checkers.html">UML convention checking rules</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../transformation/uml2owl-transformation.html">Transformation Rules</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules1.html">Rules for UML Classes and Attributes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules2.html">Rules for UML Connectors</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules3.html">Rules for UML Datatypes</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../transformation/transf-rules4.html">Rules for UML Descriptors</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="about.html">User guide</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="how-to-use.html">How to use</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="configuration-file.html">Configuration parameters</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="respec-documentation.html">ReSpec documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="rdf-diffing.html">RDF diffing documentation</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../references.html">References</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+      <div class="context">
+          <span class="title">Model2Owl Documentation</span>
+          <span class="version">3.0.0</span>
+      </div>
+  <ul class="components">
+      <li class="component">
+        <a class="title" href="../../../eforms/latest/index.html">eForms SDK</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../eforms/latest/index.html">1.14</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.13/index.html">1.13</a>
+            </li>
+            <li class="version">
+              <a href="../../../eforms/1.12/index.html">1.12</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../EPO/latest/index.html">eProcurement Ontology</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../EPO/latest/index.html">5.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5.1/index.html">5.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/5/index.html">5.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.2/index.html">4.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4.1/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/4/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.1/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.1/index.html">2.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/2.0.0/index.html">2.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../EPO/1.0.0/index.html">1.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ESPD-EDM/latest/index.html">ESPD EDM</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ESPD-EDM/latest/index.html">4.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/4.0.0/index.html">4.0.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.3.0/index.html">3.3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.2.0/index.html">3.2.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.1.0/index.html">3.1.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/3.0.1/index.html">3.0.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.1.1/index.html">2.1.1</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/2.0.2/index.html">2.0.2</a>
+            </li>
+            <li class="version">
+              <a href="../../../ESPD-EDM/1.0.2/index.html">1.0.2</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component is-current">
+        <a class="title" href="../index.html">Model2Owl Documentation</a>
+        <ul class="versions">
+            <li class="version is-current is-latest">
+              <a href="../index.html">3.0.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../api/latest/index.html">TED API</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../api/latest/index.html">3.0</a>
+            </li>
+            <li class="version">
+              <a href="../../../api/2.0/index.html">2.0</a>
+            </li>
+        </ul>
+      </li>
+      <li class="component">
+        <a class="title" href="../../../ODS/latest/index.html">TED Open Data</a>
+        <ul class="versions">
+            <li class="version is-latest">
+              <a href="../../../ODS/latest/index.html">1.0</a>
+            </li>
+        </ul>
+      </li>
+  </ul>
+</div>    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../../home/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Model2Owl Documentation</a></li>
+    <li><a href="about.html">User guide</a></li>
+    <li><a href="respec-documentation.html">ReSpec documentation</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+    <aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+    <article class="doc">
+<h1 class="page">ReSpec Documentation</h1>
+<div class="sect1">
+<h2 id="_overview"><a class="anchor" href="#_overview"></a>Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ReSpec is a tool used to write technical specifications in a simple and structured way. It is widely used for creating web standards and other technical documents. Model2owl uses ReSpec to generate documentation for a vocabulary defined by a submitted UML model. The documentation is generated as an HTML file and consists of an autogenerated description of the underlying ontology terms, editorial content, metadata, and static assets. This feature is configurable, and a documentation editor has control over editorial content and metadata. The feature is based on Jinja2 templates that compile the model data, metadata, and HTML templates into the ReSpec document. The approach allows customization of the templates. Model2owl produces a ReSpec package as the outcome, which is a folder containing the HTML file and all required resources (artefact files, examples, images, and other static assets).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section provides a step-by-step guide on how to generate ReSpec documentation using model2owl. The process is the same but can differ in details depending on whether model2owl is used locally or in an automated workflow (see <a href="how-to-use.html">How to use</a> page).</p>
+</div>
+<div class="sect2">
+<h3 id="_prepare_an_input_uml_model_in_xmi_format"><a class="anchor" href="#_prepare_an_input_uml_model_in_xmi_format"></a>Prepare an input UML model in XMI format</h3>
+<div class="paragraph">
+<p>Export the UML model from your modelling tool in XMI format. Make sure that the XMI file conforms to the UML standard supported by model2owl (see <a href="about.html#sec:introduction">Introduction</a>). The file will be used as input for the model2owl transformation process.
+The source project with the UML model can be added to an asset folder for inclusion in the ReSpec documentation (see <a href="#sec:input-assets">Input assets</a>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_generate_model2owl_artefacts"><a class="anchor" href="#_generate_model2owl_artefacts"></a>Generate model2owl artefacts</h3>
+<div class="paragraph">
+<p><em>This step is optional and can be skipped if the editor prefers documentation without references to model2owl artefacts. See <a href="#sec:model2owl-artefacts">model2owl artefacts</a> for more details on the artefacts.</em></p>
+</div>
+<div class="paragraph">
+<p>If provided, the ReSpec documentation can include references to the model2owl artefacts generated from the input UML model (see <a href="#sec:model2owl-artefacts">model2owl artefacts</a>).
+These files need to be generated prior to generating the ReSpec documentation. See <a href="how-to-use.html#sec:functional-commands">Functional Commands</a> for instructions on how to generate these artefacts using model2owl. The artefacts are not essential for generating the documentation; therefore, the generation process can be executed without them. In such cases, the documentation will not include references to these files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prepare_input_assets"><a class="anchor" href="#_prepare_input_assets"></a>Prepare input assets</h3>
+<div class="paragraph">
+<p><em>This step is optional and can be skipped if the editor prefers documentation without static assets. See <a href="#sec:supplementary-assets">Supplementary assets</a> for more details on input assets.</em></p>
+</div>
+<div class="paragraph">
+<p>Depending on the needs, the documentation may include other static assets such as code examples, images, and additional files. These assets need to be prepared and stored in appropriate locations. The locations are typically subfolders of the ReSpec <code>assets</code> folder (see <a href="#sec:supplementary-assets">Supplementary assets</a>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_prepare_metadata"><a class="anchor" href="#_prepare_metadata"></a>Prepare metadata</h3>
+<div class="paragraph">
+<p>ReSpec generation requires a JSON file containing metadata for the documentation. The metadata describes various aspects of the vocabulary and documentation. The metadata is used in Jinja templates and ultimately rendered in a ReSpec HTML document. See <a href="#sec:respec-metadata">ReSpec metadata</a> for a list of standard and custom metadata properties that can be set in the JSON file.
+The <code>metadata.json</code> file is typically stored in the same location as <code>config-parameters.xsl</code> and other model2owl configuration files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_tweak_or_extend_jinja_templates"><a class="anchor" href="#_tweak_or_extend_jinja_templates"></a>Tweak or extend Jinja templates</h3>
+<div class="paragraph">
+<p><em>This step is optional. If the default templates provided by model2owl are sufficient, this step can be skipped. See <a href="#sec:template-management">Template management</a> for more details on template management and customization.</em></p>
+</div>
+<div class="paragraph">
+<p>Model2owl provides a default Jinja2 template called the base template for ReSpec documentation generation. The base template is designed to allow fine-grained customization. This is done through a child template called the main template, which inherits from the base template. Model2owl comes with the base template and a slim main template. The main template can be further extended or modified through optional partial templates. See <a href="#sec:template-management">Template management</a> for more details on template management and customization.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_run_the_generation_process"><a class="anchor" href="#_run_the_generation_process"></a>Run the generation process</h3>
+<div class="paragraph">
+<p>If using model2owl locally, run the <code>generate-respec</code> command with appropriate parameters (see <a href="how-to-use.html#sec:generate-respec-cmd">the command</a>).</p>
+</div>
+<div class="paragraph">
+<p>If using model2owl in an automated workflow (a project repository based on model2owl-boilerplate), the generation process is triggered automatically when a change in the repository is detected. The workflow executes the model2owl command, using configuration and data files present in the repository.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_output"><a class="anchor" href="#_output"></a>Output</h3>
+<div class="paragraph">
+<p>The output will be a ReSpec package containing the HTML document and all provided resources. A documentation editor can publish it as a standalone static website using the technology of their choice. For development and testing purposes, the package can be hosted on a local web server.</p>
+</div>
+<div class="paragraph">
+<p>The <a href="#sec:documentation-page-structure">Documentation page structure</a> section provides an overview of the structure of the generated documentation page.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec:documentation-page-structure"><a class="anchor" href="#sec:documentation-page-structure"></a>Documentation page structure</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The documentation page is built using ReSpec, which facilitates the creation of static documentation webpages and provides utilities for building the page. The page layout consists of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>the main content in the center,</p>
+</li>
+<li>
+<p>table of content on the left side,</p>
+</li>
+<li>
+<p>the header with title and optional logo,</p>
+</li>
+<li>
+<p>metadata section at the top of the page, below the header,</p>
+</li>
+<li>
+<p>sequence of sections making up the documentation content.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are several standard sections that are present in the documentation by default (these can be overwritten in child templates):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Metadata: Displays document metadata such as contributors, links to sources and related resources, and custom metadata properties.</p>
+</li>
+<li>
+<p>Abstract: Provides a concise summary of the vocabulary and its purpose.</p>
+</li>
+<li>
+<p>Introduction: Explains the motivation, intended audience, and scope of the vocabulary.</p>
+</li>
+<li>
+<p>Status: Indicates the current status of the specification, publication date, and approval information.</p>
+</li>
+<li>
+<p>License: Details the licensing terms and usage restrictions for the vocabulary.</p>
+</li>
+<li>
+<p>Conformance: Specifies normative and non-normative sections and outlines compliance requirements.</p>
+</li>
+<li>
+<p>Terminology: Defines key terms and concepts used throughout the specification; includes an autogenerated list of used prefixes.</p>
+</li>
+<li>
+<p>Overview: Presents a high-level summary of the vocabulary structure, including an optional diagram and autogenerated lists of classes and datatypes.</p>
+</li>
+<li>
+<p>Main entities: Describes the primary terms (classes and properties) of the vocabulary (autogenerated).</p>
+</li>
+<li>
+<p>Supportive entities: Covers additional reused terms that support the main entities (autogenerated).</p>
+</li>
+<li>
+<p>Datatypes: Lists and describes the datatypes used in the vocabulary (autogenerated).</p>
+</li>
+<li>
+<p>Governance: Provides information about the governance model, including how changes to the vocabulary are managed and who is responsible for its maintenance.</p>
+</li>
+<li>
+<p>Quick reference of terms: Provides an interactive summary of all vocabulary terms (classes and properties) for easy lookup (autogenerated).</p>
+</li>
+<li>
+<p>Project resources: Contains references to model2owl artefacts and other related resources.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>An exemplary documentation webpage generated by model2owl can be found <a href="https://docs.ted.europa.eu/model2owl-boilerplate/demo_ontology">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>The documentation can be customized in various ways, including adding new editorial content, new sections, as well as changing, extending, or removing sections. A comprehensive list of customization methods is provided in <a href="#sec:customization">Customization</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec:customization"><a class="anchor" href="#sec:customization"></a>Customization</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Editors have multiple ways to customize the ReSpec generation process. Model2owl offers predefined properties to simplify configuration while also supporting custom properties and templates. This combination of flexibility and ease of use makes it suitable for both simple and complex scenarios.</p>
+</div>
+<div class="paragraph">
+<p>The available customization options are:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Standard metadata: Configure standard metadata in a ReSpec JSON file and provide editorial content for the default documentation sections in the main template (see <a href="#sec:respec-standard-metadata">Standard metadata</a> and <a href="#sec:base-template-blocks">Base template blocks</a>).</p>
+</li>
+<li>
+<p>Custom metadata: Everything in option 1, plus define custom metadata using the customMetadata.metadataSectionProperties property to extend the built-in ReSpec metadata section in a standardized way (see <a href="#sec:metadata-section-properties">Metadata section properties</a>).</p>
+</li>
+<li>
+<p>Extended editorial content: Any of the above, plus extend the documentation structure by adding new HTML sections directly in the main template or through partial templates (see <a href="#template-types">Template types</a>).</p>
+</li>
+<li>
+<p>Arbitrary metadata and template extension: Introduce arbitrary metadata via customMetadata and extend templates (see <a href="#sec:template-customization">Template customization</a>), using new property names to parameterize HTML content and optionally leveraging Jinja2 control structures (see <a href="https://jinja.palletsprojects.com/en/stable/templates/#list-of-control-structures">Jinja2 documentation</a>
+). See <a href="#sec:respec-custom-metadata">Custom metadata</a> for more details.</p>
+</li>
+<li>
+<p>Static assets: Any of the above, plus include static assets (code examples, images, additional files) and reference them in templates (see <a href="#sec:input-assets">Input assets</a>). See <a href="#sec:supplementary-assets">Supplementary assets</a> for further details.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec:input-assets"><a class="anchor" href="#sec:input-assets"></a>Input assets</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>All files needed for generating the ReSpec documentation must be prepared and stored in appropriate locations. The locations are typically subfolders of the ReSpec <code>assets</code> folder, however, the relevant model2owl command is configurable to allow using files from different locations.</p>
+</div>
+<div class="paragraph">
+<p>The following structure for the ReSpec assets folder is used by default:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>assets</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>model</code>: contains model artefact files (OWL, SHACL, JSON-LD, XMI, and EAP files)</p>
+</li>
+<li>
+<p><code>examples</code>: contains code examples</p>
+</li>
+<li>
+<p><code>img</code>: contains images</p>
+</li>
+<li>
+<p><code>shacl</code>: contains SHACL shapes for validation purposes</p>
+</li>
+<li>
+<p><code>sds</code>: any additional files related to the model (Semantic Data Specifications)</p>
+</li>
+<li>
+<p><code>js</code>: contains JS scripts</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The assets are copied to output ReSpec package (see <a href="#sec:package-management">Package management</a>) and referenced in the HTML ReSpec document.</p>
+</div>
+<div class="sect2">
+<h3 id="sec:model2owl-artefacts"><a class="anchor" href="#sec:model2owl-artefacts"></a>Model2owl artefacts</h3>
+<div class="paragraph">
+<p>ReSpec documentation includes references to the following model2owl artefacts that are generated from the input UML model and belong to the vocabulary specification:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>OWL core ontology file</p>
+</li>
+<li>
+<p>OWL restrictions ontology file</p>
+</li>
+<li>
+<p>SHACL shapes file</p>
+</li>
+<li>
+<p>JSON-LD context file</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sec:supplementary-assets"><a class="anchor" href="#sec:supplementary-assets"></a>Supplementary assets</h3>
+<div class="paragraph">
+<p>Documentation generated by model2owl can include various static assets such as code examples, images, and additional files. These assets must be prepared and stored in appropriate locations. The locations are typically subfolders of the ReSpec <code>assets</code> folder.</p>
+</div>
+<div class="paragraph">
+<p>The input <code>assets</code> folder can contain the following types of assets:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Code examples: code snippets or files demonstrating the use of the vocabulary in different serializations (e.g., Turtle, JSON-LD, RDF/XML). These examples help users understand how to implement the vocabulary in their applications.</p>
+</li>
+<li>
+<p>Images: diagrams, charts, or other visual aids that help illustrate concepts or relationships within the vocabulary.</p>
+</li>
+<li>
+<p>Additional files: any other relevant documents or resources that support the vocabulary, such as supplementary documentation, project files, related standards, or reference materials.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In particular, the ReSpec template is configured to expect a standard asset named <code>overview.png`</code>, which is an image file containing a diagram illustrating the vocabulary structure and is referenced in the <em>Overview</em> section of the documentation.</p>
+</div>
+<div class="paragraph">
+<p>The related HTML elements are rendered only if the corresponding files are present in the assets folder.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_template_management"><a class="anchor" href="#_template_management"></a>Template management</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Model2owl provides a default Jinja2 template called the base template for ReSpec documentation generation.
+The editor is free to customize the base template as they see fit. However, the project promotes a specific way of organizing the templates.</p>
+</div>
+<div class="sect2">
+<h3 id="sec:template-types"><a class="anchor" href="#sec:template-types"></a>Template types</h3>
+<div class="paragraph">
+<p>The promoted organization of Jinja2 HTML templates is as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Generic <strong>base</strong> template stored in the model2owl repository: contains standard sections such as Abstract, Introduction, Status, License, Conformance, and Terminology.</p>
+</li>
+<li>
+<p>Customized <strong>main</strong> template stored in the model2owl-boilerplate repository: allows customization of the base template using the Jinja2 template inheritance mechanism (<code>extends</code> tag).</p>
+</li>
+<li>
+<p>Optional <strong>partial</strong> templates overriding or extending base sections are provided in the model2owl-boilerplate repository.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_base_template"><a class="anchor" href="#_base_template"></a>Base template</h3>
+<div class="paragraph">
+<p>The base template is designed to allow fine-grained customization. Adjustable top-level sections are defined within the template as Jinja2 blocks, enabling redefinition in derived templates.
+The base template consists of blocks with HTML content for ReSpec sections making up a page, Jinja2 macros and control statements, as well as auxiliary JavaScript functions. The template assumes the predefined ReSpec package structure for resolving static assets (see <a href="#sec:package-management">Package management</a>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sec:template-customization"><a class="anchor" href="#sec:template-customization"></a>Template customization</h3>
+<div class="paragraph">
+<p>The base template can be customized in the model2owl-boilerplate repository in several ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>No customization: an empty main template is used to render generic content from the base template.</p>
+</li>
+<li>
+<p>Direct modification of the main template: change, extend, or remove existing sections (using block redefinition with optional <code>super()</code> or by emptying a parent block) and add new sections.</p>
+</li>
+<li>
+<p>Modification via imported Jinja HTML partial templates: include statements in the derived template to incorporate partial templates.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>A sample main template demonstrating different customization techniques is provided in the model2owl repository, available <a href="https://github.com/meaningfy-ws/model2owl/blob/feature/M2O3-67/respec-resources/templates/main-demo.j2">here</a>.</p>
+</div>
+<div class="sect3">
+<h4 id="_extension_points"><a class="anchor" href="#_extension_points"></a>Extension points</h4>
+<div class="paragraph">
+<p>This section describes HTML sections defined as blocks in the <code>base.j2</code> template that can be customized by a documentation editor. In addition, it covers macros and JS functions that are available for use in child templates.</p>
+</div>
+<div class="sect4">
+<h5 id="sec:base-template-blocks"><a class="anchor" href="#sec:base-template-blocks"></a>Base template blocks</h5>
+<div class="paragraph">
+<p>The list below shows the hierarchical structure of available blocks together with their descriptions.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>respecConfig</code>: contains ReSpec configuration parameters</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>respecConfigCustomParams</code>: allows editors to add custom ReSpec configuration parameters without redefining the entire <code>respecConfig</code> block</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>pageContent</code>: contains the main content of the ReSpec document</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>abstract</code>: contains the abstract section of the document</p>
+</li>
+<li>
+<p><code>introduction</code>: provides context for the vocabulary, including the motivation for its creation, its intended audience, and the problems it aims to address</p>
+</li>
+<li>
+<p><code>status</code>: explains the current standing of the specification, including its level of formal recognition, publication date, and any relevant approval or recommendation information</p>
+</li>
+<li>
+<p><code>license</code>: details the licensing terms under which the vocabulary is made available, including any restrictions on use, distribution, or modification</p>
+</li>
+<li>
+<p><code>conformance</code>: outlines which parts of the specification are normative versus non-normative, and how compliance should be interpreted</p>
+</li>
+<li>
+<p><code>terminology</code>: defines key terms and concepts used throughout the specification to ensure clarity and consistency</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>usedPrefixesGen</code>: an autogenerated section listing all the prefixes used in the vocabulary along with their corresponding namespaces</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>overview</code>: provides a high-level summary of the vocabulary&#8217;s structure and terms</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>overviewClassesGen</code>: an autogenerated section listing all the classes defined in the vocabulary</p>
+</li>
+<li>
+<p><code>overviewDatatypesGen</code>: an autogenerated section listing all the datatypes defined in the vocabulary</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>mainEntities</code>: details the primary terms of the vocabulary, including their definitions and properties</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>mainEntitiesGen</code>: an autogenerated section listing all the main entities (classes and properties) defined in the vocabulary</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>supportiveEntities</code>: details additional terms (reused terms) that support the main entities, including their definitions and properties</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>supportiveEntitiesGen</code>: an autogenerated section listing all the supportive entities (classes and properties) defined in the vocabulary</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>datatypes</code>: details the datatypes used in the vocabulary, including their definitions</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>datatypesGen</code>: an autogenerated section listing all the datatypes defined in the vocabulary</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>quickReference</code>: a quick reference section providing an interactive summary of the vocabulary terms</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>quickReferenceGen</code>: an autogenerated section listing all the terms (classes and properties) defined in the vocabulary</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>resources</code>: contains references to model2owl artefacts and other related resources</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Note that the <code>pageContent</code> block corresponds to the document structure as described in <a href="#sec:documentation-page-structure">Documentation page structure</a>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="_jinja_utilities"><a class="anchor" href="#_jinja_utilities"></a>Jinja utilities</h5>
+<div class="paragraph">
+<p>This section lists Jinja2 macros defined in the base template that can be used in child templates.</p>
+</div>
+<div class="paragraph">
+<p><strong>Jinja2 variables</strong>
+The variables below reflect the structure of a ReSpec package and are used in the base template to reference static assets. They can be used in child templates as well:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>docRoot</code>: a path (URL) to the root of the ReSpec document</p>
+</li>
+<li>
+<p><code>assetsRoot</code>: a path (URL) to the assets directory</p>
+</li>
+<li>
+<p><code>jsScriptsRoot</code>: a path (URL) to JS scripts directory</p>
+</li>
+<li>
+<p><code>examplesRoot</code>: a path (URL) to the code examples directory</p>
+</li>
+<li>
+<p><code>imgRoot</code>: a path (URL) to the images directory</p>
+</li>
+<li>
+<p><code>shaclRoot</code>: a path (URL) to the SHACL files directory</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Jinja2 macros:</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>renderFeedbackButton(entity, prop=None)</code>: Renders a feedback button for a given entity; if <code>prop</code> is provided, the button is associated with a specific property of the entity.</p>
+</li>
+<li>
+<p><code>renderEntity(entity)</code>: Renders a detailed view of a given entity, including its properties.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec:respec-metadata"><a class="anchor" href="#sec:respec-metadata"></a>ReSpec metadata</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>ReSpec generation feature uses metadata properties defined in the metadata JSON file. The <a href="configuration-file.html#sec:metadata-parameters">Metadata parameters</a> table lists standard metadata properties that are used during generation of model2owl artefacts, including the ReSpec documentation. A subset of the properties is used in the ReSpec base template. All the properties defined in the metadata file are available for use in child templates.</p>
+</div>
+<div class="sect2">
+<h3 id="sec:respec-standard-metadata"><a class="anchor" href="#sec:respec-standard-metadata"></a>Standard metadata</h3>
+<div class="paragraph">
+<p>Standard metadata properties are defined in the <a href="configuration-file.html#sec:metadata-parameters">Metadata parameters</a> table. Most of these properties are used in the ReSpec base template. The properties are defined in the top-level <code>metadata</code> JSON object. The properties are directly accessible in Jinja2 templates using the <code>metadata</code> variable, e.g., <code>{{ metadata.title }}</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sec:respec-custom-metadata"><a class="anchor" href="#sec:respec-custom-metadata"></a>Custom metadata</h3>
+<div class="paragraph">
+<p><code>customMetadata</code> is a top-level property defined in metadata JSON that can contain arbitrary user-defined metadata. Each value may  have any valid JSON structure. The property allows users to introduce custom metadata that can be referenced in templates.
+Model2owl does not manage such properties, so they must be explicitly introduced by the editor. They can be used in templates through Jinja2 syntax, e.g., <code>{{ customMetadata.yourPropertyName }}</code>.</p>
+</div>
+<div id="sec:metadata-section-properties" class="paragraph">
+<p><code>customMetadata.metadataSectionProperties</code> is a special property that can be used to introduce arbitrary user properties and make them render in the ReSpec built-in metadata section of the document. It is a list where each property is represented as an object with the following fields:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>key</code>: The name of the metadata property</p>
+</li>
+<li>
+<p><code>data</code>: List of values for the property; accepts one or many objects with the following fields:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>value</code>: The value of the metadata property</p>
+</li>
+<li>
+<p><code>href</code>: (optional) URL associated with the value; if provided, the value will be rendered as a hyperlink</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Learn more about the format <a href="https://github.com/speced/respec/wiki/otherLinks">here</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sec:package-management"><a class="anchor" href="#sec:package-management"></a>Package management</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Model2owl generates a self-contained folder with the documentation called a <em>ReSpec package</em>.
+ReSpec documentation consists of the HTML document itself, which is the core component, and a set of static assets (OWL, SHACL, XMI, and EAP distribution files, code snippets, images, etc.). Together, these form a ReSpec package. The assets are either embedded in the generated HTML page or distributed alongside it and referenced in the HTML document using ReSpec utilities.</p>
+</div>
+<div class="sect2">
+<h3 id="sec:respec-package-structure"><a class="anchor" href="#sec:respec-package-structure"></a>ReSpec package structure</h3>
+<div class="paragraph">
+<p>The following list presents the structure for the ReSpec package:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>respec-package</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index.html</code>: the generated ReSpec documentation HTML file</p>
+</li>
+<li>
+<p><code>assets</code>: contains supplementary assets</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>overview.png</code>: diagram illustrating the vocabulary structure</p>
+</li>
+<li>
+<p><code>img</code>: contains other images (e.g., callout.png)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>sds</code>: Semantic Data Specification artefacts for the vocabulary</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>model.qea</code>: UML model file in a format of the modelling tool of choice</p>
+</li>
+<li>
+<p><code>model.xmi</code>: OWL core ontology file in XMI format exported from the modelling tool</p>
+</li>
+<li>
+<p><code>model_core.rdf</code>: OWL core ontology file generated by model2owl</p>
+</li>
+<li>
+<p><code>model_restrictions.rdf</code>: OWL restrictions ontology file generated by model2owl</p>
+</li>
+<li>
+<p><code>model_shapes.ttl</code>: SHACL shapes file generated by model2owl</p>
+</li>
+<li>
+<p><code>model_context.jsonld</code>: JSON-LD context file generated by model2owl</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><code>shacl</code>: contains SHACL shapes for validation purposes</p>
+</li>
+<li>
+<p><code>examples</code>: contains code examples</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_model2owl_boilerplate_repository_and_github_automation"><a class="anchor" href="#_model2owl_boilerplate_repository_and_github_automation"></a>Model2owl-boilerplate repository and GitHub automation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Model2owl-boilerplate serves as a blueprint for a project repository that can be cloned and used to set up a new project. The repository contains example project data and is preconfigured with a GitHub Actions workflow that automates the generation of ReSpec documentation. The workflow supports a multi-module structure and generates the ReSpec package for every input model module. The generated documentation includes a ReSpec website for each module, along with a landing page linking to all module websites.</p>
+</div>
+<div class="paragraph">
+<p>When executed in an automated workflow, data stored in a <code>respec-resources</code> input folder is processed and the ReSpec package is saved in a <code>respec</code> subfolder of a module folder. Any modification in the project repository triggers the documentation to be regenerated and commits a new revision to the same branch. Each revision will include a reference to the source revision that triggered the documentation rebuild. The project repository can then be configured to publish the ReSpec documentation from that branch using the GitHub Pages feature. Details on how to set up the repository and configure the workflow for ReSpec generation can be found <a href="https://github.com/OP-TED/model2owl-boilerplate/blob/develop/README.md">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>Model2owl-boilerplate provides a straightforward way to publish documentation. The GitHub Pages setup in model2owl-boilerplate is for demonstration purposes only. The editor is ultimately responsible for publishing the documentation in the intended way.</p>
+</div>
+</div>
+</div>
+</article>
+    <div id="widgetContainer">
+      <article class="widget">
+<div class="widget-title">
+    <p>Access other sites in the TED family</p>
+  </div>
+  <div class="links">
+    <a href="https://enotices2.ted.europa.eu/" target="_blank">eNotices2</a>
+    <a href="https://developer.ted.europa.eu/" target="_blank">TED Developer Portal</a>
+    <a href="https://ted.europa.eu/" target="_blank">TED Website</a>
+  </div>
+</article>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Get the current URL
+  var url = window.location.href;
+
+  // Check if the URL ends with 'home/index.html'
+  if (!url.endsWith('/home/index.html')) {
+    // If it doesn't, hide the widget
+    document.getElementById('widgetContainer').style.display = 'none';
+  }
+</script></div>
+<script src="../../../_/js/site.js"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+<script src="../../../_/js/vendor/docsearch-2.6.3.js"></script>
+<script src="../../../_/js/vendor/search-algolia.js" id="search-script" data-api-key="7bd6f4bbe2cb3188cd99f1625cb00f75" data-api-id="BE8MR7O2G7" data-index-name="ted-docs-idx"></script>
+<!-- Cookie Consent Kit -->
+  <script type="application/json">
+    {
+      "utility" : "cck",
+      "url": {
+        "en": "https://ted.europa.eu/en/cookie-choice",
+        "fr": "https://ted.europa.eu/fr/cookie-choice"
+      },
+      "appendix": {
+        "en": "We use cookies to improve your experience and analyze our traffic.",
+        "fr": "Nous utilisons des cookies pour améliorer votre expérience et analyser notre trafic."
+      },
+      "target": true
+    }
+    </script>
+    
+  <!-- Cookie Consent Kit -->
+  <script>
+    window.addEventListener("cck_all_accepted", function () {
+      var consentAccepted = {consents: {analytics: {status: 1}}};
+      ppms.cm.api('setComplianceSettings', consentAccepted, function (new_consent) { });
+    });
+    window.addEventListener("cck_technical_accepted", function () {
+      var consentRejected = {consents: {analytics: {status: 0}}};
+      ppms.cm.api('setComplianceSettings', consentRejected, function (new_consent) { });
+    });
+  </script>
+<div class="footer">
+    <div class="three-columns">
+
+        <div class="col-md-12 col-lg-4">
+            <div class="ls-footer-logo-DD"><a href="https://docs.ted.europa.eu/home/index.html"><img
+                        alt="TED Developer Docs" class="ls-op" src="../../../_/img/ted-logo-footer2.png"
+                        height="48" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+            <div class="ted-footer__rich-text">
+                <p>This website is managed by:
+                    <u>
+                        <a href="https://op.europa.eu/en/home" target="_blank">Publications Office of the European
+                            Union</a>
+                    </u>
+                </p>
+
+            </div>
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">Need Help?</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/help-page">Help</a></li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/contact">Contact the TED Helpdesk</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Follow us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer">
+                    <a href="https://x.com/EUPublications"> <img src="../../../_/img/twitter.svg"
+                            class="icon-footer" /><span>X/Twitter</span></a>
+                    <a href="https://www.youtube.com/playlist?list=PLT5rARDev_rkQdFimoHlpv2Och1H0uBLs"><img
+                            src="../../../_/img/youtube.svg" class="icon-footer-2nd" /><span>YouTube</span></a>
+                </li>
+            </ul>
+
+            <h3 class="ted-footer__title">Legal</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/en/legal-notice" target="_blank">Legal Notice</a>
+                </li>
+                <li class="li-footer"><a href="https://ted.europa.eu/en/cookie-choice" target="_blank">Cookies</a>
+                </li>
+                <li class="li-footer"><a
+                        href="https://ted.europa.eu/en/accessibility"
+                        target="_blank">Accessibility</a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-12 col-lg-4">
+
+            <h3 class="ted-footer__title">About us</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/">About TED</a></li>
+            </ul>
+
+            <h3 class="ted-footer__title">Other services</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="https://ted.europa.eu/TED/main/HomePage.do">EU tenders</a></li>
+                <li class="li-footer"><a href="https://data.europa.eu/en">European data</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/eu-vocabularies">EU vocabularies</a></li>
+                <li class="li-footer"><a href="https://cordis.europa.eu/">EU research results</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/who-is-who">EU Whoiswho</a></li>
+                <li class="li-footer"><a href="https://op.europa.eu/en/web/librarians-corner">EU publications</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="three-columns">
+        <div class="col-md-12 col-lg-4">
+            <!--<h2 class="sr-only" id="section-title-op">Publications Office of the European Union</h2> -->
+
+            <div class="ls-footer-logo"><a aria-labelledby="section-title-op" href="/"><img alt="European Union"
+                        class="ls-op" /></a></div>
+            <span class="ted-footer__title ted-footer__title--main"></span>
+           
+            <div class="ted-footer__rich-text">
+                <p class="byline-footer">Discover more on <a class="ls-underline" href="https://europa.eu/en/home"><span
+                            style="word-break: keep-all; white-space: nowrap; text-decoration: underline!important">europa.eu</span></a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-4">
+            <h3 class="ted-footer__title">Contact the EU</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer"><a href="tel:0080067891011">Call us 00 800 6 7 8 9 10 11</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/call-us_en">Use other
+                        Telephone options</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/write-us_en">Write to us via
+                        our contact forms</a></li>
+                <li class="li-footer"><a href="https://european-union.europa.eu/contact-eu/meet-us_en">Meet us at one of
+                        the EU centres</a></li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-12 col-lg-4">
+             <h3 class="ted-footer__title">Social Media</h3>
+            <ul class="ul-footer">
+                <li class="li-footer"><a
+                        href="https://european-union.europa.eu/contact-eu/social-media-channels_en#/search"><i
+                            aria-hidden="true" class="gs-icon-twitter"></i>Search of EU social media channels</a></li>
+
+            </ul>
+            <h3 class="ted-footer__title">EU institutions and bodies</h3>
+
+            <ul class="ul-footer">
+                <li class="li-footer institutions"><a href="https://european-union.europa.eu/institutions-law-budget/institutions-and-bodies/search-all-eu-institutions-and-bodies_en">Search all EU institutions and bodies</a></li>
+               
+            </ul>
+        </div>
+    </div>
+</div>  </body>
+</html>

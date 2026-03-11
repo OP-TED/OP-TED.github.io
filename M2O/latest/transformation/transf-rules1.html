@@ -176,6 +176,12 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/respec-documentation.html">ReSpec documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/rdf-diffing.html">RDF diffing documentation</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -333,10 +339,11 @@
 <table id="tab:class-attribute-overview" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Overview of transformation rules for UML classes and attributes</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -344,6 +351,7 @@
 <th class="tableblock halign-left valign-top">Rules in core ontology layer</th>
 <th class="tableblock halign-left valign-top">Rules in data shape layer</th>
 <th class="tableblock halign-left valign-top">Rules in reasoning layer</th>
+<th class="tableblock halign-left valign-top">Rules in JSON-LD context layer</th>
 </tr>
 </thead>
 <tbody>
@@ -352,30 +360,35 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:class-core">Example C.01</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:class-ds">Example C.02</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:class-ldcontext">Example C.03</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Abstract class</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:class-abstract-ds">Example C.03</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:class-abstract-ds">Example C.04</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attribute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-core">Example C.04</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ds">Example C.06</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-rc-domain">Example C.05</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-core">Example C.05</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ds">Example C.07</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-rc-domain">Example C.06</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ldcontext">Example C.08</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attribute type</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ds-range">Example C.08</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-rc-range">Example C.07</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ds-range">Example C.10</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-rc-range">Example C.09</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-type-ldcontext">Example C.11</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attribute multiplicity</p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ds-multiplicity">Example C.11</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-rc-multiplicity">Example C.09</a>, <a href="#rule:attribute-rc-multiplicity-one">Example C.10</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-ds-multiplicity">Example C.14</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-rc-multiplicity">Example C.12</a>, <a href="#rule:attribute-rc-multiplicity-one">Example C.13</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:attribute-container-ldcontext">Example C.15</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -483,6 +496,70 @@ shape:ClassName a sh:NodeShape ;
 </tr>
 </tbody>
 </table>
+<div id="rule:class-ldcontext" class="exampleblock">
+<div class="title">Example C.03. Class&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a term for each UML class by assigning an absolute URI of the class to the class name. Define a simple term definition or, an expanded term definition if the class includes properties. Create the term mapping as a top-level entry of the context object.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The term mapping key contains the relevant class name. It does not contain a namespace prefix even if one is defined in the model. Namespace prefixes are not used as all classes defined in the model are presumed to be internal, that is belonging to the generated ontology.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the class has attributes or related association or dependency connectors, all their term definitions are set within the single inner context object (see <a href="transf-rules1.html#rule:attribute-ldcontext">attribute</a>, <a href="transf-rules1.html#rule:attribute-type-ldcontext">attribute range</a>, <a href="transf-rules1.html#rule:attribute-container-ldcontext">attribute multiplicity</a>, <a href="transf-rules2.html#rule:assoc-dep-ldcontext">association/dependency</a>, <a href="transf-rules2.html#rule:assoc-dep-range-ldcontext">association/dependency range</a>, <a href="transf-rules2.html#rule:assoc-dep-container-ldcontext">association/dependency multiplicity</a>).
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Simple class term mapping in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": "http://base.onto.uri/ClassName"</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Expanded class term mapping in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+  "@id": "http://base.onto.uri/ClassName"
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="sec:class-abstract"><a class="anchor" href="#sec:class-abstract"></a>Abstract class</h3>
@@ -499,7 +576,7 @@ shape:ClassName a sh:NodeShape ;
 <div class="title">Figure 2. Visual representation of an abstract class in UML (on the left) and OWL (on the right)</div>
 </div>
 <div id="rule:class-abstract-ds" class="exampleblock">
-<div class="title">Example C.03. Abstract class&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example C.04. Abstract class&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify a SHACL NodeShape declaration axiom for each abstract UML Class, with a SPARQL constraint that selects all instances of this class.</p>
@@ -575,7 +652,7 @@ shape:ClassName a sh:NodeShape ;
 <div class="title">Figure 3. Visual representation of class attributes in UML (on the left) and OWL properties (on the right)</div>
 </div>
 <div class="paragraph">
-<p>Attributes can also be reused across multiple classes (i.e. multiple UML classes can own the same attributes), as illustrated in <a href="#fig:attribute-visual-reuse">Visual representation of reused class attributes in UML (on the left) and OWL properties (on the right)</a>. In such cases there should be special logic applied when defining the domain and range of these properties (see rules <a href="#rule:attribute-rc-domain">Example C.05</a>, <a href="#rule:attribute-rc-range">Example C.07</a>).</p>
+<p>Attributes can also be reused across multiple classes (i.e. multiple UML classes can own the same attributes), as illustrated in <a href="#fig:attribute-visual-reuse">Visual representation of reused class attributes in UML (on the left) and OWL properties (on the right)</a>. In such cases there should be special logic applied when defining the domain and range of these properties (see rules <a href="#rule:attribute-rc-domain">Example C.06</a>, <a href="#rule:attribute-rc-range">Example C.09</a>).</p>
 </div>
 <div id="fig:attribute-visual-reuse" class="imageblock">
 <div class="content">
@@ -584,7 +661,7 @@ shape:ClassName a sh:NodeShape ;
 <div class="title">Figure 4. Visual representation of reused class attributes in UML (on the left) and OWL properties (on the right)</div>
 </div>
 <div id="rule:attribute-core" class="exampleblock">
-<div class="title">Example C.04. Attribute&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example C.05. Attribute&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify declaration axiom(s) for attribute(s) of a UML Class as OWL data or object properties, deciding based on their types. The attributes with primary types should be treated as data properties, whereas those typed with classes or enumerations should be treated as object properties.</p>
@@ -646,7 +723,7 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 <div class="sect2">
 <h3 id="_attribute_owner"><a class="anchor" href="#_attribute_owner"></a>Attribute owner</h3>
 <div id="rule:attribute-rc-domain" class="exampleblock">
-<div class="title">Example C.05. Attribute domain&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example C.06. Attribute domain&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify data (or object) property domains for attribute(s).
@@ -772,7 +849,7 @@ The domain of properties created for attributes that are reused in multiple clas
 </tbody>
 </table>
 <div id="rule:attribute-ds" class="exampleblock">
-<div class="title">Example C.06. Class attribute&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example C.07. Class attribute&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify a SHACL PropertyShape declaration axiom for each attribute.</p>
@@ -827,11 +904,52 @@ shape:ClassName-attributeName a sh:PropertyShape ;
 </tr>
 </tbody>
 </table>
+<div id="rule:attribute-ldcontext" class="exampleblock">
+<div class="title">Example C.08. Attribute&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>For each UML class attribute, specify a datatype property by creating a property URI mapping with an absolute attribute URI in a node object. Set the term definition as a top-level entry inside the class’s inner context object.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The term definition key contains the attribute and the relevant class names. It does not contain a namespace prefix even if one is defined in the model. Namespace prefixes are not used as all classes defined in the model are presumed to be internal, that is belonging to the generated ontology.
+</td>
+</tr>
+</table>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Class attribute term mapping in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+  "@context": {
+    "attribute1": {
+      "@id": "http://base.onto.uri/attribute1"
+    }
+  }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_attribute_type"><a class="anchor" href="#_attribute_type"></a>Attribute type</h3>
 <div id="rule:attribute-rc-range" class="exampleblock">
-<div class="title">Example C.07. Attribute type&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example C.09. Attribute type&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify data (or object) property range for attribute(s).
@@ -926,7 +1044,7 @@ The range of object properties created for attributes that are reused in multipl
 </tbody>
 </table>
 <div id="rule:attribute-ds-range" class="exampleblock">
-<div class="title">Example C.08. Attribute type&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example C.10. Attribute type&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Within the SHACL PropertyShape corresponding to an attribute of a UML Class, specify property constraints indicating the range class or datatype.</p>
@@ -986,26 +1104,62 @@ shape:ClassName-attribute2
 </tr>
 </tbody>
 </table>
+<div id="rule:attribute-type-ldcontext" class="exampleblock">
+<div class="title">Example C.11. Class attribute type&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>For each UML class attribute, specify its range by creating a type coercion entry with an absolute URI of the attribute datatype in a node object. Set the term definition as a top-level entry inside the class’s inner context object.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Class attribute type definition in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+  "@context": {
+    "attribute1": {
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    }
+  }
+}</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="sec:attribute-multiplicity"><a class="anchor" href="#sec:attribute-multiplicity"></a>Attribute multiplicity</h3>
 <div class="paragraph">
-<p>In [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>], multiplicity bounds of multiplicity element are specified in the form of <code>[&lt;lower-bound&gt; .. &lt;upper-bound&gt;]</code>. The lower-bound, also referred here as minimum cardinality or <code>min</code> is of a non-negative Integer type and the upper-bound, also referred here as maximum cardinality or <code>max</code>, is of an UnlimitedNatural type (see Section <a href="transf-rules3.html#sec:primitive-type" class="xref page">Primitive datatype</a>). The strictly compliant specification of UML in version 2.5 defines only a single value range for MultiplicityElement. not limit oneself to a single interval. Therefore, the below UML to OWL mapping covers a wider case – a possibility of specifying more value ranges for a multiplicity element. Nevertheless, if the reader would like to strictly follow the current UML specification, the particular single lower..upper bound interval is therein also comprised.</p>
+<p>In [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>], multiplicity bounds of multiplicity element are specified in the form of <code>[&lt;lower-bound&gt; .. &lt;upper-bound&gt;]</code>. The lower-bound, also referred here as minimum cardinality or <code>min</code> is of a non-negative Integer type and the upper-bound, also referred here as maximum cardinality or <code>max</code>, is of an UnlimitedNatural type (see Section <a href="transf-rules3.html#sec:primitive-type" class="xref page">Primitive datatype</a>). The strictly compliant specification of UML in version 2.5 defines only a single value range for MultiplicityElement. However, in practice, there might be a need to specify more than a single interval. Therefore, the below UML to OWL mapping covers a wider case – a possibility of specifying more value ranges for a multiplicity element. Nevertheless, if the reader would like to strictly follow the current UML specification, the particular single lower..upper bound interval is therein also comprised.</p>
 </div>
-<div id="fig:attribute-multiplicity-visual" class="imageblock">
+<div id="fig:attribute-multiplicity-visual-uml" class="imageblock">
 <div class="content">
-<img src="../_images/f9.png" alt="9">
+<img src="../_images/f9-1.png" alt="9-1">
 </div>
-<div class="title">Figure 5. Visual representation of class attributes with multiplicity in UML (on the left) and OWL class specialising an anonymous restriction of properties (on the right)</div>
+<div class="title">Figure 5. Visual representation of class attributes with multiplicity in UML</div>
+</div>
+<div id="fig:attribute-multiplicity-visual-owl" class="imageblock">
+<div class="content">
+<img src="../_images/f9-2.png" alt="9-2">
+</div>
+<div class="title">Figure 6. Visual representation of OWL class specialising an anonymous restriction of properties</div>
 </div>
 <div class="paragraph">
-<p>It should be noted that upper-bound of UML MultiplicityElement can be specified as unlimited: ``*''. In OWL, cardinality expressions serve to restrict the number of individuals that are connected by an object property expression to a given number of instances of a specified class expression [<a href="../references.html#ref:owl2" class="xref page">owl2</a>]. Therefore, UML unlimited upper-bound does not add any information to OWL ontology, hence it is not transformed.</p>
+<p>It should be noted that upper-bound of UML MultiplicityElement can be specified as unlimited: ``*''. In OWL, cardinality expressions serve to restrict the number of individuals that are connected by a property expression to a given number of instances of a specified type [<a href="../references.html#ref:owl2" class="xref page">owl2</a>]. Therefore, UML unlimited upper-bound does not add any information to OWL ontology, hence it is not transformed.
+The UML to OWL mapping supports qualified cardinality restrictions (owl:*qualifiedCardinality), which impose constraints on a specific type associated with a property. Both object properties and datatype properties are supported.</p>
 </div>
 <div id="rule:attribute-rc-multiplicity" class="exampleblock">
-<div class="title">Example C.09. Attribute multiplicity&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example C.12. Attribute multiplicity&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
-<p>For each attribute multiplicity of the form ( min .. max ), where min and max are different than ``*'' (any), specify a subclass axiom where the OWL class, corresponding to the UML Class, specialises an anonymous restriction of properties formulated according to the following cases.</p>
+<p>For each attribute/relation multiplicity of the form ( min .. max ), where min and max are different than ``*'' (any), specify a subclass axiom where the OWL class, corresponding to the UML Class, specialises an anonymous restriction of properties formulated according to the following cases:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1013,15 +1167,34 @@ shape:ClassName-attribute2
 <p>exact cardinality, e.g. [2..2]</p>
 </li>
 <li>
-<p>minimum cardinality only, e.g. [1..*]</p>
+<p>minimum cardinality only, e.g. [2..*]</p>
 </li>
 <li>
 <p>maximum cardinality only, e.g. [*..2]</p>
 </li>
 <li>
-<p>maximum and maximum cardinality , e.g. [1..2]</p>
+<p>maximum and maximum cardinality, e.g. [1..2]</p>
+</li>
+<li>
+<p>at least one occurence: [1..*]</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>The restriction describes a constraint that is formulated with respect to the range type of the defined OWL property, that is one of the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>class</p>
+</li>
+<li>
+<p>datatype</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>For the special case of multiplicity [1..*], specify the existential constraint using the owl:someValuesFrom property instead of a cardinality constraint with owl:minQualifiedCardinality.</p>
 </div>
 </div>
 </div>
@@ -1033,24 +1206,26 @@ shape:ClassName-attribute2
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Exact cardinality constraint in Turtle syntax</div>
+<div class="title">Exact cardinality constraint for datatype property in Turtle syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
   rdfs:subClassOf [ a owl:Restriction ;
-    owl:cardinality "2"^^xsd:integer;
-    owl:onProperty :attribute1 ;
+    owl:onProperty :property1 ;
+    owl:onDataRange xsd:string ;
+    owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger;
   ] ;
 .</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Exact cardinality constraint in RDF/XML syntax</div>
+<div class="title">Exact cardinality constraint for datatype property in RDF/XML syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
     &lt;rdfs:subClassOf&gt;
         &lt;owl:Restriction&gt;
-            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/attribute1"/&gt;
-            &lt;owl:cardinality rdf:datatype="http://www.w3.org...#integer" &gt;2&lt;/owl:cardinality&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property1"/&gt;
+            &lt;owl:onDataRange rdf:resource = "http://www.w3.org...#string"/&gt;
+            &lt;owl:qualifiedCardinality rdf:datatype="http://...#nonNegativeInteger" &gt;2&lt;/owl:qualifiedCardinality&gt;
         &lt;/owl:Restriction&gt;
     &lt;/rdfs:subClassOf&gt;
 &lt;/rdf:Description&gt;</code></pre>
@@ -1059,24 +1234,26 @@ shape:ClassName-attribute2
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Min cardinality constraint in Turtle syntax</div>
+<div class="title">Exact cardinality constraint for object property in Turtle syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
   rdfs:subClassOf [ a owl:Restriction ;
-    owl:minCardinality "1"^^xsd:integer;
-    owl:onProperty :attribute2 ;
+    owl:onProperty :property5 ;
+    owl:onClass :Prop5Class ;
+    owl:qualifiedCardinality "2"^^xsd:nonNegativeInteger;
   ] ;
 .</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Min cardinality constraint in RDF/XML syntax</div>
+<div class="title">Exact cardinality constraint for object property in RDF/XML syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
     &lt;rdfs:subClassOf&gt;
         &lt;owl:Restriction&gt;
-            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/attribute2"/&gt;
-            &lt;owl:minCardinality rdf:datatype="http://www.w3.org...#integer" &gt;1&lt;/owl:cardinality&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property5"/&gt;
+            &lt;owl:onClass rdf:resource = "http://base.onto.uri/Prop5Class"/&gt;
+            &lt;owl:qualifiedCardinality rdf:datatype="http://...#nonNegativeInteger" &gt;2&lt;/owl:qualifiedCardinality&gt;
         &lt;/owl:Restriction&gt;
     &lt;/rdfs:subClassOf&gt;
 &lt;/rdf:Description&gt;</code></pre>
@@ -1085,24 +1262,26 @@ shape:ClassName-attribute2
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Max cardinality constraint in Turtle syntax</div>
+<div class="title">Min cardinality constraint for datatype property in Turtle syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
   rdfs:subClassOf [ a owl:Restriction ;
-    owl:maxCardinality "2"^^xsd:integer;
-    owl:onProperty :attribute3 ;
+    owl:onProperty :property2 ;
+    owl:onDataRange xsd:string ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
   ] ;
 .</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Max cardinality constraint in RDF/XML syntax</div>
+<div class="title">Min cardinality constraint for datatype property in RDF/XML syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
     &lt;rdfs:subClassOf&gt;
         &lt;owl:Restriction&gt;
-            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/attribute3"/&gt;
-            &lt;owl:maxCardinality rdf:datatype="http://www.w3.org...#integer" &gt;2&lt;/owl:cardinality&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property2"/&gt;
+            &lt;owl:onDataRange rdf:resource = "http://www.w3.org...#string"/&gt;
+            &lt;owl:minQualifiedCardinality rdf:datatype="http://...#nonNegativeInteger" &gt;1&lt;/owl:minQualifiedCardinality&gt;
         &lt;/owl:Restriction&gt;
     &lt;/rdfs:subClassOf&gt;
 &lt;/rdf:Description&gt;</code></pre>
@@ -1111,42 +1290,171 @@ shape:ClassName-attribute2
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Min and max cardinality constraint in Turtle syntax</div>
+<div class="title">Min cardinality constraint for object property in Turtle syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
-  rdfs:subClassOf [
-    rdf:type owl:Class ;
-    owl:intersectionOf (
-      [ a owl:Restriction ;
-        owl:minCardinality "1"^^xsd:integer;
-        owl:onProperty :attribute4; ]
-      [ a owl:Restriction ;
-        owl:maxCardinality "2"^^xsd:integer;
-        owl:onProperty :attribute4; ]
-      ) ;
-    ] ;
+  rdfs:subClassOf [ a owl:Restriction ;
+    owl:onProperty :property6 ;
+    owl:onClass :Prop6Class ;
+    owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+  ] ;
 .</code></pre>
 </div>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
-<div class="title">Min and max cardinality constraint in RDF/XML syntax</div>
+<div class="title">Min cardinality constraint for object property in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+    &lt;rdfs:subClassOf&gt;
+        &lt;owl:Restriction&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property6"/&gt;
+            &lt;owl:onClass rdf:resource = "http://base.onto.uri/Prop6Class"/&gt;
+            &lt;owl:minQualifiedCardinality rdf:datatype="http://...#nonNegativeInteger" &gt;2&lt;/owl:minQualifiedCardinality&gt;
+        &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Max cardinality constraint for datatype property in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
+  rdfs:subClassOf [ a owl:Restriction ;
+    owl:onProperty :property3 ;
+    owl:onDataRange xsd:string ;
+    owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+  ] ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Max cardinality constraint for datatype property in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+    &lt;rdfs:subClassOf&gt;
+        &lt;owl:Restriction&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property3"/&gt;
+            &lt;owl:onDataRange rdf:resource = "http://www.w3.org...#string"/&gt;
+            &lt;owl:maxQualifiedCardinality rdf:datatype="http://...#nonNegativeInteger" &gt;2&lt;/owl:maxQualifiedCardinality&gt;
+        &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Max cardinality constraint for object property in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
+  rdfs:subClassOf [ a owl:Restriction ;
+    owl:onProperty :property7 ;
+    owl:onClass :Prop7Class ;
+    owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+  ] ;
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Max cardinality constraint for object property in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+    &lt;rdfs:subClassOf&gt;
+        &lt;owl:Restriction&gt;
+            &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property7"/&gt;
+            &lt;owl:onClass rdf:resource = "http://base.onto.uri/Prop7Class"/&gt;
+            &lt;owl:maxQualifiedCardinality rdf:datatype="http://...#nonNegativeInteger" &gt;2&lt;/owl:maxQualifiedCardinality&gt;
+        &lt;/owl:Restriction&gt;
+    &lt;/rdfs:subClassOf&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Min and max cardinality constraints for datatype property in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName
+  rdfs:subClassOf [ a owl:Restriction ;
+      owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+      owl:onDataRange xsd:string ;
+      owl:onProperty :property4; ]
+    [ a owl:Restriction ;
+      owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+      owl:onDataRange xsd:string ;
+      owl:onProperty :property4; ]
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Min and max cardinality constraints for datatype property in RDF/XML syntax</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
   &lt;rdfs:subClassOf&gt;
-    &lt;owl:Class&gt;
-      &lt;owl:intersectionOf rdf:parseType="Collection"&gt;
-        &lt;owl:Restriction&gt;
-          &lt;owl:onProperty rdf:resource = "http://base.onto.uri/attribute4"/&gt;
-          &lt;owl:minCardinality rdf:datatype="...#integer"
-          &gt;1&lt;/owl:minCardinality&gt;
-        &lt;/owl:Restriction&gt;
-        &lt;owl:Restriction&gt;
-          &lt;owl:onProperty rdf:resource = "http://base.onto.uri/attribute4"/&gt;
-          &lt;owl:maxCardinality rdf:datatype="...#integer"
-          &gt;2&lt;/owl:maxCardinality&gt;
-        &lt;/owl:Restriction&gt;
-      &lt;/owl:intersectionOf&gt;
-    &lt;/owl:Class&gt;
+    &lt;owl:Restriction&gt;
+      &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property4"/&gt;
+      &lt;owl:onDataRange rdf:resource = "http://www.w3.org...#string"/&gt;
+      &lt;owl:minQualifiedCardinality rdf:datatype="...#nonNegativeInteger"
+      &gt;1&lt;/owl:minQualifiedCardinality&gt;
+    &lt;/owl:Restriction&gt;
+  &lt;/rdfs:subClassOf&gt;
+  &lt;rdfs:subClassOf&gt;
+    &lt;owl:Restriction&gt;
+      &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property4"/&gt;
+      &lt;owl:onDataRange rdf:resource = "http://www.w3.org...#string"/&gt;
+      &lt;owl:maxQualifiedCardinality rdf:datatype="...#nonNegativeInteger"
+      &gt;2&lt;/owl:maxQualifiedCardinality&gt;
+    &lt;/owl:Restriction&gt;
+  &lt;/rdfs:subClassOf&gt;
+&lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The owl:someValuesFrom is used instead of owl:minQualifiedCardinality with a value of 1 because, while they are conceptually equivalent, they are treated differently in Description Logics. In particular, owl:minQualifiedCardinality can only be applied to simple object properties, whereas owl:someValuesFrom can also be used with non-simple ones, offering greater flexibility and avoiding certain reasoning limitations.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Existential and max cardinality constraints for object property in Turtle syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Turtle hljs" data-lang="Turtle">:ClassName rdfs:subClassOf
+    [ a owl:Restriction ;
+      owl:someValuesFrom :Prop8Class ;
+      owl:onProperty :property8; ],
+    [ a owl:Restriction ;
+      owl:maxQualifiedCardinality "2"^^xsd:nonNegativeInteger;
+      owl:onClass :Prop8Class ;
+      owl:onProperty :property8; ]
+.</code></pre>
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Existential and max cardinality constraints for object property in RDF/XML syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-XML hljs" data-lang="XML">&lt;rdf:Description rdf:about = "http://base.onto.uri/ClassName"&gt;
+  &lt;rdfs:subClassOf&gt;
+    &lt;owl:Restriction&gt;
+      &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property8"/&gt;
+      &lt;owl:someValuesFrom rdf:resource = "http://base.onto.uri/Prop8Class"/&gt;
+    &lt;/owl:Restriction&gt;
+  &lt;/rdfs:subClassOf&gt;
+  &lt;rdfs:subClassOf&gt;
+    &lt;owl:Restriction&gt;
+      &lt;owl:onProperty rdf:resource = "http://base.onto.uri/property8"/&gt;
+      &lt;owl:onClass rdf:resource = "http://base.onto.uri/Prop8Class"/&gt;
+      &lt;owl:maxQualifiedCardinality rdf:datatype="...#nonNegativeInteger"
+      &gt;2&lt;/owl:maxQualifiedCardinality&gt;
+    &lt;/owl:Restriction&gt;
   &lt;/rdfs:subClassOf&gt;
 &lt;/rdf:Description&gt;</code></pre>
 </div>
@@ -1158,7 +1466,7 @@ shape:ClassName-attribute2
 <p>Attributes with multiplicity exactly one correspond to functional object or data properties in OWL. If we apply the previous rule specifying min and max cardinality will lead to inconsistent ontology. To avoid that it is important that min and max cardinality are not generated from [1..1] multiplicity but only functional property axiom.</p>
 </div>
 <div id="rule:attribute-rc-multiplicity-one" class="exampleblock">
-<div class="title">Example C.10. Attribute multiplicity "one" &#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example C.13. Attribute multiplicity "one" &#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>For each attribute that has multiplicity exactly one, i.e. [1..1], specify a functional property axiom.</p>
@@ -1193,7 +1501,7 @@ shape:ClassName-attribute2
 </tbody>
 </table>
 <div id="rule:attribute-ds-multiplicity" class="exampleblock">
-<div class="title">Example C.11. Attribute range shape&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example C.14. Attribute range shape&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Within the SHACL PropertyShape corresponding to an attribute of a UML Class, specify property constraints indicating the minimum and maximum cardinality, only where min and max are different from ``*'' (any) and multiplicity is not [1..1]. The expressions are formulated according to the following cases.</p>
@@ -1313,6 +1621,44 @@ shape:ClassName-attribute4
     &lt;sh:maxCount rdf:datatype="http://www.w3.org...#integer"
       &gt;2&lt;/sh:maxCount&gt;
 &lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:attribute-container-ldcontext" class="exampleblock">
+<div class="title">Example C.15. Class attribute container&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a default container type for a class attribute that can accept more than a one value by setting the fixed <code>@set</code> keyword as a value for the <code>@container</code> key. Set the container type entry inside a term definition created as a top-level entry inside the class’s inner context object.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Attribute container definition in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"ClassName": {
+  "@context": {
+    "attribute1": {
+      "@container": "@set"
+    },
+    "attribute2": {
+      "@container": "@set"
+    },
+    "attribute3": {
+      "@container": "@set"
+    },
+    "attribute4": {
+      "@container": "@set"
+    }
+  }
+}</code></pre>
 </div>
 </div></div></td>
 </tr>

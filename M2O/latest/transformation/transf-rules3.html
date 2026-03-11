@@ -176,6 +176,12 @@
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../user-guide/configuration-file.html">Configuration parameters</a>
   </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/respec-documentation.html">ReSpec documentation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../user-guide/rdf-diffing.html">RDF diffing documentation</a>
+  </li>
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
@@ -333,10 +339,11 @@
 <table id="tab:datatype-overview" class="tableblock frame-all grid-all stretch">
 <caption class="title">Table 1. Overview of transformation rules for UML datatypes</caption>
 <colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
+<col style="width: 20%;">
 </colgroup>
 <thead>
 <tr>
@@ -344,6 +351,7 @@
 <th class="tableblock halign-left valign-top">Rules in core ontology layer</th>
 <th class="tableblock halign-left valign-top">Rules in data shape layer</th>
 <th class="tableblock halign-left valign-top">Rules in reasoning layer</th>
+<th class="tableblock halign-left valign-top">Rules in JSON-LD context layer</th>
 </tr>
 </thead>
 <tbody>
@@ -352,23 +360,27 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:datatype-core">Example D.01</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:datatype-ldcontext">Example D.02</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Structured datatype</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:datatype-structured-core">Example D.02</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:datatype-structured-core">Example D.03</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumeration</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-core">Example D.03</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-core">Example D.04</a></p></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-rc">Example D.04</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-rc">Example D.05</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enum-ldcontext">Example D.08</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Enumeration item</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-item-core">Example D.05</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-item-ds">Example D.06</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-item-core">Example D.06</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#rule:enumeration-item-ds">Example D.07</a></p></td>
+<td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
@@ -533,6 +545,29 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 </tr>
 </tbody>
 </table>
+<div id="rule:datatype-ldcontext" class="exampleblock">
+<div class="title">Example D.02. Datatype&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a term for each UML datatype by assigning an absolute URI of the datatype to its name. Create the term mapping as a top-level entry of the context object.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Datatype term mapping in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"rdf:PlainLiteral": "http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral"</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_structured_datatypes"><a class="anchor" href="#_structured_datatypes"></a>Structured datatypes</h3>
@@ -540,7 +575,7 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 <p>The UML structured datatype [<a href="../references.html#ref:uml2.5" class="xref page">uml2.5</a>] has attributes and is used to define complex data types. The structured datatypes should be treated as classes.</p>
 </div>
 <div id="rule:datatype-structured-core" class="exampleblock">
-<div class="title">Example D.02. Structured Datatype&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example D.03. Structured Datatype&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify OWL class declaration axiom for UML structured datatype.</p>
@@ -600,7 +635,7 @@ Normally, the controlled list represented by UML Enumerations will be defined ex
 </table>
 </div>
 <div id="rule:enumeration-core" class="exampleblock">
-<div class="title">Example D.03. Enumeration&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example D.04. Enumeration&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify SKOS concept scheme instantiation axiom for a UML enumeration.</p>
@@ -655,7 +690,7 @@ The tool does not generate SHACL shapes for concept schemes (<code>skos:ConceptS
 </table>
 </div>
 <div id="rule:enumeration-rc" class="exampleblock">
-<div class="title">Example D.04. Enumeration&#8201;&#8212;&#8201;in reasoning layer</div>
+<div class="title">Example D.05. Enumeration&#8201;&#8212;&#8201;in reasoning layer</div>
 <div class="content">
 <div class="paragraph">
 <p>For a UML enumeration, specify an equivalent class restriction covering the set of individuals that are <code>skos:inScheme</code> of this enumeration.</p>
@@ -701,7 +736,7 @@ The tool does not generate SHACL shapes for concept schemes (<code>skos:ConceptS
 </tbody>
 </table>
 <div id="rule:enumeration-item-core" class="exampleblock">
-<div class="title">Example D.05. Enumeration items&#8201;&#8212;&#8201;in core ontology layer</div>
+<div class="title">Example D.06. Enumeration items&#8201;&#8212;&#8201;in core ontology layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify SKOS concept instantiation axiom for each UML enumeration item.</p>
@@ -755,7 +790,7 @@ Ideally, in the implementation, this rule would be combined with the relevant ru
 </tbody>
 </table>
 <div id="rule:enumeration-item-ds" class="exampleblock">
-<div class="title">Example D.06. Enumeration item&#8201;&#8212;&#8201;in data shape layer</div>
+<div class="title">Example D.07. Enumeration item&#8201;&#8212;&#8201;in data shape layer</div>
 <div class="content">
 <div class="paragraph">
 <p>Specify a <em>restrictive</em> SHACL NodeShape for items of an enumeration for each UML Enumeration in the <em>defining</em> mode (based on the <em>constraint level</em> set for the UML Enumeration as defined in <a href="../uml/conv-enumerations.html#rule:enumeration-constraint-level" class="xref page">rule:enumeration-constraint-level</a>). The URIs of the node shape is deterministically generated from the UML Enumeration name.
@@ -796,6 +831,29 @@ shape:EnumName-itemShape a sh:NodeShape ;
     &lt;sh:hasValue rdf:resource = "http://base.onto.uri/EnumName"/&gt;
   &lt;/sh:property&gt;
 &lt;/rdf:Description&gt;</code></pre>
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div id="rule:enum-ldcontext" class="exampleblock">
+<div class="title">Example D.08. Enumeration&#8201;&#8212;&#8201;in JSON-LD context layer</div>
+<div class="content">
+<div class="paragraph">
+<p>Specify a term for each UML enumeration by assigning an absolute URI of the enumeration to its name. Create the term mapping as a top-level entry of the context object.</p>
+</div>
+</div>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
+<div class="title">Enumeration term mapping in JSON-LD syntax</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-JSON hljs" data-lang="JSON">"at-voc:applicability": "http://publications.europa.eu/resource/authority/applicability"</code></pre>
 </div>
 </div></div></td>
 </tr>
