@@ -456,11 +456,11 @@ BT-23-Procedure in ['works', 'supplies', 'services']</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// New codelist expansion:
-BT-23-Procedure in [...main-activity]
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Legacy notation (to be removed):
+BT-23-Procedure in #main-activity
 
-// Legacy notation (to be removed):
-BT-23-Procedure in #main-activity</code></pre>
+// New codelist expansion:
+BT-23-Procedure in [...main-activity]</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -521,7 +521,12 @@ ND-Lot[2]::BT-262-Lot</code></pre>
 <div class="sect2">
 <h3 id="_field_properties"><a class="anchor" href="#_field_properties"></a>Field properties</h3>
 <div class="paragraph">
-<p><strong>Privacy controls:</strong> Expressions can now access privacy-related properties of fields withheld from publication:</p>
+<p>EFX-2 introduces the ability to access properties of a field using the <code>field:property</code> syntax. Three categories of field properties are available:</p>
+</div>
+<div class="sect3">
+<h4 id="_privacy_controls"><a class="anchor" href="#_privacy_controls"></a>Privacy controls</h4>
+<div class="paragraph">
+<p>Expressions can access privacy-related properties of fields withheld from publication. These properties allow rules and templates to reason about the privacy status of fields without having to reference the underlying privacy fields (e.g. BT-197, BT-198) by name:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -542,9 +547,6 @@ ND-Lot[2]::BT-262-Lot</code></pre>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>Linked field properties:</strong> Field references can carry a <code>:property</code> suffix to access values of linked fields without explicitly referencing them by name, improving readability:</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Access the publication date of BT-105-Procedure without referencing BT-197 directly:
@@ -554,12 +556,16 @@ BT-105-Procedure:publicationDate
 BT-105-Procedure:justificationCode</code></pre>
 </div>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_raw_value_access"><a class="anchor" href="#_raw_value_access"></a>Raw value access</h4>
 <div class="paragraph">
-<p><strong>Raw value access:</strong> <code>field:rawValue</code> provides access to the raw string value of a field, bypassing type-specific parsing:</p>
+<p><code>field:rawValue</code> provides access to the raw string value of a field, bypassing type-specific parsing:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">BT-05(a)-notice:rawValue</code></pre>
+</div>
 </div>
 </div>
 </div>
