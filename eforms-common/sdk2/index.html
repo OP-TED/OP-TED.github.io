@@ -366,44 +366,117 @@ This is a pre-release version of this document.
 </div>
 </div>
 <div class="sect1">
+<h2 id="_objective"><a class="anchor" href="#_objective"></a>Objective</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The goal of SDK 2 is to introduce a new version of EFX (the eForms Expression Language) that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>enhances the template definition vocabulary to allow more accurate and user-friendly notice visualisation that is easier to maintain and share,</p>
+</li>
+<li>
+<p>improves the ability of the language to express business rules with completeness and simplicity, enabling porting of validation rules to engines other than Schematron and supporting live validation on different target platforms,</p>
+</li>
+<li>
+<p>enhances the language in ways that improve its expressiveness and readability, making it easier to write, read, maintain and interpret.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="_whats_new"><a class="anchor" href="#_whats_new"></a>What&#8217;s new</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The main goal of version 2.0.0 of the eForms SDK is to update the EFX grammar. We have tried to focus exclusively on the EFX grammar and avoid any other changes in order to minimise the impact on existing applications. Here is an overview of the changes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated EFX grammar</p>
-</li>
-<li>
-<p><em>No other changes currently foreseen</em></p>
-</li>
-</ul>
+<p>EFX-2 has two distinct language flavors&#8201;&#8212;&#8201;<strong>EFX Templates</strong> and <strong>EFX Rules</strong>&#8201;&#8212;&#8201;both built on the shared <strong>EFX Expressions</strong> syntax which they extend for their specific applications.</p>
 </div>
 <div class="sect2">
-<h3 id="_efx_2"><a class="anchor" href="#_efx_2"></a>EFX 2</h3>
+<h3 id="_efx_expressions"><a class="anchor" href="#_efx_expressions"></a>EFX Expressions</h3>
 <div class="paragraph">
-<p>EFX 1 had a number of limitations that we are trying to address in EFX 2. More specifically,</p>
+<p>The shared expression syntax has been enhanced with:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>we have enriched the syntax for creating EFX Templates in order to overcome current limitations in notice visualisation.</p>
+<p><strong><code>WITH ... COMPUTE</code> syntax</strong>: Expressions can now be written as <code>WITH context COMPUTE expression</code>, improving readability over the EFX-1 syntax.</p>
 </li>
 <li>
-<p>we have added a number of new functions that give us more control over formatting, text manipulation and internationalisation.</p>
+<p><strong>Improved type safety</strong>: The grammar enforces a stricter distinction between scalar and sequence types. Ambiguities in late-binding have been removed, and variables and parameters can now be declared with sequence types.</p>
 </li>
 <li>
-<p>we have introduced aliases for Fields and Nodes, in order to make EFX Expressions more readable.</p>
+<p><strong>Working with sequences</strong>: Sequence literal syntax now uses <code>[&#8230;&#8203;]</code> instead of <code>(&#8230;&#8203;)</code>. New conditions allow testing sequences directly (<code>is empty</code>, <code>has duplicates</code>, <code>is unique</code>). Iterations support a <code>DISTINCT</code> modifier and can return sequences for concatenation.</p>
+</li>
+<li>
+<p><strong>New built-in functions</strong> for working with numbers, strings, dates/times/durations, sequences, and type conversions.</p>
+</li>
+<li>
+<p><strong>Field properties</strong>: Access to privacy-related properties of fields withheld from publication, linked field properties, and raw value access.</p>
+</li>
+<li>
+<p><strong>Node presence testing</strong>: Presence conditions can now be applied to node references in addition to field references.</p>
+</li>
+<li>
+<p>The <code>measure</code> type has been renamed to <code>duration</code> to free the keyword for other types of measure. Duration functions have been renamed accordingly.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_efx_templates"><a class="anchor" href="#_efx_templates"></a>EFX Templates</h3>
+<div class="paragraph">
+<p>The template language has been enhanced in three areas:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Template syntax and logic</strong>: Template lines now use <code>WITH context DISPLAY template;</code> syntax with optional context and conditional rendering (<code>WHEN</code>/<code>OTHERWISE</code>). Navigation and Summary sections provide better structure for view templates.</p>
+</li>
+<li>
+<p><strong>Reuse and maintainability</strong>: Callable templates, user-defined functions, and dictionaries reduce duplication and improve performance.</p>
+</li>
+<li>
+<p><strong>Richer output</strong>: Hyperlink blocks, character references, escape sequences, and locale-aware formatting functions.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_efx_rules"><a class="anchor" href="#_efx_rules"></a>EFX Rules</h3>
+<div class="paragraph">
+<p>EFX-2 introduces a complete rules language, allowing business rules to be authored directly in EFX:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Rules file structure</strong>: Rules are organised into validation stages, with stage-level variables and include directives for composition.</p>
+</li>
+<li>
+<p><strong>Rule syntax</strong>: Rule-sets group multiple rules sharing the same context. Rules use <code>ASSERT</code> (must be true to pass) or <code>REPORT</code> (triggers when true), with conditional branching, severity levels, notice type targeting, and scope annotations.</p>
+</li>
+<li>
+<p><strong>Dynamic rules</strong>: API endpoint declarations and dynamic functions allow validation to consider information retrieved from other notices through a specialised API.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>In short EFX 2 allows us to improve notice visualisation while making EFX expressions simpler to read and write.</p>
+<p>For details on what has changed in EFX 2, see the dedicated page on <a href="efx2.html" class="xref page"><strong>"What&#8217;s new in EFX 2"</strong></a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_sdk_metadata"><a class="anchor" href="#_sdk_metadata"></a>SDK Metadata</h3>
+<div class="paragraph">
+<p>SDK 2 focuses its breaking changes exclusively on the EFX language. The metadata file formats and directory layout remain the same as SDK 1, so that applications can migrate to SDK 2 without having to rewrite their metadata import logic. All EFX expressions embedded in SDK metadata use EFX-2 syntax.</p>
 </div>
 <div class="paragraph">
-<p>For details on what has changed on EFX 2, see the dedicate page on <a href="efx2.html" class="xref page"><strong>"What&#8217;s new in EFX 2"</strong></a>.</p>
+<p>SDK 2.0.0 will be released alongside SDK 1.15.0 with identical eForms metadata content, differing only in EFX expression syntax.</p>
+</div>
+<div class="sect3">
+<h4 id="_forward_compatible_metadata"><a class="anchor" href="#_forward_compatible_metadata"></a>Forward-compatible metadata</h4>
+<div class="paragraph">
+<p>SDK 2 also introduces <strong>forward-compatible</strong> metadata files in <code>fwd/</code> subfolders. These new formats preview the structure planned for SDK 3 and are fully supported. Both backward-compatible and forward-compatible formats describe the same eForms metadata&#8201;&#8212;&#8201;a notice produced using either format is identical. This allows applications to gradually adopt the new formats during the lifetime of SDK 2. When SDK 3 is released, the backward-compatible files will be removed and replaced by the forward-compatible versions.</p>
+</div>
 </div>
 </div>
 </div>
@@ -412,7 +485,7 @@ This is a pre-release version of this document.
 <h2 id="_migration"><a class="anchor" href="#_migration"></a>Migration</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>A complete migration guide will be provided.</em></p>
+<p><em>A complete migration guide will be provided with SDK 2.0.0-rc.1.</em></p>
 </div>
 </div>
 </div>

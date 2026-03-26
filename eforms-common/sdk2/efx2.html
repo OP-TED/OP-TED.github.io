@@ -364,268 +364,599 @@ This is a pre-release version of this document.
 </table>
 </div>
 <div class="paragraph">
-<p>EFX 2 is the version of EFX released with SDK 2.0.0. EFX 2 focuses mostly on adding features and flexibility to EFX Templates. However, it also includes several improvements for EFX Expressions.</p>
+<p>EFX-2 is the version of EFX released with SDK 2.0.0. EFX-2 has two distinct language flavors&#8201;&#8212;&#8201;<strong>EFX Templates</strong> and <strong>EFX Rules</strong>&#8201;&#8212;&#8201;both built on the shared <strong>EFX Expressions</strong> syntax which they extend for their specific applications.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_backwards_compatibility"><a class="anchor" href="#_backwards_compatibility"></a>Backwards compatibility</h2>
+<h2 id="_backward_compatibility"><a class="anchor" href="#_backward_compatibility"></a>Backward compatibility</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>EFX 2 contains new features, that are not supported by EFX 1. Although, most EFX 1 expressions are still valid EFX 2 expressions, some EFX 1 expressions need to be slightly modified before they can be parsed by an EFX 2 parser. More specifically, EFX 1 expressions that use <strong>codelist identifiers</strong> need to be modified. See the section "Breaking change in codelist identifiers" for more details.</p>
+<p>EFX-2 contains new features that are not supported by EFX-1. Most EFX-1 expressions are still valid EFX-2 expressions, but several changes require modifications:</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_efx_templates"><a class="anchor" href="#_efx_templates"></a>EFX Templates</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_template_variables"><a class="anchor" href="#_template_variables"></a>Template variables</h3>
-<div class="paragraph">
-<p>One of the difficulties we had with EFX 1 was the complexity of expressions required to navigate complex relationships in the XML files. The main cause of this difficulty was the fact that the context of a template line in EFX 1 was unique to each line and there was no way to share context between template lines. As a result it was impossible to navigate complex relationships in nested template lines without writing unnecessarily complex expressions.</p>
-</div>
-<div class="paragraph">
-<p>To solve this issue, EFX 2 introduces template variables. Template variables are declared within the context declaration block of a template line, and are visible within the template block headed by that line. A "template block" is a group of nested template lines.</p>
-</div>
-<div class="paragraph">
-<p>The new syntax for context declaration block is as follows:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-none hljs">// For example: {context:$ctx = fieldAlias1, number:$number = numericFieldAlias2}
-contextDeclarationBlock: StartExpression contextDeclaration (Comma templateVariableList)? EndExpression;
-
-contextDeclaration: contextVariableInitializer | fieldContext | nodeContext;
-
-templateVariableList: templateVariableInitializer (Comma templateVariableInitializer)*;
-
-// For example: context:$ctx = fieldAlias
-contextVariableInitializer: ContextTypeCast Variable Assignment fieldContext;
-
-// For example: text:$variable = concat(fieldAlias1, fieldAlias2)
-templateVariableInitializer
-    : TextTypeCast Variable Assignment stringExpression
-    | BooleanTypeCast Variable Assignment booleanExpression
-    | NumericTypeCast Variable Assignment numericExpression
-    | DateTypeCast Variable Assignment dateExpression
-    | TimeTypeCast Variable Assignment timeExpression
-    | DurationTypeCast Variable Assignment durationExpression
-    ;</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_impact_of_change"><a class="anchor" href="#_impact_of_change"></a>Impact of change</h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-This change only impacts implementers that have created custom EFX parsers with EFX Template parsing functionality. Custom parsers that are not used for EFX Template parsing are not impacted by this change. EFX Template features are used only for generating visualisation templates for eForms notices.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>If you have developed a custom EFX Template parser, then you will need to update your parser to support the new syntax. The intervention that wil be required involves tracking of the scope of template variables. Your parser already tracks template line nesting. As the scope of template variables is limited to template blocks, you will be able to track the variable scope together with template line nesting.</p>
-</div>
-<div class="paragraph">
-<p>If you have  developed a custom EFX Template parser, you probably also have developed your own notice visualisation application that uses your translated templates. This application will also need to be updated to implement the new capabilities introduced by template variables. Your application already has a notion of template "fragments" that correspond to the template blocks defined in the source EFX template file. The intervention required for your visualisation application, involves enabling your existing template fragments to take and use parameters. Template variables are evaluated in the template line (fragment) where they are declared, and are passed as parameters to nested template fragments.</p>
-</div>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sequence literals now use <code>[&#8230;&#8203;]</code> instead of <code>(&#8230;&#8203;)</code>.</p>
+</li>
+<li>
+<p>Codelist identifiers now use <code>[&#8230;&#8203;codelistName]</code> instead of <code>(codelistName)</code>. The <code>#codelistName</code> notation is still supported but will be removed by beta.1.</p>
+</li>
+<li>
+<p>The <code>measure</code> type has been renamed to <code>duration</code>, and related functions have been renamed accordingly (<code>add-measure</code> &#8594; <code>add-duration</code>, <code>subtract-measure</code> &#8594; <code>subtract-duration</code>).</p>
+</li>
+<li>
+<p>XPath axis specifiers have been removed.</p>
+</li>
+<li>
+<p>Cross-notice references (<code>notice(&#8230;&#8203;)</code>) have been removed, replaced by dynamic API functions in EFX Rules.</p>
+</li>
+<li>
+<p>The EFX-1 expression syntax (<code>{context} ${expression}</code>) is still supported but will likely be removed by beta.1 in favour of <code>WITH context COMPUTE expression</code>.</p>
+</li>
+<li>
+<p>The EFX-1 template line syntax (<code>{context} template</code>) is still supported but will likely be removed by beta.1 in favour of <code>WITH context DISPLAY template;</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_efx_expressions"><a class="anchor" href="#_efx_expressions"></a>EFX Expressions</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>EFX Expressions are the shared building blocks used in both EFX Templates and EFX Rules.</p>
+</div>
 <div class="sect2">
-<h3 id="_field_and_node_aliases"><a class="anchor" href="#_field_and_node_aliases"></a>Field and Node aliases</h3>
+<h3 id="_with_compute_syntax"><a class="anchor" href="#_with_compute_syntax"></a><code>WITH ... COMPUTE</code> syntax</h3>
 <div class="paragraph">
-<p>One of the issues of EFX 1 is that it adopted the existing Field and Node identifiers for referencing Fields and Nodes in EFX expressions. The problem is that these identifiers were defined before the introduction of EFX, and their naming conventions did not take under consideration the readability of expressions that may contain them. As a result, it is hard to understand what an EFX 1 expression is trying to achieve without looking-up the definitions of the Fields and Nodes that are referenced in the expression.</p>
+<p>Expressions can now be written as <code>WITH context COMPUTE expression</code>, improving readability over the EFX-1 <code>{context} ${expression}</code> syntax.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// EFX-1 style:
+{BT-23-Procedure} ${BT-23-Procedure in #main-activity}
+
+// EFX-2 style:
+WITH BT-23-Procedure COMPUTE BT-23-Procedure in [...main-activity]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_improved_type_safety"><a class="anchor" href="#_improved_type_safety"></a>Improved type safety</h3>
+<div class="paragraph">
+<p>The grammar has been reorganised to enforce a stricter distinction between scalar and sequence types. Ambiguities in late-binding have been removed. Variables and parameters can now be declared with sequence types using the <code>type*</code> notation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Sequence parameter declaration
+text*:$codes
+
+// Sequence variable declaration
+text*:$lot-ids = [for text:$id in BT-137-Lot return $id]</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_working_with_sequences"><a class="anchor" href="#_working_with_sequences"></a>Working with sequences</h3>
+<div class="paragraph">
+<p>Sequence literal syntax now uses <code>[&#8230;&#8203;]</code> instead of <code>(&#8230;&#8203;)</code> to remove ambiguity with parenthesised expressions:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// EFX-1 style:
+BT-23-Procedure in ('works', 'supplies', 'services')
+
+// EFX-2 style:
+BT-23-Procedure in ['works', 'supplies', 'services']</code></pre>
+</div>
 </div>
 <div class="paragraph">
-<p>To make EFX Expressions more readable, EFX 2 introduces the concept of Field and Node aliases. A Field or Node alias is an alternative name that can be used to reference a Field or Node in an EFX expression. We decided to add these aliases (instead of renaming existing identifiers) in order to maintain backwards compatibility with EFX 1 expressions and to avoid disrupting ongoing development efforts.</p>
+<p>The codelist expansion operator has been changed to <code>[&#8230;&#8203;codelistName]</code> for consistency. The <code>#codelistName</code> notation is still supported but will be removed by beta.1.</p>
 </div>
-<div class="sect3">
-<h4 id="_naming_conventions"><a class="anchor" href="#_naming_conventions"></a>Naming conventions</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// New codelist expansion:
+BT-23-Procedure in [...main-activity]
+
+// Legacy notation (to be removed):
+BT-23-Procedure in #main-activity</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>New conditions allow testing sequences directly:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Node aliases are written in PascalCase. Therefore node aliases always start with an uppercase letter. For example: The node with identifier "ND-Root" now has an alias "Root"; the node with identifier "ND-Lot" now has an alias "Lot".</p>
+<p><code>sequence is [not] empty</code>&#8201;&#8212;&#8201;tests whether a sequence has any elements.</p>
 </li>
 <li>
-<p>Field aliases are written in camelCase. Therefore field aliases always start with a lowercase letter. For example: The field with identifier "BT-Name" now has an alias "name"; the field with identifier "FD-Description" now has an alias "description".</p>
+<p><code>sequence has [no] duplicates</code>&#8201;&#8212;&#8201;tests whether all elements in a sequence are distinct.</p>
 </li>
 <li>
-<p>When an alias is composed of several parts, then those parts are separated by an underscore and are written in descending order from container to content (container_content). Each part follows the capitalisation of the corresponding type (Nodes_Are_PascalCase, fields_are_camelCase).</p>
+<p><code>expression is [not] unique in sequence</code>&#8201;&#8212;&#8201;tests whether a value appears exactly once in a sequence.</p>
 </li>
 </ul>
 </div>
-<div class="sect4">
-<h5 id="_examples"><a class="anchor" href="#_examples"></a>Examples:</h5>
+<div class="paragraph">
+<p>Iterations now support a <code>DISTINCT</code> modifier to deduplicate results, and can return sequences to concatenate results:</p>
+</div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">* NR-Root -&gt; Root
-* ND-Lot -&gt; Lot
-* ND-LotProcurementScope -&gt; Lot_ProcurementScope
-* BT-262-Lot -&gt; lot_mainClassificationCode
-* BT-262-Part -&gt; part_mainClassificationCode
-* BT-262-Procedure -&gt; procedure_mainClassificationCode</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>As Field identifiers use short Business Term numbers, it is reasonable that the introduction of descriptive aliases will increase the length of EFX expressions. However their readability will also improve drastically.</p>
-</div>
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Deduplicated iteration results:
+for text:$code in BT-263-Procedure return distinct $code
+
+// Returning sequences from iterations (concatenation):
+// Each lot contains multiple additional classifications (repeatable node),
+// so accessing BT-263-Lot returns a sequence that gets concatenated.
+for context:$lot in ND-Lot return $lot::BT-263-Lot</code></pre>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_breaking_change_in_codelist_identifiers"><a class="anchor" href="#_breaking_change_in_codelist_identifiers"></a>Breaking change in codelist identifiers</h3>
+<h3 id="_node_presence_testing"><a class="anchor" href="#_node_presence_testing"></a>Node presence testing</h3>
 <div class="paragraph">
-<p>In EFX 1, there are five different uses of identifiers:</p>
+<p>Presence conditions (<code>is present</code> / <code>is not present</code>) can now be applied to node references in addition to field references:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">ND-Lot is present
+ND-Part is not present</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_field_context_indexing"><a class="anchor" href="#_field_context_indexing"></a>Field context indexing</h3>
+<div class="paragraph">
+<p>Field contexts now support indexers, allowing expressions to select a specific occurrence of a repeatable field context by position:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Access the second lot's procurement scope:
+ND-Lot[2]::BT-262-Lot</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_field_properties"><a class="anchor" href="#_field_properties"></a>Field properties</h3>
+<div class="paragraph">
+<p><strong>Privacy controls:</strong> Expressions can now access privacy-related properties of fields withheld from publication:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Node identifiers (eg. <code>ND-NodeName</code>)</p>
+<p><code>field:privacyCode</code>&#8201;&#8212;&#8201;the privacy code of the field.</p>
 </li>
 <li>
-<p>Field identifiers (eg. <code>BT-123-Context</code>)</p>
+<p><code>field:publicationDate</code>&#8201;&#8212;&#8201;the publication date for a withheld field.</p>
 </li>
 <li>
-<p>Variable identifiers (eg. <code>$variableName</code>)</p>
+<p><code>field:justificationCode</code>&#8201;&#8212;&#8201;the justification code for withholding.</p>
 </li>
 <li>
-<p>Attribute identifiers (eg. <code>@attributeName</code>)</p>
+<p><code>field:justificationDescription</code>&#8201;&#8212;&#8201;the justification description.</p>
 </li>
 <li>
-<p>Codelist identifiers (eg. <code>(codeListName)</code>)</p>
+<p><code>field:wasWithheld</code>, <code>field:isWithheld</code>, <code>field:isWithholdable</code>, <code>field:isDisclosed</code>, <code>field:isMasked</code>&#8201;&#8212;&#8201;boolean properties indicating privacy status.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>As EFX 1 only supports built-in functions, function names are not included in this list.</p>
-</div>
-<div class="paragraph">
-<p>The introduction of aliases for Fields and Nodes makes the current notation of codelist identifiers ambiguous, because the parenthesis used to wrap a codelist name in EFX 1 are also used for controlling the order of evaluation and for grouping function arguments. For example, the identifier <code>(accessibility)</code> could refer to the Codelist named <code>accessibility</code>, or to a Field with alias <code>accessibility</code>. In order to avoid this ambiguity, we decided to change the notation of Codelist identifiers. The new notation uses a prefix <code>codelist:</code> to distinguish Codelist identifiers from other identifiers. For example, the identifier <code>(accessibility)</code> now becomes <code>codelist:accessibility</code>.</p>
-</div>
-<div class="paragraph">
-<p>Therefore, in EFX 2 the five different uses of identifiers listed above become:</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-<col style="width: 25%;">
-</colgroup>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Identifier type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EFX 1</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">EFX 2</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Comment</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Node</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ND-NodeName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ND-NodeName</code> or <code>Context_NodeName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improved readability</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Field</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-123-Context</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-123-Context</code> or <code>context_fieldName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Improved readability</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Variable</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$variableName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$variableName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No change</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Attribute</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@attributeName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>@attributeName</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">No change</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Codelist</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>(accessibility)</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>codelist:accessibility</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">New notation (breaking change)</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-caution" title="Caution"></i>
-</td>
-<td class="content">
-This change is a <strong>breaking change</strong>. Therefore, EFX 1 expressions that use codelist identifiers need to be slightly modified before they can be parsed by an EFX 2 parser.
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_indexers"><a class="anchor" href="#_indexers"></a>Indexers</h3>
-<div class="paragraph">
-<p>Sequences now support an index notation which allows an expression to access the element of a sequence at a specific index. The index notation is similar to the one used on XPath (but is also common to several other programming languages). Like XPath, (but unlike other programming languages), the index notation uses a 1-based index.</p>
-</div>
-<div class="paragraph">
-<p>For example:</p>
+<p><strong>Linked field properties:</strong> Field references can carry a <code>:property</code> suffix to access values of linked fields without explicitly referencing them by name, improving readability:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">('a', 'b', 'c')[2]</code></pre>
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Access the publication date of BT-105-Procedure without referencing BT-197 directly:
+BT-105-Procedure:publicationDate
+
+// Access the justification code:
+BT-105-Procedure:justificationCode</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The above expression returns the string <code>b</code> because the index <code>2</code> refers to the second element in the sequence.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_new_functions"><a class="anchor" href="#_new_functions"></a>New functions:</h3>
-<div class="sect3">
-<h4 id="_string_join_function"><a class="anchor" href="#_string_join_function"></a><code>string-join</code> function</h4>
-<div class="paragraph">
-<p>The <code>string-join</code> function allows to join a list of strings into a single string. The function takes two arguments: the list of strings to join, and the separator to use between each string.</p>
-</div>
-<div class="paragraph">
-<p>The following example shows how to use the string join function:</p>
+<p><strong>Raw value access:</strong> <code>field:rawValue</code> provides access to the raw string value of a field, bypassing type-specific parsing:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">string-join(("a", "b", "c"), ", ")</code></pre>
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">BT-05(a)-notice:rawValue</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_new_built_in_functions"><a class="anchor" href="#_new_built_in_functions"></a>New built-in functions</h3>
+<div class="sect3">
+<h4 id="_working_with_numbers"><a class="anchor" href="#_working_with_numbers"></a>Working with numbers</h4>
 <div class="paragraph">
-<p>The result of the above expression is the string <code>a, b, c</code>.</p>
+<p><code>min</code>, <code>max</code>, <code>average</code>&#8201;&#8212;&#8201;aggregate functions on numeric sequences.<br>
+<code>absolute</code>&#8201;&#8212;&#8201;absolute value.<br>
+<code>round</code>, <code>round-down</code>, <code>round-up</code>&#8201;&#8212;&#8201;rounding functions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preferred_language_function"><a class="anchor" href="#_preferred_language_function"></a><code>preferred-language</code> function</h4>
+<h4 id="_working_with_strings"><a class="anchor" href="#_working_with_strings"></a>Working with strings</h4>
 <div class="paragraph">
-<p>The <code>preferred-language</code> function is used to determine the identifier of the language that should be displayed, among the languages available in a given multilingual text field. It is meant to be used in a predicate to select the appropriate linguistic version of a multilingual text field.</p>
-</div>
-<div class="paragraph">
-<p>The function, only takes a simple reference to a multilingual text field as a parameter. Using the field reference, it can determine the available linguistic versions of the field&#8217;s text.</p>
-</div>
-<div class="paragraph">
-<p>This function is only available to EFX templates (not to EFX expressions).</p>
+<p><code>substring-before</code>, <code>substring-after</code>&#8201;&#8212;&#8201;split strings around a delimiter.<br>
+<code>normalize-space</code>&#8201;&#8212;&#8201;collapse and trim whitespace.<br>
+<code>trim</code>, <code>trim-left</code>, <code>trim-right</code>&#8201;&#8212;&#8201;whitespace trimming.<br>
+<code>pad-left</code>, <code>pad-right</code>&#8201;&#8212;&#8201;string padding.<br>
+<code>repeat</code>&#8201;&#8212;&#8201;repeat a string N times.<br>
+<code>replace</code>, <code>replace-regex</code>&#8201;&#8212;&#8201;string replacement (literal and regex).<br>
+<code>split</code>&#8201;&#8212;&#8201;split a string into a sequence by delimiter.<br>
+<code>url-encode</code>&#8201;&#8212;&#8201;URL encoding.<br>
+<code>capitalize-first</code>&#8201;&#8212;&#8201;capitalize the first character.<br>
+<code>index-of-substring</code>&#8201;&#8212;&#8201;find the position of a substring within a string.<br>
+<code>empty</code>&#8201;&#8212;&#8201;test whether a string is empty.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_preferred_language_text_function"><a class="anchor" href="#_preferred_language_text_function"></a><code>preferred-language-text</code> function</h4>
+<h4 id="_working_with_dates_times_and_durations"><a class="anchor" href="#_working_with_dates_times_and_durations"></a>Working with dates, times and durations</h4>
 <div class="paragraph">
-<p>This functions is used to retrieve the text of a multilingual text field in the preferred language. In essence it uses the <code>preferred-language</code> function to determine the preferred language, and then returns the text of the field in that language.</p>
+<p><code>year</code>, <code>month</code>, <code>day</code>&#8201;&#8212;&#8201;extract components from a date.<br>
+<code>hours</code>, <code>minutes</code>, <code>seconds</code>&#8201;&#8212;&#8201;extract components from a time.<br>
+<code>years</code>, <code>months</code>, <code>days</code>&#8201;&#8212;&#8201;extract components from a duration.<br>
+<code>current-date</code>, <code>current-time</code>&#8201;&#8212;&#8201;return the current date or time.</p>
 </div>
+</div>
+<div class="sect3">
+<h4 id="_working_with_sequences_2"><a class="anchor" href="#_working_with_sequences_2"></a>Working with sequences</h4>
+<div class="paragraph">
+<p><code>sort</code>, <code>reverse</code>&#8201;&#8212;&#8201;sequence ordering.<br>
+<code>subsequence</code>&#8201;&#8212;&#8201;extract a sub-range from a sequence.<br>
+<code>index-of</code>&#8201;&#8212;&#8201;find the position of an element in a sequence.<br>
+<code>get-duplicates</code>&#8201;&#8212;&#8201;extract duplicate values from a sequence.<br>
+<code>count-duplicates</code>&#8201;&#8212;&#8201;count the number of duplicate values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_type_conversions"><a class="anchor" href="#_type_conversions"></a>Type conversions</h4>
+<div class="paragraph">
+<p><code>text(boolean)</code>, <code>text(date)</code>, <code>text(time)</code>, <code>text(duration)</code>&#8201;&#8212;&#8201;convert values to string.<br>
+<code>number(boolean)</code>&#8201;&#8212;&#8201;convert boolean to number.<br>
+<code>indicator(number)</code>&#8201;&#8212;&#8201;convert number to boolean.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_measure_renamed_to_duration"><a class="anchor" href="#_measure_renamed_to_duration"></a><code>measure</code> renamed to <code>duration</code></h3>
+<div class="paragraph">
+<p>The <code>measure</code> type in EFX-1 was only used for durations, which are a special case because they carry the unit in their value (e.g. <code>P10D</code>) to allow calculations. Renaming to <code>duration</code> frees the <code>measure</code> keyword for other types of measure that can be treated as simple numbers. Related function names have also been updated: <code>add-measure</code> &#8594; <code>add-duration</code>, <code>subtract-measure</code> &#8594; <code>subtract-duration</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_xpath_axes_removed"><a class="anchor" href="#_xpath_axes_removed"></a>XPath axes removed</h3>
+<div class="paragraph">
+<p>Axis specifiers (<code>preceding</code>, <code>following</code>, <code>ancestor</code>, <code>descendant</code>, etc.) were hard to translate to non-XPath target languages and did not add real value to the expressivity of EFX. They have been removed.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_efx_templates"><a class="anchor" href="#_efx_templates"></a>EFX Templates</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The template language has been enhanced in three areas: more expressive template logic, better reuse and maintainability, and richer output capabilities.</p>
+</div>
+<div class="sect2">
+<h3 id="_template_syntax_and_logic"><a class="anchor" href="#_template_syntax_and_logic"></a>Template syntax and logic</h3>
+<div class="sect3">
+<h4 id="_efx_2_template_syntax"><a class="anchor" href="#_efx_2_template_syntax"></a>EFX-2 template syntax</h4>
+<div class="paragraph">
+<p>Template lines now use <code>WITH context DISPLAY template;</code> instead of the EFX-1 <code>{context} template</code> syntax. Template lines are now semicolon-terminated, and the context declaration is optional&#8201;&#8212;&#8201;allowing template lines that display content without iterating over a context.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// EFX-1 style:
+{BT-22-Procedure} #{name}: $value
+
+// EFX-2 style:
+WITH BT-22-Procedure DISPLAY #{name}: $value;
+
+// Without context (static content):
+2 DISPLAY #{auxiliary|text|procedure};</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The EFX-1 syntax is still supported for backward compatibility but will likely be removed by beta.1.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conditional_templates"><a class="anchor" href="#_conditional_templates"></a>Conditional templates</h4>
+<div class="paragraph">
+<p>Template lines can now conditionally render different content using <code>WHEN</code> / <code>OTHERWISE</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH BT-105-Procedure
+  WHEN BT-105-Procedure:isMasked DISPLAY #{name}: #{auxiliary|text|unpublished}
+  OTHERWISE DISPLAY #{name}: #{BT-105-Procedure};</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_navigation_and_summary_sections"><a class="anchor" href="#_navigation_and_summary_sections"></a>Navigation and Summary sections</h4>
+<div class="paragraph">
+<p>View templates can now be structured with <code>---- NAVIGATION ----</code> and <code>---- SUMMARY ----</code> section headers, separating the main content from navigation aids and summary views.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_reuse_and_maintainability"><a class="anchor" href="#_reuse_and_maintainability"></a>Reuse and maintainability</h3>
+<div class="sect3">
+<h4 id="_callable_templates"><a class="anchor" href="#_callable_templates"></a>Callable templates</h4>
+<div class="paragraph">
+<p>Templates can be defined once and reused across the template file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Declaration:
+LET template:role-and-name(text:$label-id, text:$org-tpo-id)
+  WHEN $org-tpo-id in OPT-200-Organization-Company
+    DISPLAY #{${$label-id}}: ${BT-500-Organization-Company[OPT-200-Organization-Company == $org-tpo-id]:preferredLanguageText}
+  OTHERWISE
+    DISPLAY #{${$label-id}}: ${BT-500-Organization-TouchPoint[OPT-201-Organization-TouchPoint == $org-tpo-id]:preferredLanguageText};
+
+// Invocation:
+WITH OPT-301-Lot-ReviewOrg
+  INVOKE role-and-name('auxiliary|text|organisation-review', OPT-301-Lot-ReviewOrg);</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_user_defined_functions"><a class="anchor" href="#_user_defined_functions"></a>User-defined functions</h4>
+<div class="paragraph">
+<p>Reusable typed functions can be declared with scalar or sequence return types:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">LET indicator:?exists-common-value(text*:$seq1, text*:$seq2) =
+  count(value-intersect($seq1, $seq2)) &gt; 0;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Functions are invoked using the <code>?name(args)</code> syntax.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_dictionaries"><a class="anchor" href="#_dictionaries"></a>Dictionaries</h4>
+<div class="paragraph">
+<p>Dictionaries pre-compute key-value lookups, improving performance by avoiding repeated traversals:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">LET $lot-name-by-lot-id INDEX BT-21-Lot BY BT-137-Lot;
+
+// Later, look up the lot name by its identifier:
+$lot-name-by-lot-id[BT-13713-LotResult]</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_richer_output"><a class="anchor" href="#_richer_output"></a>Richer output</h3>
+<div class="sect3">
+<h4 id="_hyperlink_blocks"><a class="anchor" href="#_hyperlink_blocks"></a>Hyperlink blocks</h4>
+<div class="paragraph">
+<p>Template content can be linked to URLs using the <code>@{url}</code> syntax:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH BT-505-Organization-Company DISPLAY $value @{$value};</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_character_references_and_escape_sequences"><a class="anchor" href="#_character_references_and_escape_sequences"></a>Character references and escape sequences</h4>
+<div class="paragraph">
+<p>Template text now supports HTML character references (<code>&amp;</code>, <code>&#169;</code>, <code>&#xA9;</code>) and escape sequences.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_formatting_functions"><a class="anchor" href="#_formatting_functions"></a>Formatting functions</h4>
+<div class="paragraph">
+<p>Locale-aware date/time formatting is available through <code>format-short</code>, <code>format-medium</code>, and <code>format-long</code> (template-only functions):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">// Format a date for display:
+format-medium(BT-05(a)-notice)
+
+// Format a date and time together:
+format-short(BT-05(a)-notice, BT-05(b)-notice)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_efx_rules"><a class="anchor" href="#_efx_rules"></a>EFX Rules</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EFX-2 introduces a complete rules language, allowing business rules to be authored directly in EFX.</p>
+</div>
+<div class="sect2">
+<h3 id="_rules_file_structure"><a class="anchor" href="#_rules_file_structure"></a>Rules file structure</h3>
+<div class="paragraph">
+<p>A rules file consists of optional global declarations followed by one or more validation stages:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">#include "stage-1a.efx"
+
+---- STAGE 2a ----
+
+WITH ND-AuctionTerms
+  ASSERT BT-122-Lot is not present
+    AS ERROR R-J6A-ZY4
+    FOR BT-122-Lot
+    IN 1-6, 15, 23-40, CEI, E1-E2, E4-E6, T01-T02, X01-X02
+  ASSERT BT-767-Lot is present
+    AS ERROR R-LTD-XCL
+    FOR BT-767-Lot
+    IN 16-18, 22, 29-31</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_validation_stages"><a class="anchor" href="#_validation_stages"></a>Validation stages</h4>
+<div class="paragraph">
+<p>Rules are organised into stages (<code>---- STAGE stage-id ----</code>), each representing a validation phase (e.g. "1a", "3b", "4"). Each stage contains optional stage-level variable declarations and one or more rule-sets.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_dynamic_rules"><a class="anchor" href="#_dynamic_rules"></a>Dynamic rules</h3>
+<div class="paragraph">
+<p>Dynamic rules allow validation to consider information retrieved from other notices through a specialised API. This replaces the EFX-1 cross-notice reference syntax (<code>notice(&#8230;&#8203;)</code>) which was impractical and never used.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">ENDPOINT "ted-api" AT "https://api.ted.europa.eu/v1";
+LET dynamic:?checkPreviousNotice(text:$noticeId) CALL API "ted-api" ON ERROR WARN;</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>API endpoint declarations</strong>: <code>ENDPOINT "name" AT "url"</code> for named API endpoints, overridable at runtime.</p>
+</li>
+<li>
+<p><strong>Dynamic/API functions</strong>: <code>LET dynamic:?name(params) CALL API "endpoint"</code> with <code>ON ERROR WARN|REJECT</code> clauses.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_rule_syntax"><a class="anchor" href="#_rule_syntax"></a>Rule syntax</h3>
+<div class="sect3">
+<h4 id="_rule_sets"><a class="anchor" href="#_rule_sets"></a>Rule-sets</h4>
+<div class="paragraph">
+<p>Multiple rules can share the same context via a single <code>WITH</code> clause, avoiding repetition of context declarations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_assert_and_report"><a class="anchor" href="#_assert_and_report"></a>ASSERT and REPORT</h4>
+<div class="paragraph">
+<p>Two rule types with distinct semantics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>ASSERT</code> defines a condition that <strong>must be true</strong> for the rule to pass. The rule fires (reports a violation) when the condition is false.</p>
+</li>
+<li>
+<p><code>REPORT</code> defines a condition that, <strong>when true</strong>, triggers a report.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_conditional_rules"><a class="anchor" href="#_conditional_rules"></a>Conditional rules</h4>
+<div class="paragraph">
+<p>Rules can be conditionally applied using <code>WHEN</code> / <code>OTHERWISE</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH ND-Root
+  WHEN ND-Lot is present
+    ASSERT BT-137-Lot is present
+      AS ERROR R-ABC-123 FOR BT-137-Lot IN 7-40
+  OTHERWISE
+    ASSERT ND-Part is present
+      AS ERROR R-ABC-124 FOR ND-Part IN 4-6, E2;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_severity_and_rule_id"><a class="anchor" href="#_severity_and_rule_id"></a>Severity and rule ID</h4>
+<div class="paragraph">
+<p>Each rule specifies a severity (<code>ERROR</code>, <code>WARNING</code>, <code>INFO</code>) and an identifier following the <code>R-XXX-XXX</code> pattern, used for error message translation lookup:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">AS ERROR R-001-001
+AS WARNING R-002-003
+AS INFO R-003-001</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_for_clause"><a class="anchor" href="#_for_clause"></a>FOR clause</h4>
+<div class="paragraph">
+<p><code>FOR field|node</code> specifies which field or node the rule validates. This is used to organise validators by target for efficient lookup.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_notice_type_targeting"><a class="anchor" href="#_notice_type_targeting"></a>Notice type targeting</h4>
+<div class="paragraph">
+<p><code>IN</code> specifies which notice types the rule applies to. Supports individual types, ranges, and wildcards:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">IN 1-3, 10-13, E1-E3    // Explicit ranges
+IN *                      // All notice types
+IN ANY                    // All notice types</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_scope_annotations"><a class="anchor" href="#_scope_annotations"></a>Scope annotations</h4>
+<div class="paragraph">
+<p><code>SCOPE</code> specifies rule applicability and categorisation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>@PRE</code>&#8201;&#8212;&#8201;rule applies only during live validation (while editing).</p>
+</li>
+<li>
+<p><code>@POST</code>&#8201;&#8212;&#8201;rule applies only after submission.</p>
+</li>
+<li>
+<p><code>#flag</code>&#8201;&#8212;&#8201;categorisation flag (e.g. <code>#lawfulness</code>), carried over to SVRL output.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Omitting <code>@PRE</code>/<code>@POST</code> means the rule applies in both contexts.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_shared_between_efx_templates_and_efx_rules"><a class="anchor" href="#_shared_between_efx_templates_and_efx_rules"></a>Shared between EFX Templates and EFX Rules</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_include_directives"><a class="anchor" href="#_include_directives"></a>Include directives</h3>
+<div class="paragraph">
+<p>Template and rules files can be composed from fragments using <code>#include "path/to/file.efx"</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_variable_declarations"><a class="anchor" href="#_variable_declarations"></a>Variable declarations</h3>
+<div class="paragraph">
+<p><code>LET type:$var = expression</code> for declaring typed variables (both scalar and sequence types), available as global declarations in templates and as global or stage-level declarations in rules.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_context_declaration_with_inline_variables"><a class="anchor" href="#_context_declaration_with_inline_variables"></a>Context declaration with inline variables</h3>
+<div class="paragraph">
+<p>The context declaration block (<code>WITH</code>) now supports local variable declarations before and/or after the context, allowing variables to be computed and reused within the scope of a template-block or rule-set.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-efx hljs" data-lang="efx">WITH ND-Organization,
+  text:$orgid = OPT-200-Organization-Company,
+  text*:$tpoid = OPT-201-Organization-TouchPoint
+  DISPLAY ${BT-500-Organization-Company:preferredLanguageText};</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments"><a class="anchor" href="#_comments"></a>Comments</h3>
+<div class="paragraph">
+<p><code>//</code> comments are now supported everywhere (expressions, templates, rules).</p>
 </div>
 </div>
 </div>
