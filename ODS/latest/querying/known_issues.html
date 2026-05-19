@@ -391,9 +391,9 @@
 <h2 id="_notices"><a class="anchor" href="#_notices"></a>Notices</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_do_not_use_notice_count"><a class="anchor" href="#_do_not_use_notice_count"></a>Do not use ?notice count</h3>
+<h3 id="_notice_count_do_not_use_notice_count"><a class="anchor" href="#_notice_count_do_not_use_notice_count"></a>Notice count: Do not use ?notice count</h3>
 <div class="paragraph">
-<p>There is a mismatch between the count of distinct notices based on notice id and distinct count of notices based on notice publication numbers. It is because of the current logic used for identifying a notice (UUID without version number). That is, the notice UUID (without the version number) can be used by more than one published notice. This issue will be fixed in the future. Currently, when we count the number of distinct notices using notice object it could be less than the distinct count of notices based on notice publication numbers.</p>
+<p>There is a mismatch between the count of distinct notices based on the notice id and distinct count of notices based on notice publication numbers. It is because of the current logic used for identifying a notice (UUID without version number). That is, the notice UUID (without the version number) can be used by more than one published notice. This issue will be fixed in the future. Currently, when we count the number of distinct notices using notice object it could be less than the distinct count of notices based on notice publication numbers.</p>
 </div>
 <div class="paragraph">
 <p>For example, for the notice - <a href="https://ted.europa.eu/en/notice/-/detail/00176184-2026" class="bare">https://ted.europa.eu/en/notice/-/detail/00176184-2026</a> , 00176184-2026 is the publication number and a2add710-2c39-45f3-ae16-4edf2f5c191c is the notice UUID without the version number.</p>
@@ -419,10 +419,16 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="_old_forms_or_non_eforms_data_not_available"><a class="anchor" href="#_old_forms_or_non_eforms_data_not_available"></a>Old forms (or non-eForms) data not available</h3>
+<h3 id="_standard_forms_or_non_eforms_data_not_available"><a class="anchor" href="#_standard_forms_or_non_eforms_data_not_available"></a>Standard forms (or non-eForms) data not available</h3>
 <div class="paragraph">
-<p>Though it is mentioned that the start date of the data is from 1st of March 2023, it is to be noted that the old forms data is not available within the named graphs.
-Also, all of the queries provided in the explore (previouly query library) works only for eForms. To fetch old forms data, additional logic is required.</p>
+<p>Though it is mentioned that the start date of the data is from 1st of March 2023, it is to be noted that the standard forms data is not available within the named graphs.
+Also, all of the queries provided in the explore (query library) tab works only for eForms. To fetch standard forms data, additional logic is required. Publication date is in string (STR) format for standard forms whereas it is in date format for eForms data.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_unable_to_inspect_standard_forms_or_non_eforms"><a class="anchor" href="#_unable_to_inspect_standard_forms_or_non_eforms"></a>Unable to inspect standard forms (or non-eForms)</h3>
+<div class="paragraph">
+<p>Currently it is not possible to inspect standard forms. For example, publication number 516873-2023 though available in the repository, is not available for inspection.</p>
 </div>
 </div>
 </div>
@@ -439,7 +445,7 @@ Also, all of the queries provided in the explore (previouly query library) works
 <div class="sect2">
 <h3 id="_some_relationships_are_not_available_in_the_data"><a class="anchor" href="#_some_relationships_are_not_available_in_the_data"></a>Some relationships are not available in the data</h3>
 <div class="paragraph">
-<p>Not all of the relationships provided in ePO are available in the data in open data service. It is best to view the available relationships / triples using the inspect option to verify the available relationships in the data.</p>
+<p>Not all of the relationships provided in the ePO are available in the data in open data service. It is best to view the available relationships / triples using the inspect option to verify the available relationships in the data.</p>
 </div>
 </div>
 <div class="sect2">
@@ -448,11 +454,6 @@ Also, all of the queries provided in the explore (previouly query library) works
 <p>Note that there is a difference in spelling between Organization and Organisation group. This is because Organization is from the org schema and Organisation group is from ePO.</p>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_data_quality_issues"><a class="anchor" href="#_data_quality_issues"></a>Data Quality Issues</h2>
-<div class="sectionbody">
 <div class="sect2">
 <h3 id="_typo_in_property_name_issubmitedby"><a class="anchor" href="#_typo_in_property_name_issubmitedby"></a>Typo in property name: <code>isSubmitedBy</code></h3>
 <div class="paragraph">
@@ -468,24 +469,6 @@ Also, all of the queries provided in the explore (previouly query library) works
 
 # NOT this (correct spelling, but won't match current data)
 # ?tender epo:isSubmittedBy ?tenderer .</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_missing_winner_information_in_some_notices"><a class="anchor" href="#_missing_winner_information_in_some_notices"></a>Missing winner information in some notices</h3>
-<div class="paragraph">
-<p>Some result notices do not include winner (tenderer) information. This means queries that require winner details may return fewer results than expected.</p>
-</div>
-<div class="paragraph">
-<p><strong>Workaround:</strong> Use <code>OPTIONAL</code> when fetching winner information to avoid losing the entire notice from results.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">OPTIONAL {
-  ?tenderer a epo:Tenderer ;
-            epo:playedBy ?org .
-  ?org epo:hasLegalName ?winnerName .
-}</code></pre>
 </div>
 </div>
 </div>
@@ -519,7 +502,7 @@ In the future, open data service may provide financial values in euros in additi
 </div>
 </div>
 <div class="sect2">
-<h3 id="_data_quality_issues_2"><a class="anchor" href="#_data_quality_issues_2"></a>Data quality issues</h3>
+<h3 id="_data_quality_issues"><a class="anchor" href="#_data_quality_issues"></a>Data quality issues</h3>
 <div class="paragraph">
 <p>Data quality issues present in source / original XML files are also present in the triples in the open data service. No data cleansing is done when transforming from XML to RDF triples.</p>
 </div>
@@ -528,6 +511,24 @@ In the future, open data service may provide financial values in euros in additi
 <h3 id="_winning_tender"><a class="anchor" href="#_winning_tender"></a>Winning tender</h3>
 <div class="paragraph">
 <p>Currently, there is no indicator to indicate whether a tender is a winning tender. A tender linked to the settled contract is considered as the winning tender.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_missing_winner_information_in_some_notices"><a class="anchor" href="#_missing_winner_information_in_some_notices"></a>Missing winner information in some notices</h3>
+<div class="paragraph">
+<p>Some result notices do not include winner (tenderer) information. This means queries that require winner details may return fewer results than expected.</p>
+</div>
+<div class="paragraph">
+<p><strong>Workaround:</strong> Use <code>OPTIONAL</code> when fetching winner information to avoid losing the entire notice from results.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sparql hljs" data-lang="sparql">OPTIONAL {
+  ?tenderer a epo:Tenderer ;
+            epo:playedBy ?org .
+  ?org epo:hasLegalName ?winnerName .
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
