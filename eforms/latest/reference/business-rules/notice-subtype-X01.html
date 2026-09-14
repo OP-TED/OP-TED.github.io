@@ -81,7 +81,7 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.14">
+<div class="nav-container" data-component="eforms" data-version="1.15">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -106,7 +106,7 @@
     <a class="nav-link" href="../../../../eforms-common/versioning/index.html">SDK Versioning</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.14</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.15</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -187,7 +187,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.14</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.15</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -232,7 +232,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.14</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.15</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../guide/index.html">Start Here</a>
@@ -290,14 +290,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.14</span>
+          <span class="version">1.15</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../../index.html">eForms SDK</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../../index.html">1.14</a>
+              <a href="../../index.html">1.15</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.14/index.html">1.14</a>
             </li>
             <li class="version">
               <a href="../../../1.13/index.html">1.13</a>
@@ -419,9 +422,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.14</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.15</button>
   <div class="version-menu">
-    <a class="version is-current" href="notice-subtype-X01.html">1.14</a>
+    <a class="version is-current" href="notice-subtype-X01.html">1.15</a>
+    <a class="version" href="../../../1.14/reference/business-rules/notice-subtype-X01.html">1.14</a>
     <a class="version" href="../../../1.13/reference/business-rules/notice-subtype-X01.html">1.13</a>
     <a class="version" href="../../../1.12/reference/business-rules/notice-subtype-X01.html">1.12</a>
   </div>
@@ -6534,7 +6538,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00999-0001</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-999</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-999-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type X01.</p>
 </div></div></td>
@@ -6605,7 +6609,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00140-0001</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-140-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type X01.</p>
+<p><strong>Mandatory if</strong> Negation of 209.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-758-notice is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6653,7 +6663,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00803-0001</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-803(t)-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type X01.</p>
+<p><strong>Mandatory if</strong> Negation of 510.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-803(d)-notice is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6677,7 +6693,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00110-0001</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-110-Business</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type X01.</p>
+<p><strong>Mandatory if</strong> Negation of 213.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-501-Business-European is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6685,7 +6707,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00111-0001</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-111-Business</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type X01.</p>
+<p><strong>Mandatory if</strong> Negation of 213.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-501-Business-European is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6693,7 +6721,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00112-0001</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-112-Business</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type X01.</p>
+<p><strong>Mandatory if</strong> Negation of 213.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-501-Business-European is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6701,7 +6735,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00113-0001</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-113-Business-European</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type X01.</p>
+<p><strong>Mandatory if</strong> Negation of 213.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-501-Business-European is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>

@@ -81,7 +81,7 @@
     </nav>
 </div>
 <div class="body">
-<div class="nav-container" data-component="eforms" data-version="1.14">
+<div class="nav-container" data-component="eforms" data-version="1.15">
   <aside class="nav">
     <div class="panels">
 <div class="nav-panel-menu is-active" data-panel="menu">
@@ -106,7 +106,7 @@
     <a class="nav-link" href="../../../../eforms-common/versioning/index.html">SDK Versioning</a>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.14</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>General Reference</strong> <code>1.15</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -187,7 +187,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.14</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>SDK Contents</strong> <code>1.15</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <button class="nav-item-toggle"></button>
@@ -232,7 +232,7 @@
 </ul>
   </li>
   <li class="nav-item" data-depth="1">
-    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.14</code></span></span>
+    <span class="nav-text"><span class="separated"><strong>Developer Guide</strong> <code>1.15</code></span></span>
   </li>
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="../../guide/index.html">Start Here</a>
@@ -290,14 +290,17 @@
 <div class="nav-panel-explore" data-panel="explore">
       <div class="context">
           <span class="title">eForms SDK</span>
-          <span class="version">1.14</span>
+          <span class="version">1.15</span>
       </div>
   <ul class="components">
       <li class="component is-current">
         <a class="title" href="../../index.html">eForms SDK</a>
         <ul class="versions">
             <li class="version is-current is-latest">
-              <a href="../../index.html">1.14</a>
+              <a href="../../index.html">1.15</a>
+            </li>
+            <li class="version">
+              <a href="../../../1.14/index.html">1.14</a>
             </li>
             <li class="version">
               <a href="../../../1.13/index.html">1.13</a>
@@ -419,9 +422,10 @@
   </ul>
 </nav>
 <div class="page-versions">
-  <button class="version-menu-toggle" title="Show other versions of page">1.14</button>
+  <button class="version-menu-toggle" title="Show other versions of page">1.15</button>
   <div class="version-menu">
-    <a class="version is-current" href="notice-subtype-5.html">1.14</a>
+    <a class="version is-current" href="notice-subtype-5.html">1.15</a>
+    <a class="version" href="../../../1.14/reference/business-rules/notice-subtype-5.html">1.14</a>
     <a class="version" href="../../../1.13/reference/business-rules/notice-subtype-5.html">1.13</a>
     <a class="version" href="../../../1.12/reference/business-rules/notice-subtype-5.html">1.12</a>
   </div>
@@ -6352,7 +6356,7 @@
 </tr>
 <tr>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00999-0008</code></p></th>
-<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-999</code></p></th>
+<th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-999-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
 <p><strong>Always forbidden</strong> in notice sub-type 5.</p>
 </div></div></td>
@@ -6391,7 +6395,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00001-0112</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-01(f)-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 500.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-01(e)-Procedure is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6431,7 +6441,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00010-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-10-Procedure-Buyer</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 692.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-11-Procedure-Buyer not in ('body-pl','body-pl-cga','body-pl-la','body-pl-ra','cga','def-cont','eu-ins-bod-ag','int-org','la','org-sub','org-sub-cga','org-sub-la','org-sub-ra','ra'))</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6439,7 +6455,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00013-0214</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-13(t)-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 697.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-13(d)-Part is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6447,7 +6469,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00015-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-15-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 13.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-14-Part == 'non-restricted-document'</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6503,7 +6531,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00026-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-26(m)-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 163.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-262-Procedure is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6511,7 +6545,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00026-0208</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-26(m)-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 162.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-262-Part is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6519,7 +6559,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00026-0308</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-26(a)-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 166.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-263-Procedure is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6527,7 +6573,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00026-0508</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-26(a)-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 165.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-263-Part is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6543,7 +6595,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00140-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-140-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 209.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-758-notice is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6611,7 +6669,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00507-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-507-Organization-Company</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 182.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-514-Organization-Company not in (nuts-country))</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6619,7 +6683,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00507-0059</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-507-Organization-TouchPoint</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 183.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-514-Organization-TouchPoint not in (nuts-country))</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6663,7 +6733,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00513-0059</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-513-Organization-TouchPoint</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 387.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-514-Organization-TouchPoint is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6687,7 +6763,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00615-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-615-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 15.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-14-Part == 'restricted-document'</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6711,7 +6793,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00719-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-719-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 211.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">BT-718-notice == TRUE</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6755,7 +6843,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-00803-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-803(t)-notice</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 510.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-803(d)-notice is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6819,7 +6913,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-05141-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-5141-Procedure</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 95.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-727-Procedure in ('anyw', 'anyw-eea'))</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6827,7 +6927,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-BT-05141-0059</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BT-5141-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 94.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-727-Part in ('anyw', 'anyw-eea'))</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6835,7 +6941,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPP-00050-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPP-050-Organization</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 355.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(not(OPT-200-Organization-Company in OPT-300-Procedure-Buyer) or (count(OPT-300-Procedure-Buyer) &lt; 2))</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6881,7 +6993,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00030-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-030-Procedure-SProvider</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 558.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(OPT-300-Procedure-SProvider is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
@@ -6889,7 +7007,13 @@
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>BR-OPT-00140-0008</code></p></th>
 <th class="tableblock halign-left valign-top"><p class="tableblock"><code>OPT-140-Part</code></p></th>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
-<p><strong>Always mandatory</strong> in notice sub-type 5.</p>
+<p><strong>Mandatory if</strong> Negation of 14.</p>
+</div>
+<div class="listingblock">
+<div class="title">Condition in EFX</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-EFX hljs" data-lang="EFX">not(BT-14-Part is not present)</code></pre>
+</div>
 </div></div></td>
 <td class="tableblock halign-right valign-top"><p class="tableblock"><code>ERROR</code></p></td>
 </tr>
