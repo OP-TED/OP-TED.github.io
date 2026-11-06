@@ -564,7 +564,10 @@ They can be queried via the API but are not part of the API-managed publication 
 <div class="sect2">
 <h3 id="_retrieve_validation_report"><a class="anchor" href="#_retrieve_validation_report"></a>Retrieve Validation Report</h3>
 <div class="paragraph">
-<p>Every submitted eForms notice undergoes a validation process to ensure compliance with regulatory business rules; this results in a report even if the notice does not pass validation successfully. This API operation enables users to obtain the validation report generated during their notice submission. It ensures users can review and address any validation issues identified during the submission.</p>
+<p>Every submitted eForms notice undergoes validation against the applicable business rules. This API operation allows users to retrieve the validation report generated during submission and review any errors or warnings.</p>
+</div>
+<div class="paragraph">
+<p>Validation reports for notices that fail validation are retained and can be retrieved using this operation. For successfully validated notices, the reports are deleted once the submitted notice has been published and are therefore unavailable for retrieval.</p>
 </div>
 <div class="sect3">
 <h4 id="_api_request_3"><a class="anchor" href="#_api_request_3"></a>API Request</h4>
